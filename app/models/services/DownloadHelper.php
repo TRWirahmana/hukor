@@ -69,7 +69,7 @@ class DownloadHelper{
 						".$uid->tempat_lahir."
 					</td>
 					<td style='border: 1px solid black;text-align:center;font-size:12px;'>
-						".RetaneHelper::toStringIndonesia($uid->tanggal_lahir)."
+						".HukorHelper::toStringIndonesia($uid->tanggal_lahir)."
 					</td>
 					<td style='border: 1px solid black;text-align:center;font-size:12px;'>
 						".Provinsi::where('id', '=', $uid->provinsi_id)->first()->nama."

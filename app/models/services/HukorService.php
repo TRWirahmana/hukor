@@ -1,5 +1,5 @@
 <?php
-class RetaneService {
+class HukorService {
     /*
     |--------------------------------------------------------------------------
     | Retane Service

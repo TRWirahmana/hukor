@@ -1,6 +1,6 @@
 <?php
 
-class RetaneHelper {
+class HukorHelper {
     /*
      * Mengembalikan Tanggal 1-31
      * */
@@ -85,7 +85,7 @@ class RetaneHelper {
     public static function toStringIndonesia($date) {
         $exp = explode('-', $date);
         
-        return $exp[2] .' '. RetaneHelper::castMonthToString($exp[1]) .' '. $exp[0];
+        return $exp[2] .' '. HukorHelper::castMonthToString($exp[1]) .' '. $exp[0];
     }
     
     /*
@@ -110,7 +110,7 @@ class RetaneHelper {
         $result = array();
         for ($i = 0; $i < count($exp_periode) ; $i++){
             $exp = explode('/', $exp_periode[$i]);
-            $exp[0] = RetaneHelper::castMonthToString($exp[0]);
+            $exp[0] = HukorHelper::castMonthToString($exp[0]);
 
             $result[$i] = implode(' ', $exp);
         }

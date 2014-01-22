@@ -11,7 +11,7 @@ class PeruuController extends BaseController {
 
 	public function prosesPengajuan()
 	{
-		return "<h1>Pengajuan Sudah Diproses";
+		return "<h1>Pengajuan Sudah Diproses</h1>";
 	}
 
 }

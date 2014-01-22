@@ -1,12 +1,12 @@
 <?php
 
-class HomeController extends BaseController {
+class UserController extends BaseController {
 
     protected $layout = 'layouts.master';
 
     public function index() {
         //exit;
-        $this->layout->content = View::make('layouts.master');
+        $this->layout->content = View::make('BantuanHukum.index');
 
     }
 

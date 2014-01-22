@@ -22,6 +22,7 @@ Route::group(array('before' => 'guest'), function(){
 });
 
 Route::group(array('before' => 'auth'), function(){
+    Route::get('BantuanHukum', 'BantuanHukumController@index');
 	Route::get('LihatLampiran', 'RegistrasiController@lihatLampiran');
 	Route::get('DownloadLampiran', 'VerifikasiController@downloadLampiran');
 	Route::get('setting', 'RegistrasiController@setting');
@@ -38,6 +39,7 @@ Route::group(array('before' => 'auth'), function(){
 
 Route::group(array('before' => 'auth|user'), function(){
 	Route::get('edit', 'RegistrasiController@edit');
+    Route::get('BantuanHukum', 'BantuanHukumController@index');
 	Route::post('update', 'RegistrasiController@update');
 });
 

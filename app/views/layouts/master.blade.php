@@ -68,7 +68,7 @@
 
             <li><a href="#">Peraturan Perundang-undangan</a></li>
             <li><a href="#">Pelembagaan</a></li>
-            <li><a href="#">Bantuan Hukum</a></li>
+            <li><a href="{{URL::to('BantuanHukum')}}">Bantuan Hukum</a></li>
             <li>
               <a href="#" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a></li>
               <li>
@@ -93,11 +93,11 @@
       <div class="span17 main-content">
         <h2>Layanan Hukum & Organisasi</h2>
         <div class="stripe-accent"></div>
-        
+
         @if(Session::has('success'))
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Berhasil!</strong> {{Session::get('success')}} 
+                <strong>Berhasil!</strong> {{Session::get('success')}}
             </div>
         @endif
         @if(Session::has('error'))
@@ -107,15 +107,6 @@
             </div>
         @endif
 
-<!--        @if($user->role_id == 3 || $user->role_id == 4)-->
-<!--              --><?php //$estimasi = EstimasiPendaftaran::find(1);?>
-<!--              @if($estimasi != null)-->
-<!--              <div class="alert alert-info">-->
-<!--                <button type="button" class="close" data-dismiss="alert">&times;</button>-->
-<!--                 Batas akhir pendaftaran tanggal <b>--><?php //echo HukorHelper::toStringIndonesia($estimasi->tanggal_berakhir); ?><!--</b>.-->
-<!--              </div>-->
-<!--              @endif-->
-<!--        @endif-->
         <!-- .row-fluid begins here -->
         @yield('content')
         <!-- .row-fluid ends here -->

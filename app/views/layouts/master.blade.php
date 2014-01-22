@@ -66,7 +66,7 @@
               <a href="http://localhost/retane_blog/wp-login.php?log=<?php //echo $datses['us']; ?>&pwd=<?php echo $datses['pd']; ?>" target="_blank"><span class="rulycon-wordpress"></span> Blog</a>
             </li> -->
 
-            <li><a href="#">Peraturan Perundang-undangan</a></li>
+            <li><a href="{{URL::to('per-uu')}}">Peraturan Perundang-undangan</a></li>
             <li><a href="#">Pelembagaan</a></li>
             <li><a href="{{URL::to('BantuanHukum')}}">Bantuan Hukum</a></li>
             <li><a href="{{URL::to('registrasi')}}">Pendaftaran</a></li>
@@ -113,7 +113,6 @@
         <!-- .row-fluid begins here -->
         @yield('content')
         <!-- .row-fluid ends here -->
-
 
       </div>
     </div>

@@ -427,6 +427,34 @@ class RegistrasiController extends BaseController {
         $password = Input::get('password');
         $email = Input::get('email');
 
+        $nama = Input::get('nama_lengkap');
+        $nip = Input::get('nip');
+        $jabatan = Input::get('jabatan');
+        $bagian = Input::get('bagian');
+        $subbag = Input::get('sub_bagian');
+        $jk = Input::get('jenis_kelamin');
+        $tgl_lahir = Input::get('tgl_lahir');
+        $pekerjaan = Input::get('pekerjaan');
+        $alamat_kantor = Input::get('alamat_kantor');
+        $tlp_ktr = Input::get('tlp_kantor');
+        $hp = Input::get('handphone');
+        $uk = Input::get('unit_kerja');
+
+        $rules = array();
+        $messages = array();
+
+        if($username == null) {
+            $rules['username'] = 'required|unique:registrasi|min:6';
+            $messages['username.unique'] = 'Username tidak tersedia.';
+            $messages['username.min'] = 'Username minimal 6 karakter.';
+        }
+
+        if(!empty($password)) {
+            $rules['password'] = 'confirmed|min:6';
+            $messages['password.confirmed'] = 'Konfirmasi password salah.';
+            $messages['password.min'] = 'Password minimal 6 karakter.';
+        }
+
 //        $rules = array(
 //            'no_ktp' => 'required|numeric|unique:registrasi,no_ktp|min:16|max:16',
 //            'email' => 'required|email|unique:registrasi,email'
@@ -468,13 +496,11 @@ class RegistrasiController extends BaseController {
         
         if ($data !== 0) {
             $dal_user = new DAL_User();
-            $dal_user->SetPengguna($data, $email);
+            $dal_user->SetPengguna($data, $email, $nama, $nip, $jabatan, $bagian, $subbag, $jk, $tgl_lahir, $pekerjaan, $alamat_kantor, $tlp_ktr, $hp, $uk);
             $dal_user->SaveBiodata($data);
 
-            //save to user table wordpress
-            // $dal_user->InsertToWP($to_email, $password);
 
-            $this->sendMail($no_ktp, $to_email, $password, $to_email);
+//            $this->sendMail($username, $password, $email);
             return Redirect::to('/')->withInput()->with('success', 'Registrasi berhasil. Cek email anda untuk mengetahui username & password yang akan digunakan untk login kedalam sistem!');
         } else {
             return Redirect::to('/')->withInput()->with('error', 'Registrasi gagal! Harap ulangi dan Pastikan alamat email anda valid!');
@@ -486,13 +512,13 @@ class RegistrasiController extends BaseController {
     /*
      * Kirim Email
      */
-    private function sendMail($no_ktp, $username, $password, $to_email) {
+    private function sendMail($username, $password, $email) {
         $message = '';
 
         // creating an array with user's info but most likely you can use $user->email or pass $user object to closure later
         $user = array(
-            'email' => $to_email,
-            'name' => 'Yth. Pemegang KTP dengan nomor ' . $no_ktp,
+            'email' => $email,
+            'name' => 'Yth. ' . $username,
         );
 
         // the data that will be passed into the mail view blade template

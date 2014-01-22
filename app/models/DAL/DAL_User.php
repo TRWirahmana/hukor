@@ -39,6 +39,30 @@ class DAL_User {
         }
     }
 
+    public function SetPengguna($user_id, $email, $nama, $nip, $jabatan, $bagian, $subbag, $jk, $tgl_lahir, $pekerjaan, $alamat_kantor, $tlp_ktr, $hp, $uk)
+    {
+//        $biodata['role_id'] = 2;
+        $biodata['user_id'] = $user_id;
+        $biodata['email'] = $email;
+        $biodata['nip'] = $nip;
+        $biodata['nama_lengkap'] = $nama;
+        $biodata['jabatan'] = $jabatan;
+        $biodata['bagian'] = $bagian;
+        $biodata['sub_bagian'] = $subbag;
+        $biodata['jenis_kelamin'] = $jk;
+        $biodata['tgl_lahir'] = $tgl_lahir;
+        $biodata['pekerjaan'] = $pekerjaan;
+        $biodata['alamat_kantor'] = $alamat_kantor;
+        $biodata['tlp_kantor'] = $tlp_ktr;
+        $biodata['handphone'] = $hp;
+        $biodata['unit_kerja'] = $uk;
+//        $biodata['thn_pendaftaran'] = date('Y');
+        $biodata['created_at'] = date("Y-m-d H:i:s");
+        $biodata['updated_at'] = date("Y-m-d H:i:s");
+
+        $this->_data = $biodata;
+    }
+
     /*
      * Simpan Data Riwayat Pendidikan User
      */
@@ -151,18 +175,6 @@ class DAL_User {
         $repo->SetData($data);
 
         return $repo->Save();
-    }
-
-    public function SetPengguna($user_id, $email)
-    {
-        $biodata['role_id'] = 2;
-        $biodata['user_id'] = $user_id;
-        $biodata['email'] = $email;
-        $biodata['thn_pendaftaran'] = date('Y');
-        $biodata['created_at'] = date("Y-m-d H:i:s");
-        $biodata['updated_at'] = date("Y-m-d H:i:s");
-
-        $this->_data = $biodata;
     }
 
     public function GetDataUser($filter, $role_id)

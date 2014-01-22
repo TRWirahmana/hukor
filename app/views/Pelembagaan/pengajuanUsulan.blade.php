@@ -109,13 +109,9 @@
 		<div class="form-actions">
 			{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
 		</div>
-
-
 			</div>	
 
 </div>
-
-		
 
 	{{ Form::close() }}
 @stop

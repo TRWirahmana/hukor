@@ -85,3 +85,4 @@ Route::post('per-uu', array("as" => "prosesPengajuan", "uses" => "PeruuControlle
 Route::get('pelembagaan', array("as" => "UsulanPerUU", "uses" => "PelembagaanController@pengajuanUsulan"));
 Route::post('pelembagaan', array("as" => "prosesPengajuan", "uses" => "PelembagaanController@prosesPengajuan"));
 
+

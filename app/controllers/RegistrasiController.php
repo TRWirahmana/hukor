@@ -376,7 +376,17 @@ class RegistrasiController extends BaseController {
     }
 
     public function form(){
-        $this->layout->content = View::make('registrasi.form');
+
+//        $regid = Auth::user()->pengguna->id;
+//
+//        $registrasi = Pengguna::find($regid)->where('user_id', Auth::user()->id)->first();
+
+        $this->layout->content = View::make('registrasi.form', array(
+//            'date' => RetaneHelper::listDate(),
+//            'month' => RetaneHelper::listMonth(),
+//            'year' => RetaneHelper::listYear(date('Y') - 55, date('Y') - 15),
+//            'user' => $registrasi
+        ));
     }
 
     public function lihatLampiran() {
@@ -413,43 +423,42 @@ class RegistrasiController extends BaseController {
      */
     public function send() {
         
-        $to_email = Input::get('email');
-        $no_ktp = Input::get('no_ktp');
-        $password = RetaneHelper::generateRandomString(8);
+        $username = Input::get('username');
+        $password = Input::get('password');
+        $email = Input::get('email');
 
-        $rules = array(
-            'no_ktp' => 'required|numeric|unique:registrasi,no_ktp|min:16|max:16',
-            'email' => 'required|email|unique:registrasi,email'
-        );
-
-        $messages = array(
-            'no_ktp.required' => 'No KTP tidak boleh kosong.',
-            'no_ktp.numeric' => 'Format No KTP harus numeric.',
-            'no_ktp.unique' => 'No KTP ini telah teregistrasi.',
-            'no_ktp.min' => 'No KTP harus 16 karakter.',
-            'no_ktp.max' => 'No KTP harus 16 karakter.',
-            'email.required' => 'Email tidak boleh kosong.',
-            'email.email' => 'Format email salah.',
-            'email.unique' => 'Email ini telah teregistrasi.',
-        );
-
-        $validator = Validator::make(Input::all(), $rules, $messages);
-
-        //message for new registration
-        if($validator->fails()){
-            foreach ($validator->messages()->all() as $message) {
-                return Redirect::to('/')
-                    ->with('error', $message);
-            }
-
-        }
+//        $rules = array(
+//            'no_ktp' => 'required|numeric|unique:registrasi,no_ktp|min:16|max:16',
+//            'email' => 'required|email|unique:registrasi,email'
+//        );
+//
+//        $messages = array(
+//            'no_ktp.required' => 'No KTP tidak boleh kosong.',
+//            'no_ktp.numeric' => 'Format No KTP harus numeric.',
+//            'no_ktp.unique' => 'No KTP ini telah teregistrasi.',
+//            'no_ktp.min' => 'No KTP harus 16 karakter.',
+//            'no_ktp.max' => 'No KTP harus 16 karakter.',
+//            'email.required' => 'Email tidak boleh kosong.',
+//            'email.email' => 'Format email salah.',
+//            'email.unique' => 'Email ini telah teregistrasi.',
+//        );
+//
+//        $validator = Validator::make(Input::all(), $rules, $messages);
+//
+//        //message for new registration
+//        if($validator->fails()){
+//            foreach ($validator->messages()->all() as $message) {
+//                return Redirect::to('/')
+//                    ->with('error', $message);
+//            }
+//
+//        }
 
         // Save
         $DAL = new DAL_Registrasi();
         $DAL->SetData(array(
-            'username' => $to_email,
-            'password' => Hash::make($password), // Hashing A Password Using Bcrypt
-            'email' => $to_email,
+            'username' => $username,
+            'password' => Hash::make($password), // Hashing A Password Using Bcrypt\
             'role_id' => 2, // Aktif
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
@@ -459,7 +468,7 @@ class RegistrasiController extends BaseController {
         
         if ($data !== 0) {
             $dal_user = new DAL_User();
-            $dal_user->SetNoKTP($no_ktp, $data, $to_email);
+            $dal_user->SetPengguna($data, $email);
             $dal_user->SaveBiodata($data);
 
             //save to user table wordpress

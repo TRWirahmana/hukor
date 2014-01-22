@@ -54,6 +54,130 @@
             </div>
         </div>
 
+
+<div class="control-group {{$errors->has('nip')?'error':''}}">
+    {{ Form::label('nip', 'NIP', array('class' => 'control-label')) }}
+    <div class="controls">
+        {{ Form::text('nip', '',
+        array('placeholder' => 'ketikkan NIP di sini...')) }}
+
+        @foreach($errors->get('nip') as $error)
+        <span class="help-block">{{$error}}</span>
+        @endforeach
+    </div>
+</div>
+
+<div class="control-group {{$errors->has('jabatan')?'error':''}}">
+    {{ Form::label('jabatan', 'Jabatan', array('class' => 'control-label')) }}
+    <div class="controls">
+        {{ Form::text('jabatan', '',
+        array('placeholder' => 'ketikkan Jabatan di sini...')) }}
+
+        @foreach($errors->get('jabatan') as $error)
+        <span class="help-block">{{$error}}</span>
+        @endforeach
+    </div>
+</div>
+
+<div class="control-group {{$errors->has('bagian')?'error':''}}">
+    {{ Form::label('bagian', 'Bagian', array('class' => 'control-label')) }}
+    <div class="controls">
+        {{ Form::text('bagian', '',
+        array('placeholder' => 'ketikkan Bagian di sini...')) }}
+
+        @foreach($errors->get('bagian') as $error)
+        <span class="help-block">{{$error}}</span>
+        @endforeach
+    </div>
+</div>
+
+<div class="control-group {{$errors->has('sub_bagian')?'error':''}}">
+    {{ Form::label('sub_bagian', 'Sub Bagian', array('class' => 'control-label')) }}
+    <div class="controls">
+        {{ Form::text('sub_bagian', '',
+        array('placeholder' => 'ketikkan Sub Bagian di sini...')) }}
+
+        @foreach($errors->get('sub_bagian') as $error)
+        <span class="help-block">{{$error}}</span>
+        @endforeach
+    </div>
+</div>
+
+<div class="control-group block-field {{$errors->has('jenis_kelamin')?'error':''}}">
+    {{ Form::label('jenis_kelamin', 'Jenis Kelamin', array('class' => 'control-label required')) }}
+    <div class="controls">
+        <label class="radio">
+            {{ Form::radio('jenis_kelamin', 1, array('id'=>'kelamin-laki2', 'checked' => 'checked') ) }} <span>Laki-laki</span>
+        </label>
+        <label class="radio">
+            {{ Form::radio('jenis_kelamin', 0, array('id'=>'kelamin-perempuan')) }} <span>Perempuan</span>
+        </label>
+        @foreach($errors->get('jenis_kelamin') as $error)
+        <span class="help-block">{{$error}}</span>
+        @endforeach
+    </div>
+</div>
+
+<div class="control-group {{$errors->has('pekerjaan')?'error':''}}">
+    {{ Form::label('pekerjaan', 'Pekerjaan', array('class' => 'control-label')) }}
+    <div class="controls">
+        {{ Form::text('pekerjaan', '',
+        array('placeholder' => 'ketikkan Pekerjaan anda di sini...')) }}
+
+        @foreach($errors->get('pekerjaan') as $error)
+        <span class="help-block">{{$error}}</span>
+        @endforeach
+    </div>
+</div>
+
+<div class="control-group {{$errors->has('alamat_kantor')?'error':''}}">
+    {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label')) }}
+    <div class="controls">
+        {{ Form::textarea('alamat_kantor', '',
+        array('placeholder' => 'ketikkan Alamat Kantor anda di sini...')) }}
+
+        @foreach($errors->get('alamat_kantor') as $error)
+        <span class="help-block">{{$error}}</span>
+        @endforeach
+    </div>
+</div>
+
+<div class="control-group {{$errors->has('tlp_kantor')?'error':''}}">
+    {{ Form::label('tlp_kantor', 'Telepon Kantor', array('class' => 'control-label')) }}
+    <div class="controls">
+        {{ Form::text('tlp_kantor', '',
+        array('placeholder' => 'ketikkan Telepon Kantor anda di sini...')) }}
+
+        @foreach($errors->get('tlp_kantor') as $error)
+        <span class="help-block">{{$error}}</span>
+        @endforeach
+    </div>
+</div>
+
+<div class="control-group {{$errors->has('handphone')?'error':''}}">
+    {{ Form::label('handphone', 'Pekerjaan', array('class' => 'control-label')) }}
+    <div class="controls">
+        {{ Form::text('handphone', '',
+        array('placeholder' => 'ketikkan nomor handphone anda di sini...')) }}
+
+        @foreach($errors->get('handphone') as $error)
+        <span class="help-block">{{$error}}</span>
+        @endforeach
+    </div>
+</div>
+
+<div class="control-group {{$errors->has('unit_kerja')?'error':''}}">
+    {{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label')) }}
+    <div class="controls">
+        {{ Form::text('unit_kerja', '',
+        array('placeholder' => 'ketikkan Unit Kerja anda di sini...')) }}
+
+        @foreach($errors->get('unit_kerja') as $error)
+        <span class="help-block">{{$error}}</span>
+        @endforeach
+    </div>
+</div>
+
         <span><button class="btn" type="submit">Register</button>
 
     {{ Form::close() }}

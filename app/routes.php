@@ -74,3 +74,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|admin_center'), functi
 	Route::post('UpdateEstimasi', 'EstimasiPendaftaranController@update');
 });
 
+
+
+// Routing Per-UU
+Route::get('per-uu', array("as" => "UsulanPerUU", "uses" => "PeruuController@pengajuanUsulan"));
+Route::post('per-uu', array("as" => "prosesPengajuan", "uses" => "PeruuController@prosesPengajuan"));

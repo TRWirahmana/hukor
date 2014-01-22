@@ -35,13 +35,33 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+	if (Auth::guest()) 
+		return Redirect::to('/')->with('error', 'Anda harus login terlebih dahulu.');
+});
+
+Route::filter('admin_center', function(){
+	$user = Auth::user()->user;
+	if($user->role_id != "4")
+		App::abort(404, 'Page Not Found.');
+});
+
+Route::filter('admin_region', function(){
+	$user = Auth::user()->user;
+	if($user->role_id != "3" && $user->role_id != "4")
+		App::abort(404, 'Page Not Found.');
+});
+
+Route::filter('user', function() {
+	$user = Auth::user()->user;
+	if($user->role_id != "2") {
+		App::abort(404, 'Page Not Found.');
+	}
 });
 
 
 Route::filter('auth.basic', function()
 {
-	return Auth::basic();
+	//return Auth::basic();
 });
 
 /*
@@ -57,7 +77,24 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Auth::check()) {
+		$user = Auth::user()->user;
+		switch ($user->role_id) {
+			case 2:
+				return Redirect::to('/edit');
+				break;
+			case 3:
+				return Redirect::to('/admreg/Verifikasi');
+				break;
+			case 4:
+				return Redirect::to('/admin/account');
+				break;
+			default:
+				return Redirect::to('/edit');
+				break;
+		}
+
+	};
 });
 
 /*

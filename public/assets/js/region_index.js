@@ -11,6 +11,16 @@ $(document).ready(function(){
 		sAjaxSource: document.URL,
 		aoColumns: [
 			{
+				mData: null,
+				sWidth: '10%',
+				sClass: 'control',
+				sDefaultContent: '<img src="'+baseUrl+'/assets/images/details_open.png" title="open" style="cursor: pointer;" />'
+			},
+			{
+				mData: 'kode',
+				sWidth: '15%',
+				sClass: 'editable'
+			}, {
 				mData: 'nama',
 				sWidth: '75%',
 				sClass: 'editable'
@@ -18,16 +28,16 @@ $(document).ready(function(){
 				mData: 'id',
 				sWidth: '10%',
 				mRender: function(id){
-					return '<a href="'+baseUrl+'/admin/Provinsi/'+id+'" title="hapus" class="btn_hapus"><i class="icon-trash"></i></a>';
+					return '<a href="'+baseUrl+'/admin/region/'+id+'" title="hapus" class="btn_hapus"><i class="icon-trash"></i></a>';
 				}
 			}],
 		fnDrawCallback: function() {
-			$('td.editable', this.fnGetNodes()).editable(baseUrl + '/admin/Region/update', {
+			$('td.editable', this.fnGetNodes()).editable(baseUrl + '/admin/region/update', {
 				method: "PUT",
 				tooltip: 'Klik untuk ubah...',
-				callback: function(sValue, y){
+				callback: function(sValue, y){ 
 					var aPos = dom.$tbl_region.fnGetPosition(this);
-					dom.$tbl_region.fnUpdate(sValue, aPos[0]);
+					dom.$tbl_region.fnUpdate(sValue, aPos[0], aPos[1]);
 				},
 				submitdata: function(value, settings) {
 					var data = dom.$tbl_region.fnGetData(this.parentNode);
@@ -54,7 +64,6 @@ $(document).ready(function(){
 	});
 
 	dom.$btn_tambah.click(function(event) {
-        console.log(document.URL);
  		$.post(document.URL, null, function(data, textStatus, xhr) {
  			dom.$tbl_region.fnReloadAjax();
 	 	});
@@ -77,7 +86,7 @@ $(document).ready(function(){
 			$tbl_provinsi = $("#" + id).dataTable({
 				sDom: "",
 				bServerSide: true,
-				sAjaxSource: baseUrl+ "/admin/Region",
+				sAjaxSource: baseUrl+ "/admin/provinsi",
 				bSort: false,
 				fnServerParams: function(aoData){
 					aoData.push({"name": "id", "value": data.id})
@@ -121,7 +130,7 @@ $(document).ready(function(){
 						tooltip: 'Klik untuk ubah...',
 						callback: function(sValue, y){ 
 							var aPos = $tbl_provinsi.fnGetPosition(this);
-							$tbl_provinsi.fnUpdate(sValue, aPos[0]);
+							$tbl_provinsi.fnUpdate(sValue, aPos[0], aPos[1]);
 						},
 						submitdata: function(value, settings) {
 							var data = $tbl_provinsi.fnGetData(this.parentNode);

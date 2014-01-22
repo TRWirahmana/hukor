@@ -15,4 +15,25 @@ class BaseController extends Controller {
 		}
 	}
 
+
+    /*
+     * Set php.ini Option on the fly
+     */
+
+    /*
+     * Get Info Ini
+     */
+    protected function getIniStatus($value)
+    {
+        return ini_get($value);
+    }
+
+    /*
+     * Set Ini value
+     */
+    protected function setIniStatus($key, $value)
+    {
+        ini_set($key, $value);
+    }
+
 }

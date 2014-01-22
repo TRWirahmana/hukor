@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="78fdcebd-7e37-4708-90f4-f6a590911e43" name="Default" comment="" />
+    <ignored path="hukor.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="hukor" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="HukorService.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/services/HukorService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="11" selection-start="17" selection-end="17" vertical-scroll-proportion="0.0" vertical-offset="83" max-vertical-offset="425">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autoload_classmap.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_classmap.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="30" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="459">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="3" selection-start="455" selection-end="455" vertical-scroll-proportion="0.23062016" vertical-offset="0" max-vertical-offset="516">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HukorHelper.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/services/HukorHelper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="112" column="33" selection-start="3018" selection-end="3018" vertical-scroll-proportion="0.0" vertical-offset="1904" max-vertical-offset="2142">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fc4a99ef7494d9c0e068e6fc4fb6de30" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/storage/views/fc4a99ef7494d9c0e068e6fc4fb6de30">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="126" column="63" selection-start="6480" selection-end="6480" vertical-scroll-proportion="0.0" vertical-offset="2024" max-vertical-offset="2635">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DownloadHelper.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/services/DownloadHelper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="71" column="31" selection-start="2288" selection-end="2288" vertical-scroll-proportion="0.0" vertical-offset="1089" max-vertical-offset="3808">
+              <folding>
+                <marker date="1390296511213" expanded="true" signature="1266:1800" placeholder="..." />
+                <marker date="1390296511213" expanded="false" signature="1285:1334" placeholder="..." />
+                <marker date="1390296511213" expanded="true" signature="1335:1800" placeholder="..." />
+                <marker date="1390296511213" expanded="true" signature="1344:1800" placeholder="..." />
+                <marker date="1390296511213" expanded="false" signature="1362:1404" placeholder="..." />
+                <marker date="1390296511213" expanded="true" signature="1405:1435" placeholder="..." />
+                <marker date="1390296511213" expanded="false" signature="1453:1495" placeholder="..." />
+                <marker date="1390296511213" expanded="true" signature="1496:1520" placeholder="..." />
+                <marker date="1390296511213" expanded="false" signature="1538:1580" placeholder="..." />
+                <marker date="1390296511213" expanded="true" signature="1581:1611" placeholder="..." />
+                <marker date="1390296511213" expanded="false" signature="1629:1671" placeholder="..." />
+                <marker date="1390296511213" expanded="true" signature="1672:1703" placeholder="..." />
+                <marker date="1390296511213" expanded="false" signature="1721:1763" placeholder="..." />
+                <marker date="1390296511213" expanded="true" signature="1764:1790" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/app/models/services/RetaneService.php" />
+        <option value="$PROJECT_DIR$/app/models/services/DownloadHelper.php" />
+        <option value="$PROJECT_DIR$/app/models/services/RetaneHelper.php" />
+        <option value="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1296" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../diknasrokum" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="78fdcebd-7e37-4708-90f4-f6a590911e43" name="Default" comment="" />
+      <created>1390296270680</created>
+      <updated>1390296270680</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1296" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25364667" sideWeight="0.6689304" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33106962" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/models/services/HukorService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="11" selection-start="17" selection-end="17" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_classmap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="30" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="3" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="221">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/services/HukorHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="33" selection-start="3018" selection-end="3018" vertical-scroll-proportion="0.0" vertical-offset="1904" max-vertical-offset="2142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/storage/views/fc4a99ef7494d9c0e068e6fc4fb6de30">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="63" selection-start="6480" selection-end="6480" vertical-scroll-proportion="0.0" vertical-offset="2024" max-vertical-offset="2635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/services/DownloadHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="31" selection-start="2288" selection-end="2288" vertical-scroll-proportion="0.0" vertical-offset="1089" max-vertical-offset="3808">
+          <folding>
+            <marker date="1390296511213" expanded="true" signature="1266:1800" placeholder="..." />
+            <marker date="1390296511213" expanded="false" signature="1285:1334" placeholder="..." />
+            <marker date="1390296511213" expanded="true" signature="1335:1800" placeholder="..." />
+            <marker date="1390296511213" expanded="true" signature="1344:1800" placeholder="..." />
+            <marker date="1390296511213" expanded="false" signature="1362:1404" placeholder="..." />
+            <marker date="1390296511213" expanded="true" signature="1405:1435" placeholder="..." />
+            <marker date="1390296511213" expanded="false" signature="1453:1495" placeholder="..." />
+            <marker date="1390296511213" expanded="true" signature="1496:1520" placeholder="..." />
+            <marker date="1390296511213" expanded="false" signature="1538:1580" placeholder="..." />
+            <marker date="1390296511213" expanded="true" signature="1581:1611" placeholder="..." />
+            <marker date="1390296511213" expanded="false" signature="1629:1671" placeholder="..." />
+            <marker date="1390296511213" expanded="true" signature="1672:1703" placeholder="..." />
+            <marker date="1390296511213" expanded="false" signature="1721:1763" placeholder="..." />
+            <marker date="1390296511213" expanded="true" signature="1764:1790" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/services/HukorService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="11" selection-start="17" selection-end="17" vertical-scroll-proportion="0.0" vertical-offset="83" max-vertical-offset="425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/services/DownloadHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="31" selection-start="2288" selection-end="2288" vertical-scroll-proportion="0.0" vertical-offset="1089" max-vertical-offset="3808">
+          <folding>
+            <marker date="1390296511213" expanded="true" signature="1266:1800" placeholder="..." />
+            <marker date="1390296511213" expanded="false" signature="1285:1334" placeholder="..." />
+            <marker date="1390296511213" expanded="true" signature="1335:1800" placeholder="..." />
+            <marker date="1390296511213" expanded="true" signature="1344:1800" placeholder="..." />
+            <marker date="1390296511213" expanded="false" signature="1362:1404" placeholder="..." />
+            <marker date="1390296511213" expanded="true" signature="1405:1435" placeholder="..." />
+            <marker date="1390296511213" expanded="false" signature="1453:1495" placeholder="..." />
+            <marker date="1390296511213" expanded="true" signature="1496:1520" placeholder="..." />
+            <marker date="1390296511213" expanded="false" signature="1538:1580" placeholder="..." />
+            <marker date="1390296511213" expanded="true" signature="1581:1611" placeholder="..." />
+            <marker date="1390296511213" expanded="false" signature="1629:1671" placeholder="..." />
+            <marker date="1390296511213" expanded="true" signature="1672:1703" placeholder="..." />
+            <marker date="1390296511213" expanded="false" signature="1721:1763" placeholder="..." />
+            <marker date="1390296511213" expanded="true" signature="1764:1790" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/services/HukorHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="33" selection-start="3018" selection-end="3018" vertical-scroll-proportion="0.0" vertical-offset="1904" max-vertical-offset="2142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/storage/views/fc4a99ef7494d9c0e068e6fc4fb6de30">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="63" selection-start="6480" selection-end="6480" vertical-scroll-proportion="0.0" vertical-offset="2024" max-vertical-offset="2635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_classmap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="30" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="3" selection-start="455" selection-end="455" vertical-scroll-proportion="0.23062016" vertical-offset="0" max-vertical-offset="516">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

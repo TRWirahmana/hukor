@@ -37,43 +37,6 @@ var Registrasi = (function(REG) {
 
         $("#status").change();
 
-        //jenis instansi logic
-//        $("#jenis_instansi").change(function(e){
-//            if(parseInt($(this).val()) == 1) {
-//                $("#instansi").prop("disabled", false).show();
-//                $("#kesatuan").prop("disabled", true).hide();
-//            } else if(parseInt($(this).val()) == 2){
-//                $("#kesatuan").prop("disabled", true).show();
-//                $("#instansi").prop("disabled", false).hide();
-//            } else {
-//                $("#kesatuan").prop("disabled", true).hide();
-//                $("#instansi").prop("disabled", true).hide();
-//            }
-//        });
-//
-//        if($("#kesatuan").val() != null){
-//            var kesatuan = "Kesatuan";
-//            $("#jenis_instansi option").filter(function() {
-//                //may want to use $.trim in here
-//                return $(this).text() == kesatuan;
-//            }).prop('selected', true);
-//
-//            $("#instansi").prop("disabled", true).hide();
-//            $("#kesatuan").prop("disabled", true).show();
-//        }
-//
-//        if($("#instansi").val() != null){
-//            var instansi = "Instansi";
-//            $("#jenis_instansi option").filter(function() {
-//                //may want to use $.trim in here
-//                return $(this).text() == instansi;
-//            }).prop('selected', true);
-//
-//            $("#instansi").prop("disabled", true).show();
-//            $("#kesatuan").prop("disabled", true).hide();
-//        }
-//
-//        $("#jenis_instansi").change();
 
         $("#umur").val(calculateAge());
         $("#tahun_lahir,#bulan_lahir,#tanggal_lahir").change(function(){
@@ -84,29 +47,7 @@ var Registrasi = (function(REG) {
          * Trigger Submit Form
          */
         $('button#submit').on('click', function() {
-            var validator = $("#registrasi-form").validate();
-            //inisialisasi untuk pencarian input, select dan textarea
-            var $input = $("#registrasi-form").find("input, textarea");
-
-            var count = 0;
-            $input.each(function(){
-                if($(this).hasClass('required')){   //hasClass untuk mendapatkan nama class yang di inginkan
-                    if(!$(this).val()){     //cek value dari element yg memiliki class required
-                        var text = 'Harus di isi.';
-
-                        //object untuk msg error di jquery validation
-                        msg = new Object();
-                        msg[$(this).attr('name')] = text;
-                        validator.showErrors(msg);
-                        count++;
-                    }
-                }
-        });
-
-        //submit form apabila count = 0
-        if(count == 0){
-            $("#registrasi-form").submit();
-        }
+            $('#registrasi-form').submit();
         });
 
         var rules = {
@@ -135,19 +76,14 @@ var Registrasi = (function(REG) {
                     required: true,
                     number: true
                 },
-                'biodata[nama_ayah]': {
+                'biodata[tulisan_judul]': {
                     required: true
                 },
-                'biodata[nama_ibu]': {
-                    required: true
+                'biodata[tulisan_konten]': {
+                    required: true,
+                    minlength: 100
                 },
-                'biodata[pekerjaan_ayah]': {
-                required: true
-                },
-                'biodata[pekerjaan_ibu]': {
-                    required: true
-                },
-                'kesehatan[riwayat_penyakit]': {
+                'biodata[tulisan_verify]': {
                     required: true
                 },
                 'foto': {
@@ -252,20 +188,12 @@ var Registrasi = (function(REG) {
                 'biodata[no_sim]': {
                     required: 'Nomor SIM C wajib diisi.'
                 },
-                'biodata[nama_ayah]': {
-                    required: 'Nama Ayah tidak boleh kosong.'
+                'biodata[tulisan_judul]': {
+                    required: 'Judul tulisan tidak boleh kosong.'
                 },
-                'biodata[nama_ibu]': {
-                    required: 'Nama Ibu tidak boleh kosong.'
-                },
-                'biodata[pekerjaan_ayah]': {
-                    required: 'Pekerjaan Ayah tidak boleh kosong.'
-                },
-                'biodata[pekerjaan_ibu]': {
-                    required: 'Pekerjaan Ibu tidak boleh kosong.'
-                },
-                'kesehatan[riwayat_penyakit]': {
-                    required: 'Riwayat Penyakit tidak boleh kosong.',
+                'biodata[tulisan_konten]': {
+                    required: 'Konten tulisan tidak boleh kosong.',
+                    minlength: 'Tulisan minimal 100 karakter.'
                 },
                 'foto': {
                     required: 'Wajib melampirkan berkas foto.',
@@ -404,19 +332,6 @@ var Registrasi = (function(REG) {
             $parent.find('.tahun_prestasi:last').val('');
         });
 
-        /*
-         * Add Anak
-         */
-        $('#add-anak').on('click', function() {
-            var $this = $(this);
-            $this.prev('.block-anak').clone().insertBefore($this);
-            ReIndexAnak();
-
-            $parent = $("#keluarga");
-            // Cleare textbox
-            $parent.find('.anak:last').val('');
-        });
-
         $(document).on('click', '.delete_karir', function(){
             if($("#karir .block-karir").length == 1) {
                 $parent = $("#karir");
@@ -469,19 +384,6 @@ var Registrasi = (function(REG) {
             ReIndexPrestasi();
         });
 
-        $(document).on('click', '.delete_anak', function(){
-            if($("#keluarga .block-anak").length == 1) {
-                var $parent = $('#keluarga');
-                // Cleare textbox
-                $parent.find('.anak:last').val('');
-
-                return;
-            }
-
-            $(this).parents('.block-anak').remove();
-            ReIndexAnak();
-        });
-
 
         /*
          * Re Index Dom Karir
@@ -528,19 +430,6 @@ var Registrasi = (function(REG) {
                 $this.find('.label-subject').html('Prestasi (' + (i + 1) + ') <a class="delete_prestasi">Hapus</a>');
                 $this.find('.nama_prestasi').attr('name', 'prestasi[' + i + '][nama_prestasi]');
                 $this.find('.tahun_prestasi').attr('name', 'prestasi[' + i + '][periode]');
-            });
-
-        }
-
-        /*
-         * Re Index Dom Anak
-         */
-        function ReIndexAnak() {
-            var $parent = $('#keluarga');
-            $parent.find('.block-anak').each(function(i) {
-                var $this = $(this);
-                $this.find('.label-subject').html('Anak (' + (i + 1) + ') <a class="delete_anak">Hapus</a>');
-                $this.find('.anak').attr('name', 'keluarga[' + i + '][nama_anak]');
             });
 
         }

@@ -2,7 +2,7 @@ $(document).ready(function(e){
 
 	var dom = {
 		$table_admin: $("#table_admin"),
-		$select_role: $("#select_role")
+		$select_role: $("#select_role"),
 
 	};
 
@@ -15,19 +15,28 @@ $(document).ready(function(e){
 		sAjaxSource: document.URL,
 		aoColumns: [
 			{
-				mData: "registrasi.nama_lengkap"
+				mData: "nama_lengkap"
 			},
 			{
-				mData: "username"
+				mData: "registrasi.username"
 			},
 			{
-				mData: "email"
+				mData: "registrasi.email"
+			},
+			{
+				mData: "bpnb_id",
+				mRender: function(data, type, full) {
+					if(data == null)
+						return "";
+					else
+						return full.bpnb.nama;
+				}
 			},
 			{
 				mData: "id",
 				mRender: function(id) {
-					return "<a href='"+baseUrl+"/admin/Account/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
-						+ "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/admin/Account/"+id+"'>"
+					return "<a href='"+baseUrl+"/admin/account/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>" 
+						+ "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/admin/account/"+id+"'>"
 						+ "<i class='icon-trash'></i></a>";
 				}
 			}
@@ -37,7 +46,7 @@ $(document).ready(function(e){
 		},
 		fnDrawCallback: function() {
 		
-			dom.$table_admin.fnSetColumnVis( 3,  (dom.$select_role.val() == 0 || dom.$select_role.val() == 3 || dom.$select_role.val() == 4 || dom.$select_role.val() == 5 || dom.$select_role.val() == 6 || dom.$select_role.val() == 7 || dom.$select_role.val() == 8 || dom.$select_role.val() == 2));
+			dom.$table_admin.fnSetColumnVis( 3,  (dom.$select_role.val() == 3));
 		}
 	});
 

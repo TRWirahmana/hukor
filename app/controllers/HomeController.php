@@ -1,23 +1,35 @@
 <?php
 
 class HomeController extends BaseController {
+    /*
+      |--------------------------------------------------------------------------
+      | Default Home Controller
+      |--------------------------------------------------------------------------
+      |
+      | You may wish to use controllers instead of, or in addition to, Closure
+      | based routes. That's great! Here is an example controller method to
+      | get you started. To route to this controller, just add the route:
+      |
+      |	Route::get('/', 'HomeController@showWelcome');
+      |
+     */
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
+    /* Set Layout */
 
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
+    protected $layout = 'layouts.master';
+
+    public function index() {
+        //exit;
+        $this->layout->content = View::make('layouts.master');
+
+    }
+
+    public function download_manual() {
+      $manual_path = DOWNLOAD_PATH . DS . "manual_registrasi.pdf";
+      if(file_exists($manual_path))
+        return Response::download($manual_path);
+      else
+        return Redirect::to('/')->with('error', 'Kesalahan, berkas tidak ditemukan.');
+    }
 
 }

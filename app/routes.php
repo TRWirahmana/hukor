@@ -14,7 +14,9 @@
 
 // Login / Logout
 Route::group(array('before' => 'guest'), function(){
+    Route::get('BantuanHukum', 'BantuanHukumController@index');
 	Route::post('Masuk', 'LoginController@signin');// Registrasi
+    Route::get('registrasi', 'RegistrasiController@form');
 	Route::post('Kirim', 'RegistrasiController@send');
 	Route::get('/', 'HomeController@index');
 	Route::get('error', 'LoginController@error');
@@ -22,7 +24,7 @@ Route::group(array('before' => 'guest'), function(){
 });
 
 Route::group(array('before' => 'auth'), function(){
-    Route::get('BantuanHukum', 'BantuanHukumController@index');
+//    Route::get('BantuanHukum', 'BantuanHukumController@index');
 	Route::get('LihatLampiran', 'RegistrasiController@lihatLampiran');
 	Route::get('DownloadLampiran', 'VerifikasiController@downloadLampiran');
 	Route::get('setting', 'RegistrasiController@setting');
@@ -39,7 +41,7 @@ Route::group(array('before' => 'auth'), function(){
 
 Route::group(array('before' => 'auth|user'), function(){
 	Route::get('edit', 'RegistrasiController@edit');
-    Route::get('BantuanHukum', 'BantuanHukumController@index');
+//    Route::get('BantuanHukum', 'BantuanHukumController@index');
 	Route::post('update', 'RegistrasiController@update');
 });
 

@@ -19,6 +19,8 @@ Route::group(array('before' => 'guest'), function(){
 	Route::get('/', 'HomeController@index');
 	Route::get('error', 'LoginController@error');
 	Route::get('manual_registrasi', 'HomeController@download_manual');
+
+    Route::resource('user', 'UserController');
 });
 
 Route::group(array('before' => 'auth'), function(){

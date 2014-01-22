@@ -97,7 +97,7 @@
         @if(Session::has('success'))
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Berhasil!</strong> {{Session::get('success')}} 
+                <strong>Berhasil!</strong> {{Session::get('success')}}
             </div>
         @endif
         @if(Session::has('error'))

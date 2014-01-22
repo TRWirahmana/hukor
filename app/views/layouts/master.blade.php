@@ -69,12 +69,15 @@
             <li><a href="#">Peraturan Perundang-undangan</a></li>
             <li><a href="#">Pelembagaan</a></li>
             <li><a href="{{URL::to('BantuanHukum')}}">Bantuan Hukum</a></li>
-            <li>
-              <a href="#" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a></li>
+            <li><a href="{{URL::to('registrasi')}}">Pendaftaran</a></li>
+
               <li>
-              <a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span> Sign
+                <a href="#" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a>
+              </li>
+              <li>
+                <a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span> Sign
                 out</a>
-            </li>
+              </li>
             <!-- <li>
               <a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"
                  onclick="window.open('http://<?php //echo $_SERVER['HTTP_HOST']; ?>/retane_blog/wp-login.php?loggedout=true')"><span class="rulycon-exit"></span> Sign

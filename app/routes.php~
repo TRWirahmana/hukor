@@ -21,13 +21,6 @@ Route::group(array('before' => 'guest'), function(){
 	Route::get('/', 'HomeController@index');
 	Route::get('error', 'LoginController@error');
 	Route::get('manual_registrasi', 'HomeController@download_manual');
-
-    Route::get('tabelbahu', 'BantuanHukumController@datatable');
-    Route::get('add', 'BantuanHukumController@add');
-    Route::post('save', 'BantuanHukumController@save');
-
-    Route::resource('user', 'UserController');
-    Route::resource('bantuanhukum', 'BantuanHukumController');
 });
 
 Route::group(array('before' => 'auth'), function(){
@@ -86,13 +79,9 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|admin_center'), functi
 
 // Routing Per-UU
 Route::get('per-uu', array("as" => "UsulanPerUU", "uses" => "PeruuController@pengajuanUsulan"));
-<<<<<<< HEAD
 Route::post('per-uu', array("as" => "prosesPengajuan", "uses" => "PeruuController@prosesPengajuan"));
 
 // Routing Pelembagaan
 Route::get('pelembagaan', array("as" => "UsulanPerUU", "uses" => "PelembagaanController@pengajuanUsulan"));
 Route::post('pelembagaan', array("as" => "prosesPengajuan", "uses" => "PelembagaanController@prosesPengajuan"));
 
-=======
-Route::post('per-uu', array("as" => "prosesPengajuan", "uses" => "PeruuController@prosesPengajuan"));
->>>>>>> 6e6dd883e08f7747aee342f8711927e327df1b6e

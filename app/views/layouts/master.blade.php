@@ -66,7 +66,7 @@
               <a href="http://localhost/retane_blog/wp-login.php?log=<?php //echo $datses['us']; ?>&pwd=<?php echo $datses['pd']; ?>" target="_blank"><span class="rulycon-wordpress"></span> Blog</a>
             </li> -->
 
-            <li><a href="{{URL::to('per-uu')}}">Peraturan Perundang-undangan</a></li>
+            <li><a href="{{URL::route('index_per_uu')}}">Peraturan Perundang-undangan</a></li>
             <li><a href="#">Pelembagaan</a></li>
             <li><a href="{{URL::to('BantuanHukum')}}">Bantuan Hukum</a></li>
             <li><a href="{{URL::to('registrasi')}}">Pendaftaran</a></li>
@@ -94,22 +94,6 @@
         </footer>
       </div>
       <div class="span17 main-content">
-        <h2>Layanan Hukum & Organisasi</h2>
-        <div class="stripe-accent"></div>
-
-        @if(Session::has('success'))
-            <div class="alert alert-success">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Berhasil!</strong> {{Session::get('success')}}
-            </div>
-        @endif
-        @if(Session::has('error'))
-            <div class="alert alert-error">
-                <buton class="close" type="button" data-dismiss="alert">&times;</buton>
-                <strong>Kesalahan!</strong> {{Session::get('error')}}
-            </div>
-        @endif
-
         <!-- .row-fluid begins here -->
         @yield('content')
         <!-- .row-fluid ends here -->

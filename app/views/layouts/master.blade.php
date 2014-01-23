@@ -59,37 +59,74 @@
           <img src="{{asset('assets/img/tut-wuri-handayani.png')}}" alt="Kebudayaan Indonesia">
           <h4>Direktorat Jenderal Kebudayaan Republik Indonesia</h4>
         </header>
-        <p id="username">Selamat datang, <span id="name"></span></p>
+          <?php $user = Auth::user(); ?>
+          @if($user != null)
+        <p id="username">Selamat datang, <?php echo $user->pengguna->nama_lengkap; ?><span id="name"></span></p>
+          @else
+          <p id="username">Selamat datang guest<span id="name"></span></p>
+          @endif
         <div>
           <ul id="user-menu">
             <!-- <li>
               <a href="http://localhost/retane_blog/wp-login.php?log=<?php //echo $datses['us']; ?>&pwd=<?php echo $datses['pd']; ?>" target="_blank"><span class="rulycon-wordpress"></span> Blog</a>
             </li> -->
-
             <li><a href="#">Peraturan Perundang-undangan</a></li>
             <li><a href="#">Pelembagaan</a></li>
             <li><a href="{{URL::to('BantuanHukum')}}">Bantuan Hukum</a></li>
-            <li><a href="{{URL::to('registrasi')}}">Pendaftaran</a></li>
+            <li><a href="{{URL::to('registrasi')}}">Form Pendaftaran</a></li>
 
-              <li>
-                <a href="#" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a>
-              </li>
-              <li>
-                <a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span> Sign
-                out</a>
-              </li>
-            <!-- <li>
-              <a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"
-                 onclick="window.open('http://<?php //echo $_SERVER['HTTP_HOST']; ?>/retane_blog/wp-login.php?loggedout=true')"><span class="rulycon-exit"></span> Sign
-                out</a>
-            </li> -->
+              @if($user != null)
+            <li>
+              <a href="#" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a>
+            </li>
+            <li>
+              <a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span> Sign
+              out</a>
+            </li>
+              @endif
+
+              @if($user == null)
+              {{-- form login--}}
+              {{ Form::open(array('action' => 'LoginController@signin', 'method' => 'post', 'id'=>'user-sign-in-form', 'class' =>'front-form', 'autocomplete' => 'off')) }}
+
+              @if(Session::has('success'))
+              <div class="alert alert-success sign-in-register-alert">
+
+                  {{ Session::get('success') }}
+              </div>
+              @elseif(Session::has('error'))
+              <div class="alert alert-error sign-in-register-alert">
+                  <button type="button" class="close" data-dismiss="alert">×</button>
+                  {{ Session::get('error') }}
+                  <ul>
+                      @foreach($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+              @endif
+
+              <label for='username'>Username</label>
+              {{
+              Form::text('username', '', array(
+              'class'=>'username validate[required] text-input',
+              'id'=>'username',
+              'placeholder'=>'ketikkan username di sini...'
+              ))
+              }}
+              <label for='password'>Password</label>
+
+              {{ Form::password('password', array('class'=>'password validate[required] text-input', 'id'=>'password','placeholder'=>'ketikkan password di sini...')) }}
+                <span><button class="btn" id="btn-signin" type="submit">Sign in</button>
+
+              {{ Form::close() }}
+
+            <br>
+            <a href="{{URL::to('forget')}}"> Forget Password? </a>
+            @endif
           </ul>
         </div>
-        <!--<div id="logo-wrapper">
-            <img src="{{asset('assets/img/logo-color-overlay.png')}}" alt="Kebudayaan Indonesia">
-        </div>-->
-        <footer>
-          <!--                            <div class="stripe-accent"></div>-->
+
           <h6>© 2013 Direktorat Jenderal Kebudayaan Republik Indonesia</h6>
         </footer>
       </div>

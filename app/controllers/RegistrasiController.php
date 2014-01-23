@@ -485,7 +485,7 @@ class RegistrasiController extends BaseController {
         // Save
         $DAL = new DAL_Registrasi();
         $DAL->SetData(array(
-            'username' => $username,
+            'username' => $email,
             'password' => Hash::make($password), // Hashing A Password Using Bcrypt\
             'role_id' => 2, // Aktif
             'created_at' => date('Y-m-d H:i:s'),

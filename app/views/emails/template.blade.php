@@ -4,12 +4,11 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <h2>Selamat Datang di Sistem Registrasi Online Penyuluh Nasional</h2>
+        <h2>Selamat Datang</h2>
         <div>
-            Gunakan username dan password dibawah ini untuk mengisi persyaratan pendaftaran di sistem
-Registrasi Online :
+            Gunakan username dan password dibawah ini untuk masuk ke sistem :
         </div><br />
-        <div><span>Username : </span> {{ $username }}</div>
+        <div><span>Username : </span> {{ $email }}</div>
         <div><span>Password : </span> {{ $password }}</div>
     </body>
 </html>

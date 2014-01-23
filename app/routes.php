@@ -16,6 +16,7 @@
 Route::group(array('before' => 'guest'), function(){
     Route::get('BantuanHukum', 'BantuanHukumController@index');
 	Route::post('Masuk', 'LoginController@signin');// Registrasi
+    Route::post('Reset', 'ForgetPasswordController@reset');// Reset Password
     Route::get('registrasi', 'RegistrasiController@form');
 	Route::post('Kirim', 'RegistrasiController@send');
 	Route::get('/', 'HomeController@index');
@@ -28,6 +29,7 @@ Route::group(array('before' => 'guest'), function(){
 
     Route::resource('user', 'UserController');
     Route::resource('bantuanhukum', 'BantuanHukumController');
+    Route::resource('forget', 'ForgetPasswordController@index');
 });
 
 Route::group(array('before' => 'auth'), function(){
@@ -38,16 +40,10 @@ Route::group(array('before' => 'auth'), function(){
 	Route::put('setting/save', 'RegistrasiController@save');
 	Route::get('Keluar', 'LoginController@signout');
 	Route::get('download', 'RegistrasiController@download');
-	Route::get('pdf', 'VerifikasiController@MakePDF');
-	Route::get('excel', 'VerifikasiController@MakeExcel');
-	Route::get('getProvinsi', 'ApiController@getProvinsi');
-	Route::get('getBpnb', 'ApiController@getBpnb');
-	Route::post('saveBpnb', 'ApiController@saveBpnb');
-	Route::get('finalisasi', 'RegistrasiController@finalisasi');
 });
 
 Route::group(array('before' => 'auth|user'), function(){
-	Route::get('edit', 'RegistrasiController@edit');
+//	Route::get('home', 'HomeController@index');
 //    Route::get('BantuanHukum', 'BantuanHukumController@index');
 	Route::post('update', 'RegistrasiController@update');
 });

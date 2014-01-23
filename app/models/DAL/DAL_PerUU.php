@@ -1,8 +1,8 @@
 <?php
 
 class DAL_PerUU {
-    public static function getDataTable() {
-        return PerUU::join('pengguna', 'per_uu.id_pengguna', '=', 'pengguna.id')
+    public static function getDataTable($filter = 0) {
+        $data = PerUU::join('pengguna', 'per_uu.id_pengguna', '=', 'pengguna.id')
                 ->join('jabatan', 'pengguna.jabatan', '=', 'jabatan.id')
                 ->select(array(
                     'per_uu.id',
@@ -13,5 +13,10 @@ class DAL_PerUU {
                     'per_uu.status',
                     'per_uu.lampiran'
         ));
+
+        if(0 != $filter) 
+            $data = $data->where('per_uu.id_pengguna', '=', 0);
+
+        return $data;
     }
 }

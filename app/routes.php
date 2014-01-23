@@ -98,10 +98,3 @@ Route::group(array('prefix' => 'pelembagaan'), function()
 	Route::get('usulan', array("as" => "UsulanPelembagaan", "uses" => "PelembagaanController@pengajuanUsulan"));
 	Route::post('usulan', array("as" => "prosesPelembagaan", "uses" => "PelembagaanController@prosesPengajuan"));
 });
-
-
-
-
-
-
-

@@ -12,13 +12,13 @@
 <table id="tbl-per-uu">
 	<thead>
 		<tr>
-			<th>Nomor</th>
+			<th>#</th>
 			<th>Tgl Usulan</th>
 			<th>Unit Kerja</th>
 			<th>Jabatan</th>
 			<th>Perihal</th>
 			<th>Status</th>
-			<th>-</th>
+			<th>Lampiran</th>
 		</tr>
 	</thead>
 	<tbody></tbody>
@@ -34,11 +34,16 @@
 		aoColumns: [
 			{mData: "id"},
 			{mData: "tgl_usulan"},
-			{mData: "pengguna.unit_kerja"},
-			{mData: "pengguna.detail_jabatan.nama_jabatan"},
+			{mData: "unit_kerja"},
+			{mData: "nama_jabatan"},
 			{mData: "perihal"},
 			{mData: "status"},
-			{mData: "id"}
+			{
+				mData: "lampiran",
+				mRender: function($data) {
+					return "<a href='/assets/uploads/"+$data+"'>Unduh</a>";
+				}
+			}
 		]
 	});
 </script>

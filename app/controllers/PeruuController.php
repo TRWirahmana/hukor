@@ -6,18 +6,9 @@ class PeruuController extends BaseController {
 
 	public function index() 
 	{
-		$data = PerUU::with(array(
-			'pengguna', 
-			'pengguna.detailJabatan'
-		));
-
-		if(Request::ajax()) {
-			return Response::json(array(
-				'sEcho' => Input::get('sEcho'),
-				'aaData' => $data->get()->toArray()
-			));
-		}
-
+		// handle dataTable request
+		if(Request::ajax()) 
+			return Datatables::of(DAL_PerUU::getDataTable())->make(true);
 		$this->layout->content = View::make('PerUU.index');
 	}
 
@@ -31,7 +22,7 @@ class PeruuController extends BaseController {
 	public function prosesPengajuan()
 	{
 		$input = Input::get('per_uu');
-		$img = Input::file('per_uu[lampiran]');
+		$img = Input::file('per_uu.lampiran');
 
 		if($img->isValid()) {
 			$uqFolder = str_random(8);

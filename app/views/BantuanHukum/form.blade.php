@@ -1,4 +1,12 @@
 @section('content')
+
+
+<h2>BANTUAN HUKUM</h2>
+<div class="stripe-accent"></div>
+<legend>Bantuan Hukum</legend>
+
+@include('flash')
+
     {{ Form::open(array('action' => 'BantuanHukumController@save', 'method' => 'post',
                         'id' => 'user-registrasi-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal')) }}
         <div class="row-fluid">

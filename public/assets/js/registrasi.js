@@ -51,102 +51,47 @@ var Registrasi = (function(REG) {
         });
 
         var rules = {
-                'biodata[nama_lengkap]': 'required',
-                'biodata[tempat_lahir]': 'required',
-                'biodata[email]': {
+                'nama_lengkap': 'required',
+                'username': 'required',
+                'password': 'required',
+                'password_confirmation': 'required',
+                'email': {
                     required: true,
                     email: true
                 },
-                'biodata[alamat]': 'required',
-                'biodata[provinsi_id]': 'required',
-                'biodata[status_nikah]': 'required',
-                'biodata[telepon]': {
+                'unit_kerja': 'required',
+                'tlp_kantor': {
                     required: true,
                     number: true
                 },
-                'biodata[hp]': {
+                'handphone': {
                     required: true,
                     number: true
                 },
-                'biodata[no_ktp]': {
+                'nip': {
                     required: true,
                     number: true
                 },
-                'biodata[no_sim]': {
+                'jabatan': {
                     required: true,
                     number: true
                 },
-                'biodata[tulisan_judul]': {
+                'bagian': {
+                    required: true,
+                    number: true
+                },
+                'sub_bagian': {
+                    required: true,
+                    number: true
+                },
+                'tgl_lahir': {
                     required: true
                 },
-                'biodata[tulisan_konten]': {
-                    required: true,
-                    minlength: 100
-                },
-                'biodata[tulisan_verify]': {
+                'pekerjaan': {
                     required: true
                 },
-                'foto': {
-                    required: true,
-                    extension: 'png|jpe?g',
-                    filesize: 524288
-                },
-                'ijazah_terakhir': {
-                    required: true,
-                    extension: 'png|jpe?g',
-                    filesize: 524288
-                },
-                'transkrip_nilai': {
-                    required: true,
-                    extension: 'png|jpe?g',
-                    filesize: 524288
-                },  
-                'ktp': {
-                    required: true,
-                    extension: 'png|jpe?g',
-                    filesize: 524288
-                },  
-                'lamaran': {
-                    required: true,
-                    extension: 'pdf',
-                    filesize: 524288
-                },  
-                'cv': {
-                    required: true,
-                    extension: 'pdf',
-                    filesize: 524288
-                },  
-                'ket_sehat': {
-                    required: true,
-                    extension: 'png|jpe?g',
-                    filesize: 524288
-                },  
-                'ket_bebas_narkoba': {
-                    required: true,
-                    extension: 'png|jpe?g',
-                    filesize: 524288
-                },  
-                'ket_catatan_kepolisian': {
-                    required: true,
-                    extension: 'png|jpe?g',
-                    filesize: 524288
-                },
-                'surat_ijin_keluarga': {
-                    required: function(e) {
-                        return (parseInt($("#status").val()) == 1);
-                    },
-                    extension: 'jpe?g|png',
-                    filesize: 524288
-                },
-                'pendidikan[sma]': 'required',
-                'pendidikan[sma_tahun]': 'required',
-                'pendidikan[prasarjana_universitas]': 'required',
-                'pendidikan[prasarjana_jurusan]': 'required',
-                'pendidikan[prasarjana_tahun]': 'required',
-                'pendidikan[ipk_terakhir]': {
-                    required: true,
-                    number: true,
-                    max: 4
+                'alamat_kantor': {
+                    required: true
                 }
             };
 
@@ -161,100 +106,44 @@ var Registrasi = (function(REG) {
         if($("#lampiran_skck").length != 0) rules.ket_catatan_kepolisian.required = false;
         if($("#lampiran_sik").length != 0) rules.surat_ijin_keluarga.required = false;
 
-        $("#registrasi-form").validate({
+        $("#user-register-form").validate({
             ignore: [],
             errorElement: 'span',
             errorClass: 'help-block error',
             rules: rules,
             messages: {
-                'biodata[nama_lengkap]': 'Nama lengkap wajib diisi.',
-                'biodata[tempat_lahir]': 'Tempat lahir wajib diisi.',
-                'biodata[email]': {
+                'username': 'Nama Pengguna wajib diisi.',
+                'password': 'Password tidak boleh kosong!.',
+                'password_confirmation': 'Konfirmasi Password wajib diisi!.',
+                'nama_lengkap': 'Nama lengkap wajib diisi.',
+                'tgl_lahir': 'Tanggal lahir wajib diisi.',
+                'email': {
                     required: 'Alamat E-Mail wajib diisi.',
                     email: 'Format email tidak benar'
                 },
-                'biodata[alamat]': "Alamat lengkap wajib diisi.",
-                'biodata[provinsi_id]': 'Silahkan tentukan provinsi tempat anda mendaftar.',
-                'biodata[status_nikah]': 'Pilih status nikah.',
-                'biodata[telepon]': {
+                'alamat_kantor': "Alamat kantor wajib diisi.",
+                'unit_kerja': 'Unit Kerja wajib diisi',
+                'tlp_kantor': {
                     required: 'Nomor telepon wajib diisi.'
                 },
-                'biodata[hp]': {
+                'handphone': {
                     required: 'Nomor handphone wajib diisi.'
                 },
-                'biodata[no_ktp]': {
-                    required: 'Nomor kartu tanda penduduk (KTP) wajib diisi.'
+                'pekerjaan': {
+                    required: 'Pekerjaan wajib diisi.'
                 },
-                'biodata[no_sim]': {
-                    required: 'Nomor SIM C wajib diisi.'
+                'sub_bagian': {
+                    required: 'Sub Bagian wajib diisi.'
                 },
-                'biodata[tulisan_judul]': {
-                    required: 'Judul tulisan tidak boleh kosong.'
+                'bagian': {
+                    required: 'Bagian wajib diisi.'
                 },
-                'biodata[tulisan_konten]': {
-                    required: 'Konten tulisan tidak boleh kosong.',
-                    minlength: 'Tulisan minimal 100 karakter.'
+                'jabatan': {
+                    required: 'Jabatan wajib diisi.'
                 },
-                'foto': {
-                    required: 'Wajib melampirkan berkas foto.',
-                    extension: 'Berkas harus berupa png atau jpg.',
-                    filesize: 'Ukuran berkas maksimal 512 kilobytes.'
-                },
-                'ijazah_terakhir': {
-                    required: 'Wajib melampirkan berkas ijazah terakhir.',
-                    extension: 'Berkas harus berupa png atau jpg.',
-                    filesize: 'Ukuran berkas maksima 512 kilobytes.'
-                },
-                'transkrip_nilai': {
-                    required: 'Wajib melampirkan berkas transkrip nilai.',
-                    extension: 'Berkas harus berupa png atau jpg.',
-                    filesize: 'Ukuran berkas maksimal 512 kilobytes.'
-                },
-                'ktp': {
-                    required: "Wajib melampirkan kartu tanda penduduk (KTP).",
-                    extension: 'Berkas harus berupa jpg atau png.',
-                    filesize: 'Ukuran berkas maksimal 512 kilobytes.'
-                },  
-                'lamaran': {
-                    required: "Wajib melampirkan surat lamaran.",
-                    extension: 'Berkas harus berupa pdf.',
-                    filesize: 'Ukuran berkas maksimal 512 kilobytes.'
-                },  
-                'cv': {
-                    required: "Wajib melampirkan Curiculum Vitae (CV).",
-                    extension: 'Berkas harus berupa pdf.',
-                    filesize: "Ukuran berkas maksimal 512 kilobytes."
-                },  
-                'ket_sehat': {
-                    required: "Wajib melampirkan surat keterangan sehat.",
-                    extension: 'Berkas harus berupa jpg atau png.',
-                    filesize: 'Ukuran berkas maksimal 512 kilobytes.'
-                },  
-                'ket_bebas_narkoba': {
-                    required: 'Wajib melampirkan surat keterangan bebas narkoba.',
-                    extension: 'Berkas harus berupa jpg atau png.',
-                    filesize: 'Ukuran berkas maksimal 512 kilobytes.'
-                },  
-                'ket_catatan_kepolisian': {
-                    required: 'Wajib melampirkan surat keterangan catatan kepolisian.',
-                    extension: 'Berkas harus berupa jpg atau png.',
-                    filesize: 'Ukuran berkas maksimal 512 kilobytes.'
-                },  
-                'surat_ijin_keluarga': {
-                    required: 'Wajib melampirkan surat ijin dari keluarga untuk yang sudah menikah.',
-                    extension: 'Berkas harus berupa jpg atau png.',
-                    filesize: 'Ukuran berkas maksima 512 kilobyes.'
-                },
-                'pendidikan[ipk_terakhir]': {
-                    required: 'Wajib mencantumkan Nilai IPK terakhir anda.',
-                    number: 'Nilai IPK terakhir berupa angka.',
-                    max: 'Nilai IPK maksimal adalah 4.'
-                },
-                'pendidikan[sma]': 'Nama sekolah SMA wajib diisi.',
-                'pendidikan[sma_tahun]': 'Tentukan tahun kelulusan SMA anda.',
-                'pendidikan[prasarjana_universitas]': 'Nama universitas wajib diisi.',
-                'pendidikan[prasarjana_jurusan]': 'Nama jurusan di universitas tersebut wajib diisi.',
-                'pendidikan[prasarjana_tahun]': 'Tahun lulus dari universitas tersebut wajib diisi.'
+                'nip': {
+                    required: 'NIP wajib diisi.'
+                }
             },
             errorPlacement: function(error, element) {
                 error.appendTo(element.parent('div.controls'));

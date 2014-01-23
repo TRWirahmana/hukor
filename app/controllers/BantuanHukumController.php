@@ -46,3 +46,4 @@ class BantuanHukumController extends BaseController{
         return $data;
     }
 }
+

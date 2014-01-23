@@ -86,13 +86,9 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|admin_center'), functi
 
 // Routing Per-UU
 Route::get('per-uu', array("as" => "UsulanPerUU", "uses" => "PeruuController@pengajuanUsulan"));
-<<<<<<< HEAD
 Route::post('per-uu', array("as" => "prosesPengajuan", "uses" => "PeruuController@prosesPengajuan"));
 
 // Routing Pelembagaan
 Route::get('pelembagaan', array("as" => "UsulanPerUU", "uses" => "PelembagaanController@pengajuanUsulan"));
 Route::post('pelembagaan', array("as" => "prosesPengajuan", "uses" => "PelembagaanController@prosesPengajuan"));
-
-=======
-Route::post('per-uu', array("as" => "prosesPengajuan", "uses" => "PeruuController@prosesPengajuan"));
->>>>>>> 6e6dd883e08f7747aee342f8711927e327df1b6e
+ Route::get('tabelbahu', 'PelembagaanController@datatable');

@@ -376,7 +376,17 @@ class RegistrasiController extends BaseController {
     }
 
     public function form(){
-        $this->layout->content = View::make('registrasi.form');
+
+//        $regid = Auth::user()->pengguna->id;
+//
+//        $registrasi = Pengguna::find($regid)->where('user_id', Auth::user()->id)->first();
+
+        $this->layout->content = View::make('registrasi.form', array(
+//            'date' => RetaneHelper::listDate(),
+//            'month' => RetaneHelper::listMonth(),
+//            'year' => RetaneHelper::listYear(date('Y') - 55, date('Y') - 15),
+//            'user' => $registrasi
+        ));
     }
 
     public function lihatLampiran() {
@@ -413,43 +423,70 @@ class RegistrasiController extends BaseController {
      */
     public function send() {
         
-        $to_email = Input::get('email');
-        $no_ktp = Input::get('no_ktp');
-        $password = RetaneHelper::generateRandomString(8);
+        $username = Input::get('username');
+        $password = Input::get('password');
+        $email = Input::get('email');
 
-        $rules = array(
-            'no_ktp' => 'required|numeric|unique:registrasi,no_ktp|min:16|max:16',
-            'email' => 'required|email|unique:registrasi,email'
-        );
+        $nama = Input::get('nama_lengkap');
+        $nip = Input::get('nip');
+        $jabatan = Input::get('jabatan');
+        $bagian = Input::get('bagian');
+        $subbag = Input::get('sub_bagian');
+        $jk = Input::get('jenis_kelamin');
+        $tgl_lahir = Input::get('tgl_lahir');
+        $pekerjaan = Input::get('pekerjaan');
+        $alamat_kantor = Input::get('alamat_kantor');
+        $tlp_ktr = Input::get('tlp_kantor');
+        $hp = Input::get('handphone');
+        $uk = Input::get('unit_kerja');
 
-        $messages = array(
-            'no_ktp.required' => 'No KTP tidak boleh kosong.',
-            'no_ktp.numeric' => 'Format No KTP harus numeric.',
-            'no_ktp.unique' => 'No KTP ini telah teregistrasi.',
-            'no_ktp.min' => 'No KTP harus 16 karakter.',
-            'no_ktp.max' => 'No KTP harus 16 karakter.',
-            'email.required' => 'Email tidak boleh kosong.',
-            'email.email' => 'Format email salah.',
-            'email.unique' => 'Email ini telah teregistrasi.',
-        );
+        $rules = array();
+        $messages = array();
 
-        $validator = Validator::make(Input::all(), $rules, $messages);
-
-        //message for new registration
-        if($validator->fails()){
-            foreach ($validator->messages()->all() as $message) {
-                return Redirect::to('/')
-                    ->with('error', $message);
-            }
-
+        if($username == null) {
+            $rules['username'] = 'required|unique:registrasi|min:6';
+            $messages['username.unique'] = 'Username tidak tersedia.';
+            $messages['username.min'] = 'Username minimal 6 karakter.';
         }
+
+        if(!empty($password)) {
+            $rules['password'] = 'confirmed|min:6';
+            $messages['password.confirmed'] = 'Konfirmasi password salah.';
+            $messages['password.min'] = 'Password minimal 6 karakter.';
+        }
+
+//        $rules = array(
+//            'no_ktp' => 'required|numeric|unique:registrasi,no_ktp|min:16|max:16',
+//            'email' => 'required|email|unique:registrasi,email'
+//        );
+//
+//        $messages = array(
+//            'no_ktp.required' => 'No KTP tidak boleh kosong.',
+//            'no_ktp.numeric' => 'Format No KTP harus numeric.',
+//            'no_ktp.unique' => 'No KTP ini telah teregistrasi.',
+//            'no_ktp.min' => 'No KTP harus 16 karakter.',
+//            'no_ktp.max' => 'No KTP harus 16 karakter.',
+//            'email.required' => 'Email tidak boleh kosong.',
+//            'email.email' => 'Format email salah.',
+//            'email.unique' => 'Email ini telah teregistrasi.',
+//        );
+//
+//        $validator = Validator::make(Input::all(), $rules, $messages);
+//
+//        //message for new registration
+//        if($validator->fails()){
+//            foreach ($validator->messages()->all() as $message) {
+//                return Redirect::to('/')
+//                    ->with('error', $message);
+//            }
+//
+//        }
 
         // Save
         $DAL = new DAL_Registrasi();
         $DAL->SetData(array(
-            'username' => $to_email,
-            'password' => Hash::make($password), // Hashing A Password Using Bcrypt
-            'email' => $to_email,
+            'username' => $username,
+            'password' => Hash::make($password), // Hashing A Password Using Bcrypt\
             'role_id' => 2, // Aktif
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
@@ -459,13 +496,11 @@ class RegistrasiController extends BaseController {
         
         if ($data !== 0) {
             $dal_user = new DAL_User();
-            $dal_user->SetNoKTP($no_ktp, $data, $to_email);
+            $dal_user->SetPengguna($data, $email, $nama, $nip, $jabatan, $bagian, $subbag, $jk, $tgl_lahir, $pekerjaan, $alamat_kantor, $tlp_ktr, $hp, $uk);
             $dal_user->SaveBiodata($data);
 
-            //save to user table wordpress
-            // $dal_user->InsertToWP($to_email, $password);
 
-            $this->sendMail($no_ktp, $to_email, $password, $to_email);
+//            $this->sendMail($username, $password, $email);
             return Redirect::to('/')->withInput()->with('success', 'Registrasi berhasil. Cek email anda untuk mengetahui username & password yang akan digunakan untk login kedalam sistem!');
         } else {
             return Redirect::to('/')->withInput()->with('error', 'Registrasi gagal! Harap ulangi dan Pastikan alamat email anda valid!');
@@ -477,13 +512,13 @@ class RegistrasiController extends BaseController {
     /*
      * Kirim Email
      */
-    private function sendMail($no_ktp, $username, $password, $to_email) {
+    private function sendMail($username, $password, $email) {
         $message = '';
 
         // creating an array with user's info but most likely you can use $user->email or pass $user object to closure later
         $user = array(
-            'email' => $to_email,
-            'name' => 'Yth. Pemegang KTP dengan nomor ' . $no_ktp,
+            'email' => $email,
+            'name' => 'Yth. ' . $username,
         );
 
         // the data that will be passed into the mail view blade template

@@ -80,12 +80,28 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|admin_center'), functi
 });
 
 
-// Routing Per-UU
-Route::get('per-uu', array("as" => "UsulanPerUU", "uses" => "PeruuController@pengajuanUsulan"));
-Route::post('per-uu', array("as" => "prosesPengajuan", "uses" => "PeruuController@prosesPengajuan"));
+Route::group(array('prefix' => 'per-uu'), function() {
+	Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
+	Route::get('usulan', array('as' => 'pengajuan_per_uu', 'uses' => 'PeruuController@pengajuanUsulan'));
+	Route::post('usulan', array('as' => 'proses_pengajuan', 'uses' => 'PeruuController@prosesPengajuan'));
+});
+
 
 // Routing Pelembagaan
-Route::get('pelembagaan', array("as" => "UsulanPerUU", "uses" => "PelembagaanController@pengajuanUsulan"));
-Route::post('pelembagaan', array("as" => "prosesPengajuan", "uses" => "PelembagaanController@prosesPengajuan"));
+//Route::get('usulan-pelembagaan', array("as" => "UsulanPelembagaan", "uses" => "PelembagaanController@pengajuanUsulan"));
+//Route::post('usulan-pelembagaan', array("as" => "prosesPengajuan", "uses" => "PelembagaanController@prosesPengajuan"));
+
+Route::group(array('prefix' => 'pelembagaan'), function()
+{
+	Route::get('/', 'PelembagaanController@index');
+	
+	Route::get('usulan', array("as" => "UsulanPelembagaan", "uses" => "PelembagaanController@pengajuanUsulan"));
+	Route::post('usulan', array("as" => "prosesPelembagaan", "uses" => "PelembagaanController@prosesPengajuan"));
+});
+
+
+
+
+
 
 

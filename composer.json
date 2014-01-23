@@ -10,12 +10,10 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0",
-        "illuminate/support": "4.0.x",
         "dompdf/dompdf": "dev-master",
-        "phenx/php-font-lib": "0.2.*",
-        "laravel/framework": "4.0.*","phpunit/phpunit": "3.8.*",
-	"way/generators" : "dev-master"
+        "laravel/framework": "4.0.*",
+	    "way/generators" : "dev-master",
+        "Bllim/datatables": "*"
     },
 
     "autoload": {
@@ -23,6 +21,7 @@
         "app/commands",
         "app/controllers",
         "app/models",
+        "app/models/DAL",
         "app/database/migrations",
         "app/database/seeds",
         "app/tests/TestCase.php"

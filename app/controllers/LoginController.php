@@ -40,12 +40,13 @@ class LoginController extends BaseController {
 	                }
 			        //
 	            } else {
-	                return Redirect::to('/')->withInput()->with('error', 'Password yang anda masukan salah!');
+                    Session::flash('error', 'Password yang anda masukan salah!');
+	                return Redirect::to('/');
 	            }
 		
         } else {
-
-            return Redirect::to('/')->withInput()->with('error', 'User tidak terdaftar!');
+                Session::flash('error', 'User tidak terdaftar!');
+                return Redirect::to('/');
         }
         
     }
@@ -58,7 +59,7 @@ class LoginController extends BaseController {
         // @TODO : Clean Creadential
         Auth::logout();
         Session::forget('key');
-        return Redirect::to('/')->withInput()->with('success', 'Terimakasih');
+        return Redirect::to('/')->withInput()->with('success', 'Anda telah keluar dari sistem.');
     }
 	
 	public function error()

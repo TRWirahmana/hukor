@@ -1,5 +1,9 @@
 @section('content')
 
+<h2>Pendaftaran</h2>
+<div class="stripe-accent"></div>
+@include('flash')
+
 {{-- form registrasi --}}
     {{ Form::open(array('action' => 'RegistrasiController@send', 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', )) }}
 
@@ -10,19 +14,6 @@
               <div class="nav nav-tabs">
                   <h4>Registrasi User</h4>
               </div>
-
-
-<!--            <div class="control-group {{$errors->has('username')?'error':''}}">-->
-<!--              {{ Form::label('username', 'Nama Pengguna', array('class' => 'control-label')) }}-->
-<!--              <div class="controls">-->
-<!--                {{ Form::text('username', '',
-               array('placeholder' => 'Minimal 6 karakter, tidak memakai spasi.')) }}-->
-<!---->
-<!--                @foreach($errors->get('username') as $error)-->
-<!--                <span class="help-block">{{$error}}</span>-->
-<!--                @endforeach-->
-<!--              </div>-->
-<!--            </div>-->
 
             <div class="control-group">
               <label for='email' class="control-label">Email</label>

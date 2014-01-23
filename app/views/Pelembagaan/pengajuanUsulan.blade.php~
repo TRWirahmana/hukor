@@ -1,5 +1,5 @@
 @section('content')
-	{{ Form::open(array('route' => 'prosesPengajuan', 'class' => 'form form-horizontal' )) }}
+	{{ Form::open(array('route' => 'prosesPengajuan',  'files' => true, 'class' => 'form form-horizontal' )) }}
 
 		<div class="row-fluid">
 			<div class="span12">
@@ -15,29 +15,28 @@
 					
 					<div class="control-group">
 						{{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label'))}}
-						<div class="controls">
-						{{ Form::text('unit_kerja') }}
-						</div>
+						<div class="controls"> {{ Form::text('unit_kerja', $pengguna->unit_kerja) }}
+										</div>
 					</div>		
 
 					<div class="control-group">	
 						{{ Form::label('jabatan', 'Jabatan', array('class' => 'control-label'))}}
 						<div class="controls">
-						{{ Form::text('jabatan') }}
+						{{ Form::text('jabatan', $pengguna->jabatan) }}
 						</div>
 					</div>	
 
 					<div class="control-group">
 						{{ Form::label('nip', "NIP", array('class' => 'control-label'))}}
 						<div class="controls">
-						{{ Form::text('nip') }}
+						{{ Form::text('nip', $pengguna->nip) }}
 						</div>
 					</div>	
 
 					<div class="control-group">
 						{{ Form::label('nama_pemohon', "Nama Pemohon", array('class' => 'control-label'))}}
 						<div class="controls">
-						{{ Form::text('nama_pemohon') }}
+						{{ Form::text('nama_pemohon', $pengguna->nama_lengkap) }}
 						</div>
 					</div>	
 
@@ -45,21 +44,21 @@
 					<div class="control-group">
 						{{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label'))}}
 						<div class="controls">
-						{{ Form::textarea('alamat_kantor') }}
+						{{ Form::textarea('alamat_kantor', $pengguna->alamat_kantor) }}
 						</div>
 					</div>	
 
 					<div class="control-group">
 						{{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label'))}}
 						<div class="controls">
-						{{ Form::text('telp_kantor') }}
+						{{ Form::text('telp_kantor', $pengguna->tlp_kantor) }}
 						</div>
 					</div>	
 
 					<div class="control-group">
 						{{ Form::label('pos_el', 'Pos_el', array('class' => 'control-label'))}}
 						<div class="controls">
-						{{ Form::text('pos_El') }}
+						{{ Form::text('pos_El', $pengguna->email) }}
 						</div>
 					</div>	
 	
@@ -96,12 +95,12 @@
 
 					<div class="control-group">
 					{{ Form::label("nama", "Nama", array('class' => 'control-label')) }}
-						<div class="controls">{{ Form::text("nama") }}</div>
+						<div class="controls">{{ Form::text("nama", $user->username) }}</div>
 					</div>
 				
 					<div class="control-group">
-					{{ Form::label("pos_el", "Pos-El", array('class' => 'control-label')) }}
-						<div class="controls">{{ Form::text("pos_el") }}</div>
+					{{ Form::label("pos_el", "Pos El", array('class' => 'control-label')) }}
+						<div class="controls">{{ Form::text("pos_el", $user->role_id) }}</div>
 					</div>
 
 					<p>( <a href="#">klik disini untuk merubah informasi registrasi</a> )</p>
@@ -115,6 +114,4 @@
 
 	{{ Form::close() }}
 @stop
-
-
 

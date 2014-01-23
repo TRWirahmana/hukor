@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 class PelembagaanController extends BaseController {
 
 	protected $layout = 'layouts.master';
@@ -9,7 +11,34 @@ class PelembagaanController extends BaseController {
 		$this->layout->content = View::make('Pelembagaan.index');		
 	}
 
+	public function listUsulan()
+	{
+           //     $data =  Pelembagaan::find(1)->pengguna;
+            if(Request::ajax()){
+                $data = Pelembagaan::join('pengguna', 'pelembagaan.id_pengguna','=', 'pengguna.user_id')
+                        ->select(array(
+                            'pelembagaan.id',
+                            'pelembagaan.tanggal_usulan',
+                            'pengguna.unit_kerja',
+                            'pengguna.jabatan',
+                            'pelembagaan.perihal',
+                            'pelembagaan.status'
+                        ));
+                    
+                       return Datatables::of($data)->make(true);
+            }
+		$this->layout->content = View::make('Pelembagaan.index');		
+	}
 
+        public function datatable()
+        {
+            $input = Input::all();
+            $DAL = new DAL_Pelembagaan;            
+            $data = $DAL->GetAllData($input);
+            
+            return $data;
+        }
+        
 	public function pengajuanUsulan()
 	{
                 $user = User::find(1);
@@ -23,6 +52,7 @@ class PelembagaanController extends BaseController {
 	public function prosesPengajuan()
 	{
 
+            /*
 		$rules = array(
 			'jenis_usulan' => 'required',
 			'perihal'      => 'required',
@@ -33,7 +63,7 @@ class PelembagaanController extends BaseController {
 		if ($validator->fails()) {
 			return Redirect::back()->withErrors($validator);            
 		} else {
-
+            */
 
 
                 $img = Input::file('lampiran');
@@ -48,6 +78,7 @@ class PelembagaanController extends BaseController {
 		$pelembagaan->perihal = Input::get('perihal');
 		$pelembagaan->catatan = Input::get('catatan');
 		$pelembagaan->lampiran = $filename;
+                $pelembagaan->tanggal_usulan = Carbon::now();
 
 		if($uploadSuccess) {
 			if($pelembagaan->save()) {
@@ -61,7 +92,7 @@ class PelembagaanController extends BaseController {
 
 		
 		return Redirect::back();            
-	}
+	//}
 }
 
 }

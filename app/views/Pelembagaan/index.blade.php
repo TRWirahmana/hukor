@@ -6,13 +6,34 @@
     <table id="basictable" class="dataTable">
         <thead>
         <tr>
-            <th>Nama lengkap</th>
-            <th>Alamat</th>
-            <th>TTL</th>
-            <th>Pendidikan terakhir</th>
+            <th>No. Usulan</th>
+            <th>Tgl Usulan</th>
+            <th>Unit Kerja</th>
+            <th>Jabatan</th>
+            <th>Perihal</th>
             <th>Status</th>
             <th></th>
         </tr>
         </thead>
     </table>
+    
+    @section('scripts')
+        @parent
+        <script type="text/javascript">
+            $("#tbl-pelembagaan").dataTable({
+               	bServerSide: true,
+		sAjaxSource: document.location.href,
+		aoColumns: [
+                    {mData: "id"},
+                    {mData: "tanggal_usulan"},
+                    {mData: "unit_kerja"},
+                    {mData: "jabatan"},
+                    {mData: "perihal"},
+                    {mData: "status"}
+                ]
+                
+            });
+            
+        </script>        
+    @stop
 @stop

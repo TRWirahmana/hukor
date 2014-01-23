@@ -5,4 +5,11 @@ class Pelembagaan extends Eloquent {
 	protected $table = "pelembagaan";
 	public $timestamps = false;
 
+	// HAS ONE
+	public function pengguna() {
+		return $this->hasOne('Pengguna');
+	}
+
+//	public function 
+
 }

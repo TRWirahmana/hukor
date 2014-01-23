@@ -31,7 +31,7 @@
 						<div class="controls">
 						{{ Form::text('nip', $pengguna->nip) }}
 						</div>
-					</div>	
+					</div>
 
 					<div class="control-group">
 						{{ Form::label('nama_pemohon', "Nama Pemohon", array('class' => 'control-label'))}}

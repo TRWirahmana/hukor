@@ -501,9 +501,11 @@ class RegistrasiController extends BaseController {
 
 
 //            $this->sendMail($username, $password, $email);
-            return Redirect::to('/')->withInput()->with('success', 'Registrasi berhasil. Cek email anda untuk mengetahui username & password yang akan digunakan untk login kedalam sistem!');
+            Session::flash('success', 'Registrasi berhasil. Silahkan login kedalam sistem!');
+            return Redirect::to('/');
         } else {
-            return Redirect::to('/')->withInput()->with('error', 'Registrasi gagal! Harap ulangi dan Pastikan alamat email anda valid!');
+            Session::flash('error', 'Registrasi gagal! Harap ulangi dan Pastikan alamat email anda valid!');
+            return Redirect::to('registrasi');
         }
         
     }

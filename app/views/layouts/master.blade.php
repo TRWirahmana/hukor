@@ -132,6 +132,7 @@
       </div>
       <div class="span17 main-content">
         @yield('content')
+          @include('flash')
       </div>
     </div>
   </div>

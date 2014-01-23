@@ -1,12 +1,12 @@
 @section('content')
+<h2>Reset Password</h2>
+<div class="stripe-accent"></div>
+@include('flash')
 <div class="row-fluid">
-    <!--            left content-->
-        <div class="nav nav-tabs">
-            <h4>Lupa Password</h4>
-        </div>
 
     {{ Form::open(array('action' => 'ForgetPasswordController@reset', 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form', 'autocomplete' => 'off')) }}
 
+    <h5>Masukkan Alamat Email anda</h5>
         <div class="control-group">
             <label for='email' class="control-label">Email</label>
             <div class="controls">
@@ -23,6 +23,7 @@
         <span><button class="btn" type="submit">Reset</button>
 
               {{ Form::close() }}
+
 </div>
 @stop
 

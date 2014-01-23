@@ -36,15 +36,18 @@ class ForgetPasswordController extends BaseController {
                     $user->save();
 
                     $this->sendMail($email, $password);
-                    return Redirect::to('/')->withInput()->with('success', 'Password berhasil di reset!. Cek email anda untuk mengetahui username & password yang akan digunakan untuk login kedalam sistem!');
+
+                    Session::flash('success', 'Password berhasil di reset!. Cek email anda untuk mengetahui username & password yang akan digunakan untuk login kedalam sistem!');
+                    return Redirect::to('forget');
                 //
             } else {
-                return Redirect::to('/')->withInput()->with('error', 'Email tidak terdaftar!');
+                Session::flash('error', 'Email tidak terdaftar!');
+                return Redirect::to('forget');
             }
 
         } else {
-
-            return Redirect::to('/')->withInput()->with('error', 'User tidak terdaftar!');
+            Session::flash('error', 'Email tidak terdaftar!');
+            return Redirect::to('forget');
         }
     }
 

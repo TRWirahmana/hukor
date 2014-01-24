@@ -9,6 +9,11 @@
 
 @include('flash')
 
+<select id="select-filter">
+	<option value="0">Tampilkan Semua</option>
+	<option value="1">Tampilkan Usulan Anda</option>
+</select>
+
 <table id="tbl-per-uu">
 	<thead>
 		<tr>
@@ -28,23 +33,34 @@
 @section('scripts')
 @parent
 <script type="text/javascript">
-	$("#tbl-per-uu").dataTable({
-		bServerSide: true,
-		sAjaxSource: document.location.href,
-		aoColumns: [
-			{mData: "id"},
-			{mData: "tgl_usulan"},
-			{mData: "unit_kerja"},
-			{mData: "nama_jabatan"},
-			{mData: "perihal"},
-			{mData: "status"},
-			{
-				mData: "lampiran",
-				mRender: function($data) {
-					return "<a href='/assets/uploads/"+$data+"'>Unduh</a>";
+	$(function(){
+		$dataTable = $("#tbl-per-uu").dataTable({
+			bServerSide: true,
+			sAjaxSource: document.location.href,
+			aoColumns: [
+				{mData: "id"},
+				{mData: "tgl_usulan"},
+				{mData: "unit_kerja"},
+				{mData: "nama_jabatan"},
+				{mData: "perihal"},
+				{mData: "status"},
+				{
+					mData: "lampiran",
+					mRender: function($data) {
+						return "<a href='/assets/uploads/"+$data+"'>Unduh</a>";
+					}
 				}
+			],
+			fnServerParams: function(aoData) {
+				aoData.push({name: "filter", value: $("#select-filter").val()});			
 			}
-		]
+		});
+
+		$("#select-filter").change(function(){
+			$dataTable.fnReloadAjax();
+		});
+
 	});
+	
 </script>
 @stop

@@ -1,5 +1,9 @@
 @section('content')
 
+<h2>Pendaftaran</h2>
+<div class="stripe-accent"></div>
+@include('flash')
+
 {{-- form registrasi --}}
     {{ Form::open(array('action' => 'RegistrasiController@send', 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', )) }}
 
@@ -7,19 +11,9 @@
         <div class="row-fluid">
 <!--            left content-->
           <div class="span12">
-
-
-            <div class="control-group {{$errors->has('username')?'error':''}}">
-              {{ Form::label('username', 'Nama Pengguna', array('class' => 'control-label')) }}
-              <div class="controls">
-                {{ Form::text('username', '',
-                array('placeholder' => 'Minimal 6 karakter, tidak memakai spasi.')) }}
-
-                @foreach($errors->get('username') as $error)
-                <span class="help-block">{{$error}}</span>
-                @endforeach
+              <div class="nav nav-tabs">
+                  <h4>Registrasi User</h4>
               </div>
-            </div>
 
             <div class="control-group">
               <label for='email' class="control-label">Email</label>
@@ -54,6 +48,9 @@
           </div>
 <!--            right content-->
           <div class="span12">
+              <div class="nav nav-tabs">
+                  <h4>Data Pendaftar</h4>
+              </div>
               <div class="control-group {{$errors->has('nama_lengkap')?'error':''}}">
                   {{ Form::label('nama_lengkap', 'Nama Lengkap', array('class' => 'control-label')) }}
                   <div class="controls">
@@ -117,7 +114,7 @@
                   {{ Form::label('jenis_kelamin', 'Jenis Kelamin', array('class' => 'control-label required')) }}
                   <div class="controls">
                       <label class="radio">
-                          {{ Form::radio('jenis_kelamin', 1, array('id'=>'kelamin-laki2', 'checked' => 'checked') ) }} <span>Laki-laki</span>
+                          {{ Form::radio('jenis_kelamin', 1, array('id'=>'kelamin-laki2') ) }} <span>Laki-laki</span>
                       </label>
                       <label class="radio">
                           {{ Form::radio('jenis_kelamin', 0, array('id'=>'kelamin-perempuan')) }} <span>Perempuan</span>
@@ -176,7 +173,7 @@
               </div>
 
               <div class="control-group {{$errors->has('handphone')?'error':''}}">
-                  {{ Form::label('handphone', 'Hand', array('class' => 'control-label')) }}
+                  {{ Form::label('handphone', 'Handphone', array('class' => 'control-label')) }}
                   <div class="controls">
                       {{ Form::text('handphone', '',
                       array('placeholder' => 'ketikkan nomor handphone anda di sini...')) }}

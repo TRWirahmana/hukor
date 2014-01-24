@@ -8,7 +8,7 @@ class PeruuController extends BaseController {
 	{
 		// handle dataTable request
 		if(Request::ajax()) 
-			return Datatables::of(DAL_PerUU::getDataTable())->make(true);
+			return Datatables::of(DAL_PerUU::getDataTable(Input::get('filter', 0)))->make(true);
 		$this->layout->content = View::make('PerUU.index');
 	}
 

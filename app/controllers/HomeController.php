@@ -20,7 +20,7 @@ class HomeController extends BaseController {
 
     public function index() {
         //exit;
-        $this->layout->content = View::make('layouts.master');
+        $this->layout->content = View::make('layouts.home');
 
     }
 

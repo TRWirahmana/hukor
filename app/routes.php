@@ -31,7 +31,7 @@ Route::group(array('before' => 'guest'), function(){
     Route::resource('bantuanhukum', 'BantuanHukumController');
     Route::resource('forget', 'ForgetPasswordController@index');
 
-    Route::resource('account', 'AdminController@index');
+    Route::resource('account', 'AdminController');
 });
 
 Route::group(array('before' => 'auth'), function(){

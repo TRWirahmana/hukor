@@ -16,6 +16,7 @@ class AdminController extends BaseController {
             if(Input::get('role_id') == 0)
             {
                 $admins = User::where('user.role_id', '!=', '')->where('user.id', '!=', 1)->with('pengguna');
+//                $admins->where('nama_lengkap', '!=', '');
             }else
             {
                 $admins = User::where('user.role_id', '=', Input::get('role_id'))->where('user.id', '!=', 1)->with('pengguna');
@@ -51,29 +52,41 @@ class AdminController extends BaseController {
 	 */
 	public function create()
 	{
-//		$listRegion = Region::lists('nama', 'id');
 
-		$role = Role::all();
+		$role = User::all();
+
 		$listRole = array();
 		foreach($role as $data)
 		{
-			if($data->id != '1' && $data->id != '2')
+			if($data->role_id != '0')
 			{
-				$listRole[$data->id] = $data->name;
+                switch($data->role_id){
+                    case 2 :
+                        $listRole[$data->role_id] = "Pengguna";
+                        break;
+                    case 3 :
+                        $listRole[$data->role_id] = "Admin";
+                        break;
+                    default:
+                        $listRole[$data->role_id] = "Pengguna";
+                        break;
+
+                }
 			}
 		}
 
 		$this->layout->content = View::make('admin.form', array(
-			'title' => 'Tambah Akun Admin',
+			'title' => 'Tambah Akun',
 			'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',
 			'form_opts' => array(
 				'route' => 'account.store',
 				'method' => 'post',
-				'class' => 'form-horizontal'
+				'class' => 'form-horizontal',
+                'id' => 'reg_admin'
 			),
 			'user' => new User(),
 //			'listRegion' => $listRegion,
-			'listRole' => $listRole
+//			'listRole' => $listRole
 		));
 	}
 
@@ -89,9 +102,8 @@ class AdminController extends BaseController {
 
         /* save to table user */
 		$user = new User();
-        $user->role_id = $input['role'];
-		$user->email = $input['email'];
-		$user->username = $input['username'];
+        $user->role_id = 3;
+		$user->username = $input['email'];
 		$user->password = Hash::make($input['password']);
 		
 		if($user->save()){
@@ -99,22 +111,23 @@ class AdminController extends BaseController {
 			$registrasi = new Pengguna();
             $registrasi->user_id = $user->id;
 			$registrasi->nama_lengkap = $input['nama_lengkap'];
+            $registrasi->email = $input['email'];
 
 			$registrasi->save();
 
-				$data = array(
-					'username' => $user->username,
-					'password' => $input['password'],
-				);
+//				$data = array(
+//					'username' => $user->username,
+//					'password' => $input['password'],
+//				);
 
                 /* send email to new member */
 
-				Mail::send('emails.admreg', $data, function($message) use($user){
-					$message->from('admin@site.com', 'Site Admin');
-					$message->to($user->email, $user->username)
-							->subject('Sistem Registrasi Online Laboratorium Kepemimpinan Nasional');
-				});
-			
+//				Mail::send('emails.admreg', $data, function($message) use($user){
+//					$message->from('admin@site.com', 'Site Admin');
+//					$message->to($user->email, $user->username)
+//							->subject('Sistem Registrasi Online Laboratorium Kepemimpinan Nasional');
+//				});
+
 		}
 
 		return Redirect::to('account')->with('success', 'Akun admin berhasil ditambahkan.');
@@ -140,23 +153,23 @@ class AdminController extends BaseController {
 	public function edit($id)
 	{
 
-		$listRegion = array("" => "-- Pilih Region --") + Provinsi::lists('nama', 'id');
+//		$listRegion = array("" => "-- Pilih Region --") + Provinsi::lists('nama', 'id');
 
-		$role = Role::all();
-		$listRole = array();
+        $role = User::select('role_id');
+        $listRole = array();
         foreach($role as $data)
         {
-            if($data->id != '1' && $data->id != '2')
+            if($data->role_id != '0')
             {
-                $listRole[$data->id] = $data->name;
+                $listRole[$data->role_id] = $data->role_id;
             }
         }
 		//
 		$user = User::find($id);
-        $user->load('registrasi');
+        $user->load('pengguna');
 		if(!is_null($user))
 			$this->layout->content = View::make('admin.form', array(
-				'title' => 'Ubah Akun Admin #' . $user->id,
+				'title' => 'Ubah Akun #' . $user->id,
 				'detail' => '',
 				'form_opts' => array(
 					'route' => array('account.update', $user->id),
@@ -164,8 +177,8 @@ class AdminController extends BaseController {
 					'class' => 'form-horizontal'
 				),
 				'user' => $user,
-				'listRegion' => $listRegion,
-				'listRole' => $listRole
+//				'listRegion' => $listRegion,
+//				'listRole' => $listRole
 			));
 	}
 
@@ -184,17 +197,18 @@ class AdminController extends BaseController {
 		$user = User::find($id);
 
 
-        $user->role_id = $input['role'];
-		$user->email = $input['email'];
-        $user->username = $input['username'];
-        $user->password = $input['password'];
+//        $user->role_id = $input['role'];
+
+        $user->username = $input['email'];
+        $user->password = Hash::make($input['password']);
 		$user->save();
 
-        $user->registrasi->role_id = $input['role'];
-		$user->registrasi->nama_lengkap = $input['nama_lengkap'];
-		$user->registrasi->save();
+//        $user->registrasi->role_id = $input['role'];
+        $user->pengguna->email = $input['email'];
+		$user->pengguna->nama_lengkap = $input['nama_lengkap'];
+		$user->pengguna->save();
 
-		return Redirect::to('account')->with('success', 'Data admin berhasil diubah.');
+		return Redirect::to('account')->with('success', 'Data berhasil diubah.');
 	}
 
 	/**
@@ -205,9 +219,11 @@ class AdminController extends BaseController {
 	 */
 	public function destroy($id)
 	{
+
 		$user = User::find($id);
+//        var_dump($user);exit;
 		if(!is_null($user)) {
-			$user->registrasi->delete();
+			$user->pengguna()->delete();
 			$user->delete();
 		}
 			

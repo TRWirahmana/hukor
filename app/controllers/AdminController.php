@@ -85,8 +85,6 @@ class AdminController extends BaseController {
                 'id' => 'reg_admin'
 			),
 			'user' => new User(),
-//			'listRegion' => $listRegion,
-//			'listRole' => $listRole
 		));
 	}
 
@@ -153,8 +151,6 @@ class AdminController extends BaseController {
 	public function edit($id)
 	{
 
-//		$listRegion = array("" => "-- Pilih Region --") + Provinsi::lists('nama', 'id');
-
         $role = User::select('role_id');
         $listRole = array();
         foreach($role as $data)
@@ -202,8 +198,6 @@ class AdminController extends BaseController {
         $user->username = $input['email'];
         $user->password = Hash::make($input['password']);
 		$user->save();
-
-//        $user->registrasi->role_id = $input['role'];
         $user->pengguna->email = $input['email'];
 		$user->pengguna->nama_lengkap = $input['nama_lengkap'];
 		$user->pengguna->save();

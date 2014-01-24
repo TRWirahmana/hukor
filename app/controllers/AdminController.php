@@ -12,26 +12,29 @@ class AdminController extends BaseController {
 	 */
 	public function index()
 	{
-		if(Request::ajax()) {
+        if(Request::ajax()) {
             if(Input::get('role_id') == 0)
             {
-                $admins = User::where('role_id', '!=', null)->where('id', '!=', 1)->with('registrasi');
+                $admins = User::where('user.role_id', '!=', '')->where('user.id', '!=', 1)->with('pengguna');
             }else
             {
-                $admins = User::where('role_id', '=', Input::get('role_id'))->where('id', '!=', 1)->with('registrasi');
+                $admins = User::where('user.role_id', '=', Input::get('role_id'))->where('user.id', '!=', 1)->with('pengguna');
             }
 
-			$totalRecords = $admins->count();
-			$totalDisplayRecords = $admins->count();
-			$admins = $admins->skip(Input::get('iDisplayStart'))->take(Input::get('iDisplayLength'));
+            $totalRecords = $admins->count();
+            $totalDisplayRecords = $admins->count();
+            $admins = $admins->skip(Input::get('iDisplayStart'))->take(Input::get('iDisplayLength'));
 
-			return Response::json(array(
-				'aaData' => $admins->get()->toArray(),
-				'sEcho' => Input::get('sEcho'),
-				'iTotalRecords' => $totalRecords,
-				'iTotalDisplayRecords' => $totalDisplayRecords
-			));
-		}
+            return Response::json(array(
+                'aaData' => $admins->get()->toArray(),
+                'sEcho' => Input::get('sEcho'),
+                'iTotalRecords' => $totalRecords,
+                'iTotalDisplayRecords' => $totalDisplayRecords
+            ));
+        }
+
+//        if(Request::ajax())
+//            return Datatables::of(DAL_Registrasi::getDataTable(Input::get('role_id')))->make(true);
 
 		$this->layout->content = View::make('admin.index');
 	}
@@ -64,7 +67,7 @@ class AdminController extends BaseController {
 			'title' => 'Tambah Akun Admin',
 			'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',
 			'form_opts' => array(
-				'route' => 'admin.Account.store',
+				'route' => 'account.store',
 				'method' => 'post',
 				'class' => 'form-horizontal'
 			),
@@ -93,9 +96,8 @@ class AdminController extends BaseController {
 		
 		if($user->save()){
             /* save to table registrasi */
-			$registrasi = new Registrasi();
+			$registrasi = new Pengguna();
             $registrasi->user_id = $user->id;
-			$registrasi->role_id = $input['role'];
 			$registrasi->nama_lengkap = $input['nama_lengkap'];
 
 			$registrasi->save();
@@ -115,7 +117,7 @@ class AdminController extends BaseController {
 			
 		}
 
-		return Redirect::to('admin/Account')->with('success', 'Akun admin berhasil ditambahkan.');
+		return Redirect::to('account')->with('success', 'Akun admin berhasil ditambahkan.');
 	}
 
 	/**
@@ -157,7 +159,7 @@ class AdminController extends BaseController {
 				'title' => 'Ubah Akun Admin #' . $user->id,
 				'detail' => '',
 				'form_opts' => array(
-					'route' => array('admin.Account.update', $user->id),
+					'route' => array('account.update', $user->id),
 					'method' => 'put',
 					'class' => 'form-horizontal'
 				),
@@ -192,7 +194,7 @@ class AdminController extends BaseController {
 		$user->registrasi->nama_lengkap = $input['nama_lengkap'];
 		$user->registrasi->save();
 
-		return Redirect::to('admin/Account')->with('success', 'Data admin berhasil diubah.');
+		return Redirect::to('account')->with('success', 'Data admin berhasil diubah.');
 	}
 
 	/**

@@ -30,6 +30,8 @@ Route::group(array('before' => 'guest'), function(){
     Route::resource('user', 'UserController');
     Route::resource('bantuanhukum', 'BantuanHukumController');
     Route::resource('forget', 'ForgetPasswordController@index');
+
+    Route::resource('account', 'AdminController@index');
 });
 
 Route::group(array('before' => 'auth'), function(){
@@ -70,7 +72,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|admin_center'), functi
 	
 	Route::resource('region', 'RegionController');
 	Route::resource('provinsi', 'ProvinsiController');
-	Route::resource('account', 'AdminController');
+//	Route::resource('account', 'AdminController');
 	Route::resource('bpnb', 'BpnbController');
 
 	//

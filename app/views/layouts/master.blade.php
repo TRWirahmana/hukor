@@ -61,7 +61,7 @@
         </header>
           <?php $user = Auth::user(); ?>
           @if($user != null)
-        <p id="username">Selamat datang, <?php echo $user->pengguna->nama_lengkap; ?><span id="name"></span></p>
+        <p id="username">Selamat datang, <?php echo $user->username; ?><span id="name"></span></p>
           @else
           <p id="username">Selamat datang guest<span id="name"></span></p>
           @endif
@@ -70,6 +70,7 @@
             <!-- <li>
               <a href="http://localhost/retane_blog/wp-login.php?log=<?php //echo $datses['us']; ?>&pwd=<?php echo $datses['pd']; ?>" target="_blank"><span class="rulycon-wordpress"></span> Blog</a>
             </li> -->
+            <li><a href="{{URL::to('account')}}">Kelola Akun</a></li>
             <li><a href="{{ URL::route('index_per_uu') }}">Peraturan Perundang-undangan</a></li>
             <li><a href="#">Pelembagaan</a></li>
             <li><a href="{{URL::to('BantuanHukum')}}">Bantuan Hukum</a></li>

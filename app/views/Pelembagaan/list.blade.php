@@ -3,11 +3,14 @@
 <div class='stripe-accent'></div>
 
     <legend>Bantuan Hukum
-        <a class="btn btn-mini btn-primary" href="#">
+        <a class="btn btn-mini btn-primary" href="{{ URL::to('pelembagaan/usulan'); }}">
             <i class="icon-plus"></i>&nbsp; Tambah Baru</a>
     </legend>
 
 @include('flash')
+
+
+    
 
     <table id="tbl-pelembagaan">
         <thead>
@@ -18,18 +21,21 @@
             <th>Jabatan</th>
             <th>Perihal</th>
             <th>Status</th>
-            <th></th>
+<!--            <th>edit</th>-->
         </tr>
         </thead>
       	<tbody></tbody>
 
     </table>
-
+    
     @section('scripts')
         @parent
-        <!--
         <script type="text/javascript">
-             $("#tbl-pelembagaan").dataTable({
+            $("#tbl-pelembagaan").dataTable({
+        
+                iDisplayLength: 5,
+                
+//                bProcessing: true,
                	bServerSide: true,
 		sAjaxSource: document.location.href,
 		aoColumns: [
@@ -42,8 +48,6 @@
                 ]
                 
             });
-        </script> 
-        -->
+        </script>        
 @stop
 @stop
-

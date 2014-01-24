@@ -83,34 +83,21 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|admin_center'), functi
 	Route::post('UpdateEstimasi', 'EstimasiPendaftaranController@update');
 });
 
-// Routing Per-UU
-//Route::get('per-uu', array("as" => "UsulanPerUU", "uses" => "PeruuController@pengajuanUsulan"));
-//Route::post('per-uu', array("as" => "prosesPengajuan", "uses" => "PeruuController@prosesPengajuan"));
 
-// Routing Pelembagaan
-Route::get('usulan-pelembagaan', array("as" => "UsulanPelembagaan", "uses" => "PelembagaanController@pengajuanUsulan"));
-Route::post('usulan-pelembagaan', array("as" => "prosesPengajuan", "uses" => "PelembagaanController@prosesPengajuan"));
-
-Route::get('usulan-list', array("as" => "ListUsulanPelembagaan", "uses" => "PelembagaanController@listUsulan"));
-
-    Route::get('tabelpelembagaan', 'PelembagaanController@datatable');
-
-
-
-/*
-Route::group(array('prefix' => 'pelembagaan'), function()
-{
-	Route::get('/', 'PelembagaanController@index');
-
-        Route::get('usulan', 'PelembagaanController@pengajuanUsulan');
-        Route::post('ver', 'PelembagaanController@prosesPengajuan');
- 	
-//	Route::get('usulan', array("as" => "UsulanPelembagaan", "uses" => "PelembagaanController@pengajuanUsulan"));
-//	Route::post('usulan', array("as" => "ProsesPelembagaan", "uses" => "PelembagaanController@prosesPengajuan"));
+Route::group(array('prefix' => 'per-uu'), function() {
+	Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
+	Route::get('usulan', array('as' => 'pengajuan_per_uu', 'uses' => 'PeruuController@pengajuanUsulan'));
+	Route::post('usulan', array('as' => 'proses_pengajuan', 'uses' => 'PeruuController@prosesPengajuan'));
 });
 
-*/
 
+// Routing Pelembagaan
+Route::group(array('prefix' => 'pelembagaan'), function() {
+	Route::get('/', array('as' => 'list_usulan_pelembagaan', 'uses' => 'PelembagaanController@listUsulan'));
+//	Route::get('test', array('as' => 'index_usulan_pelembagaan', 'uses' => 'PelembagaanController@index'));
+        Route::get('usulan', array('as' => 'pengajuan_pelembagaan', 'uses' => 'PelembagaanController@pengajuanUsulan'));
+	Route::post('usulan', array('as' => 'proses_pengajuan_perlembagaan', 'uses' => 'PelembagaanController@prosesPengajuan'));
+});
 
 
 

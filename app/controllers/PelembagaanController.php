@@ -7,27 +7,17 @@ class PelembagaanController extends BaseController {
 	protected $layout = 'layouts.master';
 
 	public function index()
-	{
-		$this->layout->content = View::make('Pelembagaan.index');		
+	{            
+            	$this->layout->content = View::make('Pelembagaan.index');		
 	}
 
 	public function listUsulan()
 	{
            //     $data =  Pelembagaan::find(1)->pengguna;
-            if(Request::ajax()){
-                $data = Pelembagaan::join('pengguna', 'pelembagaan.id_pengguna','=', 'pengguna.user_id')
-                        ->select(array(
-                            'pelembagaan.id',
-                            'pelembagaan.tanggal_usulan',
-                            'pengguna.unit_kerja',
-                            'pengguna.jabatan',
-                            'pelembagaan.perihal',
-                            'pelembagaan.status'
-                        ));
-                    
-                       return Datatables::of($data)->make(true);
-            }
-		$this->layout->content = View::make('Pelembagaan.index');		
+            if(Request::ajax())
+                return Datatables::of(DAL_Pelembagaan::getDataTable())->make(true);
+            
+            $this->layout->content = View::make('Pelembagaan.list');		
 	}
 
         public function datatable()
@@ -52,20 +42,6 @@ class PelembagaanController extends BaseController {
 	public function prosesPengajuan()
 	{
 
-            /*
-		$rules = array(
-			'jenis_usulan' => 'required',
-			'perihal'      => 'required',
-			'catatan'      => 'required'
-		);
-		$validator = Validator::make(Input::all(), $rules);
-		
-		if ($validator->fails()) {
-			return Redirect::back()->withErrors($validator);            
-		} else {
-            */
-
-
                 $img = Input::file('lampiran');
 
 		$destinationPath = UPLOAD_PATH . '/' . str_random(8);
@@ -88,11 +64,7 @@ class PelembagaanController extends BaseController {
 			}					
 		} else {
 			Session::flash('error', 'Gagal mengirim berkas. Pastikan berkas berupa PDF dan kurang dari 512k.');
-		}
-
-		
+		}		
 		return Redirect::back();            
-	//}
-}
-
+	}
 }

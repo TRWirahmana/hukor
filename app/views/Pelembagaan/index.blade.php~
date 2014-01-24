@@ -23,27 +23,5 @@
         </thead>
       	<tbody></tbody>
 
-    </table>
-
-    @section('scripts')
-        @parent
-        <!--
-        <script type="text/javascript">
-             $("#tbl-pelembagaan").dataTable({
-               	bServerSide: true,
-		sAjaxSource: document.location.href,
-		aoColumns: [
-                    {mData: "id"},
-                    {mData: "tanggal_usulan"},
-                    {mData: "unit_kerja"},
-                    {mData: "jabatan"},
-                    {mData: "perihal"},
-                    {mData: "status"}
-                ]
-                
-            });
-        </script> 
-        -->
+    </table>    
 @stop
-@stop
-

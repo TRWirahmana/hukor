@@ -10,7 +10,7 @@ class DAL_Pelembagaan {
                             'pengguna.jabatan',
                             'pelembagaan.perihal',
                             'pelembagaan.status'
-                ));     
+                ))->get();     
     }
 }
 

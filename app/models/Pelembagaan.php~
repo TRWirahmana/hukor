@@ -6,7 +6,7 @@ class Pelembagaan extends Eloquent {
 	public $timestamps = false;
 
 	public function pengguna() {
-		return $this->belongsTo('Pengguna', 'id_pengguna');
+		return $this->hasOne('Pengguna');
 	}
 
 }

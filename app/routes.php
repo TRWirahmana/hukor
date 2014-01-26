@@ -32,6 +32,8 @@ Route::group(array('before' => 'guest'), function(){
     Route::resource('forget', 'ForgetPasswordController@index');
 
     Route::resource('account', 'AdminController');
+    Route::resource('pelembagaan', 'PelembagaanController');
+    
 });
 
 Route::group(array('before' => 'auth'), function(){
@@ -88,26 +90,3 @@ Route::group(array('prefix' => 'per-uu'), function() {
 	Route::post('usulan', array('as' => 'proses_pengajuan', 'uses' => 'PeruuController@prosesPengajuan'));
 });
 
-
-// Routing Pelembagaan
-
-Route::group(array('prefix' => 'pelembagaan'), function() {
-	Route::get('/', array('as' => 'list_usulan_pelembagaan', 'uses' => 'PelembagaanController@listUsulan'));
-//	Route::get('test', array('as' => 'index_usulan_pelembagaan', 'uses' => 'PelembagaanController@index'));
-        Route::get('usulan', array('as' => 'pengajuan_pelembagaan', 'uses' => 'PelembagaanController@pengajuanUsulan'));
-	Route::post('usulan', array('as' => 'proses_pengajuan_perlembagaan', 'uses' => 'PelembagaanController@prosesPengajuan'));
-});
-
-
-
-//Route::get('usulan-pelembagaan', array("as" => "UsulanPelembagaan", "uses" => "PelembagaanController@pengajuanUsulan"));
-//Route::post('usulan-pelembagaan', array("as" => "prosesPengajuan", "uses" => "PelembagaanController@prosesPengajuan"));
-/*
-Route::group(array('prefix' => 'pelembagaan'), function()
-{
-	Route::get('/', 'PelembagaanController@index');
-	
-	Route::get('usulan', array("as" => "UsulanPelembagaan", "uses" => "PelembagaanController@pengajuanUsulan"));
-	Route::post('usulan', array("as" => "prosesPelembagaan", "uses" => "PelembagaanController@prosesPengajuan"));
-});
-*/

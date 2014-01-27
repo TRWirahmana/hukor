@@ -343,8 +343,6 @@ var Registrasi = (function(REG) {
             else
                 return --age;
         }
-
-
     };
 
     return REG;

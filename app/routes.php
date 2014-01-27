@@ -90,3 +90,8 @@ Route::group(array('prefix' => 'per-uu'), function() {
 	Route::post('usulan', array('as' => 'proses_pengajuan', 'uses' => 'PeruuController@prosesPengajuan'));
 });
 
+Route::group(array('prefix' => 'layanan_kelembagaan'), function() {
+    Route::get('LayananKelembagaan', array('as' => 'LayananKelembagaan', 'uses' => 'LayananKelembagaanController@index'));
+    Route::get('CreateInfo', 'LayananKelembagaanController@pengajuanUsulan');
+});
+

@@ -7,16 +7,16 @@
 	{{ Form::open($form_opts) }}
 
 		<div class="row-fluid">
+		
 			<div class="span12">
 				<fieldset>
 		              <div class="nav nav-tabs">
 						<h4>Informasi Pengusul</h4>
 		              </div>
-					
 					<div class="control-group">		
-						{{ Form::label('jenis_usulan', 'Jenis Usulan', array('class' => 'control-label'))}}
+						{{ Form::label('tgl_usulan', 'Tanggal Usulan', array('class' => 'control-label'))}}
 						<div class="controls">
-							{{ Form::select('jenis_usulan', array('1' => 'Pendirian', '2' => 'Perubahan', '3' => 'Statuta', '4' => 'Penutupan' )); }}
+								{{ Form::text('tgl_usulan', $pelembagaan->tgl_usulan ) }}
 						</div>
 					</div>
 					
@@ -54,7 +54,7 @@
 					</div>
 
 					<div class="control-group">
-						{{ Form::label('nama_pemohon', "Nama Pemohon", array('class' => 'control-label'))}}
+						{{ Form::label('nama_pemohon', "Nama", array('class' => 'control-label'))}}
 						<div class="controls">
 							@if(!is_object($pelembagaan->pengguna))
 								{{ Form::text('nama_pemohon') }}
@@ -97,12 +97,9 @@
 							@endif							
 						</div>
 					</div>	
-	
 				</fieldset>
-			</div>
-
-		<div class="row-fluid">
-			<div class="span12">
+	
+				<br />
 				<fieldset>
 		              <div class="nav nav-tabs">
 						<h4>Informasi Perihal & Lampiran</h4>
@@ -121,62 +118,101 @@
 							<a href="#"  > Unduh</a> </div>
 						@endif
 					</div>
+				</fieldset>
+			</div>
+
+			<div class="span12">
+				<fieldset>
+		              <div class="nav nav-tabs">
+						<h4>Update Status</h4>
+		              </div>
+					<div class="control-group">
+					{{ Form::label("status", "Status", array('class' => 'control-label')) }}
+						<div class="controls">
+							{{ Form::select('status', array('1' => 'Diproses', '2' => 'Kirim Ke Bagian Peraturan PerUU' )); }} </div>
+					</div>
+				
 					<div class="control-group">
 					{{ Form::label('catatan', "Catatan", array('class' => 'control-label')) }}
 						<div class="controls">{{ Form::textarea('catatan', $pelembagaan->catatan) }}</div>
 					</div>
-				</fieldset>
-			</div>
-			<div class="span6"></div>
 
-		
-			<div class="span12">
-				<fieldset>
-		              <div class="nav nav-tabs">
-						<h4>Informasi Registrasi</h4>
-		              </div>
 					<div class="control-group">
-					{{ Form::label("nama", "Nama", array('class' => 'control-label')) }}
+					{{ Form::label("ket_lampiran", "Ket. Lampiran", array('class' => 'control-label')) }}
 						<div class="controls">
-					    @if(!is_object($pelembagaan->pengguna))
-							{{ Form::text("nama") }}</div>
-					    @else
-							{{ Form::text("nama", $pelembagaan->pengguna->nama_lengkap) }}</div>
-						@endif
-					</div>
-				
-					<div class="control-group">
-					{{ Form::label("pos_el", "Pos El", array('class' => 'control-label')) }}
-						<div class="controls">
-					    @if(!is_object($pelembagaan->pengguna))
-							{{ Form::text("pos_el") }}</div>
-					    @else
-							{{ Form::text("pos_el", $pelembagaan->pengguna->email) }}</div>
-						@endif
+							{{ Form::text("ket_lampiran") }}</div>
 					</div>
 
 					<div class="control-group">
-					{{ Form::label("id-number", "Id-Number", array('class' => 'control-label')) }}
+					{{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
 						<div class="controls">
-					    @if(!is_object($pelembagaan->pengguna))
-							{{ Form::text("id_number") }}</div>
-						@else
-							{{ Form::text("id_number", $pelembagaan->pengguna->user_id) }}</div>
-						@endif
+							{{ Form::file('lampiran') }}</div>
 					</div>
 
+					<div class="control-group">
+					{{ Form::label('status_terakhir', "Status Terakhir", array('class' => 'control-label')) }}
+						<div class="controls">
+						{{ Form::text("ket_lampiran") }}</div>
+						</div>
 
 					<p>( <a href="#">klik disini untuk merubah informasi registrasi</a> )</p>
 
-		<div class="form-actions">
-			{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
-		</div>
-			</div>	
+					<div class="form-actions">
+						{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
+					</div>
+			
+					<div class="form-actions">
+						{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
+					</div>
+
+				</fieldset>
+			</div>
+ </div>
+
+<div class="row-fluid">
+
+<table id="tbl-pelembagaan" class="dataTable" aria-describedby="tbl-pelembagaan_info">  
+        <thead>
+        <tr role="row">
+        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Tgl Usulan: activate to sort column ascending" style="width: 133px;">Tgl Usulan</th>
+        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Unit Kerja: activate to sort column ascending" style="width: 122px;">Status</th>
+        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Jabatan: activate to sort column ascending" style="width: 103px;">Catatan</th>
+        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Perihal: activate to sort column ascending" style="width: 91px;">Lampiran</th>
+        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label=" - : activate to sort column ascending" style="width: 25px;"> Ket </th>
+        </tr>
+        </thead>
+        
+    <tbody role="alert" aria-live="polite" aria-relevant="all">
+    	<tr class="odd">
+    		<td class=" sorting_1">15</td>
+    		<td class="">2014-01-27</td>
+    		<td class="">lini</td>
+    		<td class="">0</td>
+    		<td class="">hukum2</td>
+    	</tr>
+		<tr class="odd">
+    		<td class=" sorting_1">15</td>
+    		<td class="">2014-01-27</td>
+    		<td class="">lini</td>
+    		<td class="">0</td>
+    		<td class="">hukum2</td>
+    	</tr>
+
+
+</table>
+
+
+
 
 </div>
-</div>
+
 	{{ Form::close() }}
+
+
+
 @stop
+
+
 
 @section('scripts')
 @parent

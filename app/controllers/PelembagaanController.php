@@ -62,13 +62,14 @@ class PelembagaanController extends BaseController {
 		$pelembagaan = Pelembagaan::find($id);
 		//$pelembagaan->load('pengguna');
 		if(!is_null($pelembagaan))
-			$this->layout->content = View::make('Pelembagaan.form', array(
+			$this->layout->content = View::make('Pelembagaan.update', array(
 				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
 				'detail' => '',
 				'form_opts' => array(
 					'route' => array('pelembagaan.update', $pelembagaan->id),
 					'method' => 'put',
-					'class' => 'form-horizontal'
+					'class' => 'form-horizontal',
+					'files' => true
 				),
 				'pelembagaan' => $pelembagaan,
 //				'listRegion' => $listRegion,
@@ -87,6 +88,7 @@ class PelembagaanController extends BaseController {
 		$pelembagaan->perihal = Input::get('perihal');
 		$pelembagaan->catatan = Input::get('catatan');
 		$pelembagaan->lampiran = "filename";
+		$pelembagaan->status = Input::get('status');
 
         $pelembagaan->tgl_usulan = Carbon::now();
         $pelembagaan->save();

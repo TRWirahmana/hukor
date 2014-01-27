@@ -18,8 +18,7 @@
     </fieldset>
 </form>
 
-    <table id="tbl-pelembagaan">
-        
+    <table id="tbl-pelembagaan">  
         <thead>
         <tr>
             <th>No. Usulan</th>

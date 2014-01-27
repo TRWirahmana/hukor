@@ -1,8 +1,3 @@
-@section('styles')
-@parent
-<link rel="stylesheet" href="{{asset('assets/css/jquery.dataTables.css')}}">
-@stop
-
 @section('content')
 @include('flash')
 <h2>Kelola Akun</h2>

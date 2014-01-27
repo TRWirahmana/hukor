@@ -12,11 +12,10 @@
 		              <div class="nav nav-tabs">
 						<h4>Informasi Pengusul</h4>
 		              </div>
-					
 					<div class="control-group">		
-						{{ Form::label('jenis_usulan', 'Jenis Usulan', array('class' => 'control-label'))}}
+						{{ Form::label('tgl_usulan', 'Tanggal Usulan', array('class' => 'control-label'))}}
 						<div class="controls">
-							{{ Form::select('jenis_usulan', array('1' => 'Pendirian', '2' => 'Perubahan', '3' => 'Statuta', '4' => 'Penutupan' )); }}
+								{{ Form::text('tgl_usulan', $pelembagaan->tgl_usulan ) }}
 						</div>
 					</div>
 					
@@ -54,7 +53,7 @@
 					</div>
 
 					<div class="control-group">
-						{{ Form::label('nama_pemohon', "Nama Pemohon", array('class' => 'control-label'))}}
+						{{ Form::label('nama_pemohon', "Nama", array('class' => 'control-label'))}}
 						<div class="controls">
 							@if(!is_object($pelembagaan->pengguna))
 								{{ Form::text('nama_pemohon') }}
@@ -97,13 +96,9 @@
 							@endif							
 						</div>
 					</div>	
-	
 				</fieldset>
-			</div>
-
-		<div class="row-fluid">
-			<div class="span12">
-			
+	
+				<br />
 				<fieldset>
 		              <div class="nav nav-tabs">
 						<h4>Informasi Perihal & Lampiran</h4>
@@ -122,72 +117,52 @@
 							<a href="#"  > Unduh</a> </div>
 						@endif
 					</div>
+				</fieldset>
+			</div>
+
+			<div class="span12">
+				<fieldset>
+		              <div class="nav nav-tabs">
+						<h4>Update Status</h4>
+		              </div>
+					<div class="control-group">
+					{{ Form::label("status", "Status", array('class' => 'control-label')) }}
+						<div class="controls">
+							{{ Form::select('status', array('1' => 'Diproses', '2' => 'Kirim Ke Bagian Peraturan PerUU' )); }} </div>
+					</div>
+				
 					<div class="control-group">
 					{{ Form::label('catatan', "Catatan", array('class' => 'control-label')) }}
 						<div class="controls">{{ Form::textarea('catatan', $pelembagaan->catatan) }}</div>
 					</div>
-				</fieldset>
-			</div>
-			<div class="span6"></div>
 
-		
-			<div class="span12">
-				<fieldset>
-		              <div class="nav nav-tabs">
-						<h4>Informasi Registrasi</h4>
-		              </div>
 					<div class="control-group">
-					{{ Form::label("nama", "Nama", array('class' => 'control-label')) }}
+					{{ Form::label("ket_lampiran", "Ket. Lampiran", array('class' => 'control-label')) }}
 						<div class="controls">
-					    @if(!is_object($pelembagaan->pengguna))
-							{{ Form::text("nama") }}</div>
-					    @else
-							{{ Form::text("nama", $pelembagaan->pengguna->nama_lengkap) }}</div>
-						@endif
-					</div>
-				
-					<div class="control-group">
-					{{ Form::label("pos_el", "Pos El", array('class' => 'control-label')) }}
-						<div class="controls">
-					    @if(!is_object($pelembagaan->pengguna))
-							{{ Form::text("pos_el") }}</div>
-					    @else
-							{{ Form::text("pos_el", $pelembagaan->pengguna->email) }}</div>
-						@endif
+							{{ Form::text("ket_lampiran") }}</div>
 					</div>
 
 					<div class="control-group">
-					{{ Form::label("id-number", "Id-Number", array('class' => 'control-label')) }}
+					{{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
 						<div class="controls">
-					    @if(!is_object($pelembagaan->pengguna))
-							{{ Form::text("id_number") }}</div>
-						@else
-							{{ Form::text("id_number", $pelembagaan->pengguna->user_id) }}</div>
-						@endif
+							{{ Form::file('lampiran') }}</div>
 					</div>
 
+					<div class="control-group">
+					{{ Form::label('status_terakhir', "Status Terakhir", array('class' => 'control-label')) }}
+						<div class="controls">
+						{{ Form::text("ket_lampiran") }}</div>
+						</div>
 
 					<p>( <a href="#">klik disini untuk merubah informasi registrasi</a> )</p>
 
-		<div class="form-actions">
-			{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
-		</div>
-			</div>	
-
-</div>
-</div>
+					<div class="form-actions">
+						{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
+					</div>
+				</fieldset>
+			</div>
+<!-- </div>
+ -->
 	{{ Form::close() }}
 @stop
-
-@section('scripts')
-@parent
-<script src="{{ asset('assets/lib/tinymce/tinymce.min.js') }}"></script>
-<script src="{{asset('assets/js/jquery.validate.js')}}"></script>
-<script src="{{asset('assets/js/additional-methods.js')}}"></script>
-
-<script src="{{asset('assets/js/pelembagaan.js')}}"></script>
-
-<script type="text/javascript">
-    Pelembagaan.Form();
-</script>
 

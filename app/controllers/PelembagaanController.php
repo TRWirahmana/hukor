@@ -88,6 +88,7 @@ class PelembagaanController extends BaseController {
 		$pelembagaan->perihal = Input::get('perihal');
 		$pelembagaan->catatan = Input::get('catatan');
 		$pelembagaan->lampiran = "filename";
+		$pelembagaan->status = Input::get('status');
 
         $pelembagaan->tgl_usulan = Carbon::now();
         $pelembagaan->save();

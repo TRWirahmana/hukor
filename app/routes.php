@@ -23,7 +23,7 @@ Route::group(array('before' => 'guest'), function(){
 	Route::get('manual_registrasi', 'HomeController@download_manual');
 
     Route::get('tabelbahu', 'BantuanHukumController@datatable');
-    Route::get('add', 'BantuanHukumController@add');
+    Route::get('addbahu', 'BantuanHukumController@add');
     Route::post('save', 'BantuanHukumController@save');
 
     Route::resource('user', 'UserController');

@@ -1,16 +1,16 @@
 @section('content')
     <legend>Bantuan Hukum
-        <a class="btn btn-mini btn-primary" href="{{ URL::to('/BantuanHukum/add')}}">
+        <a class="btn btn-mini btn-primary" href="{{ URL::to('/addbahu')}}">
             <i class="icon-plus"></i>&nbsp; Tambah Baru</a>
     </legend>
     <table id="basictable" class="dataTable">
         <thead>
         <tr>
-            <th>Nama lengkap</th>
-            <th>Alamat</th>
-            <th>TTL</th>
-            <th>Pendidikan terakhir</th>
-            <th>Status</th>
+            <th>Nama Pemohon</th>
+            <th>Jenis Perkara</th>
+            <th>Status Pemohon</th>
+            <th>Status Perkara</th>
+            <th>Di Advokasi Oleh</th>
             <th></th>
         </tr>
         </thead>

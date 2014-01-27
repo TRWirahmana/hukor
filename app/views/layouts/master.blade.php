@@ -74,7 +74,7 @@
                 <li><a href="{{URL::to('account')}}">Kelola Akun</a></li>
 
             <li><a href="{{ URL::route('index_per_uu') }}">Peraturan Perundang-undangan</a></li>
-            <li><a href="#">Pelembagaan</a></li>
+            <li><a href="{{URL::to('pelembagaan')}}">Pelembagaan</a></li>
             <li><a href="{{URL::to('BantuanHukum')}}">Bantuan Hukum</a></li>
 
               @if($user != null)

@@ -4,7 +4,7 @@
  * Author    : tajhul.faijin@sangkuriang.co.id
  * Copyright : Sangkuriang
  */
-var Registrasi = (function(REG) {
+var Pelembagaan = (function(REG) {
 
     REG.Index = function() {
         /* Filter Daerah Registrasi */
@@ -51,46 +51,12 @@ var Registrasi = (function(REG) {
         });
 
         var rules = {
-                'nama_lengkap': 'required',
-                'password': 'required',
+                'perihal': 'required',
+                'catatan': 'required',
                 'password_confirmation': 'required',
                 'email': {
                     required: true,
                     email: true
-                },
-                'unit_kerja': 'required',
-                'tlp_kantor': {
-                    required: true,
-                    number: true
-                },
-                'handphone': {
-                    required: true,
-                    number: true
-                },
-                'nip': {
-                    required: true,
-                    number: true
-                },
-                'jabatan': {
-                    required: true,
-                    number: true
-                },
-                'bagian': {
-                    required: true,
-                    number: true
-                },
-                'sub_bagian': {
-                    required: true,
-                    number: true
-                },
-                'tgl_lahir': {
-                    required: true
-                },
-                'pekerjaan': {
-                    required: true
-                },
-                'alamat_kantor': {
-                    required: true
                 }
             };
 

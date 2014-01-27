@@ -62,7 +62,7 @@ class PelembagaanController extends BaseController {
 		$pelembagaan = Pelembagaan::find($id);
 		//$pelembagaan->load('pengguna');
 		if(!is_null($pelembagaan))
-			$this->layout->content = View::make('Pelembagaan.form', array(
+			$this->layout->content = View::make('Pelembagaan.update', array(
 				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
 				'detail' => '',
 				'form_opts' => array(

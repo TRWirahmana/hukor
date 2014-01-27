@@ -5,10 +5,7 @@ $(document).ready(function(e){
 
     };
     dom.$table_admin.dataTable({
-        sDom: 'tipr',
-        bProcessing: true,
         bServerSide: true,
-        bSort: false,
         sAjaxSource: document.URL,
         aoColumns: [
             {

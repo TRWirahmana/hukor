@@ -76,7 +76,7 @@ class AdminController extends BaseController {
 		}
 
 		$this->layout->content = View::make('admin.form', array(
-			'title' => 'Tambah Akun',
+			'title' => 'Tambah Akun Admin',
 			'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',
 			'form_opts' => array(
 				'route' => 'account.store',

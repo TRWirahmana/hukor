@@ -70,20 +70,22 @@
             <!-- <li>
               <a href="http://localhost/retane_blog/wp-login.php?log=<?php //echo $datses['us']; ?>&pwd=<?php echo $datses['pd']; ?>" target="_blank"><span class="rulycon-wordpress"></span> Blog</a>
             </li> -->
-            <li><a href="{{URL::to('account')}}">Kelola Akun</a></li>
+
+                <li><a href="{{URL::to('account')}}">Kelola Akun</a></li>
+
             <li><a href="{{ URL::route('index_per_uu') }}">Peraturan Perundang-undangan</a></li>
             <li><a href="{{URL::to('pelembagaan')}}">Pelembagaan</a></li>
             <li><a href="{{URL::to('BantuanHukum')}}">Bantuan Hukum</a></li>
-            <li><a href="{{URL::to('registrasi')}}">Form Pendaftaran</a></li>
 
               @if($user != null)
-            <li>
-              <a href="#" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a>
-            </li>
-            <li>
-              <a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span> Sign
-              out</a>
-            </li>
+                <li><a href="{{URL::to('registrasi')}}">Form Pendaftaran</a></li>
+                <li>
+                  <a href="#" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a>
+                </li>
+                <li>
+                  <a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span> Sign
+                  out</a>
+                </li>
               @endif
 
               @if($user == null)

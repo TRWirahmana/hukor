@@ -1,8 +1,15 @@
 @section('content')
+
+
+<h2>BANTUAN HUKUM</h2>
+<div class="stripe-accent"></div>
     <legend>Bantuan Hukum
         <a class="btn btn-mini btn-primary" href="{{ URL::to('/addbahu')}}">
             <i class="icon-plus"></i>&nbsp; Tambah Baru</a>
     </legend>
+
+    @include('flash')
+    
     <table id="basictable" class="dataTable">
         <thead>
         <tr>

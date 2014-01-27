@@ -1,6 +1,12 @@
-
 @section('content')
-	{{ Form::open(array('route' => 'prosesPengajuan', 'files' => true, 'class' => 'form form-horizontal'))}}
+
+<h2>PERATURAN PERUNDANG-UNDANGAN</h2>
+<div class="stripe-accent"></div>
+<legend>Pengajuan Usulan</legend>
+
+@include('flash')
+
+	{{ Form::open(array('route' => 'proses_pengajuan', 'files' => true, 'class' => 'form form-horizontal'))}}
 
 		<div class="row-fluid">
 			<div class="span12">

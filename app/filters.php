@@ -41,15 +41,15 @@ Route::filter('auth', function()
 
 Route::filter('admin_center', function(){
 	$user = Auth::user()->user;
-	if($user->role_id != "4")
+	if($user->role_id != "3")
 		App::abort(404, 'Page Not Found.');
 });
 
-Route::filter('admin_region', function(){
-	$user = Auth::user()->user;
-	if($user->role_id != "3" && $user->role_id != "4")
-		App::abort(404, 'Page Not Found.');
-});
+//Route::filter('admin_region', function(){
+//	$user = Auth::user()->user;
+//	if($user->role_id != "3" && $user->role_id != "4")
+//		App::abort(404, 'Page Not Found.');
+//});
 
 Route::filter('user', function() {
 	$user = Auth::user()->user;

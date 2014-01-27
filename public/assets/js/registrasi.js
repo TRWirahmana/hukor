@@ -52,7 +52,6 @@ var Registrasi = (function(REG) {
 
         var rules = {
                 'nama_lengkap': 'required',
-                'username': 'required',
                 'password': 'required',
                 'password_confirmation': 'required',
                 'email': {
@@ -112,7 +111,6 @@ var Registrasi = (function(REG) {
             errorClass: 'help-block error',
             rules: rules,
             messages: {
-                'username': 'Nama Pengguna wajib diisi.',
                 'password': 'Password tidak boleh kosong!.',
                 'password_confirmation': 'Konfirmasi Password wajib diisi!.',
                 'nama_lengkap': 'Nama lengkap wajib diisi.',

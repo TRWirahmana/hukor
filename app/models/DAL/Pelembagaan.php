@@ -5,12 +5,12 @@ class DAL_Pelembagaan {
 	return Pelembagaan::join('pengguna', 'pelembagaan.id_pengguna','=', 'pengguna.user_id')
                         ->select(array(
                             'pelembagaan.id',
-                            'pelembagaan.tanggal_usulan',
+                            'pelembagaan.tgl_usulan',
                             'pengguna.unit_kerja',
                             'pengguna.jabatan',
                             'pelembagaan.perihal',
                             'pelembagaan.status'
-                ))->get();     
+                ));     
     }
 }
 

@@ -16,6 +16,7 @@
 Route::group(array('before' => 'guest'), function(){
     Route::get('BantuanHukum', 'BantuanHukumController@index');
 	Route::post('Masuk', 'LoginController@signin');// Registrasi
+    Route::post('Reset', 'ForgetPasswordController@reset');// Reset Password
     Route::get('registrasi', 'RegistrasiController@form');
 	Route::post('Kirim', 'RegistrasiController@send');
 	Route::get('/', 'HomeController@index');
@@ -28,6 +29,11 @@ Route::group(array('before' => 'guest'), function(){
 
     Route::resource('user', 'UserController');
     Route::resource('bantuanhukum', 'BantuanHukumController');
+    Route::resource('forget', 'ForgetPasswordController@index');
+
+    Route::resource('account', 'AdminController');
+    Route::resource('pelembagaan', 'PelembagaanController');
+    
 });
 
 Route::group(array('before' => 'auth'), function(){
@@ -38,16 +44,10 @@ Route::group(array('before' => 'auth'), function(){
 	Route::put('setting/save', 'RegistrasiController@save');
 	Route::get('Keluar', 'LoginController@signout');
 	Route::get('download', 'RegistrasiController@download');
-	Route::get('pdf', 'VerifikasiController@MakePDF');
-	Route::get('excel', 'VerifikasiController@MakeExcel');
-	Route::get('getProvinsi', 'ApiController@getProvinsi');
-	Route::get('getBpnb', 'ApiController@getBpnb');
-	Route::post('saveBpnb', 'ApiController@saveBpnb');
-	Route::get('finalisasi', 'RegistrasiController@finalisasi');
 });
 
 Route::group(array('before' => 'auth|user'), function(){
-	Route::get('edit', 'RegistrasiController@edit');
+//	Route::get('home', 'HomeController@index');
 //    Route::get('BantuanHukum', 'BantuanHukumController@index');
 	Route::post('update', 'RegistrasiController@update');
 });
@@ -74,7 +74,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|admin_center'), functi
 	
 	Route::resource('region', 'RegionController');
 	Route::resource('provinsi', 'ProvinsiController');
-	Route::resource('account', 'AdminController');
+//	Route::resource('account', 'AdminController');
 	Route::resource('bpnb', 'BpnbController');
 
 	//
@@ -84,11 +84,9 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|admin_center'), functi
 });
 
 
-// Routing Per-UU
-Route::get('per-uu', array("as" => "UsulanPerUU", "uses" => "PeruuController@pengajuanUsulan"));
-Route::post('per-uu', array("as" => "prosesPengajuan", "uses" => "PeruuController@prosesPengajuan"));
+Route::group(array('prefix' => 'per-uu'), function() {
+	Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
+	Route::get('usulan', array('as' => 'pengajuan_per_uu', 'uses' => 'PeruuController@pengajuanUsulan'));
+	Route::post('usulan', array('as' => 'proses_pengajuan', 'uses' => 'PeruuController@prosesPengajuan'));
+});
 
-// Routing Pelembagaan
-Route::get('pelembagaan', array("as" => "UsulanPerUU", "uses" => "PelembagaanController@pengajuanUsulan"));
-Route::post('pelembagaan', array("as" => "prosesPengajuan", "uses" => "PelembagaanController@prosesPengajuan"));
- Route::get('tabelbahu', 'PelembagaanController@datatable');

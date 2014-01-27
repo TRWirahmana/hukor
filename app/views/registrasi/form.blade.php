@@ -74,11 +74,12 @@
                   </div>
               </div>
 
+
+
               <div class="control-group {{$errors->has('jabatan')?'error':''}}">
                   {{ Form::label('jabatan', 'Jabatan', array('class' => 'control-label')) }}
                   <div class="controls">
-                      {{ Form::text('jabatan', '',
-                      array('placeholder' => 'ketikkan Jabatan di sini...')) }}
+                      {{ Form::select('jabatan', array('1' => 'Direktur', '2' => 'Kepala Divisi'), 'Pilih Pekerjaan') }}
 
                       @foreach($errors->get('jabatan') as $error)
                       <span class="help-block">{{$error}}</span>
@@ -89,8 +90,7 @@
               <div class="control-group {{$errors->has('bagian')?'error':''}}">
                   {{ Form::label('bagian', 'Bagian', array('class' => 'control-label')) }}
                   <div class="controls">
-                      {{ Form::text('bagian', '',
-                      array('placeholder' => 'ketikkan Bagian di sini...')) }}
+                      {{ Form::select('bagian', array('1' => 'Bagian 1', '2' => 'Bagian 2'), 'Pilih Bagian') }}
 
                       @foreach($errors->get('bagian') as $error)
                       <span class="help-block">{{$error}}</span>
@@ -101,8 +101,7 @@
               <div class="control-group {{$errors->has('sub_bagian')?'error':''}}">
                   {{ Form::label('sub_bagian', 'Sub Bagian', array('class' => 'control-label')) }}
                   <div class="controls">
-                      {{ Form::text('sub_bagian', '',
-                      array('placeholder' => 'ketikkan Sub Bagian di sini...')) }}
+                      {{ Form::select('sub_bagian', array('1' => 'Sub Bagian 1', '2' => 'Sub Bagian 2'), 'Pilih Sub Bagian') }}
 
                       @foreach($errors->get('sub_bagian') as $error)
                       <span class="help-block">{{$error}}</span>

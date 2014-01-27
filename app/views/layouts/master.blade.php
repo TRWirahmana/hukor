@@ -71,14 +71,22 @@
               <a href="http://localhost/retane_blog/wp-login.php?log=<?php //echo $datses['us']; ?>&pwd=<?php echo $datses['pd']; ?>" target="_blank"><span class="rulycon-wordpress"></span> Blog</a>
             </li> -->
 
-                <li><a href="{{URL::to('account')}}">Kelola Akun</a></li>
+            <li><a href="{{URL::to('account')}}">Kelola Akun</a></li>
+            <li><a href="#">Layanan Ketatalaksanaan</a></li>
 
+            <li><a href="{{ URL::to('index_per_uu') }}">Layanan Kelembagaan</a></li>
+            <li><a href="#">Layanan Bantuan Hukum</a></li>
+            <li><a href="#">Layanan Peraturan Perundang-Undangan</a></li>
+            <li><a href="#">Forum Diskusi</a></li>
+            <li><a href="#">Call Center</a></li>
+
+            <br>
             <li><a href="{{ URL::route('index_per_uu') }}">Peraturan Perundang-undangan</a></li>
             <li><a href="{{URL::to('pelembagaan')}}">Pelembagaan</a></li>
             <li><a href="{{URL::to('BantuanHukum')}}">Bantuan Hukum</a></li>
+            <li><a href="{{URL::to('registrasi')}}">Form Pendaftaran</a></li>
 
               @if($user != null)
-                <li><a href="{{URL::to('registrasi')}}">Form Pendaftaran</a></li>
                 <li>
                   <a href="#" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a>
                 </li>

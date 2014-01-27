@@ -68,7 +68,8 @@ class PelembagaanController extends BaseController {
 				'form_opts' => array(
 					'route' => array('pelembagaan.update', $pelembagaan->id),
 					'method' => 'put',
-					'class' => 'form-horizontal'
+					'class' => 'form-horizontal',
+					'files' => true
 				),
 				'pelembagaan' => $pelembagaan,
 //				'listRegion' => $listRegion,

@@ -7,6 +7,7 @@
 	{{ Form::open($form_opts) }}
 
 		<div class="row-fluid">
+		
 			<div class="span12">
 				<fieldset>
 		              <div class="nav nav-tabs">
@@ -159,10 +160,71 @@
 					<div class="form-actions">
 						{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
 					</div>
+			
+					<div class="form-actions">
+						{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
+					</div>
+
 				</fieldset>
 			</div>
-<!-- </div>
- -->
+ </div>
+
+<div class="row-fluid">
+
+<table id="tbl-pelembagaan" class="dataTable" aria-describedby="tbl-pelembagaan_info">  
+        <thead>
+        <tr role="row">
+        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Tgl Usulan: activate to sort column ascending" style="width: 133px;">Tgl Usulan</th>
+        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Unit Kerja: activate to sort column ascending" style="width: 122px;">Status</th>
+        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Jabatan: activate to sort column ascending" style="width: 103px;">Catatan</th>
+        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Perihal: activate to sort column ascending" style="width: 91px;">Lampiran</th>
+        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label=" - : activate to sort column ascending" style="width: 25px;"> Ket </th>
+        </tr>
+        </thead>
+        
+    <tbody role="alert" aria-live="polite" aria-relevant="all">
+    	<tr class="odd">
+    		<td class=" sorting_1">15</td>
+    		<td class="">2014-01-27</td>
+    		<td class="">lini</td>
+    		<td class="">0</td>
+    		<td class="">hukum2</td>
+    	</tr>
+		<tr class="odd">
+    		<td class=" sorting_1">15</td>
+    		<td class="">2014-01-27</td>
+    		<td class="">lini</td>
+    		<td class="">0</td>
+    		<td class="">hukum2</td>
+    	</tr>
+
+
+</table>
+
+
+
+
+</div>
+
 	{{ Form::close() }}
+
+
+
 @stop
 
+
+
+@section('scripts')
+@parent
+
+<script src="{{ asset('assets/lib/tinymce/tinymce.min.js') }}"></script>
+<script src="{{asset('assets/js/jquery.validate.js')}}"></script>
+<script src="{{asset('assets/js/additional-methods.js')}}"></script>
+
+<script src="{{asset('assets/js/pelembagaan.js')}}"></script>
+
+<script type="text/javascript">
+    Pelembagaan.Form();
+</script>
+
+@stop

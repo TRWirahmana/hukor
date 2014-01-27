@@ -103,7 +103,6 @@
 
 		<div class="row-fluid">
 			<div class="span12">
-			
 				<fieldset>
 		              <div class="nav nav-tabs">
 						<h4>Informasi Perihal & Lampiran</h4>
@@ -181,6 +180,7 @@
 
 @section('scripts')
 @parent
+
 <script src="{{ asset('assets/lib/tinymce/tinymce.min.js') }}"></script>
 <script src="{{asset('assets/js/jquery.validate.js')}}"></script>
 <script src="{{asset('assets/js/additional-methods.js')}}"></script>
@@ -191,3 +191,4 @@
     Pelembagaan.Form();
 </script>
 
+@stop

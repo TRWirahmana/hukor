@@ -24,6 +24,7 @@ class DAL_LayananKelembagaan {
         $kelem->created_at = date('Y-m-d H:i:s');
         $kelem->updated_at = date('Y-m-d H:i:s');
 
-        $kelem->save();
+        return $kelem->save();
+
     }
 }

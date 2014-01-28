@@ -51,14 +51,14 @@ class LayananKelembagaanController extends BaseController {
                     //pengecekkan file image apakah ada atau tidak
                     if(file_exists($img_exists))
 
-                        //delete file image yang exist di database
+                        //delete file image di folder yang terdaftar di database
                         unlink($img_exists);
 
                     //update data layanan_kelembagaan
                     $DAL = new DAL_LayananKelembagaan();
-                    $DAL->update($input, $kelem, $filename);
+                    $success = $DAL->update($input, $kelem, $filename);
 
-                    if($kelem->save()){
+                    if($success){
                         Session::flash('success', 'Informasi Layanan Kelembagaan berhasil dirubah!');
                         return Redirect::to('layanan_kelembagaan/CreateInfo');
                     }else{

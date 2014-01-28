@@ -35,15 +35,19 @@ class LayananKelembagaanController extends BaseController {
         if($img->isValid()){
             $uqFolder = "layanankelembagaan";
 //            var_dump($uqFolder);exit;
-            $destinationPath = UPLOAD_PATH . '/' . $uqFolder;
+            $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
             $filename = $img->getClientOriginalName();
             $uploadSuccess = $img->move($destinationPath, $filename);
 
             if($uploadSuccess){
 //                var_dump($uploadSuccess);exit;
-
                 if($rows == 1){
                     $kelem = LayananKelembagaan::find(1);
+
+                    $img_exists = $destinationPath . '/' . $kelem->image;
+
+                    if(file_exists($img_exists))
+                        unlink($img_exists);
 
                     $kelem->judul_berita = $input['judul_berita'];
                     $kelem->berita = $input['berita'];
@@ -53,11 +57,11 @@ class LayananKelembagaanController extends BaseController {
                     $kelem->updated_at = date('Y-m-d H:i:s');
 
                     $kelem->save();
-                    rmdir($destinationPath);
+
 
                     if($kelem->save()){
                         Session::flash('success', 'Informasi Layanan Kelembagaan berhasil dirubah!');
-                        return Redirect::to('layanan_kelembagaan/index');
+                        return Redirect::to('layanan_kelembagaan/CreateInfo');
                     }else{
                         Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
                         return Redirect::back();

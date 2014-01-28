@@ -41,10 +41,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LayananKelembagaanController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LayananKelembagaanController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/LayananKelembagaanController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="24" selection-start="1606" selection-end="1606" vertical-scroll-proportion="0.5271318" vertical-offset="612" max-vertical-offset="2176">
+            <state line="52" column="0" selection-start="1582" selection-end="1582" vertical-scroll-proportion="-10.461538" vertical-offset="612" max-vertical-offset="2176">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autoload_classmap.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_classmap.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="153" column="22" selection-start="13322" selection-end="13322" vertical-scroll-proportion="0.33009708" vertical-offset="2499" max-vertical-offset="3026">
               <folding />
             </state>
           </provider>
@@ -91,7 +100,6 @@
         <option value="$PROJECT_DIR$/public/assets/js/admin_index.js" />
         <option value="$PROJECT_DIR$/app/config/database.php" />
         <option value="$PROJECT_DIR$/app/views/registrasi/form.blade.php" />
-        <option value="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
         <option value="$PROJECT_DIR$/app/models/LayananKelembagaan.php" />
         <option value="$PROJECT_DIR$/public/assets/js/layanankelembagaan.js" />
         <option value="$PROJECT_DIR$/app/routes.php" />
@@ -103,6 +111,7 @@
         <option value="$PROJECT_DIR$/app/controllers/RegistrasiController.php" />
         <option value="$PROJECT_DIR$/app/models/DAL/DAL_LayananKelembagaan.php" />
         <option value="$PROJECT_DIR$/app/controllers/LayananKelembagaanController.php" />
+        <option value="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
       </list>
     </option>
   </component>
@@ -218,28 +227,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -505,7 +492,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3293718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -536,11 +523,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/PerUU/pengajuanUsulan.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="16" selection-start="2860" selection-end="2860" vertical-scroll-proportion="-12.423077" vertical-offset="1173" max-vertical-offset="2142" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/start/global.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="100" column="7" selection-start="3038" selection-end="3038" vertical-scroll-proportion="0.0" vertical-offset="1700" max-vertical-offset="1904">
@@ -639,7 +621,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/LayananKelembagaanController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="24" selection-start="1606" selection-end="1606" vertical-scroll-proportion="0.5271318" vertical-offset="612" max-vertical-offset="2176">
+        <state line="52" column="0" selection-start="1582" selection-end="1582" vertical-scroll-proportion="-10.461538" vertical-offset="612" max-vertical-offset="2176">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_classmap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="153" column="22" selection-start="13322" selection-end="13322" vertical-scroll-proportion="0.33009708" vertical-offset="2499" max-vertical-offset="3026">
           <folding />
         </state>
       </provider>

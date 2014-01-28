@@ -50,7 +50,7 @@ class LayananKelembagaanController extends BaseController {
 
                     //pengecekkan file image apakah ada atau tidak
                     if(file_exists($img_exists))
-                        
+
                         //delete file image yang exist di database
                         unlink($img_exists);
 

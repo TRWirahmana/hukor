@@ -91,7 +91,8 @@ Route::group(array('prefix' => 'per-uu'), function() {
 });
 
 Route::group(array('prefix' => 'layanan_kelembagaan'), function() {
-    Route::get('LayananKelembagaan', array('as' => 'LayananKelembagaan', 'uses' => 'LayananKelembagaanController@index'));
-    Route::get('CreateInfo', 'LayananKelembagaanController@pengajuanUsulan');
+    Route::get('index', 'LayananKelembagaanController@index');
+    Route::get('CreateInfo', 'LayananKelembagaanController@create');
+    Route::post('SubmitBerita', 'LayananKelembagaanController@submit');
 });
 

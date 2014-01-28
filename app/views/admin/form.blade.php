@@ -55,6 +55,13 @@
 						</div>
 					</div>
 
+                    <div class="control-group">
+                        {{ Form::label('role', 'Pilih Role', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{ Form::select('role', $listRole, $user->role_id, array("id" => "role_id")) }}
+                        </div>
+                    </div>
+
 				</fieldset>
 
 				<div class="form-actions">

@@ -40,24 +40,23 @@ class LayananKelembagaanController extends BaseController {
             $uploadSuccess = $img->move($destinationPath, $filename);
 
             if($uploadSuccess){
-//                var_dump($uploadSuccess);exit;
                 if($rows == 1){
+
+                    //find data dari tabel layanan_kelembagaan yang idnya = 1
                     $kelem = LayananKelembagaan::find(1);
 
+                    //path directory untuk file image
                     $img_exists = $destinationPath . '/' . $kelem->image;
 
+                    //pengecekkan file image apakah ada atau tidak
                     if(file_exists($img_exists))
+                        
+                        //delete file image yang exist di database
                         unlink($img_exists);
 
-                    $kelem->judul_berita = $input['judul_berita'];
-                    $kelem->berita = $input['berita'];
-                    $kelem->penanggung_jawab = $input['penanggung_jawab'];
-                    $kelem->image = $filename;
-                    $kelem->created_at = date('Y-m-d H:i:s');
-                    $kelem->updated_at = date('Y-m-d H:i:s');
-
-                    $kelem->save();
-
+                    //update data layanan_kelembagaan
+                    $DAL = new DAL_LayananKelembagaan();
+                    $DAL->update($input, $kelem, $filename);
 
                     if($kelem->save()){
                         Session::flash('success', 'Informasi Layanan Kelembagaan berhasil dirubah!');

@@ -88,7 +88,7 @@
 
               @if($user != null)
                 <li>
-                  <a href="#" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a>
+                  <a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a>
                 </li>
                 <li>
                   <a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span> Sign

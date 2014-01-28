@@ -78,7 +78,7 @@ class AdminController extends BaseController {
         $listRole = array(
             '1' => 'Admin',
             '3' => 'Super Admin',
-            '4' => 'Kepala'
+            '4' => 'Kepala Biro'
         );
 
 		$this->layout->content = View::make('admin.form', array(
@@ -162,7 +162,7 @@ class AdminController extends BaseController {
         $listRole = array(
             '1' => 'Admin',
             '3' => 'Super Admin',
-            '4' => 'Kepala'
+            '4' => 'Kepala Biro'
         );
 
 //        foreach($role as $data)

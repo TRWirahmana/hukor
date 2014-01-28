@@ -23,7 +23,7 @@ class RegistrasiController extends BaseController {
 
         if(!is_null($user))
             $this->layout->content = View::make('registrasi.setting', array(
-                'title' => 'Pengaturn Akun',
+                'title' => 'Pengaturan Akun',
                 'detail' => '',
                 'form_opts' => array(
                     'url' => URL::to('setting/save'),
@@ -76,8 +76,8 @@ class RegistrasiController extends BaseController {
         
         $user->save();
 
-        if($user->role_id == 8){
-            return Redirect::to('admin/Account')->with('success', 'Pengaturan akun berhasil disimpan.');
+        if($user->role_id == 3){
+            return Redirect::to('account')->with('success', 'Pengaturan akun berhasil disimpan.');
         }else{
             return Redirect::to('/')->with('success', 'Pengaturan akun berhasil disimpan.');
         }

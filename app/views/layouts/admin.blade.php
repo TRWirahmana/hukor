@@ -58,7 +58,7 @@
             <li id="beranda"><a href="{{URL::to('admin/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
             <li id="informasi"><a href="#"><span class="rulycon-user"></span> Informasi</a></li>
             <li id="aplikasi"><a href="#"><span class="rulycon-wrench"></span> Aplikasi</a></li>
-            <li id="manajemen"><a href="#"><span class="rulycon-address-book"></span> User</a></li>
+            <li id="manajemen"><a href="{{URL::to('admin/account')}}"><span class="rulycon-address-book"></span> User</a></li>
         </ul>
     </div>
 
@@ -137,10 +137,8 @@
                 <!-- end list-->
 
                 <!-- list manajemen user-->
-                <li class="dropdown" >
-                    <ul id="manage" style="display:none">
-                        <li><a href="{{URL::to('admin/account')}}"><span class="iconfa-laptop"></span> Kelola Akun</a></li>
-                    </ul>
+                <li class="dropdown" id="manage" style="display:none" >
+                        <a href="{{URL::to('admin/account')}}"><span class="iconfa-laptop"></span> Kelola Akun</a>
                 </li>
             </ul>
         </div>
@@ -171,6 +169,11 @@
 <script src="{{asset('assets/js/custom.js')}}"></script>
 <script type="text/javascript">
     jQuery(function ($) {
+        var pathmanageedit = window.location.pathname;
+        var pathname = window.location.pathname;
+        var p = pathmanageedit.substr(0,27);
+//        alert(p);
+
         $("#beranda").click(function(){
             $("#info").hide();
             $("#app").hide();
@@ -191,13 +194,16 @@
         });
 
         $("#manajemen").click(function(){
+//            var pathname = window.location.pathname;
+//            alert(pathname);
             $("#info").hide();
             $("#app").hide();
             $("#manage").show();
         });
 
-        if(){
-
+        if(pathname == "/hukor/public/admin/account" || p == "/hukor/public/admin/account"){
+            $("#manage").show();
+            $("#manage").addClass("active");
         }
 
     });

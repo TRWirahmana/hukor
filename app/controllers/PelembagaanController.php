@@ -59,6 +59,10 @@ class PelembagaanController extends BaseController {
 	 */
 	public function edit($id)
 	{
+		if(Request::ajax())  
+        	return Datatables::of(DAL_LogPelembagaan::getDataTable())->make(true);
+//        	var_dump($log_pelembagaan);
+
 		$pelembagaan = Pelembagaan::find($id);
 		//$pelembagaan->load('pengguna');
 		if(!is_null($pelembagaan))
@@ -69,9 +73,11 @@ class PelembagaanController extends BaseController {
 					'route' => array('pelembagaan.update', $pelembagaan->id),
 					'method' => 'put',
 					'class' => 'form-horizontal',
+		            'id' => 'pelembagaan-update',
 					'files' => true
 				),
 				'pelembagaan' => $pelembagaan,
+//				'log_pelembagaan' => $log_pelembagaan,
 //				'listRegion' => $listRegion,
 //				'listRole' => $listRole
 			));
@@ -79,19 +85,27 @@ class PelembagaanController extends BaseController {
 
 	public function update($id)
 	{
-		$input = Input::all();
 
 		$pelembagaan = Pelembagaan::find($id);
 
-		$pelembagaan->id_pengguna = 1;
-		$pelembagaan->jenis_usulan = Input::get('jenis_usulan');
-		$pelembagaan->perihal = Input::get('perihal');
-		$pelembagaan->catatan = Input::get('catatan');
-		$pelembagaan->lampiran = "filename";
-		$pelembagaan->status = Input::get('status');
 
-        $pelembagaan->tgl_usulan = Carbon::now();
-        $pelembagaan->save();
+        $img = Input::file('lampiran');
+		$destinationPath = UPLOAD_PATH . '/';		
+		$filename = $img->getClientOriginalName();
+		$uploadSuccess = $img->move($destinationPath, $filename);
+
+		$pelembagaan->id_pengguna = 1;
+
+		$log_pelembagaan = new LogPelembagaan();
+		$log_pelembagaan->status = Input::get('status');
+		$log_pelembagaan->catatan = Input::get('catatan');
+		$log_pelembagaan->keterangan = Input::get('keterangan');
+		$log_pelembagaan->lampiran = $filename;
+
+		$log_pelembagaan->pelembagaan_id = $pelembagaan->id_pengguna;
+        $log_pelembagaan->tgl_proses = Carbon::now();
+//	    $pelembagaan->save();
+		$log_pelembagaan->save();
 
 		return Redirect::to('pelembagaan')->with('success', 'Data berhasil diubah.');
 	}  

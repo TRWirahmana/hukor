@@ -662,7 +662,9 @@ html, .main-layout, .admin,
     font-size: 15px;
   }
 
-
+  #center-ac {
+     text-align: center;
+  }
 
 
 

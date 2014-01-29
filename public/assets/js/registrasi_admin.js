@@ -8,8 +8,8 @@ var Admin = (function(ADM) {
 
     ADM.Index = function() {
         /* Filter Daerah Registrasi */
-        $('#filter-registrasi').on('change', function() {
-            var $this = $(this);
+        jQuery('#filter-registrasi').on('change', function() {
+            var $this = jQuery(this);
             if($this.val() != '') {
                 var ACTION = baseUrl + '/Manage?rid=' + $this.val();
                 // console.log(ACTION);
@@ -30,8 +30,8 @@ var Admin = (function(ADM) {
         /*
          * Trigger Submit Form
          */
-        $('button#submit').on('click', function() {
-            $('#reg_admin_a').submit();
+        jQuery('button#submit').on('click', function() {
+            jQuery('#reg_admin_a').submit();
         });
 
         var rules = {
@@ -44,7 +44,7 @@ var Admin = (function(ADM) {
             }
         };
 
-        $("#reg_admin").validate({
+        jQuery("#reg_admin").validate({
             ignore: [],
             errorElement: 'span',
             errorClass: 'help-block error',
@@ -62,13 +62,13 @@ var Admin = (function(ADM) {
                 error.appendTo(element.parent('div.controls'));
             },
             invalidHandler: function(event, validator) {
-                $("div.control-group.error").removeClass('error');
-                $('div.controls .error[name]').parents('div.control-group').addClass('error');
+                jQuery("div.control-group.error").removeClass('error');
+                jQuery('div.controls .error[name]').parents('div.control-group').addClass('error');
             },
             onfocusout: function(elem, event) {
-                $(elem).validate();
-                $controlGroup = $(elem).parents('div.control-group');
-                if($(elem).valid())
+                jQuery(elem).validate();
+                $controlGroup = jQuery(elem).parents('div.control-group');
+                if(jQuery(elem).valid())
                     $controlGroup.removeClass('error');
                 else
                     $controlGroup.addClass('error');

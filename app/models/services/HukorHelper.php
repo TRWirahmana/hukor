@@ -117,5 +117,19 @@ class HukorHelper {
 
         return implode('-', $result);
     }
+
+    /*
+     * Upload File
+     * $dir adalah untuk nama direktori
+     * $inputFile adalah element input file
+     */
+    public static function UploadFile($dir, $inputFile)
+    {
+        $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $dir;
+        $filename = $inputFile->getClientOriginalName();
+        $uploadSuccess = $inputFile->move($destinationPath, $filename);
+
+        return $uploadSuccess;
+    }
     
 }

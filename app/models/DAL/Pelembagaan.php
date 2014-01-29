@@ -2,7 +2,7 @@
 
 class DAL_Pelembagaan {
     public static function getDataTable() {
-	return Pelembagaan::join('pengguna', 'pelembagaan.id_pengguna','=', 'pengguna.user_id')
+	return Pelembagaan::join('pengguna', 'pelembagaan.id_pengguna','=', 'pengguna.id')
                         ->select(array(
                             'pelembagaan.id',
                             'pelembagaan.tgl_usulan',

@@ -24,8 +24,13 @@ Route::group(array('before' => 'guest'), function(){
 	Route::get('manual_registrasi', 'HomeController@download_manual');
 
     Route::get('tabelbahu', 'BantuanHukumController@datatable');
-    Route::get('add', 'BantuanHukumController@add');
+    Route::get('log_banhuk', 'BantuanHukumController@tablelog');
+    Route::get('addbahu', 'BantuanHukumController@add');
+    Route::get('detail_banhuk', 'BantuanHukumController@detail');
+    Route::get('delete_banhuk', 'BantuanHukumController@delete');
     Route::post('save', 'BantuanHukumController@save');
+    Route::post('banhuk_update', 'BantuanHukumController@update');
+
 
     Route::resource('user', 'UserController');
     Route::resource('bantuanhukum', 'BantuanHukumController');

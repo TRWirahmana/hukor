@@ -217,7 +217,12 @@
 
 <script type="text/javascript">
     $(function() {
-        $( ".datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
+        $( ".datepicker" ).datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            yearRange: "1970:2020",
+            changeYear: true
+        }).val();
     });
     Registrasi.Form();
 </script>

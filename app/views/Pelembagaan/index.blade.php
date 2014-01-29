@@ -2,22 +2,46 @@
 <H2>PELEMBAGAAN</H2>
 <div class='stripe-accent'></div>
 
-    <legend>Bantuan Hukum
+    <legend>Pelembagaan
         <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('pelembagaan/create'); }}">
             <i class="icon-plus"></i>&nbsp; Tambah Baru</a>
     </legend>
 
 @include('flash')
 
+    <div class="row-fluid" style="border-bottom: 1px solid #e5e5e5;">
+    <b>
+      <table>
+        <tr>
+            <td width="100" class="style11">Status terkini : </td>
+            <td class="style10"><div align="right" style="color: red"> {{ $status_kelembagaan }} </div></td>
+            <td width="5" class="style3"></td>
+            <td class="style11">usulan pelembagaan yang belum di proses </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="style10"><div align="right" class="style10" style="color: red">2</div></td>
+            <td width="5"></td>
+            <td class="style11">kiriman dari bagian hukum yang belum di proses </td>
+        </tr>
+      </table>
+      </b>
+      <br />
+    </div>
+<br />
+
+
+<!-- 
 <form class="form-inline">
   <fieldset>
+  
     <label for="filter_unit"> Unit Kerja </label>
                <input type="text" name="filter_unit" id="filter_unit"> 
        <label for="filter_tahun"> Tahun </label>
          {{  Form::select('filter_tahun', $listTgl, null, array ('id' => 'filter_tahun')) }}         
     </fieldset>
 </form>
-
+ -->
     <table id="tbl-pelembagaan">  
         <thead>
         <tr>
@@ -81,9 +105,9 @@
                               sClass: 'center-ac',                              
                               mRender: function ( data, type, full ) {
                                   if (null != data && "" != data){
-                                    if(data ==='0'){
+                                    if(data ==='1'){
                                       return 'Direktur';
-                                    }else if(data === '1'){
+                                    }else if(data === '2'){
                                       return 'Kepala Divisi';
                                     }
                                   }

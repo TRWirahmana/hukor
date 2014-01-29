@@ -85,7 +85,7 @@
             <li><a href="{{ URL::route('index_per_uu') }}">Peraturan Perundang-undangan</a></li>
             <li><a href="{{URL::to('pelembagaan')}}">Pelembagaan</a></li>
             <li><a href="{{URL::to('BantuanHukum')}}">Bantuan Hukum</a></li>
-            <li><a href="{{URL::to('registrasi')}}">Form Pendaftaran</a></li>
+
 
               @if($user != null)
                 <li>
@@ -134,7 +134,9 @@
               {{ Form::close() }}
 
             <br>
-            <a href="{{URL::to('forget')}}"> Forget Password? </a>
+            <a href="{{URL::to('forget')}}"> Forgot Password? </a>
+            <br>
+            <a href="{{URL::to('registrasi')}}">Belum memiliki akun? Daftar disini.</a>
             @endif
           </ul>
         </div>

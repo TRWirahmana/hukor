@@ -41,10 +41,27 @@ class BantuanHukumController extends BaseController{
         $input = Input::all();
 
         $DAL = new DAL_BantuanHukun();
+        $helper = new HukorHelper();
 
-        $DAL->SaveBantuanHukum($input);
+        $uploadSuccess = $helper->UploadFile('bantuanhukum', Input::file('lampiran'));
 
-        return Redirect::to('addbahu')->with('success', 'Pengaturan akun berhasil disimpan.');
+        if($uploadSuccess)
+        {
+            $saved = $DAL->SaveBantuanHukum($input, Input::file('lampiran'));
+
+            if($saved)
+            {
+                return Redirect::to('addbahu')->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
+            }
+            else
+            {
+                return Redirect::to('addbahu')->with('error', 'Data Bantuan Hukum Gagal Di Simpan.');
+            }
+        }
+        else
+        {
+            return Redirect::to('addbahu')->with('error', 'Lampiran Gagal Disimpan.');
+        }
     }
 
     public function datatable()
@@ -54,6 +71,61 @@ class BantuanHukumController extends BaseController{
         $data = $DAL->GetAllData($input);
 
         return $data;
+    }
+
+    public function detail()
+    {
+        $id = Input::get('id');
+        $reg = new DAL_Registrasi();
+        $DAL = new DAL_BantuanHukun();
+
+        $banhuk = $DAL->GetSingleBantuanHukum($id);
+
+        // show form with empty model
+        $this->layout->content = View::make('bantuanhukum.detail', array(
+            'banhuk' => $banhuk
+        ));
+    }
+
+    public function update()
+    {
+        $input = Input::all();
+
+        $DAL = new DAL_BantuanHukun();
+        $data = $DAL->UpdateBantuanHukum($input);
+
+        $link = URL::to('/') . '/detail_banhuk?id=' . $data;
+
+        return Redirect::to($link)->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
+    }
+
+    public function tablelog()
+    {
+        $input = Input::all();
+        $DAL = new DAL_BantuanHukun();
+        $data = $DAL->GetAllLog($input);
+
+        return $data;
+    }
+
+    public function delete()
+    {
+        $id = Input::get('id');
+        $DAL = new DAL_BantuanHukun();
+
+        $DAL->DeleteBantuanHukum($id);
+
+        return Redirect::to('bantuanhukum')->with('success', 'Usulan Bantuan Hukum Berhasil Di Hapus.');
+    }
+
+    public function deletelog()
+    {
+        $id = Input::get('id');
+        $DAL = new DAL_BantuanHukun();
+
+        $DAL->DeleteLogBantuanHukum($id);
+
+        return Redirect::to('detail_banhuk')->with('success', 'Data Berhasil Di Hapus.');
     }
 }
 

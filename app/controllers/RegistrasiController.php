@@ -23,7 +23,7 @@ class RegistrasiController extends BaseController {
 
         if(!is_null($user))
             $this->layout->content = View::make('registrasi.setting', array(
-                'title' => 'Pengaturn Akun',
+                'title' => 'Pengaturan Akun',
                 'detail' => '',
                 'form_opts' => array(
                     'url' => URL::to('setting/save'),
@@ -76,8 +76,8 @@ class RegistrasiController extends BaseController {
         
         $user->save();
 
-        if($user->role_id == 8){
-            return Redirect::to('admin/Account')->with('success', 'Pengaturan akun berhasil disimpan.');
+        if($user->role_id == 3){
+            return Redirect::to('account')->with('success', 'Pengaturan akun berhasil disimpan.');
         }else{
             return Redirect::to('/')->with('success', 'Pengaturan akun berhasil disimpan.');
         }
@@ -454,33 +454,6 @@ class RegistrasiController extends BaseController {
             $messages['password.confirmed'] = 'Konfirmasi password salah.';
             $messages['password.min'] = 'Password minimal 6 karakter.';
         }
-
-//        $rules = array(
-//            'no_ktp' => 'required|numeric|unique:registrasi,no_ktp|min:16|max:16',
-//            'email' => 'required|email|unique:registrasi,email'
-//        );
-//
-//        $messages = array(
-//            'no_ktp.required' => 'No KTP tidak boleh kosong.',
-//            'no_ktp.numeric' => 'Format No KTP harus numeric.',
-//            'no_ktp.unique' => 'No KTP ini telah teregistrasi.',
-//            'no_ktp.min' => 'No KTP harus 16 karakter.',
-//            'no_ktp.max' => 'No KTP harus 16 karakter.',
-//            'email.required' => 'Email tidak boleh kosong.',
-//            'email.email' => 'Format email salah.',
-//            'email.unique' => 'Email ini telah teregistrasi.',
-//        );
-//
-//        $validator = Validator::make(Input::all(), $rules, $messages);
-//
-//        //message for new registration
-//        if($validator->fails()){
-//            foreach ($validator->messages()->all() as $message) {
-//                return Redirect::to('/')
-//                    ->with('error', $message);
-//            }
-//
-//        }
 
         // Save
         $DAL = new DAL_Registrasi();

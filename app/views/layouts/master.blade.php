@@ -74,7 +74,11 @@
             <li><a href="{{URL::to('account')}}">Kelola Akun</a></li>
             <li><a href="#">Layanan Ketatalaksanaan</a></li>
 
+<<<<<<< HEAD
             <li><a href="{{ URL::to('pelembagaan') }}">Layanan Kelembagaan</a></li>
+=======
+            <li><a href="{{ URL::to('layanan_kelembagaan/index') }}">Layanan Kelembagaan</a></li>
+>>>>>>> ae7c0e819f5954b30e4cc74cbda7e7680762328c
             <li><a href="#">Layanan Bantuan Hukum</a></li>
             <li><a href="#">Layanan Peraturan Perundang-Undangan</a></li>
             <li><a href="#">Forum Diskusi</a></li>
@@ -88,7 +92,7 @@
 
               @if($user != null)
                 <li>
-                  <a href="#" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a>
+                  <a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a>
                 </li>
                 <li>
                   <a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span> Sign

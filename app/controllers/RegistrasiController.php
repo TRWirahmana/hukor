@@ -77,7 +77,7 @@ class RegistrasiController extends BaseController {
         $user->save();
 
         if($user->role_id == 3){
-            return Redirect::to('account')->with('success', 'Pengaturan akun berhasil disimpan.');
+            return Redirect::to('admin/account')->with('success', 'Pengaturan akun berhasil disimpan.');
         }else{
             return Redirect::to('/')->with('success', 'Pengaturan akun berhasil disimpan.');
         }

@@ -31,7 +31,7 @@ Route::group(array('before' => 'guest'), function(){
     Route::resource('bantuanhukum', 'BantuanHukumController');
     Route::resource('forget', 'ForgetPasswordController@index');
 
-    Route::resource('account', 'AdminController');
+//    Route::resource('account', 'AdminController');
     Route::resource('pelembagaan', 'PelembagaanController');
     
 });
@@ -62,25 +62,17 @@ Route::group(array('prefix' => 'admreg', 'before' => 'auth|admin_region'), funct
 	Route::get('Profile', 'VerifikasiController@downloadProfile');
 });
 
-Route::group(array('prefix' => 'admin', 'before' => 'auth|admin_center'), function()
+Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), function()
 {
 	Route::get('/', function(){return "Hello World";});
 
-	Route::get('Verifikasi', 'VerifikasiController@index');
-	Route::get('Datatable', 'VerifikasiController@datatable');
-	Route::get('Detail', 'VerifikasiController@detail');
-	Route::post('VerifikasiUser', 'VerifikasiController@verifikasi');
-	Route::get('Profile', 'VerifikasiController@downloadProfile');
-	
-	Route::resource('region', 'RegionController');
-	Route::resource('provinsi', 'ProvinsiController');
-//	Route::resource('account', 'AdminController');
-	Route::resource('bpnb', 'BpnbController');
+	Route::resource('account', 'AdminController');
+    Route::get('Index', 'AdminController@index');
+    Route::get('Home', 'AdminController@home');
+    Route::get('setting', 'AdminController@setting');
+    Route::put('setting/save', 'AdminController@save');
 
-	//
-	Route::get('estimasi_pendaftaran', 'EstimasiPendaftaranController@estimasi_pendaftaran');
-	Route::post('SaveEstimasi', 'EstimasiPendaftaranController@send');
-	Route::post('UpdateEstimasi', 'EstimasiPendaftaranController@update');
+
 });
 
 

@@ -3,15 +3,25 @@
 class AdminController extends BaseController {
 
 
-	protected $layout = 'layouts.master';
+	protected $layout = 'layouts.admin';
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
+
+    public function home(){
+        $user = Auth::user();
+        $this->layout->content = View::make('admin.home', array(
+            'user'=> $user
+        ));
+    }
+
 	public function index()
 	{
+        $user = Auth::user();
+
         if(Request::ajax()) {
             if(Input::get('role_id') == 0)
             {
@@ -34,15 +44,71 @@ class AdminController extends BaseController {
             ));
         }
 
-//        if(Request::ajax())
-//            return Datatables::of(DAL_Registrasi::getDataTable(Input::get('role_id')))->make(true);
-
-		$this->layout->content = View::make('admin.index');
+		$this->layout->content = View::make('admin.index',
+                                            array('user' => $user));
 	}
 
-    public function datatable()
-    {
+    // displays user setting form
+    public function setting() {
+        $user = Auth::user();
 
+
+        if(!is_null($user))
+            $this->layout->content = View::make('admin.setting', array(
+                'title' => 'Pengaturan Akun',
+                'detail' => '',
+                'form_opts' => array(
+                    'url' => URL::to('admin/setting/save'),
+                    'method' => 'put',
+                    'class' => 'form-horizontal'
+                ),
+                'user' => $user
+            ));
+    }
+
+    // store user setting data
+    public function save() {
+
+        $input = Input::all();
+        $user = Auth::user();
+
+//        if ($registrasi->status == 1) {
+//            return Redirect::to('edit')->with('error', 'Perubahan tidak bisa dilakukan.');
+//        }
+
+
+        $rules = array();
+        $messages = array();
+
+        if($input['username'] !== $user->username) {
+            $rules['username'] = 'required|unique:registrasi|min:6';
+            $messages['username.unique'] = 'Username tidak tersedia.';
+            $messages['username.min'] = 'Username minimal 6 karakter.';
+
+            $user->username = $input['username'];
+        }
+
+        if(!empty($input['password'])) {
+            $rules['password'] = 'confirmed|min:6';
+            $messages['password.confirmed'] = 'Konfirmasi password salah.';
+            $messages['password.min'] = 'Password minimal 6 karakter.';
+
+            $user->password = Hash::make($input['password']);
+        }
+
+
+//        $validator = Validator::make($input, $rules, $messages);
+//
+//        if($validator->fails()) {
+//            return Redirect::to('setting')->withErrors($validator)
+//                ->withInput(Input::except('password'))
+//                    ->with('error', 'Pengaturan gagal disimpan, mohon periksa kembali.');
+//
+//        }
+
+        $user->save();
+
+            return Redirect::to('admin/Index')->with('success', 'Pengaturan akun berhasil disimpan.');
     }
 
 	/**
@@ -77,6 +143,7 @@ class AdminController extends BaseController {
 
         $listRole = array(
             '1' => 'Admin',
+            '2' => 'Pengguna',
             '3' => 'Super Admin',
             '4' => 'Kepala Biro'
         );
@@ -85,7 +152,7 @@ class AdminController extends BaseController {
 			'title' => 'Tambah Akun Admin',
 			'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',
 			'form_opts' => array(
-				'route' => 'account.store',
+				'route' => 'admin.account.store',
 				'method' => 'post',
 				'class' => 'form-horizontal',
                 'id' => 'reg_admin'
@@ -135,7 +202,7 @@ class AdminController extends BaseController {
 
 		}
 
-		return Redirect::to('account')->with('success', 'Akun admin berhasil ditambahkan.');
+		return Redirect::to('admin/account')->with('success', 'Akun admin berhasil ditambahkan.');
 	}
 
 	/**
@@ -161,6 +228,7 @@ class AdminController extends BaseController {
         $role = User::select('role_id');
         $listRole = array(
             '1' => 'Admin',
+            '2' => 'Pengguna',
             '3' => 'Super Admin',
             '4' => 'Kepala Biro'
         );
@@ -180,7 +248,7 @@ class AdminController extends BaseController {
 				'title' => 'Ubah Akun #' . $user->id,
 				'detail' => '',
 				'form_opts' => array(
-					'route' => array('account.update', $user->id),
+					'route' => array('admin.account.update', $user->id),
 					'method' => 'put',
 					'class' => 'form-horizontal'
 				),
@@ -213,7 +281,7 @@ class AdminController extends BaseController {
 		$user->pengguna->nama_lengkap = $input['nama_lengkap'];
 		$user->pengguna->save();
 
-		return Redirect::to('account')->with('success', 'Data berhasil diubah.');
+		return Redirect::to('admin/account')->with('success', 'Data berhasil diubah.');
 	}
 
 	/**

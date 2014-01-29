@@ -39,8 +39,8 @@ Route::filter('auth', function()
 		return Redirect::to('/')->with('error', 'Anda harus login terlebih dahulu.');
 });
 
-Route::filter('admin_center', function(){
-	$user = Auth::user()->user;
+Route::filter('super_admin', function(){
+	$user = Auth::user();
 	if($user->role_id != "3")
 		App::abort(404, 'Page Not Found.');
 });

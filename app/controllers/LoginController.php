@@ -30,8 +30,12 @@ class LoginController extends BaseController {
 	                		switch ($user_->role_id) {
 
                                 case 2:
-	                            return Redirect::to('/');
+	                                return Redirect::to('/');
 	                            break;
+
+                                case 3:
+                                    return Redirect::to('/admin/Home');
+                                    break;
 	                        default:
 	                            return Redirect::to('/');
 	                            break;

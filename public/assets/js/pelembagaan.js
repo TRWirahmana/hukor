@@ -15,6 +15,7 @@ var Pelembagaan = (function(REG) {
         });
 
         var rules = {
+                'jenis_usulan': 'required',
                 'perihal': 'required',
                 'catatan': 'required',
                 'password_confirmation': 'required',
@@ -30,6 +31,9 @@ var Pelembagaan = (function(REG) {
             errorClass: 'help-block error',
             rules: rules,
             messages: {
+                'jenis_usulan': {
+                    required: 'Silahkan Pilih Jenis Usulan.'
+                },                
                 'perihal': {
                     required: 'Pelembagaan Harus diisi.'
                 },
@@ -73,34 +77,32 @@ var Pelembagaan = (function(REG) {
          * Trigger Submit Form
          */
         $('button#submit').on('click', function() {
-            $('#pelembagaan-form').submit();
+            $('#pelembagaan-update').submit();
         });
 
         var rules = {
-                'perihal': 'required',
+                'status': 'required',
                 'catatan': 'required',
-                'password_confirmation': 'required',
-                'email': {
-                    required: true,
-                    email: true
-                }
-            };
+                'ket_lampiran': 'required'
+        };
 
-        $("#pelembagaan-form").validate({
+        $("#pelembagaan-update").validate({
             ignore: [],
             errorElement: 'span',
             errorClass: 'help-block error',
             rules: rules,
             messages: {
-                'perihal': {
+                'status': {
                     required: 'Pelembagaan Harus diisi.'
                 },
-                'lampiran': {
-                    required: 'Lampiran wajib diisi.'
+                'ket_lampiran': {
+                    required: 'Keterangan Lampiran Harus diisi.'
+                //},'lampiran': {
+                //    required: 'Lampiran wajib diisi.'
                 },
                 'catatan': {
                     required: 'Catatan wajib diisi.'
-                }
+                }               
             },
             errorPlacement: function(error, element) {
                 error.appendTo(element.parent('div.controls'));
@@ -119,7 +121,7 @@ var Pelembagaan = (function(REG) {
             }
         });
 
-        $("#pelembagaan-form input[type='file']").change(function(e){
+        $("#pelembagaan-update input[type='file']").change(function(e){
             $(this).validate();
                 $controlGroup = $(this).parents('div.control-group');
                 if($(this).valid())

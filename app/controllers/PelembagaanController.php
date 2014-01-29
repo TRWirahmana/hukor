@@ -11,9 +11,12 @@ class PelembagaanController extends BaseController {
         if(Request::ajax())           
             return Datatables::of(DAL_Pelembagaan::getDataTable())->make(true);
             
+        	$status = Pelembagaan::where('status', null)->count();
+
 	       	$listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
 	        													->lists('usulan_year', 'usulan_year');
-	    $this->layout->content = View::make('Pelembagaan.index', array( 'listTgl' => $listTgl ));		
+	    
+	    $this->layout->content = View::make('Pelembagaan.index', array( 'listTgl' => $listTgl, 'status_kelembagaan' => $status ));		
 	}
 
     public function datatable()
@@ -30,11 +33,14 @@ class PelembagaanController extends BaseController {
 	public function show($id)
 	{
 		//
+		//$status = LogPelembagaan::where('status', null)->count();
+
 	}    
 
 	public function create()
 	{
 		$pelembagaan = new Pelembagaan();
+		$user = Auth::user();
 
 		$this->layout->content = View::make('Pelembagaan.form', array(
 				'title' => 'Tambah Akun',
@@ -47,6 +53,7 @@ class PelembagaanController extends BaseController {
 		            'files' => true
 				),
 				'pelembagaan' => $pelembagaan,
+				'user' => $user,
 			));                        
 	}
 
@@ -59,11 +66,9 @@ class PelembagaanController extends BaseController {
 	public function edit($id)
 	{
 		if(Request::ajax())  
-        	return Datatables::of(DAL_LogPelembagaan::getDataTable())->make(true);
-//        	var_dump($log_pelembagaan);
+        	return Datatables::of(DAL_LogPelembagaan::getDataTable($id))->make(true);
 
 		$pelembagaan = Pelembagaan::find($id);
-		//$pelembagaan->load('pengguna');
 		if(!is_null($pelembagaan))
 			$this->layout->content = View::make('Pelembagaan.update', array(
 				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
@@ -76,6 +81,7 @@ class PelembagaanController extends BaseController {
 					'files' => true
 				),
 				'pelembagaan' => $pelembagaan,
+				'id' => $id,
 //				'log_pelembagaan' => $log_pelembagaan,
 //				'listRegion' => $listRegion,
 //				'listRole' => $listRole
@@ -93,7 +99,7 @@ class PelembagaanController extends BaseController {
 		$filename = $img->getClientOriginalName();
 		$uploadSuccess = $img->move($destinationPath, $filename);
 
-		$pelembagaan->id_pengguna = 1;
+		$pelembagaan->id_pengguna = $id;
 
 		$log_pelembagaan = new LogPelembagaan();
 		$log_pelembagaan->status = Input::get('status');
@@ -103,7 +109,6 @@ class PelembagaanController extends BaseController {
 
 		$log_pelembagaan->pelembagaan_id = $pelembagaan->id_pengguna;
         $log_pelembagaan->tgl_proses = Carbon::now();
-//	    $pelembagaan->save();
 		$log_pelembagaan->save();
 
 		return Redirect::to('pelembagaan')->with('success', 'Data berhasil diubah.');
@@ -111,7 +116,6 @@ class PelembagaanController extends BaseController {
 
 	public function store()
 	{
-
         $img = Input::file('lampiran');
 
 		$destinationPath = UPLOAD_PATH . '/';		
@@ -119,9 +123,8 @@ class PelembagaanController extends BaseController {
 		$uploadSuccess = $img->move($destinationPath, $filename);
 		
 		$pelembagaan = new Pelembagaan;
-	
-		$pelembagaan->id_pengguna = 1;
-	
+		$user = Auth::user();	
+		$pelembagaan->id_pengguna = $user->pengguna->id;
 		$pelembagaan->jenis_usulan = Input::get('jenis_usulan');
 		$pelembagaan->perihal = Input::get('perihal');
 		$pelembagaan->catatan = Input::get('catatan');
@@ -138,37 +141,9 @@ class PelembagaanController extends BaseController {
 		} else {
 			Session::flash('error', 'Gagal mengirim berkas. Pastikan berkas berupa PDF dan kurang dari 512k.');
 		}		
-		return Redirect::back();            
+		Session::flash('success', 'Data berhasil dikirim.');
 	}
 
-
-	public function prosesPengajuan()
-	{
-        $img = Input::file('lampiran');
-
-		$destinationPath = UPLOAD_PATH . '/';
-		$filename = $img->getClientOriginalName();
-		$uploadSuccess = $img->move($destinationPath, $filename);
-
-		$pelembagaan = new Pelembagaan;
-		$pelembagaan->id_pengguna = 1;
-		$pelembagaan->jenis_usulan = Input::get('jenis_usulan');
-		$pelembagaan->perihal = Input::get('perihal');
-		$pelembagaan->catatan = Input::get('catatan');
-		$pelembagaan->lampiran = $filename;
-        $pelembagaan->tanggal_usulan = Carbon::now();
-
-		if($uploadSuccess) {
-			if($pelembagaan->save()) {
-				Session::flash('success', 'Data berhasil dikirim.');
-			} else {
-				Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
-			}					
-		} else {
-			Session::flash('error', 'Gagal mengirim berkas. Pastikan berkas berupa PDF dan kurang dari 512k.');
-		}		
-		return Redirect::back();            
-	}
 
 	public function destroy($id)
 	{

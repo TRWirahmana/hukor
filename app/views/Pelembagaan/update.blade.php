@@ -149,13 +149,23 @@
 					<div class="control-group">
 					{{ Form::label('status_terakhir', "Status Terakhir", array('class' => 'control-label')) }}
 						<div class="controls">
-						{{ Form::text("status_terakhir" ) }}</div>
+						<?php $results = DB::table('log_pelembagaan')->where('pelembagaan_id','=', $id)->orderBy('tgl_proses', 'desc')->take(1)->get(); ?>
+							<?php //var_dump($results);   ?>
+							<?php //echo $results[0]->id;   ?>
+							<?php 
+								$report = '';
+								if($results[0]->status === '1'){
+									$report = 'Diproses';
+								}else if($results[0]->status === '2'){
+									$report = 'Di Proses Ke Bagian PerUU';
+								}
+							?>
+							{{ Form::text("status_terakhir", $report ) }}</div>
 						</div>
-
 					<p>( <a href="#">klik disini untuk merubah informasi registrasi</a> )</p>
 
 					<div class="form-actions">
-						{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
+						{{ Form::submit('Kirim', array('id' => 'kirim_btn', 'class' => 'btn btn-primary', 'style'=>'float: left')) }}
 						 <input class='btn btn-primary' style = 'float: left; margin: 0 0 0 8px;' Type="button" value="Batal" onClick="history.go(-1);return true;">
 					</div>
 				</fieldset>
@@ -181,9 +191,9 @@
 @section('scripts')
 	@parent
 	<script type="text/javascript">
-	//var oTable;
+	var oTable;
 	$(document).ready(function(){
-		$("#tbl-log_pelembagaan").dataTable({
+	oTable = $("#tbl-log_pelembagaan").dataTable({
 			 iDisplayLength: 5,
                 bServerSide: true,
                     sAjaxSource: document.location.href,
@@ -233,20 +243,17 @@
 		});
 	});
 
+	     $("#kirim_btn").click(function(e){
+     	 	 oTable.fnReloadAjax();
+     	 });
+	
+
 	</script>
+
 @stop
 
-
-
-
-
-
-
 </div>
-
 	{{ Form::close() }}
-
-
 
 @stop
 

@@ -74,7 +74,7 @@
             <li><a href="{{URL::to('account')}}">Kelola Akun</a></li>
             <li><a href="#">Layanan Ketatalaksanaan</a></li>
 
-            <li><a href="{{ URL::to('index_per_uu') }}">Layanan Kelembagaan</a></li>
+            <li><a href="{{ URL::to('pelembagaan') }}">Layanan Kelembagaan</a></li>
             <li><a href="#">Layanan Bantuan Hukum</a></li>
             <li><a href="#">Layanan Peraturan Perundang-Undangan</a></li>
             <li><a href="#">Forum Diskusi</a></li>

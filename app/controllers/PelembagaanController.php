@@ -34,7 +34,6 @@ class PelembagaanController extends BaseController {
 
 	public function create()
 	{
-
 		$pelembagaan = new Pelembagaan();
 
 		$this->layout->content = View::make('Pelembagaan.form', array(
@@ -120,7 +119,9 @@ class PelembagaanController extends BaseController {
 		$uploadSuccess = $img->move($destinationPath, $filename);
 		
 		$pelembagaan = new Pelembagaan;
+	
 		$pelembagaan->id_pengguna = 1;
+	
 		$pelembagaan->jenis_usulan = Input::get('jenis_usulan');
 		$pelembagaan->perihal = Input::get('perihal');
 		$pelembagaan->catatan = Input::get('catatan');
@@ -172,10 +173,9 @@ class PelembagaanController extends BaseController {
 	public function destroy($id)
 	{
 		$pelembagaan = Pelembagaan::find($id);
-
-		//if(!is_null($pelembagaan)) {
+		if(!is_null($pelembagaan)) {
 			$pelembagaan->delete();
-		//}
+		}
 	}
 
 }

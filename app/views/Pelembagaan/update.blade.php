@@ -162,38 +162,9 @@
 			</div>
  </div>
 
+<br />
+
 <div class="row-fluid">
-
-<!-- 
-<table id="tbl-pelembagaan" class="dataTable" aria-describedby="tbl-pelembagaan_info">  
-        <thead>
-        <tr role="row">
-        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Tgl Usulan: activate to sort column ascending" style="width: 133px;">Tgl Prosee</th>
-        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Unit Kerja: activate to sort column ascending" style="width: 122px;">Status</th>
-        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Jabatan: activate to sort column ascending" style="width: 103px;">Catatan</th>
-        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Perihal: activate to sort column ascending" style="width: 91px;">Lampiran</th>
-        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label=" - : activate to sort column ascending" style="width: 25px;"> Ket </th>
-        </tr>
-        </thead>
-        
-    <tbody role="alert" aria-live="polite" aria-relevant="all">
-    	<tr class="odd">
-    		<td class=" sorting_1">15</td>
-    		<td class="">2014-01-27</td>
-    		<td class="">lini</td>
-    		<td class="">0</td>
-    		<td class="">hukum2</td>
-    	</tr>
-		<tr class="odd">
-    		<td class=" sorting_1">15</td>
-    		<td class="">2014-01-27</td>
-    		<td class="">lini</td>
-    		<td class="">0</td>
-    		<td class="">hukum2</td>
-    	</tr>
-</table>
--->
-
     <table id="tbl-log_pelembagaan">  
         <thead>
 	    <tr role="row">
@@ -224,6 +195,7 @@
                     },
                     {
 					    mData: "status",
+		  		        sWidth: '20%',
                               mRender: function ( data, type, full ) {
                                   if (null != data && "" != data){
                                     if(data ==='1'){
@@ -239,7 +211,7 @@
                     {
                   		mData: "catatan",
                         sClass: 'center-ac',                              
-                        sWidth: '14%'
+                        sWidth: '35%',
                     },
                     {
 

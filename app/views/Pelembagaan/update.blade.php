@@ -112,11 +112,8 @@
 					<div class="control-group">
 					{{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
 						<div class="controls">
-						@if(!is_object($pelembagaan->pengguna))
-							{{ Form::file('lampiran') }}</div>
-						@else
-							<a href="#"  > Unduh</a> </div>
-						@endif
+
+							<a href= {{ URL::asset('assets/uploads/' . $pelembagaan->lampiran ); }} > Unduh </a>
 					</div>
 				</fieldset>
 			</div>
@@ -129,18 +126,18 @@
 					<div class="control-group">
 					{{ Form::label("status", "Status", array('class' => 'control-label')) }}
 						<div class="controls">
-							{{ Form::select('status', array('1' => 'Diproses', '2' => 'Kirim Ke Bagian Peraturan PerUU' )); }} </div>
+							{{ Form::select('status', array('' => 'Pilih Status', '1' => 'Diproses', '2' => 'Kirim Ke Bagian Peraturan PerUU' )); }} </div>
 					</div>
 				
 					<div class="control-group">
 					{{ Form::label('catatan', "Catatan", array('class' => 'control-label')) }}
-						<div class="controls">{{ Form::textarea('catatan', $pelembagaan->catatan) }}</div>
+						<div class="controls">{{ Form::textarea('catatan') }}</div>
 					</div>
 
 					<div class="control-group">
 					{{ Form::label("ket_lampiran", "Ket. Lampiran", array('class' => 'control-label')) }}
 						<div class="controls">
-							{{ Form::text("ket_lampiran") }}</div>
+							{{ Form::text("keterangan") }}</div>
 					</div>
 
 					<div class="control-group">
@@ -152,29 +149,26 @@
 					<div class="control-group">
 					{{ Form::label('status_terakhir', "Status Terakhir", array('class' => 'control-label')) }}
 						<div class="controls">
-						{{ Form::text("ket_lampiran") }}</div>
+						{{ Form::text("status_terakhir" ) }}</div>
 						</div>
 
 					<p>( <a href="#">klik disini untuk merubah informasi registrasi</a> )</p>
 
 					<div class="form-actions">
 						{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
+						 <input class='btn btn-primary' style = 'float: left; margin: 0 0 0 8px;' Type="button" value="Batal" onClick="history.go(-1);return true;">
 					</div>
-			
-					<div class="form-actions">
-						{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
-					</div>
-
 				</fieldset>
 			</div>
  </div>
 
 <div class="row-fluid">
 
+<!-- 
 <table id="tbl-pelembagaan" class="dataTable" aria-describedby="tbl-pelembagaan_info">  
         <thead>
         <tr role="row">
-        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Tgl Usulan: activate to sort column ascending" style="width: 133px;">Tgl Usulan</th>
+        	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Tgl Usulan: activate to sort column ascending" style="width: 133px;">Tgl Prosee</th>
         	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Unit Kerja: activate to sort column ascending" style="width: 122px;">Status</th>
         	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Jabatan: activate to sort column ascending" style="width: 103px;">Catatan</th>
         	<th class="sorting" role="columnheader" tabindex="0" aria-controls="tbl-pelembagaan" rowspan="1" colspan="1" aria-label="Perihal: activate to sort column ascending" style="width: 91px;">Lampiran</th>
@@ -197,9 +191,81 @@
     		<td class="">0</td>
     		<td class="">hukum2</td>
     	</tr>
-
-
 </table>
+-->
+
+    <table id="tbl-log_pelembagaan">  
+        <thead>
+	    <tr role="row">
+        	<th>Tgl Proses</th>
+        	<th>Status</th>
+        	<th>Catatan</th>
+        	<th>Lampiran</th>
+        	<th> Ket </th>
+        </tr>        </thead>
+        <tbody></tbody>
+
+    </table>
+
+@section('scripts')
+	@parent
+	<script type="text/javascript">
+	//var oTable;
+	$(document).ready(function(){
+		$("#tbl-log_pelembagaan").dataTable({
+			 iDisplayLength: 5,
+                bServerSide: true,
+                    sAjaxSource: document.location.href,
+                    aoColumns: [
+                    {
+                        mData: "tgl_proses",
+                        sClass: 'center-ac',
+                       sWidth: '20%'
+                    },
+                    {
+					    mData: "status",
+                              mRender: function ( data, type, full ) {
+                                  if (null != data && "" != data){
+                                    if(data ==='1'){
+                                      return 'proses';
+                                    }else if(data === '2'){
+                                      return 'DiKirim Ke Bag PerUU';
+
+                                    }
+                                  }
+                                     return 'Belum Di Proses';
+                        }
+                    },
+                    {
+                  		mData: "catatan",
+                        sClass: 'center-ac',                              
+                        sWidth: '14%'
+                    },
+                    {
+
+                    //	URL::asset('assets/uploads/
+
+                  		mData: "lampiran",
+                        sClass: 'center-ac',                              
+                        sWidth: '14%',
+                        mRender: function(lampiran) {
+                        	return "<a href='"+baseUrl+"/assets/uploads/"+lampiran+"' >Unduh</a>"
+                        }
+                    },
+                    {
+                  		mData: "keterangan",
+                        sClass: 'center-ac',                              
+                        sWidth: '14%'
+                    }
+                    ]
+		});
+	});
+
+	</script>
+@stop
+
+
+
 
 
 
@@ -220,11 +286,10 @@
 <script src="{{ asset('assets/lib/tinymce/tinymce.min.js') }}"></script>
 <script src="{{asset('assets/js/jquery.validate.js')}}"></script>
 <script src="{{asset('assets/js/additional-methods.js')}}"></script>
-
 <script src="{{asset('assets/js/pelembagaan.js')}}"></script>
 
 <script type="text/javascript">
-    Pelembagaan.Form();
+    Pelembagaan.Update();
 </script>
 
 @stop

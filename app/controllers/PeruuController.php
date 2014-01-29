@@ -51,6 +51,52 @@ class PeruuController extends BaseController {
 			return Redirect::back();
 		}
 
+
+
+	}
+
+	public function updateUsulan($id) {
+		$perUU = PerUU::with('Pengguna')->find($id);
+		$this->layout->content = View::make('PerUU.updateUsulan')
+			->with('perUU', $perUU);
+	}
+
+	public function prosesUpdateUsulan() {
+
+		$id = Input::get('id');
+		$status = Input::get('status', 0);
+		$catatan = Input::get('catatan', '');
+		$ketLampiran = Input::get('ket_lampiran', '');
+		$lampiran = Input::file('lampiran');
+
+		$perUU = PerUU::find($id);
+		$perUU->status = $status;
+		$perUU->catatan = $catatan;
+
+		if(null != $lampiran && $lampiran->isValid()) {
+			$uqFolder = str_random(8);
+			$destinationPath = UPLOAD_PATH . '/' . $uqFolder;
+			$filename = $lampiran->getClientOriginalName();
+			$uploadSuccess = $lampiran->move($destinationPath, $filename);
+			if($uploadSuccess) {
+				$perUU->lampiran = $uqFolder . DS . $filename;
+			} else {
+				Session::flash('error', 'Kesalahan dalam menyimpan berkas.');
+			}
+		} else {
+			Session::flash('error', 'Kesalahan dalam menyimpan berkas.');
+		}
+		Session::flash('success', 'Usulan berhasil diperbaharui.');
+
+		$perUU->save();
+
+		return Redirect::route('index_per_uu');
+	}
+
+	public function hapusUsulan() {
+		$perUU = PerUU::find(Input::get('id'));
+		if(null != $perUU) 
+			$perUU->delete();
 	}
 
 }

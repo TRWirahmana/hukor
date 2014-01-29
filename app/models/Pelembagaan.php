@@ -7,9 +7,7 @@ class Pelembagaan extends Eloquent {
 
 	public function pengguna() {
 		return $this->belongsTo('Pengguna', 'id_pengguna');
+
 	}
 
-    public function logPelembagaan() {
-        return $this->hasMany('LogPelembagaan');
-    }
 }

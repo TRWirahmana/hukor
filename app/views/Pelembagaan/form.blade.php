@@ -16,7 +16,7 @@
 					<div class="control-group">		
 						{{ Form::label('jenis_usulan', 'Jenis Usulan', array('class' => 'control-label'))}}
 						<div class="controls">
-							{{ Form::select('jenis_usulan', array('' => 'Pilih Jenis Usulan','1' => 'Pendirian', '2' => 'Perubahan', '3' => 'Statuta', '4' => 'Penutupan' )); }}
+							{{ Form::select('jenis_usulan', array('1' => 'Pendirian', '2' => 'Perubahan', '3' => 'Statuta', '4' => 'Penutupan' )); }}
 						</div>
 					</div>
 					
@@ -164,12 +164,15 @@
 							{{ Form::text("id_number", $pelembagaan->pengguna->user_id) }}</div>
 						@endif
 					</div>
+
+
 					<p>( <a href="#">klik disini untuk merubah informasi registrasi</a> )</p>
-					<div class="form-actions">
-						{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
-						 <input class='btn btn-primary' style = 'float: left; margin: 0 0 0 8px;' Type="button" value="Batal" onClick="history.go(-1);return true;">
-					</div>
+
+		<div class="form-actions">
+			{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
+		</div>
 			</div>	
+
 </div>
 </div>
 	{{ Form::close() }}

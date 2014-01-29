@@ -61,55 +61,14 @@
                         bServerSide: true,
                         sAjaxSource: document.location.href,
                         aoColumns: [
-                            {
-                              mData: "id",
-                              sClass: 'center-ac',
-                              sWidth: '9%'
-                            },
-                            {
-                              mData: "tgl_usulan",
-                              sClass: 'center-ac',
-                              sWidth: '14%'
-                            },
-                            {
-                              mData: "unit_kerja",
-                              sClass: 'center-ac',                              
-                              sWidth: '14%'
-                            },
-                            {
-                              mData: "jabatan" ,
-                              sClass: 'center-ac',                              
-                              mRender: function ( data, type, full ) {
-                                  if (null != data && "" != data){
-                                    if(data ==='0'){
-                                      return 'Direktur';
-                                    }else if(data === '1'){
-                                      return 'Kepala Divisi';
-                                    }
-                                  }
-                                     return data;
-                              }
-                            },
+                            {mData: "id"},
+                            {mData: "tgl_usulan"},
+                            {mData: "unit_kerja"},
+                            {mData: "jabatan"},
                             {mData: "perihal"},
-                            {
-
-                              mData: "status",
-                              mRender: function ( data, type, full ) {
-                                  if (null != data && "" != data){
-                                    if(data ==='1'){
-                                      return 'proses';
-                                    }else if(data === '2'){
-                                      return 'DiKirim Ke Bag PerUU';
-
-                                    }
-                                  }
-                                     return 'Belum Di Proses';
-                              }
-
-                            },
+                            {mData: "status"},
                             {
                                 mData: "id",
-                                sClass: 'center-ac',
                                  mRender: function(id) {
                                     return "<a href='"+baseUrl+"/pelembagaan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
                                         + "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/pelembagaan/"+id+"'>"

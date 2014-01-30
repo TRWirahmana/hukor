@@ -80,6 +80,9 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     //Layanan Kelembagaan
     Route::get('layanankelembagaan/edit', 'LayananKelembagaanController@create');
 
+    //Layanan Kelembagaan
+    Route::get('layanankelembagaan/edit', 'LayananKelembagaanController@create');
+
 
 });
 
@@ -92,9 +95,24 @@ Route::group(array('prefix' => 'per-uu'), function() {
 	Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
 });
 
+
 Route::group(array('prefix' => 'layanan_kelembagaan'), function() {
     Route::get('index', 'LayananKelembagaanController@index');
     Route::get('CreateInfo', 'LayananKelembagaanController@create');
     Route::post('SubmitBerita', 'LayananKelembagaanController@submit');
 });
+
+
+Route::group(array('prefix' => 'layanan_ketatalaksanaan'), function() {
+    Route::get('index', 'LayananKetatalaksanaanController@index');
+	Route::get('CreateInfo', 'LayananKetatalaksanaanController@create');
+    Route::post('SubmitBerita', 'LayananKetatalaksanaanController@submit'); 
+});
+
+Route::group(array('prefix' => 'spk'), function() {
+    Route::get('index', 'SpkController@index');
+    Route::get('CreateInfo', 'SpkController@create');
+    Route::post('SubmitBerita', 'SpkController@submit'); 
+});
+
 

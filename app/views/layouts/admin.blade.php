@@ -93,12 +93,12 @@
                                 <li><a href="#">Tata naskah dinas</a></li>
                             </ul>
                         </li>
-                        <li id="kelembagaan" class="dropdown"><a href="{{URL::to('admin/layanankelembagaan/edit')}}"><span class="iconfa-briefcase"></span> Layanan Kelembagaan</a>
+                        <li id="kelembagaan" class="dropdown"><a href="{{URL::to('admin/edit_kelembagaan')}}"><span class="iconfa-briefcase"></span> Layanan Kelembagaan</a>
                             <ul>
-                                <li><a href="#">Pembentukan</a></li>
-                                <li><a href="#">Penataan</a></li>
-                                <li><a href="#">Statuta</a></li>
-                                <li><a href="#">Statuta</a></li>
+                                <li><a href="{{URL::to('admin/edit_pembentukan')}}">Pembentukan</a></li>
+                                <li><a href="{{URL::to('admin/edit_penataan')}}">Penataan</a></li>
+                                <li><a href="{{URL::to('admin/edit_statuta')}}">Statuta</a></li>
+                                <li><a href="{{URL::to('admin/edit_penutupan')}}">Penutupan</a></li>
                             </ul>
                         </li>
                         <li id="bahu"><a href="#"><span class="iconfa-th-list"></span> Layanan Bantuan Hukum</a></li>
@@ -172,6 +172,7 @@
         var pathmanageedit = window.location.pathname;
         var pathname = window.location.pathname;
         var p = pathmanageedit.substr(0,27);
+        var baseURL = '{{URL::to('/')}}';
 //        alert(p);
 
         $("#beranda").click(function(){
@@ -185,6 +186,10 @@
             $("#info").show();
             $("#app").hide();
             $("#manage").hide();
+        });
+
+        $("#kelembagaan").click(function(){
+            window.location.href = baseURL + "/admin/layanankelembagaan/edit";
         });
 
         $("#aplikasi").click(function(){

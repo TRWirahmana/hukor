@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BantuanHukumController.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BantuanHukumController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/BantuanHukumController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="34" selection-start="2290" selection-end="2290" vertical-scroll-proportion="-12.615385" vertical-offset="1270" max-vertical-offset="2329">
+            <state line="128" column="77" selection-start="3198" selection-end="3198" vertical-scroll-proportion="0.72131145" vertical-offset="1780" max-vertical-offset="2380">
               <folding />
             </state>
           </provider>
@@ -35,7 +35,7 @@
       <file leaf-file-name="HukorHelper.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/services/HukorHelper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="6" selection-start="3157" selection-end="3157" vertical-scroll-proportion="-8.038462" vertical-offset="1831" max-vertical-offset="2380">
+            <state line="144" column="29" selection-start="3802" selection-end="3802" vertical-scroll-proportion="-8.692307" vertical-offset="2222" max-vertical-offset="2771">
               <folding />
             </state>
           </provider>
@@ -44,7 +44,16 @@
       <file leaf-file-name="detail.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="24" selection-start="2982" selection-end="2982" vertical-scroll-proportion="-10.807693" vertical-offset="1130" max-vertical-offset="6392">
+            <state line="362" column="31" selection-start="12547" selection-end="12547" vertical-scroll-proportion="-12.769231" vertical-offset="5822" max-vertical-offset="6545">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="69" selection-start="1326" selection-end="1326" vertical-scroll-proportion="-10.846154" vertical-offset="75" max-vertical-offset="1581">
               <folding />
             </state>
           </provider>
@@ -62,7 +71,7 @@
       <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="31" selection-start="1046" selection-end="1055" vertical-scroll-proportion="-12.615385" vertical-offset="556" max-vertical-offset="1836">
+            <state line="53" column="31" selection-start="1046" selection-end="1055" vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="1853">
               <folding />
             </state>
           </provider>
@@ -71,16 +80,16 @@
       <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="73" selection-start="4422" selection-end="4440" vertical-scroll-proportion="-3.4615386" vertical-offset="1882" max-vertical-offset="2431">
+            <state line="115" column="24" selection-start="4330" selection-end="4776" vertical-scroll-proportion="-2.8076923" vertical-offset="1882" max-vertical-offset="2431">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BantuanHukum.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BantuanHukum.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/DAL/BantuanHukum.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="0" selection-start="1419" selection-end="1419" vertical-scroll-proportion="-0.34790528" vertical-offset="990" max-vertical-offset="2040">
+            <state line="67" column="42" selection-start="2063" selection-end="2063" vertical-scroll-proportion="-8.346154" vertical-offset="922" max-vertical-offset="2975">
               <folding />
             </state>
           </provider>
@@ -89,7 +98,7 @@
       <file leaf-file-name="form.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="71" selection-start="4336" selection-end="4336" vertical-scroll-proportion="-57.53846" vertical-offset="0" max-vertical-offset="3332">
+            <state line="88" column="71" selection-start="4336" selection-end="4336" vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="3332">
               <folding />
             </state>
           </provider>
@@ -111,14 +120,14 @@
         <option value="$PROJECT_DIR$/app/views/registrasi/form.blade.php" />
         <option value="$PROJECT_DIR$/app/models/DAL/DAL_Registrasi.php" />
         <option value="$PROJECT_DIR$/app/controllers/LayananKelembagaanController.php" />
-        <option value="$PROJECT_DIR$/app/models/services/HukorHelper.php" />
         <option value="$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php" />
         <option value="$PROJECT_DIR$/app/models/LogBantuanHukum.php" />
         <option value="$PROJECT_DIR$/app/models/User.php" />
         <option value="$PROJECT_DIR$/app/models/BantuanHukum.php" />
         <option value="$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/models/services/HukorHelper.php" />
         <option value="$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/models/DAL/BantuanHukum.php" />
         <option value="$PROJECT_DIR$/app/controllers/BantuanHukumController.php" />
       </list>
@@ -157,6 +166,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -275,107 +285,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BantuanHukum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -455,9 +366,7 @@
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1424" column="0" selection-start="22593" selection-end="22593" vertical-scroll-proportion="0.3321739" vertical-offset="24017" max-vertical-offset="64651">
-          <folding />
-        </state>
+        <state line="1424" column="0" selection-start="22593" selection-end="22593" vertical-scroll-proportion="0.3321739" vertical-offset="24017" max-vertical-offset="64651" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/admin_index.js">
@@ -472,23 +381,28 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="5.8846154" vertical-offset="153" max-vertical-offset="4131" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/LayananKelembagaanController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="28" selection-start="1037" selection-end="1062" vertical-scroll-proportion="0.15482695" vertical-offset="561" max-vertical-offset="2193" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/LogBantuanHukum.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="25" selection-start="101" selection-end="101" vertical-scroll-proportion="0.15482695" vertical-offset="0" max-vertical-offset="549">
+        <state line="5" column="25" selection-start="101" selection-end="101" vertical-scroll-proportion="0.15482695" vertical-offset="0" max-vertical-offset="549" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="31" selection-start="1046" selection-end="1055" vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="1853">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/services/HukorHelper.php">
+    <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="6" selection-start="3157" selection-end="3157" vertical-scroll-proportion="-8.038462" vertical-offset="1831" max-vertical-offset="2380">
+        <state line="88" column="71" selection-start="4336" selection-end="4336" vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="3332">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="37" selection-start="2210" selection-end="2210" vertical-scroll-proportion="0.2705224" vertical-offset="654" max-vertical-offset="2822" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/BantuanHukum.php">
@@ -498,58 +412,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/LayananKelembagaanController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="31" selection-start="1046" selection-end="1055" vertical-scroll-proportion="-12.615385" vertical-offset="556" max-vertical-offset="1836">
+        <state line="49" column="0" selection-start="1465" selection-end="1465" vertical-scroll-proportion="0.50455374" vertical-offset="556" max-vertical-offset="2176">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/models/services/HukorHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="71" selection-start="4336" selection-end="4336" vertical-scroll-proportion="-57.53846" vertical-offset="0" max-vertical-offset="3332">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="37" selection-start="2210" selection-end="2210" vertical-scroll-proportion="0.2705224" vertical-offset="654" max-vertical-offset="2822">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="58" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.3715847" vertical-offset="85" max-vertical-offset="1700">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="24" selection-start="2982" selection-end="2982" vertical-scroll-proportion="-10.807693" vertical-offset="1130" max-vertical-offset="6392">
+        <state line="144" column="29" selection-start="3802" selection-end="3802" vertical-scroll-proportion="-8.692307" vertical-offset="2222" max-vertical-offset="2771">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="73" selection-start="4422" selection-end="4440" vertical-scroll-proportion="-3.4615386" vertical-offset="1882" max-vertical-offset="2431">
+        <state line="115" column="24" selection-start="4330" selection-end="4776" vertical-scroll-proportion="-2.8076923" vertical-offset="1882" max-vertical-offset="2431">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/BantuanHukumController.php">
+    <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="34" selection-start="2290" selection-end="2290" vertical-scroll-proportion="-12.615385" vertical-offset="1270" max-vertical-offset="2329">
+        <state line="362" column="31" selection-start="12547" selection-end="12547" vertical-scroll-proportion="-12.769231" vertical-offset="5822" max-vertical-offset="6545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="69" selection-start="1326" selection-end="1326" vertical-scroll-proportion="-10.846154" vertical-offset="75" max-vertical-offset="1581">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/DAL/BantuanHukum.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="1419" selection-end="1419" vertical-scroll-proportion="-0.34790528" vertical-offset="990" max-vertical-offset="2040">
+        <state line="67" column="42" selection-start="2063" selection-end="2063" vertical-scroll-proportion="-8.346154" vertical-offset="922" max-vertical-offset="2975">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/BantuanHukumController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="77" selection-start="3198" selection-end="3198" vertical-scroll-proportion="0.72131145" vertical-offset="1780" max-vertical-offset="2380">
           <folding />
         </state>
       </provider>

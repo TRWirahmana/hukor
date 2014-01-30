@@ -28,6 +28,7 @@ Route::group(array('before' => 'guest'), function(){
     Route::get('addbahu', 'BantuanHukumController@add');
     Route::get('detail_banhuk', 'BantuanHukumController@detail');
     Route::get('delete_banhuk', 'BantuanHukumController@delete');
+    Route::get('delete_log_banhuk', 'BantuanHukumController@deletelog');
     Route::post('save', 'BantuanHukumController@save');
     Route::post('banhuk_update', 'BantuanHukumController@update');
 

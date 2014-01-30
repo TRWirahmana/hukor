@@ -123,9 +123,12 @@ class BantuanHukumController extends BaseController{
         $id = Input::get('id');
         $DAL = new DAL_BantuanHukun();
 
-        $DAL->DeleteLogBantuanHukum($id);
+        $data = $DAL->GetSingleLogBantuanHukum($id);
+        $DAL->DeleteLogBantuanHukum(false, $id);
 
-        return Redirect::to('detail_banhuk')->with('success', 'Data Berhasil Di Hapus.');
+        $link = URL::to('/') . '/detail_banhuk?id=' . $data->bantuan_hukum_id;
+
+        return Redirect::to($link)->with('success', 'Data Berhasil Di Hapus.');
     }
 }
 

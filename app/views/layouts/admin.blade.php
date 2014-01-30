@@ -93,7 +93,7 @@
                                 <li><a href="#">Tata naskah dinas</a></li>
                             </ul>
                         </li>
-                        <li id="kelembagaan" class="dropdown"><a href="#"><span class="iconfa-briefcase"></span> Layanan Kelembagaan</a>
+                        <li id="kelembagaan" class="dropdown"><a href="{{URL::to('admin/layanankelembagaan/edit')}}"><span class="iconfa-briefcase"></span> Layanan Kelembagaan</a>
                             <ul>
                                 <li><a href="#">Pembentukan</a></li>
                                 <li><a href="#">Penataan</a></li>

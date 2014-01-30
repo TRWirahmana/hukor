@@ -8,8 +8,8 @@ var Registrasi = (function(REG) {
 
     REG.Index = function() {
         /* Filter Daerah Registrasi */
-        $('#filter-registrasi').on('change', function() {
-            var $this = $(this);
+        jQuery('#filter-registrasi').on('change', function() {
+            var $this = jQuery(this);
             if($this.val() != '') {
                 var ACTION = baseUrl + '/Manage?rid=' + $this.val();
                 // console.log(ACTION);
@@ -27,26 +27,26 @@ var Registrasi = (function(REG) {
             height: 300
         });
 
-        $("#status").change(function(e){
-            if(parseInt($(this).val()) == 1) {
-                $("#surat_ijin_keluarga_group").prop("disabled", false).show();
+        jQuery("#status").change(function(e){
+            if(parseInt(jQuery(this).val()) == 1) {
+                jQuery("#surat_ijin_keluarga_group").prop("disabled", false).show();
             } else {
-                $("#surat_ijin_keluarga_group").prop("disabled", true).hide();
+                jQuery("#surat_ijin_keluarga_group").prop("disabled", true).hide();
             }
         });
 
-        $("#status").change();
+        jQuery("#status").change();
 
 
-        $("#umur").val(calculateAge());
-        $("#tahun_lahir,#bulan_lahir,#tanggal_lahir").change(function(){
+        jQuery("#umur").val(calculateAge());
+        jQuery("#tahun_lahir,#bulan_lahir,#tanggal_lahir").change(function(){
             $("#umur").val(calculateAge());
         });
 
         /*
          * Trigger Submit Form
          */
-        $('button#submit').on('click', function() {
+        jQuery('button#submit').on('click', function() {
             $('#registrasi-form').submit();
         });
 
@@ -94,18 +94,18 @@ var Registrasi = (function(REG) {
                 }
             };
 
-        if($("#lampiran_foto").length != 0) rules.foto.required = false;
-        if($("#lampiran_ijazah").length != 0) rules.ijazah_terakhir.required = false;
-        if($("#lampiran_transkrip").length != 0) rules.transkrip_nilai.required = false;
-        if($("#lampiran_ktp").length != 0) rules.ktp.required = false;
-        if($("#lampiran_lamaran").length != 0) rules.lamaran.required = false;
-        if($("#lampiran_cv").length != 0) rules.cv.required = false;
-        if($("#lampiran_ket_sehat").length != 0) rules.ket_sehat.required = false;
-        if($("#lampiran_ket_bebas_narkoba").length != 0) rules.ket_bebas_narkoba.required = false;
-        if($("#lampiran_skck").length != 0) rules.ket_catatan_kepolisian.required = false;
-        if($("#lampiran_sik").length != 0) rules.surat_ijin_keluarga.required = false;
+        if(jQuery("#lampiran_foto").length != 0) rules.foto.required = false;
+        if(jQuery("#lampiran_ijazah").length != 0) rules.ijazah_terakhir.required = false;
+        if(jQuery("#lampiran_transkrip").length != 0) rules.transkrip_nilai.required = false;
+        if(jQuery("#lampiran_ktp").length != 0) rules.ktp.required = false;
+        if(jQuery("#lampiran_lamaran").length != 0) rules.lamaran.required = false;
+        if(jQuery("#lampiran_cv").length != 0) rules.cv.required = false;
+        if(jQuery("#lampiran_ket_sehat").length != 0) rules.ket_sehat.required = false;
+        if(jQuery("#lampiran_ket_bebas_narkoba").length != 0) rules.ket_bebas_narkoba.required = false;
+        if(jQuery("#lampiran_skck").length != 0) rules.ket_catatan_kepolisian.required = false;
+        if(jQuery("#lampiran_sik").length != 0) rules.surat_ijin_keluarga.required = false;
 
-        $("#user-register-form").validate({
+        jQuery("#user-register-form").validate({
             ignore: [],
             errorElement: 'span',
             errorClass: 'help-block error',
@@ -147,23 +147,23 @@ var Registrasi = (function(REG) {
                 error.appendTo(element.parent('div.controls'));
             },
             invalidHandler: function(event, validator) {
-                $("div.control-group.error").removeClass('error');
-                $('div.controls .error[name]').parents('div.control-group').addClass('error');
+                jQuery("div.control-group.error").removeClass('error');
+                jQuery('div.controls .error[name]').parents('div.control-group').addClass('error');
             },
             onfocusout: function(elem, event) {
-                $(elem).validate();
-                $controlGroup = $(elem).parents('div.control-group');
-                if($(elem).valid())
+                jQuery(elem).validate();
+                $controlGroup = jQuery(elem).parents('div.control-group');
+                if(jQuery(elem).valid())
                     $controlGroup.removeClass('error');
                 else
                     $controlGroup.addClass('error');
             }
         });
 
-        $("#registrasi-form input[type='file']").change(function(e){
-            $(this).validate();
-                $controlGroup = $(this).parents('div.control-group');
-                if($(this).valid())
+        jQuery("#registrasi-form input[type='file']").change(function(e){
+            jQuery(this).validate();
+                $controlGroup = jQuery(this).parents('div.control-group');
+                if(jQuery(this).valid())
                     $controlGroup.removeClass('error');
                 else
                     $controlGroup.addClass('error');
@@ -172,12 +172,12 @@ var Registrasi = (function(REG) {
         /*
          * Add Karir
          */
-        $('#add-karir').on('click', function() {
-            var $this = $(this);
+        jQuery('#add-karir').on('click', function() {
+            var $this = jQuery(this);
             $this.prev('.block-karir').clone().insertBefore($this);
             ReIndexKarir();
 
-            $parent = $("#karir");
+            $parent = jQuery("#karir");
                 // Cleare textbox
             $parent.find('.perusahaan:last').val('');
             $parent.find('.jabatan:last').val('');
@@ -190,12 +190,12 @@ var Registrasi = (function(REG) {
         /*
          * Add Organisasi
          */
-        $('#add-organisasi').on('click', function() {
-            var $this = $(this);
+        jQuery('#add-organisasi').on('click', function() {
+            var $this = jQuery(this);
             $this.prev('.block-organisasi').clone().insertBefore($this);
             ReIndexOrganisasi();
 
-            var $parent = $('#pengalaman-organisasi');
+            var $parent = jQuery('#pengalaman-organisasi');
              // Cleare textbox
             $parent.find('.org_organisasi:last').val('');
             $parent.find('.org_jabatan:last').val('');
@@ -208,20 +208,20 @@ var Registrasi = (function(REG) {
         /*
          * Add Organisasi
          */
-        $('#add-prestasi').on('click', function() {
-            var $this = $(this);
+        jQuery('#add-prestasi').on('click', function() {
+            var $this = jQuery(this);
             $this.prev('.block-prestasi').clone().insertBefore($this);
             ReIndexPrestasi();
 
-            var $parent = $("#prestasi");
+            var $parent = jQuery("#prestasi");
 
             $parent.find('.nama_prestasi:last').val('');
             $parent.find('.tahun_prestasi:last').val('');
         });
 
-        $(document).on('click', '.delete_karir', function(){
-            if($("#karir .block-karir").length == 1) {
-                $parent = $("#karir");
+        jQuery(document).on('click', '.delete_karir', function(){
+            if(jQuery("#karir .block-karir").length == 1) {
+                $parent = jQuery("#karir");
                 // Cleare textbox
                 $parent.find('.perusahaan:last').val('');
                 $parent.find('.jabatan:last').val('');
@@ -234,13 +234,13 @@ var Registrasi = (function(REG) {
                 return;
             }
 
-            $(this).parents('.block-karir').remove();
+            jQuery(this).parents('.block-karir').remove();
             ReIndexKarir();
         });
 
-        $(document).on('click', '.delete_organisasi', function(){
-            if($("#pengalaman-organisasi .block-organisasi").length == 1) {
-                var $parent = $('#pengalaman-organisasi');
+        jQuery(document).on('click', '.delete_organisasi', function(){
+            if(jQuery("#pengalaman-organisasi .block-organisasi").length == 1) {
+                var $parent = jQuery('#pengalaman-organisasi');
                 // Cleare textbox
                 $parent.find('.org_organisasi').val('');
                 $parent.find('.org_jabatan').val('');
@@ -253,13 +253,13 @@ var Registrasi = (function(REG) {
                 return;
             }
 
-            $(this).parents('.block-organisasi').remove();
+            jQuery(this).parents('.block-organisasi').remove();
             ReIndexOrganisasi();
         });
 
-         $(document).on('click', '.delete_prestasi', function(){
-            if($("#prestasi .block-prestasi").length == 1) {
-                var $parent = $('#prestasi');
+        jQuery(document).on('click', '.delete_prestasi', function(){
+            if(jQuery("#prestasi .block-prestasi").length == 1) {
+                var $parent = jQuery('#prestasi');
                 // Cleare textbox
                 $parent.find('.nama_prestasi:last').val('');
                 $parent.find('.tahun_prestasi:last').val(''); 
@@ -267,7 +267,7 @@ var Registrasi = (function(REG) {
                 return;
             }
 
-            $(this).parents('.block-prestasi').remove();
+            jQuery(this).parents('.block-prestasi').remove();
             ReIndexPrestasi();
         });
 
@@ -276,9 +276,9 @@ var Registrasi = (function(REG) {
          * Re Index Dom Karir
          */
         function ReIndexKarir() {
-            var $parent = $('#karir');
+            var $parent = jQuery('#karir');
             $parent.find('.block-karir').each(function(i) {
-                var $this = $(this);
+                var $this = jQuery(this);
                 $this.find('.label-subject').html('Karir/Riwayat pekerjaan (' + (i + 1) + ') <a class="delete_karir">Hapus</a>');
                 $this.find('.perusahaan').attr('name', 'karir[' + i + '][perusahaan]');
                 $this.find('.jabatan').attr('name', 'karir[' + i + '][jabatan]');
@@ -294,9 +294,9 @@ var Registrasi = (function(REG) {
          * Re Index Dom Organisasi
          */
         function ReIndexOrganisasi() {
-            var $parent = $('#pengalaman-organisasi');
+            var $parent = jQuery('#pengalaman-organisasi');
             $parent.find('.block-organisasi').each(function(i) {
-                var $this = $(this);
+                var $this = jQuery(this);
                 $this.find('.label-subject').html('Pengalaman organisasi (' + (i + 1) + ') <a class="delete_organisasi">Hapus</a>');
                 $this.find('.org_organisasi').attr('name', 'organisasi[' + i + '][organisasi]');
                 $this.find('.org_jabatan').attr('name', 'organisasi[' + i + '][jabatan]');
@@ -311,9 +311,9 @@ var Registrasi = (function(REG) {
          * Re Index Dom Prestasi
          */
         function ReIndexPrestasi() {
-            var $parent = $('#prestasi');
+            var $parent = jQuery('#prestasi');
             $parent.find('.block-prestasi').each(function(i) {
-                var $this = $(this);
+                var $this = jQuery(this);
                 $this.find('.label-subject').html('Prestasi (' + (i + 1) + ') <a class="delete_prestasi">Hapus</a>');
                 $this.find('.nama_prestasi').attr('name', 'prestasi[' + i + '][nama_prestasi]');
                 $this.find('.tahun_prestasi').attr('name', 'prestasi[' + i + '][periode]');
@@ -323,9 +323,9 @@ var Registrasi = (function(REG) {
 
         // fungsi untuk menggenare umur.
         function calculateAge() {
-            var tahun = $("#tahun_lahir").val();
-            var bulan = $("#bulan_lahir").val();
-            var tgl = $("#tanggal_lahir").val();
+            var tahun = jQuery("#tahun_lahir").val();
+            var bulan = jQuery("#bulan_lahir").val();
+            var tgl = jQuery("#tanggal_lahir").val();
 
             if("" == tahun || "" == bulan || "" == tgl)
                 return "";

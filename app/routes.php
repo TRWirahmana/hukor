@@ -72,6 +72,9 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('setting', 'AdminController@setting');
     Route::put('setting/save', 'AdminController@save');
 
+    //Layanan Kelembagaan
+    Route::get('layanankelembagaan/edit', 'LayananKelembagaanController@create');
+
 
 });
 

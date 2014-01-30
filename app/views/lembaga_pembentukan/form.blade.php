@@ -1,11 +1,13 @@
 @section('content')
 @include('flash')
+
 <div class="rightpanel">
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
         <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
-        <li>Layanan Kelembagaan</li>
+        <li><a href="{{URL::previous()}}">Layanan Kelembagaan</a> <span class="separator"></span></li>
+        <li>Pembentukan</li>
     </ul>
 
     <div class="pageheader">
@@ -16,7 +18,7 @@
         <div class="pagetitle">
             <!--<h5>Events</h5>-->
 
-            <h1>Informasi Layanan kelembagaan</h1>
+            <h1>Informasi Layanan Kelembagaan</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -26,7 +28,7 @@
 
             <!-- MAIN CONTENT -->
 <!--            {{-- form informasi layanan kelembagaan --}}-->
-            {{ Form::open(array('action' => array('LayananKelembagaanController@submit'), 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', 'enctype' => "multipart/form-data" )) }}
+            {{ Form::open(array('action' => 'LayananKelembagaanController@submit', 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', 'enctype' => "multipart/form-data" )) }}
             {{Form::hidden('id', $id, '')}}
 
             <div class="row-fluid">
@@ -145,8 +147,6 @@
 <script src="{{asset('assets/js/registrasi.js')}}"></script>
 
 <script type="text/javascript">
-
-
     tinyMCE.init({
         theme : "modern",
         mode: "exact",
@@ -160,6 +160,8 @@
         theme_advanced_buttons3 : "",
         height:"350px"
     });
+
+
     Registrasi.Form();
 </script>
 @stop

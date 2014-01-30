@@ -1,11 +1,12 @@
 @section('content')
 @include('flash')
+
 <div class="rightpanel">
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
         <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
-        <li>Layanan Kelembagaan</li>
+        <li>Layanan kelembagaan</li>
     </ul>
 
     <div class="pageheader">
@@ -26,8 +27,8 @@
 
             <!-- MAIN CONTENT -->
 <!--            {{-- form informasi layanan kelembagaan --}}-->
-            {{ Form::open(array('action' => array('LayananKelembagaanController@submit'), 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', 'enctype' => "multipart/form-data" )) }}
-            {{Form::hidden('id', $id, '')}}
+            {{ Form::open($form_opts) }}
+
 
             <div class="row-fluid">
                 <!--            left content-->
@@ -41,11 +42,11 @@
                             {{ Form::label('judul_berita', 'Judul Informasi', array('class' => 'control-label')) }}
                             <div class="controls">
                                 @if(!is_null($info))
-                                {{ Form::text('layananlembaga[judul_berita]', $info->judul_berita,
+                                {{ Form::text('layananketatalaksanaan[judul_berita]', $info->judul_berita,
                                 array('placeholder' => 'ketikkan judul informasi di sini...'))
                                 }}
                                 @else
-                                {{ Form::text('layananlembaga[judul_berita]', '',
+                                {{ Form::text('layananketatalaksanaan[judul_berita]', '',
                                 array('placeholder' => 'ketikkan judul informasi di sini...')) }}
                                 @endif
 
@@ -59,15 +60,13 @@
                             {{ Form::label('berita', 'Informasi / Berita', array('class' => 'control-label')) }}
                             <div class="controls">
                                 @if(!is_null($info))
-                                {{ Form::textarea('layananlembaga[berita]', $info->berita,
+                                {{ Form::textarea('layananketatalaksanaan[berita]', $info->berita,
                                 array('placeholder' => 'ketikkan Informasi atau berita anda di sini...', 'id' => 'berita'))
                                 }}
                                 @else
-                                {{ Form::textarea('layananlembaga[berita]', '',
-                                array('placeholder' => 'ketikkan Informasi atau berita anda di sini...', 'id' => 'berita')) }}
+                                {{ Form::textarea('layananketatalaksanaan[berita]', '',
+                                array('placeholder' => 'ketikkan Informasi atau berita anda di sini...')) }}
                                 @endif
-
-
 
                                 @foreach($errors->get('berita') as $error)
                                 <span class="help-block">{{$error}}</span>
@@ -79,11 +78,11 @@
                             {{ Form::label('penanggung_jawab', 'Unit Penanggung Jawab', array('class' => 'control-label')) }}
                             <div class="controls">
                                 @if(!is_null($info))
-                                {{Form::text('layananlembaga[penanggung_jawab]', $info->penanggung_jawab,
+                                {{Form::text('layananketatalaksanaan[penanggung_jawab]', $info->penanggung_jawab,
                                 array('placeholder' => 'ketikkan unit penanggungjawab di sini...'))
                                 }}
                                 @else
-                                {{ Form::text('layananlembaga[penanggung_jawab]', '',
+                                {{ Form::text('layananketatalaksanaan[penanggung_jawab]', '',
                                 array('placeholder' => 'ketikkan unit penanggungjawab di sini...')) }}
                                 @endif
 
@@ -96,7 +95,7 @@
                         <div class="control-group {{$errors->has('image')?'error':''}}">
                             {{ Form::label('image', 'Gambar', array('class' => 'control-label')) }}
                             <div class="controls">
-                                {{ Form::file('layananlembaga[image]')}}
+                                {{ Form::file('layananketatalaksanaan[image]')}}
 
                                 @foreach($errors->get('image') as $error)
                                 <span class="help-block">{{$error}}</span>
@@ -145,8 +144,6 @@
 <script src="{{asset('assets/js/registrasi.js')}}"></script>
 
 <script type="text/javascript">
-
-
     tinyMCE.init({
         theme : "modern",
         mode: "exact",
@@ -160,6 +157,7 @@
         theme_advanced_buttons3 : "",
         height:"350px"
     });
+
     Registrasi.Form();
 </script>
 @stop

@@ -91,6 +91,23 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::put('setting/save', 'AdminController@save');
 
     //Layanan Kelembagaan
+    Route::resource('layanankelembagaan', 'LayananKelembagaanController');
+    Route::post('SubmitBerita', 'LayananKelembagaanController@submit');
+    Route::get('edit_kelembagaan', 'LayananKelembagaanController@create');
+
+    //pembentukan
+    Route::get('edit_pembentukan', 'LayananKelembagaanController@create_pembentukan');
+
+    //penataan
+    Route::get('edit_penataan', 'LayananKelembagaanController@create_penataan');
+
+    //statuta
+    Route::get('edit_statuta', 'LayananKelembagaanController@create_statuta');
+
+    //penutupan
+    Route::get('edit_penutupan', 'LayananKelembagaanController@create_penutupan');
+
+    //Layanan Kelembagaan
     Route::get('layanankelembagaan/edit', 'LayananKelembagaanController@create');
 
 
@@ -105,9 +122,36 @@ Route::group(array('prefix' => 'per-uu'), function() {
 	Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
 });
 
+
 Route::group(array('prefix' => 'layanan_kelembagaan'), function() {
+    //index
     Route::get('index', 'LayananKelembagaanController@index');
+    Route::get('pembentukan', 'LayananKelembagaanController@pembentukan');
+    Route::get('penataan', 'LayananKelembagaanController@penataan');
+    Route::get('penutupan', 'LayananKelembagaanController@penutupan');
+    Route::get('statuta', 'LayananKelembagaanController@statuta');
+
+    //proses
     Route::get('CreateInfo', 'LayananKelembagaanController@create');
     Route::post('SubmitBerita', 'LayananKelembagaanController@submit');
+
+    //pembentukan
+    //penataan
+    //statuta
+    //penutupan
 });
+
+
+Route::group(array('prefix' => 'layanan_ketatalaksanaan'), function() {
+    Route::get('index', 'LayananKetatalaksanaanController@index');
+	Route::get('CreateInfo', 'LayananKetatalaksanaanController@create');
+    Route::post('SubmitBerita', 'LayananKetatalaksanaanController@submit'); 
+});
+
+Route::group(array('prefix' => 'spk'), function() {
+    Route::get('index', 'SpkController@index');
+    Route::get('CreateInfo', 'SpkController@create');
+    Route::post('SubmitBerita', 'SpkController@submit'); 
+});
+
 

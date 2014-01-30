@@ -1,97 +1,139 @@
 @section('content')
-
-<h2>Tambah Informasi Layanan Kelembagaan</h2>
-<div class="stripe-accent"></div>
 @include('flash')
 
-{{-- form informasi layanan kelembagaan --}}
-{{ Form::open(array('action' => 'LayananKelembagaanController@submit', 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', 'enctype' => "multipart/form-data" )) }}
+<div class="rightpanel">
 
+    <ul class="breadcrumbs">
+        <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
+        <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
+        <li>Layanan kelembagaan</li>
+    </ul>
 
-<div class="row-fluid">
-    <!--            left content-->
-    <div class="span24">
-        <div class="nav nav-tabs">
-            <h4>Informasi layanan Kelembagaan</h4>
-        </div>
+    <div class="pageheader">
+        <!--        <form action="results.html" method="post" class="searchbar">-->
+        <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
+        <!--        </form>-->
+        <div class="pageicon">&nbsp;</div>
+        <div class="pagetitle">
+            <!--<h5>Events</h5>-->
 
-    <div class="span24">
-        <div class="control-group {{$errors->has('judul_berita')?'error':''}}">
-            {{ Form::label('judul_berita', 'Judul Informasi', array('class' => 'control-label')) }}
-            <div class="controls">
-                @if(!is_null($info))
-                    {{ Form::text('layananlembaga[judul_berita]', $info->judul_berita,
-                    array('placeholder' => 'ketikkan judul informasi di sini...'))
-                    }}
-                @else
-                    {{ Form::text('layananlembaga[judul_berita]', '',
-                    array('placeholder' => 'ketikkan judul informasi di sini...')) }}
-                @endif
-
-                @foreach($errors->get('judul_berita') as $error)
-                <span class="help-block">{{$error}}</span>
-                @endforeach
-            </div>
-        </div>
-
-        <div class="control-group {{$errors->has('berita')?'error':''}}">
-            {{ Form::label('berita', 'Informasi / Berita', array('class' => 'control-label')) }}
-            <div class="controls">
-                @if(!is_null($info))
-                    {{ Form::textarea('layananlembaga[berita]', $info->berita,
-                    array('placeholder' => 'ketikkan Informasi atau berita anda di sini...', 'id' => 'berita'))
-                    }}
-                @else
-                    {{ Form::textarea('layananlembaga[berita]', '',
-                    array('placeholder' => 'ketikkan Informasi atau berita anda di sini...')) }}
-                @endif
-
-
-
-                @foreach($errors->get('berita') as $error)
-                <span class="help-block">{{$error}}</span>
-                @endforeach
-            </div>
-        </div>
-
-        <div class="control-group {{$errors->has('penanggung_jawab')?'error':''}}">
-            {{ Form::label('penanggung_jawab', 'Unit Penanggung Jawab', array('class' => 'control-label')) }}
-            <div class="controls">
-                @if(!is_null($info))
-                    {{Form::text('layananlembaga[penanggung_jawab]', $info->penanggung_jawab,
-                    array('placeholder' => 'ketikkan unit penanggungjawab di sini...'))
-                    }}
-                @else
-                    {{ Form::text('layananlembaga[penanggung_jawab]', '',
-                    array('placeholder' => 'ketikkan unit penanggungjawab di sini...')) }}
-                @endif
-
-                @foreach($errors->get('penanggung_jawab') as $error)
-                <span class="help-block">{{$error}}</span>
-                @endforeach
-            </div>
-        </div>
-
-        <div class="control-group {{$errors->has('image')?'error':''}}">
-            {{ Form::label('image', 'Gambar', array('class' => 'control-label')) }}
-            <div class="controls">
-                {{ Form::file('layananlembaga[image]')}}
-
-                @foreach($errors->get('image') as $error)
-                <span class="help-block">{{$error}}</span>
-                @endforeach
-            </div>
+            <h1>Informasi Layanan kelembagaan</h1>
         </div>
     </div>
-</div>
+    <!--pageheader-->
 
-<div class="row-fluid">
-    <div class="span24 text-center">
-        <button class="btn" type="submit">Submit</button>
+    <div class="maincontent">
+        <div class="maincontentinner">
+
+            <!-- MAIN CONTENT -->
+<!--            {{-- form informasi layanan kelembagaan --}}-->
+            {{ Form::open(array('action' => 'LayananKelembagaanController@submit', 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', 'enctype' => "multipart/form-data" )) }}
+
+
+            <div class="row-fluid">
+                <!--            left content-->
+                <div class="span24">
+                    <div class="nav nav-tabs">
+                        <h4>Informasi layanan Kelembagaan</h4>
+                    </div>
+
+                    <div class="span24">
+                        <div class="control-group {{$errors->has('judul_berita')?'error':''}}">
+                            {{ Form::label('judul_berita', 'Judul Informasi', array('class' => 'control-label')) }}
+                            <div class="controls">
+                                @if(!is_null($info))
+                                {{ Form::text('layananlembaga[judul_berita]', $info->judul_berita,
+                                array('placeholder' => 'ketikkan judul informasi di sini...'))
+                                }}
+                                @else
+                                {{ Form::text('layananlembaga[judul_berita]', '',
+                                array('placeholder' => 'ketikkan judul informasi di sini...')) }}
+                                @endif
+
+                                @foreach($errors->get('judul_berita') as $error)
+                                <span class="help-block">{{$error}}</span>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="control-group {{$errors->has('berita')?'error':''}}">
+                            {{ Form::label('berita', 'Informasi / Berita', array('class' => 'control-label')) }}
+                            <div class="controls">
+                                @if(!is_null($info))
+                                {{ Form::textarea('layananlembaga[berita]', $info->berita,
+                                array('placeholder' => 'ketikkan Informasi atau berita anda di sini...', 'id' => 'berita'))
+                                }}
+                                @else
+                                {{ Form::textarea('layananlembaga[berita]', '',
+                                array('placeholder' => 'ketikkan Informasi atau berita anda di sini...')) }}
+                                @endif
+
+
+
+                                @foreach($errors->get('berita') as $error)
+                                <span class="help-block">{{$error}}</span>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="control-group {{$errors->has('penanggung_jawab')?'error':''}}">
+                            {{ Form::label('penanggung_jawab', 'Unit Penanggung Jawab', array('class' => 'control-label')) }}
+                            <div class="controls">
+                                @if(!is_null($info))
+                                {{Form::text('layananlembaga[penanggung_jawab]', $info->penanggung_jawab,
+                                array('placeholder' => 'ketikkan unit penanggungjawab di sini...'))
+                                }}
+                                @else
+                                {{ Form::text('layananlembaga[penanggung_jawab]', '',
+                                array('placeholder' => 'ketikkan unit penanggungjawab di sini...')) }}
+                                @endif
+
+                                @foreach($errors->get('penanggung_jawab') as $error)
+                                <span class="help-block">{{$error}}</span>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="control-group {{$errors->has('image')?'error':''}}">
+                            {{ Form::label('image', 'Gambar', array('class' => 'control-label')) }}
+                            <div class="controls">
+                                {{ Form::file('layananlembaga[image]')}}
+
+                                @foreach($errors->get('image') as $error)
+                                <span class="help-block">{{$error}}</span>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row-fluid">
+                    <div class="span24 text-center">
+                        <button class="btn" type="submit">Submit</button>
+                    </div>
+                </div>
+
+                {{ Form::close() }}
+
+                <!-- END OF MAIN CONTENT -->
+
+                <div class="footer">
+                <div class="footer-left">
+                    <span>&copy; 2013. Admin Template. All Rights Reserved.</span>
+                </div>
+                <div class="footer-right">
+                    <span></span>
+                </div>
+            </div>
+            <!--footer-->
+        </div>
+        <!--maincontentinner-->
     </div>
-</div>
+    <!--maincontent-->
 
-{{ Form::close() }}
+
+</div>
+<!--rightpanel-->
 
 @stop
 

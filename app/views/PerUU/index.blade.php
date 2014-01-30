@@ -23,7 +23,7 @@
 			<th>Jabatan</th>
 			<th>Perihal</th>
 			<th>Status</th>
-			<th>Lampiran</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody></tbody>
@@ -45,9 +45,11 @@
 				{mData: "perihal"},
 				{mData: "status"},
 				{
-					mData: "lampiran",
-					mRender: function($data) {
-						return "<a href='/assets/uploads/"+$data+"'>Unduh</a>";
+					mData: 'id',
+					mRender: function(data) {
+						return "<a href='/assets/uploads/"+data+"'>Unduh</a> " + 
+							"<a href='/per-uu/update/"+data+"'>Update</a> " +
+							"<a class='delete' href='javascript:void(0)' data-id='"+data+"'>Hapus</a>";
 					}
 				}
 			],
@@ -56,11 +58,24 @@
 			}
 		});
 
+		$dataTable.on('click', '.delete', function(){
+			if(!confirm('Apakah anda yakin?'))
+				return;
+			
+			var id = $(this).data('id');
+			$.post('/per-uu/delete', {id: id}, function(){
+				$dataTable.fnReloadAjax();
+			});
+		});
+
 		$("#select-filter").change(function(){
 			$dataTable.fnReloadAjax();
 		});
 
 	});
+
+
+	
 	
 </script>
 @stop

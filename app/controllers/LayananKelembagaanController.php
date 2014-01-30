@@ -2,11 +2,12 @@
 
 class LayananKelembagaanController extends BaseController {
 
-    protected $layout = 'layouts.master';
+//    protected $layout = 'layouts.admin';
 
     public function index(){
 
         $info = LayananKelembagaan::find(1);
+        $this->layout = View::make('layouts.master');
 
         $this->layout->content = View::make('layanankelembagaan.index',
         array(
@@ -17,6 +18,8 @@ class LayananKelembagaanController extends BaseController {
 
     public function create(){
         $info = LayananKelembagaan::find(1);
+
+        $this->layout = View::make('layouts.admin');
 
         $this->layout->content = View::make('layanankelembagaan.form',
         array(
@@ -60,7 +63,7 @@ class LayananKelembagaanController extends BaseController {
 
                     if($success){
                         Session::flash('success', 'Informasi Layanan Kelembagaan berhasil dirubah!');
-                        return Redirect::to('layanan_kelembagaan/CreateInfo');
+                        return Redirect::to('admin/layanankelembagaan/edit');
                     }else{
                         Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
                         return Redirect::back();
@@ -79,7 +82,7 @@ class LayananKelembagaanController extends BaseController {
 
                     if($lembaga->Save()){
                         Session::flash('success', 'Informasi Layanan Kelembagaan berhasil ditambahkan!');
-                        return Redirect::to('layanan_kelembagaan/index');
+                        return Redirect::to('admin/layanankelembagaan/edit');
                     }else{
                         Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
                         return Redirect::back();

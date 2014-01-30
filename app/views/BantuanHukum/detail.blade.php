@@ -287,6 +287,7 @@
         <th>Lampiran</th>
         <th>Advokasi</th>
         <th>Advokator</th>
+        <th></th>
     </tr>
     </thead>
 </table>
@@ -353,7 +354,15 @@
                         return advokasi;
                     }
                 },
-                {mData: "advokator"}
+                {mData: "advokator"},
+                {
+                    mData: "id",
+                    mRender: function(data){
+                        var deleteUrl = baseUrl + '/delete_log_banhuk?id=' + data;
+
+                        return '<a href="' + deleteUrl + '" class="btn_delete"><i class="icon-trash"></i></a>';
+                    }
+                }
             ],
             fnServerParams: function(aoData) {
     //                    aoData.push({name: "tahun", value: $("#select_filter_tahun").val()});

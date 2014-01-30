@@ -54,6 +54,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->belongsTo('Bagian');
     }
 
+    public function bantuanhukum(){
+        return $this->hasMany('BantuanHukum');
+    }
+
     protected $guarded = array();
 
     const STATUS_MENIKAH = 1;

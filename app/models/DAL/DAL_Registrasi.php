@@ -54,4 +54,11 @@ class DAL_Registrasi {
 
         return $data;
     }
+
+    public function findPengguna($id)
+    {
+        $data = Pengguna::where('user_id', '=', $id)->first();
+
+        return $data;
+    }
 }

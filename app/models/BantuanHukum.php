@@ -6,4 +6,8 @@ class BantuanHukum extends Eloquent {
     protected $table = 'bantuan_hukum';
     protected $guarded = array();
 
+    public function pengguna(){
+        return $this->belongsTo('Pengguna');
+    }
+
 }

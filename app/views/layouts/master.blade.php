@@ -76,6 +76,10 @@
             <li><a href="#">Layanan Ketatalaksanaan</a></li>
 
             <li><a href="{{ URL::to('layanan_kelembagaan/index') }}">Layanan Kelembagaan</a></li>
+              <li><a href="{{ URL::to('layanan_kelembagaan/pembentukan') }}">Layanan Pembentukan</a></li>
+              <li><a href="{{ URL::to('layanan_kelembagaan/penataan') }}">Layanan Penataan</a></li>
+              <li><a href="{{ URL::to('layanan_kelembagaan/penutupan') }}">Layanan Penutupan</a></li>
+              <li><a href="{{ URL::to('layanan_kelembagaan/statuta') }}">Layanan Statuta</a></li>
             <li><a href="#">Layanan Bantuan Hukum</a></li>
             <li><a href="#">Layanan Peraturan Perundang-Undangan</a></li>
             <li><a href="#">Forum Diskusi</a></li>

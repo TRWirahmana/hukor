@@ -125,11 +125,34 @@ class HukorHelper {
      */
     public static function UploadFile($dir, $inputFile)
     {
+        // set destination folder
         $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $dir;
+
+        //get real file name
         $filename = $inputFile->getClientOriginalName();
+
+        //upload file
         $uploadSuccess = $inputFile->move($destinationPath, $filename);
 
         return $uploadSuccess;
+    }
+
+    /*
+     * Upload File
+     * $dir adalah untuk nama direktori
+     * $file adalah file yang akan di hapus
+     */
+    public static function DeleteFile($dir, $file)
+    {
+        // get derectory of file
+        $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $dir;
+        $img_exists = $destinationPath . '/' . $file;
+
+        if(file_exists($img_exists))
+        {
+            //delete file image di folder yang terdaftar di database
+            unlink($img_exists);
+        }
     }
     
 }

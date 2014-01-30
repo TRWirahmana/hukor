@@ -28,6 +28,7 @@ Route::group(array('before' => 'guest'), function(){
     Route::get('addbahu', 'BantuanHukumController@add');
     Route::get('detail_banhuk', 'BantuanHukumController@detail');
     Route::get('delete_banhuk', 'BantuanHukumController@delete');
+    Route::get('delete_log_banhuk', 'BantuanHukumController@deletelog');
     Route::post('save', 'BantuanHukumController@save');
     Route::post('banhuk_update', 'BantuanHukumController@update');
 
@@ -78,7 +79,21 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::put('setting/save', 'AdminController@save');
 
     //Layanan Kelembagaan
-    Route::get('layanankelembagaan/edit', 'LayananKelembagaanController@create');
+    Route::resource('layanankelembagaan', 'LayananKelembagaanController');
+    Route::post('SubmitBerita', 'LayananKelembagaanController@submit');
+    Route::get('edit_kelembagaan', 'LayananKelembagaanController@create');
+
+    //pembentukan
+    Route::get('edit_pembentukan', 'LayananKelembagaanController@create_pembentukan');
+
+    //penataan
+    Route::get('edit_penataan', 'LayananKelembagaanController@create_penataan');
+
+    //statuta
+    Route::get('edit_statuta', 'LayananKelembagaanController@create_statuta');
+
+    //penutupan
+    Route::get('edit_penutupan', 'LayananKelembagaanController@create_penutupan');
 
     //Layanan Kelembagaan
     Route::get('layanankelembagaan/edit', 'LayananKelembagaanController@create');
@@ -97,9 +112,21 @@ Route::group(array('prefix' => 'per-uu'), function() {
 
 
 Route::group(array('prefix' => 'layanan_kelembagaan'), function() {
+    //index
     Route::get('index', 'LayananKelembagaanController@index');
+    Route::get('pembentukan', 'LayananKelembagaanController@pembentukan');
+    Route::get('penataan', 'LayananKelembagaanController@penataan');
+    Route::get('penutupan', 'LayananKelembagaanController@penutupan');
+    Route::get('statuta', 'LayananKelembagaanController@statuta');
+
+    //proses
     Route::get('CreateInfo', 'LayananKelembagaanController@create');
     Route::post('SubmitBerita', 'LayananKelembagaanController@submit');
+
+    //pembentukan
+    //penataan
+    //statuta
+    //penutupan
 });
 
 

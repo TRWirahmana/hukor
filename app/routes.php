@@ -14,7 +14,6 @@
 
 // Login / Logout
 Route::group(array('before' => 'guest'), function(){
-    Route::get('BantuanHukum', 'BantuanHukumController@index');
 	Route::post('Masuk', 'LoginController@signin');// Registrasi
     Route::post('Reset', 'ForgetPasswordController@reset');// Reset Password
     Route::get('registrasi', 'RegistrasiController@form');
@@ -23,8 +22,20 @@ Route::group(array('before' => 'guest'), function(){
 	Route::get('error', 'LoginController@error');
 	Route::get('manual_registrasi', 'HomeController@download_manual');
 
+    //document ketatalaksanaan
+//    Route::get('BantuanHukum', 'DocumentController@index');
+    Route::get('tabledoc', 'DocumentController@datatable');
+    Route::get('adddoc', 'DocumentController@add');
+    Route::get('detaildoc', 'DocumentController@detail');
+    Route::get('deletedoc', 'DocumentController@delete');
+    Route::post('savedoc', 'DocumentController@save');
+    Route::get('editdoc', 'DocumentController@edit');
+    Route::post('updatedoc', 'DocumentController@update');
+    Route::get('publishdoc', 'DocumentController@publish');
+
+    //bantuan hukum
+    Route::get('BantuanHukum', 'BantuanHukumController@index');
     Route::get('tabelbahu', 'BantuanHukumController@datatable');
-    Route::get('log_banhuk', 'BantuanHukumController@tablelog');
     Route::get('addbahu', 'BantuanHukumController@add');
     Route::get('detail_banhuk', 'BantuanHukumController@detail');
     Route::get('delete_banhuk', 'BantuanHukumController@delete');
@@ -35,6 +46,7 @@ Route::group(array('before' => 'guest'), function(){
 
     Route::resource('user', 'UserController');
     Route::resource('bantuanhukum', 'BantuanHukumController');
+    Route::resource('document', 'DocumentController');
     Route::resource('forget', 'ForgetPasswordController@index');
 
 //    Route::resource('account', 'AdminController');

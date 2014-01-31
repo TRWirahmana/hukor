@@ -11,9 +11,7 @@ class BantuanHukumController extends BaseController{
      */
 
     public function index() {
-//        echo "TEST";
         $this->layout->content = View::make('BantuanHukum.index');
-
     }
 
     public function add()

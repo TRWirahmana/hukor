@@ -20,9 +20,10 @@ class DAL_LayananKetatalaksanaan {
     	$ketatalaksanaan->judul_berita = $input['judul_berita'];
 		$ketatalaksanaan->penanggung_jawab = $input['penanggung_jawab'];
 		$ketatalaksanaan->image = $filename;
-//		$ketatalaksanaan->created_at = date('Y-m-d H:i:s');
+		$ketatalaksanaan->created_at = date('Y-m-d H:i:s');
 		$ketatalaksanaan->updated_at = date('Y-m-d H:i:s');
-		return $ketatalaksanaan->update();
+
+		return $ketatalaksanaan->save();
     }
 
 	

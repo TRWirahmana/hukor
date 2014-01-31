@@ -99,6 +99,33 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('layanankelembagaan/edit', 'LayananKelembagaanController@create');
 
 
+    //Layanan Ketatalaksanaan
+    Route::resource('layananketatalaksanaan', 'LayananKetatalaksanaanController');
+    Route::post('SubmitKetatalaksanaan', 'LayananKetatalaksanaanController@submit');
+    Route::get('edit_ketatalaksanaan', 'LayananKetatalaksanaanController@create');
+
+    //sistem dan prosedur kerja
+    Route::get('edit_spk', 'LayananKetatalaksanaanController@create_spk');
+
+    //sistem manajemen mutu
+    Route::get('edit_smm', 'LayananKetatalaksanaanController@create_smm');
+
+    //analisis jabatan
+    Route::get('edit_analisis_jabatan', 'LayananKetatalaksanaanController@create_analisis_jabatan');
+
+    //perhitungan beban kerja
+    Route::get('edit_pbk', 'LayananKetatalaksanaanController@create_pbk');
+
+    //Tata Nilai & Budaya Kerja Organisasi
+    Route::get('edit_tata_nilai', 'LayananKetatalaksanaanController@create_tata_nilai');
+
+    //Pelayanan publik
+    Route::get('edit_pelayanan_publik', 'LayananKetatalaksanaanController@create_pelayanan_publik');
+
+    //Tata Naskah Dinas
+    Route::get('edit_tnd', 'LayananKetatalaksanaanController@create_tnd');
+
+
 });
 
 Route::group(array('prefix' => 'per-uu'), function() {
@@ -129,17 +156,27 @@ Route::group(array('prefix' => 'layanan_kelembagaan'), function() {
     //penutupan
 });
 
-
 Route::group(array('prefix' => 'layanan_ketatalaksanaan'), function() {
     Route::get('index', 'LayananKetatalaksanaanController@index');
+    Route::get('spk', 'LayananKetatalaksanaanController@spk');
+    Route::get('smm', 'LayananKetatalaksanaanController@smm');
+    Route::get('analisis_jabatan', 'LayananKetatalaksanaanController@analisis_jabatan');
+    Route::get('pbk', 'LayananKetatalaksanaanController@pbk');
+    Route::get('tata_nilai', 'LayananKetatalaksanaanController@tata_nilai');
+    Route::get('pelayanan_publik', 'LayananKetatalaksanaanController@pelayanan_publik');
+    Route::get('tnd', 'LayananKetatalaksanaanController@tnd');
+
+
+
 	Route::get('CreateInfo', 'LayananKetatalaksanaanController@create');
     Route::post('SubmitBerita', 'LayananKetatalaksanaanController@submit'); 
 });
 
+/*
 Route::group(array('prefix' => 'spk'), function() {
     Route::get('index', 'SpkController@index');
     Route::get('CreateInfo', 'SpkController@create');
     Route::post('SubmitBerita', 'SpkController@submit'); 
 });
-
+*/
 

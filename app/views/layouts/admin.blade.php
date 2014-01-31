@@ -84,13 +84,14 @@
                         <li id="produkhukum"><a href="#"><span class="iconfa-laptop"></span> Produk Hukum</a></li>
                         <li id="ketatalaksanaan" class="dropdown"><a href="#"><span class="iconfa-hand-up"></span> Layanan Ketatalaksanaan</a>
                             <ul>
-                                <li><a href="#">Sistem dan Prosedur Kerja</a></li>
-                                <li><a href="#">Sistem manajemen mutu</a></li>
-                                <li><a href="#">Analisis Jabatan</a></li>
-                                <li><a href="#">Perhitungan beban kerja</a></li>
-                                <li><a href="#">Tata nilai & budaya kerja organisasi</a></li>
-                                <li><a href="#">Pelayanan publik</a></li>
-                                <li><a href="#">Tata naskah dinas</a></li>
+                                <li><a href="{{URL::to('admin/edit_ketatalaksanaan')}}">Home</a></li>
+                                <li><a href="{{URL::to('admin/edit_spk')}}">Sistem dan Prosedur Kerja</a></li>
+                                <li><a href="{{URL::to('admin/edit_smm')}}">Sistem manajemen mutu</a></li>
+                                <li><a href="{{URL::to('admin/edit_analisis_jabatan')}}">Analisis Jabatan</a></li>
+                                <li><a href="{{URL::to('admin/edit_pbk')}}">Perhitungan beban kerja</a></li>
+                                <li><a href="{{URL::to('admin/edit_tata_nilai')}}">Tata nilai & budaya kerja organisasi</a></li>
+                                <li><a href="{{URL::to('admin/edit_pelayanan_publik')}}">Pelayanan publik</a></li>
+                                <li><a href="{{URL::to('admin/edit_tnd')}}">Tata naskah dinas</a></li>
                             </ul>
                         </li>
                         <li id="kelembagaan" class="dropdown"><a href="{{URL::to('admin/edit_kelembagaan')}}"><span class="iconfa-briefcase"></span> Layanan Kelembagaan</a>

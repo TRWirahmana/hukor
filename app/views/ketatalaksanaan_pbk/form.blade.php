@@ -6,7 +6,8 @@
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
         <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
-        <li>Layanan ketatalaksanaan</li>
+        <li><a href="{{URL::previous()}}">Layanan Ketatalaksanaan</a> <span class="separator"></span></li>
+        <li>Perhitungan Beban Kerja</li>
     </ul>
 
     <div class="pageheader">
@@ -27,9 +28,8 @@
 
             <!-- MAIN CONTENT -->
 <!--            {{-- form informasi layanan kelembagaan --}}-->
-            {{ Form::open($form_opts) }}
+            {{ Form::open(array('action' => 'LayananKetatalaksanaanController@submit', 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', 'enctype' => "multipart/form-data" )) }}
             {{Form::hidden('id', $id, '')}}
-
 
             <div class="row-fluid">
                 <!--            left content-->
@@ -60,6 +60,7 @@
                         <div class="control-group {{$errors->has('berita')?'error':''}}">
                             {{ Form::label('berita', 'Informasi / Berita', array('class' => 'control-label')) }}
                             <div class="controls">
+
                                 @if(!is_null($info))
                                 {{ Form::textarea('layananketatalaksanaan[berita]', $info->berita,
                                 array('placeholder' => 'ketikkan Informasi atau berita anda di sini...', 'id' => 'berita'))
@@ -72,6 +73,7 @@
                                 @foreach($errors->get('berita') as $error)
                                 <span class="help-block">{{$error}}</span>
                                 @endforeach
+
                             </div>
                         </div>
 
@@ -158,6 +160,7 @@
         theme_advanced_buttons3 : "",
         height:"350px"
     });
+
 
     Registrasi.Form();
 </script>

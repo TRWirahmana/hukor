@@ -8,4 +8,8 @@ class PerUU extends Eloquent {
 	public function pengguna() {
 		return $this->belongsTo('Pengguna', 'id_pengguna');
 	}
+
+	public function log() {
+		return $this->hasMany('LogPerUU', "id_per_uu");
+	}
 }

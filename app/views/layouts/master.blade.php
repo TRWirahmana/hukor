@@ -32,7 +32,7 @@
 
   <!-- HTML5 shiv -->
   <!--[if lt IE 9]>
-    <script src="{{asset('assets/js/html5shiv.js')}}"></script>
+  <script src="{{asset('assets/js/html5shiv.js')}}"></script>
   <![endif]-->
 
   <!-- Favicons -->
@@ -46,7 +46,7 @@
   <link rel="shortcut icon" href="{{asset('assets/ico/favicon.png')}}">
 
   <script type="text/javascript">
-    var baseUrl = '{{URL::to('/')}}';
+    var baseUrl = '{{URL::to(' / ')}}';
   </script>
 
 </head>
@@ -55,100 +55,86 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span24">
-      <div class="span7 sidebar">
+      <div class="span6 sidebar">
+        <?php $user = Auth::user(); ?>
         <header>
-          <img src="{{asset('assets/img/tut-wuri-handayani.png')}}" alt="Kebudayaan Indonesia">
-          <h4>Direktorat Jenderal Kebudayaan Republik Indonesia</h4>
+          <img src="{{asset('assets/img/logo-kemendiknas.png')}}" alt="Kebudayaan Indonesia">
         </header>
-          <?php $user = Auth::user(); ?>
-          @if($user != null)
-        <p id="username">Selamat datang, <?php echo $user->username; ?><span id="name"></span></p>
-          @else
-          <p id="username">Selamat datang guest<span id="name"></span></p>
+
+        @if($user != null)
+        <p id="username" class="welcome-message">Selamat datang, <span id="name"><?php echo $user->username; ?></span></p>
+        @else
+        <p id="username" class="welcome-message">Selamat datang <span id="name">guest</span></p>
+          @if($user == null)
+          {{-- form login--}}
+          {{ Form::open(array('action' => 'LoginController@signin', 'method' => 'post', 'id'=>'user-sign-in-form',
+          'class' =>'front-form', 'autocomplete' => 'off')) }}
+
+          @if(Session::has('success'))
+          <div class="alert alert-success sign-in-register-alert">
+            {{ Session::get('success') }}
+          </div>
+          @elseif(Session::has('error'))
+          <div class="alert alert-error sign-in-register-alert">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            {{ Session::get('error') }}
+            <ul>
+              @foreach($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
           @endif
+
+          {{
+          Form::text('username', '', array(
+          'class'=>'username validate[required] text-input',
+          'id'=>'username',
+          'placeholder'=>'ketikkan username di sini...'
+          ))
+          }}
+          {{ Form::password('password', array('class'=>'password validate[required] text-input',
+          'id'=>'password','placeholder'=>'ketikkan password di sini...')) }}
+          <button class="btn" id="btn-signin" type="submit">Sign in</button>
+          <a href="{{URL::to('forget')}}"> Lupa password? </a>
+          <a href="{{URL::to('registrasi')}}" class="pull-right">Belum memiliki akun?</a>
+          {{ Form::close() }}
+          @endif
+        @endif
         <div>
           <ul id="user-menu">
             <!-- <li>
               <a href="http://localhost/retane_blog/wp-login.php?log=<?php //echo $datses['us']; ?>&pwd=<?php echo $datses['pd']; ?>" target="_blank"><span class="rulycon-wordpress"></span> Blog</a>
             </li> -->
 
-<!--            <li><a href="{{URL::to('account')}}">Kelola Akun</a></li>-->
-            <li><a href="#">Layanan Ketatalaksanaan</a></li>
+            <li class="menu-header">Informasi</li>
+            <!--            <li><a href="{{URL::to('account')}}">Kelola Akun</a></li>-->
+            <li><a href="#"><span class="rulycon-quill"></span>Layanan Ketatalaksanaan</a></li>
+            <li class="active"><a href="{{ URL::to('layanan_kelembagaan/index') }}"><span class="rulycon-library"></span>Layanan Kelembagaan</a></li>
+            <li><a href="{{ URL::to('layanan_kelembagaan/pembentukan') }}"><span class="rulycon-spinner-3"></span>Layanan Pembentukan</a></li>
+            <li><a href="{{ URL::to('layanan_kelembagaan/penataan') }}"><span class="rulycon-paragraph-center"></span>Layanan Penataan</a></li>
+            <li><a href="{{ URL::to('layanan_kelembagaan/penutupan') }}"><span class="rulycon-checkbox-unchecked"></span>Layanan Penutupan</a></li>
+            <li><a href="{{ URL::to('layanan_kelembagaan/statuta') }}"><span class="rulycon-strikethrough"></span>Layanan Statuta</a></li>
+            <li><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>
+            <li><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>
+            <li><a href="#"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
+            <li><a href="#"><span class="rulycon-phone"></span>Call Center</a></li>
 
-            <li><a href="{{ URL::to('layanan_kelembagaan/index') }}">Layanan Kelembagaan</a></li>
-              <li><a href="{{ URL::to('layanan_kelembagaan/pembentukan') }}">Layanan Pembentukan</a></li>
-              <li><a href="{{ URL::to('layanan_kelembagaan/penataan') }}">Layanan Penataan</a></li>
-              <li><a href="{{ URL::to('layanan_kelembagaan/penutupan') }}">Layanan Penutupan</a></li>
-              <li><a href="{{ URL::to('layanan_kelembagaan/statuta') }}">Layanan Statuta</a></li>
-            <li><a href="#">Layanan Bantuan Hukum</a></li>
-            <li><a href="#">Layanan Peraturan Perundang-Undangan</a></li>
-            <li><a href="#">Forum Diskusi</a></li>
-            <li><a href="#">Call Center</a></li>
+            <li class="menu-header">Aplikasi</li>
+            <li><a href="{{ URL::route('index_per_uu') }}"><span class="rulycon-pilcrow"></span>Peraturan Perundang-undangan</a></li>
+            <li><a href="{{URL::to('pelembagaan')}}"><span class="rulycon-office"></span>Pelembagaan</a></li>
+            <li><a href="{{URL::to('BantuanHukum')}}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>
 
-            <br>
-            <li><a href="{{ URL::route('index_per_uu') }}">Peraturan Perundang-undangan</a></li>
-            <li><a href="{{URL::to('pelembagaan')}}">Pelembagaan</a></li>
-            <li><a href="{{URL::to('BantuanHukum')}}">Bantuan Hukum</a></li>
-
-
-              @if($user != null)
-                <li>
-                  <a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a>
-                </li>
-                <li>
-                  <a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span> Sign
-                  out</a>
-                </li>
-              @endif
-
-              @if($user == null)
-              {{-- form login--}}
-              {{ Form::open(array('action' => 'LoginController@signin', 'method' => 'post', 'id'=>'user-sign-in-form', 'class' =>'front-form', 'autocomplete' => 'off')) }}
-
-              @if(Session::has('success'))
-              <div class="alert alert-success sign-in-register-alert">
-
-                  {{ Session::get('success') }}
-              </div>
-              @elseif(Session::has('error'))
-              <div class="alert alert-error sign-in-register-alert">
-                  <button type="button" class="close" data-dismiss="alert">×</button>
-                  {{ Session::get('error') }}
-                  <ul>
-                      @foreach($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                      @endforeach
-                  </ul>
-              </div>
-              @endif
-
-              <label for='username'>Username</label>
-              {{
-              Form::text('username', '', array(
-              'class'=>'username validate[required] text-input',
-              'id'=>'username',
-              'placeholder'=>'ketikkan username di sini...'
-              ))
-              }}
-              <label for='password'>Password</label>
-
-              {{ Form::password('password', array('class'=>'password validate[required] text-input', 'id'=>'password','placeholder'=>'ketikkan password di sini...')) }}
-                <span><button class="btn" id="btn-signin" type="submit">Sign in</button>
-
-              {{ Form::close() }}
-
-            <br>
-            <a href="{{URL::to('forget')}}"> Forgot Password? </a>
-            <br>
-            <a href="{{URL::to('registrasi')}}">Belum memiliki akun? Daftar disini.</a>
+            @if($user != null)
+            <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a></li>
+            <li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span> Sign out</a></li>
             @endif
           </ul>
         </div>
-
-          <h6>© 2013 Direktorat Jenderal Kebudayaan Republik Indonesia</h6>
+        <h6 id="copyright">© 2013 Direktorat Jenderal Kebudayaan Republik Indonesia</h6>
         </footer>
       </div>
-      <div class="span17 main-content">
+      <div class="span18 main-content">
         @yield('content')
       </div>
     </div>

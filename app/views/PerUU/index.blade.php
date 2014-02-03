@@ -9,9 +9,14 @@
 
 @include('flash')
 
-<select id="select-filter">
-	<option value="0">Tampilkan Semua</option>
-	<option value="1">Tampilkan Usulan Anda</option>
+<label for="select-status">Status: </label>
+<select id="select-status">
+	<option value="">Semua Status</option>
+	<option value="1">Diproses</option>
+	<option value="2">Ditunda</option>
+	<option value="3">Ditolak</option>
+	<option value="4">Buat Salinan</option>
+	<option value="5">Penetapan</option>
 </select>
 
 <table id="tbl-per-uu">
@@ -38,23 +43,67 @@
 			bServerSide: true,
 			sAjaxSource: document.location.href,
 			aoColumns: [
-				{mData: "id"},
-				{mData: "tgl_usulan"},
-				{mData: "unit_kerja"},
-				{mData: "nama_jabatan"},
-				{mData: "perihal"},
-				{mData: "status"},
+				{
+					mData: "id",
+					sWidth: "1%"
+				},
+				{
+					mData: "tgl_usulan",
+					sWidth: "10%",
+					mRender: function(data) {
+						return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
+					}
+				},
+				{
+					mData: "unit_kerja",
+					sWidth: "10%"
+				},
+				{
+					mData: "nama_jabatan",
+					sWidth: "10%"
+				},
+				{
+					mData: "perihal",
+					sWidth: "30%"
+				},
+				{
+					mData: "status",
+					sWidth: "10%",
+					mRender: function(data) {
+						switch(parseInt(data)) {
+							case 1: 
+								return "Diproses";
+								break;
+							case 2:
+								return "Ditunda";
+								break;
+							case 3:
+								return "Ditolak";
+								break;
+							case 4:
+								return "Buat salinan";
+								break;
+							case 5:
+								return "Penetapan";
+								break;
+							default:
+								return " ";
+								break;
+						};
+					}
+				},
 				{
 					mData: 'id',
-					mRender: function(data) {
-						return "<a href='/assets/uploads/"+data+"'>Unduh</a> " + 
-							"<a href='/per-uu/update/"+data+"'>Update</a> " +
-							"<a class='delete' href='javascript:void(0)' data-id='"+data+"'>Hapus</a>";
+					sWidth: "8%",
+					mRender: function(data, type, all) {
+						return "<a href='/assets/uploads/"+all.lampiran+"'><i class='icon-download'></i></a> " + 
+							"<a href='/per-uu/update/"+data+"'><i class='icon-edit'></i></a> " +
+							"<a class='delete' href='javascript:void(0)' data-id='"+data+"'><i class='icon-trash'></i></a>";
 					}
 				}
 			],
 			fnServerParams: function(aoData) {
-				aoData.push({name: "filter", value: $("#select-filter").val()});			
+				aoData.push({name: "status", value: $("#select-status").val()});			
 			}
 		});
 
@@ -68,7 +117,7 @@
 			});
 		});
 
-		$("#select-filter").change(function(){
+		$("#select-status").change(function(){
 			$dataTable.fnReloadAjax();
 		});
 

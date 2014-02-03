@@ -192,3 +192,7 @@ Route::group(array('prefix' => 'spk'), function() {
 });
 */
 
+
+Route::get('forum', function() {
+    return Redirect::to('/forum/index.php');
+});

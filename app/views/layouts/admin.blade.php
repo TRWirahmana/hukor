@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
+<html>
 <head>
     <meta charset="utf-8">
     <title>Layanan Hukum & Organisasi</title>
@@ -56,9 +56,10 @@
     <div class="header">
         <ul id="main-menu">
             <li id="beranda"><a href="{{URL::to('admin/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
-            <li id="informasi"><a href="#"><span class="rulycon-user"></span> Informasi</a></li>
+            <li id="news"><a href="{{URL::to('admin/berita')}}"><span class="rulycon-newspaper"></span> Berita</a></li>
+            <li id="informasi"><a href="#"><span class="rulycon-address-book"></span> Informasi</a></li>
             <li id="aplikasi"><a href="#"><span class="rulycon-wrench"></span> Aplikasi</a></li>
-            <li id="manajemen"><a href="{{URL::to('admin/account')}}"><span class="rulycon-address-book"></span> User</a></li>
+            <li id="manajemen"><a href="{{URL::to('admin/account')}}"><span class="rulycon-user"></span> User</a></li>
         </ul>
     </div>
 
@@ -84,21 +85,22 @@
                         <li id="produkhukum"><a href="#"><span class="iconfa-laptop"></span> Produk Hukum</a></li>
                         <li id="ketatalaksanaan" class="dropdown"><a href="#"><span class="iconfa-hand-up"></span> Layanan Ketatalaksanaan</a>
                             <ul>
-                                <li><a href="#">Sistem dan Prosedur Kerja</a></li>
-                                <li><a href="#">Sistem manajemen mutu</a></li>
-                                <li><a href="#">Analisis Jabatan</a></li>
-                                <li><a href="#">Perhitungan beban kerja</a></li>
-                                <li><a href="#">Tata nilai & budaya kerja organisasi</a></li>
-                                <li><a href="#">Pelayanan publik</a></li>
-                                <li><a href="#">Tata naskah dinas</a></li>
+                                <li><a href="{{URL::to('admin/edit_ketatalaksanaan')}}">Home</a></li>
+                                <li><a href="{{URL::to('admin/edit_spk')}}">Sistem dan Prosedur Kerja</a></li>
+                                <li><a href="{{URL::to('admin/edit_smm')}}">Sistem manajemen mutu</a></li>
+                                <li><a href="{{URL::to('admin/edit_analisis_jabatan')}}">Analisis Jabatan</a></li>
+                                <li><a href="{{URL::to('admin/edit_pbk')}}">Perhitungan beban kerja</a></li>
+                                <li><a href="{{URL::to('admin/edit_tata_nilai')}}">Tata nilai & budaya kerja organisasi</a></li>
+                                <li><a href="{{URL::to('admin/edit_pelayanan_publik')}}">Pelayanan publik</a></li>
+                                <li><a href="{{URL::to('admin/edit_tnd')}}">Tata naskah dinas</a></li>
                             </ul>
                         </li>
-                        <li id="kelembagaan" class="dropdown"><a href="{{URL::to('admin/edit_kelembagaan')}}"><span class="iconfa-briefcase"></span> Layanan Kelembagaan</a>
+                        <li id="kelembagaan" class="dropdown"><a href="{{URL::to('admin/layanankelembagaan/edit_kelembagaan')}}"><span class="iconfa-briefcase"></span> Layanan Kelembagaan</a>
                             <ul>
-                                <li><a href="{{URL::to('admin/edit_pembentukan')}}">Pembentukan</a></li>
-                                <li><a href="{{URL::to('admin/edit_penataan')}}">Penataan</a></li>
-                                <li><a href="{{URL::to('admin/edit_statuta')}}">Statuta</a></li>
-                                <li><a href="{{URL::to('admin/edit_penutupan')}}">Penutupan</a></li>
+                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_pembentukan')}}">Pembentukan</a></li>
+                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_penataan')}}">Penataan</a></li>
+                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_statuta')}}">Statuta</a></li>
+                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_penutupan')}}">Penutupan</a></li>
                             </ul>
                         </li>
                         <li id="bahu"><a href="#"><span class="iconfa-th-list"></span> Layanan Bantuan Hukum</a></li>

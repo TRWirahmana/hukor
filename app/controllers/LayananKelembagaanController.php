@@ -162,7 +162,9 @@ class LayananKelembagaanController extends BaseController {
                             $success = $DAL->update($input, $kelem, $filename);
 
                             if($success){
-                                return Redirect::to('admin/edit_kelembagaan')->with('success', 'Informasi Layanan Kelembagaan berhasil dirubah!');
+//                                echo "in";exit;
+                                Session::flash('success', 'Informasi Layanan Kelembagaan berhasil dirubah!');
+                                return Redirect::to('admin/layanankelembagaan/edit_kelembagaan');
                             }else{
                                 Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
                                 return Redirect::back();
@@ -188,7 +190,7 @@ class LayananKelembagaanController extends BaseController {
 
                             if($success){
                                 Session::flash('success', 'Informasi Layanan Kelembagaan berhasil dirubah!');
-                                return Redirect::to('admin/edit_pembentukan');
+                                return Redirect::to('admin/layanankelembagaan/edit_pembentukan');
                             }else{
                                 Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
                                 return Redirect::back();
@@ -214,7 +216,7 @@ class LayananKelembagaanController extends BaseController {
 
                             if($success){
                                 Session::flash('success', 'Informasi Layanan Kelembagaan berhasil dirubah!');
-                                return Redirect::to('admin/edit_penataan');
+                                return Redirect::to('admin/layanankelembagaan/edit_penataan');
                             }else{
                                 Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
                                 return Redirect::back();
@@ -240,7 +242,7 @@ class LayananKelembagaanController extends BaseController {
 
                             if($success){
                                 Session::flash('success', 'Informasi Layanan Kelembagaan berhasil dirubah!');
-                                return Redirect::to('admin/edit_statuta');
+                                return Redirect::to('admin/layanankelembagaan/edit_statuta');
                             }else{
                                 Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
                                 return Redirect::back();
@@ -266,7 +268,7 @@ class LayananKelembagaanController extends BaseController {
 
                             if($success){
                                 Session::flash('success', 'Informasi Layanan Kelembagaan berhasil dirubah!');
-                                return Redirect::to('admin/edit_penutupan');
+                                return Redirect::to('admin/layanankelembagaan/edit_penutupan');
                             }else{
                                 Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
                                 return Redirect::back();
@@ -291,7 +293,7 @@ class LayananKelembagaanController extends BaseController {
 
                             if($lembaga->Save()){
                                 Session::flash('success', 'Informasi Layanan Kelembagaan berhasil ditambahkan!');
-                                return Redirect::to('admin/edit_kelembagaan');
+                                return Redirect::to('admin/layanankelembagaan/edit_kelembagaan');
                             }else{
                                 Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
                                 return Redirect::back();
@@ -313,7 +315,7 @@ class LayananKelembagaanController extends BaseController {
 
                             if($lembaga->Save()){
                                 Session::flash('success', 'Informasi Layanan Kelembagaan berhasil ditambahkan!');
-                                return Redirect::to('admin/edit_pembentukan');
+                                return Redirect::to('admin/layanankelembagaan/edit_pembentukan');
                             }else{
                                 Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
                                 return Redirect::back();
@@ -333,7 +335,7 @@ class LayananKelembagaanController extends BaseController {
 
                             if($lembaga->Save()){
                                 Session::flash('success', 'Informasi Layanan Kelembagaan berhasil ditambahkan!');
-                                return Redirect::to('admin/edit_penataan');
+                                return Redirect::to('admin/layanankelembagaan/edit_penataan');
                             }else{
                                 Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
                                 return Redirect::back();
@@ -353,7 +355,7 @@ class LayananKelembagaanController extends BaseController {
 
                             if($lembaga->Save()){
                                 Session::flash('success', 'Informasi Layanan Kelembagaan berhasil ditambahkan!');
-                                return Redirect::to('admin/edit_statuta');
+                                return Redirect::to('admin/layanankelembagaan/edit_statuta');
                             }else{
                                 Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
                                 return Redirect::back();
@@ -373,7 +375,7 @@ class LayananKelembagaanController extends BaseController {
 
                             if($lembaga->Save()){
                                 Session::flash('success', 'Informasi Layanan Kelembagaan berhasil ditambahkan!');
-                                return Redirect::to('admin/edit_penutupan');
+                                return Redirect::to('admin/layanankelembagaan/edit_penutupan');
                             }else{
                                 Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
                                 return Redirect::back();

@@ -7,7 +7,9 @@
 {{-- form registrasi --}}
     {{ Form::open(array('action' => 'RegistrasiController@send', 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', )) }}
 
-
+<div class="span24" style="margin-bottom: 20px;margin-top:0px;margin-left:50px">
+    <strong>Silahkan lengkapi formulir berikut untuk melakukan pendaftaran. Isian dengan tanda <span class="required"></span> wajib diisi.</strong>
+</div>
         <div class="row-fluid">
 <!--            left content-->
           <div class="span12">
@@ -16,7 +18,7 @@
               </div>
 
             <div class="control-group">
-              <label for='email' class="control-label">Email</label>
+              <label for='email' class="control-label required">Email</label>
               <div class="controls">
                 {{
                 Form::text('email','', array(
@@ -29,14 +31,14 @@
             </div>
 
             <div class="control-group {{$errors->has('password')?'error':''}}">
-              {{ Form::label('password', 'Password', array('class' => 'control-label')) }}
+              {{ Form::label('password', 'Password', array('class' => 'control-label required')) }}
               <div class="controls">
                 {{ Form::password('password') }}
               </div>
             </div>
 
             <div class="control-group {{$errors->has('password')?'error':''}}">
-              {{ Form::label('password_confirmation', 'Konfirmasi password', array('class' => 'control-label')) }}
+              {{ Form::label('password_confirmation', 'Konfirmasi password', array('class' => 'control-label required')) }}
               <div class="controls">
                 {{ Form::password('password_confirmation') }}
 
@@ -52,7 +54,7 @@
                   <h4>Data Pendaftar</h4>
               </div>
               <div class="control-group {{$errors->has('nama_lengkap')?'error':''}}">
-                  {{ Form::label('nama_lengkap', 'Nama Lengkap', array('class' => 'control-label')) }}
+                  {{ Form::label('nama_lengkap', 'Nama Lengkap', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('nama_lengkap', '',
                       array('placeholder' => 'ketikkan Nama Lengkap di sini...')) }}
@@ -63,7 +65,7 @@
                   </div>
               </div>
               <div class="control-group {{$errors->has('nip')?'error':''}}">
-                  {{ Form::label('nip', 'NIP', array('class' => 'control-label')) }}
+                  {{ Form::label('nip', 'NIP', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('nip', '',
                       array('placeholder' => 'ketikkan NIP di sini...')) }}
@@ -77,7 +79,7 @@
 
 
               <div class="control-group {{$errors->has('jabatan')?'error':''}}">
-                  {{ Form::label('jabatan', 'Jabatan', array('class' => 'control-label')) }}
+                  {{ Form::label('jabatan', 'Jabatan', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::select('jabatan', array('1' => 'Direktur', '2' => 'Kepala Divisi'), 'Pilih Pekerjaan') }}
 
@@ -88,7 +90,7 @@
               </div>
 
               <div class="control-group {{$errors->has('bagian')?'error':''}}">
-                  {{ Form::label('bagian', 'Bagian', array('class' => 'control-label')) }}
+                  {{ Form::label('bagian', 'Bagian', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::select('bagian', array('1' => 'Bagian 1', '2' => 'Bagian 2'), 'Pilih Bagian') }}
 
@@ -99,7 +101,7 @@
               </div>
 
               <div class="control-group {{$errors->has('sub_bagian')?'error':''}}">
-                  {{ Form::label('sub_bagian', 'Sub Bagian', array('class' => 'control-label')) }}
+                  {{ Form::label('sub_bagian', 'Sub Bagian', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::select('sub_bagian', array('1' => 'Sub Bagian 1', '2' => 'Sub Bagian 2'), 'Pilih Sub Bagian') }}
 
@@ -125,7 +127,7 @@
               </div>
 
               <div class="control-group {{$errors->has('tgl_lahir')?'error':''}}">
-                  {{ Form::label('tgl_lahir', 'Tanggal Lahir', array('class' => 'control-label')) }}
+                  {{ Form::label('tgl_lahir', 'Tanggal Lahir', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('tgl_lahir', '', array('class'=>'datepicker')) }}
 
@@ -136,7 +138,7 @@
               </div>
 
               <div class="control-group {{$errors->has('pekerjaan')?'error':''}}">
-                  {{ Form::label('pekerjaan', 'Pekerjaan', array('class' => 'control-label')) }}
+                  {{ Form::label('pekerjaan', 'Pekerjaan', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('pekerjaan', '',
                       array('placeholder' => 'ketikkan Pekerjaan anda di sini...')) }}
@@ -148,7 +150,7 @@
               </div>
 
               <div class="control-group {{$errors->has('alamat_kantor')?'error':''}}">
-                  {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label')) }}
+                  {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::textarea('alamat_kantor', '',
                       array('placeholder' => 'ketikkan Alamat Kantor anda di sini...')) }}
@@ -160,7 +162,7 @@
               </div>
 
               <div class="control-group {{$errors->has('tlp_kantor')?'error':''}}">
-                  {{ Form::label('tlp_kantor', 'Telepon Kantor', array('class' => 'control-label')) }}
+                  {{ Form::label('tlp_kantor', 'Telepon Kantor', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('tlp_kantor', '',
                       array('placeholder' => 'ketikkan Telepon Kantor anda di sini...')) }}
@@ -172,7 +174,7 @@
               </div>
 
               <div class="control-group {{$errors->has('handphone')?'error':''}}">
-                  {{ Form::label('handphone', 'Handphone', array('class' => 'control-label')) }}
+                  {{ Form::label('handphone', 'Handphone', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('handphone', '',
                       array('placeholder' => 'ketikkan nomor handphone anda di sini...')) }}
@@ -184,7 +186,7 @@
               </div>
 
               <div class="control-group {{$errors->has('unit_kerja')?'error':''}}">
-                  {{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label')) }}
+                  {{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('unit_kerja', '',
                       array('placeholder' => 'ketikkan Unit Kerja anda di sini...')) }}

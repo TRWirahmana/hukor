@@ -9,39 +9,24 @@
 
 @include('flash')
 
+   @if($status_belum != 0)
     <div class="row-fluid" style="border-bottom: 1px solid #e5e5e5;">
     <b>
-      <table>
+      <table>   
         <tr>
             <td width="100" class="style11">Status terkini : </td>
-            <td class="style10"><div align="right" style="color: red"> {{ $status_kelembagaan }} </div></td>
+            <td class="style10"><div align="right" style="color: red"> {{ $status_belum }} </div></td>
             <td width="5" class="style3"></td>
             <td class="style11">usulan pelembagaan yang belum di proses </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td class="style10"><div align="right" class="style10" style="color: red">2</div></td>
-            <td width="5"></td>
-            <td class="style11">kiriman dari bagian hukum yang belum di proses </td>
         </tr>
       </table>
       </b>
       <br />
     </div>
+    @endif
+
+
 <br />
-
-
-<!-- 
-<form class="form-inline">
-  <fieldset>
-  
-    <label for="filter_unit"> Unit Kerja </label>
-               <input type="text" name="filter_unit" id="filter_unit"> 
-       <label for="filter_tahun"> Tahun </label>
-         {{  Form::select('filter_tahun', $listTgl, null, array ('id' => 'filter_tahun')) }}         
-    </fieldset>
-</form>
- -->
     <table id="tbl-pelembagaan">  
         <thead>
         <tr>

@@ -21,56 +21,36 @@
 					
 					<div class="control-group">
 						{{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label'))}}
-						<div class="controls"> 
-						    	{{ Form::text('unit_kerja', $user->pengguna->unit_kerja ) }}
-						</div>
+							<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->unit_kerja }}"></div>						
 					</div>		
-
-					<div class="control-group">	
-						{{ Form::label('jabatan', 'Jabatan', array('class' => 'control-label'))}}
-						<div class="controls">
-						   	{{ Form::text('jabatan', $user->pengguna->jabatan) }}
-						</div>
-					</div>	
 
 					<div class="control-group">
 						{{ Form::label('nip', "NIP", array('class' => 'control-label'))}}
-						<div class="controls">
-								{{ Form::text('nip', $user->pengguna->nip) }}
-						</div>
+							<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->nip }}"></div>						
 					</div>
 
 					<div class="control-group">
-						{{ Form::label('nama_pemohon', "Nama Pemohon", array('class' => 'control-label'))}}
-						<div class="controls">
-								{{ Form::text('nama_pemohon', $user->pengguna->nama_lengkap) }}
-						</div>
+						{{ Form::label('nama_pemohon', "Nama Pemohon", array('class' => 'control-label'))}}					
+						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->nama_lengkap }}"></div>	
 					</div>	
 
 
 					<div class="control-group">
 						{{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label'))}}
-						<div class="controls">
-								{{ Form::textarea('alamat_kantor', $user->pengguna->alamat_kantor) }}
-						</div>
+						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->alamat_kantor}}"></div>	
 					</div>	
 
 					<div class="control-group">
 						{{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label'))}}
-						<div class="controls">
-								{{ Form::text('telp_kantor', $user->pengguna->tlp_kantor) }}
-						</div>
-					</div>	
-
+						<div class="controls"> <input type="text" disabled="" value="{{  $user->pengguna->tlp_kantor }}"></div>	
+					</div>
 					<div class="control-group">
 						{{ Form::label('pos_el', 'Pos_el', array('class' => 'control-label'))}}
-						<div class="controls">
-								{{ Form::text('pos_el', $user->pengguna->email) }}
-						</div>
+						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->email }}"></div>	
 					</div>	
-	
 				</fieldset>
 			</div>
+
 
 		<div class="row-fluid">
 			<div class="span12">
@@ -94,6 +74,7 @@
 					</div>
 				</fieldset>
 			</div>
+
 			<div class="span6"></div>
 
 		
@@ -104,28 +85,25 @@
 		              </div>
 					<div class="control-group">
 					{{ Form::label("nama", "Nama", array('class' => 'control-label')) }}
-						<div class="controls">
-							{{ Form::text("nama", $user->pengguna->nama_lengkap) }}</div>
+						<div class="controls"> <input type="text" disabled="" value="{{  $user->pengguna->nama_lengkap }}"></div>						
 					</div>
 				
 					<div class="control-group">
 					{{ Form::label("pos_el", "Pos El", array('class' => 'control-label')) }}
-						<div class="controls">
-							{{ Form::text("pos_el", $user->pengguna->email) }}</div>
+						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->email }}"></div>						
 					</div>
 
 					<div class="control-group">
 					{{ Form::label("id-number", "Id-Number", array('class' => 'control-label')) }}
-						<div class="controls">
-							{{ Form::text("id_number", $user->pengguna->user_id) }}</div>
+						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->user_id }}"></div>						
 					</div>
 					<p>( <a href="#">klik disini untuk merubah informasi registrasi</a> )</p>
 					<div class="form-actions">
 						{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
 						 <input class='btn btn-primary' style = 'float: left; margin: 0 0 0 8px;' Type="button" value="Batal" onClick="history.go(-1);return true;">
 					</div>
+					</fieldset>
 			</div>	
-</div>
 </div>
 	{{ Form::close() }}
 @stop

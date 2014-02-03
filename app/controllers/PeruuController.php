@@ -8,13 +8,13 @@ class PeruuController extends BaseController {
 	{
 		// handle dataTable request
 		if(Request::ajax()) 
-			return Datatables::of(DAL_PerUU::getDataTable(Input::get('filter', 0)))->make(true);
+			return Datatables::of(DAL_PerUU::getDataTable(Input::get("status", null)))->make(true);
 		$this->layout->content = View::make('PerUU.index');
 	}
 
 	public function pengajuanUsulan()
 	{
-		$user = User::find(1);
+		$user = Auth::user();
 		$this->layout->content = View::make('PerUU.pengajuanUsulan')
 			->with('user', $user);
 	}
@@ -32,13 +32,24 @@ class PeruuController extends BaseController {
 
 			if($uploadSuccess) {
 				$perUU = new PerUU;
-				$perUU->id_pengguna = 1;
+				$perUU->id_pengguna = Auth::user()->pengguna->id;
 				$perUU->perihal = $input['perihal'];
 				$perUU->catatan = $input['catatan'];
 				$perUU->lampiran = $uqFolder . DS .$filename;
 				$perUU->tgl_usulan = new DateTime;
 				$perUU->status = 0;
 				if($perUU->save()) {
+					// kirim email ke admin
+					$data = array(
+						'user' => Auth::user(),
+						'perUU' => $perUU
+					);
+					Mail::send('emails.usulanbaru', $data, function($message) {
+						// admin email (testing)
+   						$message->to('egisolehhasdi@gmail.com', 'egisolehhasdi@gmail.com')
+   							->subject('Usulan Baru Peraturan Perundang-Undangan');
+					});
+
 					Session::flash('success', 'Data berhasil dikirim.');
 					return Redirect::route('index_per_uu');
 				} else {
@@ -50,19 +61,18 @@ class PeruuController extends BaseController {
 			Session::flash('error', 'Gagal mengirim berkas. Pastikan berkas berupa PDF dan kurang dari 512k.');
 			return Redirect::back();
 		}
-
-
-
 	}
 
 	public function updateUsulan($id) {
+		if(Request::ajax())
+			return Datatables::of(DAL_PerUU::getLogUsulan($id))->make(true);
+			
 		$perUU = PerUU::with('Pengguna')->find($id);
 		$this->layout->content = View::make('PerUU.updateUsulan')
 			->with('perUU', $perUU);
 	}
 
 	public function prosesUpdateUsulan() {
-
 		$id = Input::get('id');
 		$status = Input::get('status', 0);
 		$catatan = Input::get('catatan', '');
@@ -70,27 +80,49 @@ class PeruuController extends BaseController {
 		$lampiran = Input::file('lampiran');
 
 		$perUU = PerUU::find($id);
+
+		$logPerUU = new LogPerUU();
+		$logPerUU->id_per_uu = $perUU->id;
+		$logPerUU->catatan = $perUU->catatan;
+		$logPerUU->lampiran = $perUU->lampiran;
+		$logPerUU->status = $perUU->status;
+		$logPerUU->tgl_proses = new DateTime('now');
+
 		$perUU->status = $status;
 		$perUU->catatan = $catatan;
 
-		if(null != $lampiran && $lampiran->isValid()) {
-			$uqFolder = str_random(8);
-			$destinationPath = UPLOAD_PATH . '/' . $uqFolder;
-			$filename = $lampiran->getClientOriginalName();
-			$uploadSuccess = $lampiran->move($destinationPath, $filename);
-			if($uploadSuccess) {
-				$perUU->lampiran = $uqFolder . DS . $filename;
+		if(null != $lampiran) {
+			if($lampiran->isValid()) {
+				$uqFolder = str_random(8);
+				$destinationPath = UPLOAD_PATH . '/' . $uqFolder;
+				$filename = $lampiran->getClientOriginalName();
+				$uploadSuccess = $lampiran->move($destinationPath, $filename);
+				if($uploadSuccess) {
+					$perUU->lampiran = $uqFolder . DS . $filename;
+				}
 			} else {
 				Session::flash('error', 'Kesalahan dalam menyimpan berkas.');
 			}
-		} else {
-			Session::flash('error', 'Kesalahan dalam menyimpan berkas.');
 		}
-		Session::flash('success', 'Usulan berhasil diperbaharui.');
 
-		$perUU->save();
+		if($perUU->save() && $logPerUU->save()) {
+			// Kirim email notifikasi ke pembuat usulan
+			$data = array(
+				'logPerUU' => $logPerUU,
+				'perUU' => $perUU
+			);
 
-		return Redirect::route('index_per_uu');
+			Mail::send('emails.perubahanUsulan', $data, function($message) use($perUU) {
+				$message->to($perUU->pengguna->email)
+					->subject('Perubahan Status Usulan');
+			});
+
+			Session::flash('success', 'Usulan berhasil diperbaharui.');	
+			return Redirect::route('index_per_uu');
+		} else {
+			Session::flash('error', 'Usulah gagal diperbaharui.');
+			return Redirect::back();
+		}
 	}
 
 	public function hapusUsulan() {

@@ -12,4 +12,39 @@ class Pelembagaan extends Eloquent {
     public function logPelembagaan() {
         return $this->hasMany('LogPelembagaan');
     }
+
+    public function getJenisUsulan($i) {
+
+        switch ($i) {
+            case '1':
+                return "pendirian";
+                break;
+            case '2':
+                return "Perubahan";
+                break;
+            case '3':
+                return "Statuta";
+                break;
+            case '4':
+                return "Penutupan";
+                break;
+            default:
+                return "";
+                break;
+        }
+    }
+
+    public function getStatus($i) {
+        switch ($i) {
+            case '1':
+                return "Di Proses";
+                break;
+            case '2':
+                return "Kirim Ke Bagian Peraturan PerUU";
+                break;
+            default:
+                return "";
+                break;
+        }
+    }
 }

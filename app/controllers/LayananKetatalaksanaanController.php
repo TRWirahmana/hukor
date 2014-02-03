@@ -18,7 +18,9 @@ class LayananKetatalaksanaanController extends BaseController {
 		$info = LayananKetatalaksanaan::find(2);
         $this->layout = View::make('layouts.master');
 
-        $this->layout->content = View::make('ketatalaksanaan_spk.index',
+//        $this->layout->content = View::make('ketatalaksanaan_spk.index',
+        $this->layout->content = View::make('layananketatalaksanaan.index',
+
             array(
                 'info' => $info,
 //            'image' => $this->lihatLampiran()
@@ -30,7 +32,7 @@ class LayananKetatalaksanaanController extends BaseController {
 		$info = LayananKetatalaksanaan::find(3);
         $this->layout = View::make('layouts.master');
 
-        $this->layout->content = View::make('ketatalaksanaan_smm.index',
+        $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
 //            'image' => $this->lihatLampiran()
@@ -42,7 +44,7 @@ class LayananKetatalaksanaanController extends BaseController {
 		$info = LayananKetatalaksanaan::find(4);
         $this->layout = View::make('layouts.master');
 
-        $this->layout->content = View::make('ketatalaksanaan_jabatan.index',
+        $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
 //            'image' => $this->lihatLampiran()
@@ -54,7 +56,7 @@ class LayananKetatalaksanaanController extends BaseController {
 		$info = LayananKetatalaksanaan::find(5);
         $this->layout = View::make('layouts.master');
 
-        $this->layout->content = View::make('ketatalaksanaan_pbk.index',
+        $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
 //            'image' => $this->lihatLampiran()
@@ -67,7 +69,7 @@ class LayananKetatalaksanaanController extends BaseController {
 		$info = LayananKetatalaksanaan::find(6);
         $this->layout = View::make('layouts.master');
 
-        $this->layout->content = View::make('ketatalaksanaan_nilai.index',
+        $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
 //            'image' => $this->lihatLampiran()
@@ -79,7 +81,7 @@ class LayananKetatalaksanaanController extends BaseController {
 		$info = LayananKetatalaksanaan::find(7);
         $this->layout = View::make('layouts.master');
 
-        $this->layout->content = View::make('ketatalaksanaan_pelayanan.index',
+        $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
 //            'image' => $this->lihatLampiran()
@@ -91,7 +93,7 @@ class LayananKetatalaksanaanController extends BaseController {
 		$info = LayananKetatalaksanaan::find(8);
         $this->layout = View::make('layouts.master');
 
-        $this->layout->content = View::make('ketatalaksanaan_tnd.index',
+        $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
 //            'image' => $this->lihatLampiran()
@@ -123,8 +125,16 @@ class LayananKetatalaksanaanController extends BaseController {
 
         $this->layout = View::make('layouts.admin');
 
-        $this->layout->content = View::make('ketatalaksanaan_spk.form',
+        $this->layout->content = View::make('layananketatalaksanaan.form',
             array(
+            	'form_opts' => array(
+	            		'action' => 'LayananKetatalaksanaanController@submit',
+	            		'method' => 'post', 
+	            		'id'=>'user-register-form', 
+	            		'class' =>'front-form form-horizontal', 
+	            		'autocomplete' => 'off', 
+	            		'enctype' => "multipart/form-data"
+            		),
                 'info' => $info,
                 'id' => 2
             ));
@@ -135,8 +145,16 @@ class LayananKetatalaksanaanController extends BaseController {
 
         $this->layout = View::make('layouts.admin');
 
-        $this->layout->content = View::make('ketatalaksanaan_smm.form',
+        $this->layout->content = View::make('layananketatalaksanaan.form',
             array(
+            	'form_opts' => array(
+	            	'action' => 'LayananKetatalaksanaanController@submit', 
+	            	'method' => 'post', 
+	            	'id'=>'user-register-form', 
+	            	'class' =>'front-form form-horizontal', 
+	            	'autocomplete' => 'off', 
+	            	'enctype' => "multipart/form-data"
+	            	),
                 'info' => $info,
                 'id' => 3
             ));
@@ -147,8 +165,17 @@ class LayananKetatalaksanaanController extends BaseController {
 
         $this->layout = View::make('layouts.admin');
 
-        $this->layout->content = View::make('ketatalaksanaan_jabatan.form',
+        $this->layout->content = View::make('layananketatalaksanaan.form',
             array(
+
+            	'form_opts' => array(
+            			'action' => 'LayananKetatalaksanaanController@submit',
+            			'method' => 'post',
+            			'id'=>'user-register-form',
+            			'class' =>'front-form form-horizontal',
+            			'autocomplete' => 'off',
+            			'enctype' => "multipart/form-data"
+            		),
                 'info' => $info,
                 'id' => 4
             ));
@@ -159,8 +186,16 @@ class LayananKetatalaksanaanController extends BaseController {
 
         $this->layout = View::make('layouts.admin');
 
-        $this->layout->content = View::make('ketatalaksanaan_pbk.form',
+        $this->layout->content = View::make('layananketatalaksanaan.form',
             array(
+            	'form_opts' => array(
+            		'action' => 'LayananKetatalaksanaanController@submit',
+            		'method' => 'post',
+            		'id'=>'user-register-form',
+            		'class' =>'front-form form-horizontal',
+            		'autocomplete' => 'off',
+            		'enctype' => "multipart/form-data"
+            	),
                 'info' => $info,
                 'id' => 5
             ));
@@ -171,8 +206,16 @@ class LayananKetatalaksanaanController extends BaseController {
 
         $this->layout = View::make('layouts.admin');
 
-        $this->layout->content = View::make('ketatalaksanaan_nilai.form',
+        $this->layout->content = View::make('layananketatalaksanaan.form',
             array(
+            	'form_opts' => array(
+            		'action' => 'LayananKetatalaksanaanController@submit',
+            		'method' => 'post',
+            		'id'=>'user-register-form',
+            		'class' =>'front-form form-horizontal',
+            		'autocomplete' => 'off', 
+            		'enctype' => "multipart/form-data"
+            	),
                 'info' => $info,
                 'id' => 6
             ));
@@ -183,8 +226,16 @@ class LayananKetatalaksanaanController extends BaseController {
 
         $this->layout = View::make('layouts.admin');
 
-        $this->layout->content = View::make('ketatalaksanaan_pelayanan.form',
+        $this->layout->content = View::make('layananketatalaksanaan.form',
             array(
+            	'form_opts' => array(
+            		'action' => 'LayananKetatalaksanaanController@submit',
+            		'method' => 'post',
+            		'id'=>'user-register-form',
+            		'class' =>'front-form form-horizontal',
+            		'autocomplete' => 'off',
+            		'enctype' => "multipart/form-data"
+            		),
                 'info' => $info,
                 'id' => 7
             ));
@@ -195,8 +246,16 @@ class LayananKetatalaksanaanController extends BaseController {
 
         $this->layout = View::make('layouts.admin');
 
-        $this->layout->content = View::make('ketatalaksanaan_tnd.form',
+        $this->layout->content = View::make('layananketatalaksanaan.form',
             array(
+            	'form_opts' => array(
+            		'action' => 'LayananKetatalaksanaanController@submit',
+            		'method' => 'post',
+            		'id'=>'user-register-form',
+            		'class' =>'front-form form-horizontal',
+            		'autocomplete' => 'off',
+            		'enctype' => "multipart/form-data"
+            		),
                 'info' => $info,
                 'id' => 8
             ));

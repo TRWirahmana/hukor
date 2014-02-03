@@ -2,9 +2,23 @@
     <h2>Layanan Ketatalaksanaan</h2>
 <div class="stripe-accent"></div>
 
-<legend>
-    Informasi Layanan Ketatalaksanaan
-</legend>
+		@if($info->id == 2)
+           <legend>Informasi Layanan Sistem dan Prosedur Kerja</legend>
+        @elseif($info->id == 3)
+           <legend>Informasi Sistem Manajemen Mutu</legend>        
+        @elseif ($info->id == 4)
+           <legend>Informasi Analisis Jabatan</legend>        
+        @elseif($info->id == 5)
+           <legend>Informasi Perhitungan Beban Kerja</legend>        
+        @elseif($info->id == 6)
+           <legend>Informasi Tata Nilai & Budaya Kerja Organisasi</legend>        
+        @elseif($info->id == 7)
+           <legend>Informasi Pelayanan Publik</legend>        
+        @elseif($info->id == 8)
+           <legend>Informasi Tata Naskah Dinas</legend>        
+        @else        
+           <legend>Informasi Layanan Ketatalaksanaan</legend>        
+        @endif
 
 @include('flash')
 

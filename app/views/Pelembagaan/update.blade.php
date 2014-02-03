@@ -15,87 +15,38 @@
 		              </div>
 					<div class="control-group">		
 						{{ Form::label('tgl_usulan', 'Tanggal Usulan', array('class' => 'control-label'))}}
-						<div class="controls">
-								{{ Form::text('tgl_usulan', $pelembagaan->tgl_usulan ) }}
-						</div>
+						<div class="controls"> <input type="text" disabled="" value="{{ $pelembagaan->tgl_usulan }}"></div>
 					</div>
 					
 					<div class="control-group">
 						{{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label'))}}
-						<div class="controls"> 
-						    @if(!is_object($pelembagaan->pengguna))
-								{{ Form::text('unit_kerja' ) }}
-							@else
-								{{ Form::text('unit_kerja', $pelembagaan->pengguna->unit_kerja ) }}
-							@endif
-						</div>
+						<div class="controls"> <input type="text" disabled="" value="{{ $pelembagaan->pengguna->unit_kerja }}"></div>
 					</div>		
-
-					<div class="control-group">	
-						{{ Form::label('jabatan', 'Jabatan', array('class' => 'control-label'))}}
-						<div class="controls">
-						    @if(!is_object($pelembagaan->pengguna))
-								{{ Form::text('jabatan') }}
-							@else
-								{{ Form::text('jabatan', $pelembagaan->pengguna->jabatan) }}
-	                    	@endif
-						</div>
-					</div>	
 
 					<div class="control-group">
 						{{ Form::label('nip', "NIP", array('class' => 'control-label'))}}
-						<div class="controls">
-							@if(!is_object($pelembagaan->pengguna))
-								{{ Form::text('nip') }}
-							@else
-								{{ Form::text('nip', $pelembagaan->pengguna->nip) }}
-							@endif
-						</div>
+						<div class="controls"> <input type="text" disabled="" value="{{ $pelembagaan->pengguna->nip }}"></div>
 					</div>
 
 					<div class="control-group">
 						{{ Form::label('nama_pemohon', "Nama", array('class' => 'control-label'))}}
-						<div class="controls">
-							@if(!is_object($pelembagaan->pengguna))
-								{{ Form::text('nama_pemohon') }}
-							@else
-								{{ Form::text('nama_pemohon', $pelembagaan->pengguna->nama_lengkap) }}
-							@endif
-						</div>
+						<div class="controls"> <input type="text" disabled="" value="{{ $pelembagaan->pengguna->nama_lengkap }}"></div>
 					</div>	
 
 
 					<div class="control-group">
 						{{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label'))}}
-						<div class="controls">
-							@if(!is_object($pelembagaan->pengguna))
-								{{ Form::textarea('alamat_kantor')}}
-							@else
-								{{ Form::textarea('alamat_kantor', $pelembagaan->pengguna->alamat_kantor) }}
-							@endif
-						</div>
+						<div class="controls"> <input type="text" disabled="" value="{{ $pelembagaan->pengguna->alamat_kantor }}"></div>
 					</div>	
 
 					<div class="control-group">
 						{{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label'))}}
-						<div class="controls">
-							@if(!is_object($pelembagaan->pengguna))
-								{{ Form::text('telp_kantor')}}
-							@else
-								{{ Form::text('telp_kantor', $pelembagaan->pengguna->tlp_kantor) }}
-							@endif
-						</div>
+						<div class="controls"> <input type="text" disabled="" value="{{ $pelembagaan->pengguna->tlp_kantor }}"></div>					
 					</div>	
 
 					<div class="control-group">
 						{{ Form::label('pos_el', 'Pos_el', array('class' => 'control-label'))}}
-						<div class="controls">
-							@if(!is_object($pelembagaan->pengguna))
-								{{ Form::text('pos_el') }}
-							@else
-								{{ Form::text('pos_el', $pelembagaan->pengguna->email) }}
-							@endif							
-						</div>
+						<div class="controls"> <input type="text" disabled="" value="{{ $pelembagaan->pengguna->email }}"></div>					
 					</div>	
 				</fieldset>
 	
@@ -106,14 +57,14 @@
 		              </div>
 					<div class="control-group">
 					{{ Form::label("perihal", "Perihal", array('class' => 'control-label')) }}
-						<div class="controls">{{ Form::text('perihal', $pelembagaan->perihal) }}</div>
+						<div class="controls"> <input type="text" disabled="" value="{{$pelembagaan->perihal }}"></div>					
 					</div>
 
 					<div class="control-group">
 					{{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
 						<div class="controls">
 
-							<a href= {{ URL::asset('assets/uploads/' . $pelembagaan->lampiran ); }} > Unduh </a>
+							<a href= {{ URL::asset('assets/uploads/' . $pelembagaan->lampiran ); }} > {{ $pelembagaan->lampiran}} </a>
 					</div>
 				</fieldset>
 			</div>
@@ -149,18 +100,8 @@
 					<div class="control-group">
 					{{ Form::label('status_terakhir', "Status Terakhir", array('class' => 'control-label')) }}
 						<div class="controls">
-						<?php $results = DB::table('log_pelembagaan')->where('pelembagaan_id','=', $id)->orderBy('tgl_proses', 'desc')->take(1)->get(); ?>
-							<?php //var_dump($results);   ?>
-							<?php //echo $results[0]->id;   ?>
-							<?php 
-								$report = '';
-								if($results[0]->status === '1'){
-									$report = 'Diproses';
-								}else if($results[0]->status === '2'){
-									$report = 'Di Proses Ke Bagian PerUU';
-								}
-							?>
-							{{ Form::text("status_terakhir", $report ) }}</div>
+				
+							{{ Form::text("status_terakhir", $pelembagaan->getStatus($pelembagaan->status) ) }}</div>
 						</div>
 					<p>( <a href="#">klik disini untuk merubah informasi registrasi</a> )</p>
 

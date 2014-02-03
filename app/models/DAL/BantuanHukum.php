@@ -12,9 +12,42 @@ class DAL_BantuanHukun {
         //count all record
         $iTotalRecords = $data->count();
 
+        //filter jenis_perkara
+        if($filter['jenis_perkara'] == 0)
+        {
+            $data->where('jenis_perkara', '!=', "NULL");
+        }
+        else
+        {
+            $data->where('jenis_perkara', '=', intval($filter['jenis_perkara']));
+        }
+
+        //filter status_pemohon
+        if($filter['status_pemohon'] == 0)
+        {
+            $data->where('status_pemohon', '!=', "NULL");
+        }
+        else
+        {
+            $data->where('status_pemohon', '=', intval($filter['status_pemohon']));
+        }
+
+        //filter status_pemohon
+        if($filter['advokasi'] == 0)
+        {
+            $data->where('advokasi', '!=', "NULL");
+        }
+        else
+        {
+            $data->where('advokasi', '=', intval($filter['advokasi']));
+        }
+
         //search specific record
         if(!empty($filter['sSearch'])){
-            $data->where();
+//            $param = $filter['sSearch'];
+            $data->where('status_perkara', 'like', "%{$filter['sSearch']}%")
+                ->orWhere('advokator', 'like', "%{$filter['sSearch']}%")
+            ;
         }
 
         //count record after filtering
@@ -106,6 +139,7 @@ class DAL_BantuanHukun {
     public function GetAllLog($filter)
     {
         $data = LogBantuanHukum::select();
+        $data->where('bantuan_hukum_id', '=', $filter['id']);
 
         $iTotalRecords = $data->count();
 
@@ -151,7 +185,10 @@ class DAL_BantuanHukun {
         {
             $log = LogBantuanHukum::find($id);
 
-            $helper->DeleteFile('bantuanhukum', $log->lampiran);
+            if(!empty($log->lampiran))
+            {
+                $helper->DeleteFile('bantuanhukum', $log->lampiran);
+            }
 
             $log->delete();
         }
@@ -161,7 +198,10 @@ class DAL_BantuanHukun {
 
             foreach($log->get() as $data)
             {
-                $helper->DeleteFile('bantuanhukum', $data->lampiran);
+                if(!empty($log->lampiran))
+                {
+                    $helper->DeleteFile('bantuanhukum', $log->lampiran);
+                }
             }
 
             $log->delete();

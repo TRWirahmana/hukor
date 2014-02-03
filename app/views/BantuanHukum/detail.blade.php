@@ -367,6 +367,7 @@
             fnServerParams: function(aoData) {
     //                    aoData.push({name: "tahun", value: $("#select_filter_tahun").val()});
     //                    aoData.push({name: "id_prop", value: $("#select_filter_provinsi").val()});
+                aoData.push({name: "id", value: $("#id").val()});
             },
             fnServerData: function(sSource, aoData, fnCallback) {
                 $.getJSON(sSource, aoData, function(json) {

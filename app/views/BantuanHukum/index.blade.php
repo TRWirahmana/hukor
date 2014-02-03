@@ -9,6 +9,34 @@
     </legend>
 
     @include('flash')
+
+    <label for="status-pemohon">Status Pemohon</label>
+    <select id="status-pemohon">
+        <option value="0">Tampilkan Semua</option>
+        <option value="1">Tergugat</option>
+        <option value="2">Penggugat</option>
+        <option value="3">Interfent</option>
+        <option value="4">Saksi</option>
+        <option value="5">Pemohon</option>
+    </select>
+
+    <label for="jenis-perkara">Jenis Perkara</label>
+    <select id="jenis-perkara">
+        <option value="0">Tampilkan Semua</option>
+        <option value="1">Tata Usaha Negara</option>
+        <option value="2">Perdata</option>
+        <option value="3">Pidana</option>
+        <option value="4">Uji Materil MK</option>
+        <option value="5">Uji Materil MA</option>
+    </select>
+
+    <label for="advokasi">Advokasi</label>
+    <select id="advokasi">
+        <option value="0">Tampilkan Semua</option>
+        <option value="1">Bankum I</option>
+        <option value="2">Bankum II</option>
+        <option value="3">Bankum III</option>
+    </select>
     
     <table id="basictable" class="dataTable">
         <thead>
@@ -28,7 +56,7 @@
         @parent
         <script type="text/javascript">
             var tbl_data = $("#basictable").dataTable({
-                bFilter: false,
+                bFilter: true,
                 bInfo: false,
                 bSort: false,
                 bPaginate: true,
@@ -116,15 +144,18 @@
                         mRender: function(data, type, full){
                             var detailUrl = baseUrl + '/detail_banhuk?id=' + data;
                             var deleteUrl = baseUrl + '/delete_banhuk?id=' + data;
+                            var downloadUrl = baseUrl + '/download_banhuk?id=' + data;
 
-                            return '<a href="' + detailUrl + '"><i class="icon-edit"></i></a> &nbsp;' +
-                                '<a href="' + deleteUrl + '" class="btn_delete"><i class="icon-trash"></i></a>';
+                            return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a> &nbsp;' +
+                                '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
+                                '<a href="' + deleteUrl + '" title="Delete" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
                         }
                     }
                 ],
                 fnServerParams: function(aoData) {
-//                    aoData.push({name: "tahun", value: $("#select_filter_tahun").val()});
-//                    aoData.push({name: "id_prop", value: $("#select_filter_provinsi").val()});
+                    aoData.push({name: "jenis_perkara", value: $("#jenis-perkara").val()});
+                    aoData.push({name: "status_pemohon", value: $("#status-pemohon").val()});
+                    aoData.push({name: "advokasi", value: $("#advokasi").val()});
                 },
                 fnServerData: function(sSource, aoData, fnCallback) {
                     $.getJSON(sSource, aoData, function(json) {
@@ -132,6 +163,18 @@
                         fnCallback(json);
                     });
                 }
+            });
+
+            $("#jenis-perkara").change(function(){
+                tbl_data.fnReloadAjax();
+            });
+
+            $("#status-pemohon").change(function(){
+                tbl_data.fnReloadAjax();
+            });
+
+            $("#advokasi").change(function(){
+                tbl_data.fnReloadAjax();
             });
         </script>
     @stop

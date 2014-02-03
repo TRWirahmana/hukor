@@ -128,5 +128,23 @@ class BantuanHukumController extends BaseController{
 
         return Redirect::to($link)->with('success', 'Data Berhasil Di Hapus.');
     }
+
+    public function download()
+    {
+        $id = Input::get('id');
+        $DAL = new DAL_BantuanHukun();
+        $helper = new HukorHelper();
+
+        $data = $DAL->GetSingleBantuanHukum($id);
+
+        $download = $helper->DownloadFile('bantuanhukum', $data->lampiran);
+
+        if($download != null)
+        {
+            return Response::download($download);
+        }
+
+        return Redirect::to('bantuanhukum')->with('error', 'Kesalahan, berkas tidak ditemukan.');
+    }
 }
 

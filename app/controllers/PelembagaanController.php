@@ -11,12 +11,15 @@ class PelembagaanController extends BaseController {
         if(Request::ajax())           
             return Datatables::of(DAL_Pelembagaan::getDataTable())->make(true);
             
-        	$status = Pelembagaan::where('status', null)->count();
+        	$statusUn = Pelembagaan::where('status', null)->count();
+        	$statusPro = Pelembagaan::where('status', 1)->count();
+        	$statusPerUU = Pelembagaan::where('status', 2)->count();
 
-	       	$listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
-	        													->lists('usulan_year', 'usulan_year');
+//	       	$listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
+//	        													->lists('usulan_year', 'usulan_year');
+//	    $this->layout->content = View::make('Pelembagaan.index', array());		
 	    
-	    $this->layout->content = View::make('Pelembagaan.index', array( 'listTgl' => $listTgl, 'status_kelembagaan' => $status ));		
+	    $this->layout->content = View::make('Pelembagaan.index', array( 'status_belum' => $statusUn, 'status_proses' => $statusPro));		
 	}
 
     public function datatable()
@@ -53,7 +56,7 @@ class PelembagaanController extends BaseController {
 		            'files' => true
 				),
 				'pelembagaan' => $pelembagaan,
-				'user' => $user,
+				'user' => $user
 			));                        
 	}
 
@@ -69,6 +72,7 @@ class PelembagaanController extends BaseController {
         	return Datatables::of(DAL_LogPelembagaan::getDataTable($id))->make(true);
 
 		$pelembagaan = Pelembagaan::find($id);
+
 		if(!is_null($pelembagaan))
 			$this->layout->content = View::make('Pelembagaan.update', array(
 				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
@@ -93,16 +97,17 @@ class PelembagaanController extends BaseController {
 
 		$pelembagaan = Pelembagaan::find($id);
 
-
         $img = Input::file('lampiran');
 		$destinationPath = UPLOAD_PATH . '/';		
 		$filename = $img->getClientOriginalName();
 		$uploadSuccess = $img->move($destinationPath, $filename);
 
-		$pelembagaan->id_pengguna = $id;
+//		$pelembagaan->id_pengguna = $id;
 
 		$log_pelembagaan = new LogPelembagaan();
 		$log_pelembagaan->status = Input::get('status');
+		$pelembagaan->status = $log_pelembagaan->status;
+
 		$log_pelembagaan->catatan = Input::get('catatan');
 		$log_pelembagaan->keterangan = Input::get('keterangan');
 		$log_pelembagaan->lampiran = $filename;
@@ -110,6 +115,27 @@ class PelembagaanController extends BaseController {
 		$log_pelembagaan->pelembagaan_id = $pelembagaan->id_pengguna;
         $log_pelembagaan->tgl_proses = Carbon::now();
 		$log_pelembagaan->save();
+
+
+		$pelembagaan->save();
+
+//		$userid = pengguna::find($pelembagaan->ipengguna);
+        // EMAIL To User
+		$data = array(
+//			'name' => $pelembagaan->pengguna->id,
+			'perihal' => Input::get('perihal'),
+			'status' => $pelembagaan->getStatus(Input::get('status'))
+		);
+
+		$user = array(
+			'name' => 'User ',
+		    'email' => 'andhy.m0rphin@gmail.com'
+		);
+		 
+		Mail::send('emails.reppelembagaan', $data, function($message) use ($user)
+		{
+		  $message->to($user['email'], $user['name'])->subject('Re: Usulan Pelembagaan Request');
+		});
 
 		return Redirect::to('pelembagaan')->with('success', 'Data berhasil diubah.');
 	}  
@@ -131,6 +157,24 @@ class PelembagaanController extends BaseController {
 		$pelembagaan->lampiran = $filename;
 
         $pelembagaan->tgl_usulan = Carbon::now();
+
+        // EMAIL To Admin
+		$data = array(
+			'name' => $user->pengguna->nama_lengkap,
+			'perihal' => Input::get('perihal'),
+			'jenis_usulan' => $pelembagaan->getJenisUsulan(Input::get('jenis_usulan'))
+		);
+
+		$user = array(
+			'name' => 'Admin Divisi Pelembagaan',
+		    'email' => 'andhy.m0rphin@gmail.com'
+		);
+		 
+		Mail::send('emails.reqpelembagaan', $data, function($message) use ($user)
+		{
+		  $message->to($user['email'], $user['name'])->subject('Usulan Pelembagaan Request');
+		});
+
 
 		if($uploadSuccess) {
 			if($pelembagaan->save()) {

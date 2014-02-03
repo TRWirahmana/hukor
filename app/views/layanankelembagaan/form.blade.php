@@ -145,8 +145,6 @@
 <script src="{{asset('assets/js/registrasi.js')}}"></script>
 
 <script type="text/javascript">
-
-
     tinyMCE.init({
         theme : "modern",
         mode: "exact",

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
+<html>
 <head>
     <meta charset="utf-8">
     <title>Layanan Hukum & Organisasi</title>
@@ -56,9 +56,10 @@
     <div class="header">
         <ul id="main-menu">
             <li id="beranda"><a href="{{URL::to('admin/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
-            <li id="informasi"><a href="#"><span class="rulycon-user"></span> Informasi</a></li>
+            <li id="news"><a href="{{URL::to('admin/berita')}}"><span class="rulycon-newspaper"></span> Berita</a></li>
+            <li id="informasi"><a href="#"><span class="rulycon-address-book"></span> Informasi</a></li>
             <li id="aplikasi"><a href="#"><span class="rulycon-wrench"></span> Aplikasi</a></li>
-            <li id="manajemen"><a href="{{URL::to('admin/account')}}"><span class="rulycon-address-book"></span> User</a></li>
+            <li id="manajemen"><a href="{{URL::to('admin/account')}}"><span class="rulycon-user"></span> User</a></li>
         </ul>
     </div>
 
@@ -93,12 +94,12 @@
                                 <li><a href="#">Tata naskah dinas</a></li>
                             </ul>
                         </li>
-                        <li id="kelembagaan" class="dropdown"><a href="{{URL::to('admin/edit_kelembagaan')}}"><span class="iconfa-briefcase"></span> Layanan Kelembagaan</a>
+                        <li id="kelembagaan" class="dropdown"><a href="{{URL::to('admin/layanankelembagaan/edit_kelembagaan')}}"><span class="iconfa-briefcase"></span> Layanan Kelembagaan</a>
                             <ul>
-                                <li><a href="{{URL::to('admin/edit_pembentukan')}}">Pembentukan</a></li>
-                                <li><a href="{{URL::to('admin/edit_penataan')}}">Penataan</a></li>
-                                <li><a href="{{URL::to('admin/edit_statuta')}}">Statuta</a></li>
-                                <li><a href="{{URL::to('admin/edit_penutupan')}}">Penutupan</a></li>
+                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_pembentukan')}}">Pembentukan</a></li>
+                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_penataan')}}">Penataan</a></li>
+                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_statuta')}}">Statuta</a></li>
+                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_penutupan')}}">Penutupan</a></li>
                             </ul>
                         </li>
                         <li id="bahu"><a href="#"><span class="iconfa-th-list"></span> Layanan Bantuan Hukum</a></li>

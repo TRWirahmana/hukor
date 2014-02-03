@@ -6,6 +6,7 @@ jQuery(document).ready(function(e){
     };
     dom.$table_admin.dataTable({
         bServerSide: true,
+        bFilter:false,
         sAjaxSource: document.URL,
         aoColumns: [
             {

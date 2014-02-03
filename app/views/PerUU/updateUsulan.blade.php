@@ -45,7 +45,8 @@
 				<div class="controls"><input type="text" disabled="" value="{{ $perUU->pengguna->email }}"></div>
 			</div>
 		</fieldset>
-
+	</div>
+	<div class="span12">
 		<fieldset>
 			<legend>INFORMASI PERIHAL & LAMPIRAN</legend>
 			<div class="control-group">
@@ -58,9 +59,25 @@
 					<a href="/assets/uploads/{{$perUU->lampiran}}">{{ explode('/', $perUU->lampiran)[1] }}</a>
 				</div>
 			</div>
+
+			<div class="control-group">
+				<label for="" class="control-label">Status Terakhir</label>
+				<div class="controls">
+					@if ($perUU->status == 1)
+						Diproses
+					@elseif($perUU->status == 2)
+						Ditunda
+					@elseif($perUU->status == 3)
+						Ditolak
+					@elseif($perUU->status == 4)
+						Buat Salinan
+					@elseif($perUU->status == 5)
+						Penetapan
+					@endif
+				</div>
+			</div>
 		</fieldset>
-	</div>
-	<div class="span12">
+
 		<fieldset>
 			<legend>UPDATE STATUS</legend>
 			<div class="control-group">
@@ -68,9 +85,8 @@
 				<div class="controls">
 					{{ 
 						Form::select('status', array(
-							0 => 'Silahkan Pilih Status',
-							1 => "Di Proses",
-							2 => "Di Tunda",
+							1 => "Diproses",
+							2 => "Ditunda",
 							3 => "Ditolak",
 							4 => "Buat Salinan",
 							5 => "Penetapan"
@@ -82,7 +98,7 @@
 				{{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
 				<div class="controls">
 					{{
-						Form::textarea('catatan', null, array('rows' => 3))
+						Form::textarea('catatan', null, array('rows' => 2))
 					}}
 				</div>
 			</div>
@@ -102,20 +118,89 @@
 					}}
 				</div>
 			</div>
-			<div class="control-group">
-				<label for="" class="control-label">Status Terakhir</label>
-				<div class="controls">
-					<input type="text" name="" id="" disabled value="{{ $perUU->status }}">
-				</div>
-			</div>
+			
 		</fieldset>
 	</div>
 </div>
 
+<div class="row-fluid">
+	<div class="span24">
+		<table id="tbl-log">
+			<thead>
+				<tr>
+					<th>Tgl Proses</th>
+					<th>Status</th>
+					<th>Catatan</th>
+					<th>Lampiran</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+</div>
+
 <div class="form-actions">
+	<a href="/per-uu" class="btn">Batal</a>
 	{{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
 </div>
 {{ Form::close() }}
 
 
 @stop()
+
+@section('scripts')
+@parent
+<script type="text/javascript">
+	$tblLog = $("#tbl-log").dataTable({
+		bServerSide: true,
+		sAjaxSource: document.location.href,
+		bFilter: false,
+		bInfo: false,
+		bSort: false,
+		bLengthChange: false,
+		iDisplayLength: 5,
+		aoColumns: [
+			{
+				mData: "tgl_proses",
+				mRender: function(data) {
+					return $.datepicker.formatDate("dd M yy", new Date(Date.parse(data)));
+				}
+			},
+			{
+				mData: "status",
+				mRender: function(data) {
+					switch(parseInt(data)) {
+						case 1: 
+						
+							return "Diproses";
+							break;
+						case 2:
+							return "Ditunda";
+							break;
+						case 3:
+							return "Ditolak";
+							break;
+						case 4:
+							return "Buat salinan";
+							break;
+						case 5:
+							return "Penetapan";
+							break;
+						default:
+							return " ";
+							break;
+					};
+				}
+			},
+			{mData: "catatan"},
+			{
+				mData: "lampiran",
+				mRender: function(data) {
+					return '<a href="/assets/uploads/'+data+'">'+data.split('/')[1]+'</a>';
+				}
+			}
+			// {mData: "id"}
+		]
+	});
+</script>
+@stop

@@ -1,5 +1,5 @@
-@section('content')
-@include('flash')
+@section('admin')
+
 <div class="rightpanel">
 
     <ul class="breadcrumbs">
@@ -7,7 +7,7 @@
         <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
         <li>Layanan Kelembagaan</li>
     </ul>
-
+    @include('adminflash')
     <div class="pageheader">
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->

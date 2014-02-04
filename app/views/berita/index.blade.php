@@ -1,5 +1,4 @@
-@section('content')
-@include('flash')
+@section('admin')
 
 <div class="rightpanel">
 
@@ -7,6 +6,8 @@
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
         <li>Berita</li>
     </ul>
+
+    @include('adminflash')
 
     <div class="pageheader">
         <!--        <form action="results.html" method="post" class="searchbar">-->

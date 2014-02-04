@@ -7,7 +7,7 @@ class PeruuController extends BaseController {
 	public function index() 
 	{
 
-		pun_setcookie(2, pun_hash("admin"), time() + 1209600);
+//		pun_setcookie(2, pun_hash("admin"), time() + 1209600);
 		
 		// handle dataTable request
 		if(Request::ajax()) 

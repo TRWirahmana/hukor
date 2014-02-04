@@ -2,9 +2,9 @@
 <div class="rightpanel">
 
     <ul class="breadcrumbs">
-        <li><a href="{{URL::to('admin/Home')}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
+        <li><a href="{{URL::to('admin/Home')}}"><i class="iconfa-home"></i></a></span></li>
     </ul>
-    @include('adminflash')ica
+    @include('adminflash')
 
     <div class="pageheader">
         <!--        <form action="results.html" method="post" class="searchbar">-->

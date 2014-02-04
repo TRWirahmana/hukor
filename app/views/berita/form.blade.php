@@ -1,5 +1,5 @@
 @section('admin')
-@include('flash')
+
 <div class="rightpanel">
 
     <ul class="breadcrumbs">
@@ -7,7 +7,7 @@
         <li><a href="{{URL::previous()}}">Berita</a>  <span class="separator"></span></li>
         <li>Tambah Berita</li>
     </ul>
-
+    @include('adminflash')
     <div class="pageheader">
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
@@ -122,7 +122,7 @@
 <script src="{{asset('assets/js/jquery.validate.js')}}"></script>
 <script src="{{asset('assets/js/additional-methods.js')}}"></script>
 
-<!--<script src="{{asset('assets/js/berita.js')}}"></script>-->
+<script src="{{asset('assets/js/berita.js')}}"></script>
 <script type="text/javascript">
     tinyMCE.init({
         theme : "modern",
@@ -137,6 +137,7 @@
         theme_advanced_buttons3 : "",
         height:"350px"
     });
-//    Berita.Form();
+
+    Berita.Form();
 </script>
 @stop

@@ -34,7 +34,7 @@ var Berita = (function(BRT) {
          * Trigger Submit Form
          */
         jQuery('button#submit').on('click', function() {
-            jQuery('#reg_admin_a').submit();
+            jQuery('#form_berita').submit();
         });
 
         var rules = {

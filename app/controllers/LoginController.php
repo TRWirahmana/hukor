@@ -31,7 +31,7 @@ class LoginController extends BaseController {
 						// $db->query('DELETE FROM '.$db->prefix.'online WHERE ident=\''.$db->escape(get_remote_address()).'\'') or error('Unable to delete from online list', __FILE__, __LINE__, $db->error());
 
 						// log the user in to the forum
-						pun_setcookie($user->id, pun_hash($password), time() + 1209600);
+						// pun_setcookie($user->id, pun_hash($password), time() + 1209600);
 
 						// Reset tracked topics
 						// set_tracked_topics(null);
@@ -84,7 +84,7 @@ class LoginController extends BaseController {
 		// if (isset($pun_user['logged']))
 		// 	$db->query('UPDATE '.$db->prefix.'users SET last_visit='.$pun_user['logged'].' WHERE id='.$pun_user['id']) or error('Unable to update user visit data', __FILE__, __LINE__, $db->error());
 
-		pun_setcookie(1, pun_hash(uniqid(rand(), true)), time() + 31536000);
+		// pun_setcookie(1, pun_hash(uniqid(rand(), true)), time() + 31536000);
 
         return Redirect::to('/')->withInput()->with('success', 'Anda telah keluar dari sistem.');
     }

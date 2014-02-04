@@ -1271,7 +1271,7 @@ else
 		<h2><span><?php echo pun_htmlspecialchars($user['username']).' - '.$lang_profile['Section essentials'] ?></span></h2>
 		<div class="box">
 			<form id="profile1" method="post" action="profile.php?section=essentials&amp;id=<?php echo $id ?>" onsubmit="return process_form(this)">
-				<div class="inform">
+				<!-- <div class="inform">
 					<fieldset>
 						<legend><?php echo $lang_profile['Username and pass legend'] ?></legend>
 						<div class="infldset">
@@ -1288,7 +1288,7 @@ else
 							<?php echo $email_field ?>
 						</div>
 					</fieldset>
-				</div>
+				</div> -->
 				<div class="inform">
 					<fieldset>
 						<legend><?php echo $lang_prof_reg['Localisation legend'] ?></legend>

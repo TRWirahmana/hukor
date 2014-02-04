@@ -594,6 +594,7 @@ html, .main-layout, .admin,
   position: relative;
   top: 8px;
 }
+
 .main-content .span12 {
   padding-left: 15px;
   padding-right: 15px;
@@ -716,3 +717,32 @@ html, .main-layout, .admin,
 
 
 
+
+.main-content .callcenter {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 120px;
+  width: 50%;
+  float: center;
+}
+.main-content .callcenter > p {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.main-content .callcenter > h4 {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 14px;
+  text-align: center;
+}
+.main-content .callcenter > h4 > span {
+  background: #d8251e;
+  color: #ffffff;
+  padding: 2px 20px 3px;
+  border-radius: 2px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
+}
+.main-content .callcenter > .form-horizontal {
+  padding-left: 15px;
+  padding-right: 15px;
+}

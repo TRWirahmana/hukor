@@ -18,12 +18,10 @@ class LayananKetatalaksanaanController extends BaseController {
 		$info = LayananKetatalaksanaan::find(2);
         $this->layout = View::make('layouts.master');
 
-//        $this->layout->content = View::make('ketatalaksanaan_spk.index',
         $this->layout->content = View::make('layananketatalaksanaan.index',
 
             array(
                 'info' => $info,
-//            'image' => $this->lihatLampiran()
             ));
     }
 
@@ -47,7 +45,6 @@ class LayananKetatalaksanaanController extends BaseController {
         $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
-//            'image' => $this->lihatLampiran()
             ));
     }
 
@@ -59,7 +56,6 @@ class LayananKetatalaksanaanController extends BaseController {
         $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
-//            'image' => $this->lihatLampiran()
             ));
     }
 
@@ -84,7 +80,6 @@ class LayananKetatalaksanaanController extends BaseController {
         $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
-//            'image' => $this->lihatLampiran()
             ));
     }
 
@@ -96,7 +91,6 @@ class LayananKetatalaksanaanController extends BaseController {
         $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
-//            'image' => $this->lihatLampiran()
             ));
     }
 
@@ -271,7 +265,10 @@ class LayananKetatalaksanaanController extends BaseController {
 
 		$rows = count($ketatalaksanaan);
 
-		if($img->isValid()){
+
+		
+
+		if($img->isValid()){ 
 			$uqFolder = "layananketatalaksanaan";
 		    $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
 		    $filename = $img->getClientOriginalName();
@@ -279,7 +276,7 @@ class LayananKetatalaksanaanController extends BaseController {
 
 		//	$upload = new HukorHelper($uqFolder, $img);
 			if($uploadSuccess){
-				if($ketatalaksanaan != null){
+				if($ketatalaksanaan != null) {
 					//UPDATE					
 					switch($id){
 						case '1':
@@ -637,6 +634,10 @@ class LayananKetatalaksanaanController extends BaseController {
 				}
 			}
 		}else{
+                    
+                    
+                    
+                    
 	            Session::flash('error', 'Gagal mengirim berkas.');
 	            return Redirect::back();
 		}

@@ -109,8 +109,20 @@
 
             <li class="menu-header">Informasi</li>
             <!--            <li><a href="{{URL::to('account')}}">Kelola Akun</a></li>-->
-            <li><a href="#"><span class="rulycon-quill"></span>Layanan Ketatalaksanaan</a></li>
-            <li class="active"><a href="{{ URL::to('layanan_kelembagaan/index') }}"><span class="rulycon-library"></span>Layanan Kelembagaan</a></li>
+            <li class="active"><a href="{{ URL::to('layanan_ketatalaksanaan/index') }}"><span class="rulycon-quill"></span>Layanan Ketatalaksanaan</a>
+            <ul style="display: block;">
+                <li><a href="{{ URL::to('layanan_ketatalaksanaan/spk') }}"><span ></span>Sistem dan Prosedur Kerja</a></li>
+                <li><a href="{{ URL::to('layanan_ketatalaksanaan/smm') }}"><span ></span>Sistem dan Manajemen Mutu</a></li>
+                <li><a href="{{ URL::to('layanan_ketatalaksanaan/analisis_jabatan') }}"><span ></span>Analisis Jabatan</a></li>
+                <li><a href="{{ URL::to('layanan_ketatalaksanaan/pbk') }}"><span ></span>Perhitungan Beban Kerja</a></li>  
+                <li><a href="{{ URL::to('layanan_ketatalaksanaan/tata_nilai') }}"><span ></span>Tata Nilai & Budaya Kerja Organisasi</a></li>  
+                <li><a href="{{ URL::to('layanan_ketatalaksanaan/pelayanan_publik') }}"><span ></span>Pelayanan Publik</a></li>  
+                <li><a href="{{ URL::to('layanan_ketatalaksanaan/tnd') }}"><span ></span>Tata Naskah Dinas</a></li>  
+            </ul>
+            </li>
+
+
+            <li><a href="{{ URL::to('layanan_kelembagaan/index') }}"><span class="rulycon-library"></span>Layanan Kelembagaan</a></li>
             <li><a href="{{ URL::to('layanan_kelembagaan/pembentukan') }}"><span class="rulycon-spinner-3"></span>Layanan Pembentukan</a></li>
             <li><a href="{{ URL::to('layanan_kelembagaan/penataan') }}"><span class="rulycon-paragraph-center"></span>Layanan Penataan</a></li>
             <li><a href="{{ URL::to('layanan_kelembagaan/penutupan') }}"><span class="rulycon-checkbox-unchecked"></span>Layanan Penutupan</a></li>
@@ -118,7 +130,7 @@
             <li><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>
             <li><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>
             <li><a href="#"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
-            <li><a href="#"><span class="rulycon-phone"></span>Call Center</a></li>
+            <li><a href="{{ URL::to('callcenter') }}"><span class="rulycon-phone"></span>Call Center</a></li>
 
             <li class="menu-header">Aplikasi</li>
             <li><a href="{{ URL::route('index_per_uu') }}"><span class="rulycon-pilcrow"></span>Peraturan Perundang-undangan</a></li>
@@ -148,6 +160,7 @@
 <script src="{{asset('assets/js/jquery.ui.datepicker.js')}}"></script>
 <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/js/DatatableReloadAjax.js')}}"></script>
+
 @show
 </body>
 </html>

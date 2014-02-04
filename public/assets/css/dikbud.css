@@ -18,15 +18,15 @@
   background: rgba(0, 0, 0, .075);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, .15);
+  background: rgba(0, 0, 0, .25);
 }
 ::selection {
-  background: #da4f49;
+  background: #16a085;
   color: #ffffff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
 }
 ::-moz-selection {
-  background: #da4f49;
+  background: #16a085;
   color: #ffffff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
 }
@@ -47,15 +47,19 @@ body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "PT Sans", "pt_sansregular", sans-serif;
-  /*background: url("../img/body-background.jpg") repeat;
-  background: #2980b9;*/
   background: #ecf0f1;
 }
 p {
   font-size: 13px;
 }
-input {
+input, select, textarea {
   font-family: "PT Sans", "pt_sansregular", sans-serif !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+select {
+  width: auto;
 }
 
 /* SIGN IN PAGE ONLY */
@@ -242,22 +246,24 @@ input {
   border-top: 4px solid #ffffff;
 }
 .btn {
+  border: none;
+  text-shadow: none;
+  color: #ffffff;
   border-radius: 0;
-  font-family: "PT Sans", "pt_sansregular", sans-serif;
+  font-family: "PT Sans Narrow", "pt_sans_narrowregular", sans-serif;
   font-size: 13px;
   text-transform: uppercase;
   padding: 4px 25px;
   box-shadow: none;
 }
-.btn.btn-primary {
-  background: #ff5400;
+.btn.btn-hukor {
+  background: #c0392b;
 }
 li.dropdown {
   list-style: none;
 }
 input, textarea {
   height: auto !important;
-  font-family: "PT Sans", "pt_sansregular", sans-serif;
 }
 input:focus, textarea:focus {
   box-shadow: none !important;
@@ -269,10 +275,20 @@ input[type="file"] {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 textarea {
-  resize: none;
+  resize: vertical;
+}
+legend {
+  border-bottom: 1px dashed rgba(0, 0, 0, .075);
 }
 .form-actions {
   text-align: center;
+}
+.form-inline {
+  margin-bottom: 20px;
+}
+.form-inline label {
+  font-weight: bold;
+  margin-right: 10px;
 }
 .form-horizontal .control-group {
   margin-bottom: 15px;
@@ -562,13 +578,21 @@ html, .main-layout, .admin,
 .main-content > h2 {
   background: #16a085;
   color: #ffffff;
-  text-align: center;
   text-transform: uppercase;
   font-size: 24px;
   font-family: "PT Sans Narrow", "pt_sans_narrowregular", sans-serif;
   font-weight: normal;
   margin: 0;
   padding: 17px 20px 20px;
+}
+.main-content > h2 > span[class*="rulycon"] {
+  font-size: 14px;
+  color: rgba(0, 0, 0, .25);
+  vertical-align: top;
+  padding: 3px 7px 7px;
+  border: 3px solid rgba(0, 0, 0, .25);
+  border-radius: 100em;
+  margin-right: 10px;
 }
 .main-content .content-non-title {
   margin-top: 20px;
@@ -650,6 +674,45 @@ html, .main-layout, .admin,
 }
 .need-lil-space {
   margin-bottom: 10px !important;
+}
+
+/* SUPER FUCKING BUDUG DATA TABLE */
+.dataTables_wrapper {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  border-top: 1px dashed rgba(0, 0, 0, .075);
+  border-bottom: 1px dashed rgba(0, 0, 0, .075);
+}
+.dataTables_wrapper .dataTables_length label,
+.dataTables_wrapper .dataTables_filter label {
+  font-weight: bold;
+}
+.dataTables_wrapper label > select,
+.dataTables_wrapper label > input {
+  margin-left: 10px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+.dataTables_wrapper label > input {
+  margin-right: 0;
+}
+table.dataTable {
+  margin-bottom: 10px;
+}
+table.dataTable thead tr > th {
+  background: #95a5a6;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+table.dataTable tr.odd {
+  background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, .075);
+}
+table.dataTable tr.odd > td {
+  padding: 30px 20px 40px;
 }
 
 /* MEDIA QUERIES */

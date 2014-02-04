@@ -1,4 +1,4 @@
-@section('content')
+@section('admin')
 @include('flash')
 
 <div class="rightpanel">
@@ -166,6 +166,7 @@
 <!--rightpanel-->
 
 @stop
+
 
 @section('scripts')
 @parent

@@ -3,7 +3,7 @@
 <div class='stripe-accent'></div>
 
     <legend>Pelembagaan
-        <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('pelembagaan/create'); }}">
+        <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('admin/pelembagaan/create'); }}">
             <i class="icon-plus"></i>&nbsp; Tambah Baru</a>
     </legend>
 
@@ -120,8 +120,8 @@
                                 mData: "id",
                                 sClass: 'center-ac',
                                  mRender: function(id) {
-                                    return "<a href='"+baseUrl+"/pelembagaan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
-                                        + "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/pelembagaan/"+id+"'>"
+                                    return "<a href='pelembagaan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
+                                        + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+id+"'>"
                                         + "<i class='icon-trash'></i></a>";
                                  }
                             }

@@ -118,7 +118,6 @@ class LayananKetatalaksanaanController extends BaseController {
 		$info = LayananKetatalaksanaan::find(2);
 
         $this->layout = View::make('layouts.admin');
-
         $this->layout->content = View::make('layananketatalaksanaan.form',
             array(
             	'form_opts' => array(

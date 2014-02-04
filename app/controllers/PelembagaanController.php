@@ -49,7 +49,7 @@ class PelembagaanController extends BaseController {
 				'title' => 'Tambah Akun',
 				'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',
 				'form_opts' => array(
-					'route' => 'pelembagaan.store',
+					'route' => 'admin.pelembagaan.store',
 					'method' => 'post',
 					'class' => 'form-horizontal',
 		            'id' => 'pelembagaan-form',
@@ -78,7 +78,7 @@ class PelembagaanController extends BaseController {
 				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
 				'detail' => '',
 				'form_opts' => array(
-					'route' => array('pelembagaan.update', $pelembagaan->id),
+					'route' => array('admin.pelembagaan.update', $pelembagaan->id),
 					'method' => 'put',
 					'class' => 'form-horizontal',
 		            'id' => 'pelembagaan-update',

@@ -150,9 +150,7 @@
     <!-- leftpanel -->
 
 <!--    CONTENT-->
-    @yield('content')
-
-</div>
+    @yield('admin')
 <!--mainwrapper-->
 
 

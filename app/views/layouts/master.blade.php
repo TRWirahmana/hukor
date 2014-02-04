@@ -121,7 +121,7 @@
             <li id="menu-call-center"><a href="#"><span class="rulycon-phone"></span>Call Center</a></li>
 
             <li class="menu-header">Aplikasi</li>
-            <li id="menu-peraturan-perundangan"><a href="{{ URL::route('index_per_uu') }}"><span class="rulycon-pilcrow"></span>Peraturan Perundang-undangan</a></li>
+            <li id="menu-peraturan-perundangan"><a href="{{ URL::route('pengajuan_per_uu') }}"><span class="rulycon-pilcrow"></span>Peraturan Perundang-undangan</a></li>
             <li id="menu-pelembagaan"><a href="{{URL::to('pelembagaan')}}"><span class="rulycon-office"></span>Pelembagaan</a></li>
             <li id="menu-bantuan-hukum"><a href="{{URL::to('BantuanHukum')}}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>
 

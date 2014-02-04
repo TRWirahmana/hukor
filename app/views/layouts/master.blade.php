@@ -62,7 +62,13 @@
         </header>
 
         @if($user != null)
-        <p id="username" class="welcome-message">Selamat datang, <span id="name"><?php echo $user->username; ?></span></p>
+        <p id="username" class="welcome-message user-not-null"><span>Selamat datang, <span id="name"><?php echo $user->username; ?></span></span></p>
+        @if($user != null)
+        <ul class="welcome-message">
+          <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a></li>
+          <li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span> Sign out</a></li>
+        </ul>
+        @endif
         @else
         <p id="username" class="welcome-message">Selamat datang <span id="name">guest</span></p>
           @if($user == null)
@@ -124,11 +130,6 @@
             <li id="menu-peraturan-perundangan"><a href="{{ URL::route('index_per_uu') }}"><span class="rulycon-pilcrow"></span>Peraturan Perundang-undangan</a></li>
             <li id="menu-pelembagaan"><a href="{{URL::to('pelembagaan')}}"><span class="rulycon-office"></span>Pelembagaan</a></li>
             <li id="menu-bantuan-hukum"><a href="{{URL::to('BantuanHukum')}}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>
-
-            @if($user != null)
-            <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a></li>
-            <li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span> Sign out</a></li>
-            @endif
           </ul>
         </div>
         <h6 id="copyright">© 2013 Direktorat Jenderal Kebudayaan Republik Indonesia</h6>

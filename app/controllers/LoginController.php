@@ -29,7 +29,6 @@ class LoginController extends BaseController
                     $user = Auth::user();
 
                     // Remove this user's guest entry from the online list
-                    // $db->query('DELETE FROM '.$db->prefix.'online WHERE ident=\''.$db->escape(get_remote_address()).'\'') or error('Unable to delete from online list', __FILE__, __LINE__, $db->error());
                     ForumOnline::where("ident", "=", mysql_real_escape_string(get_remote_address()))->delete();
 
                     // log the user in to the forum
@@ -39,12 +38,13 @@ class LoginController extends BaseController
                     set_tracked_topics(null);
                     //validation estimasi pendaftaran for role
                     switch ($user->role_id) {
-
                         case 2:
+                            Session::flash('success', 'Selamat datang ' . $user->username . ' !');
                             return Redirect::to('/');
                             break;
 
                         case 3:
+                            Session::flash('success', 'Selamat datang admin!');
                             return Redirect::to('/admin/Home');
                             break;
                         default:
@@ -66,6 +66,7 @@ class LoginController extends BaseController
     /*
      * Logout
      */
+
     public function signout()
     {
         global $pun_user;
@@ -76,7 +77,7 @@ class LoginController extends BaseController
         // Remove user from "users online" list
         ForumOnline::where('user_id', '=', $pun_user['id'])->delete();
         // Update last_visit (make sure there's something to update it with)
-        if (isset($pun_user['logged'])) 
+        if (isset($pun_user['logged']))
             ForumUser::find($pun_user['id'])->update(array("last_visit" => $pun_user['logged']));
 
         pun_setcookie(1, pun_hash(uniqid(rand(), true)), time() + 31536000);

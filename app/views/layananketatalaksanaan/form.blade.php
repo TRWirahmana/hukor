@@ -97,7 +97,7 @@
                                 }}
                                 @else
                                 {{ Form::textarea('layananketatalaksanaan[berita]', '',
-                                array('placeholder' => 'ketikkan Informasi atau berita anda di sini...')) }}
+                                array('placeholder' => 'ketikkan Informasi atau berita anda di sini...',  'id' => 'berita')) }}
                                 @endif
 
                                 @foreach($errors->get('berita') as $error)

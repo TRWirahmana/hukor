@@ -38,9 +38,17 @@ Route::group(array('before' => 'guest'), function(){
     Route::resource('forget', 'ForgetPasswordController@index');
 
 //    Route::resource('account', 'AdminController');
-    Route::resource('pelembagaan', 'PelembagaanController');
+//    Route::resource('pelembagaan', 'PelembagaanController');   
+//    Route::resource('callcenter','CallCenterController');
     
+//
+    Route::resource('callcenter', 'CallCenterController');
+    Route::get('callcenter', 'CallCenterController@index');
+
 });
+
+
+
 
 Route::group(array('before' => 'auth'), function(){
 //    Route::get('BantuanHukum', 'BantuanHukumController@index');
@@ -84,6 +92,12 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('HomeBerita', 'BeritaController@home');
     Route::put('saveberita', 'BeritaController@save');
 
+// call center
+    Route::resource('callcenter', 'CallCenterController');
+//    Route::get('indexcallcenter', 'CallCenterController@index');
+    Route::get('editcallcenter', 'CallCenterController@home');
+    Route::put('updatecallcenter', 'CallCenterController@update');
+
     // Per UU
     Route::group(array("prefix" => "per_uu"), function(){
         Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
@@ -108,19 +122,47 @@ Route::group(array('prefix' => 'admin/layanankelembagaan', 'before' => 'auth|sup
     //Layanan Kelembagaan
     Route::resource('layanankelembagaan', 'LayananKelembagaanController');
     Route::post('SubmitBerita', 'LayananKelembagaanController@submit');
+
     Route::get('edit_kelembagaan', 'LayananKelembagaanController@create');
 
-//pembentukan
+    //pembentukan
     Route::get('edit_pembentukan', 'LayananKelembagaanController@create_pembentukan');
 
-//penataan
+    //penataan
     Route::get('edit_penataan', 'LayananKelembagaanController@create_penataan');
 
-//statuta
+    //statuta
     Route::get('edit_statuta', 'LayananKelembagaanController@create_statuta');
 
-//penutupan
+    //penutupan
     Route::get('edit_penutupan', 'LayananKelembagaanController@create_penutupan');
+
+});
+
+Route::group(array('prefix' => 'admin/layananketatalaksanaan', 'before' => 'auth|super_admin'), function()
+{
+    Route::resource('pelembagaan', 'PelembagaanController'); 
+
+    //spm
+    Route::get('edit_spm', 'LayananKetatalaksanaanController@create_spk');
+
+    //smm
+    Route::get('edit_smm', 'LayananKetatalaksanaanController@create_smm');
+
+    //analisis jabatan
+    Route::get('edit_analisis_jabatan', 'LayananKetatalaksanaanController@create_analisis_jabatan');
+
+    //analisis pbk
+    Route::get('edit_pbk', 'LayananKetatalaksanaanController@create_pbk');
+
+    //tata nilai
+    Route::get('edit_tata_nilai', 'LayananKetatalaksanaanController@create_tata_nilai');
+
+    //tata pelayanan publik
+    Route::get('edit_tata_nilai', 'LayananKetatalaksanaanController@create_pelayanan_publik');
+
+    // tnd
+    Route::get('edit_tnd', 'LayananKetatalaksanaanController@create_tnd');
 
 });
 
@@ -159,6 +201,8 @@ Route::group(array('prefix' => 'layanan_ketatalaksanaan'), function() {
 
 	Route::get('CreateInfo', 'LayananKetatalaksanaanController@create');
     Route::post('SubmitBerita', 'LayananKetatalaksanaanController@submit'); 
+
+
 });
 
 /*

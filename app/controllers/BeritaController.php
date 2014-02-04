@@ -145,8 +145,6 @@ class BeritaController extends BaseController {
             Session::flash('error', 'Gagal mengirim berkas.');
             return Redirect::back();
         }
-
-        return Redirect::to('admin/account')->with('success', 'Akun admin berhasil ditambahkan.');
     }
 
     /**
@@ -222,6 +220,7 @@ class BeritaController extends BaseController {
                 $berita->judul = $input['judul'];
                 $berita->berita = $input['berita'];
                 $berita->penulis = $input['penulis'];
+                $berita->gambar = $filename;
                 $berita->tgl_penulisan = new DateTime;
                 $berita->created_at = date('Y-m-d H:i:s');
                 $berita->updated_at = date('Y-m-d H:i:s');

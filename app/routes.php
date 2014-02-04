@@ -92,13 +92,12 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('HomeBerita', 'BeritaController@home');
     Route::put('saveberita', 'BeritaController@save');
 
-<<<<<<< HEAD
 // call center
     Route::resource('callcenter', 'CallCenterController');
 //    Route::get('indexcallcenter', 'CallCenterController@index');
     Route::get('editcallcenter', 'CallCenterController@home');
     Route::put('updatecallcenter', 'CallCenterController@update');
-=======
+
     // Per UU
     Route::group(array("prefix" => "per_uu"), function(){
         Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
@@ -106,7 +105,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
         Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
         Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));     
     });
->>>>>>> 1d65c93903d87a856efd93d71820da3a98a88e0b
 
 });
 
@@ -140,7 +138,6 @@ Route::group(array('prefix' => 'admin/layanankelembagaan', 'before' => 'auth|sup
 
 });
 
-<<<<<<< HEAD
 Route::group(array('prefix' => 'admin/layananketatalaksanaan', 'before' => 'auth|super_admin'), function()
 {
     Route::resource('pelembagaan', 'PelembagaanController'); 
@@ -168,9 +165,6 @@ Route::group(array('prefix' => 'admin/layananketatalaksanaan', 'before' => 'auth
 
 });
 
-
-=======
->>>>>>> 1d65c93903d87a856efd93d71820da3a98a88e0b
 Route::group(array('prefix' => 'per-uu'), function() {
 	Route::get('usulan', array('as' => 'pengajuan_per_uu', 'uses' => 'PeruuController@pengajuanUsulan'));
 	Route::post('usulan', array('as' => 'proses_pengajuan', 'uses' => 'PeruuController@prosesPengajuan'));

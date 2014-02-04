@@ -216,4 +216,4 @@ Route::group(array('prefix' => 'spk'), function() {
 */
 
 
-// Route::get('forumdiskusi', "HomeController@showForum");
+Route::get('forumdiskusi', "HomeController@showForum");

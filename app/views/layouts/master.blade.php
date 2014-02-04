@@ -120,13 +120,14 @@
                       <div class="accordion-group">
                           <div class="accordion-heading">
                               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapse2">
-                                  <span class="rulycon-quill"></span>Layanan Ketatalaksanaan
+                                  <span class="rulycon-quill"></span>Ketatalaksanaan
                                   <span class="rulycon-menu-2 pull-right"></span>
                               </a>
                           </div>
                           <div id="collapse2" class="accordion-body collapse">
                               <div class="accordion-inner">
                                   <ul>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/index') }}"><span ></span>Layanan Ketatalaksanaan</a></li>
                                       <li><a href="{{ URL::to('layanan_ketatalaksanaan/spk') }}"><span ></span>Sistem dan Prosedur Kerja</a></li>
                                       <li><a href="{{ URL::to('layanan_ketatalaksanaan/smm') }}"><span ></span>Sistem dan Manajemen Mutu</a></li>
                                       <li><a href="{{ URL::to('layanan_ketatalaksanaan/analisis_jabatan') }}"><span ></span>Analisis Jabatan</a></li>
@@ -167,7 +168,7 @@
 
             <li id="menu-layanan-bantuan-hukum"><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>
             <li id="menu-layanan-peraturan-perundangan"><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>
-            <li id="menu-forum"><a href="#"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
+            <li id="menu-forum"><a href="{{ URL::to('forumdiskusi') }}"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
             <li id="menu-call-center"><a href="#"><span class="rulycon-phone"></span>Call Center</a></li>
 
             <li class="menu-header">Aplikasi</li>

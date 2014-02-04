@@ -136,22 +136,22 @@ Route::group(array('prefix' => 'admin/layanankelembagaan', 'before' => 'auth|sup
     //Layanan Kelembagaan
     Route::resource('layanankelembagaan', 'LayananKelembagaanController');
     Route::post('SubmitBerita', 'LayananKelembagaanController@submit');
+
     Route::get('edit_kelembagaan', 'LayananKelembagaanController@create');
 
-//pembentukan
+    //pembentukan
     Route::get('edit_pembentukan', 'LayananKelembagaanController@create_pembentukan');
 
-//penataan
+    //penataan
     Route::get('edit_penataan', 'LayananKelembagaanController@create_penataan');
 
-//statuta
+    //statuta
     Route::get('edit_statuta', 'LayananKelembagaanController@create_statuta');
 
-//penutupan
+    //penutupan
     Route::get('edit_penutupan', 'LayananKelembagaanController@create_penutupan');
 
 });
-
 
 Route::group(array('prefix' => 'admin/layananketatalaksanaan', 'before' => 'auth|super_admin'), function()
 {
@@ -180,7 +180,6 @@ Route::group(array('prefix' => 'admin/layananketatalaksanaan', 'before' => 'auth
     // tnd
     Route::get('edit_tnd', 'LayananKetatalaksanaanController@create_tnd');
 });
-
 
 Route::group(array('prefix' => 'per-uu'), function() {
 	Route::get('usulan', array('as' => 'pengajuan_per_uu', 'uses' => 'PeruuController@pengajuanUsulan'));
@@ -230,4 +229,4 @@ Route::group(array('prefix' => 'spk'), function() {
 */
 
 
-// Route::get('forumdiskusi', "HomeController@showForum");
+Route::get('forumdiskusi', "HomeController@showForum");

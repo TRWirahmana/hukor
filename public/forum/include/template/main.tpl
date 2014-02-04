@@ -8,14 +8,14 @@
 <body>
 
 <div id="pun<pun_page>" class="pun">
-<div class="top-box"><div><!-- Top Corners --></div></div>
-<div class="punwrap">
+<!-- <div class="top-box"><div></div></div> -->
+<!-- <div class="punwrap"> -->
 
 <div id="brdheader" class="block">
 	<div class="box">
 		<div id="brdtitle" class="inbox">
-			<pun_title>
-			<pun_desc>
+			<!-- <pun_title> -->
+			<!-- <pun_desc> -->
 		</div>
 		<pun_navlinks>
 		<pun_status>
@@ -23,15 +23,14 @@
 </div>
 
 <pun_announcement>
-
 <div id="brdmain">
 <pun_main>
 </div>
 
 <pun_footer>
 
-</div>
-<div class="end-box"><div><!-- Bottom corners --></div></div>
+<!-- </div> -->
+<!-- <div class="end-box"><div></div></div> -->
 </div>
 
 </body>

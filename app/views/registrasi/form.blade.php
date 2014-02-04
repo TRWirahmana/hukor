@@ -201,7 +201,7 @@
 
         <div class="row-fluid">
           <div class="span24 text-center">
-            <button class="btn" type="submit">Register</button>
+            <button class="btn btn-hukor" type="submit">Register</button>
           </div>
         </div>
 

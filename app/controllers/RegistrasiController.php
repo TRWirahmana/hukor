@@ -39,7 +39,7 @@ class RegistrasiController extends BaseController {
        
         $input = Input::all();
         $user = Auth::user();
-
+        $forumUser = ForumUser::find($user->id);
 //        if ($registrasi->status == 1) {
 //            return Redirect::to('edit')->with('error', 'Perubahan tidak bisa dilakukan.');
 //        }
@@ -54,6 +54,7 @@ class RegistrasiController extends BaseController {
             $messages['username.min'] = 'Username minimal 6 karakter.';
 
             $user->username = $input['username'];
+            $forumUser->username = $input['username'];
         }
 
         if(!empty($input['password'])) {
@@ -62,6 +63,7 @@ class RegistrasiController extends BaseController {
             $messages['password.min'] = 'Password minimal 6 karakter.';
 
             $user->password = Hash::make($input['password']);
+            $forumUser->password = pun_hash($input['password']);
         }
 
 
@@ -73,8 +75,10 @@ class RegistrasiController extends BaseController {
 //                    ->with('error', 'Pengaturan gagal disimpan, mohon periksa kembali.');
 //
 //        }
-        
+
         $user->save();
+        $forumUser->save();
+
 
         if($user->role_id == 3){
             return Redirect::to('admin/account')->with('success', 'Pengaturan akun berhasil disimpan.');

@@ -1,7 +1,7 @@
 @section('styles');
 	@parent
 @stop
-@section('content')
+@section('admin')
 
 <div class="rightpanel">
 

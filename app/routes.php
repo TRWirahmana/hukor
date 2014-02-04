@@ -144,3 +144,31 @@ Route::group(array('prefix' => 'layanan_kelembagaan'), function() {
     //penutupan
 });
 
+Route::group(array('prefix' => 'layanan_ketatalaksanaan'), function() {
+    Route::get('index', 'LayananKetatalaksanaanController@index');
+    Route::get('spk', 'LayananKetatalaksanaanController@spk');
+    Route::get('smm', 'LayananKetatalaksanaanController@smm');
+    Route::get('analisis_jabatan', 'LayananKetatalaksanaanController@analisis_jabatan');
+    Route::get('pbk', 'LayananKetatalaksanaanController@pbk');
+    Route::get('tata_nilai', 'LayananKetatalaksanaanController@tata_nilai');
+    Route::get('pelayanan_publik', 'LayananKetatalaksanaanController@pelayanan_publik');
+    Route::get('tnd', 'LayananKetatalaksanaanController@tnd');
+
+
+
+	Route::get('CreateInfo', 'LayananKetatalaksanaanController@create');
+    Route::post('SubmitBerita', 'LayananKetatalaksanaanController@submit'); 
+});
+
+/*
+Route::group(array('prefix' => 'spk'), function() {
+    Route::get('index', 'SpkController@index');
+    Route::get('CreateInfo', 'SpkController@create');
+    Route::post('SubmitBerita', 'SpkController@submit'); 
+});
+*/
+
+
+Route::get('forum', function() {
+    return Redirect::to('/forum/index.php');
+});

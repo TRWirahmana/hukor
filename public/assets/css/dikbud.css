@@ -11,19 +11,14 @@
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, .25);
-  border-radius: 0;
+  background: rgba(0, 0, 0, .075);
 }
 ::-webkit-scrollbar-thumb {
-  background: #202020;
-  border-radius: 20px;
-  border: 1px solid #202020;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .15), inset 0 1px 0 rgba(255, 255, 255, .35), inset 0 -1px 0 rgba(255, 255, 255, .15);
+  background: rgba(0, 0, 0, .15);
 }
 ::selection {
   background: #da4f49;
@@ -252,6 +247,7 @@ input {
   font-size: 13px;
   text-transform: uppercase;
   padding: 4px 25px;
+  box-shadow: none;
 }
 .btn.btn-primary {
   background: #ff5400;
@@ -381,19 +377,7 @@ html, .main-layout, .admin,
 .container-fluid > .row-fluid > .span24 > .span18 {
   height: 100%;
 }
-.stripe-accent {
-  height: 5px;
-  background: -moz-linear-gradient(left, #d8251e 0%, #d8251e 20%, #ff5400 20%, #ff5400 40%, #ffc600 40%, #ffc600 60%, #2ca05a 60%, #2ca05a 80%, #0478af 80%, #0478af 100%);
-  background: -ms-linear-gradient(left, #d8251e 0%, #d8251e 20%, #ff5400 20%, #ff5400 40%, #ffc600 40%, #ffc600 60%, #2ca05a 60%, #2ca05a 80%, #0478af 80%, #0478af 100%);
-  background: -o-linear-gradient(left, #d8251e 0%, #d8251e 20%, #ff5400 20%, #ff5400 40%, #ffc600 40%, #ffc600 60%, #2ca05a 60%, #2ca05a 80%, #0478af 80%, #0478af 100%);
-  background: -webkit-linear-gradient(left, #d8251e 0%, #d8251e 20%, #ff5400 20%, #ff5400 40%, #ffc600 40%, #ffc600 60%, #2ca05a 60%, #2ca05a 80%, #0478af 80%, #0478af 100%);
-  background: linear-gradient(left, #d8251e 0%, #d8251e 20%, #ff5400 20%, #ff5400 40%, #ffc600 40%, #ffc600 60%, #2ca05a 60%, #2ca05a 80%, #0478af 80%, #0478af 100%);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .55);
-}
 .sidebar {
-  /*background: url("../img/sidebar-background-dark.jpg") repeat;
-  box-shadow: inset -1px 0 4px rgba(0, 0, 0, .15);
-  padding: 25px;*/
   background: #2c3e50;
   color: #fcfcfc;
   position: relative;
@@ -402,13 +386,15 @@ html, .main-layout, .admin,
 }
 .sidebar > header {
   position: relative;
-  font-family: "PT Sans Narrow", "pt_sans_narrowregular", sans-serif;
-  line-height: 120%;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, .15);
+  background: #16a085;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 20px;
 }
 .sidebar > header > img {
-  display: block;
-  margin: 20px auto;
+  width: auto;
+  text-align: center;
+  width: 250px;
 }
 .sidebar > header > form {
   padding: 20px;
@@ -517,6 +503,7 @@ html, .main-layout, .admin,
   /*margin-top: 25px;
   margin-right: 25px;*/
   margin: 0;
+  margin-bottom: 50px;
 }
 .sidebar #user-menu > li {
   list-style: none;
@@ -530,13 +517,13 @@ html, .main-layout, .admin,
   width: 100%;
   color: rgba(255, 255, 255, .55);
   background: transparent;
-  padding: 5px 20px;
+  padding: 7.5px 20px;
   border-radius: 0;
 }
 .sidebar #user-menu > li > a:hover, .sidebar #user-menu > .active > a {
   background: rgba(0, 0, 0, .15);
   color: #ffffff;
-  box-shadow: inset 4px 0 0 #2980b9;
+  box-shadow: inset 5px 0 0 #2980b9;
 }
 .sidebar #user-menu > .menu-header {
   padding: 30px 20px 10px;
@@ -559,7 +546,7 @@ html, .main-layout, .admin,
   font-weight: normal;
   text-transform: uppercase;
   text-align: center;
-  background: rgba(0, 0, 0, .075);
+  background: #16a085;
   margin-bottom: 0;
   font-size: 9px;
 }
@@ -568,21 +555,24 @@ html, .main-layout, .admin,
   overflow-y: auto;
   margin-left: 0 !important;
 }
+.main-content > * {
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .main-content > h2 {
-  background: transparent;
-  color: #333333;
+  background: #16a085;
+  color: #ffffff;
   text-align: center;
   text-transform: uppercase;
   font-size: 24px;
   font-family: "PT Sans Narrow", "pt_sans_narrowregular", sans-serif;
+  font-weight: normal;
   margin: 0;
-  margin-top: 15px;
-  padding: 10px 25px;
+  padding: 17px 20px 20px;
 }
-.main-content .stripe-accent {
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
-  height: 4px;
-  margin-bottom: 25px;
+.main-content .content-non-title {
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 .main-content > .row-fluid {
   margin-top: 10px;

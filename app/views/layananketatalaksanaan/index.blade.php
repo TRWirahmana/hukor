@@ -2,7 +2,8 @@
     <h2>Layanan Ketatalaksanaan</h2>
 <div class="stripe-accent"></div>
 
-		@if($info->id == 2)
+  @if($info != NULL)
+        @if($info->id == 2)
            <legend>Informasi Layanan Sistem dan Prosedur Kerja</legend>
         @elseif($info->id == 3)
            <legend>Informasi Sistem Manajemen Mutu</legend>        
@@ -19,6 +20,8 @@
         @else        
            <legend>Informasi Layanan Ketatalaksanaan</legend>        
         @endif
+  @endif
+  
 
 @include('flash')
 

@@ -2,19 +2,22 @@
 
 class PeruuController extends BaseController {
 
-	protected $layout = 'layouts.master';
+//	protected $layout = 'layouts.master';
 
 	public function index() 
 	{
 		// handle dataTable request
 		if(Request::ajax()) 
 			return Datatables::of(DAL_PerUU::getDataTable(Input::get("status", null)))->make(true);
+
+		$this->layout = View::make('layouts.admin');
 		$this->layout->content = View::make('PerUU.index');
 	}
 
 	public function pengajuanUsulan()
 	{
 		$user = Auth::user();
+		$this->layout = View::make('layouts.master');
 		$this->layout->content = View::make('PerUU.pengajuanUsulan')
 			->with('user', $user);
 	}
@@ -51,7 +54,7 @@ class PeruuController extends BaseController {
 					});
 
 					Session::flash('success', 'Data berhasil dikirim.');
-					return Redirect::route('index_per_uu');
+					return Redirect::to('/');
 				} else {
 					Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
 					return Redirect::back();
@@ -68,6 +71,7 @@ class PeruuController extends BaseController {
 			return Datatables::of(DAL_PerUU::getLogUsulan($id))->make(true);
 			
 		$perUU = PerUU::with('Pengguna')->find($id);
+		$this->layout = View::make('layouts.admin');
 		$this->layout->content = View::make('PerUU.updateUsulan')
 			->with('perUU', $perUU);
 	}

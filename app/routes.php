@@ -40,9 +40,17 @@ Route::group(array('before' => 'guest'), function(){
     Route::resource('forget', 'ForgetPasswordController@index');
 
 //    Route::resource('account', 'AdminController');
-    Route::resource('pelembagaan', 'PelembagaanController');
+//    Route::resource('pelembagaan', 'PelembagaanController');   
+//    Route::resource('callcenter','CallCenterController');
     
+//
+    Route::resource('callcenter', 'CallCenterController');
+    Route::get('callcenter', 'CallCenterController@index');
+
 });
+
+
+
 
 Route::group(array('before' => 'auth'), function(){
 //    Route::get('BantuanHukum', 'BantuanHukumController@index');
@@ -86,6 +94,22 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('HomeBerita', 'BeritaController@home');
     Route::put('saveberita', 'BeritaController@save');
 
+<<<<<<< HEAD
+// call center
+    Route::resource('callcenter', 'CallCenterController');
+//    Route::get('indexcallcenter', 'CallCenterController@index');
+    Route::get('editcallcenter', 'CallCenterController@home');
+    Route::put('updatecallcenter', 'CallCenterController@update');
+=======
+    // Per UU
+    Route::group(array("prefix" => "per_uu"), function(){
+        Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
+        Route::get('update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
+        Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
+        Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));     
+    });
+>>>>>>> 1d65c93903d87a856efd93d71820da3a98a88e0b
+
 });
 
 
@@ -118,14 +142,40 @@ Route::group(array('prefix' => 'admin/layanankelembagaan', 'before' => 'auth|sup
 
 });
 
+<<<<<<< HEAD
+Route::group(array('prefix' => 'admin/layananketatalaksanaan', 'before' => 'auth|super_admin'), function()
+{
+    Route::resource('pelembagaan', 'PelembagaanController'); 
 
+    //spm
+    Route::get('edit_spm', 'LayananKetatalaksanaanController@create_spk');
+
+    //smm
+    Route::get('edit_smm', 'LayananKetatalaksanaanController@create_smm');
+
+    //analisis jabatan
+    Route::get('edit_analisis_jabatan', 'LayananKetatalaksanaanController@create_analisis_jabatan');
+
+    //analisis pbk
+    Route::get('edit_pbk', 'LayananKetatalaksanaanController@create_pbk');
+
+    //tata nilai
+    Route::get('edit_tata_nilai', 'LayananKetatalaksanaanController@create_tata_nilai');
+
+    //tata pelayanan publik
+    Route::get('edit_tata_nilai', 'LayananKetatalaksanaanController@create_pelayanan_publik');
+
+    // tnd
+    Route::get('edit_tnd', 'LayananKetatalaksanaanController@create_tnd');
+
+});
+
+
+=======
+>>>>>>> 1d65c93903d87a856efd93d71820da3a98a88e0b
 Route::group(array('prefix' => 'per-uu'), function() {
-	Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
 	Route::get('usulan', array('as' => 'pengajuan_per_uu', 'uses' => 'PeruuController@pengajuanUsulan'));
 	Route::post('usulan', array('as' => 'proses_pengajuan', 'uses' => 'PeruuController@prosesPengajuan'));
-	Route::get('update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
-	Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
-	Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
 });
 
 Route::group(array('prefix' => 'layanan_kelembagaan'), function() {
@@ -146,3 +196,29 @@ Route::group(array('prefix' => 'layanan_kelembagaan'), function() {
     //penutupan
 });
 
+Route::group(array('prefix' => 'layanan_ketatalaksanaan'), function() {
+    Route::get('index', 'LayananKetatalaksanaanController@index');
+    Route::get('spk', 'LayananKetatalaksanaanController@spk');
+    Route::get('smm', 'LayananKetatalaksanaanController@smm');
+    Route::get('analisis_jabatan', 'LayananKetatalaksanaanController@analisis_jabatan');
+    Route::get('pbk', 'LayananKetatalaksanaanController@pbk');
+    Route::get('tata_nilai', 'LayananKetatalaksanaanController@tata_nilai');
+    Route::get('pelayanan_publik', 'LayananKetatalaksanaanController@pelayanan_publik');
+    Route::get('tnd', 'LayananKetatalaksanaanController@tnd');
+
+	Route::get('CreateInfo', 'LayananKetatalaksanaanController@create');
+    Route::post('SubmitBerita', 'LayananKetatalaksanaanController@submit'); 
+
+
+});
+
+/*
+Route::group(array('prefix' => 'spk'), function() {
+    Route::get('index', 'SpkController@index');
+    Route::get('CreateInfo', 'SpkController@create');
+    Route::post('SubmitBerita', 'SpkController@submit'); 
+});
+*/
+
+
+// Route::get('forumdiskusi', "HomeController@showForum");

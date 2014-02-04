@@ -1,8 +1,5 @@
-@section('styles');
-@parent
-@stop
-@section('content')
-
+@section('admin')
+@include('flash')
 <div class="rightpanel">
 
     <ul class="breadcrumbs">

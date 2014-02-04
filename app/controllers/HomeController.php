@@ -32,4 +32,8 @@ class HomeController extends BaseController {
         return Redirect::to('/')->with('error', 'Kesalahan, berkas tidak ditemukan.');
     }
 
+    public function showForum() {
+      $this->layout->content = View::make('layouts.forum');
+    }
+
 }

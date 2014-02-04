@@ -492,6 +492,9 @@ html, .main-layout, .admin,
 .sidebar .welcome-message.user-not-null-links {
   padding-bottom: 15px;
 }
+.sidebar .welcome-message.user-not-null-links > li:first-child {
+  padding-top: 5px;
+}
 .sidebar #username #name {
   text-transform: uppercase;
 }
@@ -539,11 +542,9 @@ html, .main-layout, .admin,
 .sidebar #user-menu > li, .sidebar ul.welcome-message > li {
   list-style: none;
 }
-.sidebar #user-menu > li > a, .sidebar #user-menu > li > a:hover,
-.sidebar ul.welcome-message > li > a:hover {
-  text-decoration: none;
-}
-.sidebar #user-menu > li > a, .sidebar ul.welcome-message > li > a {
+.sidebar #user-menu > li > a, .sidebar ul.welcome-message > li > a,
+.sidebar #user-menu .accordion-heading .accordion-toggle,
+.sidebar #user-menu .accordion-inner a {
   display: block;
   font-size: 13px;
   width: 100%;
@@ -553,7 +554,9 @@ html, .main-layout, .admin,
   border-radius: 0;
 }
 .sidebar #user-menu > li > a:hover, .sidebar #user-menu > .active > a,
-.sidebar ul.welcome-message > li > a:hover {
+.sidebar ul.welcome-message > li > a:hover,
+.sidebar #user-menu .accordion-heading .accordion-toggle:hover {
+  text-decoration: none;
   background: rgba(0, 0, 0, .15);
   color: #ffffff;
   box-shadow: inset 5px 0 0 #2980b9;
@@ -566,15 +569,47 @@ html, .main-layout, .admin,
   color: #2980b9;
 }
 .sidebar #user-menu > li > a > span[class *= rulycon],
-.sidebar ul.welcome-message > li > a > span[class *= rulycon] {
+.sidebar ul.welcome-message > li > a > span[class *= rulycon],
+.sidebar #user-menu .accordion-heading .accordion-toggle > span[class *= rulycon] {
   margin-right: 15px;
   color: rgba(255, 255, 255, .55);
+}
+.sidebar #user-menu .accordion-heading .accordion-toggle > .rulycon-menu-2 {
+  margin-right: 0 !important;
 }
 .sidebar #user-menu > li > a:hover > span[class *= rulycon],
 .sidebar #user-menu > .active > a > span[class *= rulycon],
 .sidebar ul.welcome-message > li > a:hover > span[class *= rulycon],
-.sidebar ul.welcome-message > .active > a > span[class *= rulycon] {
+.sidebar ul.welcome-message > .active > a > span[class *= rulycon],
+.sidebar #user-menu .accordion-heading .accordion-toggle:hover > span[class *= rulycon] {
   color: #ffffff;
+}
+.sidebar #user-menu .accordion {
+  margin-bottom: 0;
+}
+.sidebar #user-menu .accordion-group {
+  border: none;
+}
+.sidebar #user-menu .accordion-inner {
+  border-top: none;
+  padding: 0;
+}
+.sidebar #user-menu .accordion-inner ul {
+  margin-left: 0;
+}
+.sidebar #user-menu .accordion-inner li {
+  list-style: none;
+}
+.sidebar #user-menu .accordion-inner a {
+  padding-left: 50px;
+}
+.sidebar #user-menu .accordion-inner a:hover {
+  text-decoration: none;
+  background: rgba(0, 0, 0, .15);
+  color: #ffffff;
+}
+.sidebar #user-menu .accordion-inner a > span[class*=rulycon] {
+  margin-right: 15px;
 }
 .sidebar #copyright {
   padding: 20px;
@@ -600,6 +635,9 @@ html, .main-layout, .admin,
 }
 #welcome-to-the-fucking-app > span[class*="rulycon"] {
   font-size: 36px;
+}
+#welcome-to-the-fucking-app small {
+  font-size: 9px;
 }
 .main-content {
   width: 75.9493670886076067% !important;

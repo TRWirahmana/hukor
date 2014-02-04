@@ -131,7 +131,7 @@
             @endif
           </ul>
         </div>
-        <h6 id="copyright">© 2013 Direktorat Jenderal Kebudayaan Republik Indonesia</h6>
+        <h6 id="copyright">© 2014 Direktorat Jenderal Kebudayaan Republik Indonesia</h6>
         </footer>
       </div>
       <div class="span18 main-content">

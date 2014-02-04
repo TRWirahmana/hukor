@@ -1,11 +1,10 @@
-@section('content')
-@include('flash')
-
+@section('admin')
 <div class="rightpanel">
 
     <ul class="breadcrumbs">
         <li><a href="{{URL::to('admin/Home')}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
     </ul>
+    @include('adminflash')ica
 
     <div class="pageheader">
         <!--        <form action="results.html" method="post" class="searchbar">-->

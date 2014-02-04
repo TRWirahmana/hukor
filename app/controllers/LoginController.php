@@ -38,7 +38,6 @@ class LoginController extends BaseController {
 
 						//validation estimasi pendaftaran for role
 	                		switch ($user->role_id) {
-
                                 case 2:
                                     Session::flash('success', 'Selamat datang ' . $user->username. ' !' );
 	                                return Redirect::to('/');

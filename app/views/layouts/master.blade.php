@@ -120,13 +120,14 @@
                       <div class="accordion-group">
                           <div class="accordion-heading">
                               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapse2">
-                                  <span class="rulycon-quill"></span>Layanan Ketatalaksanaan
+                                  <span class="rulycon-quill"></span>Ketatalaksanaan
                                   <span class="rulycon-menu-2 pull-right"></span>
                               </a>
                           </div>
                           <div id="collapse2" class="accordion-body collapse">
                               <div class="accordion-inner">
                                   <ul>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/index') }}"><span ></span>Layanan Ketatalaksanaan</a></li>
                                       <li><a href="{{ URL::to('layanan_ketatalaksanaan/spk') }}"><span ></span>Sistem dan Prosedur Kerja</a></li>
                                       <li><a href="{{ URL::to('layanan_ketatalaksanaan/smm') }}"><span ></span>Sistem dan Manajemen Mutu</a></li>
                                       <li><a href="{{ URL::to('layanan_ketatalaksanaan/analisis_jabatan') }}"><span ></span>Analisis Jabatan</a></li>

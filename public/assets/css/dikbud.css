@@ -477,6 +477,24 @@ html, .main-layout, .admin,
   background: rgba(0, 0, 0, .15);
   margin-bottom: 0;
 }
+.sidebar ul.welcome-message {
+  margin-left: 0;
+  padding: 0 0 10px;
+}
+.sidebar .welcome-message.user-not-null {
+  padding-bottom: 5px;
+  padding-left: 0;
+}
+.sidebar .welcome-message.user-not-null > span {
+  background: #2980b9;
+  padding: 5px 20px;
+}
+.sidebar .welcome-message.user-not-null-links {
+  padding-bottom: 15px;
+}
+.sidebar .welcome-message.user-not-null-links > li:first-child {
+  padding-top: 5px;
+}
 .sidebar #username #name {
   text-transform: uppercase;
 }
@@ -521,13 +539,12 @@ html, .main-layout, .admin,
   margin: 0;
   margin-bottom: 50px;
 }
-.sidebar #user-menu > li {
+.sidebar #user-menu > li, .sidebar ul.welcome-message > li {
   list-style: none;
 }
-.sidebar #user-menu > li > a, .sidebar #user-menu > li > a:hover {
-  text-decoration: none;
-}
-.sidebar #user-menu > li > a {
+.sidebar #user-menu > li > a, .sidebar ul.welcome-message > li > a,
+.sidebar #user-menu .accordion-heading .accordion-toggle,
+.sidebar #user-menu .accordion-inner a {
   display: block;
   font-size: 13px;
   width: 100%;
@@ -536,7 +553,10 @@ html, .main-layout, .admin,
   padding: 7.5px 20px;
   border-radius: 0;
 }
-.sidebar #user-menu > li > a:hover, .sidebar #user-menu > .active > a {
+.sidebar #user-menu > li > a:hover, .sidebar #user-menu > .active > a,
+.sidebar ul.welcome-message > li > a:hover,
+.sidebar #user-menu .accordion-heading .accordion-toggle:hover {
+  text-decoration: none;
   background: rgba(0, 0, 0, .15);
   color: #ffffff;
   box-shadow: inset 5px 0 0 #2980b9;
@@ -548,13 +568,48 @@ html, .main-layout, .admin,
   /*color: rgba(255, 255, 255, .35);*/
   color: #2980b9;
 }
-.sidebar #user-menu > li > a > span[class *= rulycon] {
+.sidebar #user-menu > li > a > span[class *= rulycon],
+.sidebar ul.welcome-message > li > a > span[class *= rulycon],
+.sidebar #user-menu .accordion-heading .accordion-toggle > span[class *= rulycon] {
   margin-right: 15px;
   color: rgba(255, 255, 255, .55);
 }
+.sidebar #user-menu .accordion-heading .accordion-toggle > .rulycon-menu-2 {
+  margin-right: 0 !important;
+}
 .sidebar #user-menu > li > a:hover > span[class *= rulycon],
-.sidebar #user-menu > .active > a > span[class *= rulycon] {
+.sidebar #user-menu > .active > a > span[class *= rulycon],
+.sidebar ul.welcome-message > li > a:hover > span[class *= rulycon],
+.sidebar ul.welcome-message > .active > a > span[class *= rulycon],
+.sidebar #user-menu .accordion-heading .accordion-toggle:hover > span[class *= rulycon] {
   color: #ffffff;
+}
+.sidebar #user-menu .accordion {
+  margin-bottom: 0;
+}
+.sidebar #user-menu .accordion-group {
+  border: none;
+}
+.sidebar #user-menu .accordion-inner {
+  border-top: none;
+  padding: 0;
+}
+.sidebar #user-menu .accordion-inner ul {
+  margin-left: 0;
+}
+.sidebar #user-menu .accordion-inner li {
+  list-style: none;
+}
+.sidebar #user-menu .accordion-inner a {
+  padding-left: 50px;
+}
+.sidebar #user-menu .accordion-inner a:hover {
+  text-decoration: none;
+  background: rgba(0, 0, 0, .15);
+  color: #ffffff;
+}
+.sidebar #user-menu .accordion-inner a > span[class*=rulycon] {
+  margin-right: 15px;
 }
 .sidebar #copyright {
   padding: 20px;
@@ -564,6 +619,24 @@ html, .main-layout, .admin,
   text-align: center;
   background: #16a085;
   margin-bottom: 0;
+  font-size: 9px;
+}
+#welcome-to-the-fucking-app {
+  font-size: 16px;
+  text-align: center;
+  line-height: 140%;
+  font-family: "PT Sans", "pt_sansregular", sans-serif;
+  color: #95a5a6;
+  width: 65%;
+  margin: 140px auto;
+  padding: 40px 20px 60px;
+  border-top: 1px dashed #16a085;
+  border-bottom: 1px dashed #16a085;
+}
+#welcome-to-the-fucking-app > span[class*="rulycon"] {
+  font-size: 36px;
+}
+#welcome-to-the-fucking-app small {
   font-size: 9px;
 }
 .main-content {
@@ -618,6 +691,7 @@ html, .main-layout, .admin,
   position: relative;
   top: 8px;
 }
+
 .main-content .span12 {
   padding-left: 15px;
   padding-right: 15px;
@@ -678,9 +752,7 @@ html, .main-layout, .admin,
 
 /* SUPER FUCKING BUDUG DATA TABLE */
 .dataTables_wrapper {
-  padding-top: 20px;
   padding-bottom: 50px;
-  border-top: 1px dashed rgba(0, 0, 0, .075);
   border-bottom: 1px dashed rgba(0, 0, 0, .075);
 }
 .dataTables_wrapper .dataTables_length label,
@@ -697,22 +769,35 @@ html, .main-layout, .admin,
   margin-right: 0;
 }
 table.dataTable {
+  width: 100% !important;
   margin-bottom: 10px;
 }
 table.dataTable thead tr > th {
   background: #95a5a6;
   color: #ffffff;
   border: none;
-  padding: 5px 10px;
+  padding: 6px 10px 8px;
   font-weight: normal;
   text-transform: uppercase;
 }
 table.dataTable tr.odd {
-  background: transparent;
+  background: rgba(255, 255, 255, .25);
   border-bottom: 1px solid rgba(0, 0, 0, .075);
 }
 table.dataTable tr.odd > td {
   padding: 30px 20px 40px;
+}
+.paginate_disabled_previous, .paginate_disabled_next {
+  background: none;
+}
+.paginate_disabled_previous, .paginate_enabled_previous {
+  padding-left: 0;
+}
+.paginate_disabled_next, .paginate_enabled_next {
+  padding-right: 0;
+}
+table.dataTable td.dataTables_empty {
+  color: #c0392b;
 }
 
 /* MEDIA QUERIES */
@@ -779,3 +864,32 @@ table.dataTable tr.odd > td {
 
 
 
+
+.main-content .callcenter {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 120px;
+  width: 50%;
+  float: center;
+}
+.main-content .callcenter > p {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.main-content .callcenter > h4 {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 14px;
+  text-align: center;
+}
+.main-content .callcenter > h4 > span {
+  background: #d8251e;
+  color: #ffffff;
+  padding: 2px 20px 3px;
+  border-radius: 2px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
+}
+.main-content .callcenter > .form-horizontal {
+  padding-left: 15px;
+  padding-right: 15px;
+}

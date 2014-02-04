@@ -1,16 +1,37 @@
-@section('content')
-<h2><span class="rulycon-pilcrow"></span> PERATURAN PERUNDANG-UNDANGAN</h2>
+@section('admin')
+
+<div class="rightpanel">
+
+    <ul class="breadcrumbs">
+        <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
+        <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
+        <li>Peraturan Perundang-Undangan</li>
+    </ul>
+    @include('adminflash')
+    <div class="pageheader">
+        <!--        <form action="results.html" method="post" class="searchbar">-->
+        <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
+        <!--        </form>-->
+        <div class="pageicon">&nbsp;</div>
+        <div class="pagetitle">
+            <!--<h5>Events</h5>-->
+
+            <h1>PERATURAN PERUNDANG-UNDANGAN</h1>
+        </div>
+    </div>
+    <!--pageheader-->
+
+    <div class="maincontent">
+        <div class="maincontentinner">
+
+            <!-- MAIN CONTENT -->
 
 <div class="content-non-title">
   <legend>
     Informasi & Status Usulan
-    <a class="btn btn-hukor pull-right" href="{{ URL::route('pengajuan_per_uu')}}">Tambah Baru</a>
-  </legend>
-
-  @include('flash')
-
-  <div class="form-inline">
-    <label for="select-status">Status</label>
+      </legend>
+  <div class="form-inline pull-right">
+    <label for="select-status">Status: </label>
     <select id="select-status">
       <option value="">Semua Status</option>
       <option value="1">Diproses</option>
@@ -20,6 +41,7 @@
       <option value="5">Penetapan</option>
     </select>
   </div>
+
 
   <table id="tbl-per-uu">
     <thead>
@@ -35,12 +57,33 @@
     </thead>
     <tbody></tbody>
   </table>
-  @stop
 
-  @section('scripts')
+                <!-- END OF MAIN CONTENT -->
+
+                <div class="footer">
+                <div class="footer-left">
+                    <span>&copy; 2013. Admin Template. All Rights Reserved.</span>
+                </div>
+                <div class="footer-right">
+                    <span></span>
+                </div>
+            </div>
+            <!--footer-->
+        </div>
+        <!--maincontentinner-->
+    </div>
+    <!--maincontent-->
+
+
+</div>
+<!--rightpanel-->
+
+@stop
+
+ @section('scripts')
   @parent
   <script type="text/javascript">
-    $(function(){
+    jQuery(function($){
       $("#menu-peraturan-perundangan").addClass("active");
 
       $dataTable = $("#tbl-per-uu").dataTable({
@@ -101,7 +144,7 @@
             sWidth: "8%",
             mRender: function(data, type, all) {
               return "<a href='/assets/uploads/"+all.lampiran+"'><i class='icon-download'></i></a> " +
-                  "<a href='/per-uu/update/"+data+"'><i class='icon-edit'></i></a> " +
+                  "<a href='per_uu/update/"+data+"'><i class='icon-edit'></i></a> " +
                   "<a class='delete' href='javascript:void(0)' data-id='"+data+"'><i class='icon-trash'></i></a>";
             }
           }
@@ -116,7 +159,7 @@
           return;
 
         var id = $(this).data('id');
-        $.post('/per-uu/delete', {id: id}, function(){
+        $.post('per_uu/delete', {id: id}, function(){
           $dataTable.fnReloadAjax();
         });
       });

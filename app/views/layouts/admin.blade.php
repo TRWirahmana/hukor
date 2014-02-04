@@ -83,16 +83,16 @@
                 <li class="dropdown">
                     <ul id="info" style="display:none">
                         <li id="produkhukum"><a href="#"><span class="iconfa-laptop"></span> Produk Hukum</a></li>
-                        <li id="ketatalaksanaan" class="dropdown"><a href="#"><span class="iconfa-hand-up"></span> Layanan Ketatalaksanaan</a>
+                        <li id="ketatalaksanaan" class="dropdown"><a href="admin/layanan_ketatalaksanaan/edit_ketatalaksanaan"><span class="iconfa-hand-up"></span> Layanan Ketatalaksanaan</a>
                             <ul>
-                                <li><a href="{{URL::to('admin/edit_ketatalaksanaan')}}">Home</a></li>
-                                <li><a href="{{URL::to('admin/edit_spk')}}">Sistem dan Prosedur Kerja</a></li>
-                                <li><a href="{{URL::to('admin/edit_smm')}}">Sistem manajemen mutu</a></li>
-                                <li><a href="{{URL::to('admin/edit_analisis_jabatan')}}">Analisis Jabatan</a></li>
-                                <li><a href="{{URL::to('admin/edit_pbk')}}">Perhitungan beban kerja</a></li>
-                                <li><a href="{{URL::to('admin/edit_tata_nilai')}}">Tata nilai & budaya kerja organisasi</a></li>
-                                <li><a href="{{URL::to('admin/edit_pelayanan_publik')}}">Pelayanan publik</a></li>
-                                <li><a href="{{URL::to('admin/edit_tnd')}}">Tata naskah dinas</a></li>
+<!--                                 <li><a href="{{URL::to('admin/edit_ketatalaksanaan')}}">Home</a></li> -->
+                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_spk')}}">Sistem dan Prosedur Kerja</a></li>
+                                <li><a href="{{URL::to('admin//layananketatalaksanaan/edit_smm')}}">Sistem manajemen mutu</a></li>
+                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_analisis_jabatan')}}">Analisis Jabatan</a></li>
+                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_pbk')}}">Perhitungan beban kerja</a></li>
+                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_tata_nilai')}}">Tata nilai & budaya kerja organisasi</a></li>
+                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_pelayanan_publik')}}">Pelayanan publik</a></li>
+                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_tnd')}}">Tata naskah dinas</a></li>
                             </ul>
                         </li>
                         <li id="kelembagaan" class="dropdown"><a href="{{URL::to('admin/layanankelembagaan/edit_kelembagaan')}}"><span class="iconfa-briefcase"></span> Layanan Kelembagaan</a>
@@ -106,7 +106,7 @@
                         <li id="bahu"><a href="#"><span class="iconfa-th-list"></span> Layanan Bantuan Hukum</a></li>
                         <li id="puu"><a href="#"><span class="iconfa-picture"></span> Layanan Peraturan Perundang-Undangan</a></li>
                         <li id="diskusi"><a href="#"><span class="iconfa-font"></span> Forum Diskusi</a></li>
-                        <li id="callcenter"><a href="#"><span class="iconfa-signal"></span> Call Center</a></li>
+                        <li id="callcenter"><a href="{{URL::to('admin/editcallcenter')}}"><span class="iconfa-signal"></span> Call Center</a></li>
                     </ul>
                 </li>
                 <!-- end list-->
@@ -114,11 +114,11 @@
                 <!-- list aplikasi-->
                 <li class="dropdown" >
                     <ul id="app" style="display:none">
-                        <li id="app_puu" class="dropdown"><a href="#"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
-                            <ul>
+                        <li id="app_puu"><a href="{{ URL::route('index_per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
+                            <!-- <ul>
                                 <li><a href="#">Lembar Usulan</a></li>
                                 <li><a href="#">Informasi & Status usulan</a></li>
-                            </ul>
+                            </ul> -->
                         </li>
                         <li id="app_pelembagaan" class="dropdown"><a href="#"><span class="iconfa-hand-up"></span> Pelembagaan</a>
                             <ul>
@@ -190,6 +190,10 @@
 
         $("#kelembagaan").click(function(){
             window.location.href = baseURL + "/admin/layanankelembagaan/edit";
+        });
+
+        $("#ketatalaksanaan").click(function(){
+            window.location.href = baseURL + "/admin/layananketatalaksanaan/edit_ketatalaksanaan";
         });
 
         $("#aplikasi").click(function(){

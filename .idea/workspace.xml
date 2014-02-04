@@ -26,7 +26,7 @@
       <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="192" column="16" selection-start="7488" selection-end="7488" vertical-scroll-proportion="-8.730769" vertical-offset="2884" max-vertical-offset="3621">
+            <state line="131" column="22" selection-start="5288" selection-end="5288" vertical-scroll-proportion="19.384615" vertical-offset="2578" max-vertical-offset="3638">
               <folding />
             </state>
           </provider>
@@ -41,82 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layanankelembagaan/form.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="19" selection-start="64" selection-end="64" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="4420">
-              <folding>
-                <marker date="1391505863148" expanded="true" signature="9288:9299" placeholder="..." />
-                <marker date="1391505863148" expanded="true" signature="8898:9276" placeholder="{&quot;theme&quot;: &quot;modern&quot;...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layanankelembagaan/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="497" selection-end="497" vertical-scroll-proportion="-12.0" vertical-offset="62" max-vertical-offset="578">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/lembaga_pembentukan/form.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2924">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/lembaga_pembentukan/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="6" selection-start="496" selection-end="496" vertical-scroll-proportion="-11.192307" vertical-offset="66" max-vertical-offset="561">
-              <folding>
-                <marker date="1391505007615" expanded="true" signature="95:139" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/lembaga_penataan/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="6" selection-start="496" selection-end="496" vertical-scroll-proportion="-11.846154" vertical-offset="49" max-vertical-offset="544">
-              <folding>
-                <marker date="1391505019911" expanded="true" signature="95:139" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="master.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="68" selection-start="6325" selection-end="6325" vertical-scroll-proportion="0.6825726" vertical-offset="1881" max-vertical-offset="3451">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/lembaga_penutupan/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="6" selection-start="496" selection-end="496" vertical-scroll-proportion="-11.846154" vertical-offset="49" max-vertical-offset="544">
-              <folding>
-                <marker date="1391505029819" expanded="true" signature="95:139" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/lembaga_statuta/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="6" selection-start="496" selection-end="496" vertical-scroll-proportion="-11.192307" vertical-offset="66" max-vertical-offset="561">
+            <state line="155" column="141" selection-start="7976" selection-end="7976" vertical-scroll-proportion="0.610687" vertical-offset="2315" max-vertical-offset="3485">
               <folding />
             </state>
           </provider>
@@ -795,8 +723,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="19" selection-start="64" selection-end="64" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="4420">
           <folding>
-            <marker date="1391505863148" expanded="true" signature="9288:9299" placeholder="..." />
-            <marker date="1391505863148" expanded="true" signature="8898:9276" placeholder="{&quot;theme&quot;: &quot;modern&quot;...}" />
+            <marker date="1391505863148" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1391505863148" expanded="true" signature="-1:-1" placeholder="{&quot;theme&quot;: &quot;modern&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -812,7 +740,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="6" selection-start="496" selection-end="496" vertical-scroll-proportion="-11.192307" vertical-offset="66" max-vertical-offset="561">
           <folding>
-            <marker date="1391505007615" expanded="true" signature="95:139" placeholder="..." />
+            <marker date="1391505007615" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -828,7 +756,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="6" selection-start="496" selection-end="496" vertical-scroll-proportion="-11.846154" vertical-offset="49" max-vertical-offset="544">
           <folding>
-            <marker date="1391505019911" expanded="true" signature="95:139" placeholder="..." />
+            <marker date="1391505019911" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -837,7 +765,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="6" selection-start="496" selection-end="496" vertical-scroll-proportion="-11.846154" vertical-offset="49" max-vertical-offset="544">
           <folding>
-            <marker date="1391505029819" expanded="true" signature="95:139" placeholder="..." />
+            <marker date="1391505029819" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -849,6 +777,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="22" selection-start="5288" selection-end="5288" vertical-scroll-proportion="19.384615" vertical-offset="2578" max-vertical-offset="3638">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/BeritaController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="226" column="0" selection-start="6563" selection-end="6563" vertical-scroll-proportion="-8.730769" vertical-offset="3615" max-vertical-offset="4573">
@@ -856,16 +791,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="16" selection-start="7488" selection-end="7488" vertical-scroll-proportion="-8.730769" vertical-offset="2884" max-vertical-offset="3621">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="68" selection-start="6325" selection-end="6325" vertical-scroll-proportion="0.6825726" vertical-offset="1881" max-vertical-offset="3451">
+        <state line="155" column="141" selection-start="7976" selection-end="7976" vertical-scroll-proportion="0.610687" vertical-offset="2315" max-vertical-offset="3485">
           <folding />
         </state>
       </provider>

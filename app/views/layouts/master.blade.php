@@ -114,12 +114,13 @@
             </li> -->
 
             <li class="menu-header">Informasi</li>
+
               <li id="menu-ketatalaksanaan">
                   <div class="accordion2" id="accordion3">
                       <div class="accordion-group">
                           <div class="accordion-heading">
                               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapse2">
-                                  <span class="rulycon-library"></span>Layanan Ketatalaksanaan
+                                  <span class="rulycon-quill"></span>Layanan Ketatalaksanaan
                                   <span class="rulycon-menu-2 pull-right"></span>
                               </a>
                           </div>
@@ -145,13 +146,14 @@
                 <div class="accordion-group">
                   <div class="accordion-heading">
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                      <span class="rulycon-library"></span>Layanan Kelembagaan
+                      <span class="rulycon-library"></span>Kelembagaan
                       <span class="rulycon-menu-2 pull-right"></span>
                     </a>
                   </div>
                   <div id="collapseOne" class="accordion-body collapse">
                     <div class="accordion-inner">
                       <ul>
+                        <li id="menu-kelembagaan-pembentukan"><a href="{{ URL::to('layanan_kelembagaan/index') }}"><span class="rulycon-stack"></span>Layanan Kelembagaan</a></li>
                         <li id="menu-kelembagaan-pembentukan"><a href="{{ URL::to('layanan_kelembagaan/pembentukan') }}"><span class="rulycon-spinner-3"></span>Layanan Pembentukan</a></li>
                         <li id="menu-kelembagaan-penataan"><a href="{{ URL::to('layanan_kelembagaan/penataan') }}"><span class="rulycon-paragraph-center"></span>Layanan Penataan</a></li>
                         <li id="menu-kelembagaan-penutupan"><a href="{{ URL::to('layanan_kelembagaan/penutupan') }}"><span class="rulycon-checkbox-unchecked"></span>Layanan Penutupan</a></li>

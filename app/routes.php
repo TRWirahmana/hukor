@@ -122,18 +122,19 @@ Route::group(array('prefix' => 'admin/layanankelembagaan', 'before' => 'auth|sup
     //Layanan Kelembagaan
     Route::resource('layanankelembagaan', 'LayananKelembagaanController');
     Route::post('SubmitBerita', 'LayananKelembagaanController@submit');
+
     Route::get('edit_kelembagaan', 'LayananKelembagaanController@create');
 
-//pembentukan
+    //pembentukan
     Route::get('edit_pembentukan', 'LayananKelembagaanController@create_pembentukan');
 
-//penataan
+    //penataan
     Route::get('edit_penataan', 'LayananKelembagaanController@create_penataan');
 
-//statuta
+    //statuta
     Route::get('edit_statuta', 'LayananKelembagaanController@create_statuta');
 
-//penutupan
+    //penutupan
     Route::get('edit_penutupan', 'LayananKelembagaanController@create_penutupan');
 
 });

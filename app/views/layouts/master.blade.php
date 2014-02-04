@@ -117,7 +117,7 @@
             <li><a href="{{ URL::to('layanan_kelembagaan/statuta') }}"><span class="rulycon-strikethrough"></span>Layanan Statuta</a></li>
             <li><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>
             <li><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>
-            <li><a href="#"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
+            <li><a href="{{ URL::to('forumdiskusi') }}"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
             <li><a href="#"><span class="rulycon-phone"></span>Call Center</a></li>
 
             <li class="menu-header">Aplikasi</li>

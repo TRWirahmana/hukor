@@ -1,5 +1,4 @@
-@section('content')
-@include('flash')
+@section('admin')
 
 <div class="rightpanel">
 
@@ -9,7 +8,7 @@
         <li><a href="{{URL::previous()}}">Layanan Kelembagaan</a> <span class="separator"></span></li>
         <li>Pembentukan</li>
     </ul>
-
+    @include('adminflash')
     <div class="pageheader">
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
@@ -158,7 +157,8 @@
         theme_advanced_buttons2 : "link,unlink,anchor,image,separator,"
             +"undo,redo,cleanup,code,separator,sub,sup,charmap",
         theme_advanced_buttons3 : "",
-        height:"350px"
+        height:"350px",
+        width:"700px"
     });
 
 

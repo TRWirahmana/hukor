@@ -12,13 +12,13 @@
           <link rel="stylesheet" type="text/css" href="css/font-embedding-standard.min.css">
           <link rel="stylesheet" type="text/css" href="css/dikbud.css">-->
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/dusk.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.dataTables.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.ui.datepicker.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-embedding-standard.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/dikbud.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycon.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycons.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.dataTables.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.ui.datepicker.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}">
 
   <style type="text/css">
     .container-fluid {
@@ -62,7 +62,13 @@
         </header>
 
         @if($user != null)
-        <p id="username" class="welcome-message">Selamat datang, <span id="name"><?php echo $user->username; ?></span></p>
+        <p id="username" class="welcome-message user-not-null"><span>Selamat datang, <span id="name"><?php echo $user->username; ?></span></span></p>
+        @if($user != null)
+        <ul class="welcome-message user-not-null-links">
+          <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span>User settings</a></li>
+          <li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span>Sign out</a></li>
+        </ul>
+        @endif
         @else
         <p id="username" class="welcome-message">Selamat datang <span id="name">guest</span></p>
           @if($user == null)
@@ -109,6 +115,7 @@
 
             <li class="menu-header">Informasi</li>
             <!--            <li><a href="{{URL::to('account')}}">Kelola Akun</a></li>-->
+<<<<<<< HEAD
             <li class="active"><a href="{{ URL::to('layanan_ketatalaksanaan/index') }}"><span class="rulycon-quill"></span>Layanan Ketatalaksanaan</a>
             <ul style="display: block;">
                 <li><a href="{{ URL::to('layanan_ketatalaksanaan/spk') }}"><span ></span>Sistem dan Prosedur Kerja</a></li>
@@ -131,16 +138,40 @@
             <li><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>
             <li><a href="#"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
             <li><a href="{{ URL::to('callcenter') }}"><span class="rulycon-phone"></span>Call Center</a></li>
+=======
+            <li id="menu-ketatalaksanaan"><a href="#"><span class="rulycon-quill"></span>Layanan Ketatalaksanaan</a></li>
+            <li id="menu-kelembagaan">
+              <div class="accordion" id="accordion2">
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                      <span class="rulycon-library"></span>Layanan Kelembagaan
+                      <span class="rulycon-menu-2 pull-right"></span>
+                    </a>
+                  </div>
+                  <div id="collapseOne" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                      <ul>
+                        <li id="menu-kelembagaan-pembentukan"><a href="{{ URL::to('layanan_kelembagaan/pembentukan') }}"><span class="rulycon-spinner-3"></span>Layanan Pembentukan</a></li>
+                        <li id="menu-kelembagaan-penataan"><a href="{{ URL::to('layanan_kelembagaan/penataan') }}"><span class="rulycon-paragraph-center"></span>Layanan Penataan</a></li>
+                        <li id="menu-kelembagaan-penutupan"><a href="{{ URL::to('layanan_kelembagaan/penutupan') }}"><span class="rulycon-checkbox-unchecked"></span>Layanan Penutupan</a></li>
+                        <li id="menu-kelembagaan-statuta"><a href="{{ URL::to('layanan_kelembagaan/statuta') }}"><span class="rulycon-strikethrough"></span>Layanan Statuta</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li id="menu-layanan-bantuan-hukum"><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>
+            <li id="menu-layanan-peraturan-perundangan"><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>
+            <li id="menu-forum"><a href="#"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
+            <li id="menu-call-center"><a href="#"><span class="rulycon-phone"></span>Call Center</a></li>
+>>>>>>> 1d65c93903d87a856efd93d71820da3a98a88e0b
 
             <li class="menu-header">Aplikasi</li>
-            <li><a href="{{ URL::route('index_per_uu') }}"><span class="rulycon-pilcrow"></span>Peraturan Perundang-undangan</a></li>
-            <li><a href="{{URL::to('pelembagaan')}}"><span class="rulycon-office"></span>Pelembagaan</a></li>
-            <li><a href="{{URL::to('BantuanHukum')}}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>
-
-            @if($user != null)
-            <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span> User settings</a></li>
-            <li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span> Sign out</a></li>
-            @endif
+            <li id="menu-peraturan-perundangan"><a href="{{ URL::route('pengajuan_per_uu') }}"><span class="rulycon-pilcrow"></span>Peraturan Perundang-undangan</a></li>
+            <li id="menu-pelembagaan"><a href="{{URL::to('pelembagaan')}}"><span class="rulycon-office"></span>Pelembagaan</a></li>
+            <li id="menu-bantuan-hukum"><a href="{{URL::to('BantuanHukum')}}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>
           </ul>
         </div>
         <h6 id="copyright">© 2013 Direktorat Jenderal Kebudayaan Republik Indonesia</h6>

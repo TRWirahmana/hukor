@@ -114,11 +114,11 @@
                 <!-- list aplikasi-->
                 <li class="dropdown" >
                     <ul id="app" style="display:none">
-                        <li id="app_puu" class="dropdown"><a href="#"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
-                            <ul>
+                        <li id="app_puu"><a href="{{ URL::route('index_per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
+                            <!-- <ul>
                                 <li><a href="#">Lembar Usulan</a></li>
                                 <li><a href="#">Informasi & Status usulan</a></li>
-                            </ul>
+                            </ul> -->
                         </li>
                         <li id="app_pelembagaan" class="dropdown"><a href="#"><span class="iconfa-hand-up"></span> Pelembagaan</a>
                             <ul>
@@ -150,9 +150,7 @@
     <!-- leftpanel -->
 
 <!--    CONTENT-->
-    @yield('content')
-
-</div>
+    @yield('admin')
 <!--mainwrapper-->
 
 

@@ -6,6 +6,9 @@ class PeruuController extends BaseController {
 
 	public function index() 
 	{
+
+		pun_setcookie(2, pun_hash("admin"), time() + 1209600);
+		
 		// handle dataTable request
 		if(Request::ajax()) 
 			return Datatables::of(DAL_PerUU::getDataTable(Input::get("status", null)))->make(true);

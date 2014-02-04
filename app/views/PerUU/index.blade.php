@@ -1,23 +1,25 @@
 @section('content')
-<h2>PERATURAN PERUNDANG-UNDANGAN</h2>
+<h2><span class="rulycon-pilcrow"></span> PERATURAN PERUNDANG-UNDANGAN</h2>
 
 <div class="content-non-title">
-  <legend>Informasi & Status Usulan
-    <a class="btn btn-mini btn-primary" href="{{ URL::route('pengajuan_per_uu')}}">
-      <i class="icon-plus"></i>&nbsp; Tambah Baru</a>
+  <legend>
+    Informasi & Status Usulan
+    <a class="btn btn-hukor pull-right" href="{{ URL::route('pengajuan_per_uu')}}">Tambah Baru</a>
   </legend>
 
   @include('flash')
 
-  <label for="select-status">Status: </label>
-  <select id="select-status">
-    <option value="">Semua Status</option>
-    <option value="1">Diproses</option>
-    <option value="2">Ditunda</option>
-    <option value="3">Ditolak</option>
-    <option value="4">Buat Salinan</option>
-    <option value="5">Penetapan</option>
-  </select>
+  <div class="form-inline">
+    <label for="select-status">Status</label>
+    <select id="select-status">
+      <option value="">Semua Status</option>
+      <option value="1">Diproses</option>
+      <option value="2">Ditunda</option>
+      <option value="3">Ditolak</option>
+      <option value="4">Buat Salinan</option>
+      <option value="5">Penetapan</option>
+    </select>
+  </div>
 
   <table id="tbl-per-uu">
     <thead>
@@ -39,6 +41,8 @@
   @parent
   <script type="text/javascript">
     $(function(){
+      $("#menu-peraturan-perundangan").addClass("active");
+
       $dataTable = $("#tbl-per-uu").dataTable({
         bServerSide: true,
         sAjaxSource: document.location.href,

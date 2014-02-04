@@ -154,8 +154,6 @@ Route::group(array('prefix' => 'layanan_ketatalaksanaan'), function() {
     Route::get('pelayanan_publik', 'LayananKetatalaksanaanController@pelayanan_publik');
     Route::get('tnd', 'LayananKetatalaksanaanController@tnd');
 
-
-
 	Route::get('CreateInfo', 'LayananKetatalaksanaanController@create');
     Route::post('SubmitBerita', 'LayananKetatalaksanaanController@submit'); 
 });
@@ -169,6 +167,4 @@ Route::group(array('prefix' => 'spk'), function() {
 */
 
 
-Route::get('forum', function() {
-    return Redirect::to('/forum/index.php');
-});
+Route::get('forumdiskusi', "HomeController@showForum");

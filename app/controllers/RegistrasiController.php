@@ -472,6 +472,16 @@ class RegistrasiController extends BaseController {
             $dal_user->SetPengguna($data, $email, $nama, $nip, $jabatan, $bagian, $subbag, $jk, $tgl_lahir, $pekerjaan, $alamat_kantor, $tlp_ktr, $hp, $uk);
             $dal_user->SaveBiodata($data);
 
+            // register user to forum database!
+            $now = new DateTime('now');
+            $forumUser = new ForumUser();
+            $forumUser->id = $data;
+            $forumUser->username = $email;
+            $forumUser->password = pun_hash($password);
+            $forumUser->email = $email;
+            $forumUser->last_visit = $now->getTimestamp();
+            $forumUser->registered = $now->getTimestamp();
+            $forumUser->save();
 
 //            $this->sendMail($username, $password, $email);
             Session::flash('success', 'Registrasi berhasil. Silahkan login kedalam sistem!');

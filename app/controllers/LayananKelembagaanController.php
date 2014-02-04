@@ -7,6 +7,7 @@ class LayananKelembagaanController extends BaseController {
     public function index(){
 
         $info = LayananKelembagaan::find(1);
+
         $this->layout = View::make('layouts.master');
 
         $this->layout->content = View::make('layanankelembagaan.index',

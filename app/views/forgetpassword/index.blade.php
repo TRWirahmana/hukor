@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <span><button class="btn" type="submit">Reset</button>
+        <span><button class="btn btn-hukor" type="submit">Reset</button>
 
               {{ Form::close() }}
 

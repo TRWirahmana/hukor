@@ -114,32 +114,32 @@
             </li> -->
 
             <li class="menu-header">Informasi</li>
-            <!--            <li><a href="{{URL::to('account')}}">Kelola Akun</a></li>-->
-<<<<<<< HEAD
-            <li class="active"><a href="{{ URL::to('layanan_ketatalaksanaan/index') }}"><span class="rulycon-quill"></span>Layanan Ketatalaksanaan</a>
-            <ul style="display: block;">
-                <li><a href="{{ URL::to('layanan_ketatalaksanaan/spk') }}"><span ></span>Sistem dan Prosedur Kerja</a></li>
-                <li><a href="{{ URL::to('layanan_ketatalaksanaan/smm') }}"><span ></span>Sistem dan Manajemen Mutu</a></li>
-                <li><a href="{{ URL::to('layanan_ketatalaksanaan/analisis_jabatan') }}"><span ></span>Analisis Jabatan</a></li>
-                <li><a href="{{ URL::to('layanan_ketatalaksanaan/pbk') }}"><span ></span>Perhitungan Beban Kerja</a></li>  
-                <li><a href="{{ URL::to('layanan_ketatalaksanaan/tata_nilai') }}"><span ></span>Tata Nilai & Budaya Kerja Organisasi</a></li>  
-                <li><a href="{{ URL::to('layanan_ketatalaksanaan/pelayanan_publik') }}"><span ></span>Pelayanan Publik</a></li>  
-                <li><a href="{{ URL::to('layanan_ketatalaksanaan/tnd') }}"><span ></span>Tata Naskah Dinas</a></li>  
-            </ul>
-            </li>
+              <li id="menu-ketatalaksanaan">
+                  <div class="accordion2" id="accordion3">
+                      <div class="accordion-group">
+                          <div class="accordion-heading">
+                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapse2">
+                                  <span class="rulycon-library"></span>Layanan Ketatalaksanaan
+                                  <span class="rulycon-menu-2 pull-right"></span>
+                              </a>
+                          </div>
+                          <div id="collapse2" class="accordion-body collapse">
+                              <div class="accordion-inner">
+                                  <ul>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/spk') }}"><span ></span>Sistem dan Prosedur Kerja</a></li>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/smm') }}"><span ></span>Sistem dan Manajemen Mutu</a></li>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/analisis_jabatan') }}"><span ></span>Analisis Jabatan</a></li>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/pbk') }}"><span ></span>Perhitungan Beban Kerja</a></li>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/tata_nilai') }}"><span ></span>Tata Nilai & Budaya Kerja Organisasi</a></li>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/pelayanan_publik') }}"><span ></span>Pelayanan Publik</a></li>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/tnd') }}"><span ></span>Tata Naskah Dinas</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </li>
 
-
-            <li><a href="{{ URL::to('layanan_kelembagaan/index') }}"><span class="rulycon-library"></span>Layanan Kelembagaan</a></li>
-            <li><a href="{{ URL::to('layanan_kelembagaan/pembentukan') }}"><span class="rulycon-spinner-3"></span>Layanan Pembentukan</a></li>
-            <li><a href="{{ URL::to('layanan_kelembagaan/penataan') }}"><span class="rulycon-paragraph-center"></span>Layanan Penataan</a></li>
-            <li><a href="{{ URL::to('layanan_kelembagaan/penutupan') }}"><span class="rulycon-checkbox-unchecked"></span>Layanan Penutupan</a></li>
-            <li><a href="{{ URL::to('layanan_kelembagaan/statuta') }}"><span class="rulycon-strikethrough"></span>Layanan Statuta</a></li>
-            <li><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>
-            <li><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>
-            <li><a href="#"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
-            <li><a href="{{ URL::to('callcenter') }}"><span class="rulycon-phone"></span>Call Center</a></li>
-=======
-            <li id="menu-ketatalaksanaan"><a href="#"><span class="rulycon-quill"></span>Layanan Ketatalaksanaan</a></li>
             <li id="menu-kelembagaan">
               <div class="accordion" id="accordion2">
                 <div class="accordion-group">
@@ -162,11 +162,11 @@
                 </div>
               </div>
             </li>
+
             <li id="menu-layanan-bantuan-hukum"><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>
             <li id="menu-layanan-peraturan-perundangan"><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>
             <li id="menu-forum"><a href="#"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
             <li id="menu-call-center"><a href="#"><span class="rulycon-phone"></span>Call Center</a></li>
->>>>>>> 1d65c93903d87a856efd93d71820da3a98a88e0b
 
             <li class="menu-header">Aplikasi</li>
             <li id="menu-peraturan-perundangan"><a href="{{ URL::route('pengajuan_per_uu') }}"><span class="rulycon-pilcrow"></span>Peraturan Perundang-undangan</a></li>
@@ -174,7 +174,7 @@
             <li id="menu-bantuan-hukum"><a href="{{URL::to('BantuanHukum')}}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>
           </ul>
         </div>
-        <h6 id="copyright">© 2013 Direktorat Jenderal Kebudayaan Republik Indonesia</h6>
+        <h6 id="copyright">© 2014 Direktorat Jenderal Kebudayaan Republik Indonesia</h6>
         </footer>
       </div>
       <div class="span18 main-content">

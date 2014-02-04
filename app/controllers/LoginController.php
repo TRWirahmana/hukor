@@ -40,10 +40,12 @@ class LoginController extends BaseController {
 	                		switch ($user->role_id) {
 
                                 case 2:
+                                    Session::flash('success', 'Selamat datang ' . $user->username. ' !' );
 	                                return Redirect::to('/');
 	                            break;
 
                                 case 3:
+                                    Session::flash('success', 'Selamat datang admin!');
                                     return Redirect::to('/admin/Home');
                                     break;
 	                        default:

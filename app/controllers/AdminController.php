@@ -30,7 +30,7 @@ class AdminController extends BaseController {
 //                $admins->where('nama_lengkap', '!=', '');
             }else
             {
-                $admins = User::where('user.role_id', '=', Input::get('role_id'))->where('user.id', '!=', 1)->with('pengguna');
+                $admins = User::where('user.role_id', '=', Input::get('role_id'))->where('user.id', '!=', 0)->with('pengguna');
             }
 
             $totalRecords = $admins->count();
@@ -203,7 +203,7 @@ class AdminController extends BaseController {
 
 		}
 
-		return Redirect::to('admin/account')->with('success', 'Akun admin berhasil ditambahkan.');
+		return Redirect::to('admin/account')->with('success', 'Akun berhasil ditambahkan.');
 	}
 
 	/**

@@ -1,15 +1,14 @@
 @section('styles');
 	@parent
 @stop
-@section('content')
-@include('flash')
+@section('admin')
 <div class="rightpanel">
 
     <ul class="breadcrumbs">
         <li><a href="dashboard.html"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
         <li>Beranda</li>
     </ul>
-
+    @include('adminflash')
     <div class="pageheader">
         <form action="results.html" method="post" class="searchbar">
             <input type="text" name="keyword" placeholder="To search type and hit enter..."/>

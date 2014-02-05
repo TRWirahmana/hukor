@@ -173,7 +173,7 @@ Route::group(array('prefix' => 'admin/layananketatalaksanaan', 'before' => 'auth
     Route::get('edit_tata_nilai', 'LayananKetatalaksanaanController@create_tata_nilai');
 
     //tata pelayanan publik
-    Route::get('edit_tata_nilai', 'LayananKetatalaksanaanController@create_pelayanan_publik');
+    Route::get('edit_pelayanan_publik', 'LayananKetatalaksanaanController@create_pelayanan_publik');
 
     // tnd
     Route::get('edit_tnd', 'LayananKetatalaksanaanController@create_tnd');

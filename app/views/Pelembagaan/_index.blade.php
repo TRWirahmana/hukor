@@ -1,35 +1,15 @@
 @section('admin')
 
-<div class="rightpanel">
+<H2>PELEMBAGAAN</H2>
+<div class='stripe-accent'></div>
 
-    <ul class="breadcrumbs">
-        <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
-        <li>Pelembagaan</li>
-    </ul>
-    @include('adminflash')
-    <div class="pageheader">
-        <!--        <form action="results.html" method="post" class="searchbar">-->
-        <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
-        <!--        </form>-->
-        <div class="pageicon">&nbsp;</div>
-        <div class="pagetitle">
-            <!--<h5>Events</h5>-->
+    <legend>Pelembagaan
+<!--         <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('admin/pelembagaan/create'); }}">
+            <i class="icon-plus"></i>&nbsp; Tambah Baru</a>
+ -->    
+    </legend>
 
-            <h1>PELEMBAGAAN</h1>
-        </div>
-    </div>
-    <!--pageheader-->
-
-    <div class="maincontent">
-        <div class="maincontentinner">
-
-            <!-- MAIN CONTENT -->
-
-<div class="content-non-title">
-  <legend>
-    Informasi & Status Usulan
-      </legend>
+@include('flash')
 
    @if($status_belum != 0)
     <div class="row-fluid" style="border-bottom: 1px solid #e5e5e5;">
@@ -48,7 +28,7 @@
     @endif
 
 
-  <br />
+<br />
     <table id="tbl-pelembagaan">  
         <thead>
         <tr>
@@ -65,32 +45,10 @@
 
     </table>
 
-                <!-- END OF MAIN CONTENT -->
-
-                <div class="footer">
-                <div class="footer-left">
-                    <span>&copy; 2013. Admin Template. All Rights Reserved.</span>
-                </div>
-                <div class="footer-right">
-                    <span></span>
-                </div>
-            </div>
-            <!--footer-->
-        </div>
-        <!--maincontentinner-->
-    </div>
-    <!--maincontent-->
-
-
-</div>
-<!--rightpanel-->
-
-@stop
-
 @section('scripts')
 @parent
         <script type="text/javascript">
-        jQuery(function($){        
+        
         function fnFilterTahun (i)
         {
             $("#tbl-pelembagaan").dataTable().fnFilter(
@@ -190,6 +148,6 @@
 
                   $("#filter_tahun").change( function() { fnFilterTahun( 1 ); } );
             });
-});
         </script>        
+@stop
 @stop

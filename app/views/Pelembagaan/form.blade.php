@@ -2,6 +2,8 @@
 
 <h2>PERLEMBAGAAN</h2>
 <div class="stripe-accent"></div>
+<legend>Pengajuan Usulan</legend>
+
 
 @include('flash')
 	{{ Form::open($form_opts) }}
@@ -9,9 +11,7 @@
 		<div class="row-fluid">
 			<div class="span12">
 				<fieldset>
-		              <div class="nav nav-tabs">
-						<h4>Informasi Pengusul</h4>
-		              </div>				
+		              <legend>Informasi Pengusul</legend>		
 					<div class="control-group">		
 						{{ Form::label('jenis_usulan', 'Jenis Usulan', array('class' => 'control-label'))}}
 						<div class="controls">
@@ -52,12 +52,10 @@
 			</div>
 
 
-		<div class="row-fluid">
 			<div class="span12">
 				<fieldset>
-		              <div class="nav nav-tabs">
-						<h4>Informasi Perihal & Lampiran</h4>
-		              </div>
+		              <legend> Informasi Perihal & Lampiran
+		              </legend>
 					<div class="control-group">
 					{{ Form::label("perihal", "Perihal", array('class' => 'control-label')) }}
 						<div class="controls">{{ Form::text('perihal', $pelembagaan->perihal) }}</div>
@@ -74,15 +72,14 @@
 					</div>
 				</fieldset>
 			</div>
+		</div>
 
-			<div class="span6"></div>
 
-		
+		<div class="row-fluid">
+			<div class="span6"></div>		
 			<div class="span12">
 				<fieldset>
-		              <div class="nav nav-tabs">
-						<h4>Informasi Registrasi</h4>
-		              </div>
+		            <legend>Informasi Registrasi</legend>
 					<div class="control-group">
 					{{ Form::label("nama", "Nama", array('class' => 'control-label')) }}
 						<div class="controls"> <input type="text" disabled="" value="{{  $user->pengguna->nama_lengkap }}"></div>						
@@ -98,15 +95,22 @@
 						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->user_id }}"></div>						
 					</div>
 					<p>( <a href="#">klik disini untuk merubah informasi registrasi</a> )</p>
-					<div class="form-actions">
-						{{ Form::submit('Kirim', array('class' => 'btn btn-primary', 'style'=>'float: left')) }}
-						 <input class='btn btn-primary' style = 'float: left; margin: 0 0 0 8px;' Type="button" value="Batal" onClick="history.go(-1);return true;">
-					</div>
+					
+					
 					</fieldset>
-			</div>	
-</div>
+			</div>
+			<div class="span6"></div>	
+	</div>
+	<div class="form-actions">	
+		{{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
+		 <input class='btn btn-primary' Type="button" value="Batal" onClick="history.go(-1);return true;">
+	</div>
+
+
+
 	{{ Form::close() }}
 @stop
+
 
 @section('scripts')
 @parent
@@ -120,5 +124,4 @@
 <script type="text/javascript">
     Pelembagaan.Form();
 </script>
-
 @stop

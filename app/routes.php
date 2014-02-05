@@ -107,8 +107,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     });
 
 
-    Route::resource('pelembagaan', 'PelembagaanController');
-
+    Route::resource('pelembagaan', 'PelembagaanController');   
 
     /*
       Route::group(array("prefix" => "pelembagaan"), function(){
@@ -185,6 +184,13 @@ Route::group(array('prefix' => 'per-uu'), function() {
     Route::post('usulan', array('as' => 'proses_pengajuan', 'uses' => 'PeruuController@prosesPengajuan'));
     
 });
+
+
+Route::group(array('prefix' => 'pelembagaan'), function() {
+    Route::get('usulan', array('as' => 'create_pelembagaan', 'uses' => 'PelembagaanController@create'));
+    Route::post('usulan', array('as' => 'store_pelembagaan', 'uses' => 'PelembagaanController@store'));
+});
+
 
 Route::group(array('prefix' => 'layanan_kelembagaan'), function() {
     //index

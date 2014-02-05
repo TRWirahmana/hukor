@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Administrator | Layanan Hukum & Organisasi</title>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.shinyblue.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/hukor.css')}}">
+<!--    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/hukor.css')}}">-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.default.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycon.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycons.min.css')}}">
@@ -48,7 +48,7 @@
 
 <div class="loginpanel">
     <div class="loginpanelinner">
-        <div class="logo animate0 bounceIn"><img src="images/logo.png" alt="" /></div>
+        <div class="logo animate3 bounceIn"><img class="inputwrapper animate0 bounceIn" src="{{asset('assets/images/logo-kemendiknas.png')}}" alt=""/></div>
         {{-- form login--}}
         {{ Form::open(array('action' => 'LoginController@signin', 'method' => 'post', 'id'=>'user-sign-in-form',
         'class' =>'front-form', 'autocomplete' => 'off')) }}
@@ -74,30 +74,11 @@
 
         {{ Form::close() }}
 
-
-
-        @if(Session::has('success'))
-
-        <div class="alert alert-success sign-in-register-alert">
-            {{ Session::get('success') }}
-        </div>
-        @elseif(Session::has('error'))
-        <div class="alert alert-error sign-in-register-alert">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            {{ Session::get('error') }}
-            <ul>
-                @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-
     </div><!--loginpanelinner-->
 </div><!--loginpanel-->
 
 <div class="loginfooter">
-    <p>&copy; 2013. Shamcey Admin Template. All Rights Reserved.</p>
+    <p>&copy; 2014 Direktorat Jenderal Kebudayaan Republik Indonesia</p>
 </div>
 
 </body>

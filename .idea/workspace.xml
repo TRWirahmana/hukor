@@ -32,10 +32,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LoginController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="31" selection-start="210" selection-end="210" vertical-scroll-proportion="-0.777336" vertical-offset="561" max-vertical-offset="1819">
+            <state line="10" column="31" selection-start="210" selection-end="210" vertical-scroll-proportion="15.038462" vertical-offset="561" max-vertical-offset="1819">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/home.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="17" selection-start="367" selection-end="367" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="323">
               <folding />
             </state>
           </provider>
@@ -53,7 +62,7 @@
       <file leaf-file-name="master.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="189" column="0" selection-start="10303" selection-end="10728" vertical-scroll-proportion="0.0" vertical-offset="2905" max-vertical-offset="3485">
+            <state line="179" column="27" selection-start="10103" selection-end="10159" vertical-scroll-proportion="-8.230769" vertical-offset="2829" max-vertical-offset="3485">
               <folding />
             </state>
           </provider>
@@ -68,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_login.blade.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="admin_login.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/admin_login.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="23" selection-start="725" selection-end="725" vertical-scroll-proportion="-5.8846154" vertical-offset="51" max-vertical-offset="1870">
+            <state line="50" column="156" selection-start="2518" selection-end="2518" vertical-scroll-proportion="0.27037773" vertical-offset="714" max-vertical-offset="1547">
               <folding />
             </state>
           </provider>
@@ -101,7 +110,6 @@
         <option value="$PROJECT_DIR$/app/views/lembaga_statuta/index.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/BeritaController.php" />
         <option value="$PROJECT_DIR$/app/controllers/LoginController.php" />
-        <option value="$PROJECT_DIR$/app/views/layouts/home.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/css/dikbud.css" />
         <option value="$PROJECT_DIR$/app/views/layanankelembagaan/form.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/admin.blade.php" />
@@ -109,9 +117,10 @@
         <option value="$PROJECT_DIR$/app/controllers/LayananKelembagaanController.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/HomeController.php" />
-        <option value="$PROJECT_DIR$/app/views/layouts/admin_login.blade.php" />
         <option value="$PROJECT_DIR$/app/filters.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/home.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/admin_login.blade.php" />
       </list>
     </option>
   </component>
@@ -568,23 +577,6 @@
         <state line="16" column="44" selection-start="991" selection-end="991" vertical-scroll-proportion="9.153846" vertical-offset="510" max-vertical-offset="1105" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="19" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="323">
-          <folding>
-            <marker date="1391510558354" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1391510558354" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="0" selection-start="10303" selection-end="10728" vertical-scroll-proportion="0.0" vertical-offset="2905" max-vertical-offset="3485">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="14" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.0" vertical-offset="355" max-vertical-offset="850">
@@ -602,13 +594,6 @@
     <entry file="file://$PROJECT_DIR$/app/models/LayananKelembagaan.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="6" selection-start="12" selection-end="12" vertical-scroll-proportion="0.032945737" vertical-offset="0" max-vertical-offset="516">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/admin_login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="23" selection-start="725" selection-end="725" vertical-scroll-proportion="-5.8846154" vertical-offset="51" max-vertical-offset="1870">
           <folding />
         </state>
       </provider>
@@ -636,7 +621,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="31" selection-start="210" selection-end="210" vertical-scroll-proportion="-0.777336" vertical-offset="561" max-vertical-offset="1819">
+        <state line="10" column="31" selection-start="210" selection-end="210" vertical-scroll-proportion="15.038462" vertical-offset="561" max-vertical-offset="1819">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="27" selection-start="10103" selection-end="10159" vertical-scroll-proportion="-8.230769" vertical-offset="2829" max-vertical-offset="3485">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="17" selection-start="367" selection-end="367" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/admin_login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="156" selection-start="2518" selection-end="2518" vertical-scroll-proportion="0.27037773" vertical-offset="714" max-vertical-offset="1547">
           <folding />
         </state>
       </provider>

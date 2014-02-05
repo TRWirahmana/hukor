@@ -1,29 +1,29 @@
 @section('content')
-<h2>Reset Password</h2>
-<div class="stripe-accent"></div>
+<h2><span class="rulycon-lock"></span>Reset Password</h2>
+
 @include('flash')
-<div class="row-fluid">
+<div class="content-non-title">
+  <div class="row-fluid">
 
-    {{ Form::open(array('action' => 'ForgetPasswordController@reset', 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form', 'autocomplete' => 'off')) }}
+    {{ Form::open(array('action' => 'ForgetPasswordController@reset', 'method' => 'post', 'id'=>'user-register-form',
+    'class' =>'front-form', 'autocomplete' => 'off')) }}
 
-    <h5>Masukkan Alamat Email anda</h5>
-        <div class="control-group">
-            <label for='email' class="control-label">Email</label>
-            <div class="controls">
-                {{
-                Form::text('email','', array(
-                'class'=>'email text-input',
-                'id'=>'email',
-                'placeholder'=>'ketikkan alamat email di sini...',
-                ))
-                }}
-            </div>
-        </div>
+    <div id="welcome-to-the-fucking-app">
+      <p>Silakan masukkan alamat email Anda untuk melakukan proses reset password.</p>
+      {{
+      Form::text('email','', array(
+      'class'=>'email text-input',
+      'id'=>'email',
+      'placeholder'=>'ketikkan alamat email di sini...',
+      'style'=>'margin-bottom: 0; min-width: 360px;'
+      ))
+      }}
+      <button class="btn btn-hukor" type="submit">Submit</button>
+    </div>
 
-        <span><button class="btn btn-hukor" type="submit">Reset</button>
+    {{ Form::close() }}
 
-              {{ Form::close() }}
-
+  </div>
 </div>
 @stop
 
@@ -36,6 +36,6 @@
 <script src="{{asset('assets/js/registrasi.js')}}"></script>
 
 <script type="text/javascript">
-    Registrasi.Form();
+  Registrasi.Form();
 </script>
 @stop

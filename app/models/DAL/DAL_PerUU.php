@@ -3,7 +3,7 @@
 class DAL_PerUU {
     public static function getDataTable($filter = null) {
         $data = PerUU::join('pengguna', 'per_uu.id_pengguna', '=', 'pengguna.id')
-                ->join('jabatan', 'pengguna.jabatan', '=', 'jabatan.id')
+                ->leftJoin('jabatan', 'pengguna.jabatan', '=', 'jabatan.id')
                 ->select(array(
                     'per_uu.id',
                     'per_uu.tgl_usulan',

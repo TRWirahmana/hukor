@@ -25,153 +25,94 @@
         <div class="maincontentinner">
 
             <!-- MAIN CONTENT -->
+<!--            {{-- form informasi layanan kelembagaan --}}-->
+            {{ Form::open(array('action' => array('LayananKelembagaanController@submit'), 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', 'enctype' => "multipart/form-data" )) }}
+            {{Form::hidden('id', $id, '')}}
 
-<h2>PERATURAN PERUNDANG-UNDANGAN</h2>
-<div class="stripe-accent"></div>
-<legend>Perbaharui Usulan</legend>
+            <div class="row-fluid">
+                <!--            left content-->
+                <div class="span24">
+                    <div class="nav nav-tabs">
+                        <h4>Informasi layanan Kelembagaan</h4>
+                    </div>
 
-@include('flash')
+                    <div class="span24">
+                        <div class="control-group {{$errors->has('judul_berita')?'error':''}}">
+                            {{ Form::label('judul_berita', 'Judul Informasi', array('class' => 'control-label')) }}
+                            <div class="controls">
+                                @if(!is_null($info))
+                                {{ Form::text('layananlembaga[judul_berita]', $info->judul_berita,
+                                array('placeholder' => 'ketikkan judul informasi di sini...'))
+                                }}
+                                @else
+                                {{ Form::text('layananlembaga[judul_berita]', '',
+                                array('placeholder' => 'ketikkan judul informasi di sini...')) }}
+                                @endif
 
-{{ Form::open(array('route' => 'proses_update_per_uu', 'method' => 'post', 'files' => true, 'class' => 'form form-horizontal')) }}
-    {{ Form::hidden('id', $perUU->id) }}
-<div class="row-fluid">
-    <div class="span12">
-        <fieldset>
-            <legend>INFORMASI PENGUSUL</legend>
-            <div class="control-group">
-                <label for="" class="control-label">Tgl Usulan</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->tgl_usulan }}"></div>
-            </div>
-            <div class="control-group">
-                <label for="" class="control-label">Unit Kerja</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->pengguna->unit_kerja }}"></div>
-            </div>
-            <div class="control-group">
-                <label for="" class="control-label">Jabatan</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->pengguna->detail_jabatan->nama_jabatan }}"></div>
-            </div>
-            <div class="control-group">
-                <label for="" class="control-label">NIP</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->pengguna->nip }}"></div>
-            </div>
-            <div class="control-group">
-                <label for="" class="control-label">Nama</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->pengguna->nama_lengkap }}"></div>
-            </div>
-            <div class="control-group">
-                <label for="" class="control-label">Alamat</label>
-                <div class="controls"><textarea rows="3" disabled>{{ $perUU->pengguna->alamat_kantor }}</textarea></div>
-            </div>
-            <div class="control-group">
-                <label for="" class="control-label">Telp Kantor</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->pengguna->tlp_kantor }}"></div>
-            </div>
-            <div class="control-group">
-                <label for="" class="control-label">Pos/Email</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->pengguna->email }}"></div>
-            </div>
-        </fieldset>
-    </div>
-    <div class="span12">
-        <fieldset>
-            <legend>INFORMASI PERIHAL & LAMPIRAN</legend>
-            <div class="control-group">
-                <label for="" class="control-label">Perihal</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->perihal }}"></div>
-            </div>
-            <div class="control-group">
-                <label for="" class="control-label">Lampiran</label>
-                <div class="controls">
-                    <a href="/assets/uploads/{{$perUU->lampiran}}">{{ explode('/', $perUU->lampiran)[1] }}</a>
+                                @foreach($errors->get('judul_berita') as $error)
+                                <span class="help-block">{{$error}}</span>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="control-group {{$errors->has('berita')?'error':''}}">
+                            {{ Form::label('berita', 'Informasi / Berita', array('class' => 'control-label')) }}
+                            <div class="controls">
+                                @if(!is_null($info))
+                                {{ Form::textarea('layananlembaga[berita]', $info->berita,
+                                array('placeholder' => 'ketikkan Informasi atau berita anda di sini...', 'id' => 'berita'))
+                                }}
+                                @else
+                                {{ Form::textarea('layananlembaga[berita]', '',
+                                array('placeholder' => 'ketikkan Informasi atau berita anda di sini...', 'id' => 'berita')) }}
+                                @endif
+
+
+
+                                @foreach($errors->get('berita') as $error)
+                                <span class="help-block">{{$error}}</span>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="control-group {{$errors->has('penanggung_jawab')?'error':''}}">
+                            {{ Form::label('penanggung_jawab', 'Unit Penanggung Jawab', array('class' => 'control-label')) }}
+                            <div class="controls">
+                                @if(!is_null($info))
+                                {{Form::text('layananlembaga[penanggung_jawab]', $info->penanggung_jawab,
+                                array('placeholder' => 'ketikkan unit penanggungjawab di sini...'))
+                                }}
+                                @else
+                                {{ Form::text('layananlembaga[penanggung_jawab]', '',
+                                array('placeholder' => 'ketikkan unit penanggungjawab di sini...')) }}
+                                @endif
+
+                                @foreach($errors->get('penanggung_jawab') as $error)
+                                <span class="help-block">{{$error}}</span>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="control-group {{$errors->has('image')?'error':''}}">
+                            {{ Form::label('image', 'Gambar', array('class' => 'control-label')) }}
+                            <div class="controls">
+                                {{ Form::file('layananlembaga[image]')}}
+
+                                @foreach($errors->get('image') as $error)
+                                <span class="help-block">{{$error}}</span>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="control-group">
-                <label for="" class="control-label">Status Terakhir</label>
-                <div class="controls">
-                    @if ($perUU->status == 1)
-                        Diproses
-                    @elseif($perUU->status == 2)
-                        Ditunda
-                    @elseif($perUU->status == 3)
-                        Ditolak
-                    @elseif($perUU->status == 4)
-                        Buat Salinan
-                    @elseif($perUU->status == 5)
-                        Penetapan
-                    @endif
+                <div class="row-fluid">
+                    <div class="span24 text-center">
+                        <button class="btn" type="submit">Submit</button>
+                    </div>
                 </div>
-            </div>
-        </fieldset>
 
-        <fieldset>
-            <legend>UPDATE STATUS</legend>
-            <div class="control-group">
-                {{ Form::label('status', 'Status', array('class' => 'control-label'))}}
-                <div class="controls">
-                    {{ 
-                        Form::select('status', array(
-                            1 => "Diproses",
-                            2 => "Ditunda",
-                            3 => "Ditolak",
-                            4 => "Buat Salinan",
-                            5 => "Penetapan"
-                        ), 0, array())
-                    }}
-                </div>
-            </div>
-            <div class="control-group">
-                {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
-                <div class="controls">
-                    {{
-                        Form::textarea('catatan', null, array('rows' => 2))
-                    }}
-                </div>
-            </div>
-            <div class="control-group">
-                {{ Form::label('ket_lampiran', 'Ket. Lampiran', array('class' => 'control-label')) }}
-                <div class="controls">
-                    {{
-                        Form::text('ket_lampiran', null, array())
-                    }}
-                </div>
-            </div>
-            <div class="control-group">
-                {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
-                <div class="controls">
-                    {{
-                        Form::file('lampiran', array());
-                    }}
-                </div>
-            </div>
-            
-        </fieldset>
-    </div>
-</div>
-
-<div class="row-fluid">
-    <div class="span24">
-        <table id="tbl-log">
-            <thead>
-                <tr>
-                    <th>Tgl Proses</th>
-                    <th>Status</th>
-                    <th>Catatan</th>
-                    <th>Lampiran</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-</div>
-
-<div class="form-actions">
-    <a href="/per-uu" class="btn">Batal</a>
-    {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
-</div>
-{{ Form::close() }}
-
-
+                {{ Form::close() }}
 
                 <!-- END OF MAIN CONTENT -->
 
@@ -197,59 +138,26 @@
 
 @section('scripts')
 @parent
+<script src="{{ asset('assets/lib/tinymce/tinymce.min.js') }}"></script>
+<script src="{{asset('assets/js/jquery.validate.js')}}"></script>
+<script src="{{asset('assets/js/additional-methods.js')}}"></script>
+
+<script src="{{asset('assets/js/registrasi.js')}}"></script>
+
 <script type="text/javascript">
-    jQuery(function($){
-        $tblLog = $("#tbl-log").dataTable({
-            bServerSide: true,
-            sAjaxSource: document.location.href,
-            bFilter: false,
-            bInfo: false,
-            bSort: false,
-            bLengthChange: false,
-            iDisplayLength: 5,
-            aoColumns: [
-                {
-                    mData: "tgl_proses",
-                    mRender: function(data) {
-                        return $.datepicker.formatDate("dd M yy", new Date(Date.parse(data)));
-                    }
-                },
-                {
-                    mData: "status",
-                    mRender: function(data) {
-                        switch(parseInt(data)) {
-                            case 1: 
-                            
-                                return "Diproses";
-                                break;
-                            case 2:
-                                return "Ditunda";
-                                break;
-                            case 3:
-                                return "Ditolak";
-                                break;
-                            case 4:
-                                return "Buat salinan";
-                                break;
-                            case 5:
-                                return "Penetapan";
-                                break;
-                            default:
-                                return " ";
-                                break;
-                        };
-                    }
-                },
-                {mData: "catatan"},
-                {
-                    mData: "lampiran",
-                    mRender: function(data) {
-                        return '<a href="/assets/uploads/'+data+'">'+data.split('/')[1]+'</a>';
-                    }
-                }
-                // {mData: "id"}
-            ]
-        });
+    tinyMCE.init({
+        theme : "modern",
+        mode: "exact",
+        elements : "berita",
+        theme_advanced_toolbar_location : "top",
+        theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,"
+            + "justifyleft,justifycenter,justifyright,justifyfull,formatselect,"
+            + "bullist,numlist,outdent,indent",
+        theme_advanced_buttons2 : "link,unlink,anchor,image,separator,"
+            +"undo,redo,cleanup,code,separator,sub,sup,charmap",
+        theme_advanced_buttons3 : "",
+        height:"350px"
     });
+    Registrasi.Form();
 </script>
 @stop

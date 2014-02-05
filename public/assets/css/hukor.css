@@ -26,7 +26,49 @@ body {
   background: url("../images/leftpanelbg.png") repeat 0 0;
 }
 
+/* HUKOR SIGN IN PAGE ONLY */
+body.loginpage {
+  background: url("../images/bg1.png") repeat;
+}
+.loginpanel {
+  position: relative;
+  display: block;
+  /*width: 100%;*/
+  top: 20%;
+  left: 0;
+  height: auto;
+  background: rgba(0, 0, 0, .025);
+  border: 1px solid rgba(0, 0, 0, .025);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+}
+.loginpanelinner {
+  margin: auto;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 320px;
+  padding: 40px 80px 60px;
+}
+.loginpanelinner > img {
+  display: block;
+  margin-bottom: 20px;
+}
+.loginpanelinner input, .loginpanelinner button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /* HUKOR CUSTOM LAYOUT */
+input, textarea, select {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
 .mainwrapper .header, .mainwrapper .leftpanel, .mainwrapper .rightpanel {
   display: inline-block;
 }

@@ -36,4 +36,10 @@ class HomeController extends BaseController {
       $this->layout->content = View::make('layouts.forum');
     }
 
+    public function adminlogin() {
+        //exit;
+        return View::make('layouts.admin_login');
+
+    }
+
 }

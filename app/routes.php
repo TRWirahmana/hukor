@@ -40,7 +40,6 @@ Route::group(array('before' => 'guest'), function(){
 //    Route::resource('account', 'AdminController');
 //    Route::resource('pelembagaan', 'PelembagaanController');   
 //    Route::resource('callcenter','CallCenterController');
-    
 //
 //    Route::resource('callcenter', 'CallCenterController');
     Route::get('callcenter', 'CallCenterController@index');
@@ -108,18 +107,16 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
 
 
     Route::resource('pelembagaan', 'PelembagaanController');   
-
-
-       /* 
+/*        
     Route::group(array("prefix" => "pelembagaan"), function(){
-            Route::resource('pelembagaan', 'PelembagaanController'); 
-
-            Route::get('/', array('as' => 'pelembagaan.index', 'uses'=>'PelembagaanController@index'));
-            Route::get('{id}/edit', array('as' => 'edit', 'uses'=>'PelembagaanController@edit'));
-            Route::post('update', array('as' => 'update_pelembagaan', 'uses' => 'PelembagaanController@update'));
-            Route::post('delete', array('as' => 'delete', 'uses' => 'PelembagaanController@destroy'));
+//            Route::resource('pelembagaan', 'PelembagaanController'); 
+            Route::get('/', array('as' => 'index_pelembagaan', 'uses'=>'PelembagaanController@index'));
+            Route::get('{id}/edit', array('as' => 'pelembagaan_edit', 'uses'=>'PelembagaanController@edit'));
+            Route::post('update', array('as' => 'pelembagaan_update', 'uses' => 'PelembagaanController@update'));
+            Route::post('delete', array('as' => 'delete_pelembagaan', 'uses' => 'PelembagaanController@destroy'));
     });
-    */
+*/
+
 });
 
 
@@ -185,6 +182,13 @@ Route::group(array('prefix' => 'per-uu'), function() {
 	Route::get('usulan', array('as' => 'pengajuan_per_uu', 'uses' => 'PeruuController@pengajuanUsulan'));
 	Route::post('usulan', array('as' => 'proses_pengajuan', 'uses' => 'PeruuController@prosesPengajuan'));
 });
+
+
+Route::group(array('prefix' => 'pelembagaan'), function() {
+    Route::get('usulan', array('as' => 'create_pelembagaan', 'uses' => 'PelembagaanController@create'));
+    Route::post('usulan', array('as' => 'store_pelembagaan', 'uses' => 'PelembagaanController@store'));
+});
+
 
 Route::group(array('prefix' => 'layanan_kelembagaan'), function() {
     //index

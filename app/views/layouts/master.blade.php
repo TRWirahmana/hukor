@@ -127,14 +127,14 @@
                           <div id="collapse2" class="accordion-body collapse">
                               <div class="accordion-inner">
                                   <ul>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/index') }}"><span ></span>Layanan Ketatalaksanaan</a></li>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/spk') }}"><span ></span>Sistem dan Prosedur Kerja</a></li>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/smm') }}"><span ></span>Sistem dan Manajemen Mutu</a></li>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/analisis_jabatan') }}"><span ></span>Analisis Jabatan</a></li>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/pbk') }}"><span ></span>Perhitungan Beban Kerja</a></li>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/tata_nilai') }}"><span ></span>Tata Nilai & Budaya Kerja Organisasi</a></li>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/pelayanan_publik') }}"><span ></span>Pelayanan Publik</a></li>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/tnd') }}"><span ></span>Tata Naskah Dinas</a></li>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/index') }}"><span class="rulycon-earth"></span>Layanan Ketatalaksanaan</a></li>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/spk') }}"><span class="rulycon-droplet"></span>Sistem dan Prosedur Kerja</a></li>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/smm') }}"><span class="rulycon-wrench"></span>Sistem dan Manajemen Mutu</a></li>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/analisis_jabatan') }}"><span class="rulycon-diamonds"></span>Analisis Jabatan</a></li>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/pbk') }}"><span class="rulycon-quill"></span>Perhitungan Beban Kerja</a></li>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/tata_nilai') }}"><span class="rulycon-strikethrough"></span>Tata Nilai & Budaya Kerja Organisasi</a></li>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/pelayanan_publik') }}"><span class="rulycon-spinner-2"></span>Pelayanan Publik</a></li>
+                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/tnd') }}"><span class="rulycon-flip-2" ></span>Tata Naskah Dinas</a></li>
                                   </ul>
                               </div>
                           </div>
@@ -173,7 +173,7 @@
 
             <li class="menu-header">Aplikasi</li>
             <li id="menu-peraturan-perundangan"><a href="{{ URL::route('pengajuan_per_uu') }}"><span class="rulycon-pilcrow"></span>Peraturan Perundang-undangan</a></li>
-            <li id="menu-pelembagaan"><a href="{{URL::to('pelembagaan')}}"><span class="rulycon-office"></span>Pelembagaan</a></li>
+            <li id="menu-pelembagaan"><a href="{{URL::route('create_pelembagaan')}}"><span class="rulycon-office"></span>Pelembagaan</a></li>
             <li id="menu-bantuan-hukum"><a href="{{URL::to('BantuanHukum')}}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>
           </ul>
         </div>

@@ -87,7 +87,7 @@
                             <ul>
 <!--                                 <li><a href="{{URL::to('admin/edit_ketatalaksanaan')}}">Home</a></li> -->
                                 <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_spk')}}">Sistem dan Prosedur Kerja</a></li>
-                                <li><a href="{{URL::to('admin//layananketatalaksanaan/edit_smm')}}">Sistem manajemen mutu</a></li>
+                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_smm')}}">Sistem manajemen mutu</a></li>
                                 <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_analisis_jabatan')}}">Analisis Jabatan</a></li>
                                 <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_pbk')}}">Perhitungan beban kerja</a></li>
                                 <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_tata_nilai')}}">Tata nilai & budaya kerja organisasi</a></li>
@@ -120,11 +120,11 @@
                                 <li><a href="#">Informasi & Status usulan</a></li>
                             </ul> -->
                         </li>
-                        <li id="app_pelembagaan" class="dropdown"><a href="#"><span class="iconfa-hand-up"></span> Pelembagaan</a>
-                            <ul>
+                        <li id="app_pelembagaan" ><a href="{{ URL::to('admin/pelembagaan') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a>
+                            <!-- <ul>
                                 <li><a href="#">Lembar Usulan</a></li>
                                 <li><a href="#">Informasi & Status usulan</a></li>
-                            </ul>
+                            </ul> -->
                         </li>
                         <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>
                             <ul>
@@ -152,7 +152,6 @@
 <!--    CONTENT-->
     @yield('admin')
 <!--mainwrapper-->
-
 
 @section('scripts')
 <script src="{{asset('assets/js/jquery-1.10.1.min.js')}}"></script>

@@ -133,6 +133,7 @@ class PeruuController extends BaseController {
 		$perUU = PerUU::find(Input::get('id'));
 		if(null != $perUU) 
 			$perUU->delete();
+                echo 1;
 	}
 
 }

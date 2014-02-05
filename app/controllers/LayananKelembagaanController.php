@@ -41,7 +41,7 @@ class LayananKelembagaanController extends BaseController {
     }
     public function penutupan(){
 
-        $info = LayananKelembagaan::find(4);
+        $info = LayananKelembagaan::find(5);
         $this->layout = View::make('layouts.master');
 
         $this->layout->content = View::make('lembaga_penutupan.index',
@@ -52,7 +52,7 @@ class LayananKelembagaanController extends BaseController {
     }
     public function statuta(){
 
-        $info = LayananKelembagaan::find(5);
+        $info = LayananKelembagaan::find(4);
         $this->layout = View::make('layouts.master');
 
         $this->layout->content = View::make('lembaga_statuta.index',

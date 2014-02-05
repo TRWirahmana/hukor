@@ -18,10 +18,11 @@ Route::group(array('before' => 'guest'), function() {
     Route::post('Masuk', 'LoginController@signin'); // Registrasi
     Route::post('Reset', 'ForgetPasswordController@reset'); // Reset Password
     Route::get('registrasi', 'RegistrasiController@form');
-    Route::post('Kirim', 'RegistrasiController@send');
-    Route::get('/', 'HomeController@index');
-    Route::get('error', 'LoginController@error');
-    Route::get('manual_registrasi', 'HomeController@download_manual');
+	Route::post('Kirim', 'RegistrasiController@send');
+	Route::get('/', 'HomeController@index');
+    Route::get('Admin', 'HomeController@adminlogin');
+	Route::get('error', 'LoginController@error');
+	Route::get('manual_registrasi', 'HomeController@download_manual');
 
     Route::get('tabelbahu', 'BantuanHukumController@datatable');
     Route::get('log_banhuk', 'BantuanHukumController@tablelog');

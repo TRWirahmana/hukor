@@ -61,6 +61,17 @@ input, select, textarea {
 select {
   width: auto;
 }
+input, select, textarea, button {
+  -moz-transition: all .25s ease-out !important;
+  -ms-transition: all .25s ease-out !important;
+  -o-transition: all .25s ease-out !important;
+  -webkit-transition: all .25s ease-out !important;
+  transition: all .25s ease-out !important;
+}
+button:hover, .btn:hover {
+  opacity: .85 !important;
+  color: #ffffff;
+}
 
 /* SIGN IN PAGE ONLY */
 #sign-in {
@@ -648,6 +659,16 @@ html, .main-layout, .admin,
   padding-left: 20px;
   padding-right: 20px;
 }
+.main-content .alert {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 360px;
+}
+.main-content .alert .close {
+  top: 0;
+  right: 0;
+}
 .main-content > h2 {
   background: #16a085;
   color: #ffffff;
@@ -691,7 +712,6 @@ html, .main-layout, .admin,
   position: relative;
   top: 8px;
 }
-
 .main-content .span12 {
   padding-left: 15px;
   padding-right: 15px;
@@ -864,32 +884,3 @@ table.dataTable td.dataTables_empty {
 
 
 
-
-.main-content .callcenter {
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 120px;
-  width: 50%;
-  float: center;
-}
-.main-content .callcenter > p {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.main-content .callcenter > h4 {
-  text-transform: uppercase;
-  font-weight: normal;
-  font-size: 14px;
-  text-align: center;
-}
-.main-content .callcenter > h4 > span {
-  background: #d8251e;
-  color: #ffffff;
-  padding: 2px 20px 3px;
-  border-radius: 2px;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
-}
-.main-content .callcenter > .form-horizontal {
-  padding-left: 15px;
-  padding-right: 15px;
-}

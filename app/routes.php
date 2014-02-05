@@ -42,7 +42,7 @@ Route::group(array('before' => 'guest'), function(){
 //    Route::resource('callcenter','CallCenterController');
     
 //
-    Route::resource('callcenter', 'CallCenterController');
+//    Route::resource('callcenter', 'CallCenterController');
     Route::get('callcenter', 'CallCenterController@index');
 
 });
@@ -106,6 +106,20 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
         Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));     
     });
 
+
+    Route::resource('pelembagaan', 'PelembagaanController');   
+
+
+       /* 
+    Route::group(array("prefix" => "pelembagaan"), function(){
+            Route::resource('pelembagaan', 'PelembagaanController'); 
+
+            Route::get('/', array('as' => 'pelembagaan.index', 'uses'=>'PelembagaanController@index'));
+            Route::get('{id}/edit', array('as' => 'edit', 'uses'=>'PelembagaanController@edit'));
+            Route::post('update', array('as' => 'update_pelembagaan', 'uses' => 'PelembagaanController@update'));
+            Route::post('delete', array('as' => 'delete', 'uses' => 'PelembagaanController@destroy'));
+    });
+    */
 });
 
 
@@ -141,10 +155,12 @@ Route::group(array('prefix' => 'admin/layanankelembagaan', 'before' => 'auth|sup
 
 Route::group(array('prefix' => 'admin/layananketatalaksanaan', 'before' => 'auth|super_admin'), function()
 {
-    Route::resource('pelembagaan', 'PelembagaanController'); 
+
+    
+    Route::resource('ketatalaksanaan', 'LayananKetatalaksanaanController'); 
 
     //spm
-    Route::get('edit_spm', 'LayananKetatalaksanaanController@create_spk');
+    Route::get('edit_spk', 'LayananKetatalaksanaanController@create_spk');
 
     //smm
     Route::get('edit_smm', 'LayananKetatalaksanaanController@create_smm');
@@ -163,7 +179,6 @@ Route::group(array('prefix' => 'admin/layananketatalaksanaan', 'before' => 'auth
 
     // tnd
     Route::get('edit_tnd', 'LayananKetatalaksanaanController@create_tnd');
-
 });
 
 Route::group(array('prefix' => 'per-uu'), function() {

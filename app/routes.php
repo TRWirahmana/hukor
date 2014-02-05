@@ -20,7 +20,7 @@ Route::group(array('before' => 'guest'), function() {
     Route::get('registrasi', 'RegistrasiController@form');
 	Route::post('Kirim', 'RegistrasiController@send');
 	Route::get('/', 'HomeController@index');
-    Route::get('Admin', 'HomeController@adminlogin');
+    Route::get('admin/login', 'HomeController@adminlogin');
 	Route::get('error', 'LoginController@error');
 	Route::get('manual_registrasi', 'HomeController@download_manual');
 

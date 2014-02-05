@@ -26,7 +26,7 @@
       <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="27" selection-start="872" selection-end="872" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="3859">
+            <state line="21" column="27" selection-start="827" selection-end="827" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="3961">
               <folding />
             </state>
           </provider>
@@ -62,7 +62,7 @@
       <file leaf-file-name="master.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="179" column="27" selection-start="10103" selection-end="10159" vertical-scroll-proportion="-8.230769" vertical-offset="2829" max-vertical-offset="3485">
+            <state line="179" column="27" selection-start="10301" selection-end="10357" vertical-scroll-proportion="-8.230769" vertical-offset="2829" max-vertical-offset="3485">
               <folding />
             </state>
           </provider>
@@ -80,7 +80,7 @@
       <file leaf-file-name="admin_login.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/admin_login.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="156" selection-start="2518" selection-end="2518" vertical-scroll-proportion="0.27037773" vertical-offset="714" max-vertical-offset="1547">
+            <state line="69" column="18" selection-start="3481" selection-end="3481" vertical-scroll-proportion="0.6083499" vertical-offset="867" max-vertical-offset="1496">
               <folding />
             </state>
           </provider>
@@ -614,7 +614,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="27" selection-start="872" selection-end="872" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="3859">
+        <state line="21" column="27" selection-start="827" selection-end="827" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="3961">
           <folding />
         </state>
       </provider>
@@ -628,7 +628,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="27" selection-start="10103" selection-end="10159" vertical-scroll-proportion="-8.230769" vertical-offset="2829" max-vertical-offset="3485">
+        <state line="179" column="27" selection-start="10301" selection-end="10357" vertical-scroll-proportion="-8.230769" vertical-offset="2829" max-vertical-offset="3485">
           <folding />
         </state>
       </provider>
@@ -642,7 +642,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/admin_login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="156" selection-start="2518" selection-end="2518" vertical-scroll-proportion="0.27037773" vertical-offset="714" max-vertical-offset="1547">
+        <state line="69" column="18" selection-start="3481" selection-end="3481" vertical-scroll-proportion="0.6083499" vertical-offset="867" max-vertical-offset="1496">
           <folding />
         </state>
       </provider>

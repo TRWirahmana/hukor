@@ -38,14 +38,6 @@
     {{ HTML::image('assets/uploads/layananketatalaksanaan/' . $attach) }}
 @endif
 
-@if($info == null)
-<h1>Judul: </h1>
-<br>
-<p>Info Layanan: </p>
-<p>Penanggung Jawab: </p>
-
-@endif
-
 @stop
 
 @section('scripts')

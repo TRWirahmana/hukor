@@ -14,10 +14,9 @@ class CallCenterController extends BaseController {
 				    	'call' => $call,
 				    	'user' => $user
 				));
-		  }
+	}
 
     public function home(){
-
 		$call = CallCenter::find(1);
 
 		$this->layout->content = View::make('callcenter.form',

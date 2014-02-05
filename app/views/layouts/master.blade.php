@@ -194,7 +194,6 @@
 <script src="{{asset('assets/js/jquery.ui.datepicker.js')}}"></script>
 <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/js/DatatableReloadAjax.js')}}"></script>
-
 @show
 </body>
 </html>

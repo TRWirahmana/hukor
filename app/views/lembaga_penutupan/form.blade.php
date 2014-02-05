@@ -1,4 +1,4 @@
-@section('content')
+@section('admin')
 <div class="rightpanel">
 
     <ul class="breadcrumbs">

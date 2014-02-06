@@ -12,54 +12,54 @@
     <div class="row-fluid">
         <div class="span12">
             <fieldset>
-                <legend>Informasi Pengusul</legend>
+                <legend>Penanggung Jawab</legend>
 
                 <div class="control-group">
                     <div class="control-group">
-                        {{ Form::label('nama_pemohon', 'Nama Pemohon', array('class' => 'control-label'))}}
+                        {{ Form::label('penanggungJawab[nama]', 'Nama', array('class' => 'control-label'))}}
                         <div class="controls">
-                            {{ Form::text('nama_pemohon', $user->pengguna->nama_lengkap) }}
+                            {{ Form::text('penanggungJawab[nama]', $user->pengguna->nama_lengkap) }}
                         </div>
                     </div>
 
                     <div class="control-group">
-                        {{ Form::label('jabatan', 'Jabatan', array('class' => 'control-label'))}}
+                        {{ Form::label('penanggungJawab[jabatan]', 'Jabatan', array('class' => 'control-label'))}}
                         <div class="controls">
-                            {{ Form::text('jabatan', $user->pengguna->detailJabatan->nama_jabatan) }}
+                            {{ Form::text('penanggungJawab[jabatan]', $user->pengguna->detailJabatan->nama_jabatan) }}
                         </div>
                     </div>
                     <div class="control-group">
-                        {{ Form::label('nip', "NIP", array('class' => 'control-label'))}}
+                        {{ Form::label('penanggungJawab[nip]', "NIP", array('class' => 'control-label'))}}
                         <div class="controls">
-                            {{ Form::text('nip', $user->pengguna->nip) }}
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        {{ Form::label('unit_kerja', "Unit Kerja", array('class' => 'control-label'))}}
-                        <div class="controls">
-                            {{ Form::text('unit_kerja', $user->pengguna->unit_kerja) }}
+                            {{ Form::text('penanggungJawab[nip]', $user->pengguna->nip) }}
                         </div>
                     </div>
 
                     <div class="control-group">
-                        {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label'))}}
+                        {{ Form::label('penanggungJawab[unit_kerja]', "Unit Kerja", array('class' => 'control-label'))}}
                         <div class="controls">
-                            {{ Form::text('alamat_kantor', $user->pengguna->alamat_kantor) }}
+                            {{ Form::text('penanggungJawab[unit_kerja]', $user->pengguna->unit_kerja) }}
                         </div>
                     </div>
 
                     <div class="control-group">
-                        {{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label'))}}
+                        {{ Form::label('penanggungJawab[alamat_kantor]', 'Alamat Kantor', array('class' => 'control-label'))}}
                         <div class="controls">
-                            {{ Form::text('telp_kantor', $user->pengguna->tlp_kantor) }}
+                            {{ Form::text('penanggungJawab[alamat_kantor]', $user->pengguna->alamat_kantor) }}
                         </div>
                     </div>
 
                     <div class="control-group">
-                        {{ Form::label('pos_el', 'Pos_el', array('class' => 'control-label'))}}
+                        {{ Form::label('penanggungJawab[telp_kantor]', 'Telepon Kantor', array('class' => 'control-label'))}}
                         <div class="controls">
-                            {{ Form::text('pos_El', $user->pengguna->email) }}
+                            {{ Form::text('penanggungJawab[telp_kantor]', $user->pengguna->tlp_kantor) }}
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        {{ Form::label('penanggungJawab[email]', 'Email', array('class' => 'control-label'))}}
+                        <div class="controls">
+                            {{ Form::text('penanggungJawab[email]', $user->pengguna->email) }}
                         </div>
                     </div>
 
@@ -89,7 +89,7 @@
 
     </div>	
 
-    <div class="row-fluid">
+<!--    <div class="row-fluid">
         <div class="span6"></div>
         <div class="span12">
 
@@ -112,9 +112,10 @@
             </fieldset>
         </div>
         <div class="span6"></div>
-    </div>	
+    </div>	-->
 
     <div class="form-actions">
+        <a href="{{ URL::to('/') }}" class="btn btn-primary">Batal</a>
         {{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
     </div>
 

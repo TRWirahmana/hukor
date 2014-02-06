@@ -27,6 +27,7 @@ class PeruuController extends BaseController
     {
         $input = Input::get('per_uu');
         $img = Input::file('per_uu.lampiran');
+        $input2 = Input::get('penanggungJawab');
 
         if ($img->isValid()) {
             $uqFolder = str_random(8);
@@ -43,6 +44,17 @@ class PeruuController extends BaseController
                 $perUU->tgl_usulan = new DateTime;
                 $perUU->status = 0;
                 if ($perUU->save()) {
+                    $penanggungJawab = new PenanggungJawabPerUU();
+                    $penanggungJawab->id_per_uu = $perUU->id;
+                    $penanggungJawab->nama = $input2['nama'];
+                    $penanggungJawab->jabatan = $input2['jabatan'];
+                    $penanggungJawab->NIP = $input2['nip'];
+                    $penanggungJawab->unit_kerja = $input2['unit_kerja'];
+                    $penanggungJawab->alamat_kantor = $input2['alamat_kantor'];
+                    $penanggungJawab->telepon_kantor = $input2['telp_kantor'];
+                    $penanggungJawab->email = $input2['email'];
+                    $penanggungJawab->save();
+
                     // kirim email ke admin
                     $data = array(
                         'user' => Auth::user(),

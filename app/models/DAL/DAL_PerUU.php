@@ -24,6 +24,7 @@ class DAL_PerUU {
     public static function getLogUsulan($id) {
         $data = LogPerUU::select(array(
             "id", 
+            "id_per_uu",
             "catatan", 
             "lampiran",
             "tgl_proses", 

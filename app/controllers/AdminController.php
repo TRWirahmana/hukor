@@ -142,10 +142,16 @@ class AdminController extends BaseController {
 //		}
 
         $listRole = array(
-            '1' => 'Admin',
-            '2' => 'Pengguna',
+            '1' => 'Kepala Biro',
+//            '2' => 'Pengguna',
             '3' => 'Super Admin',
-            '4' => 'Kepala Biro'
+            '4' => 'Kepala Bagian',
+            '5' => 'Kepala Sub Bagian',
+            '6' => 'Admin Peraturan Perundang-Undangan',
+            '7' => 'Admin Pelembagaan',
+            '8' => 'Admin Bantuan Hukum',
+            '9' => 'Admin Ketatalaksanaan'
+
         );
 
 		$this->layout->content = View::make('admin.form', array(
@@ -187,18 +193,74 @@ class AdminController extends BaseController {
 
 			$registrasi->save();
 
-//				$data = array(
-//					'username' => $user->username,
-//					'password' => $input['password'],
-//				);
+            switch($user->role_id){
+                case 1:
+                    $data = array(
+                        'username' => $user->username,
+                        'password' => $input['password'],
+                        'role' => "Kepala Biro"
+                    );
+                    break;
+                case 3:
+                    $data = array(
+                        'username' => $user->username,
+                        'password' => $input['password'],
+                        'role' => "Super Admin"
+                    );
+                    break;
+                case 4:
+                    $data = array(
+                        'username' => $user->username,
+                        'password' => $input['password'],
+                        'role' => "Kepala Bagian"
+                    );
+                    break;
+                case 5:
+                    $data = array(
+                        'username' => $user->username,
+                        'password' => $input['password'],
+                        'role' => "Kepala Sub Bagian"
+                    );
+                    break;
+                case 6:
+                    $data = array(
+                        'username' => $user->username,
+                        'password' => $input['password'],
+                        'role' => "Admin Peraturan Perundang-Undangan"
+                    );
+                    break;
+                case 7:
+                    $data = array(
+                        'username' => $user->username,
+                        'password' => $input['password'],
+                        'role' => "Admin Pelembagaan"
+                    );
+                    break;
+                case 8:
+                    $data = array(
+                        'username' => $user->username,
+                        'password' => $input['password'],
+                        'role' => "Admin Bantuan Hukum"
+                    );
+                    break;
+                case 9:
+                    $data = array(
+                        'username' => $user->username,
+                        'password' => $input['password'],
+                        'role' => "Admin Ketatalasksanaan"
+                    );
+                    break;
+            }
+
+
 
                 /* send email to new member */
 
-//				Mail::send('emails.admreg', $data, function($message) use($user){
-//					$message->from('admin@site.com', 'Site Admin');
-//					$message->to($user->email, $user->username)
-//							->subject('Sistem Registrasi Online Laboratorium Kepemimpinan Nasional');
-//				});
+				Mail::send('emails.admreg', $data, function($message) use($user){
+					$message->from('admin@site.com', 'Site Admin');
+					$message->to($user->username, $user->username)
+							->subject('Sistem Layanan Hukum & Organisasi');
+				});
 
 		}
 
@@ -227,19 +289,17 @@ class AdminController extends BaseController {
 
         $role = User::select('role_id');
         $listRole = array(
-            '1' => 'Admin',
-            '2' => 'Pengguna',
+            '1' => 'Kepala Biro',
+//            '2' => 'Pengguna',
             '3' => 'Super Admin',
-            '4' => 'Kepala Biro'
+            '4' => 'Kepala Bagian',
+            '5' => 'Kepala Sub Bagian',
+            '6' => 'Admin Peraturan Perundang-Undangan',
+            '7' => 'Admin Pelembagaan',
+            '8' => 'Admin Bantuan Hukum',
+            '9' => 'Admin Ketatalaksanaan'
         );
 
-//        foreach($role as $data)
-//        {
-//            if($data->role_id != '0')
-//            {
-//                $listRole[$data->role_id] = $data->role_id;
-//            }
-//        }
 		//
 		$user = User::find($id);
         $user->load('pengguna');
@@ -265,13 +325,9 @@ class AdminController extends BaseController {
 	 */
 	public function update($id)
 	{
-
-
 		$input = Input::all();
 
 		$user = User::find($id);
-
-
 
         $user->role_id = $input['role'];
         $user->username = $input['email'];

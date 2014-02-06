@@ -62,7 +62,7 @@
         </header>
 
         @if($user != null)
-        <p id="username" class="welcome-message user-not-null"><span>Selamat datang, <span id="name"><?php echo $user->username; ?></span></span></p>
+        <p id="username" class="welcome-message user-not-null text-right"><span>Selamat datang, <span id="name"><?php echo $user->pengguna->nama_lengkap; ?></span></span></p>
         @if($user != null)
         <ul class="welcome-message user-not-null-links">
           <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span>User settings</a></li>

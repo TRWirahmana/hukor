@@ -434,8 +434,8 @@ class RegistrasiController extends BaseController {
         $nama = Input::get('nama_lengkap');
         $nip = Input::get('nip');
         $jabatan = Input::get('jabatan');
-        $bagian = Input::get('bagian');
-        $subbag = Input::get('sub_bagian');
+//        $bagian = Input::get('bagian');
+//        $subbag = Input::get('sub_bagian');
         $jk = Input::get('jenis_kelamin');
         $tgl_lahir = Input::get('tgl_lahir');
         $pekerjaan = Input::get('pekerjaan');
@@ -443,6 +443,9 @@ class RegistrasiController extends BaseController {
         $tlp_ktr = Input::get('tlp_kantor');
         $hp = Input::get('handphone');
         $uk = Input::get('unit_kerja');
+        $captcha = Input::get('captcha');
+
+//        var_dump($captcha);die;
 
         $rules = array();
         $messages = array();
@@ -459,41 +462,56 @@ class RegistrasiController extends BaseController {
             $messages['password.min'] = 'Password minimal 6 karakter.';
         }
 
-        // Save
-        $DAL = new DAL_Registrasi();
-        $DAL->SetData(array(
-            'username' => $email,
-            'password' => Hash::make($password), // Hashing A Password Using Bcrypt\
-            'role_id' => 2, // Aktif
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-        ));
+        if (Request::getMethod() == 'POST'){
+//            $rules['captcha'] = 'required|captcha';
+            $rulesa =  array('captcha' => array('required', 'captcha'));
+            $validator = Validator::make(Input::all(), $rulesa);
+            if ($validator->fails())
+            {
+                Session::flash('error', 'Registrasi gagal! Captcha tidak valid!');
+                return Redirect::to('registrasi');
+            }
+            else
+            {
+                // Save
+                $DAL = new DAL_Registrasi();
+                $DAL->SetData(array(
+                    'username' => $email,
+                    'password' => Hash::make($password), // Hashing A Password Using Bcrypt\
+                    'role_id' => 2, // Aktif
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ));
 
-        $data = $DAL->Save();
-        
-        if ($data !== 0) {
-            $dal_user = new DAL_User();
-            $dal_user->SetPengguna($data, $email, $nama, $nip, $jabatan, $bagian, $subbag, $jk, $tgl_lahir, $pekerjaan, $alamat_kantor, $tlp_ktr, $hp, $uk);
-            $dal_user->SaveBiodata($data);
+                $data = $DAL->Save();
 
-            // register user to forum database!
-            $now = new DateTime('now');
-            $forumUser = new ForumUser();
-            $forumUser->id = $data;
-            $forumUser->username = $email;
-            $forumUser->password = pun_hash($password);
-            $forumUser->email = $email;
-            $forumUser->last_visit = $now->getTimestamp();
-            $forumUser->registered = $now->getTimestamp();
-            $forumUser->save();
+                if ($data !== 0) {
+                    $dal_user = new DAL_User();
+                    $dal_user->SetPengguna($data, $email, $nama, $nip, $jabatan, $jk, $tgl_lahir, $pekerjaan, $alamat_kantor, $tlp_ktr, $hp, $uk);
+                    $dal_user->SaveBiodata($data);
+
+                    // register user to forum database!
+                    $now = new DateTime('now');
+                    $forumUser = new ForumUser();
+                    $forumUser->id = $data;
+                    $forumUser->username = $email;
+                    $forumUser->password = pun_hash($password);
+                    $forumUser->email = $email;
+                    $forumUser->last_visit = $now->getTimestamp();
+                    $forumUser->registered = $now->getTimestamp();
+                    $forumUser->save();
 
 //            $this->sendMail($username, $password, $email);
-            Session::flash('success', 'Registrasi berhasil. Silahkan login kedalam sistem!');
-            return Redirect::to('/');
-        } else {
-            Session::flash('error', 'Registrasi gagal! Harap ulangi dan Pastikan alamat email anda valid!');
-            return Redirect::to('registrasi');
+                    Session::flash('success', 'Registrasi berhasil. Silahkan login kedalam sistem!');
+                    return Redirect::to('/');
+                } else {
+                    Session::flash('error', 'Registrasi gagal! Harap ulangi dan Pastikan alamat email anda valid!');
+                    return Redirect::to('registrasi');
+                }
+            }
         }
+
+
         
     }
 

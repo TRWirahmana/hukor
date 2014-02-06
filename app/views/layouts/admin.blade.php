@@ -57,9 +57,9 @@
         <ul id="main-menu">
             <li id="beranda"><a href="{{URL::to('admin/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
             <li id="news"><a href="{{URL::to('admin/berita')}}"><span class="rulycon-newspaper"></span> Berita</a></li>
-            <li id="informasi"><a href="#"><span class="rulycon-address-book"></span> Informasi</a></li>
-            <li id="aplikasi"><a href="#"><span class="rulycon-wrench"></span> Aplikasi</a></li>
-            <li id="manajemen"><a href="{{URL::to('admin/account')}}"><span class="rulycon-user"></span> User</a></li>
+            <li id="informasi"><a href="#info"><span class="rulycon-address-book"></span> Informasi</a></li>
+            <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
+            <li id="managemen"><a href="#manage"><span class="rulycon-user"></span> User</a></li>
         </ul>
     </div>
 
@@ -81,7 +81,7 @@
 
                 <!-- list informasi-->
                 <li class="dropdown">
-                    <ul id="info" style="display:none">
+                    <ul id="info">
                         <li id="produkhukum"><a href="#"><span class="iconfa-laptop"></span> Produk Hukum</a></li>
                         <li id="ketatalaksanaan" class="dropdown"><a href="admin/layanan_ketatalaksanaan/edit_ketatalaksanaan"><span class="iconfa-hand-up"></span> Layanan Ketatalaksanaan</a>
                             <ul>
@@ -97,7 +97,7 @@
                         </li>
                         <li id="kelembagaan" class="dropdown"><a href="#"><span class="iconfa-briefcase"></span> Kelembagaan</a>
                             <ul>
-                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_kelembagaan')}}">Layanan Kelembagaan</a></li>
+                                <li id="laykel"><a href="{{URL::to('admin/layanankelembagaan/edit_kelembagaan')}}">Layanan Kelembagaan</a></li>
                                 <li><a href="{{URL::to('admin/layanankelembagaan/edit_pembentukan')}}">Pembentukan</a></li>
                                 <li><a href="{{URL::to('admin/layanankelembagaan/edit_penataan')}}">Penataan</a></li>
                                 <li><a href="{{URL::to('admin/layanankelembagaan/edit_statuta')}}">Statuta</a></li>
@@ -114,7 +114,7 @@
 
                 <!-- list aplikasi-->
                 <li class="dropdown" >
-                    <ul id="app" style="display:none">
+                    <ul id="app">
                         <li id="app_puu"><a href="{{ URL::route('index_per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
                             <!-- <ul>
                                 <li><a href="#">Lembar Usulan</a></li>
@@ -140,8 +140,10 @@
                 <!-- end list-->
 
                 <!-- list manajemen user-->
-                <li class="dropdown" id="manage" style="display:none" >
-                        <a href="{{URL::to('admin/account')}}"><span class="iconfa-laptop"></span> Kelola Akun</a>
+                <li class="dropdown">
+                    <ul id="manage">
+                        <li id="kelola"><a href="{{URL::to('admin/account')}}"><span class="iconfa-laptop"></span> Kelola Akun</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -169,11 +171,6 @@
 <script src="{{asset('assets/js/custom.js')}}"></script>
 <script type="text/javascript">
     jQuery(function ($) {
-        var pathmanageedit = window.location.pathname;
-        var pathname = window.location.pathname;
-        var p = pathmanageedit.substr(0,27);
-        var baseURL = '{{URL::to('/')}}';
-//        alert(p);
 
         $("#beranda").click(function(){
             $("#info").hide();
@@ -188,10 +185,6 @@
             $("#manage").hide();
         });
 
-        $("#kelembagaan").click(function(){
-            window.location.href = baseURL + "/admin/layanankelembagaan/edit";
-        });
-
         $("#ketatalaksanaan").click(function(){
             window.location.href = baseURL + "/admin/layananketatalaksanaan/edit_ketatalaksanaan";
         });
@@ -202,18 +195,11 @@
             $("#manage").hide();
         });
 
-        $("#manajemen").click(function(){
-//            var pathname = window.location.pathname;
-//            alert(pathname);
+        $("#managemen").click(function(){
             $("#info").hide();
             $("#app").hide();
             $("#manage").show();
         });
-
-        if(pathname == "/hukor/public/admin/account" || p == "/hukor/public/admin/account"){
-            $("#manage").show();
-            $("#manage").addClass("active");
-        }
 
     });
 </script>

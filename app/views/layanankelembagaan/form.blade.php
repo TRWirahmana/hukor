@@ -159,5 +159,17 @@
         height:"350px"
     });
     Registrasi.Form();
+
 </script>
+    <style>
+        .leftmenu .nav-tabs.nav-stacked > li.dropdown ul {
+            display: block !important;
+        }
+        #produkhukum, #ketatalaksanaan, #bahu, #puu, #diskusi, #callcenter, #app, #manage {
+            display: none !important;
+        }
+        #laykel{
+            background: #0866C6;
+        }
+    </style>
 @stop

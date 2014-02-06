@@ -1,15 +1,25 @@
 <?php
 
-class PerUU extends Eloquent {
-	protected $key = "id";
-	protected $table = "per_uu";
-	public $timestamps = false;
+class PerUU extends Eloquent
+{
 
-	public function pengguna() {
-		return $this->belongsTo('Pengguna', 'id_pengguna');
-	}
+    protected $key = "id";
+    protected $table = "per_uu";
+    public $timestamps = false;
 
-	public function log() {
-		return $this->hasMany('LogPerUU', "id_per_uu");
-	}
+    public function pengguna()
+    {
+        return $this->belongsTo('Pengguna', 'id_pengguna');
+    }
+
+    public function log()
+    {
+        return $this->hasMany('LogPerUU', "id_per_uu");
+    }
+
+    public function penanggungJawab()
+    {
+        return $this->hasOne('PenanggungJawabPerUU', 'id_per_uu');
+    }
+
 }

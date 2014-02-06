@@ -35,38 +35,38 @@
 <div class="row-fluid">
     <div class="span6">
         <fieldset>
-            <legend>INFORMASI PENGUSUL</legend>
+            <legend>Penanggung Jawab</legend>
             <div class="control-group">
                 <label for="" class="control-label">Tgl Usulan</label>
                 <div class="controls"><input type="text" disabled="" value="{{ $perUU->tgl_usulan }}"></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">Unit Kerja</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->pengguna->unit_kerja }}"></div>
+                <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->unit_kerja }}"></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">Jabatan</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->pengguna->detail_jabatan->nama_jabatan }}"></div>
+                <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->jabatan }}"></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">NIP</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->pengguna->nip }}"></div>
+                <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->NIP }}"></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">Nama</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->pengguna->nama_lengkap }}"></div>
+                <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->nama }}"></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">Alamat</label>
-                <div class="controls"><textarea rows="3" disabled>{{ $perUU->pengguna->alamat_kantor }}</textarea></div>
+                <div class="controls"><textarea rows="3" disabled>{{ $perUU->penanggungJawab->alamat_kantor }}</textarea></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">Telp Kantor</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->pengguna->tlp_kantor }}"></div>
+                <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->telp_kantor }}"></div>
             </div>
             <div class="control-group">
-                <label for="" class="control-label">Pos/Email</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->pengguna->email }}"></div>
+                <label for="" class="control-label">Email</label>
+                <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->email }}"></div>
             </div>
         </fieldset>
     </div>
@@ -80,7 +80,7 @@
             <div class="control-group">
                 <label for="" class="control-label">Lampiran</label>
                 <div class="controls">
-                    <a href="/assets/uploads/{{$perUU->lampiran}}">{{ explode('/', $perUU->lampiran)[1] }}</a>
+                    <a href="/admin/per_uu/download/{{$perUU->id}}">{{ explode('/', $perUU->lampiran)[1] }}</a>
                 </div>
             </div>
 
@@ -241,8 +241,8 @@
                 {mData: "catatan"},
                 {
                     mData: "lampiran",
-                    mRender: function(data) {
-                        return '<a href="/assets/uploads/'+data+'">'+data.split('/')[1]+'</a>';
+                    mRender: function(data, type, full) {
+                        return '<a href="/admin/per_uu/download/'+full.id_per_uu+'">'+data.split('/')[1]+'</a>';
                     }
                 }
                 // {mData: "id"}

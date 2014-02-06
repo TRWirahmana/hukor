@@ -26,7 +26,7 @@
 
             <!-- MAIN CONTENT -->
 <!--            {{-- form informasi layanan kelembagaan --}}-->
-            {{ Form::open(array('action' => array('LayananKelembagaanController@submit'), 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', 'enctype' => "multipart/form-data" )) }}
+            {{ Form::open(array('action' => array('LayananKelembagaanController@submit'), 'method' => 'post', 'id'=>'layanan-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', 'enctype' => "multipart/form-data" )) }}
             {{Form::hidden('id', $id, '')}}
 
             <div class="row-fluid">
@@ -142,7 +142,7 @@
 <script src="{{asset('assets/js/jquery.validate.js')}}"></script>
 <script src="{{asset('assets/js/additional-methods.js')}}"></script>
 
-<script src="{{asset('assets/js/registrasi.js')}}"></script>
+<script src="{{asset('assets/js/layanan.js')}}"></script>
 
 <script type="text/javascript">
     tinyMCE.init({
@@ -158,7 +158,7 @@
         theme_advanced_buttons3 : "",
         height:"350px"
     });
-    Registrasi.Form();
+    Layanan.Form();
 
 </script>
     <style>

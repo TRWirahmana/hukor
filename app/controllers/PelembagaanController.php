@@ -18,8 +18,8 @@ class PelembagaanController extends BaseController {
         	// $statusPro = Pelembagaan::where('status', 1)->count();
         	// $statusPerUU = Pelembagaan::where('status', 2)->count();
 
-//	       	$listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
-//	        													->lists('usulan_year', 'usulan_year');
+	       	$listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
+	        													->lists('usulan_year', 'usulan_year');
 
         if($user->role_id == 3){
 			$this->layout = View::make('layouts.admin');
@@ -27,7 +27,7 @@ class PelembagaanController extends BaseController {
         	$this->layout = View::make('layouts.master');
         }
 	    
-	    $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user));//, array( 'status_belum' => $statusUn, 'status_proses' => $statusPro));		
+	    $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user, 'listTgl'));//, array( 'status_belum' => $statusUn, 'status_proses' => $statusPro));		
 	}
 
     public function datatable()
@@ -140,14 +140,18 @@ class PelembagaanController extends BaseController {
 		);
 
 		$user = array(
-				'name' => 'User ',
-			    'email' => 'andhy.m0rphin@gmail.com'
+//				'name' => 'User ',
+//			    'email' => 'andhy.m0rphin@gmail.com' // 'email' => $pelembagaan->email;
 		);
 		 
 
 		Mail::send('emails.reppelembagaan', $data, function($message) use ($user)
 		{
-		  $message->to($user['email'], $user['name'])->subject('Re: Usulan Pelembagaan Request');
+		//  Email to pengusul
+        //	$message->to(array($pelembagaan->email)); 
+			$message->to(array('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com')); 
+			$message->subject('Re: Usulan Pelembagaan');
+//	  	    $message->to($user['email'], $user['name'])->subject('Re: Usulan Pelembagaan Request');
 		});
 
 
@@ -195,7 +199,9 @@ class PelembagaanController extends BaseController {
 		 
 			Mail::send('emails.reqpelembagaan', $data, function($message) use ($user)
 			{
-			  $message->to($user['email'], $user['name'])->subject('Usulan Pelembagaan Request');
+			  //$message->to($user['email'], $user['name'])->subject('Usulan Pelembagaan Request');
+			  $message->to(array('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com'));
+			  $message->subject('Usulan Pelembagaan');
 			});
 
 

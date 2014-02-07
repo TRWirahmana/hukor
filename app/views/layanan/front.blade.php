@@ -1,5 +1,5 @@
 @section('content')
-    <h2>Layanan Kelembagaan</h2>
+<h2>Layanan Kelembagaan</h2>
 <div class="stripe-accent"></div>
 
 <legend>
@@ -10,15 +10,15 @@
 
 @if($info != null)
 <!--    <h1>--><?php //echo $info->judul_berita; ?><!--</h1>-->
-    <br>
-    <p><?php echo $info->berita; ?></p>
+<br>
+<p><?php echo $info->berita; ?></p>
 
-    <p>Unit Penanggung Jawab: <?php echo $info->penanggung_jawab; ?></p>
-    <br>
+<p>Unit Penanggung Jawab: <?php echo $info->penanggung_jawab; ?></p>
+<br>
 
 <!--    Load Image-->
-    <?php $attach = $info->image; ?>
-    {{ HTML::image('assets/uploads/layanankelembagaan/' . $attach) }}
+<?php $attach = $info->image; ?>
+{{ HTML::image('assets/uploads/layanankelembagaan/' . $attach) }}
 @endif
 
 

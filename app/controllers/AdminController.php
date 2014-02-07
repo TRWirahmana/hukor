@@ -119,28 +119,6 @@ class AdminController extends BaseController {
 	public function create()
 	{
 
-//		$role = User::all();
-//
-//		$listRole = array();
-//		foreach($role as $data)
-//		{
-//			if($data->role_id != '0')
-//			{
-//                switch($data->role_id){
-//                    case 2 :
-//                        $listRole[$data->role_id] = "Pengguna";
-//                        break;
-//                    case 3 :
-//                        $listRole[$data->role_id] = "Admin";
-//                        break;
-//                    default:
-//                        $listRole[$data->role_id] = "Pengguna";
-//                        break;
-//
-//                }
-//			}
-//		}
-
         $listRole = array(
             '1' => 'Kepala Biro',
 //            '2' => 'Pengguna',

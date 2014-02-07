@@ -55,7 +55,7 @@
 @else
       <h2>Layanan Ketatalaksanaan</h2>
       <div class="stripe-accent"></div>
-      <legend>Informasi dan Status Usulan</legend>
+      <legend>Informasi dan Status</legend>
 @endif
 
 
@@ -99,11 +99,14 @@
 
 @stop
 
+@if($user->role_id == 3 )
 @section('scripts')
 @parent
         <script type="text/javascript">
+
         jQuery(function($){        
-        function fnFilterTahun (i)
+
+/*        function fnFilterTahun (i)
         {
             $("#tbl-pelembagaan").dataTable().fnFilter(
                     $("#filter_tahun").val(),
@@ -118,7 +121,7 @@
                     i                   
             );   
         }       
-
+*/
         var oTable;
         $(document).ready(function(){
                oTable = $("#tbl-pelembagaan").dataTable({
@@ -186,10 +189,12 @@
                                 mData: "id",
                                 sClass: 'center-ac',
                                  mRender: function(id) {
-                                    return "<a href='pelembagaan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
-                                        + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+id+"'>"
-                                        + "<i class='icon-trash'></i></a>";
-                                 }
+                                           return "<a href='pelembagaan/"+id+"/edit' title='Detail'><i class='icon-edit'></i></a>"
+                                                + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+id+"'>"
+                                                + "<i class='icon-trash'></i></a>";       
+                                    }
+ 
+                                 
                             }
                         ]
                   });             
@@ -208,10 +213,132 @@
                           return false;
                   });
 
-                  $("#filter_unit").keyup( function() { fnFilterUnit ( 2 ); } );
-
-                  $("#filter_tahun").change( function() { fnFilterTahun( 1 ); } );
+//                  $("#filter_unit").keyup( function() { fnFilterUnit ( 2 ); } );
+//                  $("#filter_tahun").change( function() { fnFilterTahun( 1 ); } );
             });
 });
         </script>        
 @stop
+
+@else
+@section('scripts')
+@parent
+        <script type="text/javascript">
+
+        jQuery(function($){        
+
+/*        function fnFilterTahun (i)
+        {
+            $("#tbl-pelembagaan").dataTable().fnFilter(
+                    $("#filter_tahun").val(),
+                    i                   
+            );   
+        }       
+        
+        function fnFilterUnit (i)
+        {
+            $("#tbl-pelembagaan").dataTable().fnFilter(
+                    $("#filter_unit").val(),
+                    i                   
+            );   
+        }       
+*/
+        var oTable;
+        $(document).ready(function(){
+               oTable = $("#tbl-pelembagaan").dataTable({
+                        sDom: 'T<"clear">lfrtip',
+                        oTableTools: {
+                              "sSwfPath": "/swf/copy_csv_xls_pdf.swf"
+                        },
+                        aButtons: ["copy", "print", {
+                               sExtends: "collection",
+                               sButtonText: "Save <span class=\"caret\" />",
+                               aButtons: ["csv", "xls", "pdf"]
+                          }],
+
+                        iDisplayLength: 5,
+                        bServerSide: true,
+                        sAjaxSource: document.location.href,
+                        aoColumns: [
+                            {
+                              mData: "id",
+                              sClass: 'center-ac',
+                              sWidth: '9%'
+                            },
+                            {
+                              mData: "tgl_usulan",
+                              sClass: 'center-ac',
+                              sWidth: '14%'
+                            },
+                            {
+                              mData: "unit_kerja",
+                              sClass: 'center-ac',                              
+                              sWidth: '14%'
+                            },
+                            {
+                              mData: "jabatan" ,
+                              sClass: 'center-ac',                              
+                              mRender: function ( data, type, full ) {
+                                  if (null != data && "" != data){
+                                    if(data ==='1'){
+                                      return 'Direktur';
+                                    }else if(data === '2'){
+                                      return 'Kepala Divisi';
+                                    }
+                                  }
+                                     return data;
+                              }
+                            },
+                            {mData: "perihal"},
+                            {
+
+                              mData: "status",
+                              mRender: function ( data, type, full ) {
+                                  if (null != data && "" != data){
+                                    if(data ==='1'){
+                                      return 'proses';
+                                    }else if(data === '2'){
+                                      return 'DiKirim Ke Bag PerUU';
+
+                                    }
+                                  }
+                                     return 'Belum Di Proses';
+                              }
+
+                            },
+                            {
+                                mData: "id",
+                                mData: "lampiran",
+                                sClass: 'center-ac',
+                                 mRender: function(id) {
+                                           return "<a href='pelembagaan/"+id+"/edit' title='Detail'>" + lampiran + " </a>"
+//                                           return  "<a href='"+location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/" + "assets/uploads/"+lampiran+"' >Unduh</a>"
+                                               ;       
+                                    }
+ 
+                                 
+                            }
+                        ]
+                  });             
+                  
+                  $("#tbl-pelembagaan").on('click', '.btn_delete', function(e){
+                          if (confirm('Apakah anda yakin ?')) {
+                            $.ajax({
+                              url: $(this).attr('href'),
+                              type: 'DELETE',
+                              success: function(response) {
+                                oTable.fnReloadAjax();
+                              }
+                            });
+                          }
+                          e.preventDefault();
+                          return false;
+                  });
+
+//                  $("#filter_unit").keyup( function() { fnFilterUnit ( 2 ); } );
+//                  $("#filter_tahun").change( function() { fnFilterTahun( 1 ); } );
+            });
+});
+        </script>        
+@stop
+@endif

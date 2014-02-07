@@ -110,6 +110,16 @@
         var oTable;
         $(document).ready(function(){
                oTable = $("#tbl-pelembagaan").dataTable({
+                        sDom: 'T<"clear">lfrtip',
+                        oTableTools: {
+                              "sSwfPath": "/swf/copy_csv_xls_pdf.swf"
+                        },
+                        aButtons: ["copy", "print", {
+                               sExtends: "collection",
+                               sButtonText: "Save <span class=\"caret\" />",
+                               aButtons: ["csv", "xls", "pdf"]
+                          }],
+
                         iDisplayLength: 5,
                         bServerSide: true,
                         sAjaxSource: document.location.href,

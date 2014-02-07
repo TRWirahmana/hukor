@@ -138,3 +138,7 @@ input, textarea, select {
 .leftmenu .nav-tabs.nav-stacked > li.active > a:hover {
   background: #6c5c51;
 }
+
+div.DTTT_container {
+  float: left;
+}

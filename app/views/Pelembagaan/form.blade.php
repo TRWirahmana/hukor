@@ -74,33 +74,6 @@
 			</div>
 		</div>
 
-
-		<div class="row-fluid">
-			<div class="span6"></div>		
-			<div class="span12">
-				<fieldset>
-		            <legend>Informasi Registrasi</legend>
-					<div class="control-group">
-					{{ Form::label("nama", "Nama", array('class' => 'control-label')) }}
-						<div class="controls"> <input type="text" disabled="" value="{{  $user->pengguna->nama_lengkap }}"></div>						
-					</div>
-				
-					<div class="control-group">
-					{{ Form::label("pos_el", "Pos El", array('class' => 'control-label')) }}
-						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->email }}"></div>						
-					</div>
-
-					<div class="control-group">
-					{{ Form::label("id-number", "Id-Number", array('class' => 'control-label')) }}
-						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->user_id }}"></div>						
-					</div>
-					<p>( <a href="#">klik disini untuk merubah informasi registrasi</a> )</p>
-					
-					
-					</fieldset>
-			</div>
-			<div class="span6"></div>	
-	</div>
 	<div class="form-actions">	
 		{{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
 		 <input class='btn btn-primary' Type="button" value="Batal" onClick="history.go(-1);return true;">

@@ -155,8 +155,54 @@
             <li id="menu-call-center"><a href="{{ URL::to('callcenter') }}"><span class="rulycon-phone"></span>Call Center</a></li>
 
             <li class="menu-header">Aplikasi</li>
-            <li id="menu-peraturan-perundangan"><a href="{{ URL::route('pengajuan_per_uu') }}"><span class="rulycon-pilcrow"></span>Peraturan Perundang-undangan</a></li>
-            <li id="menu-pelembagaan"><a href="{{URL::route('create_pelembagaan')}}"><span class="rulycon-office"></span>Pelembagaan</a></li>
+            <li id="menu-peraturan-perundangan"> <!-- <a href="{{ URL::route('pengajuan_per_uu') }}"><span class="rulycon-pilcrow"></span>Peraturan Perundang-undangan</a></li> -->
+              <div class="accordion" id="accordion3">
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapse3">
+                      <span class="rulycon-office"></span>Peraturan Perundang-undangan
+                      <span class="rulycon-menu-2 pull-right"></span>
+                    </a>
+                  </div>
+                  <div id="collapse3" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                      <ul>
+                        <li id="menu-peruu-usulan"><a href="{{ URL::route('pengajuan_per_uu')  }}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan</a></li>
+                        <li id="menu-peruu-informasi"><a href="#"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+
+            <li id="menu-pelembagaan">
+              <div class="accordion" id="accordion4">
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapse4">
+                      <span class="rulycon-office"></span>Pelembagaan
+                      <span class="rulycon-menu-2 pull-right"></span>
+                    </a>
+                  </div>
+                  <div id="collapse4" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                      <ul>
+                        <li id="menu-pelembagaan-usulan"><a href="{{URL::route('create_pelembagaan')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan</a></li>
+                        <li id="menu-pelembagaan-informasi"><a href="{{ URL::to('informasi_pelembagaan') }}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            
+
+
+
+
+
             <li id="menu-bantuan-hukum"><a href="{{URL::to('BantuanHukum')}}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>
           </ul>
         </div>

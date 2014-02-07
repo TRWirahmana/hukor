@@ -154,5 +154,44 @@ class HukorHelper {
             unlink($img_exists);
         }
     }
+
+    /**
+    * Generate array/query builder object to html table string.
+    * @author egisolehhasdi <egi.hasdi@sangkuriang.co.id>
+    * @param mixed @args Either an Array or Laravel Builder object
+    * @return String
+    */
+    public static function generateHtmlTable($args) {
+        $columns = array();
+        $rows = array();
+        $html = array();
+
+        if($args instanceof Illuminate\Database\Eloquent\Builder) {
+            $columns = $args->getQuery()->columns;
+            $rows = $args->get()->toArray();
+        } elseif(is_array($args)) {
+            $result = array();
+            foreach($args as $sub)
+                $result = array_merge($result, $sub);
+            $columns = array_keys($result);
+            $rows = $args;
+        } else { // the argument neither a Query Builder or an array
+            return null;
+        }
+
+        $html[] = "<table border='1'><thead><tr>";
+        foreach($columns as $col)
+            $html[] = "<th>" . $col . "</th>";
+        $html[] = "</tr></thead><tbody>";
+        foreach($rows as $row) {
+            $html[] = "<tr>";
+            foreach($row as $data)
+                $html[] = "<td>" . $data . "</td>";
+            $html[] = "</tr>";
+        }
+        $html[] = "</tbody></table>";
+
+        return join("", $html);
+    }
     
 }

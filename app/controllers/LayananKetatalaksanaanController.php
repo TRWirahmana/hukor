@@ -10,6 +10,7 @@ class LayananKetatalaksanaanController extends BaseController {
 		$this->layout->content = View::make('layananketatalaksanaan.index',
 		array(
 				'info' => $info,
+				'id' => 1
 		));
 	}
 
@@ -22,6 +23,7 @@ class LayananKetatalaksanaanController extends BaseController {
 
             array(
                 'info' => $info,
+                'id' => 2
             ));
     }
 
@@ -34,6 +36,7 @@ class LayananKetatalaksanaanController extends BaseController {
             array(
                 'info' => $info,
 //            'image' => $this->lihatLampiran()
+                'id' => 3
             ));
     }
 
@@ -45,6 +48,7 @@ class LayananKetatalaksanaanController extends BaseController {
         $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
+                'id' => 4
             ));
     }
 
@@ -56,6 +60,7 @@ class LayananKetatalaksanaanController extends BaseController {
         $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
+                'id' => 5
             ));
     }
 
@@ -69,6 +74,7 @@ class LayananKetatalaksanaanController extends BaseController {
             array(
                 'info' => $info,
 //            'image' => $this->lihatLampiran()
+                'id' => 6
             ));
     }
 
@@ -80,6 +86,7 @@ class LayananKetatalaksanaanController extends BaseController {
         $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
+                'id' => 7
             ));
     }
 
@@ -91,6 +98,7 @@ class LayananKetatalaksanaanController extends BaseController {
         $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
+                'id' => 8
             ));
     }
 

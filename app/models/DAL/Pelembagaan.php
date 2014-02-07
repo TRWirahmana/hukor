@@ -9,7 +9,8 @@ class DAL_Pelembagaan {
                             'pengguna.unit_kerja',
                             'pengguna.jabatan',
                             'pelembagaan.perihal',
-                            'pelembagaan.status'
+                            'pelembagaan.status',
+                            'pelembagaan.lampiran'
                 ));     
     }
 }

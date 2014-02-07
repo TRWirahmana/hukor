@@ -159,4 +159,56 @@ class PeruuController extends BaseController
         return Response::download($path, explode('/', $perUU->lampiran)[1]);
     }
 
+    public function printTable() {
+        $dataPerUU = DAL_PerUU::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null));
+        $data = array();
+        foreach($dataPerUU->get() as $index => $perUU) {
+            $tglUsulan = new DateTime($perUU->tgl_usulan);
+            $data[$index]['ID'] = $perUU->id;
+            $data[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
+            $data[$index]['Unit Kerja'] = $perUU->unit_kerja;
+            $data[$index]['Perihal'] = $perUU->perihal;
+            $data[$index]['status'] = $this->getStatus($perUU->status);
+            $data[$index]['lampiran'] = '<a href="#">'.$perUU->lampiran.'</a>';
+        }
+
+        $table1 = HukorHelper::generateHtmlTable($data);
+        $html = <<<HTML
+            <style>
+                table { border-collapse: collapse;}
+                table td, table th { padding: 5px;}
+            </style>
+            <h1>Peraturan Perundang Undangan</h1>
+            {$table1}
+HTML;
+
+        $pdf = new DOMPDF();
+        $pdf->load_html($html);
+        $pdf->render();
+        $pdf->stream("peraturan_perundang_undangan.pdf");
+    }
+
+    private function getStatus($status) {
+        switch ($status) {
+            case 1:
+                return "Diproses";
+                break;
+            case 2:
+                return "Ditunda";
+                break;
+            case 3:
+                return "Ditolak";
+                break;
+            case 4:
+                return "Buat Salinan";
+                break;
+            case 5:
+                return "Penetapan";
+                break;
+            default:
+                return "";
+                break;
+        }
+    }
+
 }

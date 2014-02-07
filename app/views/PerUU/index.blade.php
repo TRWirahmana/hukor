@@ -27,21 +27,49 @@
             <!-- MAIN CONTENT -->
 
             <div class="content-non-title">
-                <legend>
-                    Informasi & Status Usulan
-                </legend>
-                <div class="form-inline pull-right">
-                    <label for="select-status">Status: </label>
-                    <select id="select-status">
-                        <option value="">Semua Status</option>
-                        <option value="1">Diproses</option>
-                        <option value="2">Ditunda</option>
-                        <option value="3">Ditolak</option>
-                        <option value="4">Buat Salinan</option>
-                        <option value="5">Penetapan</option>
-                    </select>
-                </div>
+                <form class="form form-horizontal" action="{{URL::route('print_table')}}">
+                    <fieldset>
+                        <legend class="f_legend">Filter</legend>
+                        <div class="row-fluid">
+                            <div class="span6">
+                                <div class="control-group">
+                                    <label for="" class="control-label">Tanggal Awal</label>
+                                    <div class="controls">
+                                        <input type="text" id="first-date" name="firstDate">
+                                    </div>
+                                </div>
 
+                                <div class="control-group">
+                                    <label for="toDate" class="control-label">Tanggal Akhir</label>
+                                    <div class="controls">
+                                        <input type="text" id="last-date" name="lastDate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span6">
+                                <div class="control-group">
+                                    <label for="select-status" class="control-label">Status</label>
+                                    <div class="controls">
+                                        <select id="select-status" name="status">
+                                            <option value="">Semua Status</option>
+                                            <option value="1">Diproses</option>
+                                            <option value="2">Ditunda</option>
+                                            <option value="3">Ditolak</option>
+                                            <option value="4">Buat Salinan</option>
+                                            <option value="5">Penetapan</option>
+                                        </select>        
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input type="submit" value="Cetak" class="btn btn-primary">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
 
                 <table id="tbl-per-uu">
                     <thead>
@@ -88,13 +116,18 @@
         jQuery(function($) {
             $("#menu-peraturan-perundangan").addClass("active");
 
+            $("#first-date").datepicker();
+            $("#last-date").datepicker();
+
             $dataTable = $("#tbl-per-uu").dataTable({
-                sDom: 'Tfrtip',
-                oTableTools: {
-                    sSwfPath: "/assets/TableTools-2.2.0/swf/copy_csv_xls_pdf.swf"
-                },
+                // sDom: 'Trtip',
+                // oTableTools: {
+                //     sSwfPath: "/assets/TableTools-2.2.0/swf/copy_csv_xls_pdf.swf"
+                // },
                 bServerSide: true,
                 sAjaxSource: document.location.href,
+                bFilter: false,
+                bLengthChange: false,
                 aoColumns: [
                     {
                         mData: "id",
@@ -158,6 +191,8 @@
                 ],
                 fnServerParams: function(aoData) {
                     aoData.push({name: "status", value: $("#select-status").val()});
+                    aoData.push({name: "firstDate", value: $("#first-date").val()});
+                    aoData.push({name: "lastDate", value: $("#last-date").val()});
                 }
             });
 
@@ -171,7 +206,7 @@
                 });
             });
 
-            $("#select-status").change(function() {
+            $("#select-status, #first-date, #last-date").change(function() {
                 $dataTable.fnReloadAjax();
             });
 

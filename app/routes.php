@@ -104,6 +104,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
         Route::get('download/{id}', "PeruuController@downloadLampiran");
         Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
         Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
+        Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
     });
 
 
@@ -234,3 +235,8 @@ Route::group(array('prefix' => 'layanan_ketatalaksanaan'), function() {
 
 
 Route::get('forumdiskusi', "HomeController@showForum");
+
+Route::get('dompdftest', function(){
+    
+});
+

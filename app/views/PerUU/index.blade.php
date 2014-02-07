@@ -82,11 +82,17 @@
 
     @section('scripts')
     @parent
+    <script src="{{asset('assets/js/ZeroClipboard.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/TableTools-2.2.0/js/dataTables.tableTools.min.js')}}"></script>
     <script type="text/javascript">
         jQuery(function($) {
             $("#menu-peraturan-perundangan").addClass("active");
 
             $dataTable = $("#tbl-per-uu").dataTable({
+                sDom: 'Tfrtip',
+                oTableTools: {
+                    sSwfPath: "/assets/TableTools-2.2.0/swf/copy_csv_xls_pdf.swf"
+                },
                 bServerSide: true,
                 sAjaxSource: document.location.href,
                 aoColumns: [

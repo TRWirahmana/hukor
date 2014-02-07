@@ -14,14 +14,12 @@ class DAL_PerUU {
                     'per_uu.lampiran'
         ));
 
-        if(null != $filter) {
+        if(null != $filter)
             $data->where("per_uu.status", "=", $filter);
-        }
-
-        if(null != $firstDate) {
-            $firstDate = DateTime::createFromFormat("d/m/Y", $firstDate);
-            
-        }
+        if(null != $firstDate)
+            $data->where(DB::raw("DATE(per_uu.tgl_usulan)"), ">=", DateTime::createFromFormat("d/m/Y", $firstDate)->format('Y-m-d'));
+        if(null != $lastDate)
+            $data->where(DB::raw("DATE(per_uu.tgl_usulan)"), "<=", DateTime::createFromFormat("d/m/Y", $lastDate)->format('Y-m-d'));
 
         return $data;
     }

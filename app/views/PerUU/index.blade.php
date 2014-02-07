@@ -27,7 +27,7 @@
             <!-- MAIN CONTENT -->
 
             <div class="content-non-title">
-                <form class="form form-horizontal" action="{{URL::route('print_table')}}">
+                <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_table')}}">
                     <fieldset>
                         <legend class="f_legend">Filter</legend>
                         <div class="row-fluid">
@@ -63,6 +63,7 @@
 
                                 <div class="control-group">
                                     <div class="controls">
+                                        <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
                                         <input type="submit" value="Cetak" class="btn btn-primary">
                                     </div>
                                 </div>
@@ -116,8 +117,12 @@
         jQuery(function($) {
             $("#menu-peraturan-perundangan").addClass("active");
 
-            $("#first-date").datepicker();
-            $("#last-date").datepicker();
+            $("#first-date").datepicker({
+                dateFormat: "dd/mm/yy"
+            });
+            $("#last-date").datepicker({
+                dateFormat: "dd/mm/yy"
+            });
 
             $dataTable = $("#tbl-per-uu").dataTable({
                 // sDom: 'Trtip',
@@ -209,6 +214,11 @@
             $("#select-status, #first-date, #last-date").change(function() {
                 $dataTable.fnReloadAjax();
             });
+
+            $("#form-filter").on("reset", function(){
+                $dataTable.fnReloadAjax();
+            });
+
 
         });
 

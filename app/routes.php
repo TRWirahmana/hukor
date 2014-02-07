@@ -187,6 +187,7 @@ Route::group(array('prefix' => 'per-uu'), function() {
 
 
 Route::group(array('prefix' => 'pelembagaan'), function() {
+    Route::get('informasi', array('as' => 'informasi_pelembagaan', 'uses' => 'PelembagaanController@index'));
     Route::get('usulan', array('as' => 'create_pelembagaan', 'uses' => 'PelembagaanController@create'));
     Route::post('usulan', array('as' => 'store_pelembagaan', 'uses' => 'PelembagaanController@store'));
 });

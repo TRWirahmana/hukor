@@ -8,6 +8,9 @@ class PelembagaanController extends BaseController {
 
 	public function index()
 	{
+
+		$user = Auth::user();
+//		$user->role_id;
         if(Request::ajax())           
             return Datatables::of(DAL_Pelembagaan::getDataTable())->make(true);
             
@@ -17,11 +20,14 @@ class PelembagaanController extends BaseController {
 
 //	       	$listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
 //	        													->lists('usulan_year', 'usulan_year');
-//	    $this->layout->content = View::make('Pelembagaan.index', array());		
+
+        if($user->role_id == 3){
+			$this->layout = View::make('layouts.admin');
+        } else {
+        	$this->layout = View::make('layouts.master');
+        }
 	    
-    	//$this->layout = View::make('layouts.admin');
-		$this->layout = View::make('layouts.admin');
-	    $this->layout->content = View::make('Pelembagaan.index');//, array( 'status_belum' => $statusUn, 'status_proses' => $statusPro));		
+	    $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user));//, array( 'status_belum' => $statusUn, 'status_proses' => $statusPro));		
 	}
 
     public function datatable()

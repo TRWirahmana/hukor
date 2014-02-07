@@ -1,7 +1,12 @@
-@section('admin')
+@if($user->role_id == 3 )
+  @section('admin')
+@else
+  @section('content')
+@endif
 
+
+@if($user->role_id == 3 )
 <div class="rightpanel">
-
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
         <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
@@ -23,49 +28,57 @@
 
     <div class="maincontent">
         <div class="maincontentinner">
-
             <!-- MAIN CONTENT -->
 
-<div class="content-non-title">
-  <legend>
-    Informasi & Status Usulan
-      </legend>
+            <div class="content-non-title">
+              <legend>
+                Informasi & Status Usulan
+                  </legend>
+              
+                  // notifikasi status 
+                 @if($status_belum != 0)
+                  <div class="row-fluid" style="border-bottom: 1px solid #e5e5e5;">
+                  <b>
+                    <table>   
+                      <tr>
+                          <td width="100" class="style11">Status terkini : </td>
+                          <td class="style10"><div align="right" style="color: red"> {{ $status_belum }} </div></td>
+                          <td width="5" class="style3"></td>
+                          <td class="style11">usulan pelembagaan yang belum di proses </td>
+                      </tr>
+                    </table>
+                    </b>
+                    <br />
+                  </div>
+                  @endif
 
-   @if($status_belum != 0)
-    <div class="row-fluid" style="border-bottom: 1px solid #e5e5e5;">
-    <b>
-      <table>   
-        <tr>
-            <td width="100" class="style11">Status terkini : </td>
-            <td class="style10"><div align="right" style="color: red"> {{ $status_belum }} </div></td>
-            <td width="5" class="style3"></td>
-            <td class="style11">usulan pelembagaan yang belum di proses </td>
-        </tr>
-      </table>
-      </b>
-      <br />
-    </div>
-    @endif
+@else
+      <h2>Layanan Ketatalaksanaan</h2>
+      <div class="stripe-accent"></div>
+      <legend>Informasi dan Status Usulan</legend>
+@endif
 
 
-  <br />
-    <table id="tbl-pelembagaan">  
-        <thead>
-        <tr>
-            <th>No. Usulan</th>
-            <th>Tgl Usulan</th>
-            <th>Unit Kerja</th>
-            <th>Jabatan</th>
-            <th>Perihal</th>
-            <th>Status</th>
-            <th> - </th>
-        </tr>
-        </thead>
-        <tbody></tbody>
+                <br />
+                  <table id="tbl-pelembagaan">  
+                      <thead>
+                      <tr>
+                          <th>No. Usulan</th>
+                          <th>Tgl Usulan</th>
+                          <th>Unit Kerja</th>
+                          <th>Jabatan</th>
+                          <th>Perihal</th>
+                          <th>Status</th>
+                          <th> - </th>
+                      </tr>
+                      </thead>
+                      <tbody></tbody>
 
-    </table>
+                  </table>
 
                 <!-- END OF MAIN CONTENT -->
+@if($user->role_id == 3 )
+
 
                 <div class="footer">
                 <div class="footer-left">
@@ -80,10 +93,9 @@
         <!--maincontentinner-->
     </div>
     <!--maincontent-->
-
-
 </div>
 <!--rightpanel-->
+@endif
 
 @stop
 

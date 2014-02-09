@@ -26,7 +26,16 @@
       <file leaf-file-name="MenuController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/MenuController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="0" selection-start="1276" selection-end="1276" vertical-scroll-proportion="-5.0" vertical-offset="510" max-vertical-offset="2686">
+            <state line="100" column="32" selection-start="2940" selection-end="2940" vertical-scroll-proportion="-4.0" vertical-offset="1496" max-vertical-offset="2907">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="master.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="139" column="88" selection-start="6653" selection-end="6653" vertical-scroll-proportion="0.5114943" vertical-offset="2096" max-vertical-offset="4012">
               <folding />
             </state>
           </provider>
@@ -35,25 +44,25 @@
       <file leaf-file-name="Submenu.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Submenu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="31" selection-start="196" selection-end="196" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="323">
+            <state line="11" column="27" selection-start="271" selection-end="271" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="340">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Menu.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Menu.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Menu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="1" selection-start="290" selection-end="290" vertical-scroll-proportion="0.42829457" vertical-offset="0" max-vertical-offset="516">
+            <state line="9" column="5" selection-start="241" selection-end="241" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="272">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/admin.blade.php">
+      <file leaf-file-name="Layanan.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/Layanan.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="98" selection-start="3287" selection-end="3287" vertical-scroll-proportion="62.23077" vertical-offset="2672" max-vertical-offset="3672">
+            <state line="5" column="29" selection-start="163" selection-end="163" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="272">
               <folding />
             </state>
           </provider>
@@ -62,10 +71,8 @@
       <file leaf-file-name="berita.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/js/berita.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="28" selection-start="0" selection-end="2414" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1428">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="24" column="0" selection-start="658" selection-end="658" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1394">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -73,45 +80,7 @@
       <file leaf-file-name="form.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/menu/form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="36" selection-start="2756" selection-end="2756" vertical-scroll-proportion="-3.5490196" vertical-offset="822" max-vertical-offset="2193">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menus.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/js/menus.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="26" selection-start="2903" selection-end="2903" vertical-scroll-proportion="-12.84" vertical-offset="1192" max-vertical-offset="2074">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Layanan.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Layanan.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="1" selection-start="295" selection-end="295" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="323">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DAL_Menu.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Menu.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="397" selection-end="397" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="425">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="master.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="104" selection-start="6634" selection-end="6634" vertical-scroll-proportion="-6.923077" vertical-offset="2149" max-vertical-offset="3196">
+            <state line="71" column="93" selection-start="3672" selection-end="3672" vertical-scroll-proportion="-15.692307" vertical-offset="799" max-vertical-offset="2193">
               <folding />
             </state>
           </provider>
@@ -135,14 +104,14 @@
         <option value="$PROJECT_DIR$/app/views/menu/index.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/js/management_menu.js" />
         <option value="$PROJECT_DIR$/app/models/DAL/DAL_Menu.php" />
-        <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
-        <option value="$PROJECT_DIR$/app/models/Layanan.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/admin.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/menu/form.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/js/menus.js" />
-        <option value="$PROJECT_DIR$/app/controllers/MenuController.php" />
+        <option value="$PROJECT_DIR$/app/views/menu/form.blade.php" />
         <option value="$PROJECT_DIR$/app/models/Submenu.php" />
         <option value="$PROJECT_DIR$/app/models/Menu.php" />
+        <option value="$PROJECT_DIR$/app/models/Layanan.php" />
+        <option value="$PROJECT_DIR$/app/controllers/MenuController.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
       </list>
     </option>
   </component>
@@ -150,7 +119,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1296" />
+    <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -578,16 +547,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33106962" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33049405" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33106962" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3452188" sideWeight="0.6689304" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22272727" sideWeight="0.66950595" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -596,6 +564,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33106962" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -615,118 +584,110 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Berita.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="15" selection-start="415" selection-end="566" vertical-scroll-proportion="-5.8461537" vertical-offset="239" max-vertical-offset="612">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="336" column="5" selection-start="8720" selection-end="9571" vertical-scroll-proportion="-6.372549" vertical-offset="5387" max-vertical-offset="5865">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/menu/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="27" selection-start="1634" selection-end="1634" vertical-scroll-proportion="-8.5" vertical-offset="510" max-vertical-offset="1326">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/management_menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="32" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="986">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/BeritaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="8" selection-start="469" selection-end="586" vertical-scroll-proportion="-4.576923" vertical-offset="306" max-vertical-offset="4573">
-          <folding />
-        </state>
+        <state line="25" column="8" selection-start="469" selection-end="586" vertical-scroll-proportion="-4.576923" vertical-offset="306" max-vertical-offset="4573" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="7" selection-start="263" selection-end="263" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="850">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="104" selection-start="6634" selection-end="6634" vertical-scroll-proportion="-6.923077" vertical-offset="2149" max-vertical-offset="3196">
-          <folding />
-        </state>
+        <state line="7" column="7" selection-start="263" selection-end="263" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="850" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Menu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="397" selection-end="397" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="425">
+        <state line="12" column="13" selection-start="397" selection-end="397" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="425">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/menus.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="26" selection-start="2903" selection-end="2903" vertical-scroll-proportion="-12.84" vertical-offset="1192" max-vertical-offset="2074">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="89" column="26" selection-start="2903" selection-end="2903" vertical-scroll-proportion="0.0" vertical-offset="1192" max-vertical-offset="2074">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/admin.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="98" selection-start="3287" selection-end="3287" vertical-scroll-proportion="62.23077" vertical-offset="2672" max-vertical-offset="3672">
+        <state line="62" column="98" selection-start="3196" selection-end="3196" vertical-scroll-proportion="0.0" vertical-offset="1054" max-vertical-offset="3706">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/LogBantuanHukum.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/LogPelembagaan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/PerUU.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/LogPerUU.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/menu/form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="93" selection-start="3672" selection-end="3672" vertical-scroll-proportion="-15.692307" vertical-offset="799" max-vertical-offset="2193">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/berita.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="28" selection-start="0" selection-end="2414" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1428">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/menu/form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="36" selection-start="2756" selection-end="2756" vertical-scroll-proportion="-3.5490196" vertical-offset="822" max-vertical-offset="2193">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/MenuController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="0" selection-start="1276" selection-end="1276" vertical-scroll-proportion="-5.0" vertical-offset="510" max-vertical-offset="2686">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Submenu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="31" selection-start="196" selection-end="196" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="323">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Layanan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="1" selection-start="295" selection-end="295" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="323">
+        <state line="24" column="0" selection-start="658" selection-end="658" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1394">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Menu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="1" selection-start="290" selection-end="290" vertical-scroll-proportion="0.42829457" vertical-offset="0" max-vertical-offset="516">
+        <state line="9" column="5" selection-start="241" selection-end="241" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="272">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Submenu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="27" selection-start="271" selection-end="271" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="340">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Layanan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="29" selection-start="163" selection-end="163" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="272">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/MenuController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="32" selection-start="2940" selection-end="2940" vertical-scroll-proportion="-4.0" vertical-offset="1496" max-vertical-offset="2907">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="139" column="88" selection-start="6653" selection-end="6653" vertical-scroll-proportion="0.5114943" vertical-offset="2096" max-vertical-offset="4012">
           <folding />
         </state>
       </provider>

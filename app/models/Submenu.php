@@ -2,7 +2,8 @@
 class Submenu extends Eloquent {
     protected $key = "id";
     protected $table = "sub_menu";
-//    public $timestamps = false;
+    protected $guarded = array();
+    public $timestamps = true;
 
     public function menu() {
         return $this->belongsTo('Menu');

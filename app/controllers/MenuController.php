@@ -99,7 +99,7 @@ class MenuController extends BaseController {
     {
         $this->layout = View::make('layouts.admin');
         $menu = Menu::find($id);
-//        $menu->load('submenu');
+        $menu->load('submenu');
         if(!is_null($menu))
             $this->layout->content = View::make('menu.form', array(
                 'title' => 'Ubah Menu #' . $menu->id,
@@ -122,13 +122,26 @@ class MenuController extends BaseController {
     public function update($id)
     {
         $input = Input::all();
-
+        $in_submenu = $input['submenu'];
         $menu = Menu::find($id);
 
-        $menu->nama_menu = $input['menu'];
-        $menu->save();
-        $menu->submenu->nama_submenu = $input['nama_submenu'];
-        $menu->submenu->save();
+        if($in_submenu != null){
+
+            $menu->save();
+
+            $menu->submenu()->delete();
+            foreach ($in_submenu as $data) {
+                if(empty($data['nama_submenu'])) continue;
+
+                $data['menu_id'] = $menu->id;
+                $data['created_at'] = date("Y-m-d H:i:s");
+                $data['updated_at'] = date("Y-m-d H:i:s");
+                $menu->submenu()->save(new Submenu($data));
+            }
+
+        }else{
+            $menu->save();
+        }
 
         return Redirect::to('admin/menu')->with('success', 'Data Menu berhasil diubah.');
     }

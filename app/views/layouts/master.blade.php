@@ -119,6 +119,7 @@
 
               <!-- Menu Layanan(Dinamisasi)-->
               <?php $menu = Menu::all();
+//              echo $menu;exit;
               $no = 1; ?>
               @foreach($menu as $menus)
               <li id="menu-{{ $menus->id }}" >
@@ -130,16 +131,17 @@
                                   <span class="rulycon-menu-2 pull-right"></span>
                               </a>
                           </div>
-                          @if($menus->submenu->id != null)
-                              @foreach($menus->submenu->get() as $submenus)
+                          @if($menus->submenu != null)
+
                               <div id="collapse{{$no}}" class="accordion-body collapse">
                                   <div class="accordion-inner">
                                       <ul>
-                                          <li><a href="{{ URL::to('admin/menu/'.$submenus->layanan->id.'/edit') }}"><span class="rulycon-earth"></span> {{ $submenus->nama_submenu }}</a></li>
+                                          @foreach($menus->submenu as $submenus)
+                                          <li><a href="{{ URL::to('/layanan/'. $submenus->layanan->id .'/detail') }}"><span class="rulycon-earth"></span> {{ $submenus->nama_submenu }}</a></li>
+                                          @endforeach
                                       </ul>
                                   </div>
                               </div>
-                               @endforeach
                           @endif
                       </div>
                   </div>

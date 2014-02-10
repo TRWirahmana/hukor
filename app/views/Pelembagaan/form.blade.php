@@ -21,32 +21,43 @@
 					
 					<div class="control-group">
 						{{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label'))}}
-							<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->unit_kerja }}"></div>						
+						<div class="controls">
+							{{ Form::text('unit_kerja') }}
+						</div>
 					</div>		
 
 					<div class="control-group">
 						{{ Form::label('nip', "NIP", array('class' => 'control-label'))}}
-							<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->nip }}"></div>						
+						<div class="controls">
+							{{ Form::text('nip')}}
+						</div>
 					</div>
 
 					<div class="control-group">
 						{{ Form::label('nama_pemohon', "Nama Pemohon", array('class' => 'control-label'))}}					
-						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->nama_lengkap }}"></div>	
+						<div class="controls">
+							{{ Form::text('nama_pemohon', $user->pengguna->nama_lengkap ) }}
+						</div>
 					</div>	
-
 
 					<div class="control-group">
 						{{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label'))}}
-						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->alamat_kantor}}"></div>	
+						<div class="controls">
+							{{ Form::text('alamat_kantor') }}
+						</div>
 					</div>	
 
 					<div class="control-group">
 						{{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label'))}}
-						<div class="controls"> <input type="text" disabled="" value="{{  $user->pengguna->tlp_kantor }}"></div>	
+						<div class="controls">
+							{{ Form::text('telp_kantor') }}
+						</div>
 					</div>
 					<div class="control-group">
 						{{ Form::label('pos_el', 'Pos_el', array('class' => 'control-label'))}}
-						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->email }}"></div>	
+						<div class="controls">
+							{{ Form::text('email', $user->pengguna->email) }}
+						</div>
 					</div>	
 				</fieldset>
 			</div>

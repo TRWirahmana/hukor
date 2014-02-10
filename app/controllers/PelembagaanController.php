@@ -12,8 +12,7 @@ class PelembagaanController extends BaseController {
 		$user = Auth::user();
 //		$user->role_id;
         if(Request::ajax())           
-            return Datatables::of(DAL_Pelembagaan::getDataTable())->make(true);
-            
+            return Datatables::of(DAL_Pelembagaan::getDataTable())->make(true);            
         	// $statusUn = Pelembagaan::where('status', null)->count();
         	// $statusPro = Pelembagaan::where('status', 1)->count();
         	// $statusPerUU = Pelembagaan::where('status', 2)->count();
@@ -193,8 +192,7 @@ class PelembagaanController extends BaseController {
 		//	    'email' => 'jufri.suandi@gmail.com'
 		//	)
 		);
-		 
-
+		 \
 		//	while()
 		 
 			Mail::send('emails.reqpelembagaan', $data, function($message) use ($user)
@@ -207,6 +205,17 @@ class PelembagaanController extends BaseController {
 
 		if($uploadSuccess) {
 			if($pelembagaan->save()) {
+		     	$penanggungJawab = new PenanggungJawabPelembagaan();
+				$penanggungJawab->pelembagaan_id = $pelembagaan->id;
+				$penanggungJawab->nama = Input::get('nama_pemohon');
+//				$penanggungJawab->jabatan = Input::get('jabatan');
+				$penanggungJawab->nip = Input::get('nip');				
+				$penanggungJawab->unit_kerja = Input::get('unit_kerja');
+				$penanggungJawab->alamat_kantor = Input::get('alamat_kantor');
+				$penanggungJawab->telp_kantor = Input::get('telp_kantor');
+				$penanggungJawab->email = Input::get('email');
+				$penanggungJawab->save();
+
 				Session::flash('success', 'Data berhasil dikirim.');
 				return Redirect::to('pelembagaan/usulan'); //->with('success', 'Data berhasil diubah.');
 			} else {
@@ -221,7 +230,6 @@ class PelembagaanController extends BaseController {
 		return Redirect::to('pelembagaan/usulan');
 	}
 
-
 	public function destroy($id)
 	{
 		$pelembagaan = Pelembagaan::find($id);
@@ -229,5 +237,55 @@ class PelembagaanController extends BaseController {
 			$pelembagaan->delete();
 		}
 	}
+
+    public function downloadLampiran($id)
+    {
+        $pelembagaan = Pelembagaan::find($id) or App::abort(404);
+        $path = UPLOAD_PATH . DS . $pelembagaan->lampiran;
+        return Response::download($path, explode('/', $pelembagaan->lampiran)[1]);
+    }
+
+	public function printTable() {
+//		$dataPelembagaan = DAL_Pelembagaan::getDataTable();
+//		echo "=================";
+        $dataPerUU = DAL_PerUU::getDataTable();
+
+        var_dump($dataPerUU);
+
+		exit;
+//		var_dump($dataPelembagaan);
+//		exit;
+
+/*
+		$data = array();
+		for($dataPelembagaan->get() as $index => $pelembagaan){
+			$tglUsulan = new DateTime($pelembagaan->tgl_usulan);
+			$data[$index]['ID'] = $pelembagaan->id;
+			$data[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
+			$data[$index]['Unit Kerja'] = $pelembagaan->unit_kerja;
+			$data[$index]['Perihal'] = $pelembagaan->perihal;
+			$data[$index]['status'] = "status";
+			$data[$index]['lampiran'] = '<a href="#">'.$pelembagaan->lampiran.'</a>';		
+		}
+
+		$table = HukorHelper::generateHtmlTable($data);
+
+		$html = <<<HTML
+			<style>
+				table{ border-collapse: collapse; }
+				table td, table th { padding: 5px; }
+			</style>
+			<h1>Pelembagaan</h1>
+			{$table}
+HTML;
+			$pdf = new DOMPDF();
+			$pdf->load_html($html);
+			$pdf->render();
+			$pdf->stream("pelembagaan.pdf");
+*/	
+	}
+
+
+
 
 }

@@ -199,7 +199,7 @@
                 <div class="accordion-group">
                   <div class="accordion-heading">
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapse4">
-                      <span class="rulycon-office"></span>Pelembagaan
+                      <span class="rulycon-book"></span>Pelembagaan
                       <span class="rulycon-menu-2 pull-right"></span>
                     </a>
                   </div>
@@ -207,7 +207,7 @@
                     <div class="accordion-inner">
                       <ul>
                         <li id="menu-pelembagaan-usulan"><a href="{{URL::route('create_pelembagaan')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan</a></li>
-                        <li id="menu-pelembagaan-informasi"><a href="{{ URL::to('informasi_pelembagaan') }}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
+                        <li id="menu-pelembagaan-informasi"><a href="{{ URL::route('informasi_pelembagaan') }}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
                       </ul>
                     </div>
                   </div>

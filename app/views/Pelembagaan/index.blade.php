@@ -52,6 +52,18 @@
                   </div>
                   @endif
 
+
+                <form class="form form-horizontal" action="{{URL::route('print_table_pelembagaan')}}">
+                    <fieldset>
+
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input type="submit" value="Cetak" class="btn btn-primary">
+                                    </div>
+                                </div>
+                  </fieldset>
+                </form>
+
 @else
       <h2>Layanan Ketatalaksanaan</h2>
       <div class="stripe-accent"></div>
@@ -124,16 +136,19 @@
         }       
         
         $(document).ready(function(){
+            var role_id = <?php if($user->role_id) echo $user->role_id; else echo '0'; ?>;
             var oTable = $("#tbl-pelembagaan").dataTable({
                         iDisplayLength: 5,
                         bServerSide: true,
                         sAjaxSource: document.location.href,
                         aoColumns: [
+
                             {
                               mData: "id",
                               sClass: 'center-ac',
                               sWidth: '3%'
                             },
+
                             {
                               mData: "id",
                               sClass: 'center-ac',
@@ -182,17 +197,20 @@
                             },
                             {
                                 mData: "id",
-//                                mData: "lampiran",
                                 sClass: 'center-ac',
                                 sWidth: '10%',
-                                 mRender: function(id) {
-                                   //       return  "<a href='"+location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/" + "assets/uploads/"+lampiran+"' ><i class='icon-download'></i></a>"
-                                            return     "&nbsp;<a href='pelembagaan/"+id+"/edit' title='Detail'><i class='icon-edit'></i></a>"
-                                                + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+id+"'>"
-                                                + "<i class='icon-trash'></i></a>";       
-                                    }
- 
-                                 
+                                 mRender: function(data, type, full) {
+                                        if(role_id == 3){
+                                          return "<a href='pelembagaan/"+data+"/download'> <i class='icon-download'></i></a>"  
+                                                + "&nbsp;<a href='pelembagaan/"+data+"/edit' title='Detail'><i class='icon-edit'></i></a>"
+                                                + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+data+"'>"
+                                                + "<i class='icon-trash'></i></a>";
+                                        } else if(role_id == 0 ) {
+                                          return "<a href='"+data+"/download'> <i class='icon-download'></i></a>";
+                                        }  else {
+                                          return "<a href='"+data+"/download'> <i class='icon-download'></i></a>";
+                                        }
+                              }
                             }
                         ],
                                     
@@ -210,13 +228,8 @@
                               { "bSortable": false, "aTargets": [ 0 ] }
                         ],
                         "aaSorting": [[ 1, 'asc' ]]
-
-
-
                   }); 
 
-
-                 
                   $("#tbl-pelembagaan").on('click', '.btn_delete', function(e){
                           if (confirm('Apakah anda yakin ?')) {
                             $.ajax({
@@ -234,8 +247,6 @@
                   $("#filter_unit").keyup( function() { fnFilterUnit ( 3 ); } );
                   $("#filter_tahun").change( function() { fnFilterTahun( 2 ); } );
                           
-//            new FixedColumns( oTable );
-
           });
           
 });

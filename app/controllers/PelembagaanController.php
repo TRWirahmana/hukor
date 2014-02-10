@@ -12,15 +12,15 @@ class PelembagaanController extends BaseController {
 		$user = Auth::user();
 //		$user->role_id;
         if(Request::ajax())           
-            return Datatables::of(DAL_Pelembagaan::getDataTable())->make(true);      
-     
+           // return Datatables::of(DAL_Pelembagaan::getDataTable())->make(true); 
+		    return Datatables::of(DAL_Pelembagaan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true); 
+            
         	// $statusUn = Pelembagaan::where('status', null)->count();
         	// $statusPro = Pelembagaan::where('status', 1)->count();
         	// $statusPerUU = Pelembagaan::where('status', 2)->count();
 
 	       	$listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
 	        													->lists('usulan_year', 'usulan_year');
-
         if($user->role_id == 3){
 			$this->layout = View::make('layouts.admin');
         } else {
@@ -90,7 +90,8 @@ class PelembagaanController extends BaseController {
 				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
 				'detail' => '',
 				'form_opts' => array(
-					'route' => array('admin.pelembagaan.update', $pelembagaan->id),
+//					'route' => array('admin.pelembagaan.update', $pelembagaan->id),
+					'route' => 'proses_update_pelembagaan',
 					'method' => 'put',
 					'class' => 'form-horizontal',
 		            'id' => 'pelembagaan-update',
@@ -275,20 +276,20 @@ class PelembagaanController extends BaseController {
         return Response::download($path, explode('/', $pelembagaan->lampiran)[1]);
     }
 
-	public function printTable() {
-//		$dataPelembagaan = DAL_Pelembagaan::getDataTable();
-//		echo "=================";
-        $dataPerUU = DAL_PerUU::getDataTable();
+    public function printTable() {
+    	
+    	$status = Input::get("status", null);
+    	$firstDate = Input::get("firstDate", null);
+    	$lastDate = Input::get("lastDate", null);
 
-        var_dump($dataPerUU);
+    	$dataPelembagaan = DAL_Pelembagaan::getDataTable($status, $firstDate, $lastDate)->get();
+    	
+    	// var_dump($dataPelembagaan);
+    	// exit;
 
-		exit;
-//		var_dump($dataPelembagaan);
-//		exit;
-
-/*
 		$data = array();
-		for($dataPelembagaan->get() as $index => $pelembagaan){
+
+		foreach($dataPelembagaan as $index => $pelembagaan){
 			$tglUsulan = new DateTime($pelembagaan->tgl_usulan);
 			$data[$index]['ID'] = $pelembagaan->id;
 			$data[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
@@ -300,22 +301,29 @@ class PelembagaanController extends BaseController {
 
 		$table = HukorHelper::generateHtmlTable($data);
 
-		$html = <<<HTML
-			<style>
-				table{ border-collapse: collapse; }
-				table td, table th { padding: 5px; }
-			</style>
-			<h1>Pelembagaan</h1>
-			{$table}
-HTML;
-			$pdf = new DOMPDF();
-			$pdf->load_html($html);
-			$pdf->render();
-			$pdf->stream("pelembagaan.pdf");
-*/	
+		$style = array("<style>");
+		$style[] = "table { border-collapse: collapse; }";
+		$style[] = "table td, table th { padding: 5px; }";
+		$style[] = "</style>";
+
+		$html = array("<h1> Pelembagaan</h1>");
+		$html[] = "<table><tr>";
+		if(null != $status)
+			$html[] = "<td><strong>Status</strong></td><td>: ". $pelembagaan->status . "</td>" ;
+		if(null != $firsDate)
+			$html[] = "<td><strong>Tanggal Awal</strong></td><td> : {$firstDate} </td>";
+		if(null != $lastDate)
+			$html[] = "<td><strong>Tanggal Akhir</strong></td><td> : {$lastDate} </td> ";
+		$html[] = "</tr></table>";
+		$html[] = $table;
+	
+		$pdf = new DOMPDF();
+		$pdf->load_html(join("", $style) . join("", $html));
+		$pdf->render();
+
+        $response = Response::make($pdf->output());
+        $response->header("Content-Type", "application/pdf");
+        return $response;
 	}
-
-
-
 
 }

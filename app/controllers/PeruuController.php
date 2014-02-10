@@ -166,6 +166,8 @@ class PeruuController extends BaseController
 
         $dataPerUU = DAL_PerUU::getDataTable($status, $firstDate, $lastDate);
         $data = array();
+
+        
         foreach($dataPerUU->get() as $index => $perUU) {
             $tglUsulan = new DateTime($perUU->tgl_usulan);
             $data[$index]['ID'] = $perUU->id;

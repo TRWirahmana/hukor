@@ -13,3 +13,5 @@ class DAL_LogPelembagaan {
                 ))->where('log_pelembagaan.pelembagaan_id', '=', $id);    
     }
 }
+
+

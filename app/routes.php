@@ -105,12 +105,21 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     });
 
     Route::group(array("prefix" => "ketatalaksanaan"), function() {
-        Route::get('sistemDanProsedur', array("as" => "index_sistem_dan_prosedur", "uses" => "KetatalaksanaanController@indexSistemDanProsedur"));
-        Route::get("updateSistemDanProsedur/{id}", array("as" => "update_status_dan_prosedur", "uses" => "KetatalaksanaanController@updateSistemDanProsedur"));
-        Route::post('deleteSistemDanProsedur', array("as" => "delete_sistem_dan_prosedur", "uses" => "KetatalaksanaanController@deleteSistemDanProsedur"));
-        Route::post('updateSistemDanProsedur', array("as" => "proses_update_sistem_dan_prosedur", "uses" => "KetatalaksanaanController@prosesUpdateSistemDanProsedur"));
-        Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "KetatalaksanaanController@downloadSistemDanProsedur"));
-        Route::get('printSistemDanProsedur', array('as' => 'print_sistem_dan_prosedur', 'uses' => 'KetatalaksanaanController@printSistemDanProsedur'));
+        Route::get('sistemDanProsedur', array("as" => "index_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@indexSistemDanProsedur"));
+        Route::get("updateSistemDanProsedur/{id}", array("as" => "update_status_dan_prosedur", "uses" => "SistemDanProsedurController@updateSistemDanProsedur"));
+        Route::post('deleteSistemDanProsedur', array("as" => "delete_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@deleteSistemDanProsedur"));
+        Route::post('updateSistemDanProsedur', array("as" => "proses_update_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@prosesUpdateSistemDanProsedur"));
+        Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "SistemDanProsedurController@downloadSistemDanProsedur"));
+        Route::get('printSistemDanProsedur', array('as' => 'print_sistem_dan_prosedur', 'uses' => 'SistemDanProsedurController@printSistemDanProsedur'));
+
+        Route::group(array("prefix" => "analisisJabatan"), function(){
+            Route::get('/', array("as" => "index_analisis_jabatan", "uses" => "AnalisisJabatanController@index"));
+            Route::get('print', array("as" => "print_analisis_jabatan", "uses" => "AnalisisJabatanController@printTable"));
+            Route::get('download/{id}', "AnalisisJabatanController@downloadLampiran");
+            Route::post('delete', array('as' => 'hapus_analisis_jabatan', 'uses' => 'AnalisisJabatanController@hapusUsulan'));
+            Route::get('update/{id}', array("as" => "update_analisis_jabatan", "uses" => "AnalisisJabatanController@update"));
+            Route::post('update', array("as" => "proses_update_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUpdate"));
+        });
     });
 
 
@@ -194,8 +203,10 @@ Route::group(array('prefix' => 'per-uu'), function() {
 });
 
 Route::group(array('prefix' => "ketatalaksanaan"), function(){
-    Route::get('usulanSistemProsedur', array("as" => "usulan_sistem_prosedur", "uses" => "KetatalaksanaanController@usulanSistemProsedur"));
-    Route::post('usulanSistemProsedur', array("as" => "proses_usulan_sistem_prosedur", "uses" => "KetatalaksanaanController@prosesUsulanSistemProsedur"));
+    Route::get('usulanSistemProsedur', array("as" => "usulan_sistem_prosedur", "uses" => "SistemDanProsedurController@usulanSistemProsedur"));
+    Route::post('usulanSistemProsedur', array("as" => "proses_usulan_sistem_prosedur", "uses" => "SistemDanProsedurController@prosesUsulanSistemProsedur"));
+    Route::get('usulanAnalisisJabatan', array("as" => "usulan_analisis_jabatan", "uses" => "AnalisisJabatanController@usulan"));
+    Route::post('usulanAnalisisJabatan', array("as" => "proses_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUsulan"));
 });
 
 

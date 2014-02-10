@@ -133,6 +133,7 @@
                           <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-signal"></span> Ketatalaksanaan</a>
                             <ul>
                                 <li><a href="{{URL::route('index_sistem_dan_prosedur')}}">Sistem dan Prosedur</a></li>
+                                <li><a href="{{URL::route('index_analisis_jabatan')}}">Analisis Jabatan</a></li>
                             </ul>
                         </li>
                         <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>

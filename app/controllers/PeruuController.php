@@ -197,7 +197,7 @@ class PeruuController extends BaseController
         $pdf = new DOMPDF();
         $pdf->load_html(join("", $style) . join("",$html));
         $pdf->render();
-        $pdf->stream("peruu.pdf")
+        $pdf->stream("peruu.pdf");
     }
 
     private function getStatus($status) {

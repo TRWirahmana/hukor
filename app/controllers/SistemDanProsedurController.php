@@ -1,7 +1,7 @@
 <?php
 
 
-class KetatalaksanaanController extends BaseController {
+class SistemDanProsedurController extends BaseController {
 
 	public function usulanSistemProsedur() {
         $user = Auth::user();

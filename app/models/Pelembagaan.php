@@ -14,7 +14,7 @@ class Pelembagaan extends Eloquent {
     }
 
     public function penanggungJawabPelembagaan() {
-        return $this->hasOne('PenanggungJawabPelembagaan', 'pelembagaan_id');
+        return $this->hasMany('PenanggungJawabPelembagaan');
     }
 
     public function getJenisUsulan($i) {

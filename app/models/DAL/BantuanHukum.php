@@ -33,11 +33,7 @@ class DAL_BantuanHukun {
         }
 
         //filter status_pemohon
-        if($filter['advokasi'] == 0)
-        {
-            $data->where('advokasi', '!=', "NULL");
-        }
-        else
+        if($filter['advokasi'] != 0)
         {
             $data->where('advokasi', '=', intval($filter['advokasi']));
         }
@@ -80,7 +76,9 @@ class DAL_BantuanHukun {
         $bantuanHukum->lampiran = $file->getClientOriginalName();
         $bantuanHukum->ket_lampiran = $input['ket_lampiran'];
 
-        return $bantuanHukum->save();//saving data
+        $bantuanHukum->save();
+
+        $this->InsertPenanggungJawab($bantuanHukum->id, $input);
     }
 
     /*
@@ -88,7 +86,7 @@ class DAL_BantuanHukun {
      */
     public function GetSingleBantuanHukum($id)
     {
-        $data = BantuanHukum::find($id)->with('pengguna')->first();
+        $data = BantuanHukum::find($id)->with('pjbantuanhukum')->first();
 
         return $data;
     }
@@ -206,5 +204,23 @@ class DAL_BantuanHukun {
 
             $log->delete();
         }
+    }
+
+    public function InsertPenanggungJawab($idBankum, $input)
+    {
+        $pj = new PJBantuanHukum;
+
+        $pj->bantuan_hukum_id = $idBankum;
+        $pj->nama = $input['nama'];
+        $pj->jns_kelamin = $input['jenis_kelamin'];
+        $pj->tgl_lahir = $input['tgl_lahir'];
+        $pj->pekerjaan = $input['pekerjaan'];
+        $pj->nip = $input['nip'];
+        $pj->alamat_kantor = $input['alamat_kantor'];
+        $pj->tlp_kantor = $input['telp_kantor'];
+        $pj->handphone = $input['handphone'];
+        $pj->email = $input['email'];
+
+        $pj->save();
     }
 }

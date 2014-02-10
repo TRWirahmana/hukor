@@ -10,4 +10,8 @@ class BantuanHukum extends Eloquent {
         return $this->belongsTo('Pengguna');
     }
 
+    public function pjbantuanhukum(){
+        return $this->hasOne('PJBantuanHukum');
+    }
+
 }

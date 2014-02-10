@@ -133,6 +133,9 @@
                                 case 3:
                                     advokasi = "Bankum III";
                                     break;
+                                default:
+                                    advokasi = "";
+                                    break;
                             }
 
                             return advokasi;

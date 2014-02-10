@@ -38,6 +38,11 @@ class BantuanHukumController extends BaseController{
     {
         $input = Input::all();
 
+//        echo "<pre>";
+//        print_r($input);
+//        echo "</pre>";
+//        exit;
+
         $DAL = new DAL_BantuanHukun();
         $helper = new HukorHelper();
 
@@ -45,16 +50,8 @@ class BantuanHukumController extends BaseController{
 
         if($uploadSuccess)
         {
-            $saved = $DAL->SaveBantuanHukum($input, Input::file('lampiran'));
-
-            if($saved)
-            {
-                return Redirect::to('addbahu')->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
-            }
-            else
-            {
-                return Redirect::to('addbahu')->with('error', 'Data Bantuan Hukum Gagal Di Simpan.');
-            }
+            $DAL->SaveBantuanHukum($input, Input::file('lampiran'));
+            return Redirect::to('addbahu')->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
         }
         else
         {
@@ -74,7 +71,6 @@ class BantuanHukumController extends BaseController{
     public function detail()
     {
         $id = Input::get('id');
-        $reg = new DAL_Registrasi();
         $DAL = new DAL_BantuanHukun();
 
         $banhuk = $DAL->GetSingleBantuanHukum($id);

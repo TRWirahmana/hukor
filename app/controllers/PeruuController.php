@@ -9,7 +9,7 @@ class PeruuController extends BaseController
     {
         // handle dataTable request
         if (Request::ajax())
-            return Datatables::of(DAL_PerUU::getDataTable(Input::get("status", null)))->make(true);
+            return Datatables::of(DAL_PerUU::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
 
         $this->layout = View::make('layouts.admin');
         $this->layout->content = View::make('PerUU.index');
@@ -171,6 +171,8 @@ class PeruuController extends BaseController
             $data[$index]['status'] = $this->getStatus($perUU->status);
             $data[$index]['lampiran'] = '<a href="#">'.$perUU->lampiran.'</a>';
         }
+
+        // var_dump($data);exit;
 
         $table1 = HukorHelper::generateHtmlTable($data);
         $html = <<<HTML

@@ -114,57 +114,42 @@
             </li> -->
 
             <li class="menu-header">Informasi</li>
+              <li id="menu-beranda"><a href="#"><span class="rulycon-books"></span>Beranda</a></li>
+              <li id="menu-produk-hukum"><a href="#"><span class="rulycon-book"></span>Produk Hukum</a></li>
 
-              <li id="menu-ketatalaksanaan">
-                  <div class="accordion2" id="accordion3">
+              <!-- Menu Layanan(Dinamisasi)-->
+              <?php $menu = Menu::all();
+//              echo $menu;exit;
+              $no = 1; ?>
+              @foreach($menu as $menus)
+              <li id="menu-{{ $menus->id }}" >
+                  <div class="accordion{{$no}}" id="accordion{{$no}}">
                       <div class="accordion-group">
                           <div class="accordion-heading">
-                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapse2">
-                                  <span class="rulycon-quill"></span>Ketatalaksanaan
+                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion{{$no}}" href="#collapse{{$no}}">
+                                  <span class="rulycon-quill"></span> {{$menus->nama_menu}}
                                   <span class="rulycon-menu-2 pull-right"></span>
                               </a>
                           </div>
-                          <div id="collapse2" class="accordion-body collapse">
-                              <div class="accordion-inner">
-                                  <ul>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/index') }}"><span class="rulycon-earth"></span>Layanan Ketatalaksanaan</a></li>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/spk') }}"><span class="rulycon-droplet"></span>Sistem dan Prosedur Kerja</a></li>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/smm') }}"><span class="rulycon-wrench"></span>Sistem dan Manajemen Mutu</a></li>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/analisis_jabatan') }}"><span class="rulycon-diamonds"></span>Analisis Jabatan</a></li>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/pbk') }}"><span class="rulycon-quill"></span>Perhitungan Beban Kerja</a></li>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/tata_nilai') }}"><span class="rulycon-strikethrough"></span>Tata Nilai & Budaya Kerja Organisasi</a></li>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/pelayanan_publik') }}"><span class="rulycon-spinner-2"></span>Pelayanan Publik</a></li>
-                                      <li><a href="{{ URL::to('layanan_ketatalaksanaan/tnd') }}"><span class="rulycon-flip-2" ></span>Tata Naskah Dinas</a></li>
-                                  </ul>
+                          @if($menus->submenu != null)
+
+                              <div id="collapse{{$no}}" class="accordion-body collapse">
+                                  <div class="accordion-inner">
+                                      <ul>
+                                          @foreach($menus->submenu as $submenus)
+                                          <li><a href="{{ URL::to('/layanan/'. $submenus->layanan->id .'/detail') }}"><span class="rulycon-earth"></span> {{ $submenus->nama_submenu }}</a></li>
+                                          @endforeach
+                                      </ul>
+                                  </div>
                               </div>
-                          </div>
+                          @endif
                       </div>
                   </div>
               </li>
+                <?php $no++; ?>
+              @endforeach
 
-            <li id="menu-kelembagaan">
-              <div class="accordion" id="accordion2">
-                <div class="accordion-group">
-                  <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                      <span class="rulycon-library"></span>Kelembagaan
-                      <span class="rulycon-menu-2 pull-right"></span>
-                    </a>
-                  </div>
-                  <div id="collapseOne" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                      <ul>
-                        <li id="menu-kelembagaan-pembentukan"><a href="{{ URL::to('layanan_kelembagaan/index') }}"><span class="rulycon-stack"></span>Layanan Kelembagaan</a></li>
-                        <li id="menu-kelembagaan-pembentukan"><a href="{{ URL::to('layanan_kelembagaan/pembentukan') }}"><span class="rulycon-spinner-3"></span>Layanan Pembentukan</a></li>
-                        <li id="menu-kelembagaan-penataan"><a href="{{ URL::to('layanan_kelembagaan/penataan') }}"><span class="rulycon-paragraph-center"></span>Layanan Penataan</a></li>
-                        <li id="menu-kelembagaan-penutupan"><a href="{{ URL::to('layanan_kelembagaan/penutupan') }}"><span class="rulycon-checkbox-unchecked"></span>Layanan Penutupan</a></li>
-                        <li id="menu-kelembagaan-statuta"><a href="{{ URL::to('layanan_kelembagaan/statuta') }}"><span class="rulycon-strikethrough"></span>Layanan Statuta</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
+                <!-- END Menu Layanan -->
 
             <li id="menu-layanan-bantuan-hukum"><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>
             <li id="menu-layanan-peraturan-perundangan"><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>

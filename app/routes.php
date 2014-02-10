@@ -69,15 +69,6 @@ Route::group(array('before' => 'auth|user'), function() {
     Route::post('update', 'RegistrasiController@update');
 });
 
-
-Route::group(array('prefix' => 'admreg', 'before' => 'auth|admin_region'), function() {
-    Route::get('Verifikasi', 'VerifikasiController@index');
-    Route::get('Datatable', 'VerifikasiController@datatable');
-    Route::get('Detail', 'VerifikasiController@detail');
-    Route::post('VerifikasiUser', 'VerifikasiController@verifikasi');
-    Route::get('Profile', 'VerifikasiController@downloadProfile');
-});
-
 Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), function() {
     Route::get('/', function() {
         return "Hello World";
@@ -118,6 +109,14 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
         Route::get('print', array('as' => 'print_table_pelembagaan', 'uses' => 'PelembagaanController@printTable'));
         Route::get('{id}/download', "PelembagaanController@downloadLampiran");
     });
+
+    //Managemen Menu
+    Route::resource('menu', 'MenuController');
+    Route::get('create_menu', 'MenuController@create');
+    Route::get('index_menu', 'MenuController@index');
+    Route::get('setting_menu', 'MenuController@setting');
+    Route::put('setting/save', 'MenuController@save');
+
 });
 
 

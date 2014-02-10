@@ -175,7 +175,7 @@ class HukorHelper {
                 $result = array_merge($result, $sub);
             $columns = array_keys($result);
             $rows = $args;
-        } else { // the argument isn't either a Query Builder or an array
+        } else { // the argument neither a Query Builder or an array
             return null;
         }
 

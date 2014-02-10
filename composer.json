@@ -29,7 +29,7 @@
     ]
     ,
         "psr-0": {
-            // "Barryvdh\\DomPDF": "src/",
+            "Barryvdh\\DomPDF": "src/",
             "Mews\\Captcha": "src/"
         }
     }

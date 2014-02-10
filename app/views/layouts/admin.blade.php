@@ -62,6 +62,7 @@
             <li id="informasi"><a href="#info"><span class="rulycon-address-book"></span> Informasi</a></li>
             <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
             <li id="managemen"><a href="#manage"><span class="rulycon-user"></span> User</a></li>
+            <li id="menu"><a href="{{URL::to('admin/create_menu')}}"><span class="rulycon-notebook"></span> Manage Menu</a></li>
         </ul>
     </div>
 

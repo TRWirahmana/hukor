@@ -55,7 +55,7 @@
 
                     <div id="submenus" class="control-group {{$errors->has('nama_submenu')? 'error':''}}">
 
-                        @if($menu->submenu()->count() == 0)
+                        @if($menu->submenu->count() == 0)
                         <div class="control-group block-field block-submenu" >
                             <label class="control-label label-subject">Sub Menu (1)</label>
                             {{ Form::label('submenu', 'Sub Menu', array('class' => 'control-label')) }}
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         @else
-                        @foreach($menu->submenu as $index => $submenus)
+                        @foreach($menu->submenu as $index => $submenu)
 
                         <div class="control-group  block-field block-submenu">
                             <label class="control-label label-subject">Sub Menu ({{ $index + 1 }}) <a class="delete_submenu">Hapus</a></label>

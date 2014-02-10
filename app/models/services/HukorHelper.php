@@ -168,6 +168,11 @@ class HukorHelper {
 
         if($args instanceof Illuminate\Database\Eloquent\Builder) {
             $columns = $args->getQuery()->columns;
+            array_walk($columns, function(&$c) {
+                $parts = explode('.', $c);
+                $lastPart = $parts[count($parts) - 1 ];
+                $c = ucfirst(str_replace('_', " ", strtolower($lastPart)));
+            });
             $rows = $args->get()->toArray();
         } elseif(is_array($args)) {
             $result = array();

@@ -44,9 +44,13 @@ Route::group(array('before' => 'guest'), function() {
 //
 //    Route::resource('callcenter', 'CallCenterController');
     Route::get('callcenter', 'CallCenterController@index');
+
+    Route::group(array("prefix" => "pelembagaan"), function(){
+        Route::get('print', array('as' => 'print_table_pelembagaan', 'uses' => 'PelembagaanController@printTable'));
+        Route::get('{id}/download', "PelembagaanController@downloadLampiran");
+    });
+    
 });
-
-
 
 
 Route::group(array('before' => 'auth'), function() {
@@ -100,6 +104,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
 
 
     Route::resource('pelembagaan', 'PelembagaanController');   
+    
+    Route::group(array("prefix" => "pelembagaan"), function(){
+        Route::get('print', array('as' => 'print_table_pelembagaan', 'uses' => 'PelembagaanController@printTable'));
+        Route::get('{id}/download', "PelembagaanController@downloadLampiran");
+    });
 
     //Managemen Menu
     Route::resource('menu', 'MenuController');
@@ -213,14 +222,6 @@ Route::group(array('prefix' => 'layanan_ketatalaksanaan'), function() {
     Route::get('CreateInfo', 'LayananKetatalaksanaanController@create');
     Route::post('SubmitBerita', 'LayananKetatalaksanaanController@submit');
 });
-
-/*
-  Route::group(array('prefix' => 'spk'), function() {
-  Route::get('index', 'SpkController@index');
-  Route::get('CreateInfo', 'SpkController@create');
-  Route::post('SubmitBerita', 'SpkController@submit');
-  });
- */
 
 
 Route::get('forumdiskusi', "HomeController@showForum");

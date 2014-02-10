@@ -104,6 +104,15 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
         Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
     });
 
+    Route::group(array("prefix" => "ketatalaksanaan"), function() {
+        Route::get('sistemDanProsedur', array("as" => "index_sistem_dan_prosedur", "uses" => "KetatalaksanaanController@indexSistemDanProsedur"));
+        Route::get("updateSistemDanProsedur/{id}", array("as" => "update_status_dan_prosedur", "uses" => "KetatalaksanaanController@updateSistemDanProsedur"));
+        Route::post('deleteSistemDanProsedur', array("as" => "delete_sistem_dan_prosedur", "uses" => "KetatalaksanaanController@deleteSistemDanProsedur"));
+        Route::post('updateSistemDanProsedur', array("as" => "proses_update_sistem_dan_prosedur", "uses" => "KetatalaksanaanController@prosesUpdateSistemDanProsedur"));
+        Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "KetatalaksanaanController@downloadSistemDanProsedur"));
+        Route::get('printSistemDanProsedur', array('as' => 'print_sistem_dan_prosedur', 'uses' => 'KetatalaksanaanController@printSistemDanProsedur'));
+    });
+
 
 //    Route::resource('pelembagaan', 'PelembagaanController');   
     

@@ -130,6 +130,11 @@
                                 <li><a href="#">Informasi & Status usulan</a></li>
                             </ul> -->
                         </li>
+                          <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-signal"></span> Ketatalaksanaan</a>
+                            <ul>
+                                <li><a href="{{URL::route('index_sistem_dan_prosedur')}}">Sistem dan Prosedur</a></li>
+                            </ul>
+                        </li>
                         <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>
                             <ul>
                                 <li><a href="#">Lembar Permohonan</a></li>

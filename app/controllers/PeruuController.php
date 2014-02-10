@@ -204,6 +204,7 @@ class PeruuController extends BaseController
         $response->header("Content-Type", "application/pdf");
         return $response;
 
+        $pdf->stream("peruu.pdf")
     }
 
     private function getStatus($status) {

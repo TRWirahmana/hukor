@@ -64,4 +64,159 @@ class KetatalaksanaanController extends BaseController {
             return Redirect::back();
         }
 	}
+
+    public function indexSistemDanProsedur() 
+    {
+      // handle dataTable request
+        if (Request::ajax())
+            return Datatables::of(DAL_SistemDanProsedur::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
+
+        $this->layout = View::make('layouts.admin');
+        $this->layout->content = View::make('Ketatalaksanaan.indexSistemProsedur');
+    }
+
+    public function deleteSistemDanProsedur()
+    {
+        $sistemDanProsedur = SistemDanProsedur::find(Input::get('id'));
+        if (null != $sistemDanProsedur)
+            $sistemDanProsedur->delete();
+        echo 1;
+    }
+
+    public function updateSistemDanProsedur($id)
+    {
+        if (Request::ajax())
+            return Datatables::of(DAL_SistemDanProsedur::getLogUsulan($id))->make(true);
+
+        $sistemDanProsedur = SistemDanProsedur::with('Pengguna')->find($id);
+        $this->layout = View::make('layouts.admin');
+        $this->layout->content = View::make('Ketatalaksanaan.updateSistemDanProsedur')
+                ->with('data', $sistemDanProsedur);
+    }
+
+    public function prosesUpdateSistemDanProsedur()
+    {
+        $id = Input::get('id');
+        $status = Input::get('status', 0);
+        $catatan = Input::get('catatan', '');
+        $ketLampiran = Input::get('ket_lampiran', '');
+        $lampiran = Input::file('lampiran');
+
+        $sistemDanProsedur = SistemDanProsedur::find($id);
+
+        $log = new LogSistemDanProsedur();
+        $log->id_sistem_dan_prosedur = $sistemDanProsedur->id;
+        $log->catatan = $sistemDanProsedur->catatan;
+        $log->lampiran = $sistemDanProsedur->lampiran;
+        $log->status = $sistemDanProsedur->status;
+        $log->tgl_proses = new DateTime('now');
+
+        $sistemDanProsedur->status = $status;
+        $sistemDanProsedur->catatan = $catatan;
+
+        if (null != $lampiran) {
+            if ($lampiran->isValid()) {
+                $uqFolder = str_random(8);
+                $destinationPath = UPLOAD_PATH . '/' . $uqFolder;
+                $filename = $lampiran->getClientOriginalName();
+                $uploadSuccess = $lampiran->move($destinationPath, $filename);
+                if ($uploadSuccess) {
+                    $sistemDanProsedur->lampiran = $uqFolder . DS . $filename;
+                }
+            } else {
+                Session::flash('error', 'Kesalahan dalam menyimpan berkas.');
+            }
+        }
+
+        if ($sistemDanProsedur->save() && $log->save()) {
+            // Kirim email notifikasi ke pembuat usulan
+            // $data = array(
+            //     'logPerUU' => $logPerUU,
+            //     'perUU' => $perUU
+            // );
+
+            // Mail::send('emails.perubahanUsulan', $data, function($message) use($perUU) {
+            //     $message->to($perUU->pengguna->email)
+            //             ->subject('Perubahan Status Usulan');
+            // });
+
+            Session::flash('success', 'Usulan berhasil diperbaharui.');
+            return Redirect::route('index_sistem_dan_prosedur');
+        } else {
+            Session::flash('error', 'Usulah gagal diperbaharui.');
+            return Redirect::back();
+        }
+    }
+
+    public function downloadSistemDanProsedur($id)
+    {
+        $sistemDanProsedur = SistemDanProsedur::find($id) or App::abort(404);
+        $path = UPLOAD_PATH . DS . $sistemDanProsedur->lampiran;
+        return Response::download($path, explode('/', $sistemDanProsedur->lampiran)[1]);
+    }
+
+    public function printSistemDanProsedur() {
+        $status = Input::get("status", null);
+        $firstDate = Input::get("firstDate", null);
+        $lastDate = Input::get("lastDate", null);
+
+        $sistemDanProsedur = DAL_SistemDanProsedur::getDataTable($status, $firstDate, $lastDate);
+        $data = array();
+        foreach($sistemDanProsedur->get() as $index => $sistemDanProsedur) {
+            $tglUsulan = new DateTime($sistemDanProsedur->tgl_usulan);
+            $data[$index]['ID'] = $sistemDanProsedur->id;
+            $data[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
+            $data[$index]['Unit Kerja'] = $sistemDanProsedur->unit_kerja;
+            $data[$index]['Perihal'] = $sistemDanProsedur->perihal;
+            $data[$index]['status'] = $this->getStatus($sistemDanProsedur->status);
+            $data[$index]['lampiran'] = '<a href="#">'.explode("/", $sistemDanProsedur->lampiran)[1].'</a>';
+        }
+
+        $table = HukorHelper::generateHtmlTable($data);
+
+        $style = array("<style>");
+        $style[] = "table { border-collapse: collapse; }";
+        $style[] = "table td, table th { padding: 5px; }";
+        $style[] = "</style>";
+
+        $html = array("<h1>Sistem Dan Prosedur</h1>");
+        $html[] = "<table><tr>";
+        if(null != $status)
+            $html[] = "<td><strong>Status</strong></td><td>: ".$this->getStatus($status)."</td>";
+        if(null != $firstDate)
+            $html[] = "<td><strong>Tgl awal</strong></td><td>: {$firstDate}</td>";
+        if(null != $lastDate)
+            $html[] = "<td><strong>Tgl akhir</strong></td><td>: {$lastDate}</td>";
+        $html[] = "</tr></table>";
+        $html[] = $table;
+
+        $pdf = new DOMPDF();
+        $pdf->load_html(join("", $style) . join("",$html));
+        $pdf->render();
+        return $pdf->stream("ketatalaksanaan.pdf");
+    }
+
+
+    private function getStatus($status) {
+        switch ($status) {
+            case 1:
+                return "Diproses";
+                break;
+            case 2:
+                return "Ditunda";
+                break;
+            case 3:
+                return "Ditolak";
+                break;
+            case 4:
+                return "Buat Salinan";
+                break;
+            case 5:
+                return "Penetapan";
+                break;
+            default:
+                return "";
+                break;
+        }
+    }
 }

@@ -48,7 +48,7 @@ Route::group(array('before' => 'guest'), function() {
     Route::get('callcenter', 'CallCenterController@index');
 
     Route::group(array("prefix" => "pelembagaan"), function(){
-        Route::get('print', array('as' => 'print_table_pelembagaan', 'uses' => 'PelembagaanController@printTable'));
+        Route::get('print', array('as' => 'print_table_pelembagaan_user', 'uses' => 'PelembagaanController@printTable'));
         Route::get('{id}/download', "PelembagaanController@downloadLampiran");
     });
     
@@ -105,10 +105,13 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     });
 
 
-    Route::resource('pelembagaan', 'PelembagaanController');   
+//    Route::resource('pelembagaan', 'PelembagaanController');   
     
     Route::group(array("prefix" => "pelembagaan"), function(){
-        Route::get('print', array('as' => 'print_table_pelembagaan', 'uses' => 'PelembagaanController@printTable'));
+        Route::get('/', array('as' => 'index_pelembagaan', 'uses' =>  'PelembagaanController@index'));
+        Route::get('{id}/update', array('as' => 'update_pelembagaan', 'uses' =>  'PelembagaanController@edit'));
+        Route::post('update', array('as' => 'proses_update_pelembagaan', 'uses' =>  'PelembagaanController@update'));
+        Route::get('print', array('as' => 'print_pelembagaan', 'uses' => 'PelembagaanController@printTable'));
         Route::get('{id}/download', "PelembagaanController@downloadLampiran");
     });
 

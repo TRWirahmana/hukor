@@ -31,10 +31,6 @@
             <!-- MAIN CONTENT -->
 
             <div class="content-non-title">
-              <legend>
-                Informasi & Status Usulan
-                  </legend>
-              
                   <!--  notifikasi status  -->
                  @if($status_belum != 0)
                   <div class="row-fluid" style="border-bottom: 1px solid #e5e5e5;">
@@ -52,23 +48,59 @@
                   </div>
                   @endif
 
-
-                <form class="form form-horizontal" action="{{URL::route('print_table_pelembagaan')}}">
-                    <fieldset>
-
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <input type="submit" value="Cetak" class="btn btn-primary">
-                                    </div>
-                                </div>
-                  </fieldset>
-                </form>
-
 @else
       <h2>Layanan Ketatalaksanaan</h2>
       <div class="stripe-accent"></div>
       <legend>Informasi dan Status</legend>
 @endif
+
+              <!-- Filter -->
+@if($user->role_id == 3 )              
+              <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_pelembagaan')}}">
+@else                
+              <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_table_pelembagaan_user')}}">
+@endif
+                    <fieldset>
+                        <legend class="f_legend">Filter</legend>
+                        <div class="row-fluid">
+                            <div class="span6">
+                                <div class="control-group">
+                                    <label for="" class="control-label">Tanggal Awal</label>
+                                    <div class="controls">
+                                        <input type="text" id="first-date" name="firstDate">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="toDate" class="control-label">Tanggal Akhir</label>
+                                    <div class="controls">
+                                        <input type="text" id="last-date" name="lastDate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span6">
+                                <div class="control-group">
+                                    <label for="select-status" class="control-label">Status</label>
+                                    <div class="controls">
+                                        <select id="select-status" name="status">
+                                            <option value="">Semua Status</option>
+                                            <option value="0">Belum diproses</option>
+                                            <option value="1">Diproses</option>
+                                            <option value="2">Dikirim Ke bagian PerUU</option>
+                                        </select>        
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
+                                        <input type="submit" value="Cetak" class="btn btn-primary">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
 
 
                 <br />
@@ -115,35 +147,49 @@
 
 @section('scripts')
 @parent
-        <script type="text/javascript">
+   <script type="text/javascript">
+    jQuery(function($){        
+        $("#first-date").datepicker({
+            dateFormat: "dd/mm/yy",
+            onClose: function( selectedDate ) {
+                 $("#last-date").datepicker( "option", "minDate", selectedDate );
+            }
+        });
 
-        jQuery(function($){        
+        $("#last-date").datepicker({
+            dateFormat: "dd/mm/yy",
+            onClose: function( selectedDate ) {
+                  $("#first-date").datepicker("option", "maxDate", selectedDate);
+            }                    
+         });
 
-        function fnFilterTahun (i)
-        {
-            $("#tbl-pelembagaan").dataTable().fnFilter(
-                    $("#filter_tahun").val(),
-                    i                   
-            );   
-        }       
+
+        // function fnFilterTahun (i)
+        // {
+        //     $("#tbl-pelembagaan").dataTable().fnFilter(
+        //             $("#filter_tahun").val(),
+        //             i                   
+        //     );   
+        // }       
         
-        function fnFilterUnit (i)
-        {
-            $("#tbl-pelembagaan").dataTable().fnFilter(
-                    $("#filter_unit").val(),
-                    i                   
-            );   
-        }       
+        // function fnFilterUnit (i)
+        // {
+        //     $("#tbl-pelembagaan").dataTable().fnFilter(
+        //             $("#filter_unit").val(),
+        //             i                   
+        //     );   
+        // }       
         
-        $(document).ready(function(){
+ //       $(document).ready(function(){
             var role_id = <?php if($user->role_id) echo $user->role_id; else echo '0'; ?>;
-            var oTable = $("#tbl-pelembagaan").dataTable({
-                        iDisplayLength: 5,
-                        bServerSide: true,
-                        sAjaxSource: document.location.href,
-                        aoColumns: [
-
-                            {
+            
+            $dataTable = $("#tbl-pelembagaan").dataTable({
+                bServerSide: true,
+                bFilter: false,
+                bLengthChange: false,
+                sAjaxSource: document.location.href,
+                aoColumns: [
+                  {
                               mData: "id",
                               sClass: 'center-ac',
                               sWidth: '3%'
@@ -158,6 +204,9 @@
                               mData: "tgl_usulan",
                               sClass: 'center-ac',
                               sWidth: '14%'
+                              // mRender: function(data) {
+                              //     return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
+                              // }
                             },
                             {
                               mData: "unit_kerja",
@@ -202,7 +251,7 @@
                                  mRender: function(data, type, full) {
                                         if(role_id == 3){
                                           return "<a href='pelembagaan/"+data+"/download'> <i class='icon-download'></i></a>"  
-                                                + "&nbsp;<a href='pelembagaan/"+data+"/edit' title='Detail'><i class='icon-edit'></i></a>"
+                                                + "&nbsp;<a href='pelembagaan/"+data+"/update' title='Detail'><i class='icon-edit'></i></a>"
                                                 + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+data+"'>"
                                                 + "<i class='icon-trash'></i></a>";
                                         } else if(role_id == 0 ) {
@@ -213,22 +262,28 @@
                               }
                             }
                         ],
-                                    
-                        "fnDrawCallback": function ( oSettings ) {
-                                      /* Need to redo the counters if filtered or sorted */
-                                      if ( oSettings.bSorted || oSettings.bFiltered )
-                                      {
-                                        for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
-                                        {
-                                          $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
-                                        }
-                                      }
-                                    },
-                        "aoColumnDefs": [
-                              { "bSortable": false, "aTargets": [ 0 ] }
-                        ],
-                        "aaSorting": [[ 1, 'asc' ]]
-                  }); 
+
+                        fnServerParams: function(aoData) {
+                            aoData.push({name: "status", value: $("#select-status").val()});
+                            aoData.push({name: "firstDate", value: $("#first-date").val()});
+                            aoData.push({name: "lastDate", value: $("#last-date").val()});
+                        },
+                        fnDrawCallback: function ( oSettings ) {
+                           if ( oSettings.bSorted || oSettings.bFiltered )
+                           {
+                             for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+                             {
+                               $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+                             }
+                           }
+                        },
+
+                        aoColumnDefs: [
+                            { "bSortable": false, "aTargets": [ 0 ] }
+                            ],
+                        aaSorting: [[ 1, 'asc' ]]
+
+                      }); 
 
                   $("#tbl-pelembagaan").on('click', '.btn_delete', function(e){
                           if (confirm('Apakah anda yakin ?')) {
@@ -244,10 +299,18 @@
                           return false;
                   });
 
-                  $("#filter_unit").keyup( function() { fnFilterUnit ( 3 ); } );
-                  $("#filter_tahun").change( function() { fnFilterTahun( 2 ); } );
+                  // $("#filter_unit").keyup( function() { fnFilterUnit ( 3 ); } );
+                  // $("#filter_tahun").change( function() { fnFilterTahun( 2 ); } );
                           
-          });
+                  $("#select-status, #first-date, #last-date").change(function() {
+                      $dataTable.fnReloadAjax();
+                  });
+
+                  $("#form-filter").on("reset", function(){
+                      $dataTable.fnReloadAjax();
+                  });
+
+//          });
           
 });
         </script>        

@@ -14,7 +14,7 @@ jQuery(document).ready(function(e){
                 mData: "penulis"
             },
             {
-                mData: "created_at"
+                mData: "tgl_penulisan"
             },
             {
                 mData: "id",

@@ -1,138 +1,229 @@
 <?php
 
-class PeruuController extends BaseController {
+class PeruuController extends BaseController
+{
 
 //	protected $layout = 'layouts.master';
 
-	public function index() 
-	{
-		// handle dataTable request
-		if(Request::ajax()) 
-			return Datatables::of(DAL_PerUU::getDataTable(Input::get("status", null)))->make(true);
+    public function index()
+    {
+        // handle dataTable request
+        if (Request::ajax())
+            return Datatables::of(DAL_PerUU::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
 
-		$this->layout = View::make('layouts.admin');
-		$this->layout->content = View::make('PerUU.index');
-	}
+        $this->layout = View::make('layouts.admin');
+        $this->layout->content = View::make('PerUU.index');
+    }
 
-	public function pengajuanUsulan()
-	{
-		$user = Auth::user();
-		$this->layout = View::make('layouts.master');
-		$this->layout->content = View::make('PerUU.pengajuanUsulan')
-			->with('user', $user);
-	}
+    public function pengajuanUsulan()
+    {
+        $user = Auth::user();
+        $this->layout = View::make('layouts.master');
+        $this->layout->content = View::make('PerUU.pengajuanUsulan')
+                ->with('user', $user);
+    }
 
-	public function prosesPengajuan()
-	{
-		$input = Input::get('per_uu');
-		$img = Input::file('per_uu.lampiran');
+    public function prosesPengajuan()
+    {
+        $input = Input::get('per_uu');
+        $img = Input::file('per_uu.lampiran');
+        $input2 = Input::get('penanggungJawab');
 
-		if($img->isValid()) {
-			$uqFolder = str_random(8);
-			$destinationPath = UPLOAD_PATH . '/' . $uqFolder;
-			$filename = $img->getClientOriginalName();
-			$uploadSuccess = $img->move($destinationPath, $filename);
+        if ($img->isValid()) {
+            $uqFolder = str_random(8);
+            $destinationPath = UPLOAD_PATH . '/' . $uqFolder;
+            $filename = $img->getClientOriginalName();
+            $uploadSuccess = $img->move($destinationPath, $filename);
 
-			if($uploadSuccess) {
-				$perUU = new PerUU;
-				$perUU->id_pengguna = Auth::user()->pengguna->id;
-				$perUU->perihal = $input['perihal'];
-				$perUU->catatan = $input['catatan'];
-				$perUU->lampiran = $uqFolder . DS .$filename;
-				$perUU->tgl_usulan = new DateTime;
-				$perUU->status = 0;
-				if($perUU->save()) {
-					// kirim email ke admin
-					$data = array(
-						'user' => Auth::user(),
-						'perUU' => $perUU
-					);
-					Mail::send('emails.usulanbaru', $data, function($message) {
-						// admin email (testing)
-   						$message->to('egisolehhasdi@gmail.com', 'egisolehhasdi@gmail.com')
-   							->subject('Usulan Baru Peraturan Perundang-Undangan');
-					});
+            if ($uploadSuccess) {
+                $perUU = new PerUU;
+                $perUU->id_pengguna = Auth::user()->pengguna->id;
+                $perUU->perihal = $input['perihal'];
+                $perUU->catatan = $input['catatan'];
+                $perUU->lampiran = $uqFolder . DS . $filename;
+                $perUU->tgl_usulan = new DateTime;
+                $perUU->status = 0;
+                if ($perUU->save()) {
+                    $penanggungJawab = new PenanggungJawabPerUU();
+                    $penanggungJawab->id_per_uu = $perUU->id;
+                    $penanggungJawab->nama = $input2['nama'];
+                    $penanggungJawab->jabatan = $input2['jabatan'];
+                    $penanggungJawab->NIP = $input2['nip'];
+                    $penanggungJawab->unit_kerja = $input2['unit_kerja'];
+                    $penanggungJawab->alamat_kantor = $input2['alamat_kantor'];
+                    $penanggungJawab->telepon_kantor = $input2['telp_kantor'];
+                    $penanggungJawab->email = $input2['email'];
+                    $penanggungJawab->save();
 
-					Session::flash('success', 'Data berhasil dikirim.');
-					return Redirect::to('/');
-				} else {
-					Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
-					return Redirect::back();
-				}
-			}
-		} else {
-			Session::flash('error', 'Gagal mengirim berkas. Pastikan berkas berupa PDF dan kurang dari 512k.');
-			return Redirect::back();
-		}
-	}
+                    // kirim email ke admin
+                    $data = array(
+                        'user' => Auth::user(),
+                        'perUU' => $perUU
+                    );
+                    Mail::send('emails.usulanbaru', $data, function($message) {
+                        // admin email (testing)
+                        $message->to('egisolehhasdi@gmail.com', 'egisolehhasdi@gmail.com')
+                                ->subject('Usulan Baru Peraturan Perundang-Undangan');
+                    });
 
-	public function updateUsulan($id) {
-		if(Request::ajax())
-			return Datatables::of(DAL_PerUU::getLogUsulan($id))->make(true);
-			
-		$perUU = PerUU::with('Pengguna')->find($id);
-		$this->layout = View::make('layouts.admin');
-		$this->layout->content = View::make('PerUU.updateUsulan')
-			->with('perUU', $perUU);
-	}
+                    Session::flash('success', 'Data berhasil dikirim.');
+                    return Redirect::to('/');
+                } else {
+                    Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
+                    return Redirect::back();
+                }
+            }
+        } else {
+            Session::flash('error', 'Gagal mengirim berkas. Pastikan berkas berupa PDF dan kurang dari 512k.');
+            return Redirect::back();
+        }
+    }
 
-	public function prosesUpdateUsulan() {
-		$id = Input::get('id');
-		$status = Input::get('status', 0);
-		$catatan = Input::get('catatan', '');
-		$ketLampiran = Input::get('ket_lampiran', '');
-		$lampiran = Input::file('lampiran');
+    public function updateUsulan($id)
+    {
+        if (Request::ajax())
+            return Datatables::of(DAL_PerUU::getLogUsulan($id))->make(true);
 
-		$perUU = PerUU::find($id);
+        $perUU = PerUU::with('Pengguna')->find($id);
+        $this->layout = View::make('layouts.admin');
+        $this->layout->content = View::make('PerUU.updateUsulan')
+                ->with('perUU', $perUU);
+    }
 
-		$logPerUU = new LogPerUU();
-		$logPerUU->id_per_uu = $perUU->id;
-		$logPerUU->catatan = $perUU->catatan;
-		$logPerUU->lampiran = $perUU->lampiran;
-		$logPerUU->status = $perUU->status;
-		$logPerUU->tgl_proses = new DateTime('now');
+    public function prosesUpdateUsulan()
+    {
+        $id = Input::get('id');
+        $status = Input::get('status', 0);
+        $catatan = Input::get('catatan', '');
+        $ketLampiran = Input::get('ket_lampiran', '');
+        $lampiran = Input::file('lampiran');
 
-		$perUU->status = $status;
-		$perUU->catatan = $catatan;
+        $perUU = PerUU::find($id);
 
-		if(null != $lampiran) {
-			if($lampiran->isValid()) {
-				$uqFolder = str_random(8);
-				$destinationPath = UPLOAD_PATH . '/' . $uqFolder;
-				$filename = $lampiran->getClientOriginalName();
-				$uploadSuccess = $lampiran->move($destinationPath, $filename);
-				if($uploadSuccess) {
-					$perUU->lampiran = $uqFolder . DS . $filename;
-				}
-			} else {
-				Session::flash('error', 'Kesalahan dalam menyimpan berkas.');
-			}
-		}
+        $logPerUU = new LogPerUU();
+        $logPerUU->id_per_uu = $perUU->id;
+        $logPerUU->catatan = $perUU->catatan;
+        $logPerUU->lampiran = $perUU->lampiran;
+        $logPerUU->status = $perUU->status;
+        $logPerUU->tgl_proses = new DateTime('now');
 
-		if($perUU->save() && $logPerUU->save()) {
-			// Kirim email notifikasi ke pembuat usulan
-			$data = array(
-				'logPerUU' => $logPerUU,
-				'perUU' => $perUU
-			);
+        $perUU->status = $status;
+        $perUU->catatan = $catatan;
 
-			Mail::send('emails.perubahanUsulan', $data, function($message) use($perUU) {
-				$message->to($perUU->pengguna->email)
-					->subject('Perubahan Status Usulan');
-			});
+        if (null != $lampiran) {
+            if ($lampiran->isValid()) {
+                $uqFolder = str_random(8);
+                $destinationPath = UPLOAD_PATH . '/' . $uqFolder;
+                $filename = $lampiran->getClientOriginalName();
+                $uploadSuccess = $lampiran->move($destinationPath, $filename);
+                if ($uploadSuccess) {
+                    $perUU->lampiran = $uqFolder . DS . $filename;
+                }
+            } else {
+                Session::flash('error', 'Kesalahan dalam menyimpan berkas.');
+            }
+        }
 
-			Session::flash('success', 'Usulan berhasil diperbaharui.');	
-			return Redirect::route('index_per_uu');
-		} else {
-			Session::flash('error', 'Usulah gagal diperbaharui.');
-			return Redirect::back();
-		}
-	}
+        if ($perUU->save() && $logPerUU->save()) {
+            // Kirim email notifikasi ke pembuat usulan
+            $data = array(
+                'logPerUU' => $logPerUU,
+                'perUU' => $perUU
+            );
 
-	public function hapusUsulan() {
-		$perUU = PerUU::find(Input::get('id'));
-		if(null != $perUU) 
-			$perUU->delete();
-	}
+            Mail::send('emails.perubahanUsulan', $data, function($message) use($perUU) {
+                $message->to($perUU->pengguna->email)
+                        ->subject('Perubahan Status Usulan');
+            });
+
+            Session::flash('success', 'Usulan berhasil diperbaharui.');
+            return Redirect::route('index_per_uu');
+        } else {
+            Session::flash('error', 'Usulah gagal diperbaharui.');
+            return Redirect::back();
+        }
+    }
+
+    public function hapusUsulan()
+    {
+        $perUU = PerUU::find(Input::get('id'));
+        if (null != $perUU)
+            $perUU->delete();
+        echo 1;
+    }
+
+    public function downloadLampiran($id)
+    {
+        $perUU = PerUU::find($id) or App::abort(404);
+        $path = UPLOAD_PATH . DS . $perUU->lampiran;
+        return Response::download($path, explode('/', $perUU->lampiran)[1]);
+    }
+
+    public function printTable() {
+        $status = Input::get("status", null);
+        $firstDate = Input::get("firstDate", null);
+        $lastDate = Input::get("lastDate", null);
+
+        $dataPerUU = DAL_PerUU::getDataTable($status, $firstDate, $lastDate);
+        $data = array();
+        foreach($dataPerUU->get() as $index => $perUU) {
+            $tglUsulan = new DateTime($perUU->tgl_usulan);
+            $data[$index]['ID'] = $perUU->id;
+            $data[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
+            $data[$index]['Unit Kerja'] = $perUU->unit_kerja;
+            $data[$index]['Perihal'] = $perUU->perihal;
+            $data[$index]['status'] = $this->getStatus($perUU->status);
+            $data[$index]['lampiran'] = '<a href="#">'.explode("/", $perUU->lampiran)[1].'</a>';
+        }
+
+        $table = HukorHelper::generateHtmlTable($data);
+
+        $style = array("<style>");
+        $style[] = "table { border-collapse: collapse; }";
+        $style[] = "table td, table th { padding: 5px; }";
+        $style[] = "</style>";
+
+        $html = array("<h1>Peraturan Perundang Undangan</h1>");
+        $html[] = "<table><tr>";
+        if(null != $status)
+            $html[] = "<td><strong>Status</strong></td><td>: ".$this->getStatus($status)."</td>";
+        if(null != $firstDate)
+            $html[] = "<td><strong>Tgl awal</strong></td><td>: {$firstDate}</td>";
+        if(null != $lastDate)
+            $html[] = "<td><strong>Tgl akhir</strong></td><td>: {$lastDate}</td>";
+        $html[] = "</tr></table>";
+        $html[] = $table;
+
+        $pdf = new DOMPDF();
+        $pdf->load_html(join("", $style) . join("",$html));
+        $pdf->render();
+
+        $response = Response::make($pdf->output());
+        $response->header("Content-Type", "application/pdf");
+        return $response;
+    }
+
+    private function getStatus($status) {
+        switch ($status) {
+            case 1:
+                return "Diproses";
+                break;
+            case 2:
+                return "Ditunda";
+                break;
+            case 3:
+                return "Ditolak";
+                break;
+            case 4:
+                return "Buat Salinan";
+                break;
+            case 5:
+                return "Penetapan";
+                break;
+            default:
+                return "";
+                break;
+        }
+    }
 
 }

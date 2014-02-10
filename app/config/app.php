@@ -115,7 +115,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Bllim\Datatables\DatatablesServiceProvider',
-		'Way\Generators\GeneratorsServiceProvider'
+		'Way\Generators\GeneratorsServiceProvider',
+        'Mews\Captcha\CaptchaServiceProvider'
 	),
 
 	/*
@@ -182,6 +183,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Datatables'      => 'Bllim\Datatables\Datatables',
+        'Captcha' => 'Mews\Captcha\Facades\Captcha',
  
 	),
 

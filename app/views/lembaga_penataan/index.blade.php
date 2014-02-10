@@ -3,13 +3,13 @@
 <div class="stripe-accent"></div>
 
 <legend>
-    Informasi Layanan Kelembagaan
+    Informasi Layanan Kelembagaan Penataan
 </legend>
 
 @include('flash')
 
 @if($info != null)
-    <h1><?php echo $info->judul_berita; ?></h1>
+<!--    <h1>--><?php //echo $info->judul_berita; ?><!--</h1>-->
     <br>
     <p><?php echo $info->berita; ?></p>
 

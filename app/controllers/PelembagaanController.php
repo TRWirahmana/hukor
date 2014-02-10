@@ -4,22 +4,29 @@ use Carbon\Carbon;
 
 class PelembagaanController extends BaseController {
 
-	protected $layout = 'layouts.master';
+//    protected $layout = 'layouts.admin';
 
 	public function index()
 	{
-        if(Request::ajax())           
-            return Datatables::of(DAL_Pelembagaan::getDataTable())->make(true);
-            
-        	$statusUn = Pelembagaan::where('status', null)->count();
-        	$statusPro = Pelembagaan::where('status', 1)->count();
-        	$statusPerUU = Pelembagaan::where('status', 2)->count();
 
-//	       	$listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
-//	        													->lists('usulan_year', 'usulan_year');
-//	    $this->layout->content = View::make('Pelembagaan.index', array());		
+		$user = Auth::user();
+//		$user->role_id;
+        if(Request::ajax())           
+            return Datatables::of(DAL_Pelembagaan::getDataTable())->make(true);            
+        	// $statusUn = Pelembagaan::where('status', null)->count();
+        	// $statusPro = Pelembagaan::where('status', 1)->count();
+        	// $statusPerUU = Pelembagaan::where('status', 2)->count();
+
+	       	$listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
+	        													->lists('usulan_year', 'usulan_year');
+
+        if($user->role_id == 3){
+			$this->layout = View::make('layouts.admin');
+        } else {
+        	$this->layout = View::make('layouts.master');
+        }
 	    
-	    $this->layout->content = View::make('Pelembagaan.index', array( 'status_belum' => $statusUn, 'status_proses' => $statusPro));		
+	    $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user, 'listTgl'));//, array( 'status_belum' => $statusUn, 'status_proses' => $statusPro));		
 	}
 
     public function datatable()
@@ -45,11 +52,13 @@ class PelembagaanController extends BaseController {
 		$pelembagaan = new Pelembagaan();
 		$user = Auth::user();
 
+		$this->layout = View::make('layouts.master');
+
 		$this->layout->content = View::make('Pelembagaan.form', array(
 				'title' => 'Tambah Akun',
 				'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',
 				'form_opts' => array(
-					'route' => 'admin.pelembagaan.store',
+					'route' => 'store_pelembagaan',					
 					'method' => 'post',
 					'class' => 'form-horizontal',
 		            'id' => 'pelembagaan-form',
@@ -72,6 +81,8 @@ class PelembagaanController extends BaseController {
         	return Datatables::of(DAL_LogPelembagaan::getDataTable($id))->make(true);
 
 		$pelembagaan = Pelembagaan::find($id);
+
+    	$this->layout = View::make('layouts.admin');
 
 		if(!is_null($pelembagaan))
 			$this->layout->content = View::make('Pelembagaan.update', array(
@@ -112,7 +123,7 @@ class PelembagaanController extends BaseController {
 		$log_pelembagaan->keterangan = Input::get('keterangan');
 		$log_pelembagaan->lampiran = $filename;
 
-		$log_pelembagaan->pelembagaan_id = $pelembagaan->id_pengguna;
+		$log_pelembagaan->pelembagaan_id = $id;
         $log_pelembagaan->tgl_proses = Carbon::now();
 		$log_pelembagaan->save();
 
@@ -128,16 +139,22 @@ class PelembagaanController extends BaseController {
 		);
 
 		$user = array(
-			'name' => 'User ',
-		    'email' => 'andhy.m0rphin@gmail.com'
+//				'name' => 'User ',
+//			    'email' => 'andhy.m0rphin@gmail.com' // 'email' => $pelembagaan->email;
 		);
 		 
+
 		Mail::send('emails.reppelembagaan', $data, function($message) use ($user)
 		{
-		  $message->to($user['email'], $user['name'])->subject('Re: Usulan Pelembagaan Request');
+		//  Email to pengusul
+        //	$message->to(array($pelembagaan->email)); 
+			$message->to(array('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com')); 
+			$message->subject('Re: Usulan Pelembagaan');
+//	  	    $message->to($user['email'], $user['name'])->subject('Re: Usulan Pelembagaan Request');
 		});
 
-		return Redirect::to('pelembagaan')->with('success', 'Data berhasil diubah.');
+
+		return Redirect::to('admin/pelembagaan')->with('success', 'Data berhasil diubah.');
 	}  
 
 	public function store()
@@ -166,28 +183,52 @@ class PelembagaanController extends BaseController {
 		);
 
 		$user = array(
-			'name' => 'Admin Divisi Pelembagaan',
-		    'email' => 'andhy.m0rphin@gmail.com'
+		//	array(
+				'name' => 'User ',
+			    'email' => 'andhy.m0rphin@gmail.com'
+		//	),
+		//	array(
+		//		'name' => 'Admin Pelembagaan',
+		//	    'email' => 'jufri.suandi@gmail.com'
+		//	)
 		);
+		 \
+		//	while()
 		 
-		Mail::send('emails.reqpelembagaan', $data, function($message) use ($user)
-		{
-		  $message->to($user['email'], $user['name'])->subject('Usulan Pelembagaan Request');
-		});
+			Mail::send('emails.reqpelembagaan', $data, function($message) use ($user)
+			{
+			  //$message->to($user['email'], $user['name'])->subject('Usulan Pelembagaan Request');
+			  $message->to(array('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com'));
+			  $message->subject('Usulan Pelembagaan');
+			});
 
 
 		if($uploadSuccess) {
 			if($pelembagaan->save()) {
+		     	$penanggungJawab = new PenanggungJawabPelembagaan();
+				$penanggungJawab->pelembagaan_id = $pelembagaan->id;
+				$penanggungJawab->nama = Input::get('nama_pemohon');
+//				$penanggungJawab->jabatan = Input::get('jabatan');
+				$penanggungJawab->nip = Input::get('nip');				
+				$penanggungJawab->unit_kerja = Input::get('unit_kerja');
+				$penanggungJawab->alamat_kantor = Input::get('alamat_kantor');
+				$penanggungJawab->telp_kantor = Input::get('telp_kantor');
+				$penanggungJawab->email = Input::get('email');
+				$penanggungJawab->save();
+
 				Session::flash('success', 'Data berhasil dikirim.');
+				return Redirect::to('pelembagaan/usulan'); //->with('success', 'Data berhasil diubah.');
 			} else {
 				Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
+				return Redirect::to('pelembagaan/usulan');
 			}					
 		} else {
 			Session::flash('error', 'Gagal mengirim berkas. Pastikan berkas berupa PDF dan kurang dari 512k.');
+			return Redirect::to('pelembagaan/usulan');
 		}		
 		Session::flash('success', 'Data berhasil dikirim.');
+		return Redirect::to('pelembagaan/usulan');
 	}
-
 
 	public function destroy($id)
 	{
@@ -196,5 +237,55 @@ class PelembagaanController extends BaseController {
 			$pelembagaan->delete();
 		}
 	}
+
+    public function downloadLampiran($id)
+    {
+        $pelembagaan = Pelembagaan::find($id) or App::abort(404);
+        $path = UPLOAD_PATH . DS . $pelembagaan->lampiran;
+        return Response::download($path, explode('/', $pelembagaan->lampiran)[1]);
+    }
+
+	public function printTable() {
+//		$dataPelembagaan = DAL_Pelembagaan::getDataTable();
+//		echo "=================";
+        $dataPerUU = DAL_PerUU::getDataTable();
+
+        var_dump($dataPerUU);
+
+		exit;
+//		var_dump($dataPelembagaan);
+//		exit;
+
+/*
+		$data = array();
+		for($dataPelembagaan->get() as $index => $pelembagaan){
+			$tglUsulan = new DateTime($pelembagaan->tgl_usulan);
+			$data[$index]['ID'] = $pelembagaan->id;
+			$data[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
+			$data[$index]['Unit Kerja'] = $pelembagaan->unit_kerja;
+			$data[$index]['Perihal'] = $pelembagaan->perihal;
+			$data[$index]['status'] = "status";
+			$data[$index]['lampiran'] = '<a href="#">'.$pelembagaan->lampiran.'</a>';		
+		}
+
+		$table = HukorHelper::generateHtmlTable($data);
+
+		$html = <<<HTML
+			<style>
+				table{ border-collapse: collapse; }
+				table td, table th { padding: 5px; }
+			</style>
+			<h1>Pelembagaan</h1>
+			{$table}
+HTML;
+			$pdf = new DOMPDF();
+			$pdf->load_html($html);
+			$pdf->render();
+			$pdf->stream("pelembagaan.pdf");
+*/	
+	}
+
+
+
 
 }

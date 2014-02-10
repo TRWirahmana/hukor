@@ -106,4 +106,7 @@ define("MAXSIZE_FOTO", 5000000); // 1 MB
 define('DOWNLOAD_PATH', public_path() . DS . 'assets' . DS . 'downloads');
 define('UPLOAD_PATH', public_path() . DS . 'assets' . DS . 'uploads');
 define('PUN_ROOT', public_path() . DS . 'forum' . DS);
+define('DOMPDF_ENABLE_AUTOLOAD', false);
 require PUN_ROOT.'include/common.php';
+require base_path() . "/vendor/dompdf/dompdf/dompdf_config.inc.php";
+

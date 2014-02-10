@@ -1,6 +1,6 @@
 @section('admin')
-<div class="rightpanel">
 
+<div class="rightpanel">
 
 <ul class="breadcrumbs">
         <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
@@ -89,9 +89,7 @@
             </div>
             <!--footer-->
         </div>
-</div>       
-@stop
-
+</div>   
 
 
 
@@ -119,4 +117,4 @@
 //    Berita.Form();
 </script>
 @stop
-
+@stop

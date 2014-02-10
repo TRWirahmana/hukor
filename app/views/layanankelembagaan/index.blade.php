@@ -9,7 +9,7 @@
 @include('flash')
 
 @if($info != null)
-    <h1><?php echo $info->judul_berita; ?></h1>
+<!--    <h1>--><?php //echo $info->judul_berita; ?><!--</h1>-->
     <br>
     <p><?php echo $info->berita; ?></p>
 
@@ -25,5 +25,7 @@
 @stop
 
 @section('scripts')
+<script type="text/javascript">
+</script>
 @parent
 @stop

@@ -118,10 +118,16 @@
             $("#menu-peraturan-perundangan").addClass("active");
 
             $("#first-date").datepicker({
-                dateFormat: "dd/mm/yy"
+                dateFormat: "dd/mm/yy",
+                onClose: function( selectedDate ) {
+                    $("#last-date").datepicker( "option", "minDate", selectedDate );
+                }
             });
             $("#last-date").datepicker({
-                dateFormat: "dd/mm/yy"
+                dateFormat: "dd/mm/yy",
+                onClose: function( selectedDate ) {
+                    $("#first-date").datepicker("option", "maxDate", selectedDate);
+                }                    
             });
 
             $dataTable = $("#tbl-per-uu").dataTable({

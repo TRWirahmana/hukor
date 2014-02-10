@@ -168,6 +168,11 @@ class HukorHelper {
 
         if($args instanceof Illuminate\Database\Eloquent\Builder) {
             $columns = $args->getQuery()->columns;
+            array_walk($columns, function(&$c) {
+                $parts = explode('.', $c);
+                $lastPart = $parts[count($parts) - 1 ];
+                $c = ucfirst(str_replace('_', " ", strtolower($lastPart)));
+            });
             $rows = $args->get()->toArray();
         } elseif(is_array($args)) {
             $result = array();
@@ -194,4 +199,15 @@ class HukorHelper {
         return join("", $html);
     }
     
+public function DownloadFile($dir, $file) {
+        $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $dir;
+        $img_exists = $destinationPath . '/' . $file;
+
+        if(file_exists($img_exists))
+//            return Response::download($img_exists);
+            return $img_exists;
+        else
+//            return Redirect::to('bantuanhukum')->with('error', 'Kesalahan, berkas tidak ditemukan.');
+            return null;
+    }
 }

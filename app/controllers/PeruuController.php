@@ -160,7 +160,11 @@ class PeruuController extends BaseController
     }
 
     public function printTable() {
-        $dataPerUU = DAL_PerUU::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null));
+        $status = Input::get("status", null);
+        $firstDate = Input::get("firstDate", null);
+        $lastDate = Input::get("lastDate", null);
+
+        $dataPerUU = DAL_PerUU::getDataTable($status, $firstDate, $lastDate);
         $data = array();
         foreach($dataPerUU->get() as $index => $perUU) {
             $tglUsulan = new DateTime($perUU->tgl_usulan);
@@ -169,25 +173,34 @@ class PeruuController extends BaseController
             $data[$index]['Unit Kerja'] = $perUU->unit_kerja;
             $data[$index]['Perihal'] = $perUU->perihal;
             $data[$index]['status'] = $this->getStatus($perUU->status);
-            $data[$index]['lampiran'] = '<a href="#">'.$perUU->lampiran.'</a>';
+            $data[$index]['lampiran'] = '<a href="#">'.explode("/", $perUU->lampiran)[1].'</a>';
         }
 
-        // var_dump($data);exit;
+        $table = HukorHelper::generateHtmlTable($data);
 
-        $table1 = HukorHelper::generateHtmlTable($data);
-        $html = <<<HTML
-            <style>
-                table { border-collapse: collapse;}
-                table td, table th { padding: 5px;}
-            </style>
-            <h1>Peraturan Perundang Undangan</h1>
-            {$table1}
-HTML;
+        $style = array("<style>");
+        $style[] = "table { border-collapse: collapse; }";
+        $style[] = "table td, table th { padding: 5px; }";
+        $style[] = "</style>";
+
+        $html = array("<h1>Peraturan Perundang Undangan</h1>");
+        $html[] = "<table><tr>";
+        if(null != $status)
+            $html[] = "<td><strong>Status</strong></td><td>: ".$this->getStatus($status)."</td>";
+        if(null != $firstDate)
+            $html[] = "<td><strong>Tgl awal</strong></td><td>: {$firstDate}</td>";
+        if(null != $lastDate)
+            $html[] = "<td><strong>Tgl akhir</strong></td><td>: {$lastDate}</td>";
+        $html[] = "</tr></table>";
+        $html[] = $table;
 
         $pdf = new DOMPDF();
-        $pdf->load_html($html);
+        $pdf->load_html(join("", $style) . join("",$html));
         $pdf->render();
-        $pdf->stream("peraturan_perundang_undangan.pdf");
+
+        $response = Response::make($pdf->output());
+        $response->header("Content-Type", "application/pdf");
+        return $response;
     }
 
     private function getStatus($status) {

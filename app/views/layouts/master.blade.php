@@ -180,19 +180,40 @@
 
 
             <li id="menu-pelembagaan">
+              <div class="accordion" id="accordion5">
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion5" href="#collapse5">
+                      <span class="rulycon-book"></span>Pelembagaan
+                      <span class="rulycon-menu-2 pull-right"></span>
+                    </a>
+                  </div>
+                  <div id="collapse5" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                      <ul>
+                        <li id="menu-pelembagaan-usulan"><a href="{{URL::route('create_pelembagaan')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan</a></li>
+                        <li id="menu-pelembagaan-informasi"><a href="{{ URL::route('informasi_pelembagaan') }}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li id="menu-ketatalaksanaan">
               <div class="accordion" id="accordion4">
                 <div class="accordion-group">
                   <div class="accordion-heading">
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapse4">
-                      <span class="rulycon-book"></span>Pelembagaan
+                      <span class="rulycon-book"></span>Ketatalaksanaan
                       <span class="rulycon-menu-2 pull-right"></span>
                     </a>
                   </div>
                   <div id="collapse4" class="accordion-body collapse">
                     <div class="accordion-inner">
                       <ul>
-                        <li id="menu-pelembagaan-usulan"><a href="{{URL::route('create_pelembagaan')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan</a></li>
-                        <li id="menu-pelembagaan-informasi"><a href="{{ URL::route('informasi_pelembagaan') }}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
+                        <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_sistem_prosedur')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan</a></li>
+                        <li id="menu-pelembagaan-informasi"><a href="#"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
                       </ul>
                     </div>
                   </div>

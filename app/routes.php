@@ -180,7 +180,11 @@ Route::group(array('prefix' => 'admin/layananketatalaksanaan', 'before' => 'auth
 Route::group(array('prefix' => 'per-uu'), function() {
     Route::get('usulan', array('as' => 'pengajuan_per_uu', 'uses' => 'PeruuController@pengajuanUsulan'));
     Route::post('usulan', array('as' => 'proses_pengajuan', 'uses' => 'PeruuController@prosesPengajuan'));
-    
+});
+
+Route::group(array('prefix' => "ketatalaksanaan"), function(){
+    Route::get('usulanSistemProsedur', array("as" => "usulan_sistem_prosedur", "uses" => "KetatalaksanaanController@usulanSistemProsedur"));
+    Route::post('usulanSistemProsedur', array("as" => "proses_usulan_sistem_prosedur", "uses" => "KetatalaksanaanController@prosesUsulanSistemProsedur"));
 });
 
 
@@ -225,8 +229,3 @@ Route::group(array('prefix' => 'layanan_ketatalaksanaan'), function() {
 
 
 Route::get('forumdiskusi', "HomeController@showForum");
-
-Route::get('dompdftest', function(){
-    
-});
-

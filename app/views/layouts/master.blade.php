@@ -46,7 +46,7 @@
   <link rel="shortcut icon" href="{{asset('assets/ico/favicon.png')}}">
 
   <script type="text/javascript">
-    var baseUrl = '{{URL::to(' / ')}}';
+    var baseUrl = '{{ URL::to('/') }}';
   </script>
 
 </head>

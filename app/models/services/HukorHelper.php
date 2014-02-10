@@ -199,4 +199,15 @@ class HukorHelper {
         return join("", $html);
     }
     
+public function DownloadFile($dir, $file) {
+        $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $dir;
+        $img_exists = $destinationPath . '/' . $file;
+
+        if(file_exists($img_exists))
+//            return Response::download($img_exists);
+            return $img_exists;
+        else
+//            return Redirect::to('bantuanhukum')->with('error', 'Kesalahan, berkas tidak ditemukan.');
+            return null;
+    }
 }

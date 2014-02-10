@@ -32,6 +32,8 @@ Route::group(array('before' => 'guest'), function() {
     Route::get('delete_log_banhuk', 'BantuanHukumController@deletelog');
     Route::post('save', 'BantuanHukumController@save');
     Route::post('banhuk_update', 'BantuanHukumController@update');
+    Route::get('download_banhuk', 'BantuanHukumController@download');
+    Route::get('log_banhuk', 'BantuanHukumController@tablelog');
 
 
     Route::resource('user', 'UserController');

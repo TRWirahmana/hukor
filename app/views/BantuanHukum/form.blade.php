@@ -15,69 +15,80 @@
         <div class="row-fluid">
             <div class="span12">
                 <div class="nav nav-tabs">
-                    <h4>INFORMASI PEMOHON</h4>
+                    <h4>PENANGGUNG JAWAB</h4>
                 </div>
                 <div class="control-group">
-                    {{ Form::label('nama_pemohon', 'Nama Pemohon', array('class' => 'control-label')) }}
+                    {{ Form::label('nama', 'Nama Penanggung Jawab', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('nama_pemohon', $user->nama_lengkap, array('id' => 'nama_pemohon', 'disabled' => 'disabled')) }}
+                        {{ Form::text('nama', '', array('id' => 'nama')) }}
                     </div>
                 </div>
 
-                <?php $jenis_kelamin = ($user->jenis_kelamin == 1) ? "Laki-laki" : "Perempuan"; ?>
                 <div class="control-group">
                     {{ Form::label('jenis_kelamin', 'Jenis Kelamin', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('jenis_kelamin', $jenis_kelamin, array('id' => 'jenis_kelamin', 'disabled' => 'disabled')) }}
+                        <div class="control-group">
+                            {{ Form::label('pria', 'Laki-Laki', array('class' => 'control-label')) }}
+                            <div class="controls">
+                                {{ Form::radio('jenis_kelamin', 1, false, array('id' => 'pria')) }}
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            {{ Form::label('wanita', 'Perempuan', array('class' => 'control-label')) }}
+                            <div class="controls">
+                                {{ Form::radio('jenis_kelamin', 0, false, array('id' => 'wanita')) }}
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('tgl_lahir', 'Tanggal Lahir', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('tgl_lahir', $user->tgl_lahir, array('id' => 'tgl_lahir', 'disabled' => 'disabled')) }}
+                        {{ Form::text('tgl_lahir', '', array('id' => 'tgl_lahir', 'class' => 'datepicker')) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('pekerjaan', 'Pekerjaan', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('pekerjaan', $user->pekerjaan, array('id' => 'pekerjaan', 'disabled' => 'disabled')) }}
+                        {{ Form::text('pekerjaan', '', array('id' => 'pekerjaan')) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('nip', 'NIP', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{Form::text('nip', $user->nip, array('id'=>'nip', 'disabled' => 'disabled'))}}
+                        {{ Form::text('nip', '', array('id'=>'nip')) }}
                     </div>
                 </div>
 
                 <div class="control-group {{$errors->has('password')?'error':''}}">
                     {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{Form::textarea('alamat_kerja', $user->alamat_kantor, array('id'=>'alamat_kerja', 'disabled' => 'disabled'))}}
+                        {{ Form::textarea('alamat_kantor', '', array('id'=>'alamat_kantor')) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{Form::text('telp_kantor', $user->tlp_kantor, array('id'=>'telp_kantor', 'disabled' => 'disabled'))}}
+                        {{ Form::text('telp_kantor', '', array('id'=>'telp_kantor')) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('handphone', 'Telepon Genggam', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{Form::text('handphone', $user->handphone, array('id'=>'handphone', 'disabled' => 'disabled'))}}
+                        {{ Form::text('handphone', '', array('id'=>'handphone')) }}
                     </div>
                 </div>
 
                 <div class="control-group">
-                    {{ Form::label('email', 'Pos-El', array('class' => 'control-label')) }}
+                    {{ Form::label('email', 'E-Mail', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{Form::text('email', $user->email, array('id'=>'email', 'disabled' => 'disabled'))}}
+                        {{ Form::text('email', '', array('id'=>'email')) }}
                     </div>
                 </div>
             </div>
@@ -126,36 +137,8 @@
                         {{ Form::textarea('uraian', '', array('id' => 'catatan')) }}
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="nav nav-tabs">
-                    <h4>INFORMASI REGISTRASI</h4>
-                </div>
-                <div class="control-group">
-                    {{ Form::label('nama', 'Nama', array('class' => 'control-label')) }}
-                    <div class="controls">
-                        {{ Form::text('nama', $user->nama_lengkap, array('id' => 'nama', 'disabled' => 'disabled')) }}
-                    </div>
-                </div>
 
-                <div class="control-group">
-                    {{ Form::label('email2', 'Pos-El', array('class' => 'control-label')) }}
-                    <div class="controls">
-                        {{ Form::text('email2', $user->email, array('id'=>'email2', 'disabled' => 'disabled')) }}
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    {{ Form::label('id_number', 'ID-Number', array('class' => 'control-label')) }}
-                    <div class="controls">
-                        {{ Form::text('id_number', $user->id, array('id' => 'id_number', 'disabled' => 'disabled')) }}
-                    </div>
-                </div>
-            </div>
-            <div class="span12">
                 <div class="nav nav-tabs">
                     <h4>INFORMASI LAMPIRAN</h4>
                 </div>
@@ -188,4 +171,18 @@
             </div>
         </div>
 {{ Form::close() }}
+@stop
+
+@section('scripts')
+@parent
+<script type="text/javascript">
+    $(function() {
+        $( ".datepicker" ).datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            yearRange: "1970:2020",
+            changeYear: true
+        }).val();
+    });
+</script>
 @stop

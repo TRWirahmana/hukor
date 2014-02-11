@@ -99,6 +99,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     // Per UU
     Route::group(array("prefix" => "per_uu"), function() {
         Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
+        Route::get('index_per_uu', 'PeruuController@index');
         Route::get('update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
         Route::get('download/{id}', "PeruuController@downloadLampiran");
         Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));

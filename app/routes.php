@@ -300,6 +300,39 @@ Route::group(array('prefix' => 'per_uu', 'before' => 'auth|per_uu'), function() 
 });
 
 
+//pengaturan route KETATALAKSANAAN sisi ADMIN
+Route::group(array('prefix' => 'ketatalaksanaan', 'before' => 'auth|ketatalaksanaan'), function() {
+
+    Route::resource('account', 'AdminController');
+    Route::get('Index', 'AdminController@index');
+    Route::get('Home', 'AdminController@home');
+    Route::get('setting', 'AdminController@setting');
+    Route::put('setting/save', 'AdminController@save');
+
+    $user = Auth::user();
+    if(9 == $user->role_id) {
+        Route::group(array("prefix" => "ketatalaksanaan"), function() {
+            Route::get('sistemDanProsedur', array("as" => "index_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@indexSistemDanProsedur"));
+            Route::get("updateSistemDanProsedur/{id}", array("as" => "update_status_dan_prosedur", "uses" => "SistemDanProsedurController@updateSistemDanProsedur"));
+            Route::post('deleteSistemDanProsedur', array("as" => "delete_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@deleteSistemDanProsedur"));
+            Route::post('updateSistemDanProsedur', array("as" => "proses_update_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@prosesUpdateSistemDanProsedur"));
+            Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "SistemDanProsedurController@downloadSistemDanProsedur"));
+            Route::get('printSistemDanProsedur', array('as' => 'print_sistem_dan_prosedur', 'uses' => 'SistemDanProsedurController@printSistemDanProsedur'));
+
+            Route::group(array("prefix" => "analisisJabatan"), function(){
+                Route::get('/', array("as" => "index_analisis_jabatan", "uses" => "AnalisisJabatanController@index"));
+                Route::get('print', array("as" => "print_analisis_jabatan", "uses" => "AnalisisJabatanController@printTable"));
+                Route::get('download/{id}', "AnalisisJabatanController@downloadLampiran");
+                Route::post('delete', array('as' => 'hapus_analisis_jabatan', 'uses' => 'AnalisisJabatanController@hapusUsulan'));
+                Route::get('update/{id}', array("as" => "update_analisis_jabatan", "uses" => "AnalisisJabatanController@update"));
+                Route::post('update', array("as" => "proses_update_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUpdate"));
+            });
+    });
+    }
+});
+
+
+
 //pengaturan route pelembagaan sisi ADMIN
 Route::group(array('prefix' => 'pelembagaan', 'before' => 'auth|pelembagaan'), function() {
     Route::get('/', function() {

@@ -13,6 +13,10 @@ class Pelembagaan extends Eloquent {
         return $this->hasMany('LogPelembagaan');
     }
 
+    public function penanggungJawabPelembagaan() {
+        return $this->hasMany('PenanggungJawabPelembagaan');
+    }
+
     public function getJenisUsulan($i) {
 
         switch ($i) {

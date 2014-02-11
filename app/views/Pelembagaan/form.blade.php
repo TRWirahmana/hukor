@@ -21,32 +21,43 @@
 					
 					<div class="control-group">
 						{{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label'))}}
-							<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->unit_kerja }}"></div>						
+						<div class="controls">
+							{{ Form::text('unit_kerja') }}
+						</div>
 					</div>		
 
 					<div class="control-group">
 						{{ Form::label('nip', "NIP", array('class' => 'control-label'))}}
-							<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->nip }}"></div>						
+						<div class="controls">
+							{{ Form::text('nip')}}
+						</div>
 					</div>
 
 					<div class="control-group">
 						{{ Form::label('nama_pemohon', "Nama Pemohon", array('class' => 'control-label'))}}					
-						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->nama_lengkap }}"></div>	
+						<div class="controls">
+							{{ Form::text('nama_pemohon', $user->pengguna->nama_lengkap ) }}
+						</div>
 					</div>	
-
 
 					<div class="control-group">
 						{{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label'))}}
-						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->alamat_kantor}}"></div>	
+						<div class="controls">
+							{{ Form::text('alamat_kantor') }}
+						</div>
 					</div>	
 
 					<div class="control-group">
 						{{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label'))}}
-						<div class="controls"> <input type="text" disabled="" value="{{  $user->pengguna->tlp_kantor }}"></div>	
+						<div class="controls">
+							{{ Form::text('telp_kantor') }}
+						</div>
 					</div>
 					<div class="control-group">
 						{{ Form::label('pos_el', 'Pos_el', array('class' => 'control-label'))}}
-						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->email }}"></div>	
+						<div class="controls">
+							{{ Form::text('email', $user->pengguna->email) }}
+						</div>
 					</div>	
 				</fieldset>
 			</div>
@@ -67,40 +78,13 @@
 							{{ Form::file('lampiran') }}</div>
 					</div>
 					<div class="control-group">
-					{{ Form::label('catatan', "Catatan", array('class' => 'control-label')) }}
+					{{ Form::label('catatan', "Keterangan", array('class' => 'control-label')) }}
 						<div class="controls">{{ Form::textarea('catatan', $pelembagaan->catatan) }}</div>
 					</div>
 				</fieldset>
 			</div>
 		</div>
 
-
-		<div class="row-fluid">
-			<div class="span6"></div>		
-			<div class="span12">
-				<fieldset>
-		            <legend>Informasi Registrasi</legend>
-					<div class="control-group">
-					{{ Form::label("nama", "Nama", array('class' => 'control-label')) }}
-						<div class="controls"> <input type="text" disabled="" value="{{  $user->pengguna->nama_lengkap }}"></div>						
-					</div>
-				
-					<div class="control-group">
-					{{ Form::label("pos_el", "Pos El", array('class' => 'control-label')) }}
-						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->email }}"></div>						
-					</div>
-
-					<div class="control-group">
-					{{ Form::label("id-number", "Id-Number", array('class' => 'control-label')) }}
-						<div class="controls"> <input type="text" disabled="" value="{{ $user->pengguna->user_id }}"></div>						
-					</div>
-					<p>( <a href="#">klik disini untuk merubah informasi registrasi</a> )</p>
-					
-					
-					</fieldset>
-			</div>
-			<div class="span6"></div>	
-	</div>
 	<div class="form-actions">	
 		{{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
 		 <input class='btn btn-primary' Type="button" value="Batal" onClick="history.go(-1);return true;">

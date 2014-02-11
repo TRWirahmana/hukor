@@ -14,7 +14,7 @@ jQuery(document).ready(function(e){
                 mData: "penulis"
             },
             {
-                mData: "created_at"
+                mData: "tgl_penulisan"
             },
             {
                 mData: "id",
@@ -30,7 +30,7 @@ jQuery(document).ready(function(e){
         },
         fnDrawCallback: function() {
 
-//            dom.$table_news.fnSetColumnVis( 3,  (dom.$select_role.val() == 0 || dom.$select_role.val() == 3 || dom.$select_role.val() == 2));
+            dom.$table_news.fnSetColumnVis( 4,  role == 3 );
         }
     });
 

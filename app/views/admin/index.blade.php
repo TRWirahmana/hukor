@@ -26,8 +26,9 @@
             <div class="stripe-accent"></div>
 
             <form class="form-inline">
+                <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/account/create')}}">Tambah Akun Baru</a>
                 <fieldset>
-                    <legend><a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/account/create')}}">Tambah Akun Baru</a></legend>
+                    <legend></legend>
                     <label for="select_role" class="control-label">Tipe Pengguna</label>
                     <select id="select_role">
                         <option value="0">Semua User</option>
@@ -71,4 +72,16 @@
 @section('scripts')
 @parent
 <script src="{{asset('assets/js/admin_index.js')}}"></script>
+
+<!--<style>-->
+<!--    .leftmenu .nav-tabs.nav-stacked > li.dropdown ul {-->
+<!--        display: block !important;-->
+<!--    }-->
+<!--    #produkhukum, #ketatalaksanaan, #bahu, #puu, #diskusi, #callcenter, #app, #kelembagaan, #manage-menu{-->
+<!--        display: none !important;-->
+<!--    }-->
+<!--    #kelola{-->
+<!--        background: #0866C6;-->
+<!--    }-->
+<!--</style>-->
 @stop

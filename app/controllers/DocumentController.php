@@ -7,13 +7,13 @@ class DocumentController extends BaseController{
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @reutrn Response
      */
 
     public function index() {
         $this->layout->content = View::make('document.index');
-    }
-
+    
+}
     public function add()
     {
         $this->layout->content = View::make('document.form', array(

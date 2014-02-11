@@ -9,7 +9,7 @@ class PeruuController extends BaseController
     {
         // handle dataTable request
         if (Request::ajax())
-            return Datatables::of(DAL_PerUU::getDataTable(Input::get("status", null)))->make(true);
+            return Datatables::of(DAL_PerUU::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
 
         $this->layout = View::make('layouts.admin');
         $this->layout->content = View::make('PerUU.index');
@@ -157,6 +157,72 @@ class PeruuController extends BaseController
         $perUU = PerUU::find($id) or App::abort(404);
         $path = UPLOAD_PATH . DS . $perUU->lampiran;
         return Response::download($path, explode('/', $perUU->lampiran)[1]);
+    }
+
+    public function printTable() {
+        $status = Input::get("status", null);
+        $firstDate = Input::get("firstDate", null);
+        $lastDate = Input::get("lastDate", null);
+
+        $dataPerUU = DAL_PerUU::getDataTable($status, $firstDate, $lastDate);
+        $data = array();
+
+        
+        foreach($dataPerUU->get() as $index => $perUU) {
+            $tglUsulan = new DateTime($perUU->tgl_usulan);
+            $data[$index]['ID'] = $perUU->id;
+            $data[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
+            $data[$index]['Unit Kerja'] = $perUU->unit_kerja;
+            $data[$index]['Perihal'] = $perUU->perihal;
+            $data[$index]['status'] = $this->getStatus($perUU->status);
+            $data[$index]['lampiran'] = '<a href="#">'.explode("/", $perUU->lampiran)[1].'</a>';
+        }
+
+        $table = HukorHelper::generateHtmlTable($data);
+
+        $style = array("<style>");
+        $style[] = "table { border-collapse: collapse; }";
+        $style[] = "table td, table th { padding: 5px; }";
+        $style[] = "</style>";
+
+        $html = array("<h1>Peraturan Perundang Undangan</h1>");
+        $html[] = "<table><tr>";
+        if(null != $status)
+            $html[] = "<td><strong>Status</strong></td><td>: ".$this->getStatus($status)."</td>";
+        if(null != $firstDate)
+            $html[] = "<td><strong>Tgl awal</strong></td><td>: {$firstDate}</td>";
+        if(null != $lastDate)
+            $html[] = "<td><strong>Tgl akhir</strong></td><td>: {$lastDate}</td>";
+        $html[] = "</tr></table>";
+        $html[] = $table;
+
+        $pdf = new DOMPDF();
+        $pdf->load_html(join("", $style) . join("",$html));
+        $pdf->render();
+        $pdf->stream("peruu.pdf");
+    }
+
+    private function getStatus($status) {
+        switch ($status) {
+            case 1:
+                return "Diproses";
+                break;
+            case 2:
+                return "Ditunda";
+                break;
+            case 3:
+                return "Ditolak";
+                break;
+            case 4:
+                return "Buat Salinan";
+                break;
+            case 5:
+                return "Penetapan";
+                break;
+            default:
+                return "";
+                break;
+        }
     }
 
 }

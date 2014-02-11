@@ -1,140 +1,184 @@
 @section('content')
 
-<h2><span class="rulycon-books"></span> BANTUAN HUKUM</h2>
 
-<div class="content-non-title">
-  <legend>Bantuan Hukum
-    <a class="btn btn-hukor pull-right" href="{{ URL::to('/addbahu')}}">Tambah Baru</a>
-  </legend>
+<h2>BANTUAN HUKUM</h2>
+<div class="stripe-accent"></div>
+    <legend>Bantuan Hukum
+        <a class="btn btn-mini btn-primary" href="{{ URL::to('/addbahu')}}">
+            <i class="icon-plus"></i>&nbsp; Tambah Baru</a>
+    </legend>
 
-  @include('flash')
+    @include('flash')
 
-  <table id="basictable" class="dataTable">
-    <thead>
-    <tr>
-      <th>Nama Pemohon</th>
-      <th>Jenis Perkara</th>
-      <th>Status Pemohon</th>
-      <th>Status Perkara</th>
-      <th>Advokasi</th>
-      <th>Advokator</th>
-      <th></th>
-    </tr>
-    </thead>
-  </table>
+    <label for="status-pemohon">Status Pemohon</label>
+    <select id="status-pemohon">
+        <option value="0">Tampilkan Semua</option>
+        <option value="1">Tergugat</option>
+        <option value="2">Penggugat</option>
+        <option value="3">Interfent</option>
+        <option value="4">Saksi</option>
+        <option value="5">Pemohon</option>
+    </select>
 
-  @section('scripts')
-  @parent
-  <script type="text/javascript">
-    $("#menu-bantuan-hukum").addClass("active");
-    var tbl_data = $("#basictable").dataTable({
-      bFilter: false,
-      bInfo: false,
-      bSort: false,
-      bPaginate: true,
-      bLengthChange: false,
-      bServerSide: true,
-      bProcessing: true,
+    <label for="jenis-perkara">Jenis Perkara</label>
+    <select id="jenis-perkara">
+        <option value="0">Tampilkan Semua</option>
+        <option value="1">Tata Usaha Negara</option>
+        <option value="2">Perdata</option>
+        <option value="3">Pidana</option>
+        <option value="4">Uji Materil MK</option>
+        <option value="5">Uji Materil MA</option>
+    </select>
+
+    <label for="advokasi">Advokasi</label>
+    <select id="advokasi">
+        <option value="0">Tampilkan Semua</option>
+        <option value="1">Bankum I</option>
+        <option value="2">Bankum II</option>
+        <option value="3">Bankum III</option>
+    </select>
+    
+    <table id="basictable" class="dataTable">
+        <thead>
+        <tr>
+            <th>Nama Pemohon</th>
+            <th>Jenis Perkara</th>
+            <th>Status Pemohon</th>
+            <th>Status Perkara</th>
+            <th>Advokasi</th>
+            <th>Advokator</th>
+            <th></th>
+        </tr>
+        </thead>
+    </table>
+
+    @section('scripts')
+        @parent
+        <script type="text/javascript">
+            var tbl_data = $("#basictable").dataTable({
+                bFilter: true,
+                bInfo: false,
+                bSort: false,
+                bPaginate: true,
+                bLengthChange: false,
+                bServerSide: true,
+                bProcessing: true,
 //                sAjaxSource: baseUrl + "/lkpm/data",
-      sAjaxSource: '<?php echo URL::to("tabelbahu"); ?>',
-      aoColumns: [
-        {mData: "pengguna.nama_lengkap"},
-        {
-          mData: "jenis_perkara",
-          sClass: "center",
-          mRender: function (id) {
-            var jenis_perkara;
-            switch (id) {
-              case 1:
-                jenis_perkara = 'Tata Usaha Negara';
-                break;
-              case 2:
-                jenis_perkara = 'Perdata';
-                break;
-              case 3:
-                jenis_perkara = 'Pidana';
-                break;
-              case 4:
-                jenis_perkara = 'Uji Materil MK';
-                break;
-              case 5:
-                jenis_perkara = 'Uji Materil MA';
-                break;
-            }
+                sAjaxSource: '<?php echo URL::to("tabelbahu"); ?>',
+                aoColumns: [
+                    {mData: "pengguna.nama_lengkap"},
+                    {
+                        mData: "jenis_perkara",
+                        sClass: "center",
+                        mRender: function(id){
+                            var jenis_perkara;
+                            switch (id){
+                                case 1:
+                                    jenis_perkara = 'Tata Usaha Negara';
+                                    break;
+                                case 2:
+                                    jenis_perkara = 'Perdata';
+                                    break;
+                                case 3:
+                                    jenis_perkara = 'Pidana';
+                                    break;
+                                case 4:
+                                    jenis_perkara = 'Uji Materil MK';
+                                    break;
+                                case 5:
+                                    jenis_perkara = 'Uji Materil MA';
+                                    break;
+                            }
 
-            return jenis_perkara;
-          }
-        },
-        {
-          mData: "status_pemohon",
-          mRender: function (id) {
-            var status_pemohon;
-            switch (id) {
-              case 1:
-                status_pemohon = 'Tergugat';
-                break;
-              case 2:
-                status_pemohon = 'Penggugat';
-                break;
-              case 3:
-                status_pemohon = 'Interfent';
-                break;
-              case 4:
-                status_pemohon = 'Saksi';
-                break;
-              case 5:
-                status_pemohon = 'Pemohon';
-                break;
-            }
+                            return jenis_perkara;
+                        }
+                    },
+                    {
+                        mData: "status_pemohon",
+                        mRender: function(id){
+                            var status_pemohon;
+                            switch (id){
+                                case 1:
+                                    status_pemohon = 'Tergugat';
+                                    break;
+                                case 2:
+                                    status_pemohon = 'Penggugat';
+                                    break;
+                                case 3:
+                                    status_pemohon = 'Interfent';
+                                    break;
+                                case 4:
+                                    status_pemohon = 'Saksi';
+                                    break;
+                                case 5:
+                                    status_pemohon = 'Pemohon';
+                                    break;
+                            }
 
-            return status_pemohon;
-          }
-        },
-        {mData: "status_perkara"},
-        {
-          mData: "advokasi",
-          mRender: function (id) {
-            var advokasi;
-            switch (id) {
-              case 1:
-                advokasi = "Bankum I";
-                break;
-              case 2:
-                advokasi = "Bankum II";
-                break;
-              case 3:
-                advokasi = "Bankum III";
-                break;
-            }
+                            return status_pemohon;
+                        }
+                    },
+                    {mData: "status_perkara"},
+                    {
+                        mData: "advokasi",
+                        mRender: function(id){
+                            var advokasi;
+                            switch (id){
+                                case 1:
+                                    advokasi = "Bankum I";
+                                    break;
+                                case 2:
+                                    advokasi = "Bankum II";
+                                    break;
+                                case 3:
+                                    advokasi = "Bankum III";
+                                    break;
+                                default:
+                                    advokasi = "";
+                                    break;
+                            }
 
-            return advokasi;
-          }
-        },
-        {mData: "advokator"},
-        {
-          mData: "id",
-          mRender: function (data, type, full) {
-            var detailUrl = baseUrl + '/detail_banhuk?id=' + data;
-            var deleteUrl = baseUrl + '/delete_banhuk?id=' + data;
+                            return advokasi;
+                        }
+                    },
+                    {mData: "advokator"},
+                    {
+                        mData: "id",
+                        mRender: function(data, type, full){
+                            var detailUrl = baseUrl + '/detail_banhuk?id=' + data;
+                            var deleteUrl = baseUrl + '/delete_banhuk?id=' + data;
+                            var downloadUrl = baseUrl + '/download_banhuk?id=' + data;
 
-            return '<a href="' + detailUrl + '"><i class="icon-edit"></i></a> &nbsp;' +
-                '<a href="' + deleteUrl + '" class="btn_delete"><i class="icon-trash"></i></a>';
-          }
-        }
-      ],
-      fnServerParams: function (aoData) {
-//                    aoData.push({name: "tahun", value: $("#select_filter_tahun").val()});
-//                    aoData.push({name: "id_prop", value: $("#select_filter_provinsi").val()});
-      },
-      fnServerData: function (sSource, aoData, fnCallback) {
-        $.getJSON(sSource, aoData, function (json) {
-          $("#text-tahun").text(json.tahun);
-          fnCallback(json);
-        });
-      }
-    });
-  </script>
-</div>
+                            return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a> &nbsp;' +
+                                '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
+                                '<a href="' + deleteUrl + '" title="Delete" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
+                        }
+                    }
+                ],
+                fnServerParams: function(aoData) {
+                    aoData.push({name: "jenis_perkara", value: $("#jenis-perkara").val()});
+                    aoData.push({name: "status_pemohon", value: $("#status-pemohon").val()});
+                    aoData.push({name: "advokasi", value: $("#advokasi").val()});
+                },
+                fnServerData: function(sSource, aoData, fnCallback) {
+                    $.getJSON(sSource, aoData, function(json) {
+                        $("#text-tahun").text(json.tahun);
+                        fnCallback(json);
+                    });
+                }
+            });
 
-@stop
+            $("#jenis-perkara").change(function(){
+                tbl_data.fnReloadAjax();
+            });
+
+            $("#status-pemohon").change(function(){
+                tbl_data.fnReloadAjax();
+            });
+
+            $("#advokasi").change(function(){
+                tbl_data.fnReloadAjax();
+            });
+        </script>
+    @stop
 @stop

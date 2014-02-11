@@ -27,21 +27,50 @@
             <!-- MAIN CONTENT -->
 
             <div class="content-non-title">
-                <legend>
-                    Informasi & Status Usulan
-                </legend>
-                <div class="form-inline pull-right">
-                    <label for="select-status">Status: </label>
-                    <select id="select-status">
-                        <option value="">Semua Status</option>
-                        <option value="1">Diproses</option>
-                        <option value="2">Ditunda</option>
-                        <option value="3">Ditolak</option>
-                        <option value="4">Buat Salinan</option>
-                        <option value="5">Penetapan</option>
-                    </select>
-                </div>
+                <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_table')}}">
+                    <fieldset>
+                        <legend class="f_legend">Filter</legend>
+                        <div class="row-fluid">
+                            <div class="span6">
+                                <div class="control-group">
+                                    <label for="" class="control-label">Tanggal Awal</label>
+                                    <div class="controls">
+                                        <input type="text" id="first-date" name="firstDate">
+                                    </div>
+                                </div>
 
+                                <div class="control-group">
+                                    <label for="toDate" class="control-label">Tanggal Akhir</label>
+                                    <div class="controls">
+                                        <input type="text" id="last-date" name="lastDate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span6">
+                                <div class="control-group">
+                                    <label for="select-status" class="control-label">Status</label>
+                                    <div class="controls">
+                                        <select id="select-status" name="status">
+                                            <option value="">Semua Status</option>
+                                            <option value="1">Diproses</option>
+                                            <option value="2">Ditunda</option>
+                                            <option value="3">Ditolak</option>
+                                            <option value="4">Buat Salinan</option>
+                                            <option value="5">Penetapan</option>
+                                        </select>        
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
+                                        <input type="submit" value="Cetak" class="btn btn-primary">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
 
                 <table id="tbl-per-uu">
                     <thead>
@@ -82,13 +111,34 @@
 
     @section('scripts')
     @parent
+    <script src="{{asset('assets/js/ZeroClipboard.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/TableTools-2.2.0/js/dataTables.tableTools.min.js')}}"></script>
     <script type="text/javascript">
         jQuery(function($) {
             $("#menu-peraturan-perundangan").addClass("active");
 
+            $("#first-date").datepicker({
+                dateFormat: "dd/mm/yy",
+                onClose: function( selectedDate ) {
+                    $("#last-date").datepicker( "option", "minDate", selectedDate );
+                }
+            });
+            $("#last-date").datepicker({
+                dateFormat: "dd/mm/yy",
+                onClose: function( selectedDate ) {
+                    $("#first-date").datepicker("option", "maxDate", selectedDate);
+                }                    
+            });
+
             $dataTable = $("#tbl-per-uu").dataTable({
+                // sDom: 'Trtip',
+                // oTableTools: {
+                //     sSwfPath: "/assets/TableTools-2.2.0/swf/copy_csv_xls_pdf.swf"
+                // },
                 bServerSide: true,
                 sAjaxSource: document.location.href,
+                bFilter: false,
+                bLengthChange: false,
                 aoColumns: [
                     {
                         mData: "id",
@@ -152,6 +202,18 @@
                 ],
                 fnServerParams: function(aoData) {
                     aoData.push({name: "status", value: $("#select-status").val()});
+                    aoData.push({name: "firstDate", value: $("#first-date").val()});
+                    aoData.push({name: "lastDate", value: $("#last-date").val()});
+                },
+                "fnDrawCallback": function ( oSettings ) {
+                    /* Need to redo the counters if filtered or sorted */
+                    if ( oSettings.bSorted || oSettings.bFiltered )
+                    {
+                        for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+                        {
+                            $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+                        }
+                    }
                 }
             });
 
@@ -165,9 +227,14 @@
                 });
             });
 
-            $("#select-status").change(function() {
+            $("#select-status, #first-date, #last-date").change(function() {
                 $dataTable.fnReloadAjax();
             });
+
+            $("#form-filter").on("reset", function(){
+                $dataTable.fnReloadAjax();
+            });
+
 
         });
 

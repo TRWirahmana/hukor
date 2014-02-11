@@ -14,7 +14,7 @@
         <div class="pagetitle">
             <!--<h5>Events</h5>-->
 
-            <h1>Selamat Datang Admin</h1>
+            <h1>Selamat Datang</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -23,6 +23,9 @@
         <div class="maincontentinner">
 
             <!-- MAIN CONTENT -->
+            <label>
+                <input type="checkbox"> Forum
+            </label>
 
 
             <div class="footer">

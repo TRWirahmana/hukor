@@ -8,7 +8,7 @@
     </ul>
 
     @include('adminflash')
-
+    <?php $user = Auth::user(); ?>
     <div class="pageheader">
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
@@ -30,13 +30,12 @@
 
             <form class="form-inline">
                 <fieldset>
+                    @if($user->role_id == 3)
                     <legend><a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/berita/create')}}">Tambah Berita Baru</a></legend>
-<!--                    <label for="select_role" class="control-label">Tipe Pengguna</label>-->
-<!--                    <select id="select_role">-->
-<!--                        <option value="0">Semua User</option>-->
-<!--                        <option value="2">User</option>-->
-<!--                        <option value="3">Admin</option>-->
-<!--                    </select>-->
+                    @endif
+                    @if($user->role_id == 1)
+                    <legend><a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/kepala_biro/berita/create')}}">Tambah Berita Baru</a></legend>
+                    @endif
                 </fieldset>
             </form>
 

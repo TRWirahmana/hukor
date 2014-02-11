@@ -22,7 +22,8 @@ var Pelembagaan = (function(REG) {
                 'email': {
                     required: true,
                     email: true
-                }
+                },
+                'lampiran': 'required'
             };
 
         $("#pelembagaan-form").validate({
@@ -70,7 +71,25 @@ var Pelembagaan = (function(REG) {
                     $controlGroup.addClass('error');
         })
 
-    };
+    //   $("#pelembagaan-form input[type='file']").fileValidator({
+    //        onValidation: function(files){ $(this).attr('class','error'); },
+    //        onInValid: function(type, file){ $(this).addClass('invalid '+type)}
+    //        maxSize: '1m' 
+    //     });
+    // };
+
+    // $.validator.addMethod('filesize', function(value, element, param) {
+    //     // param = size (en bytes) 
+    //     // element = element to validate (<input>)
+    //     // value = value of the element (file name)
+    //     return this.optional(element) || (element.files[0].size <= param) 
+    // });
+
+    // $('#pelembagaan-form input[type='file']').validate({
+    //     rules: { lampiran: { required: true, accept: "png|jpe?g|gif", filesize: 1048576  }},
+    //     messages: { lampiran: "File must be JPG, GIF or PNG, less than 1MB" }
+    // });
+
 
     REG.Update = function() {
         /*

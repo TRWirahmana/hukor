@@ -1,7 +1,7 @@
 <?php
 
 class DAL_PerUU {
-    public static function getDataTable($filter = null) {
+    public static function getDataTable($filter = null, $firstDate = null, $lastDate = null) {
         $data = PerUU::join('pengguna', 'per_uu.id_pengguna', '=', 'pengguna.id')
                 ->leftJoin('jabatan', 'pengguna.jabatan', '=', 'jabatan.id')
                 ->select(array(
@@ -14,9 +14,12 @@ class DAL_PerUU {
                     'per_uu.lampiran'
         ));
 
-        if(null != $filter) {
+        if(null != $filter)
             $data->where("per_uu.status", "=", $filter);
-        }
+        if(null != $firstDate)
+            $data->where(DB::raw("DATE(per_uu.tgl_usulan)"), ">=", DateTime::createFromFormat("d/m/Y", $firstDate)->format('Y-m-d'));
+        if(null != $lastDate)
+            $data->where(DB::raw("DATE(per_uu.tgl_usulan)"), "<=", DateTime::createFromFormat("d/m/Y", $lastDate)->format('Y-m-d'));
 
         return $data;
     }

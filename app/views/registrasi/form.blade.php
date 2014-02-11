@@ -5,7 +5,7 @@
 @include('flash')
 
 {{-- form registrasi --}}
-    {{ Form::open(array('action' => 'RegistrasiController@send', 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', )) }}
+    {{ Form::open(array('action' => 'RegistrasiController@send', 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal' )) }}
 
 <div class="span24" style="margin-bottom: 20px;margin-top:0px;margin-left:50px">
     <strong>Silahkan lengkapi formulir berikut untuk melakukan pendaftaran. Isian dengan tanda <span class="required"></span> wajib diisi.</strong>
@@ -89,36 +89,16 @@
                   </div>
               </div>
 
-              <div class="control-group {{$errors->has('bagian')?'error':''}}">
-                  {{ Form::label('bagian', 'Bagian', array('class' => 'control-label required')) }}
-                  <div class="controls">
-                      {{ Form::select('bagian', array('1' => 'Bagian 1', '2' => 'Bagian 2'), 'Pilih Bagian') }}
-
-                      @foreach($errors->get('bagian') as $error)
-                      <span class="help-block">{{$error}}</span>
-                      @endforeach
-                  </div>
-              </div>
-
-              <div class="control-group {{$errors->has('sub_bagian')?'error':''}}">
-                  {{ Form::label('sub_bagian', 'Sub Bagian', array('class' => 'control-label required')) }}
-                  <div class="controls">
-                      {{ Form::select('sub_bagian', array('1' => 'Sub Bagian 1', '2' => 'Sub Bagian 2'), 'Pilih Sub Bagian') }}
-
-                      @foreach($errors->get('sub_bagian') as $error)
-                      <span class="help-block">{{$error}}</span>
-                      @endforeach
-                  </div>
-              </div>
-
-              <div class="control-group block-field {{$errors->has('jenis_kelamin')?'error':''}}">
+              <div class="control-group {{$errors->has('jenis_kelamin')?'error':''}}">
                   {{ Form::label('jenis_kelamin', 'Jenis Kelamin', array('class' => 'control-label required')) }}
                   <div class="controls">
                       <label class="radio">
-                          {{ Form::radio('jenis_kelamin', 1, array('id'=>'kelamin-laki2') ) }} <span>Laki-laki</span>
+                          <input type="radio" name="jenis_kelamin" value="1">Laki-laki<br>
+<!--                          {{ Form::radio('jenis_kelamin', 1, array('id'=>'kelamin-laki2') ) }} <span>Laki-laki</span>-->
                       </label>
                       <label class="radio">
-                          {{ Form::radio('jenis_kelamin', 0, array('id'=>'kelamin-perempuan')) }} <span>Perempuan</span>
+                          <input type="radio" name="jenis_kelamin" value="0">Perempuan<br>
+<!--                          {{ Form::radio('jenis_kelamin', 0, array('id'=>'kelamin-perempuan')) }} <span>Perempuan</span>-->
                       </label>
                       @foreach($errors->get('jenis_kelamin') as $error)
                       <span class="help-block">{{$error}}</span>
@@ -196,6 +176,18 @@
                       @endforeach
                   </div>
               </div>
+
+              <div class="span15">
+                  <div class="controls">
+                      {{ HTML::image(Captcha::img(), 'Captcha image') }}
+                  </div>
+<!--                  <br>-->
+                  <div class="controls">
+                      {{ Form::text('captcha', '', array('placeholder' => 'Input Captcha here...')) }}
+                  </div>
+              </div>
+
+
           </div>
         </div>
 

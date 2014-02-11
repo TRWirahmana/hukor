@@ -45,11 +45,35 @@ Route::filter('super_admin', function(){
 		App::abort(404, 'Page Not Found.');
 });
 
-//Route::filter('admin_region', function(){
-//	$user = Auth::user()->user;
-//	if($user->role_id != "3" && $user->role_id != "4")
-//		App::abort(404, 'Page Not Found.');
-//});
+Route::filter('kepala_biro', function(){
+    $user = Auth::user();
+    if($user->role_id != "1")
+        App::abort(404, 'Page Not Found.');
+});
+
+Route::filter('ketatalaksanaan', function(){
+    $user = Auth::user();
+    if($user->role_id != "9")
+        App::abort(404, 'Page Not Found.');
+});
+
+Route::filter('per_uu', function(){
+    $user = Auth::user();
+    if($user->role_id != "6")
+        App::abort(404, 'Page Not Found.');
+});
+
+Route::filter('bantuan_hukum', function(){
+    $user = Auth::user();
+    if($user->role_id != "8")
+        App::abort(404, 'Page Not Found.');
+});
+
+Route::filter('pelembagaan', function(){
+    $user = Auth::user();
+    if($user->role_id != "7")
+        App::abort(404, 'Page Not Found.');
+});
 
 Route::filter('user', function() {
 	$user = Auth::user()->user;

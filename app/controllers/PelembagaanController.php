@@ -8,20 +8,30 @@ class PelembagaanController extends BaseController {
 
 	public function index()
 	{
+
+		$user = Auth::user();
+//		$user->role_id;
         if(Request::ajax())           
             return Datatables::of(DAL_Pelembagaan::getDataTable())->make(true);
             
-        	// $statusUn = Pelembagaan::where('status', null)->count();
-        	// $statusPro = Pelembagaan::where('status', 1)->count();
-        	// $statusPerUU = Pelembagaan::where('status', 2)->count();
+        	 $statusUn = Pelembagaan::where('status', null)->count();
+        	 $statusPro = Pelembagaan::where('status', 1)->count();
+        	 $statusPerUU = Pelembagaan::where('status', 2)->count();
 
+	       	// $listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
+	        // 													->lists('usulan_year', 'usulan_year');
+  //      if($user->role_id == 3){
 //	       	$listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
 //	        													->lists('usulan_year', 'usulan_year');
-//	    $this->layout->content = View::make('Pelembagaan.index', array());		
+
+        if($user->role_id == 3 || $user->role_id == 7){
+			$this->layout = View::make('layouts.admin');
+        } else {
+        	$this->layout = View::make('layouts.master');
+        }
 	    
-    	//$this->layout = View::make('layouts.admin');
-		$this->layout = View::make('layouts.admin');
-	    $this->layout->content = View::make('Pelembagaan.index');//, array( 'status_belum' => $statusUn, 'status_proses' => $statusPro));		
+//	    $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user, 'status_belum' => $statusUn, 'status_proses' => $statusPro));		
+	    $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user));//, array( 'status_belum' => $statusUn, 'status_proses' => $statusPro));
 	}
 
     public function datatable()
@@ -84,8 +94,10 @@ class PelembagaanController extends BaseController {
 				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
 				'detail' => '',
 				'form_opts' => array(
-					'route' => array('admin.pelembagaan.update', $pelembagaan->id),
-					'method' => 'put',
+					'route' => 'proses_update_pelembagaan',
+					'method' => 'post',
+//					'route' => array('admin.pelembagaan.update', $pelembagaan->id),
+//					'method' => 'put',
 					'class' => 'form-horizontal',
 		            'id' => 'pelembagaan-update',
 					'files' => true
@@ -98,8 +110,9 @@ class PelembagaanController extends BaseController {
 			));
 	}
 
-	public function update($id)
+	public function update() //$id)
 	{
+        $id = Input::get('id');
 
 		$pelembagaan = Pelembagaan::find($id);
 
@@ -134,14 +147,16 @@ class PelembagaanController extends BaseController {
 		);
 
 		$user = array(
-			'name' => 'User ',
-		    'email' => 'andhy.m0rphin@gmail.com'
+				'name' => 'User ',
+			    'email' => 'andhy.m0rphin@gmail.com'
 		);
 		 
+
 		Mail::send('emails.reppelembagaan', $data, function($message) use ($user)
 		{
 		  $message->to($user['email'], $user['name'])->subject('Re: Usulan Pelembagaan Request');
 		});
+
 
 		return Redirect::to('admin/pelembagaan')->with('success', 'Data berhasil diubah.');
 	}  
@@ -172,14 +187,23 @@ class PelembagaanController extends BaseController {
 		);
 
 		$user = array(
-			'name' => 'Admin Divisi Pelembagaan',
-		    'email' => 'andhy.m0rphin@gmail.com'
+		//	array(
+				'name' => 'User ',
+			    'email' => 'andhy.m0rphin@gmail.com'
+		//	),
+		//	array(
+		//		'name' => 'Admin Pelembagaan',
+		//	    'email' => 'jufri.suandi@gmail.com'
+		//	)
 		);
 		 
-		Mail::send('emails.reqpelembagaan', $data, function($message) use ($user)
-		{
-		  $message->to($user['email'], $user['name'])->subject('Usulan Pelembagaan Request');
-		});
+
+		//	while()
+		 
+			Mail::send('emails.reqpelembagaan', $data, function($message) use ($user)
+			{
+			  $message->to($user['email'], $user['name'])->subject('Usulan Pelembagaan Request');
+			});
 
 
 		if($uploadSuccess) {

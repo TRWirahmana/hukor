@@ -194,8 +194,8 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            return "<a href='/admin/ketatalaksanaan/downloadSistemDanProsedur/" + data + "'><i class='icon-download'></i></a> " +
-                                    "<a href='/admin/ketatalaksanaan/updateSistemDanProsedur/" + data + "'><i class='icon-edit'></i></a> " +
+                            return "<a href='downloadSistemDanProsedur/" + data + "'><i class='icon-download'></i></a> " +
+                                    "<a href='updateSistemDanProsedur/" + data + "'><i class='icon-edit'></i></a> " +
                                     "<a class='delete' href='javascript:void(0)' data-id='" + data + "'><i class='icon-trash'></i></a>";
                         }
                     }

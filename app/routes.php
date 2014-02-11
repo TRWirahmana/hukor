@@ -40,6 +40,14 @@ Route::group(array('before' => 'guest'), function() {
     Route::resource('bantuanhukum', 'BantuanHukumController');
     Route::resource('forget', 'ForgetPasswordController@index');
 
+    
+    Route::resource('document', 'DocumentController');
+    //Route::group(array("prefix" => "document"), function(){
+        Route::get('adddoc', 'DocumentController@add');
+        Route::post('savedoc','DocumentController@save');
+     //   Route::get();
+    //});
+
 //    Route::resource('account', 'AdminController');
 //    Route::resource('pelembagaan', 'PelembagaanController');   
 //    Route::resource('callcenter','CallCenterController');
@@ -51,7 +59,16 @@ Route::group(array('before' => 'guest'), function() {
         Route::get('print', array('as' => 'print_table_pelembagaan_user', 'uses' => 'PelembagaanController@printTable'));
         Route::get('{id}/download', "PelembagaanController@downloadLampiran");
     });
-    
+
+
+    // Route Produk Hukum
+//    Route::group(array("prefix" => "produkhukum"), function(){    
+        Route::get('produkhukum', 'ProdukHukumController@index');
+        Route::get('produkhukum/data', 'ProdukHukumController');
+        Route::get('produkhukum/getData', 'ProdukHukumController@getData');
+
+//    });
+
 });
 
 

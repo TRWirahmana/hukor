@@ -78,7 +78,7 @@
 							{{ Form::file('lampiran') }}</div>
 					</div>
 					<div class="control-group">
-					{{ Form::label('catatan', "Catatan", array('class' => 'control-label')) }}
+					{{ Form::label('catatan', "Keterangan", array('class' => 'control-label')) }}
 						<div class="controls">{{ Form::textarea('catatan', $pelembagaan->catatan) }}</div>
 					</div>
 				</fieldset>

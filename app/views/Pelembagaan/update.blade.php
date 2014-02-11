@@ -26,6 +26,7 @@
 
             <!-- MAIN CONTENT -->
     {{ Form::open($form_opts) }}
+     {{ Form::hidden('id', $id) }}
 
         <div class="row-fluid">
             <div class="span6">
@@ -102,7 +103,7 @@
                     </div>
                 
                     <div class="control-group">
-                    {{ Form::label('catatan', "Catatan", array('class' => 'control-label')) }}
+                    {{ Form::label('catatan', "Keterangan", array('class' => 'control-label')) }}
                         <div class="controls">{{ Form::textarea('catatan') }}</div>
                     </div>
 

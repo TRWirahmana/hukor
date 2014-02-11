@@ -348,6 +348,12 @@
             $("#manage-menu").show();
         });
 
+        $("#cbox-forum").change(function(e){
+            $.post("/admin/enableForum", {value: $(this).is(":checked")}, function(resp){
+                console.log(resp);
+            });
+        });
+
     });
 </script>
 @show

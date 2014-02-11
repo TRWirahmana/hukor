@@ -111,7 +111,7 @@
                           <th>No. Usulan</th>
                           <th>Tgl Usulan</th>
                           <th>Unit Kerja</th>
-                          <th>Jabatan</th>
+                          <th>Jenis Usulan</th>
                           <th>Perihal</th>
                           <th>Status</th>
                           <th> - </th>
@@ -213,6 +213,8 @@
                               sClass: 'center-ac',                              
                               sWidth: '14%'
                             },
+
+/*
                             {
                               mData: "jabatan" ,
                               sClass: 'center-ac',                              
@@ -227,6 +229,28 @@
                                      return data;
                               }
                             },
+*/
+                            {
+                              mData: "jenis_usulan",
+                              mRender: function ( data, type, full ) {
+                                  if (null != data && "" != data){
+                                    if(data === '1'){
+                                      return 'Pendirian';
+                                    }else if(data === '2'){
+                                      return 'Perubahan';
+                                    } else if(data === '3'){
+                                      return 'Statuta';
+                                    } else if(data === '4' ){
+                                      return 'Penutupan';
+                                    }
+                                  }
+                                     return data;
+                              }
+
+
+
+                            },
+
                             {mData: "perihal"},
                             {
 

@@ -1,32 +1,18 @@
 <?php
 
-class PeruuController extends BaseController
-{
 
-//	protected $layout = 'layouts.master';
+class SistemDanProsedurController extends BaseController {
 
-    public function index()
-    {
-        // handle dataTable request
-        if (Request::ajax())
-            return Datatables::of(DAL_PerUU::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
-
-        $this->layout = View::make('layouts.admin');
-        $this->layout->content = View::make('PerUU.index');
-    }
-
-    public function pengajuanUsulan()
-    {
+	public function usulanSistemProsedur() {
         $user = Auth::user();
         $this->layout = View::make('layouts.master');
-        $this->layout->content = View::make('PerUU.pengajuanUsulan')
+        $this->layout->content = View::make("Ketatalaksanaan.usulanSistemProsedur")
                 ->with('user', $user);
-    }
+	}
 
-    public function prosesPengajuan()
-    {
-        $input = Input::get('per_uu');
-        $img = Input::file('per_uu.lampiran');
+	public function prosesUsulanSistemProsedur() {
+		$input = Input::get('sistem_dan_prosedur');
+        $img = Input::file('sistem_dan_prosedur.lampiran');
         $input2 = Input::get('penanggungJawab');
 
         if ($img->isValid()) {
@@ -36,16 +22,16 @@ class PeruuController extends BaseController
             $uploadSuccess = $img->move($destinationPath, $filename);
 
             if ($uploadSuccess) {
-                $perUU = new PerUU;
-                $perUU->id_pengguna = Auth::user()->pengguna->id;
-                $perUU->perihal = $input['perihal'];
-                $perUU->catatan = $input['catatan'];
-                $perUU->lampiran = $uqFolder . DS . $filename;
-                $perUU->tgl_usulan = new DateTime;
-                $perUU->status = 0;
-                if ($perUU->save()) {
-                    $penanggungJawab = new PenanggungJawabPerUU();
-                    $penanggungJawab->id_per_uu = $perUU->id;
+                $sistemDanProsedur = new SistemDanProsedur;
+                $sistemDanProsedur->id_pengguna = 1;
+                $sistemDanProsedur->perihal = $input['perihal'];
+                $sistemDanProsedur->catatan = $input['catatan'];
+                $sistemDanProsedur->lampiran = $uqFolder . DS . $filename;
+                $sistemDanProsedur->tgl_usulan = new DateTime;
+                $sistemDanProsedur->status = 0;
+                if ($sistemDanProsedur->save()) {
+                    $penanggungJawab = new PenanggungJawabSistemDanProsedur();
+                    $penanggungJawab->id_sistem_dan_prosedur = $perUU->id;
                     $penanggungJawab->nama = $input2['nama'];
                     $penanggungJawab->jabatan = $input2['jabatan'];
                     $penanggungJawab->NIP = $input2['nip'];
@@ -58,7 +44,7 @@ class PeruuController extends BaseController
                     // kirim email ke admin
                     $data = array(
                         'user' => Auth::user(),
-                        'perUU' => $perUU
+                        'data' => $sistemDanProsedur
                     );
                     Mail::send('emails.usulanbaru', $data, function($message) {
                         // admin email (testing)
@@ -77,20 +63,38 @@ class PeruuController extends BaseController
             Session::flash('error', 'Gagal mengirim berkas. Pastikan berkas berupa PDF dan kurang dari 512k.');
             return Redirect::back();
         }
+	}
+
+    public function indexSistemDanProsedur() 
+    {
+      // handle dataTable request
+        if (Request::ajax())
+            return Datatables::of(DAL_SistemDanProsedur::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
+
+        $this->layout = View::make('layouts.admin');
+        $this->layout->content = View::make('Ketatalaksanaan.indexSistemProsedur');
     }
 
-    public function updateUsulan($id)
+    public function deleteSistemDanProsedur()
+    {
+        $sistemDanProsedur = SistemDanProsedur::find(Input::get('id'));
+        if (null != $sistemDanProsedur)
+            $sistemDanProsedur->delete();
+        echo 1;
+    }
+
+    public function updateSistemDanProsedur($id)
     {
         if (Request::ajax())
-            return Datatables::of(DAL_PerUU::getLogUsulan($id))->make(true);
+            return Datatables::of(DAL_SistemDanProsedur::getLogUsulan($id))->make(true);
 
-        $perUU = PerUU::with('Pengguna')->find($id);
+        $sistemDanProsedur = SistemDanProsedur::with('Pengguna')->find($id);
         $this->layout = View::make('layouts.admin');
-        $this->layout->content = View::make('PerUU.updateUsulan')
-                ->with('perUU', $perUU);
+        $this->layout->content = View::make('Ketatalaksanaan.updateSistemDanProsedur')
+                ->with('data', $sistemDanProsedur);
     }
 
-    public function prosesUpdateUsulan()
+    public function prosesUpdateSistemDanProsedur()
     {
         $id = Input::get('id');
         $status = Input::get('status', 0);
@@ -98,17 +102,17 @@ class PeruuController extends BaseController
         $ketLampiran = Input::get('ket_lampiran', '');
         $lampiran = Input::file('lampiran');
 
-        $perUU = PerUU::find($id);
+        $sistemDanProsedur = SistemDanProsedur::find($id);
 
-        $logPerUU = new LogPerUU();
-        $logPerUU->id_per_uu = $perUU->id;
-        $logPerUU->catatan = $perUU->catatan;
-        $logPerUU->lampiran = $perUU->lampiran;
-        $logPerUU->status = $perUU->status;
-        $logPerUU->tgl_proses = new DateTime('now');
+        $log = new LogSistemDanProsedur();
+        $log->id_sistem_dan_prosedur = $sistemDanProsedur->id;
+        $log->catatan = $sistemDanProsedur->catatan;
+        $log->lampiran = $sistemDanProsedur->lampiran;
+        $log->status = $sistemDanProsedur->status;
+        $log->tgl_proses = new DateTime('now');
 
-        $perUU->status = $status;
-        $perUU->catatan = $catatan;
+        $sistemDanProsedur->status = $status;
+        $sistemDanProsedur->catatan = $catatan;
 
         if (null != $lampiran) {
             if ($lampiran->isValid()) {
@@ -117,65 +121,55 @@ class PeruuController extends BaseController
                 $filename = $lampiran->getClientOriginalName();
                 $uploadSuccess = $lampiran->move($destinationPath, $filename);
                 if ($uploadSuccess) {
-                    $perUU->lampiran = $uqFolder . DS . $filename;
+                    $sistemDanProsedur->lampiran = $uqFolder . DS . $filename;
                 }
             } else {
                 Session::flash('error', 'Kesalahan dalam menyimpan berkas.');
             }
         }
 
-        if ($perUU->save() && $logPerUU->save()) {
+        if ($sistemDanProsedur->save() && $log->save()) {
             // Kirim email notifikasi ke pembuat usulan
             $data = array(
-                'logPerUU' => $logPerUU,
-                'perUU' => $perUU
+                'log' => $log,
+                'data' => $sistemDanProsedur
             );
 
-            Mail::send('emails.perubahanUsulan', $data, function($message) use($perUU) {
-                $message->to($perUU->pengguna->email)
+            Mail::send('Ketatalaksanaan.emailUpdateStatus', $data, function($message) use($sistemDanProsedur) {
+                $message->to($sistemDanProsedur->pengguna->email)
                         ->subject('Perubahan Status Usulan');
             });
 
             Session::flash('success', 'Usulan berhasil diperbaharui.');
-            return Redirect::route('index_per_uu');
+            return Redirect::route('index_sistem_dan_prosedur');
         } else {
             Session::flash('error', 'Usulah gagal diperbaharui.');
             return Redirect::back();
         }
     }
 
-    public function hapusUsulan()
+    public function downloadSistemDanProsedur($id)
     {
-        $perUU = PerUU::find(Input::get('id'));
-        if (null != $perUU)
-            $perUU->delete();
-        echo 1;
+        $sistemDanProsedur = SistemDanProsedur::find($id) or App::abort(404);
+        $path = UPLOAD_PATH . DS . $sistemDanProsedur->lampiran;
+        return Response::download($path, explode('/', $sistemDanProsedur->lampiran)[1]);
     }
 
-    public function downloadLampiran($id)
-    {
-        $perUU = PerUU::find($id) or App::abort(404);
-        $path = UPLOAD_PATH . DS . $perUU->lampiran;
-        return Response::download($path, explode('/', $perUU->lampiran)[1]);
-    }
-
-    public function printTable() {
+    public function printSistemDanProsedur() {
         $status = Input::get("status", null);
         $firstDate = Input::get("firstDate", null);
         $lastDate = Input::get("lastDate", null);
 
-        $dataPerUU = DAL_PerUU::getDataTable($status, $firstDate, $lastDate);
+        $sistemDanProsedur = DAL_SistemDanProsedur::getDataTable($status, $firstDate, $lastDate);
         $data = array();
-
-        
-        foreach($dataPerUU->get() as $index => $perUU) {
-            $tglUsulan = new DateTime($perUU->tgl_usulan);
-            $data[$index]['ID'] = $perUU->id;
+        foreach($sistemDanProsedur->get() as $index => $sistemDanProsedur) {
+            $tglUsulan = new DateTime($sistemDanProsedur->tgl_usulan);
+            $data[$index]['ID'] = $sistemDanProsedur->id;
             $data[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
-            $data[$index]['Unit Kerja'] = $perUU->unit_kerja;
-            $data[$index]['Perihal'] = $perUU->perihal;
-            $data[$index]['status'] = $this->getStatus($perUU->status);
-            $data[$index]['lampiran'] = '<a href="#">'.explode("/", $perUU->lampiran)[1].'</a>';
+            $data[$index]['Unit Kerja'] = $sistemDanProsedur->unit_kerja;
+            $data[$index]['Perihal'] = $sistemDanProsedur->perihal;
+            $data[$index]['status'] = $this->getStatus($sistemDanProsedur->status);
+            $data[$index]['lampiran'] = '<a href="#">'.explode("/", $sistemDanProsedur->lampiran)[1].'</a>';
         }
 
         $table = HukorHelper::generateHtmlTable($data);
@@ -185,7 +179,7 @@ class PeruuController extends BaseController
         $style[] = "table td, table th { padding: 5px; }";
         $style[] = "</style>";
 
-        $html = array("<h1>Peraturan Perundang Undangan</h1>");
+        $html = array("<h1>Sistem Dan Prosedur</h1>");
         $html[] = "<table><tr>";
         if(null != $status)
             $html[] = "<td><strong>Status</strong></td><td>: ".$this->getStatus($status)."</td>";
@@ -199,8 +193,9 @@ class PeruuController extends BaseController
         $pdf = new DOMPDF();
         $pdf->load_html(join("", $style) . join("",$html));
         $pdf->render();
-        $pdf->stream("peruu.pdf");
+        return $pdf->stream("ketatalaksanaan.pdf");
     }
+
 
     private function getStatus($status) {
         switch ($status) {
@@ -224,5 +219,4 @@ class PeruuController extends BaseController
                 break;
         }
     }
-
 }

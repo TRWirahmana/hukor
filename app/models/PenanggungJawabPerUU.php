@@ -13,3 +13,4 @@ class PenanggungJawabPerUU extends Eloquent
     }
 
 }
+

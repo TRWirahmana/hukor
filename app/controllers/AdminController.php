@@ -20,6 +20,7 @@ class AdminController extends BaseController {
 
 	public function index()
 	{
+//        $this->layout = "layouts.admin";
         $user = Auth::user();
 
         if(Request::ajax()) {
@@ -411,5 +412,18 @@ class AdminController extends BaseController {
 		}
 			
 	}
+
+    public function enableForum() {
+        $config = AppConfig::find("enable_forum");
+        if($config == null) {
+            $config = new AppConfig();
+            $config->config_key = "enable_forum";
+            $config->value = "false";
+            $config->save();
+        }
+        $config->value = Input::get("value", "false");
+        $config->save();
+        exit;
+    }
 
 }

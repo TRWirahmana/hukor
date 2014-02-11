@@ -1,18 +1,27 @@
 <?php
 
 class DAL_Pelembagaan {
-    public static function getDataTable() {
-	return Pelembagaan::join('pengguna', 'pelembagaan.id_pengguna','=', 'pengguna.id')
+    public static function getDataTable($filter = null, $firstDate = null, $lastDate = null) {
+	   $data = Pelembagaan::join('penanggung_jawab_pelembagaan','pelembagaan.id', '=', 'penanggung_jawab_pelembagaan.pelembagaan_id')
                         ->select(array(
                             'pelembagaan.id',
                             'pelembagaan.tgl_usulan',
-                            'pengguna.unit_kerja',
-                            'pengguna.jabatan',
+                            'penanggung_jawab_pelembagaan.unit_kerja',
+                            'penanggung_jawab_pelembagaan.jabatan',
                             'pelembagaan.perihal',
                             'pelembagaan.status',
                             'pelembagaan.lampiran'
-                ));     
-    }
+                )); 
+                        
+        if(null != $filter)
+            $data->where('pelembagaan.status', '=', $filter);
+        if(null != $firstDate)
+            $data->where(DB::raw("DATE(pelembagaan.tgl_usulan)"), ">=", DateTime::createFromFormat("d/m/Y", $firstDate)->format('Y-m-d'));
+        if(null != $lastDate)
+            $data->where(DB::raw("DATE(pelembagaan.tgl_usulan)"), "<=", DateTime::createFromFormat("d/m/Y", $lastDate)->format('Y-m-d'));
+
+        return $data;
+    }   
 }
 
 

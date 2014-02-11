@@ -31,11 +31,7 @@
             <!-- MAIN CONTENT -->
 
             <div class="content-non-title">
-              <legend>
-                Informasi & Status Usulan
-                  </legend>
-              
-                  // notifikasi status 
+                  <!--  notifikasi status  -->
                  @if($status_belum != 0)
                   <div class="row-fluid" style="border-bottom: 1px solid #e5e5e5;">
                   <b>
@@ -58,11 +54,60 @@
       <legend>Informasi dan Status</legend>
 @endif
 
+              <!-- Filter -->
+@if($user->role_id == 3 )              
+              <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_pelembagaan')}}">
+@else                
+              <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_table_pelembagaan_user')}}">
+@endif
+                    <fieldset>
+                        <legend class="f_legend">Filter</legend>
+                        <div class="row-fluid">
+                            <div class="span6">
+                                <div class="control-group">
+                                    <label for="" class="control-label">Tanggal Awal</label>
+                                    <div class="controls">
+                                        <input type="text" id="first-date" name="firstDate">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="toDate" class="control-label">Tanggal Akhir</label>
+                                    <div class="controls">
+                                        <input type="text" id="last-date" name="lastDate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span6">
+                                <div class="control-group">
+                                    <label for="select-status" class="control-label">Status</label>
+                                    <div class="controls">
+                                        <select id="select-status" name="status">
+                                            <option value="">Semua Status</option>
+                                            <option value="0">Belum diproses</option>
+                                            <option value="1">Diproses</option>
+                                            <option value="2">Dikirim Ke bagian PerUU</option>
+                                        </select>        
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
+                                        <input type="submit" value="Cetak" class="btn btn-primary">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
 
                 <br />
                   <table id="tbl-pelembagaan">  
                       <thead>
                       <tr>
+                          <th>No</th>
                           <th>No. Usulan</th>
                           <th>Tgl Usulan</th>
                           <th>Unit Kerja</th>
@@ -99,55 +144,69 @@
 
 @stop
 
-@if($user->role_id == 3 )
+
 @section('scripts')
 @parent
-        <script type="text/javascript">
+   <script type="text/javascript">
+    jQuery(function($){        
+        $("#first-date").datepicker({
+            dateFormat: "dd/mm/yy",
+            onClose: function( selectedDate ) {
+                 $("#last-date").datepicker( "option", "minDate", selectedDate );
+            }
+        });
 
-        jQuery(function($){        
+        $("#last-date").datepicker({
+            dateFormat: "dd/mm/yy",
+            onClose: function( selectedDate ) {
+                  $("#first-date").datepicker("option", "maxDate", selectedDate);
+            }                    
+         });
 
-/*        function fnFilterTahun (i)
-        {
-            $("#tbl-pelembagaan").dataTable().fnFilter(
-                    $("#filter_tahun").val(),
-                    i                   
-            );   
-        }       
+
+        // function fnFilterTahun (i)
+        // {
+        //     $("#tbl-pelembagaan").dataTable().fnFilter(
+        //             $("#filter_tahun").val(),
+        //             i                   
+        //     );   
+        // }       
         
-        function fnFilterUnit (i)
-        {
-            $("#tbl-pelembagaan").dataTable().fnFilter(
-                    $("#filter_unit").val(),
-                    i                   
-            );   
-        }       
-*/
-        var oTable;
-        $(document).ready(function(){
-               oTable = $("#tbl-pelembagaan").dataTable({
-                        sDom: 'T<"clear">lfrtip',
-                        oTableTools: {
-                              "sSwfPath": "/swf/copy_csv_xls_pdf.swf"
-                        },
-                        aButtons: ["copy", "print", {
-                               sExtends: "collection",
-                               sButtonText: "Save <span class=\"caret\" />",
-                               aButtons: ["csv", "xls", "pdf"]
-                          }],
+        // function fnFilterUnit (i)
+        // {
+        //     $("#tbl-pelembagaan").dataTable().fnFilter(
+        //             $("#filter_unit").val(),
+        //             i                   
+        //     );   
+        // }       
+        
+ //       $(document).ready(function(){
+            var role_id = <?php if($user->role_id) echo $user->role_id; else echo '0'; ?>;
+            
+            $dataTable = $("#tbl-pelembagaan").dataTable({
+                bServerSide: true,
+                bFilter: false,
+                bLengthChange: false,
+                sAjaxSource: document.location.href,
+                aoColumns: [
+                  {
+                              mData: "id",
+                              sClass: 'center-ac',
+                              sWidth: '3%'
+                            },
 
-                        iDisplayLength: 5,
-                        bServerSide: true,
-                        sAjaxSource: document.location.href,
-                        aoColumns: [
                             {
                               mData: "id",
                               sClass: 'center-ac',
-                              sWidth: '9%'
+                              sWidth: '5%'
                             },
                             {
                               mData: "tgl_usulan",
                               sClass: 'center-ac',
                               sWidth: '14%'
+                              // mRender: function(data) {
+                              //     return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
+                              // }
                             },
                             {
                               mData: "unit_kerja",
@@ -188,139 +247,44 @@
                             {
                                 mData: "id",
                                 sClass: 'center-ac',
-                                 mRender: function(id) {
-                                           return "<a href='pelembagaan/"+id+"/edit' title='Detail'><i class='icon-edit'></i></a>"
-                                                + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+id+"'>"
-                                                + "<i class='icon-trash'></i></a>";       
-                                    }
- 
-                                 
-                            }
-                        ]
-                  });             
-                  
-                  $("#tbl-pelembagaan").on('click', '.btn_delete', function(e){
-                          if (confirm('Apakah anda yakin ?')) {
-                            $.ajax({
-                              url: $(this).attr('href'),
-                              type: 'DELETE',
-                              success: function(response) {
-                                oTable.fnReloadAjax();
+                                sWidth: '10%',
+                                 mRender: function(data, type, full) {
+                                        if(role_id == 3){
+                                          return "<a href='pelembagaan/"+data+"/download'> <i class='icon-download'></i></a>"  
+                                                + "&nbsp;<a href='pelembagaan/"+data+"/update' title='Detail'><i class='icon-edit'></i></a>"
+                                                + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+data+"'>"
+                                                + "<i class='icon-trash'></i></a>";
+                                        } else if(role_id == 0 ) {
+                                          return "<a href='"+data+"/download'> <i class='icon-download'></i></a>";
+                                        }  else {
+                                          return "<a href='"+data+"/download'> <i class='icon-download'></i></a>";
+                                        }
                               }
-                            });
-                          }
-                          e.preventDefault();
-                          return false;
-                  });
+                            }
+                        ],
 
-//                  $("#filter_unit").keyup( function() { fnFilterUnit ( 2 ); } );
-//                  $("#filter_tahun").change( function() { fnFilterTahun( 1 ); } );
-            });
-});
-        </script>        
-@stop
-
-@else
-@section('scripts')
-@parent
-        <script type="text/javascript">
-
-        jQuery(function($){        
-
-/*        function fnFilterTahun (i)
-        {
-            $("#tbl-pelembagaan").dataTable().fnFilter(
-                    $("#filter_tahun").val(),
-                    i                   
-            );   
-        }       
-        
-        function fnFilterUnit (i)
-        {
-            $("#tbl-pelembagaan").dataTable().fnFilter(
-                    $("#filter_unit").val(),
-                    i                   
-            );   
-        }       
-*/
-        var oTable;
-        $(document).ready(function(){
-               oTable = $("#tbl-pelembagaan").dataTable({
-                        sDom: 'T<"clear">lfrtip',
-                        oTableTools: {
-                              "sSwfPath": "/swf/copy_csv_xls_pdf.swf"
+                        fnServerParams: function(aoData) {
+                            aoData.push({name: "status", value: $("#select-status").val()});
+                            aoData.push({name: "firstDate", value: $("#first-date").val()});
+                            aoData.push({name: "lastDate", value: $("#last-date").val()});
                         },
-                        aButtons: ["copy", "print", {
-                               sExtends: "collection",
-                               sButtonText: "Save <span class=\"caret\" />",
-                               aButtons: ["csv", "xls", "pdf"]
-                          }],
+                        fnDrawCallback: function ( oSettings ) {
+                           if ( oSettings.bSorted || oSettings.bFiltered )
+                           {
+                             for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+                             {
+                               $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+                             }
+                           }
+                        },
 
-                        iDisplayLength: 5,
-                        bServerSide: true,
-                        sAjaxSource: document.location.href,
-                        aoColumns: [
-                            {
-                              mData: "id",
-                              sClass: 'center-ac',
-                              sWidth: '9%'
-                            },
-                            {
-                              mData: "tgl_usulan",
-                              sClass: 'center-ac',
-                              sWidth: '14%'
-                            },
-                            {
-                              mData: "unit_kerja",
-                              sClass: 'center-ac',                              
-                              sWidth: '14%'
-                            },
-                            {
-                              mData: "jabatan" ,
-                              sClass: 'center-ac',                              
-                              mRender: function ( data, type, full ) {
-                                  if (null != data && "" != data){
-                                    if(data ==='1'){
-                                      return 'Direktur';
-                                    }else if(data === '2'){
-                                      return 'Kepala Divisi';
-                                    }
-                                  }
-                                     return data;
-                              }
-                            },
-                            {mData: "perihal"},
-                            {
+                        aoColumnDefs: [
+                            { "bSortable": false, "aTargets": [ 0 ] }
+                            ],
+                        aaSorting: [[ 1, 'asc' ]]
 
-                              mData: "status",
-                              mRender: function ( data, type, full ) {
-                                  if (null != data && "" != data){
-                                    if(data ==='1'){
-                                      return 'proses';
-                                    }else if(data === '2'){
-                                      return 'DiKirim Ke Bag PerUU';
+                      }); 
 
-                                    }
-                                  }
-                                     return 'Belum Di Proses';
-                              }
-
-                            },
-                            {
-                                mData: "id",
-                                mData: "lampiran",
-                                sClass: 'center-ac',
-                                 mRender: function(id) {
-                                           return "<a href='pelembagaan/"+id+"/edit' title='Detail'>" + lampiran + " </a>"
-//                                           return  "<a href='"+location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/" + "assets/uploads/"+lampiran+"' >Unduh</a>"
-                                               ;       
-                                    }
- 
-                                 
-                            }
-                        ]
-                  });             
-                  
                   $("#tbl-pelembagaan").on('click', '.btn_delete', function(e){
                           if (confirm('Apakah anda yakin ?')) {
                             $.ajax({
@@ -335,10 +299,19 @@
                           return false;
                   });
 
-//                  $("#filter_unit").keyup( function() { fnFilterUnit ( 2 ); } );
-//                  $("#filter_tahun").change( function() { fnFilterTahun( 1 ); } );
-            });
+                  // $("#filter_unit").keyup( function() { fnFilterUnit ( 3 ); } );
+                  // $("#filter_tahun").change( function() { fnFilterTahun( 2 ); } );
+                          
+                  $("#select-status, #first-date, #last-date").change(function() {
+                      $dataTable.fnReloadAjax();
+                  });
+
+                  $("#form-filter").on("reset", function(){
+                      $dataTable.fnReloadAjax();
+                  });
+
+//          });
+          
 });
         </script>        
 @stop
-@endif

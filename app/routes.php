@@ -37,12 +37,6 @@ Route::group(array('before' => 'guest'), function() {
     Route::resource('user', 'UserController');
     Route::resource('bantuanhukum', 'BantuanHukumController');
     Route::resource('forget', 'ForgetPasswordController@index');
-
-//    Route::resource('account', 'AdminController');
-//    Route::resource('pelembagaan', 'PelembagaanController');   
-//    Route::resource('callcenter','CallCenterController');
-//
-//    Route::resource('callcenter', 'CallCenterController');
     Route::get('callcenter', 'CallCenterController@index');
 });
 
@@ -50,7 +44,6 @@ Route::group(array('before' => 'guest'), function() {
 
 
 Route::group(array('before' => 'auth'), function() {
-//    Route::get('BantuanHukum', 'BantuanHukumController@index');
     Route::get('LihatLampiran', 'RegistrasiController@lihatLampiran');
     Route::get('DownloadLampiran', 'VerifikasiController@downloadLampiran');
     Route::get('setting', 'RegistrasiController@setting');
@@ -60,11 +53,10 @@ Route::group(array('before' => 'auth'), function() {
 });
 
 Route::group(array('before' => 'auth|user'), function() {
-//	Route::get('home', 'HomeController@index');
-//    Route::get('BantuanHukum', 'BantuanHukumController@index');
     Route::post('update', 'RegistrasiController@update');
 });
 
+//pengaturan route Role ADMIN
 Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), function() {
     Route::get('/', function() {
         return "Hello World";
@@ -81,6 +73,14 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('IndexBerita', 'BeritaController@index');
     Route::get('HomeBerita', 'BeritaController@home');
     Route::put('saveberita', 'BeritaController@save');
+
+//    Route::resource('layanan', 'LayananController');
+    Route::resource('layanan', 'LayananController');
+    Route::post('SubmitLayanan', 'LayananController@submit');
+
+    Route::get('create_layanan', 'LayananController@create');
+    Route::get('submenu', 'LayananController@submenu');
+    Route::get('index_layanan', 'LayananController@index');
 
 // call center
     Route::resource('callcenter', 'CallCenterController');
@@ -110,8 +110,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
 
 });
 
-
-Route::group(array('prefix' => 'admin/layanankelembagaan', 'before' => 'auth|super_admin'), function() {
+//pengaturan route Kepala Biro sisi ADMIN
+Route::group(array('prefix' => 'kepala_biro', 'before' => 'auth|kepala_biro'), function() {
     Route::get('/', function() {
         return "Hello World";
     });
@@ -122,24 +122,169 @@ Route::group(array('prefix' => 'admin/layanankelembagaan', 'before' => 'auth|sup
     Route::get('setting', 'AdminController@setting');
     Route::put('setting/save', 'AdminController@save');
 
-    //Layanan Kelembagaan
-    Route::resource('layanankelembagaan', 'LayananKelembagaanController');
-    Route::post('SubmitBerita', 'LayananKelembagaanController@submit');
+//    berita
+    Route::resource('berita', 'BeritaController');
+    Route::get('IndexBerita', 'BeritaController@index');
+    Route::get('HomeBerita', 'BeritaController@home');
+    Route::put('saveberita', 'BeritaController@save');
 
-    Route::get('edit_kelembagaan', 'LayananKelembagaanController@create');
+//    Route::resource('layanan', 'LayananController');
+    Route::resource('layanan', 'LayananController');
+    Route::post('SubmitLayanan', 'LayananController@submit');
 
-    //pembentukan
-    Route::get('edit_pembentukan', 'LayananKelembagaanController@create_pembentukan');
+    Route::get('create_layanan', 'LayananController@create');
+    Route::get('submenu', 'LayananController@submenu');
+    Route::get('index_layanan', 'LayananController@index');
 
-    //penataan
-    Route::get('edit_penataan', 'LayananKelembagaanController@create_penataan');
+// call center
+    Route::resource('callcenter', 'CallCenterController');
+//    Route::get('indexcallcenter', 'CallCenterController@index');
+    Route::get('editcallcenter', 'CallCenterController@home');
+    Route::put('updatecallcenter', 'CallCenterController@update');
 
-    //statuta
-    Route::get('edit_statuta', 'LayananKelembagaanController@create_statuta');
+    // Per UU
+    Route::group(array("prefix" => "per_uu"), function() {
+        Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
+        Route::get('update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
+        Route::get('download/{id}', "PeruuController@downloadLampiran");
+        Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
+        Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
+        Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
+    });
 
-    //penutupan
-    Route::get('edit_penutupan', 'LayananKelembagaanController@create_penutupan');
+
+    Route::resource('pelembagaan', 'PelembagaanController');
+
+    //Managemen Menu
+    Route::resource('menu', 'MenuController');
+    Route::get('create_menu', 'MenuController@create');
+    Route::get('index_menu', 'MenuController@index');
+    Route::get('setting_menu', 'MenuController@setting');
+    Route::put('setting/save', 'MenuController@save');
+
 });
+
+//pengaturan route Bantuan Hukum sisi ADMIN
+Route::group(array('prefix' => 'bantuan_hukum', 'before' => 'auth|bantuan_hukum'), function() {
+    Route::get('/', function() {
+        return "Hello World";
+    });
+
+    Route::resource('account', 'AdminController');
+    Route::get('Index', 'AdminController@index');
+    Route::get('Home', 'AdminController@home');
+    Route::get('setting', 'AdminController@setting');
+    Route::put('setting/save', 'AdminController@save');
+
+//    berita
+    Route::resource('berita', 'BeritaController');
+    Route::get('IndexBerita', 'BeritaController@index');
+    Route::get('HomeBerita', 'BeritaController@home');
+    Route::put('saveberita', 'BeritaController@save');
+
+//    Route::resource('layanan', 'LayananController');
+    Route::resource('layanan', 'LayananController');
+    Route::post('SubmitLayanan', 'LayananController@submit');
+
+    Route::get('create_layanan', 'LayananController@create');
+    Route::get('submenu', 'LayananController@submenu');
+    Route::get('index_layanan', 'LayananController@index');
+
+// call center
+    Route::resource('callcenter', 'CallCenterController');
+//    Route::get('indexcallcenter', 'CallCenterController@index');
+    Route::get('editcallcenter', 'CallCenterController@home');
+    Route::put('updatecallcenter', 'CallCenterController@update');
+
+    // Per UU
+    Route::group(array("prefix" => "per_uu"), function() {
+        Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
+        Route::get('update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
+        Route::get('download/{id}', "PeruuController@downloadLampiran");
+        Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
+        Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
+        Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
+    });
+
+
+    Route::resource('pelembagaan', 'PelembagaanController');
+
+    //Managemen Menu
+    Route::resource('menu', 'MenuController');
+    Route::get('create_menu', 'MenuController@create');
+    Route::get('index_menu', 'MenuController@index');
+    Route::get('setting_menu', 'MenuController@setting');
+    Route::put('setting/save', 'MenuController@save');
+
+});
+
+//pengaturan route PERUU sisi ADMIN
+Route::group(array('prefix' => 'per_uu', 'before' => 'auth|per_uu'), function() {
+    Route::get('/', function() {
+        return "Hello World";
+    });
+
+    Route::resource('account', 'AdminController');
+    Route::get('Index', 'AdminController@index');
+    Route::get('Home', 'AdminController@home');
+    Route::get('setting', 'AdminController@setting');
+    Route::put('setting/save', 'AdminController@save');
+
+    // Per UU
+        Route::get('index_per_uu', 'PeruuController@index');
+        Route::get('update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
+        Route::get('download/{id}', "PeruuController@downloadLampiran");
+        Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
+        Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
+        Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
+
+});
+
+
+//pengaturan route pelembagaan sisi ADMIN
+Route::group(array('prefix' => 'pelembagaan', 'before' => 'auth|pelembagaan'), function() {
+    Route::get('/', function() {
+        return "Hello World";
+    });
+
+    Route::resource('account', 'AdminController');
+    Route::get('Index', 'AdminController@index');
+    Route::get('Home', 'AdminController@home');
+    Route::get('setting', 'AdminController@setting');
+    Route::put('setting/save', 'AdminController@save');
+
+    Route::get('index_pelembagaan', 'PelembagaanController@index');
+
+    Route::resource('pelembagaan', 'PelembagaanController');
+
+    //Managemen Menu
+    Route::resource('menu', 'MenuController');
+    Route::get('create_menu', 'MenuController@create');
+    Route::get('index_menu', 'MenuController@index');
+    Route::get('setting_menu', 'MenuController@setting');
+    Route::put('setting/save', 'MenuController@save');
+
+});
+
+//Route::group(array('prefix' => 'admin/layanan', 'before' => 'auth|super_admin'), function() {
+//    Route::get('/', function() {
+//        return "Hello World";
+//    });
+//
+////    Route::resource('account', 'AdminController');
+////    Route::get('Index', 'AdminController@index');
+////    Route::get('Home', 'AdminController@home');
+////    Route::get('setting', 'AdminController@setting');
+////    Route::put('setting/save', 'AdminController@save');
+//
+//    //Layanan Kelembagaan
+//    Route::resource('layanan', 'LayananController');
+//    Route::post('SubmitLayanan', 'LayananController@submit');
+//
+//    Route::get('create_layanan', 'LayananController@create');
+//    Route::get('submenu', 'LayananController@submenu');
+//    Route::get('index_layanan', 'LayananController@index');
+//});
 
 Route::group(array('prefix' => 'admin/layananketatalaksanaan', 'before' => 'auth|super_admin'), function() {
 
@@ -182,22 +327,9 @@ Route::group(array('prefix' => 'pelembagaan'), function() {
 });
 
 
-Route::group(array('prefix' => 'layanan_kelembagaan'), function() {
+Route::group(array('prefix' => 'layanan'), function() {
     //index
-    Route::get('index', 'LayananKelembagaanController@index');
-    Route::get('pembentukan', 'LayananKelembagaanController@pembentukan');
-    Route::get('penataan', 'LayananKelembagaanController@penataan');
-    Route::get('penutupan', 'LayananKelembagaanController@penutupan');
-    Route::get('statuta', 'LayananKelembagaanController@statuta');
-
-    //proses
-    Route::get('CreateInfo', 'LayananKelembagaanController@create');
-    Route::post('SubmitBerita', 'LayananKelembagaanController@submit');
-
-    //pembentukan
-    //penataan
-    //statuta
-    //penutupan
+    Route::get('detail', 'LayananController@detail');
 });
 
 Route::group(array('prefix' => 'layanan_ketatalaksanaan'), function() {

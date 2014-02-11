@@ -96,7 +96,7 @@
           Form::text('username', '', array(
           'class'=>'username validate[required] text-input',
           'id'=>'username',
-          'placeholder'=>'ketikkan username di sini...'
+          'placeholder'=>'ketikkan email anda di sini...'
           ))
           }}
           {{ Form::password('password', array('class'=>'password validate[required] text-input',
@@ -137,7 +137,7 @@
                                   <div class="accordion-inner">
                                       <ul>
                                           @foreach($menus->submenu as $submenus)
-                                          <li><a href="{{ URL::to('/layanan/'. $submenus->layanan->id .'/detail') }}"><span class="rulycon-earth"></span> {{ $submenus->nama_submenu }}</a></li>
+                                          <li><a href="{{ URL::to('/layanan/detail?id='. $submenus->layanan->id .'') }}"><span class="rulycon-earth"></span> {{ $submenus->nama_submenu }}</a></li>
                                           @endforeach
                                       </ul>
                                   </div>

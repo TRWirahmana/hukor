@@ -1,11 +1,11 @@
-@if($user->role_id == 3 )
+@if($user->role_id == 3 || $user->role_id == 7)
   @section('admin')
 @else
   @section('content')
 @endif
 
 
-@if($user->role_id == 3 )
+@if($user->role_id == 3 || $user->role_id == 7)
 <div class="rightpanel">
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>

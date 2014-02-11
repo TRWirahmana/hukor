@@ -89,14 +89,16 @@
                   </div>
               </div>
 
-              <div class="control-group block-field {{$errors->has('jenis_kelamin')?'error':''}}">
+              <div class="control-group {{$errors->has('jenis_kelamin')?'error':''}}">
                   {{ Form::label('jenis_kelamin', 'Jenis Kelamin', array('class' => 'control-label required')) }}
                   <div class="controls">
                       <label class="radio">
-                          {{ Form::radio('jenis_kelamin', 1, array('id'=>'kelamin-laki2') ) }} <span>Laki-laki</span>
+                          <input type="radio" name="jenis_kelamin" value="1">Laki-laki<br>
+<!--                          {{ Form::radio('jenis_kelamin', 1, array('id'=>'kelamin-laki2') ) }} <span>Laki-laki</span>-->
                       </label>
                       <label class="radio">
-                          {{ Form::radio('jenis_kelamin', 0, array('id'=>'kelamin-perempuan')) }} <span>Perempuan</span>
+                          <input type="radio" name="jenis_kelamin" value="0">Perempuan<br>
+<!--                          {{ Form::radio('jenis_kelamin', 0, array('id'=>'kelamin-perempuan')) }} <span>Perempuan</span>-->
                       </label>
                       @foreach($errors->get('jenis_kelamin') as $error)
                       <span class="help-block">{{$error}}</span>

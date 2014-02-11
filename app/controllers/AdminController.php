@@ -268,7 +268,7 @@ class AdminController extends BaseController {
         $role = User::select('role_id');
         $listRole = array(
             '1' => 'Kepala Biro',
-//            '2' => 'Pengguna',
+            '2' => 'Pengguna',
             '3' => 'Super Admin',
             '4' => 'Kepala Bagian',
             '5' => 'Kepala Sub Bagian',
@@ -314,6 +314,82 @@ class AdminController extends BaseController {
         $user->pengguna->email = $input['email'];
 		$user->pengguna->nama_lengkap = $input['nama_lengkap'];
 		$user->pengguna->save();
+
+        switch($user->role_id){
+            case 1:
+                $data = array(
+                    'username' => $user->username,
+                    'password' => $input['password'],
+                    'role' => "Kepala Biro"
+                );
+                break;
+            case 2:
+                $data = array(
+                    'username' => $user->username,
+                    'password' => $input['password'],
+                    'role' => "Pengguna"
+                );
+                break;
+            case 3:
+                $data = array(
+                    'username' => $user->username,
+                    'password' => $input['password'],
+                    'role' => "Super Admin"
+                );
+                break;
+            case 4:
+                $data = array(
+                    'username' => $user->username,
+                    'password' => $input['password'],
+                    'role' => "Kepala Bagian"
+                );
+                break;
+            case 5:
+                $data = array(
+                    'username' => $user->username,
+                    'password' => $input['password'],
+                    'role' => "Kepala Sub Bagian"
+                );
+                break;
+            case 6:
+                $data = array(
+                    'username' => $user->username,
+                    'password' => $input['password'],
+                    'role' => "Admin Peraturan Perundang-Undangan"
+                );
+                break;
+            case 7:
+                $data = array(
+                    'username' => $user->username,
+                    'password' => $input['password'],
+                    'role' => "Admin Pelembagaan"
+                );
+                break;
+            case 8:
+                $data = array(
+                    'username' => $user->username,
+                    'password' => $input['password'],
+                    'role' => "Admin Bantuan Hukum"
+                );
+                break;
+            case 9:
+                $data = array(
+                    'username' => $user->username,
+                    'password' => $input['password'],
+                    'role' => "Admin Ketatalasksanaan"
+                );
+                break;
+        }
+
+
+
+        /* send email to new member */
+
+        Mail::send('emails.admreg', $data, function($message) use($user){
+            $message->from('admin@site.com', 'Site Admin');
+            $message->to($user->username, $user->username)
+                ->subject('Sistem Layanan Hukum & Organisasi');
+        });
 
 		return Redirect::to('admin/account')->with('success', 'Data berhasil diubah.');
 	}

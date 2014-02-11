@@ -37,6 +37,16 @@ var Layanan = (function(LAY) {
             jQuery('#layanan-form').submit();
         });
 
+//        getSubmenu(null);
+//        jQuery("#submenu option").val(submenus());
+//        jQuery('#submenu').disabled();
+
+        jQuery('#menu').live('change',function(e){
+            var menu_id = e.target.value;
+            getSubmenu(menu_id);
+//            alert(menu_id);
+        });
+
         var rules = {
             'layananlembaga[judul_berita]': 'required',
             'layananlembaga[berita]': 'required',
@@ -71,6 +81,25 @@ var Layanan = (function(LAY) {
                     $controlGroup.addClass('error');
             }
         });
+
+        function getSubmenu(menu_id) {
+            jQuery.getJSON(baseUrl + "/admin/submenu", {menu_id: menu_id}, function(data) {
+                jQuery("#submenu")
+                    .empty()
+                    .append(jQuery("<option></option>", {
+                        text: "-- Pilih Submenu --",
+                        value: ""
+                    }));
+                jQuery.each(data.data, function(i, e) {
+                    console.log(e);
+                    jQuery("#submenu").append(jQuery("<option></option>", {
+                        value: e.id,
+                        text: e.nama_submenu
+                    }));
+                });
+            });
+        }
+
 
 
     };

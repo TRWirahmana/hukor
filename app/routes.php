@@ -123,7 +123,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::group(array("prefix" => "per_uu"), function() {
         Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
         Route::get('index_per_uu', 'PeruuController@index');
-        Route::get('update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
+        Route::get('/update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
         Route::get('download/{id}', "PeruuController@downloadLampiran");
         Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
         Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
@@ -201,14 +201,14 @@ Route::group(array('prefix' => 'kepala_biro', 'before' => 'auth|kepala_biro'), f
     Route::put('updatecallcenter', 'CallCenterController@update');
 
     // Per UU
-    Route::group(array("prefix" => "per_uu"), function() {
-        Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
-        Route::get('update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
-        Route::get('download/{id}', "PeruuController@downloadLampiran");
-        Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
-        Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
-        Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
-    });
+    // Route::group(array("prefix" => "per_uu"), function() {
+    //     Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
+    //     Route::get('update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
+    //     Route::get('download/{id}', "PeruuController@downloadLampiran");
+    //     Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
+    //     Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
+    //     Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
+    // });
 
 
     Route::resource('pelembagaan', 'PelembagaanController');
@@ -255,14 +255,14 @@ Route::group(array('prefix' => 'bantuan_hukum', 'before' => 'auth|bantuan_hukum'
     Route::put('updatecallcenter', 'CallCenterController@update');
 
     // Per UU
-    Route::group(array("prefix" => "per_uu"), function() {
-        Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
-        Route::get('update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
-        Route::get('download/{id}', "PeruuController@downloadLampiran");
-        Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
-        Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
-        Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
-    });
+    // Route::group(array("prefix" => "per_uu"), function() {
+    //     Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
+    //     Route::get('update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
+    //     Route::get('download/{id}', "PeruuController@downloadLampiran");
+    //     Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
+    //     Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
+    //     Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
+    // });
 
 
     Route::resource('pelembagaan', 'PelembagaanController');
@@ -278,9 +278,9 @@ Route::group(array('prefix' => 'bantuan_hukum', 'before' => 'auth|bantuan_hukum'
 
 //pengaturan route PERUU sisi ADMIN
 Route::group(array('prefix' => 'per_uu', 'before' => 'auth|per_uu'), function() {
-    Route::get('/', function() {
-        return "Hello World";
-    });
+    // Route::get('/', function() {
+    //     return "Hello World";
+    // });
 
     Route::resource('account', 'AdminController');
     Route::get('Index', 'AdminController@index');
@@ -288,14 +288,15 @@ Route::group(array('prefix' => 'per_uu', 'before' => 'auth|per_uu'), function() 
     Route::get('setting', 'AdminController@setting');
     Route::put('setting/save', 'AdminController@save');
 
-    // Per UU
-        Route::get('index_per_uu', 'PeruuController@index');
+    $user = Auth::user();
+    if(6 == $user->role_id) {
+        Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
         Route::get('update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
         Route::get('download/{id}', "PeruuController@downloadLampiran");
         Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
         Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
         Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
-
+    }
 });
 
 

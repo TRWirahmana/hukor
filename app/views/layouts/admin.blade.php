@@ -222,6 +222,14 @@
                             </ul>
                         </li>
 <!--                        <li id="app_internal"><a href="#"><span class="iconfa-envelope"></span> Aplikasi Internal</a></li>-->
+<li id="app_forum">
+                            <a href="#">
+                                <label for="cbox-forum">
+                                    <input {{ (null != AppConfig::find('enable_forum') && AppConfig::find('enable_forum')->value == 'true')? 'checked': '' }} type="checkbox" id="cbox-forum" value="y" class="checkbox">
+                                    &nbsp;&nbsp;&nbsp; Aktifkan Forum
+                                </label>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

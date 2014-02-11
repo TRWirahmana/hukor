@@ -62,7 +62,7 @@
             </div>
             <div class="control-group">
                 <label for="" class="control-label">Telp Kantor</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->telp_kantor }}"></div>
+                <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->telepon_kantor }}"></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">Email</label>

@@ -19,7 +19,7 @@ class DAL_Berita {
         $data = Berita::select(array(
                 'judul',
                 'penulis',
-                'created_at',
+                'tgl_penulisan',
                    'id'
             ));
 

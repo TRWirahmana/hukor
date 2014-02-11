@@ -8,4 +8,8 @@ class Menu extends Eloquent {
     public function submenu() {
         return $this->hasMany('Submenu');
     }
+
+//    public function layanan() {
+//        return $this->hasOne('Layanan');
+//    }
 }

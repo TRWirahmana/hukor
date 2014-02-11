@@ -72,15 +72,15 @@
 @parent
 <script src="{{asset('assets/js/admin_index.js')}}"></script>
 
-<style>
-    .leftmenu .nav-tabs.nav-stacked > li.dropdown ul {
-        display: block !important;
-    }
-    #produkhukum, #ketatalaksanaan, #bahu, #puu, #diskusi, #callcenter, #app, #kelembagaan {
-        display: none !important;
-    }
-    #kelola{
-        background: #0866C6;
-    }
-</style>
+<!--<style>-->
+<!--    .leftmenu .nav-tabs.nav-stacked > li.dropdown ul {-->
+<!--        display: block !important;-->
+<!--    }-->
+<!--    #produkhukum, #ketatalaksanaan, #bahu, #puu, #diskusi, #callcenter, #app, #kelembagaan, #manage-menu{-->
+<!--        display: none !important;-->
+<!--    }-->
+<!--    #kelola{-->
+<!--        background: #0866C6;-->
+<!--    }-->
+<!--</style>-->
 @stop

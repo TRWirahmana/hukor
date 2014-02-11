@@ -96,7 +96,7 @@
           Form::text('username', '', array(
           'class'=>'username validate[required] text-input',
           'id'=>'username',
-          'placeholder'=>'ketikkan username di sini...'
+          'placeholder'=>'ketikkan email anda di sini...'
           ))
           }}
           {{ Form::password('password', array('class'=>'password validate[required] text-input',
@@ -137,7 +137,7 @@
                                   <div class="accordion-inner">
                                       <ul>
                                           @foreach($menus->submenu as $submenus)
-                                          <li><a href="{{ URL::to('/layanan/'. $submenus->layanan->id .'/detail') }}"><span class="rulycon-earth"></span> {{ $submenus->nama_submenu }}</a></li>
+                                          <li><a href="{{ URL::to('/layanan/detail?id='. $submenus->layanan->id .'') }}"><span class="rulycon-earth"></span> {{ $submenus->nama_submenu }}</a></li>
                                           @endforeach
                                       </ul>
                                   </div>
@@ -153,7 +153,9 @@
 
             <li id="menu-layanan-bantuan-hukum"><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>
             <li id="menu-layanan-peraturan-perundangan"><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>
-            <li id="menu-forum"><a href="{{ URL::to('forumdiskusi') }}"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
+            @if (null != AppConfig::find('enable_forum') && AppConfig::find('enable_forum')->value == "true")
+              <li id="menu-forum"><a href="{{ URL::to('forumdiskusi') }}"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
+            @endif
             <li id="menu-call-center"><a href="{{ URL::to('callcenter') }}"><span class="rulycon-phone"></span>Call Center</a></li>
 
             <li class="menu-header">Aplikasi</li>
@@ -212,7 +214,8 @@
                   <div id="collapse4" class="accordion-body collapse">
                     <div class="accordion-inner">
                       <ul>
-                        <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_sistem_prosedur')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan</a></li>
+                        <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_sistem_prosedur')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan Sistem dan Prosedur</a></li>
+                        <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_analisis_jabatan')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan Analisis Jabatan</a></li>
                         <li id="menu-pelembagaan-informasi"><a href="#"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
                       </ul>
                     </div>

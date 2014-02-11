@@ -153,7 +153,9 @@
 
             <li id="menu-layanan-bantuan-hukum"><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>
             <li id="menu-layanan-peraturan-perundangan"><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>
-            <li id="menu-forum"><a href="{{ URL::to('forumdiskusi') }}"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
+            @if (null != AppConfig::find('enable_forum') && AppConfig::find('enable_forum')->value == "true")
+              <li id="menu-forum"><a href="{{ URL::to('forumdiskusi') }}"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
+            @endif
             <li id="menu-call-center"><a href="{{ URL::to('callcenter') }}"><span class="rulycon-phone"></span>Call Center</a></li>
 
             <li class="menu-header">Aplikasi</li>

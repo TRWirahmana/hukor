@@ -76,6 +76,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
         return "Hello World";
     });
 
+    Route::post('/enableForum', "AdminController@enableForum");
+
     Route::resource('account', 'AdminController');
     Route::get('Index', 'AdminController@index');
     Route::get('Home', 'AdminController@home');

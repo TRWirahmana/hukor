@@ -73,6 +73,7 @@
         <div id="welcome-message">
             <p>Welcome <span id="user-name"><?php echo $user->username; ?></span></p>
         </div>
+        
         <div id="user-links">
             <a href="{{URL::to('admin/setting')}}"><span class="rulycon-cog"></span> Settings</a>
             <a href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span> Sign out</a>
@@ -143,6 +144,14 @@
                             </ul>
                         </li>
                         <li id="app_internal"><a href="#"><span class="iconfa-envelope"></span> Aplikasi Internal</a></li>
+                        <li id="app_forum">
+                            <a href="#">
+                                <label for="cbox-forum">
+                                    <input type="checkbox" id="cbox-forum" value="y" class="checkbox">
+                                    &nbsp;&nbsp;&nbsp; Aktifkan Forum
+                                </label>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
@@ -208,6 +217,12 @@
             $("#info").hide();
             $("#app").hide();
             $("#manage").show();
+        });
+
+        $("#cbox-forum").change(function(e){
+            $.post("/admin/enableForum", {value: $(this).is(":checked")}, function(resp){
+                console.log(resp);
+            });
         });
 
     });

@@ -23,6 +23,9 @@
         <div class="maincontentinner">
 
             <!-- MAIN CONTENT -->
+            <label>
+                <input type="checkbox"> Forum
+            </label>
 
 
             <div class="footer">

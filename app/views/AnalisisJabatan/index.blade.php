@@ -204,6 +204,16 @@
                     aoData.push({name: "status", value: $("#select-status").val()});
                     aoData.push({name: "firstDate", value: $("#first-date").val()});
                     aoData.push({name: "lastDate", value: $("#last-date").val()});
+                },
+                "fnDrawCallback": function ( oSettings ) {
+                    /* Need to redo the counters if filtered or sorted */
+                    if ( oSettings.bSorted || oSettings.bFiltered )
+                    {
+                        for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+                        {
+                            $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+                        }
+                    }
                 }
             });
 

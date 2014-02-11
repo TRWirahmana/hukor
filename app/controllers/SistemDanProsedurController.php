@@ -42,15 +42,15 @@ class SistemDanProsedurController extends BaseController {
                     $penanggungJawab->save();
 
                     // kirim email ke admin
-                    // $data = array(
-                    //     'user' => Auth::user(),
-                    //     'perUU' => $perUU
-                    // );
-                    // Mail::send('emails.usulanbaru', $data, function($message) {
-                    //     // admin email (testing)
-                    //     $message->to('egisolehhasdi@gmail.com', 'egisolehhasdi@gmail.com')
-                    //             ->subject('Usulan Baru Peraturan Perundang-Undangan');
-                    // });
+                    $data = array(
+                        'user' => Auth::user(),
+                        'data' => $sistemDanProsedur
+                    );
+                    Mail::send('emails.usulanbaru', $data, function($message) {
+                        // admin email (testing)
+                        $message->to('egisolehhasdi@gmail.com', 'egisolehhasdi@gmail.com')
+                                ->subject('Usulan Baru Peraturan Perundang-Undangan');
+                    });
 
                     Session::flash('success', 'Data berhasil dikirim.');
                     return Redirect::to('/');
@@ -130,15 +130,15 @@ class SistemDanProsedurController extends BaseController {
 
         if ($sistemDanProsedur->save() && $log->save()) {
             // Kirim email notifikasi ke pembuat usulan
-            // $data = array(
-            //     'logPerUU' => $logPerUU,
-            //     'perUU' => $perUU
-            // );
+            $data = array(
+                'log' => $log,
+                'data' => $sistemDanProsedur
+            );
 
-            // Mail::send('emails.perubahanUsulan', $data, function($message) use($perUU) {
-            //     $message->to($perUU->pengguna->email)
-            //             ->subject('Perubahan Status Usulan');
-            // });
+            Mail::send('Ketatalaksanaan.emailUpdateStatus', $data, function($message) use($sistemDanProsedur) {
+                $message->to($sistemDanProsedur->pengguna->email)
+                        ->subject('Perubahan Status Usulan');
+            });
 
             Session::flash('success', 'Usulan berhasil diperbaharui.');
             return Redirect::route('index_sistem_dan_prosedur');

@@ -54,15 +54,15 @@ class AnalisisJabatanController extends BaseController
                     $penanggungJawab->save();
 
                     // kirim email ke admin
-                    // $data = array(
-                    //     'user' => Auth::user(),
-                    //     'perUU' => $analisisJabatan
-                    // );
-                    // Mail::send('emails.usulanbaru', $data, function($message) {
-                    //     // admin email (testing)
-                    //     $message->to('egisolehhasdi@gmail.com', 'egisolehhasdi@gmail.com')
-                    //             ->subject('Usulan Baru Peraturan Perundang-Undangan');
-                    // });
+                    $data = array(
+                        'user' => Auth::user(),
+                        'data' => $analisisJabatan
+                    );
+                    Mail::send('AnalisisJabatan.emailUsulan', $data, function($message) {
+                        // admin email (testing)
+                        $message->to('egisolehhasdi@gmail.com', 'egisolehhasdi@gmail.com')
+                                ->subject('Usulan Baru Analisis Jabatan');
+                    });
 
                     Session::flash('success', 'Data berhasil dikirim.');
                     return Redirect::to('/');
@@ -203,15 +203,15 @@ class AnalisisJabatanController extends BaseController
 
         if ($analisisJabatan->save() && $logAnalisisJabatan->save()) {
             // Kirim email notifikasi ke pembuat usulan
-            // $data = array(
-            //     'logAnalisisJabatan' => $logAnalisisJabatan,
-            //     'analisisJabatan' => $analisisJabatan
-            // );
+            $data = array(
+                'log' => $logAnalisisJabatan,
+                'data' => $analisisJabatan
+            );
 
-            // Mail::send('emails.perubahanUsulan', $data, function($message) use($analisisJabatan) {
-            //     $message->to($analisisJabatan->pengguna->email)
-            //             ->subject('Perubahan Status Usulan');
-            // });
+            Mail::send('AnalisisJabatan.emailUpdate', $data, function($message) use($analisisJabatan) {
+                $message->to($analisisJabatan->pengguna->email)
+                        ->subject('Perubahan Status Usulan Analisis Jabatan');
+            });
             Session::flash('success', 'Usulan berhasil diperbaharui.');
             return Redirect::route('index_analisis_jabatan');
         } else {

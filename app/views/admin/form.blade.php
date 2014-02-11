@@ -8,7 +8,7 @@
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
         <li><a href="{{URL::previous()}}">Kelola Akun</a>  <span class="separator"></span></li>
-        <li>Edit Akun</li>
+        <li>{{$title}}</li>
     </ul>
 
     <div class="pageheader">
@@ -19,7 +19,7 @@
         <div class="pagetitle">
             <!--<h5>Events</h5>-->
 
-            <h1>Edit Akun</h1>
+            <h1>{{$title}}</h1>
         </div>
     </div>
     <!--pageheader-->

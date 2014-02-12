@@ -460,3 +460,8 @@ Route::group(array('prefix' => 'layanan_ketatalaksanaan'), function() {
 
 
 Route::get('forumdiskusi', "HomeController@showForum");
+
+
+Route::group(array("prefix" => "admin", "before" => "auth|super_admin"), function(){
+    Route::resource('categories', 'CategoriesController');
+});

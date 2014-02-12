@@ -14,6 +14,9 @@ jQuery(document).ready(function(e){
                 mData: "penulis"
             },
             {
+                mData: "nama_kategori"
+            },
+            {
                 mData: "tgl_penulisan"
             },
             {
@@ -30,7 +33,7 @@ jQuery(document).ready(function(e){
         },
         fnDrawCallback: function() {
 
-            dom.$table_news.fnSetColumnVis( 4,  role == 3 );
+            dom.$table_news.fnSetColumnVis( 5,  role == 3 );
         }
     });
 

@@ -92,7 +92,7 @@ class BeritaController extends BaseController {
                 'class' => 'form-horizontal',
                 'id' => 'form_berita'
             ),
-            'berita' => new Berita(),
+            'berita' => new Berita()
         ));
     }
 
@@ -123,6 +123,7 @@ class BeritaController extends BaseController {
                 $berita->SetData(array(
                     'judul' => $input['judul'],
                     'berita' => $input['berita'],
+                    'id_kategori' => $input['kategori'],
                     'penulis' => $input['penulis'], // Aktif
                     'gambar' => $filename,
                     'tgl_penulisan' => new DateTime,

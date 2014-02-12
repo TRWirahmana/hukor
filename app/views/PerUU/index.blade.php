@@ -195,7 +195,7 @@
                         sWidth: "8%",
                         mRender: function(data, type, all) {
                             return "<a href='per_uu/download/" + data + "'><i class='icon-download'></i></a> " +
-                                    "<a href='per_uu/update/" + data + "'><i class='icon-edit'></i></a> " +
+                                    "<a href='per_uu/update_per_uu/" + data + "'><i class='icon-edit'></i></a> " +
                                     "<a class='delete' href='javascript:void(0)' data-id='" + data + "'><i class='icon-trash'></i></a>";
                         }
                     }
@@ -204,6 +204,16 @@
                     aoData.push({name: "status", value: $("#select-status").val()});
                     aoData.push({name: "firstDate", value: $("#first-date").val()});
                     aoData.push({name: "lastDate", value: $("#last-date").val()});
+                },
+                "fnDrawCallback": function ( oSettings ) {
+                    /* Need to redo the counters if filtered or sorted */
+                    if ( oSettings.bSorted || oSettings.bFiltered )
+                    {
+                        for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+                        {
+                            $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+                        }
+                    }
                 }
             });
 

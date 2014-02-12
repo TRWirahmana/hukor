@@ -10,23 +10,23 @@ class PelembagaanController extends BaseController {
 	{
 
 		$user = Auth::user();
-//		$user->role_id;
+		
         if(Request::ajax())           
-            return Datatables::of(DAL_Pelembagaan::getDataTable())->make(true);            
-        	// $statusUn = Pelembagaan::where('status', null)->count();
-        	// $statusPro = Pelembagaan::where('status', 1)->count();
-        	// $statusPerUU = Pelembagaan::where('status', 2)->count();
+            return Datatables::of(DAL_Pelembagaan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
+            
+        	 $statusUn = Pelembagaan::where('status', null)->count();
+        	 $statusPro = Pelembagaan::where('status', 1)->count();
+        	 $statusPerUU = Pelembagaan::where('status', 2)->count();
 
-	       	$listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
-	        													->lists('usulan_year', 'usulan_year');
-
-        if($user->role_id == 3){
+	       	// $listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
+	        // 													->lists('usulan_year', 'usulan_year');
+        if($user->role_id == 3 || $user->role_id == 7){
 			$this->layout = View::make('layouts.admin');
         } else {
         	$this->layout = View::make('layouts.master');
-        }
-	    
-	    $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user, 'listTgl'));//, array( 'status_belum' => $statusUn, 'status_proses' => $statusPro));		
+        }	    
+//	    $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user, 'status_belum' => $statusUn, 'status_proses' => $statusPro));		
+	    $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user));//, array( 'status_belum' => $statusUn, 'status_proses' => $statusPro));
 	}
 
     public function datatable()
@@ -84,27 +84,36 @@ class PelembagaanController extends BaseController {
 
     	$this->layout = View::make('layouts.admin');
 
+		$user = Auth::user();
+
+
 		if(!is_null($pelembagaan))
-			$this->layout->content = View::make('Pelembagaan.update', array(
-				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
-				'detail' => '',
-				'form_opts' => array(
-					'route' => array('admin.pelembagaan.update', $pelembagaan->id),
-					'method' => 'put',
-					'class' => 'form-horizontal',
-		            'id' => 'pelembagaan-update',
-					'files' => true
-				),
-				'pelembagaan' => $pelembagaan,
-				'id' => $id,
-//				'log_pelembagaan' => $log_pelembagaan,
-//				'listRegion' => $listRegion,
-//				'listRole' => $listRole
-			));
+			if($user->role_id == 7){
+				$this->layout->content = View::make('Pelembagaan.update', array(
+					'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
+					'detail' => '',
+					'form_opts' => array('route' => 'proses_update_pelembagaan','method' => 'post','class' => 'form-horizontal','id' => 'pelembagaan-update','files' => true
+					),
+					'pelembagaan' => $pelembagaan,
+					'id' => $id,
+				));
+			} else {
+				$this->layout->content = View::make('Pelembagaan.update', array(
+					'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
+					'detail' => '',
+					'form_opts' => array('route' => 'proses_update_pelembagaan_admin','method' => 'post','class' => 'form-horizontal','id' => 'pelembagaan-update','files' => true
+					),
+					'pelembagaan' => $pelembagaan,
+					'id' => $id,
+				));
+			}
+				
+
 	}
 
-	public function update($id)
+	public function update() //$id)
 	{
+        $id = Input::get('id');
 
 		$pelembagaan = Pelembagaan::find($id);
 
@@ -112,6 +121,7 @@ class PelembagaanController extends BaseController {
 		$destinationPath = UPLOAD_PATH . '/';		
 		$filename = $img->getClientOriginalName();
 		$uploadSuccess = $img->move($destinationPath, $filename);
+			
 
 //		$pelembagaan->id_pengguna = $id;
 
@@ -127,7 +137,6 @@ class PelembagaanController extends BaseController {
         $log_pelembagaan->tgl_proses = Carbon::now();
 		$log_pelembagaan->save();
 
-
 		$pelembagaan->save();
 
 //		$userid = pengguna::find($pelembagaan->ipengguna);
@@ -139,22 +148,20 @@ class PelembagaanController extends BaseController {
 		);
 
 		$user = array(
-//				'name' => 'User ',
-//			    'email' => 'andhy.m0rphin@gmail.com' // 'email' => $pelembagaan->email;
+				'name' => 'User ',
+			    'email' => 'andhy.m0rphin@gmail.com'
 		);
-		 
 
 		Mail::send('emails.reppelembagaan', $data, function($message) use ($user)
 		{
-		//  Email to pengusul
-        //	$message->to(array($pelembagaan->email)); 
-			$message->to(array('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com')); 
-			$message->subject('Re: Usulan Pelembagaan');
-//	  	    $message->to($user['email'], $user['name'])->subject('Re: Usulan Pelembagaan Request');
+		  $message->to($user['email'], $user['name'])->subject('Re: Usulan Pelembagaan Request');
 		});
 
-
-		return Redirect::to('admin/pelembagaan')->with('success', 'Data berhasil diubah.');
+		$user = Auth::user();		
+		if($user->role_id == 3)
+			return Redirect::to('admin/pelembagaan')->with('success', 'Data berhasil diubah.');
+		else if($user->role_id == 7)
+			return Redirect::to('pelembagaan/index_pelembagaan')->with('success', 'Data berhasil diubah.');
 	}  
 
 	public function store()
@@ -182,22 +189,9 @@ class PelembagaanController extends BaseController {
 			'jenis_usulan' => $pelembagaan->getJenisUsulan(Input::get('jenis_usulan'))
 		);
 
-		$user = array(
-		//	array(
-				'name' => 'User ',
-			    'email' => 'andhy.m0rphin@gmail.com'
-		//	),
-		//	array(
-		//		'name' => 'Admin Pelembagaan',
-		//	    'email' => 'jufri.suandi@gmail.com'
-		//	)
-		);
-		 \
-		//	while()
 		 
 			Mail::send('emails.reqpelembagaan', $data, function($message) use ($user)
 			{
-			  //$message->to($user['email'], $user['name'])->subject('Usulan Pelembagaan Request');
 			  $message->to(array('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com'));
 			  $message->subject('Usulan Pelembagaan');
 			});
@@ -230,6 +224,8 @@ class PelembagaanController extends BaseController {
 		return Redirect::to('pelembagaan/usulan');
 	}
 
+
+
 	public function destroy($id)
 	{
 		$pelembagaan = Pelembagaan::find($id);
@@ -238,27 +234,27 @@ class PelembagaanController extends BaseController {
 		}
 	}
 
-    public function downloadLampiran($id)
+ public function downloadLampiran($id)
     {
         $pelembagaan = Pelembagaan::find($id) or App::abort(404);
         $path = UPLOAD_PATH . DS . $pelembagaan->lampiran;
         return Response::download($path, explode('/', $pelembagaan->lampiran)[1]);
     }
 
-	public function printTable() {
-//		$dataPelembagaan = DAL_Pelembagaan::getDataTable();
-//		echo "=================";
-        $dataPerUU = DAL_PerUU::getDataTable();
+    public function printTable() {
+    	
+    	$status = Input::get("status", null);
+    	$firstDate = Input::get("firstDate", null);
+    	$lastDate = Input::get("lastDate", null);
 
-        var_dump($dataPerUU);
+    	$dataPelembagaan = DAL_Pelembagaan::getDataTable($status, $firstDate, $lastDate)->get();
+    	
+    	// var_dump($dataPelembagaan);
+    	// exit;
 
-		exit;
-//		var_dump($dataPelembagaan);
-//		exit;
-
-/*
 		$data = array();
-		for($dataPelembagaan->get() as $index => $pelembagaan){
+
+		foreach($dataPelembagaan as $index => $pelembagaan){
 			$tglUsulan = new DateTime($pelembagaan->tgl_usulan);
 			$data[$index]['ID'] = $pelembagaan->id;
 			$data[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
@@ -270,20 +266,32 @@ class PelembagaanController extends BaseController {
 
 		$table = HukorHelper::generateHtmlTable($data);
 
-		$html = <<<HTML
-			<style>
-				table{ border-collapse: collapse; }
-				table td, table th { padding: 5px; }
-			</style>
-			<h1>Pelembagaan</h1>
-			{$table}
-HTML;
-			$pdf = new DOMPDF();
-			$pdf->load_html($html);
-			$pdf->render();
-			$pdf->stream("pelembagaan.pdf");
-*/	
+		$style = array("<style>");
+		$style[] = "table { border-collapse: collapse; }";
+		$style[] = "table td, table th { padding: 5px; }";
+		$style[] = "</style>";
+
+		$html = array("<h1> Pelembagaan</h1>");
+		$html[] = "<table><tr>";
+		if(null != $status)
+			$html[] = "<td><strong>Status</strong></td><td>: ". $pelembagaan->status . "</td>" ;
+		if(null != $firsDate)
+			$html[] = "<td><strong>Tanggal Awal</strong></td><td> : {$firstDate} </td>";
+		if(null != $lastDate)
+			$html[] = "<td><strong>Tanggal Akhir</strong></td><td> : {$lastDate} </td> ";
+		$html[] = "</tr></table>";
+		$html[] = $table;
+	
+		$pdf = new DOMPDF();
+		$pdf->load_html(join("", $style) . join("", $html));
+		$pdf->render();
+
+        $response = Response::make($pdf->output());
+        $response->header("Content-Type", "application/pdf");
+        return $response;
 	}
+
+
 
 
 

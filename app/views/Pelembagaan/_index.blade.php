@@ -9,7 +9,7 @@
  -->    
     </legend>
 
-@include('flash')
+@include('adminflash')
 
    @if($status_belum != 0)
     <div class="row-fluid" style="border-bottom: 1px solid #e5e5e5;">

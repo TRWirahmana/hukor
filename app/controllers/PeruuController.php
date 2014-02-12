@@ -166,6 +166,8 @@ class PeruuController extends BaseController
 
         $dataPerUU = DAL_PerUU::getDataTable($status, $firstDate, $lastDate);
         $data = array();
+
+        
         foreach($dataPerUU->get() as $index => $perUU) {
             $tglUsulan = new DateTime($perUU->tgl_usulan);
             $data[$index]['ID'] = $perUU->id;
@@ -197,10 +199,7 @@ class PeruuController extends BaseController
         $pdf = new DOMPDF();
         $pdf->load_html(join("", $style) . join("",$html));
         $pdf->render();
-
-        $response = Response::make($pdf->output());
-        $response->header("Content-Type", "application/pdf");
-        return $response;
+        $pdf->stream("peruu.pdf");
     }
 
     private function getStatus($status) {

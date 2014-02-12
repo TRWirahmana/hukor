@@ -50,6 +50,7 @@
 
     <script type="text/javascript">
         var baseUrl = '{{URL::to('/')}}';
+        var role = '<?php $user = Auth::user()-role_id; ?>';
     </script>
 </head>
 <body class="main-layout">
@@ -57,12 +58,54 @@
 <div class="mainwrapper">
     <div class="header">
         <ul id="main-menu">
+            @if($user->role_id == 1)
+            <li id="beranda"><a href="{{URL::to('kepala_biro/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
+            <li id="news"><a href="{{URL::to('kepala_biro/berita')}}"><span class="rulycon-newspaper"></span> Berita</a></li>
+<!--            <li id="informasi"><a href="#info"><span class="rulycon-address-book"></span> Informasi</a></li>-->
+            <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
+            @endif
+
+            <!-- Admin PERUU-->
+            @if($user->role_id == 6)
+            <li id="beranda"><a href="{{URL::to('per_uu/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
+<!--            <li id="news"><a href="{{URL::to('kepala_biro/berita')}}"><span class="rulycon-newspaper"></span> Berita</a></li>-->
+<!--            <li id="informasi"><a href="#info"><span class="rulycon-address-book"></span> Informasi</a></li>-->
+            <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
+            @endif
+
+            <!-- Admin KETATATALAKSANAAN-->
+            @if($user->role_id == 9)
+            <li id="beranda"><a href="{{URL::to('ketatalaksanaan/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
+<!--            <li id="news"><a href="{{URL::to('kepala_biro/berita')}}"><span class="rulycon-newspaper"></span> Berita</a></li>-->
+<!--            <li id="informasi"><a href="#info"><span class="rulycon-address-book"></span> Informasi</a></li>-->
+            <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
+            @endif
+
+            <!-- Admin Pelembagaan-->
+            @if($user->role_id == 7)
+            <li id="beranda"><a href="{{URL::to('pelembagaan/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
+            <!--            <li id="news"><a href="{{URL::to('kepala_biro/berita')}}"><span class="rulycon-newspaper"></span> Berita</a></li>-->
+            <!--            <li id="informasi"><a href="#info"><span class="rulycon-address-book"></span> Informasi</a></li>-->
+            <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
+            @endif
+
+            <!-- Admin Bantuan Hukum-->
+            @if($user->role_id == 8)
+            <li id="beranda"><a href="{{URL::to('bantuan_hukum/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
+            <!--            <li id="news"><a href="{{URL::to('kepala_biro/berita')}}"><span class="rulycon-newspaper"></span> Berita</a></li>-->
+            <!--            <li id="informasi"><a href="#info"><span class="rulycon-address-book"></span> Informasi</a></li>-->
+            <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
+            @endif
+
+            <!-- SUPER ADMIN -->
+            @if($user->role_id == 3)
             <li id="beranda"><a href="{{URL::to('admin/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
             <li id="news"><a href="{{URL::to('admin/berita')}}"><span class="rulycon-newspaper"></span> Berita</a></li>
-            <li id="informasi"><a href="#info"><span class="rulycon-address-book"></span> Informasi</a></li>
+<!--            <li id="informasi"><a href="#info"><span class="rulycon-address-book"></span> Informasi</a></li>-->
             <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
             <li id="managemen"><a href="#manage"><span class="rulycon-user"></span> User</a></li>
-            <li id="menu"><a href="{{URL::to('admin/create_menu')}}"><span class="rulycon-notebook"></span> Manage Menu</a></li>
+            <li id="menu"><a href="#manage-menu"><span class="rulycon-notebook"></span> Manage Menu</a></li>
+            @endif
         </ul>
     </div>
 
@@ -71,7 +114,11 @@
             <img src="{{asset('assets/images/logo-kemendiknas.png')}}" alt="Kementrian Pendidikan Nasional RI"/>
         </div>
         <div id="welcome-message">
-            <p>Welcome <span id="user-name"><?php echo $user->username; ?></span></p>
+            @if($user->role_id == 3)
+                <p>Welcome <span id="user-name"><?php echo $user->username; ?></span></p>
+            @else
+                <p>Welcome <span id="user-name"><?php echo $user->pengguna->nama_lengkap; ?></span></p>
+            @endif
         </div>
         <div id="user-links">
             <a href="{{URL::to('admin/setting')}}"><span class="rulycon-cog"></span> Settings</a>
@@ -83,39 +130,41 @@
                 <li class="nav-header">Navigation</li>
 
                 <!-- list informasi-->
-                <li class="dropdown">
-                    <ul id="info">
-                        <li id="produkhukum"><a href="#"><span class="iconfa-laptop"></span> Produk Hukum</a></li>
-                        <li id="ketatalaksanaan" class="dropdown"><a href="admin/layanan_ketatalaksanaan/edit_ketatalaksanaan"><span class="iconfa-hand-up"></span> Layanan Ketatalaksanaan</a>
-                            <ul>
+<!--                <li class="dropdown">-->
+<!--                    <ul id="info">-->
+<!--                        <li id="produkhukum"><a href="#"><span class="iconfa-laptop"></span> Produk Hukum</a></li>-->
+<!--                        <li id="ketatalaksanaan" class="dropdown"><a href="admin/layanan_ketatalaksanaan/edit_ketatalaksanaan"><span class="iconfa-hand-up"></span> Layanan Ketatalaksanaan</a>-->
+<!--                            <ul>-->
 <!--                                 <li><a href="{{URL::to('admin/edit_ketatalaksanaan')}}">Home</a></li> -->
-                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_spk')}}">Sistem dan Prosedur Kerja</a></li>
-                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_smm')}}">Sistem manajemen mutu</a></li>
-                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_analisis_jabatan')}}">Analisis Jabatan</a></li>
-                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_pbk')}}">Perhitungan beban kerja</a></li>
-                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_tata_nilai')}}">Tata nilai & budaya kerja organisasi</a></li>
-                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_pelayanan_publik')}}">Pelayanan publik</a></li>
-                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_tnd')}}">Tata naskah dinas</a></li>
-                            </ul>
-                        </li>
-                        <li id="kelembagaan" class="dropdown"><a href="#"><span class="iconfa-briefcase"></span> Kelembagaan</a>
-                            <ul>
-                                <li id="laykel"><a href="{{URL::to('admin/layanankelembagaan/edit_kelembagaan')}}">Layanan Kelembagaan</a></li>
-                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_pembentukan')}}">Pembentukan</a></li>
-                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_penataan')}}">Penataan</a></li>
-                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_statuta')}}">Statuta</a></li>
-                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_penutupan')}}">Penutupan</a></li>
-                            </ul>
-                        </li>
-                        <li id="bahu"><a href="#"><span class="iconfa-th-list"></span> Layanan Bantuan Hukum</a></li>
-                        <li id="puu"><a href="#"><span class="iconfa-picture"></span> Layanan Peraturan Perundang-Undangan</a></li>
-                        <li id="diskusi"><a href="#"><span class="iconfa-font"></span> Forum Diskusi</a></li>
-                        <li id="callcenter"><a href="{{URL::to('admin/editcallcenter')}}"><span class="iconfa-signal"></span> Call Center</a></li>
-                    </ul>
-                </li>
+<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_spk')}}">Sistem dan Prosedur Kerja</a></li>-->
+<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_smm')}}">Sistem manajemen mutu</a></li>-->
+<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_analisis_jabatan')}}">Analisis Jabatan</a></li>-->
+<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_pbk')}}">Perhitungan beban kerja</a></li>-->
+<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_tata_nilai')}}">Tata nilai & budaya kerja organisasi</a></li>-->
+<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_pelayanan_publik')}}">Pelayanan publik</a></li>-->
+<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_tnd')}}">Tata naskah dinas</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li id="kelembagaan" class="dropdown"><a href="#"><span class="iconfa-briefcase"></span> Kelembagaan</a>-->
+<!--                            <ul>-->
+<!--                                <li id="laykel"><a href="{{URL::to('admin/layanankelembagaan/edit_kelembagaan')}}">Layanan Kelembagaan</a></li>-->
+<!--                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_pembentukan')}}">Pembentukan</a></li>-->
+<!--                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_penataan')}}">Penataan</a></li>-->
+<!--                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_statuta')}}">Statuta</a></li>-->
+<!--                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_penutupan')}}">Penutupan</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li id="bahu"><a href="#"><span class="iconfa-th-list"></span> Layanan Bantuan Hukum</a></li>-->
+<!--                        <li id="puu"><a href="#"><span class="iconfa-picture"></span> Layanan Peraturan Perundang-Undangan</a></li>-->
+<!--                        <li id="diskusi"><a href="#"><span class="iconfa-font"></span> Forum Diskusi</a></li>-->
+<!--                        <li id="callcenter"><a href="{{URL::to('admin/editcallcenter')}}"><span class="iconfa-signal"></span> Call Center</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
                 <!-- end list-->
 
+<!--                KEPALA BIRO RULES-->
                 <!-- list aplikasi-->
+                @if($user->role_id == 1)
                 <li class="dropdown" >
                     <ul id="app">
                         <li id="app_puu"><a href="{{ URL::route('index_per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
@@ -136,7 +185,51 @@
                                 <li><a href="#">Informasi Perkara</a></li>
                             </ul>
                         </li>
-                        <li id="app_internal"><a href="#"><span class="iconfa-envelope"></span> Aplikasi Internal</a></li>
+<!--                        <li id="app_internal"><a href="#"><span class="iconfa-envelope"></span> Aplikasi Internal</a></li>-->
+                    </ul>
+                </li>
+
+                <!-- end list-->
+                @endif
+
+<!--                ADMIN RULES-->
+                @if($user->role_id == 3)
+                <!-- list aplikasi-->
+                <li class="dropdown" >
+                    <ul id="app">
+                        <li id="app_puu"><a href="{{ URL::to('admin/per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
+                            <!-- <ul>
+                                <li><a href="#">Lembar Usulan</a></li>
+                                <li><a href="#">Informasi & Status usulan</a></li>
+                            </ul> -->
+                        </li>
+                        <li id="app_pelembagaan" ><a href="{{ URL::to('admin/pelembagaan') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a>
+                            <!-- <ul>
+                                <li><a href="#">Lembar Usulan</a></li>
+                                <li><a href="#">Informasi & Status usulan</a></li>
+                            </ul> -->
+                        </li>
+                        <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
+                            <ul>
+                                <li><a href="{{URL::route('index_sistem_dan_prosedur')}}">Sistem dan Prosedur</a></li>
+                                <li><a href="{{URL::route('index_analisis_jabatan')}}">Analisis Jabatan</a></li>
+                            </ul>
+                        </li>
+                        <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>
+                            <ul>
+                                <li><a href="#">Lembar Permohonan</a></li>
+                                <li><a href="#">Informasi Perkara</a></li>
+                            </ul>
+                        </li>
+<!--                        <li id="app_internal"><a href="#"><span class="iconfa-envelope"></span> Aplikasi Internal</a></li>-->
+<li id="app_forum">
+                            <a href="#">
+                                <label for="cbox-forum">
+                                    <input {{ (null != AppConfig::find('enable_forum') && AppConfig::find('enable_forum')->value == 'true')? 'checked': '' }} type="checkbox" id="cbox-forum" value="y" class="checkbox">
+                                    &nbsp;&nbsp;&nbsp; Aktifkan Forum
+                                </label>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
@@ -148,6 +241,86 @@
                         <li id="kelola"><a href="{{URL::to('admin/account')}}"><span class="iconfa-laptop"></span> Kelola Akun</a></li>
                     </ul>
                 </li>
+
+                <!-- list manajemen menu-->
+                <li class="dropdown">
+                    <ul id="manage-menu">
+                        <li id="menu"><a href="{{URL::to('admin/index_menu')}}"><span class="iconfa-laptop"></span> Kelola Menu</a></li>
+                        <li id="layanan"><a href="{{URL::to('admin/layanan')}}"><span class="iconfa-laptop"></span> Kelola Konten Layanan</a></li>
+                    </ul>
+                </li>
+                @endif
+
+                <!--   END -->
+
+                <!-- PER UU RULES-->
+                @if($user->role_id == 6)
+                <!-- list aplikasi-->
+                <li class="dropdown" >
+                    <ul id="app">
+                        <li id="app_puu"><a href="{{ URL::to('/per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
+                            <!-- <ul>
+                                <li><a href="#">Lembar Usulan</a></li>
+                                <li><a href="#">Informasi & Status usulan</a></li>
+                            </ul> -->
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- end list-->
+                @endif
+
+
+               <!-- KETATALAKSANAAN RULES-->
+                @if($user->role_id == 9)
+                <!-- list aplikasi-->
+                <li class="dropdown" >
+                    <ul id="app">
+                         <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
+                            <ul>
+                                <li><a href="{{URL::route('index_sistem_dan_prosedur')}}">Sistem dan Prosedur</a></li>
+                                <li><a href="{{URL::route('index_analisis_jabatan')}}">Analisis Jabatan</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- end list-->
+                @endif
+
+                <!-- BANTUAN HUKUM RULES -->
+                @if($user->role_id == 8)
+                <!-- list aplikasi-->
+                <li class="dropdown" >
+                    <ul id="app">
+                        <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>
+                            <ul>
+                                <li><a href="#">Lembar Permohonan</a></li>
+                                <li><a href="#">Informasi Perkara</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- end list-->
+                @endif
+
+                <!--  PELEMBAGAAN RULES-->
+                @if($user->role_id == 7)
+                <!-- list aplikasi-->
+                <li class="dropdown" >
+                    <ul id="app">
+                        <li id="app_pelembagaan" ><a href="{{ URL::to('/pelembagaan/index_pelembagaan') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a>
+                            <!-- <ul>
+                                <li><a href="#">Lembar Usulan</a></li>
+                                <li><a href="#">Informasi & Status usulan</a></li>
+                            </ul> -->
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- end list-->
+                @endif
             </ul>
         </div>
         <!--leftmenu-->
@@ -179,6 +352,7 @@
             $("#info").hide();
             $("#app").hide();
             $("#manage").hide();
+            $("#manage-menu").hide();
 
         });
 
@@ -186,6 +360,7 @@
             $("#info").show();
             $("#app").hide();
             $("#manage").hide();
+            $("#manage-menu").hide();
         });
 
         $("#ketatalaksanaan").click(function(){
@@ -196,12 +371,27 @@
             $("#info").hide();
             $("#app").show();
             $("#manage").hide();
+            $("#manage-menu").hide();
         });
 
         $("#managemen").click(function(){
             $("#info").hide();
             $("#app").hide();
+            $("#manage-menu").hide();
             $("#manage").show();
+        });
+
+        $("#menu").click(function(){
+            $("#info").hide();
+            $("#app").hide();
+            $("#manage").hide();
+            $("#manage-menu").show();
+        });
+
+        $("#cbox-forum").change(function(e){
+            $.post("/admin/enableForum", {value: $(this).is(":checked")}, function(resp){
+                console.log(resp);
+            });
         });
 
     });

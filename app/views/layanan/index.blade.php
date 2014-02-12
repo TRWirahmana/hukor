@@ -30,7 +30,7 @@
 
             <form class="form-inline">
                 <fieldset>
-                    <legend><a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/berita/create')}}">Tambah Berita Baru</a></legend>
+                    <legend><a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/layanan/create')}}">Tambah Info Layanan Baru</a></legend>
                     <!--                    <label for="select_role" class="control-label">Tipe Pengguna</label>-->
                     <!--                    <select id="select_role">-->
                     <!--                        <option value="0">Semua User</option>-->
@@ -40,12 +40,11 @@
                 </fieldset>
             </form>
 
-            <table id="table_news" class="table">
+            <table id="table_layanan" class="table">
                 <thead>
                 <tr>
-                    <td>Judul Berita</td>
-                    <td>Penulis</td>
-                    <td>Ditulis</td>
+                    <td>Nama Menu</td>
+                    <td>Nama Submenu</td>
                     <td></td>
                 </tr>
                 </thead>
@@ -73,5 +72,5 @@
 
 @section('scripts')
 @parent
-<script src="{{asset('assets/js/berita_index.js')}}"></script>
+<script src="{{asset('assets/js/layanan_index.js')}}"></script>
 @stop

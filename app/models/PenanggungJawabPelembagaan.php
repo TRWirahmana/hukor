@@ -3,8 +3,8 @@
 class PenanggungJawabPelembagaan extends Eloquent
 {
 
-    protected $key = "id";
-    protected $table = "penanggung_jawab_pelembagaan";
+    protected $key = 'id';
+    protected $table = 'penanggung_jawab_pelembagaan';
     public $timestamps = false;
 
     public function pelembagaan()

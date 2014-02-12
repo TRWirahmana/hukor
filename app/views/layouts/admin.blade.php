@@ -101,7 +101,7 @@
             @if($user->role_id == 3)
             <li id="beranda"><a href="{{URL::to('admin/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
             
-             <li id="news"><a href="#berita"><span class="rulycon-newspaper"></span> Berita</a></li>
+             <li id="news"><a href="#menu_berita"><span class="rulycon-newspaper"></span> Berita</a></li>
 <!--            <li id="informasi"><a href="#info"><span class="rulycon-address-book"></span> Informasi</a></li>-->
             <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
             <li id="managemen"><a href="#manage"><span class="rulycon-user"></span> User</a></li>
@@ -245,7 +245,7 @@
 
                 <!-- list manajemen user-->
                 <li class="dropdown">
-                    <ul id="berita">
+                    <ul id="menu_berita">
                         <li><a href="{{URL::to('admin/berita')}}">Berita</a></li>
                         <li><a href="{{URL::route('admin.categories.index')}}">Kategori Berita</a></li>
                     </ul>
@@ -362,7 +362,7 @@
             $("#app").hide();
             $("#manage").hide();
             $("#manage-menu").hide();
-            $("#berita").show();
+            $("#menu_berita").show();
         });
 
         $("#beranda").click(function(){
@@ -370,7 +370,7 @@
             $("#app").hide();
             $("#manage").hide();
             $("#manage-menu").hide();
-            $("#berita").hide();
+            $("#menu_berita").hide();
 
         });
 
@@ -379,7 +379,7 @@
             $("#app").hide();
             $("#manage").hide();
             $("#manage-menu").hide();
-            $("#berita").hide();
+            $("#menu_berita").hide();
         });
 
         $("#ketatalaksanaan").click(function(){
@@ -390,7 +390,7 @@
             $("#info").hide();
             $("#app").show();
             $("#manage").hide();
-            $("#berita").hide();
+            $("#menu_berita").hide();
             $("#manage-menu").hide();
         });
 
@@ -399,7 +399,7 @@
             $("#app").hide();
             $("#manage-menu").hide();
             $("#manage").show();
-            $("#berita").hide();
+            $("#menu_berita").hide();
         });
 
         $("#menu").click(function(){
@@ -407,7 +407,7 @@
             $("#app").hide();
             $("#manage").hide();
             $("#manage-menu").show();
-            $("#berita").hide();
+            $("#menu_berita").hide();
         });
 
         $("#cbox-forum").change(function(e){

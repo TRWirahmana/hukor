@@ -43,6 +43,13 @@
                         </div>
                     </div>
 
+                    <div class="control-group">
+                        {{Form::label("Kategori", null, array("class" => "control-label"))}}
+                        <div class="controls">
+                            {{Form::select("kategori", Category::lists('nama_kategori', 'id'))}}
+                        </div>
+                    </div>
+
                     <div class="control-group {{$errors->has('berita')? 'error':''}}">
                         {{ Form::label('berita', 'Isi Berita', array('class' => 'control-label')) }}
                         <div class="controls">
@@ -141,3 +148,4 @@
     Berita.Form();
 </script>
 @stop
+    

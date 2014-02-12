@@ -3,7 +3,8 @@
 class DAL_Pelembagaan {
     public static function getDataTable($filter = null, $firstDate = null, $lastDate = null) {
 	   $data = Pelembagaan::join('penanggung_jawab_pelembagaan','pelembagaan.id', '=', 'penanggung_jawab_pelembagaan.pelembagaan_id')
-                        ->select(array(
+                        ->
+                        select(array(
                             'pelembagaan.id',
                             'pelembagaan.tgl_usulan',
                             'penanggung_jawab_pelembagaan.unit_kerja',

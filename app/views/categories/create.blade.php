@@ -1,0 +1,47 @@
+@section('admin')
+	<div class="rightpanel">
+		<ul class="breadcrumbs">
+			<li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
+	        <li><a href="{{URL::to('admin/berita')}}">Berita</a> <span class="separator"></span></li>
+	        <li><a href="{{URL::route('admin.categories.index')}}">Kategori Berita</a> <span class="separator"></span></li>
+	        <li>Tambah Kategori Berita</li>
+		</ul>
+		@include('adminflash')
+		<div class="pageheader">
+			<div class="pageicon">&nbsp;</div>
+			<div class="pagetitle">
+				<h1>Tambah Kategori Berita</h1>
+			</div>
+		</div>
+
+		<div class="maincontent">
+			<div class="maincontentinner">
+				<div class="content-non-title">
+					{{ Form::open(array("route" => "admin.categories.store", "class" => "form form-horizontal")) }}
+						<div class="control-group {{$errors->has('nama_kategori')? 'error': ''}}">
+							<label for="nama_kategori" class="control-label">
+								Nama Kategori
+							</label>
+							<div class="controls">
+								{{Form::text("nama_kategori")}}
+								{{$errors->first('nama_kategori', '<span class="help-block">:message</span>')}}
+							</div>
+						</div>
+						<div class="form-actions">
+							{{Form::submit("Simpan", array("class" => "btn btn-primary"))}}
+						</div>
+					{{ Form::close() }}
+				</div>
+			</div>
+		</div>
+	</div>
+@stop
+
+@section('scripts')
+@parent
+<script type="text/javascript">
+	jQuery(function($){
+		
+	});
+</script>
+@stop

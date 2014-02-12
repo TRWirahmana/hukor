@@ -11,7 +11,6 @@
   |
  */
 
-
 // Login / Logout
 Route::group(array('before' => 'guest'), function() {
     Route::get('BantuanHukum', 'BantuanHukumController@index');

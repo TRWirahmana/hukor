@@ -86,7 +86,6 @@ class PelembagaanController extends BaseController {
 
 		$user = Auth::user();
 
-
 		if(!is_null($pelembagaan))
 			if($user->role_id == 7){
 				$this->layout->content = View::make('Pelembagaan.update', array(
@@ -121,14 +120,13 @@ class PelembagaanController extends BaseController {
 		$destinationPath = UPLOAD_PATH . '/';		
 		$filename = $img->getClientOriginalName();
 		$uploadSuccess = $img->move($destinationPath, $filename);
-			
 
 //		$pelembagaan->id_pengguna = $id;
 
 		$log_pelembagaan = new LogPelembagaan();
 		$log_pelembagaan->status = Input::get('status');
-		$pelembagaan->status = $log_pelembagaan->status;
 
+		$pelembagaan->status = $log_pelembagaan->status;
 		$log_pelembagaan->catatan = Input::get('catatan');
 		$log_pelembagaan->keterangan = Input::get('keterangan');
 		$log_pelembagaan->lampiran = $filename;
@@ -137,24 +135,73 @@ class PelembagaanController extends BaseController {
         $log_pelembagaan->tgl_proses = Carbon::now();
 		$log_pelembagaan->save();
 
-		$pelembagaan->save();
 
+		// kirim usulan ke bagian per-uu
+		if($pelembagaan->status == 2){
+			$perUU = new PerUU;
+			$perUU->id_pengguna = $pelembagaan->id_pengguna;
+			$perUU->perihal = $pelembagaan->perihal;
+			$perUU->catatan = $pelembagaan->catatan;
+			$perUU->lampiran = $pelembagaan->lampiran;
+            $perUU->tgl_usulan = new DateTime;
+          	// status kirim dari bagian pelembagaan
+            $perUU->status = 1;
+
+        
+            if($perUU->save()){
+
+            	$penanggungJawabPelembagaan = DAL_PenanggungJawabPelembagaan::getDataTable($id);
+
+            	$penanggungJawab = new PenanggungJawabPerUU();
+            	$penanggungJawab->id_per_uu = $perUU->id;
+                    $penanggungJawab->nama = $penanggungJawabPelembagaan[0]->nama;
+                    $penanggungJawab->jabatan = $penanggungJawabPelembagaan[0]->jabatan;
+                    $penanggungJawab->NIP = $penanggungJawabPelembagaan[0]->nip;
+                    $penanggungJawab->unit_kerja = $penanggungJawabPelembagaan[0]->unit_kerja;
+                    $penanggungJawab->alamat_kantor = $penanggungJawabPelembagaan[0]->alamat_kantor;
+                    $penanggungJawab->telepon_kantor = $penanggungJawabPelembagaan[0]->telp_kantor;
+                    $penanggungJawab->email = $penanggungJawabPelembagaan[0]->email;
+                    $penanggungJawab->save();
+         
+                    // kirim email ke admin per uu 
+                    $data = array(
+                        'user' => Auth::user(),
+                        'perUU' => $perUU
+                    );
+                    Mail::send('emails.usulanbaru', $data, function($message) {
+                        // admin email (testing)
+                        $message->to('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com')
+                                ->subject('Usulan Baru dari Pelembagaan');
+                    });
+
+			        // EMAIL To User
+					$data = array(
+						'perihal' => Input::get('perihal'),
+						'status' => $pelembagaan->getStatus(Input::get('status'))
+					);
+
+					// kirim email user... 
+					Mail::send('emails.reppelembagaan', $data, function($message) use ($user)
+					{
+						$message->to(array('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com')); 
+						$message->subject('Re: Usulan Pelembagaan telh di redirect ke bagian per UU');
+					});
+            }
+        }
+		$pelembagaan->save();
 //		$userid = pengguna::find($pelembagaan->ipengguna);
+
         // EMAIL To User
 		$data = array(
-//			'name' => $pelembagaan->pengguna->id,
 			'perihal' => Input::get('perihal'),
 			'status' => $pelembagaan->getStatus(Input::get('status'))
 		);
 
-		$user = array(
-				'name' => 'User ',
-			    'email' => 'andhy.m0rphin@gmail.com'
-		);
-
+		// kirim email user... 
 		Mail::send('emails.reppelembagaan', $data, function($message) use ($user)
 		{
-		  $message->to($user['email'], $user['name'])->subject('Re: Usulan Pelembagaan Request');
+			$message->to(array('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com')); 
+			$message->subject('Re: Usulan Pelembagaan');
 		});
 
 		$user = Auth::user();		
@@ -179,6 +226,8 @@ class PelembagaanController extends BaseController {
 		$pelembagaan->perihal = Input::get('perihal');
 		$pelembagaan->catatan = Input::get('catatan');
 		$pelembagaan->lampiran = $filename;
+		// status id default = 0 (belum di proses)
+		$pelembagaan->status = 0;
 
         $pelembagaan->tgl_usulan = Carbon::now();
 
@@ -187,9 +236,7 @@ class PelembagaanController extends BaseController {
 			'name' => $user->pengguna->nama_lengkap,
 			'perihal' => Input::get('perihal'),
 			'jenis_usulan' => $pelembagaan->getJenisUsulan(Input::get('jenis_usulan'))
-		);
-
-		 
+		);	 
 			Mail::send('emails.reqpelembagaan', $data, function($message) use ($user)
 			{
 			  $message->to(array('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com'));
@@ -231,6 +278,11 @@ class PelembagaanController extends BaseController {
 		$pelembagaan = Pelembagaan::find($id);
 		if(!is_null($pelembagaan)) {
 			$pelembagaan->delete();
+		}
+
+	   	$penanggungJawab = PenanggungJawabPelembagaan::where('pelembagaan_id', $id);
+		if(!is_null($pelembagaan)) {
+			$penanggungJawab->delete();
 		}
 	}
 

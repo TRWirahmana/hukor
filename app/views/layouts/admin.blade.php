@@ -73,6 +73,14 @@
             <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
             @endif
 
+            <!-- Admin KETATATALAKSANAAN-->
+            @if($user->role_id == 9)
+            <li id="beranda"><a href="{{URL::to('ketatalaksanaan/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
+<!--            <li id="news"><a href="{{URL::to('kepala_biro/berita')}}"><span class="rulycon-newspaper"></span> Berita</a></li>-->
+<!--            <li id="informasi"><a href="#info"><span class="rulycon-address-book"></span> Informasi</a></li>-->
+            <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
+            @endif
+
             <!-- Admin Pelembagaan-->
             @if($user->role_id == 7)
             <li id="beranda"><a href="{{URL::to('pelembagaan/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
@@ -189,7 +197,7 @@
                 <!-- list aplikasi-->
                 <li class="dropdown" >
                     <ul id="app">
-                        <li id="app_puu"><a href="{{ URL::to('admin/per_uu/') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
+                        <li id="app_puu"><a href="{{ URL::to('admin/per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
                             <!-- <ul>
                                 <li><a href="#">Lembar Usulan</a></li>
                                 <li><a href="#">Informasi & Status usulan</a></li>
@@ -201,6 +209,12 @@
                                 <li><a href="#">Informasi & Status usulan</a></li>
                             </ul> -->
                         </li>
+                        <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
+                            <ul>
+                                <li><a href="{{URL::route('index_sistem_dan_prosedur')}}">Sistem dan Prosedur</a></li>
+                                <li><a href="{{URL::route('index_analisis_jabatan')}}">Analisis Jabatan</a></li>
+                            </ul>
+                        </li>
                         <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>
                             <ul>
                                 <li><a href="#">Lembar Permohonan</a></li>
@@ -208,6 +222,14 @@
                             </ul>
                         </li>
 <!--                        <li id="app_internal"><a href="#"><span class="iconfa-envelope"></span> Aplikasi Internal</a></li>-->
+<li id="app_forum">
+                            <a href="#">
+                                <label for="cbox-forum">
+                                    <input {{ (null != AppConfig::find('enable_forum') && AppConfig::find('enable_forum')->value == 'true')? 'checked': '' }} type="checkbox" id="cbox-forum" value="y" class="checkbox">
+                                    &nbsp;&nbsp;&nbsp; Aktifkan Forum
+                                </label>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
@@ -236,11 +258,29 @@
                 <!-- list aplikasi-->
                 <li class="dropdown" >
                     <ul id="app">
-                        <li id="app_puu"><a href="{{ URL::to('/per_uu/index_per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
+                        <li id="app_puu"><a href="{{ URL::to('/per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
                             <!-- <ul>
                                 <li><a href="#">Lembar Usulan</a></li>
                                 <li><a href="#">Informasi & Status usulan</a></li>
                             </ul> -->
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- end list-->
+                @endif
+
+
+               <!-- KETATALAKSANAAN RULES-->
+                @if($user->role_id == 9)
+                <!-- list aplikasi-->
+                <li class="dropdown" >
+                    <ul id="app">
+                         <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
+                            <ul>
+                                <li><a href="{{URL::route('index_sistem_dan_prosedur')}}">Sistem dan Prosedur</a></li>
+                                <li><a href="{{URL::route('index_analisis_jabatan')}}">Analisis Jabatan</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </li>

@@ -51,6 +51,12 @@ Route::filter('kepala_biro', function(){
         App::abort(404, 'Page Not Found.');
 });
 
+Route::filter('ketatalaksanaan', function(){
+    $user = Auth::user();
+    if($user->role_id != "9")
+        App::abort(404, 'Page Not Found.');
+});
+
 Route::filter('per_uu', function(){
     $user = Auth::user();
     if($user->role_id != "6")

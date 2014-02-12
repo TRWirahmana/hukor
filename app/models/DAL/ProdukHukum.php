@@ -1,33 +1,29 @@
 <?php
 class DAL_ProdukHukum {
-    public static function getDataTable($tahun = null, $kategori = null, $bidang = null )
-    {
-    	$data = Document::
-        /*select(array(
-                    'id',
-                    'nomor',
-                    'kategori',
-                    'masalah',
-                    'tgl_pengesahan',
-                    'file_dokumen',
-                    'deskripsi',
-                    'tgl_pengesahan',
-                    'status_publish',
-                    'created_at',
-                    'updated_at'
-                ))
 
-                ->
-                */
-                where('status_publish', '=', '0');
+  
+    public static function getDataTable($kategori = null, $masalah = null, $tahun = null, $tahun1 = null) {
+       $data = Document::
+                        select(array(
+                            'id',
+                            'nomor',
+                            'kategori',
+                            'masalah',
+                            'tgl_pengesahan',
+                            'perihal',
+                            'deskripsi',
+                            'file_dokumen'
+                ))->where('status_publish', 1); 
 
-    	if(null != $tahun)
-		    $data->where(DB::raw("DATE(tgl_pengesahan)"), ">=", DateTime::createFromFormat("d/m/Y", $tahun)->format('Y-m-d'));
-    	if(null != $kategori)
-    		$data->where('kategori', '=' , $kategori);
-    	if(null != $bidang)
-    		$data->where('bidang', '=', $bidang);
+        if(null != $kategori)
+            $data->where('kategori', '=', $kategori);
+        if(null != $masalah)
+            $data->where('masalah', '=', $masalah);        
+        if(null != $tahun)
+            $data->where(DB::raw("YEAR(tgl_pengesahan)"), "=", DateTime::createFromFormat("Y", $tahun)->format('Y'));
+        
+        return $data;
+    }   
 
-    	return $data;
-	}
+
 }

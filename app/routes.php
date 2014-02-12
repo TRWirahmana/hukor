@@ -44,6 +44,7 @@ Route::group(array('before' => 'guest'), function() {
     //Route::group(array("prefix" => "document"), function(){
         Route::get('adddoc', 'DocumentController@add');
         Route::post('savedoc','DocumentController@save');
+        Route::get('tabledoc', 'DocumentController@datatable');
      //   Route::get();
     //});
 
@@ -66,6 +67,14 @@ Route::group(array('before' => 'guest'), function() {
         Route::get('produkhukum', 'ProdukHukumController@index');
         Route::get('produkhukum/data', 'ProdukHukumController');
         Route::get('produkhukum/getData', 'ProdukHukumController@getData');
+
+
+    Route::group(array("prefix" => "produkhukum"), function(){
+        Route::get('/', 'ProdukHukumController@index');
+        Route::get('{id}/detail', array('as' => 'detail_produkhukum', 'uses' => 'ProdukHukumController@detail'));
+        Route::get('{id}/download', 'ProdukHukumController@downloadLampiran');
+    });
+
 
 //    });
 

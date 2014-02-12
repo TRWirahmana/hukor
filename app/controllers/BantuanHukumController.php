@@ -38,11 +38,6 @@ class BantuanHukumController extends BaseController{
     {
         $input = Input::all();
 
-//        echo "<pre>";
-//        print_r($input);
-//        echo "</pre>";
-//        exit;
-
         $DAL = new DAL_BantuanHukun();
         $helper = new HukorHelper();
 

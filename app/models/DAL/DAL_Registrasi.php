@@ -61,4 +61,12 @@ class DAL_Registrasi {
 
         return $data;
     }
+
+    public static function findAdminByRoleId($id)
+    {
+        $data = Pengguna::join('user', 'pengguna.user_id', '=', 'user.id')
+                        ->where('user.role_id', '=', $id)->get();
+
+        return $data;
+    }
 }

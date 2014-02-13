@@ -41,11 +41,14 @@ class BantuanHukumController extends BaseController{
         $DAL = new DAL_BantuanHukun();
         $helper = new HukorHelper();
 
+        //updaload file
         $uploadSuccess = $helper->UploadFile('bantuanhukum', Input::file('lampiran'));
 
         if($uploadSuccess)
         {
-            $DAL->SaveBantuanHukum($input, Input::file('lampiran'));
+            $DAL->SaveBantuanHukum($input, Input::file('lampiran')); //save bantuan hukum
+            $DAL->SendEmailToAllAdminBankum(); // send email
+
             return Redirect::to('addbahu')->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
         }
         else
@@ -68,6 +71,7 @@ class BantuanHukumController extends BaseController{
         $id = Input::get('id');
         $DAL = new DAL_BantuanHukun();
 
+        //get bantuan hukum by id
         $banhuk = $DAL->GetSingleBantuanHukum($id);
 
         // show form with empty model
@@ -81,9 +85,9 @@ class BantuanHukumController extends BaseController{
         $input = Input::all();
 
         $DAL = new DAL_BantuanHukun();
-        $data = $DAL->UpdateBantuanHukum($input);
+        $data = $DAL->UpdateBantuanHukum($input); // update bantuan hukum
 
-        $link = URL::to('/') . '/detail_banhuk?id=' . $data;
+        $link = URL::to('/') . '/detail_banhuk?id=' . $data; //link to bantuan hukum with id bantuan hukum
 
         return Redirect::to($link)->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
     }
@@ -136,6 +140,27 @@ class BantuanHukumController extends BaseController{
         }
 
         return Redirect::to('bantuanhukum')->with('error', 'Kesalahan, berkas tidak ditemukan.');
+    }
+
+    public function convertpdf()
+    {
+        $start = Input::get('start_date');
+        $end = Input::get('end_date');
+
+        $DAL = new DAL_BantuanHukun();
+        $helper = new HukorHelper();
+
+        $fields = array(
+            'nama_lengkap',
+            'jenis_perkara',
+            'status_pemohon',
+            'status_perkara',
+            'advokasi',
+            'advokator'
+        );
+        $data = $DAL->GetBankumByDate($start, $end);
+
+        $helper->GeneratePDf($data, $fields);
     }
 }
 

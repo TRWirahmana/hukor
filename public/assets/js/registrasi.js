@@ -37,6 +37,7 @@ var Registrasi = (function(REG) {
 
         jQuery("#status").change();
 
+        jQuery.ajax()
 
         jQuery("#umur").val(calculateAge());
         jQuery("#tahun_lahir,#bulan_lahir,#tanggal_lahir").change(function(){
@@ -51,6 +52,18 @@ var Registrasi = (function(REG) {
          */
 
         jQuery('button#submit').click(function() {
+//            alert("test");
+//            $.ajax({
+//                type: "POST",
+//                dataType: "json",
+//                url: baseUrl + "/captcha",
+//                success: function (d) {
+//                    alert(d);
+//                    // replace div's content with returned data
+////                $('#loading').html(d);
+//                }
+//            });
+
             $('#registrasi-form').submit();
         });
 
@@ -357,6 +370,8 @@ var Registrasi = (function(REG) {
             else
                 return --age;
         }
+
+
     };
 
     return REG;

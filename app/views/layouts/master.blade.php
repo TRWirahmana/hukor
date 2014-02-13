@@ -47,6 +47,8 @@
 
   <script type="text/javascript">
     var baseUrl = '{{ URL::to('/') }}';
+
+//      alert(baseUrl);
   </script>
 
 </head>

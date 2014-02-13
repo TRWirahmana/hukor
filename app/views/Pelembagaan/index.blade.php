@@ -161,24 +161,7 @@
             onClose: function( selectedDate ) {
                   $("#first-date").datepicker("option", "maxDate", selectedDate);
             }                    
-         });
-
-
-        // function fnFilterTahun (i)
-        // {
-        //     $("#tbl-pelembagaan").dataTable().fnFilter(
-        //             $("#filter_tahun").val(),
-        //             i                   
-        //     );   
-        // }       
-        
-        // function fnFilterUnit (i)
-        // {
-        //     $("#tbl-pelembagaan").dataTable().fnFilter(
-        //             $("#filter_unit").val(),
-        //             i                   
-        //     );   
-        // }       
+         });     
         
  //       $(document).ready(function(){
             var role_id = <?php if($user->role_id) echo $user->role_id; else echo '0'; ?>;
@@ -261,7 +244,6 @@
                                       return 'proses';
                                     }else if(data === '2'){
                                       return 'DiKirim Ke Bag PerUU';
-
                                     }
                                   }
                                      return 'Belum Di Proses';
@@ -273,11 +255,19 @@
                                 sClass: 'center-ac',
                                 sWidth: '10%',
                                  mRender: function(data, type, full) {
-                                        if(role_id == 3){
+                                        if(role_id == 3 ){
                                           return "<a href='pelembagaan/"+data+"/download'> <i class='icon-download'></i></a>"  
                                                 + "&nbsp;<a href='pelembagaan/"+data+"/update' title='Detail'><i class='icon-edit'></i></a>"
                                                 + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+data+"'>"
                                                 + "<i class='icon-trash'></i></a>";
+                                        
+                                        } else if(role_id == 7 ){
+                                          return "<a href='"+data+"/download'> <i class='icon-download'></i></a>"  
+                                                + "&nbsp;<a href='"+data+"/update' title='Detail'><i class='icon-edit'></i></a>"
+                                                + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+data+"'>"
+                                                + "<i class='icon-trash'></i></a>";
+                                       
+
                                         } else if(role_id == 0 ) {
                                           return "<a href='"+data+"/download'> <i class='icon-download'></i></a>";
                                         }  else {
@@ -315,7 +305,7 @@
                               url: $(this).attr('href'),
                               type: 'DELETE',
                               success: function(response) {
-                                oTable.fnReloadAjax();
+                                $dataTable.fnReloadAjax();
                               }
                             });
                           }

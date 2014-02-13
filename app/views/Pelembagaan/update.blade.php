@@ -25,7 +25,9 @@
         <div class="maincontentinner">
 
             <!-- MAIN CONTENT -->
+
     {{ Form::open($form_opts) }}
+
      {{ Form::hidden('id', $id) }}
 
         <div class="row-fluid">

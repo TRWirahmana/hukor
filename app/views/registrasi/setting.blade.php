@@ -2,6 +2,7 @@
 	@parent
 @stop
 @section('content')
+@include('flash')
 	{{ Form::open($form_opts) }}
 
 	<div class="row-fluid">

@@ -13,8 +13,7 @@
         "dompdf/dompdf": "dev-master",
         "laravel/framework": "4.0.*",
 	    "way/generators" : "dev-master",
-        "Bllim/datatables": "*",
-        "mews/captcha": "dev-master"
+        "Bllim/datatables": "*"
     },
 
     "autoload": {
@@ -29,8 +28,7 @@
     ]
     ,
         "psr-0": {
-            "Barryvdh\\DomPDF": "src/",
-            "Mews\\Captcha": "src/"
+            "Barryvdh\\DomPDF": "src/"
         }
     }
 }

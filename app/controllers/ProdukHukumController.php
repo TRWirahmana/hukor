@@ -5,33 +5,23 @@ class ProdukHukumController extends BaseController
 //	protected $layout = 'layouts.master';
     public function index()
     {
-     //      if (Request::ajax())
-		  	// return Datatables::of(DAL_Pelembagaan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true); 
-          
-			// return Datatables::of(DAL_ProdukHukum::getDataTable(null,null, null))->make(true); 
-           
-//		$a = DAL_Pelembagaan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)); 
-          
-
-		 //  $a = DAL_ProdukHukum::getDataTable(null,null, null);
-//		  var_dump($a);
-//		  exit;
+        if(Request::ajax())           
+	          	return Datatables::of(DAL_ProdukHukum::getDataTable(Input::get("kategori", null), Input::get("masalah", null),Input::get("tahunFilter", null), Input::get("firstDate", null)))->make(true);
+  
+      	$listThn = array("" => "Semua") + Document::select(array( DB::raw('DATE_FORMAT(tgl_pengesahan,"%Y") As pengesahan_year')))
+	        													->lists('pengesahan_year', 'pengesahan_year');
 
         $this->layout = View::make('layouts.master');
-        $this->layout->content = View::make('produkhukum.index');		
+        $this->layout->content = View::make('produkhukum.index', array('listThn' => $listThn));		
 	}
 
 	public function getData(){
 //		if(Request::ajax()){
 			$result = [];
 
-			$data = Document::all();// where('status_publish', '=', '0');
-
-			// var_dump($data);
-			// exit;
+			$data = DAL_ProdukHukum::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null));
 			
-
-			foreach ( $data /*Document::all()/*->where('status_publish','=', '1') */ as $row): 
+			foreach ( $data as $row): 
 				$result[] = [
 					$row->id,
 					$row->perihal,
@@ -42,14 +32,32 @@ class ProdukHukumController extends BaseController
 				];
 			endforeach;
 			return json_encode(['aaData' => $result]);
-//		} else {
-//			return Redirect::to('produkhukum');
-//		}
 	}
 
-	public function detail()
+	public function detail($id)
 	{
-
+		$data = Document::find($id);
+        $this->layout = View::make('layouts.master');
+        $this->layout->content = View::make('produkhukum.detail', array(
+				'title' => 'Tambah Akun',
+				'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',
+				'form_opts' => array(
+					'route' => 'store_pelembagaan',					
+					'method' => 'post',
+					'class' => 'form-horizontal',
+		            'id' => 'pelembagaan-form',
+		            'files' => true
+				),
+				'data' => $data
+			));		
 	}
+
+	public function downloadLampiran($id)
+    {
+        $document = Document::find($id) or App::abort(404);
+        $path = UPLOAD_PATH . DS . 'dokumen/' . $document->file_dokumen;
+        return Response::download($path, explode('/', $document->file_dokumen)[1]);
+    }
+
 
 }

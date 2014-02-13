@@ -244,7 +244,6 @@
                                       return 'proses';
                                     }else if(data === '2'){
                                       return 'DiKirim Ke Bag PerUU';
-
                                     }
                                   }
                                      return 'Belum Di Proses';

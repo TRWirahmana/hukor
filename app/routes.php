@@ -11,13 +11,14 @@
   |
  */
 
-
 // Login / Logout
 Route::group(array('before' => 'guest'), function() {
     Route::get('BantuanHukum', 'BantuanHukumController@index');
-    Route::post('Masuk', 'LoginController@signin'); // Registrasi
+    Route::post('Masuk', 'LoginController@signin'); // signin user
+    Route::post('SignIn', 'LoginController@signin_admin'); // Registrasi
     Route::post('Reset', 'ForgetPasswordController@reset'); // Reset Password
     Route::get('registrasi', 'RegistrasiController@form');
+    Route::get('captcha', 'RegistrasiController@captcha');
 	Route::post('Kirim', 'RegistrasiController@send');
 	Route::get('/', 'HomeController@index');
     Route::get('admin/login', 'HomeController@adminlogin');
@@ -46,6 +47,7 @@ Route::group(array('before' => 'guest'), function() {
     //Route::group(array("prefix" => "document"), function(){
         Route::get('adddoc', 'DocumentController@add');
         Route::post('savedoc','DocumentController@save');
+        Route::get('tabledoc', 'DocumentController@datatable');
      //   Route::get();
     //});
 
@@ -68,6 +70,14 @@ Route::group(array('before' => 'guest'), function() {
         Route::get('produkhukum', 'ProdukHukumController@index');
         Route::get('produkhukum/data', 'ProdukHukumController');
         Route::get('produkhukum/getData', 'ProdukHukumController@getData');
+
+
+    Route::group(array("prefix" => "produkhukum"), function(){
+        Route::get('/', 'ProdukHukumController@index');
+        Route::get('{id}/detail', array('as' => 'detail_produkhukum', 'uses' => 'ProdukHukumController@detail'));
+        Route::get('{id}/download', 'ProdukHukumController@downloadLampiran');
+    });
+
 
 //    });
 
@@ -453,3 +463,8 @@ Route::group(array('prefix' => 'layanan_ketatalaksanaan'), function() {
 
 
 Route::get('forumdiskusi', "HomeController@showForum");
+
+
+Route::group(array("prefix" => "admin", "before" => "auth|super_admin"), function(){
+    Route::resource('categories', 'CategoriesController');
+});

@@ -16,15 +16,17 @@ class DAL_Berita {
     }
 
     public static function getDataTable($filter = 0) {
-        $data = Berita::select(array(
-                'judul',
-                'penulis',
-                'tgl_penulisan',
-                   'id'
+        $data = Berita::leftJoin("categories", "berita.id_kategori", "=", "categories.id")
+            ->select(array(
+                'berita.judul',
+                'categories.nama_kategori',
+                'berita.penulis',
+                'berita.tgl_penulisan',
+                'berita.id'
             ));
 
         if(0 != $filter)
-            $data = $data->where('id', '!=', 0);
+            $data = $data->where('berita.id', '!=', 0);
 
         return $data;
     }

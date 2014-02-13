@@ -115,8 +115,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Bllim\Datatables\DatatablesServiceProvider',
-		'Way\Generators\GeneratorsServiceProvider',
-        'Mews\Captcha\CaptchaServiceProvider'
+		'Way\Generators\GeneratorsServiceProvider'
 	),
 
 	/*
@@ -182,8 +181,7 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-		'Datatables'      => 'Bllim\Datatables\Datatables',
-        'Captcha' => 'Mews\Captcha\Facades\Captcha',
+		'Datatables'      => 'Bllim\Datatables\Datatables'
  
 	),
 

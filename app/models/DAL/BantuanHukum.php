@@ -124,8 +124,11 @@ class DAL_BantuanHukun {
         $log->catatan = $input['catatan'];
         //getClientOriginalName() for get real file name
         $log->lampiran = ($input['lampiran'] != null) ? $input['lampiran']->getClientOriginalName() : null;
+        $log->tanggal = date("Y-m-d");
 
         $log->save();
+
+        $this->SendEmailToPengusul($input['id']);
 
         return $input['id'];
     }
@@ -222,5 +225,67 @@ class DAL_BantuanHukun {
         $pj->email = $input['email'];
 
         $pj->save();
+    }
+
+    public function SendEmailToAllAdminBankum()
+    {
+        $email = new HukorEmail();
+        $reg = new DAL_Registrasi();
+
+        $admin = DAL_Registrasi::findAdminByRoleId(8); //get all admin bantuan hukum
+
+        // data for template ususlan
+        $data = array(
+            'title' => 'Pengajuan Usulan Bantuan Hukum',
+            'pengguna' => $reg->findPengguna(Auth::user()->id)
+        );
+
+        // send email to all admin bantuan hukum
+        foreach($admin as $adm)
+        {
+            $email->sendMail('Usulan Bantuan Hukum', $adm->email, 'emails.usulan', $data);
+        }
+    }
+
+    public function SendEmailToPengusul($bankumId)
+    {
+        $email = new HukorEmail();
+
+        $bankum = BantuanHukum::join('pengguna', 'bantuan_hukum.pengguna_id', '=', 'pengguna_id')
+                            ->where('bantuan_hukum.id', '=', $bankumId)->first();
+
+        // data for template ususlan
+        $data = array(
+            'title' => 'Pengajuan Usulan Bantuan Hukum',
+            'bankum' => $bankum
+        );
+
+        $email->sendMail('Usulan Bantuan Hukum', $bankum->email, 'emails.proses', $data);
+    }
+
+    public function GetFieldsName()
+    {
+        $pengguna = DB::table('INFORMATION_SHEMA')
+                    ->where('TABLE_SCHEMA', '=', 'hukor')
+                    ->where('TABLE_NAME', '=', 'pengguna')
+                    ->where('COLUMN_NAME', '=', 'nama_lengkap')
+                    ->select('COLUMN_NAME');
+
+        $result = DB::table('INFORMATION_SHEMA')
+                    ->where('TABLE_SCHEMA', '=', 'hukor')
+                    ->where('TABLE_NAME', '=', 'bantuan_hukum')
+                    ->union($pengguna)
+                    ->select('COLUMN_NAME')->get();
+
+        return $result;
+    }
+
+    public function GetBankumByDate($start, $end)
+    {
+        $data = BantuanHukum::join('pengguna', 'bantuan_hukum.pengguna_id', '=', 'pengguna_id')
+                            ->where('bantuan_hukum.created_at', '>=', $start)
+                            ->where('bantuan_hukum.created_at', '<=', $end)->get()->toArray();
+
+        return $data;
     }
 }

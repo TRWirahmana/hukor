@@ -43,12 +43,21 @@ var Registrasi = (function(REG) {
             $("#umur").val(calculateAge());
         });
 
+
+
+
         /*
          * Trigger Submit Form
          */
-        jQuery('button#submit').on('click', function() {
+
+        jQuery('button#submit').click(function() {
             $('#registrasi-form').submit();
         });
+
+//        jQuery('button#submit').on('click', function() {
+//            $('#registrasi-form').submit();
+//        });
+
 
         var rules = {
                 'nama_lengkap': 'required',
@@ -91,7 +100,12 @@ var Registrasi = (function(REG) {
                 },
                 'alamat_kantor': {
                     required: true
+                },
+                'captcha': {
+                    required: true
                 }
+
+
             };
 
         if(jQuery("#lampiran_foto").length != 0) rules.foto.required = false;

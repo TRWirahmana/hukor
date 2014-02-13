@@ -18,6 +18,7 @@ Route::group(array('before' => 'guest'), function() {
     Route::post('Masuk', 'LoginController@signin'); // Registrasi
     Route::post('Reset', 'ForgetPasswordController@reset'); // Reset Password
     Route::get('registrasi', 'RegistrasiController@form');
+    Route::get('captcha', 'RegistrasiController@captcha');
 	Route::post('Kirim', 'RegistrasiController@send');
 	Route::get('/', 'HomeController@index');
     Route::get('admin/login', 'HomeController@adminlogin');

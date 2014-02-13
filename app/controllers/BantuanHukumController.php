@@ -24,7 +24,7 @@ class BantuanHukumController extends BaseController{
             $data = $reg->findPengguna($user->id);
 
             // show form with empty model
-            $this->layout->content = View::make('bantuanhukum.form', array(
+            $this->layout->content = View::make('BantuanHukum.form', array(
                 'user' => $data
             ));
         }

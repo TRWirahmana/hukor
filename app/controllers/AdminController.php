@@ -60,35 +60,38 @@ class AdminController extends BaseController {
             $html[] = "<td><strong>Tgl awal</strong></td><td>: {$firstDate}</td>";
         if(null != $lastDate)
             $html[] = "<td><strong>Tgl akhir</strong></td><td>: {$lastDate}</td>";
-        $html[] = "</tr></table>";
+        $html[] = "</tr></table><hr />";
 
         switch ($modul) {
             case 1:
-                $html[] = "<hr /><h2>Peraturan Perundang Undangan</h2>";
+                $html[] = "<h2>Peraturan Perundang Undangan</h2>";
                 $html[] = DAL_PerUU::getPrintTable(null, $firstDate, $lastDate);
                 break;
             case 2:
-                $html[] = "<hr /><h2>Pelembagaan</h2>";
+                $html[] = "<h2>Pelembagaan</h2>";
                 $html[] = DAL_Pelembagaan::getPrintTable(null, $firstDate, $lastDate);
                 break;
             case 3:
-                $html[] = "<hr /><h2>Bantuah Hukum</h2>";
+                $html[] = "<h2>Bantuan Hukum</h2>";
+                $html[] = DAL_BantuanHukun::getPrintTable($firstDate, $lastDate);
                 break;            
             default:
-                $html[] = "<hr /><h2>Peraturan Perundang Undangan</h2>";
+                $html[] = "<h2>Peraturan Perundang Undangan</h2>";
                 $html[] = DAL_PerUU::getPrintTable(null, $firstDate, $lastDate);
-                $html[] = "<hr /><h2>Pelembagaan</h2>";
+                $html[] = "<h2>Pelembagaan</h2>";
                 $html[] = DAL_Pelembagaan::getPrintTable(null, $firstDate, $lastDate);
+                $html[] = "<h2>Bantuah Hukum</h2>";
+                $html[] = DAL_BantuanHukun::getPrintTable($firstDate, $lastDate);
                 break;
         }
 
         $pdf = new DOMPDF();
         $pdf->load_html(join("", $style) . join("",$html));
         $pdf->render();
-        
-        $response = Response::make($pdf->output());
-        $response->header('Content-Type', "application/pdf");
-        return $response;
+        $pdf->stream("laporan.pdf");
+        // $response = Response::make($pdf->output());
+        // $response->header('Content-Type', "application/pdf");
+        // return $response;
 
     }
 

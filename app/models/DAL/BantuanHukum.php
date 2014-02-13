@@ -55,6 +55,40 @@ class DAL_BantuanHukun
         ));
     }
 
+    public static function getDataTable($firstDate = null, $lastDate = null) {
+        $data = BantuanHukum::join('pengguna', 'pengguna_id', '=', 'pengguna.id')
+                ->select(array(
+                    'pengguna.nama_lengkap',
+                    'bantuan_hukum.jenis_perkara',
+                    'bantuan_hukum.status_pemohon',
+                    'bantuan_hukum.status_perkara',
+                    'bantuan_hukum.advokasi',
+                    'bantuan_hukum.advokator',
+        ));
+
+        if(null != $firstDate)
+            $data->where(DB::raw("DATE(bantuan_hukum.created_at)"), ">=", DateTime::createFromFormat("d/m/Y", $firstDate)->format('Y-m-d'));
+        if(null != $lastDate)
+            $data->where(DB::raw("DATE(bantuan_hukum.created_at)"), "<=", DateTime::createFromFormat("d/m/Y", $lastDate)->format('Y-m-d'));
+
+        return $data;
+    }
+
+    public static function getPrintTable($firstDate, $lastDate) {
+        $data = self::getDataTable($firstDate, $lastDate);
+        $result = array();
+        foreach($data->get() as $index => $object) {
+            $tglUsulan = new DateTime($perUU->tgl_usulan);
+            $result[$index]['Nama Lengkap'] = $object->nama_lengkap;
+            $result[$index]['Jenis Perkara'] = $object->jenis_perkara;
+            $result[$index]['Status Pemohon'] = $object->status_pemohon;
+            $result[$index]['Status Perkara'] = $object->status_perkara;
+            $result[$index]['Advokasi'] = $object->advokasi;
+            $result[$index]['Advokator'] = $object->advokator;
+        }
+        return HukorHelper::generateHtmlTable($result);
+    }
+
     /*
      * fungsi untuk insert data ke table bantuan_hukum
      */

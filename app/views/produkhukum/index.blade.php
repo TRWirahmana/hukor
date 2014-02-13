@@ -1,7 +1,7 @@
 @section('content')
       <h2>Produk Hukum</h2>
       <div class="stripe-accent"></div>
-      <legend>Peraturan Perundang-Undangan</legend>
+<!--       <legend>Peraturan Perundang-Undangan</legend> -->
 
       <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_table_pelembagaan_user')}}">
 	 	<fieldset>
@@ -96,8 +96,9 @@
             
             $dataTable = $("#tbl-produkhukum").dataTable({
                 bServerSide: true,
-                bFilter: false,
+                bFilter: true,
                 bLengthChange: false,
+ 
                 sAjaxSource: document.location.href,
                 aoColumns: [
                   {

@@ -299,24 +299,7 @@ class PelembagaanController extends BaseController {
     	$firstDate = Input::get("firstDate", null);
     	$lastDate = Input::get("lastDate", null);
 
-    	$dataPelembagaan = DAL_Pelembagaan::getDataTable($status, $firstDate, $lastDate)->get();
-    	
-    	// var_dump($dataPelembagaan);
-    	// exit;
-
-		$data = array();
-
-		foreach($dataPelembagaan as $index => $pelembagaan){
-			$tglUsulan = new DateTime($pelembagaan->tgl_usulan);
-			$data[$index]['ID'] = $pelembagaan->id;
-			$data[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
-			$data[$index]['Unit Kerja'] = $pelembagaan->unit_kerja;
-			$data[$index]['Perihal'] = $pelembagaan->perihal;
-			$data[$index]['status'] = "status";
-			$data[$index]['lampiran'] = '<a href="#">'.$pelembagaan->lampiran.'</a>';		
-		}
-
-		$table = HukorHelper::generateHtmlTable($data);
+    	$table = DAL_Pelembagaan::getPrintTable($status, $firstDate, $lastDate);
 
 		$style = array("<style>");
 		$style[] = "table { border-collapse: collapse; }";
@@ -337,10 +320,7 @@ class PelembagaanController extends BaseController {
 		$pdf = new DOMPDF();
 		$pdf->load_html(join("", $style) . join("", $html));
 		$pdf->render();
-
-        $response = Response::make($pdf->output());
-        $response->header("Content-Type", "application/pdf");
-        return $response;
+		$pdf->stream("pelembagaan.pdf");
 	}
 
 

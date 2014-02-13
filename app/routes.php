@@ -465,3 +465,11 @@ Route::get('forumdiskusi', "HomeController@showForum");
 Route::group(array("prefix" => "admin", "before" => "auth|super_admin"), function(){
     Route::resource('categories', 'CategoriesController');
 });
+
+Route::group(array("prefix" => "kepala_bagian", "before" => "auth|kepala_bagian"), function(){
+    Route::get('/', "AdminController@dashboard");
+    Route::resource('account', 'AdminController');
+    Route::get('setting', 'AdminController@setting');
+    Route::put('setting/save', 'AdminController@save');
+    Route::get('cetakLaporan', array('as' => 'admin.cetakLaporan', 'uses' => 'AdminController@cetakLaporan'));
+});

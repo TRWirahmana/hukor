@@ -223,4 +223,18 @@ class DAL_BantuanHukun {
 
         $pj->save();
     }
+
+    public static function getMonthlyCount() {
+        return DB::table("bulan")
+                ->leftJoin('bantuan_hukum', function($join){
+                    $join->on('bulan.id', '=', DB::raw('month(bantuan_hukum.created_at)'))
+                        ->on(DB::raw("year(bantuan_hukum.created_at)"), "=", DB::raw("year(curdate())"));
+                })
+                ->select(array(
+                    "bulan.nama",
+                    DB::raw("count(bantuan_hukum.id) as jumlah")
+                ))
+                ->groupBy(DB::raw("bulan.nama"))
+                ->orderBy("bulan.id");
+    }
 }

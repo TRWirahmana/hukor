@@ -14,7 +14,8 @@
 // Login / Logout
 Route::group(array('before' => 'guest'), function() {
     Route::get('BantuanHukum', 'BantuanHukumController@index');
-    Route::post('Masuk', 'LoginController@signin'); // Registrasi
+    Route::post('Masuk', 'LoginController@signin'); // signin user
+    Route::post('SignIn', 'LoginController@signin_admin'); // Registrasi
     Route::post('Reset', 'ForgetPasswordController@reset'); // Reset Password
     Route::get('registrasi', 'RegistrasiController@form');
     Route::get('captcha', 'RegistrasiController@captcha');

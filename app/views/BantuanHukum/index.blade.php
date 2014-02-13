@@ -37,6 +37,27 @@
         <option value="2">Bankum II</option>
         <option value="3">Bankum III</option>
     </select>
+
+    {{ Form::open(array('action' => 'BantuanHukumController@convertpdf', 'method' => 'post',
+    'id' => 'pdf-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal')) }}
+
+        <div class="control-group">
+            {{ Form::label('start-date', 'Tanggal Awal', array('class' => 'control-label')) }}
+            <div class="controls">
+                {{ Form::text('start_date', '', array('id' => 'start-date', 'class' => 'datepicker')) }}
+            </div>
+        </div>
+
+        <div class="control-group">
+            {{ Form::label('end-date', 'Tanggal Akhir', array('class' => 'control-label')) }}
+            <div class="controls">
+                {{ Form::text('end_date', '', array('id' => 'end-date', 'class' => 'datepicker')) }}
+            </div>
+        </div>
+
+        <button class="btn" type="submit">Simpan</button>
+
+    {{ Form::close() }}
     
     <table id="basictable" class="dataTable">
         <thead>
@@ -55,6 +76,12 @@
     @section('scripts')
         @parent
         <script type="text/javascript">
+            $( ".datepicker" ).datepicker({
+                dateFormat: 'yy-mm-dd',
+                changeMonth: true,
+                changeYear: true
+            }).val();
+
             var tbl_data = $("#basictable").dataTable({
                 bFilter: true,
                 bInfo: false,
@@ -178,6 +205,10 @@
 
             $("#advokasi").change(function(){
                 tbl_data.fnReloadAjax();
+            });
+
+            $("#print").click(function(){
+
             });
         </script>
     @stop

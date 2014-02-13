@@ -20,7 +20,6 @@ class RegistrasiController extends BaseController {
     public function setting() {
         $user = Auth::user();
 
-
         if(!is_null($user))
             $this->layout->content = View::make('registrasi.setting', array(
                 'title' => 'Pengaturan Akun',
@@ -380,7 +379,6 @@ class RegistrasiController extends BaseController {
     }
 
     public function form(){
-
 //        $regid = Auth::user()->pengguna->id;
 //
 //        $registrasi = Pengguna::find($regid)->where('user_id', Auth::user()->id)->first();
@@ -391,6 +389,52 @@ class RegistrasiController extends BaseController {
 //            'year' => RetaneHelper::listYear(date('Y') - 55, date('Y') - 15),
 //            'user' => $registrasi
         ));
+    }
+
+    public function captcha(){
+        session_start();
+
+        $string = '';
+
+        for ($i = 0; $i < 5; $i++) {
+            $string .= chr(rand(97, 122));
+        }
+
+        $_SESSION['random_number'] = $string;
+
+        $dir = HUKOR_FONT_FOLDER;
+
+        $image = imagecreatetruecolor(165, 50);
+
+// random number 1 or 2
+        $num = rand(1,2);
+        if($num==1)
+        {
+            $font = "Capture it 2.ttf"; // font style
+        }
+        else
+        {
+            $font = "Molot.otf";// font style
+        }
+
+// random number 1 or 2
+        $num2 = rand(1,2);
+        if($num2==1)
+        {
+            $color = imagecolorallocate($image, 113, 193, 217);// color
+        }
+        else
+        {
+            $color = imagecolorallocate($image, 163, 197, 82);// color
+        }
+
+        $white = imagecolorallocate($image, 255, 255, 255); // background color white
+        imagefilledrectangle($image,0,0,399,99,$white);
+
+        imagettftext ($image, 30, 0, 10, 40, $color, $dir.$font, $_SESSION['random_number']);
+
+        header("Content-type: image/png");
+        imagepng($image);
     }
 
     public function lihatLampiran() {
@@ -443,7 +487,7 @@ class RegistrasiController extends BaseController {
         $tlp_ktr = Input::get('tlp_kantor');
         $hp = Input::get('handphone');
         $uk = Input::get('unit_kerja');
-        $captcha = Input::get('captcha');
+        $code = Input::get('code');
 
 //        var_dump($captcha);die;
 
@@ -462,9 +506,63 @@ class RegistrasiController extends BaseController {
             $messages['password.min'] = 'Password minimal 6 karakter.';
         }
 
+        session_start();
+
+        //include('dbcon.php');
+
+        if(strtolower($code) == strtolower($_SESSION['random_number']))
+        {
+
+//            echo "MASUK";exit;
+            // insert data registration to your table in db
+
+            // Save
+            $DAL = new DAL_Registrasi();
+            $DAL->SetData(array(
+                'username' => $email,
+                'password' => Hash::make($password), // Hashing A Password Using Bcrypt\
+                'role_id' => 2, // Aktif
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ));
+
+            $data = $DAL->Save();
+
+            if ($data !== 0) {
+                $dal_user = new DAL_User();
+                $dal_user->SetPengguna($data, $email, $nama, $nip, $jabatan, $jk, $tgl_lahir, $pekerjaan, $alamat_kantor, $tlp_ktr, $hp, $uk);
+                $dal_user->SaveBiodata($data);
+
+                // register user to forum database!
+                $now = new DateTime('now');
+                $forumUser = new ForumUser();
+                $forumUser->id = $data;
+                $forumUser->username = $email;
+                $forumUser->password = pun_hash($password);
+                $forumUser->email = $email;
+                $forumUser->last_visit = $now->getTimestamp();
+                $forumUser->registered = $now->getTimestamp();
+                $forumUser->save();
+
+//            $this->sendMail($username, $password, $email);
+                Session::flash('success', 'Registrasi berhasil. Silahkan login kedalam sistem!');
+                return Redirect::to('/');
+            } else {
+                Session::flash('error', 'Registrasi gagal! Harap ulangi dan Pastikan alamat email anda valid!');
+                return Redirect::to('registrasi');
+            }
+
+        }
+        else
+        {
+//            echo "SALAH";exit;
+            Session::flash('error', 'Registrasi gagal! Captcha tidak valid!');
+            return Redirect::to('registrasi');
+        }
+//
         if (Request::getMethod() == 'POST'){
 //            $rules['captcha'] = 'required|captcha';
-            $rulesa =  array('captcha' => array('required', 'captcha'));
+            $rulesa =  array('code' => array('required', 'captcha'));
             $validator = Validator::make(Input::all(), $rulesa);
             if ($validator->fails())
             {

@@ -124,7 +124,7 @@ class BeritaController extends BaseController {
                     'judul' => $input['judul'],
                     'berita' => $input['berita'],
                     'id_kategori' => $input['kategori'],
-                    'penulis' => $input['penulis'], // Aktif
+//                    'penulis' => $input['penulis'],
                     'gambar' => $filename,
                     'tgl_penulisan' => new DateTime,
                     'created_at' => date('Y-m-d H:i:s'),
@@ -133,7 +133,7 @@ class BeritaController extends BaseController {
 
                 if($berita->Save()){
                     Session::flash('success', 'Berita berhasil ditambahkan!');
-                    Cache::forget('Berita');
+//                    Cache::forget('Berita');
                     return Redirect::to('admin/berita');
                 }else{
                     Session::flash('error', 'Gagal mengirim data. Pastikan Berita sudah benar.');

@@ -1,11 +1,15 @@
 @section('content')
       <h2>Produk Hukum</h2>
       <div class="stripe-accent"></div>
-      <legend>Peraturan Perundang-Undangan</legend>
+<!--       <legend>Peraturan Perundang-Undangan</legend> -->
 
-      <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_table_pelembagaan_user')}}">
+    <div id="filtermenu" class="icon-download form-horizontal" >
+        <legend>Filter</legend>
+    </div>
+
+    <div id="filterdiv" class="filterdiv" >
+    <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_table_pelembagaan_user')}}">
 	 	<fieldset>
-          <legend class="f_legend">Filter</legend>
                 <div class="row-fluid">
                             <div class="span6">
                                <div class="control-group">
@@ -54,6 +58,7 @@
                         </div>
                     </fieldset>
                 </form>
+     </div>           
 
                 <br />
                   <table id="tbl-produkhukum">  
@@ -73,10 +78,44 @@
 
 @stop
 
+
+@section('scripts')
+@parent
+   <script type="text/javascript">
+  // jQuery(document).ready(function(){
+  //   jQuery("#filtermenu").next("#filterdiv").hide();
+  //   jQuery("#filtermenu").click(function(){
+  //     $('.active').not(this).toggleClass('active').next('.hidden').slideToggle(300);
+  //     $(this).toggleClass('active').next().slideToggle("fast");
+  //   }); 
+  // });
+
+  $(document).ready(function(){
+    $('#filtermenu').click(function(){
+      // var $this = $(this),
+      //     mFilter = $this.clildren('div.filterdiv'),
+      //     $header = $this.find();
+        if ( $("#filterdiv").is(':hidden')) {
+          $("#filterdiv").slideDown('200');
+          $("#filtermenu").addClass('icon-edit');
+          $("#filtermenu").removeClass('icon-download');
+        } else {
+          $("#filterdiv").slideUp('200');
+          $("#filtermenu").removeClass('icon-edit');
+          $("#filtermenu").addClass('icon-download');
+        }
+    });
+  });
+  </script>        
+@stop
+
+
+
 @section('scripts')
 @parent
    <script type="text/javascript">
     jQuery(function($){        
+
         $("#first-date").datepicker({
             dateFormat: "dd/mm/yy",
             onClose: function( selectedDate ) {
@@ -96,8 +135,9 @@
             
             $dataTable = $("#tbl-produkhukum").dataTable({
                 bServerSide: true,
-                bFilter: false,
+                bFilter: true,
                 bLengthChange: false,
+ 
                 sAjaxSource: document.location.href,
                 aoColumns: [
                   {

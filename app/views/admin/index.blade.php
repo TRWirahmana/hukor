@@ -32,8 +32,15 @@
                     <label for="select_role" class="control-label">Tipe Pengguna</label>
                     <select id="select_role">
                         <option value="0">Semua User</option>
-                        <option value="2">User</option>
-                        <option value="3">Admin</option>
+                        <option value="1">Kepala Biro</option>
+                        <option value="2">Pengguna</option>
+                        <option value="3">Super Admin</option>
+                        <option value="4">Kepala Bagian</option>
+                        <option value="5">Kepala Sub Bagian</option>
+                        <option value="6">Admin Peraturan Perundang-Undangan</option>
+                        <option value="7">Admin Pelembagaan</option>
+                        <option value="8">Admin Bantuan Hukum</option>
+                        <option value="9">Admin Ketatalaksanaan</option>
                     </select>
                 </fieldset>
             </form>
@@ -42,8 +49,8 @@
                 <thead>
                 <tr>
                     <td>Nama Lengkap</td>
-                    <td>Username</td>
                     <td>Email</td>
+                    <td>Role</td>
                     <td></td>
                 </tr>
                 </thead>

@@ -11,9 +11,6 @@ jQuery(document).ready(function(e){
                 mData: "judul"
             },
             {
-                mData: "penulis"
-            },
-            {
                 mData: "nama_kategori"
             },
             {

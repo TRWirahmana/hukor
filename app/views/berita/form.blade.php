@@ -69,17 +69,6 @@
                         </div>
                     </div>
 
-                    <div class="control-group {{$errors->has('penulis')?'error':''}}">
-                        {{ Form::label('penulis', 'Penulis Berita', array('class' => 'control-label')) }}
-                        <div class="controls">
-                            @if(!is_object($berita->penulis))
-                            {{ Form::text('penulis', $berita->penulis, array('placeholder' => 'Isi Penulis Berita')) }}
-                            @else
-                            {{ Form::text('penulis', $berita->penulis, array('placeholder' => 'Isi Penulis Berita.')) }}
-                            @endif
-                        </div>
-                    </div>
-
                     <div class="control-group {{$errors->has('gambar')?'error':''}}">
                         {{ Form::label('gambar', 'Gambar', array('class' => 'control-label')) }}
                         <div class="controls">

@@ -14,9 +14,11 @@
 // Login / Logout
 Route::group(array('before' => 'guest'), function() {
     Route::get('BantuanHukum', 'BantuanHukumController@index');
-    Route::post('Masuk', 'LoginController@signin'); // Registrasi
+    Route::post('Masuk', 'LoginController@signin'); // signin user
+    Route::post('SignIn', 'LoginController@signin_admin'); // Registrasi
     Route::post('Reset', 'ForgetPasswordController@reset'); // Reset Password
     Route::get('registrasi', 'RegistrasiController@form');
+    Route::get('captcha', 'RegistrasiController@captcha');
 	Route::post('Kirim', 'RegistrasiController@send');
 	Route::get('/', 'HomeController@index');
     Route::get('admin/login', 'HomeController@adminlogin');
@@ -30,6 +32,7 @@ Route::group(array('before' => 'guest'), function() {
     Route::get('delete_banhuk', 'BantuanHukumController@delete');
     Route::get('delete_log_banhuk', 'BantuanHukumController@deletelog');
     Route::post('save', 'BantuanHukumController@save');
+    Route::post('convertpdf', 'BantuanHukumController@convertpdf');
     Route::post('banhuk_update', 'BantuanHukumController@update');
     Route::get('download_banhuk', 'BantuanHukumController@download');
     Route::get('log_banhuk', 'BantuanHukumController@tablelog');

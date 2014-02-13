@@ -142,3 +142,25 @@ input, textarea, select {
 div.DTTT_container {
   float: left;
 }
+
+.rightpanel .alert {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 360px;
+}
+.rightpanel .alert .close {
+    top: 0;
+    right: 0;
+}
+
+.loginpage .alert {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 360px;
+}
+.loginpage .alert .close {
+    top: 0;
+    right: 0;
+}

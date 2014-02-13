@@ -39,7 +39,6 @@
                 <thead>
                 <tr>
                     <td>Judul Berita</td>
-                    <td>Penulis</td>
                     <td>Kategori</td>
                     <td>Ditulis</td>
                     <td></td>

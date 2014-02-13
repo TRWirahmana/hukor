@@ -45,12 +45,12 @@
 </head>
 
 <body class="loginpage">
-
+@include('adminflash')
 <div class="loginpanel">
     <div class="loginpanelinner">
         <div class="logo animate3 bounceIn"><img class="inputwrapper animate0 bounceIn" src="{{asset('assets/images/logo-kemendiknas.png')}}" alt=""/></div>
         {{-- form login--}}
-        {{ Form::open(array('action' => 'LoginController@signin', 'method' => 'post', 'id'=>'user-sign-in-form',
+        {{ Form::open(array('action' => 'LoginController@signin_admin', 'method' => 'post', 'id'=>'user-sign-in-form',
         'class' =>'front-form', 'autocomplete' => 'off')) }}
             <div class="inputwrapper animate1 bounceIn">
                 {{

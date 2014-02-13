@@ -284,7 +284,7 @@
     //                sAjaxSource: baseUrl + "/lkpm/data",
             sAjaxSource: '<?php echo URL::to("log_banhuk"); ?>',
             aoColumns: [
-                {mData: "created_at"},
+                {mData: "tanggal"},
                 {
                     mData: "status_pemohon",
                     sClass: "center",

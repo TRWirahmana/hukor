@@ -41,7 +41,7 @@
                 <thead>
                 <tr>
                     <td>Nama Menu</td>
-                    <td>Sub Menu</td>
+<!--                    <td>Sub Menu</td>-->
                     <td></td>
                 </tr>
                 </thead>

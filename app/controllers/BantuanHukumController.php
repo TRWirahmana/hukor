@@ -2,7 +2,7 @@
 
 class BantuanHukumController extends BaseController{
 
-    protected $layout = 'layouts.master';
+//    protected $layout = 'layouts.master';
 
     /**
      * Display a listing of the resource.
@@ -11,7 +11,19 @@ class BantuanHukumController extends BaseController{
      */
 
     public function index() {
-        $this->layout->content = View::make('BantuanHukum.index');
+        $user = Auth::user()->role_id;
+
+//        echo($user);exit;
+
+        if($user== 2){
+            $this->layout = View::make('layouts.master');
+            $this->layout->content = View::make('BantuanHukum.index', array('user'=> $user));
+        }else{
+            $this->layout = View::make('layouts.admin');
+            $this->layout->content = View::make('BantuanHukum.index_admin', array('user'=> $user));
+        }
+
+//        $this->layout->content = View::make('BantuanHukum.index', array('user'=> $user));
     }
 
     public function add()
@@ -24,6 +36,7 @@ class BantuanHukumController extends BaseController{
             $data = $reg->findPengguna($user->id);
 
             // show form with empty model
+            $this->layout = View::make('layouts.admin');
             $this->layout->content = View::make('bantuanhukum.form', array(
                 'user' => $data
             ));

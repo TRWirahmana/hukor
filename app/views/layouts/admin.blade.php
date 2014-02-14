@@ -216,11 +216,11 @@
                                 <li><a href="{{URL::route('index_analisis_jabatan')}}">Analisis Jabatan</a></li>
                             </ul>
                         </li>
-                        <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>
-                            <ul>
-                                <li><a href="#">Lembar Permohonan</a></li>
-                                <li><a href="#">Informasi Perkara</a></li>
-                            </ul>
+                        <li id="app_bahu"><a href="{{ URL::to('admin/bantuan_hukum') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
+<!--                            <ul>-->
+<!--                                <li><a href="#">Lembar Permohonan</a></li>-->
+<!--                                <li><a href="#">Informasi Perkara</a></li>-->
+<!--                            </ul>-->
                         </li>
 <!--                        <li id="app_internal"><a href="#"><span class="iconfa-envelope"></span> Aplikasi Internal</a></li>-->
 <li id="app_forum">
@@ -303,10 +303,10 @@
                 <li class="dropdown" >
                     <ul id="app">
                         <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>
-                            <ul>
-                                <li><a href="#">Lembar Permohonan</a></li>
-                                <li><a href="#">Informasi Perkara</a></li>
-                            </ul>
+<!--                            <ul>-->
+<!--                                <li><a href="#">Lembar Permohonan</a></li>-->
+<!--                                <li><a href="#">Informasi Perkara</a></li>-->
+<!--                            </ul>-->
                         </li>
                     </ul>
                 </li>

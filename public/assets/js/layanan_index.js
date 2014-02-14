@@ -5,6 +5,9 @@ jQuery(document).ready(function(e){
     };
     dom.$table_news.dataTable({
         bServerSide: true,
+        bFilter:false,
+        bProcessing: true,
+        bPaginate: true,
         sAjaxSource: document.URL,
         aoColumns: [
             {

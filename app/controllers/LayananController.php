@@ -16,13 +16,25 @@ class LayananController extends BaseController {
     public function detail(){
         $id = Input::get('id');
 //        echo $id;exit;
-        $info = Layanan::find($id);
-        $this->layout = View::make('layouts.master');
 
-        $this->layout->content = View::make('layanan.detail',
-            array(
-                'info' => $info
-            ));
+        if($id == 1 || $id == 2 || $id == 3 ){
+            $info = Layanan::find($id);
+            $this->layout = View::make('layouts.master');
+
+            $this->layout->content = View::make('layanan.info_aplikasi',
+                array(
+                    'info' => $info
+                ));
+        }else{
+            $info = Layanan::find($id);
+            $this->layout = View::make('layouts.master');
+
+            $this->layout->content = View::make('layanan.detail',
+                array(
+                    'info' => $info
+                ));
+        }
+
 
     }
 
@@ -96,38 +108,59 @@ class LayananController extends BaseController {
         $input = Input::get('layanan');
         $img = Input::file('layanan.image');
 
+        if($img != null){
+            if($img->isValid()){
+                $uqFolder = "layanan";
+                $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
+                $filename = $img->getClientOriginalName();
+                $uploadSuccess = $img->move($destinationPath, $filename);
 
-        if($img->isValid()){
-            $uqFolder = "layanan";
-            $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
-            $filename = $img->getClientOriginalName();
-            $uploadSuccess = $img->move($destinationPath, $filename);
-
-            if($uploadSuccess){
+                if($uploadSuccess){
                     //CREATE
-                            $lembaga = new DAL_Layanan();
-                            $lembaga->SetData(array(
-                                'menu_id' => $input['menu'],
-                                'submenu_id' => $input['submenu'],
-                                'berita' => $input['berita'],
-                                'penanggung_jawab' => $input['penanggung_jawab'], // Aktif
-                                'gambar' => $filename,
-                                'created_at' => date('Y-m-d H:i:s'),
-                                'updated_at' => date('Y-m-d H:i:s'),
-                            ));
+                    $lembaga = new DAL_Layanan();
+                    $lembaga->SetData(array(
+                        'menu_id' => $input['menu'],
+                        'submenu_id' => $input['submenu'],
+                        'berita' => $input['berita'],
+                        'penanggung_jawab' => $input['penanggung_jawab'], // Aktif
+                        'gambar' => $filename,
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'),
+                    ));
 
-                            if($lembaga->Save()){
-                                Session::flash('success', 'Informasi Layanan berhasil ditambahkan!');
-                                return Redirect::to('admin/layanan');
-                            }else{
-                                Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
-                                return Redirect::back();
-                            }
+                    if($lembaga->Save()){
+                        Session::flash('success', 'Informasi Layanan berhasil ditambahkan!');
+                        return Redirect::to('admin/layanan');
+                    }else{
+                        Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
+                        return Redirect::back();
                     }
+                }
+            }else{
+                Session::flash('error', 'Gagal mengirim berkas.');
+                return Redirect::back();
+            }
         }else{
-            Session::flash('error', 'Gagal mengirim berkas.');
-            return Redirect::back();
+            $lembaga = new DAL_Layanan();
+            $lembaga->SetData(array(
+                'menu_id' => $input['menu'],
+                'submenu_id' => $input['submenu'],
+                'berita' => $input['berita'],
+//                'penanggung_jawab' => $input['penanggung_jawab'], // Aktif
+//                'gambar' => $filename,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ));
+
+            if($lembaga->Save()){
+                Session::flash('success', 'Informasi Layanan berhasil ditambahkan!');
+                return Redirect::to('admin/layanan');
+            }else{
+                Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
+                return Redirect::back();
+            }
         }
+
     }
 
     public function update($id)

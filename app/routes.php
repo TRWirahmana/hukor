@@ -423,6 +423,7 @@ Route::group(array('prefix' => 'admin/layananketatalaksanaan', 'before' => 'auth
 Route::group(array('prefix' => 'per-uu'), function() {
     Route::get('usulan', array('as' => 'pengajuan_per_uu', 'uses' => 'PeruuController@pengajuanUsulan'));
     Route::post('usulan', array('as' => 'proses_pengajuan', 'uses' => 'PeruuController@prosesPengajuan'));
+    Route::get('informasi', array('as' => 'per_uu.informasi', 'uses' => 'PeruuController@informasi'));
 });
 
 Route::group(array('prefix' => "ketatalaksanaan"), function(){

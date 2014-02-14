@@ -197,5 +197,16 @@ class PeruuController extends BaseController
         $pdf->stream("peruu.pdf");
     }
 
+    public function informasi() {
+        if (Request::ajax())
+            return Datatables::of(DAL_PerUU::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))
+                ->add_column("_role_id", $roleId)
+                ->make(true);
+
+        $this->layout = View::make('layouts.master');
+        $this->layout->content = View::make('PerUU.informasi');
+
+    }
+
 
 }

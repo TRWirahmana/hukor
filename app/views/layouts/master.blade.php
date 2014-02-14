@@ -172,7 +172,7 @@
                     <div class="accordion-inner">
                       <ul>
                         <li id="menu-peruu-usulan"><a href="{{ URL::route('pengajuan_per_uu')  }}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan</a></li>
-                        <li id="menu-peruu-informasi"><a href="#"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
+                        <li id="menu-peruu-informasi"><a href="{{ URL::route('per_uu.informasi')}}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
                       </ul>
                     </div>
                   </div>

@@ -13,6 +13,15 @@ class AnalisisJabatanController extends BaseController
         $this->layout->content = View::make('AnalisisJabatan.index');
 	}
 
+    public function informasi() {
+        // handle dataTable request
+        if (Request::ajax())
+            return Datatables::of(DAL_AnalisisJabatan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
+
+        $this->layout = View::make('layouts.master');
+        $this->layout->content = View::make('AnalisisJabatan.informasi');
+    }
+
 	public function usulan() 
 	{
 	    $user = Auth::user();

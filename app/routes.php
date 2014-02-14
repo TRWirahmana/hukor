@@ -139,7 +139,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
         Route::get('download/{id}', "PeruuController@downloadLampiran");
         Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
         Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
-        Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
+        Route::get('print', array('as' => 'admin.per_uu.print', 'uses' => 'PeruuController@printTable'));
     });
 
     Route::group(array("prefix" => "ketatalaksanaan"), function() {
@@ -322,7 +322,7 @@ Route::group(array('prefix' => 'per_uu', 'before' => 'auth|per_uu'), function() 
         Route::get('download/{id}', "PeruuController@downloadLampiran");
         Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
         Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
-        Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
+        Route::get('print', array('as' => 'per_uu.print', 'uses' => 'PeruuController@printTable'));
     }
 });
 
@@ -439,13 +439,18 @@ Route::group(array('prefix' => 'admin/layananketatalaksanaan', 'before' => 'auth
 Route::group(array('prefix' => 'per-uu'), function() {
     Route::get('usulan', array('as' => 'pengajuan_per_uu', 'uses' => 'PeruuController@pengajuanUsulan'));
     Route::post('usulan', array('as' => 'proses_pengajuan', 'uses' => 'PeruuController@prosesPengajuan'));
+    Route::get('informasi', array('as' => 'per_uu.informasi', 'uses' => 'PeruuController@informasi'));
 });
 
 Route::group(array('prefix' => "ketatalaksanaan"), function(){
     Route::get('usulanSistemProsedur', array("as" => "usulan_sistem_prosedur", "uses" => "SistemDanProsedurController@usulanSistemProsedur"));
     Route::post('usulanSistemProsedur', array("as" => "proses_usulan_sistem_prosedur", "uses" => "SistemDanProsedurController@prosesUsulanSistemProsedur"));
+    Route::get('informasiSistemProsedur', array("as" => "informasi_sistem_prosedur", "uses" => "SistemDanProsedurController@informasi"));
     Route::get('usulanAnalisisJabatan', array("as" => "usulan_analisis_jabatan", "uses" => "AnalisisJabatanController@usulan"));
     Route::post('usulanAnalisisJabatan', array("as" => "proses_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUsulan"));
+    Route::get('informasiAnalisisJabatan', array("as" => "informasi_analisis_jabatan", "uses" => "AnalisisJabatanController@informasi"));
+    Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "SistemDanProsedurController@downloadSistemDanProsedur"));
+    Route::get('analisisJabatan/download/{id}', "AnalisisJabatanController@downloadLampiran");
 });
 
 
@@ -483,4 +488,20 @@ Route::get('forumdiskusi', "HomeController@showForum");
 
 Route::group(array("prefix" => "admin", "before" => "auth|super_admin"), function(){
     Route::resource('categories', 'CategoriesController');
+});
+
+Route::group(array("prefix" => "kepala_bagian", "before" => "auth|kepala_bagian"), function(){
+    Route::get('/', "AdminController@dashboard");
+    Route::resource('account', 'AdminController');
+    Route::get('setting', 'AdminController@setting');
+    Route::put('setting/save', 'AdminController@save');
+    Route::get('cetakLaporan', array('as' => 'admin.cetakLaporan', 'uses' => 'AdminController@cetakLaporan'));
+
+    Route::get('per_uu', array('as' => 'kepala_bagian.per_uu', 'uses' => 'PeruuController@index'));
+    Route::get('per_uu/print', array('as' => 'kepala_bagian.per_uu.print', 'uses' => 'PeruuController@printTable'));
+    Route::get('per_uu/download/{id}', "PeruuController@downloadLampiran");
+
+    Route::get('pelembagaan', array("as" => "kepala_bagian.pelembagaan", 'uses' => "PelembagaanController@index"));
+    Route::get('pelembagaan/print', array("as" => "kepala_bagian.pelembagaan.print", "uses" => "PelembagaanController@printTable"));
+    Route::get('{id}/download', array('as' => 'kepala_bagian.pelembagaan.downloadLampiran', 'uses' => 'PelembagaanController@downloadLampiran'));
 });

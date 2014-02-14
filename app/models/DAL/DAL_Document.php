@@ -45,7 +45,7 @@ class DAL_Document {
         $data->deskripsi = $input['deskripsi'];
         $data->tgl_pengesahan = $input['tanggal'];
         $data->file_dokumen = $file->getClientOriginalName();
-        $data->status_publish = $input['publish'];
+        $data->status_publish = $input['status'] == "Publish" ? 1: 0;
 
         return $data->save();//saving data
     }

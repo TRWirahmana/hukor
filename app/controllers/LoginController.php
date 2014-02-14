@@ -126,6 +126,10 @@ class LoginController extends BaseController
                                 Session::flash('success', 'Selamat datang ' . $user->username . ' !');
                                 return Redirect::to('/ketatalaksanaan/Home');
                                 break;
+                            case 4:
+                                Session::flash('success', 'Selamat datang ' . $user->username . ' !');
+                                return Redirect::to('/kepala_bagian');
+                                break;
                             default:
                                 return Redirect::to('/admin/');
                                 break;

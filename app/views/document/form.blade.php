@@ -80,22 +80,13 @@
                 {{ Form::file('file_dokumen', array('id'=>'file_dokumen')) }}
             </div>
         </div>
-
-        <div class="control-group">
-            {{ Form::label('publish', 'Publish', array('class' => 'control-label')) }}
-            <div class="controls">
-                {{ Form::select('publish', array(
-                '0' => '- Pilih Masalah -',
-                '1' => 'Ya'
-                ), $data->status_publish) }}
-            </div>
-        </div>
     </div>
 </div>
 
 <div class="row-fluid">
     <div class="span24 text-center">
-        <button class="btn" type="submit">Simpan</button>
+        {{Form::submit("Draft", array("class" => "btn btn-primary", "name" => "status"))}}
+        {{Form::submit("Publish", array("class" => "btn btn-primary", "name" => "status"))}}
     </div>
 </div>
 {{ Form::close() }}

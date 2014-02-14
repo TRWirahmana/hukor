@@ -22,7 +22,38 @@ class DAL_Pelembagaan {
             $data->where(DB::raw("DATE(pelembagaan.tgl_usulan)"), "<=", DateTime::createFromFormat("d/m/Y", $lastDate)->format('Y-m-d'));
 
         return $data;
-    }   
+    }  
+
+    public static function getPrintTable($status, $firstDate, $lastDate) {
+        $data = Self::getDataTable($status, $firstDate, $lastDate)->get();
+        $result = array();
+
+        foreach($data as $index => $pelembagaan) {
+            $tglUsulan = new DateTime($pelembagaan->tgl_usulan);
+            $result[$index]['ID'] = $pelembagaan->id;
+            $result[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
+            $result[$index]['Unit Kerja'] = $pelembagaan->unit_kerja;
+            $result[$index]['Perihal'] = $pelembagaan->perihal;
+            $result[$index]['status'] = "status";
+            $result[$index]['lampiran'] = '<a href="#">'.$pelembagaan->lampiran.'</a>';       
+        }
+
+        return HukorHelper::generateHtmlTable($result);
+    }
+
+    public static function getMonthlyCount() {
+        return DB::table("bulan")
+                ->leftJoin('pelembagaan', function($join){
+                    $join->on('bulan.id', '=', DB::raw('month(pelembagaan.tgl_usulan)'))
+                        ->on(DB::raw("year(pelembagaan.tgl_usulan)"), "=", DB::raw("year(curdate())"));
+                })
+                ->select(array(
+                    "bulan.nama",
+                    DB::raw("count(pelembagaan.id) as jumlah")
+                ))
+                ->groupBy(DB::raw("bulan.nama"))
+                ->orderBy("bulan.id");
+    }
 }
 
 

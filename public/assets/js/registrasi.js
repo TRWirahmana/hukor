@@ -37,18 +37,40 @@ var Registrasi = (function(REG) {
 
         jQuery("#status").change();
 
+        jQuery.ajax()
 
         jQuery("#umur").val(calculateAge());
         jQuery("#tahun_lahir,#bulan_lahir,#tanggal_lahir").change(function(){
             $("#umur").val(calculateAge());
         });
 
+
+
+
         /*
          * Trigger Submit Form
          */
-        jQuery('button#submit').on('click', function() {
+
+        jQuery('button#submit').click(function() {
+//            alert("test");
+//            $.ajax({
+//                type: "POST",
+//                dataType: "json",
+//                url: baseUrl + "/captcha",
+//                success: function (d) {
+//                    alert(d);
+//                    // replace div's content with returned data
+////                $('#loading').html(d);
+//                }
+//            });
+
             $('#registrasi-form').submit();
         });
+
+//        jQuery('button#submit').on('click', function() {
+//            $('#registrasi-form').submit();
+//        });
+
 
         var rules = {
                 'nama_lengkap': 'required',
@@ -91,7 +113,12 @@ var Registrasi = (function(REG) {
                 },
                 'alamat_kantor': {
                     required: true
+                },
+                'captcha': {
+                    required: true
                 }
+
+
             };
 
         if(jQuery("#lampiran_foto").length != 0) rules.foto.required = false;
@@ -343,6 +370,8 @@ var Registrasi = (function(REG) {
             else
                 return --age;
         }
+
+
     };
 
     return REG;

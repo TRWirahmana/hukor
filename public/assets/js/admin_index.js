@@ -7,16 +7,51 @@ jQuery(document).ready(function(e){
     dom.$table_admin.dataTable({
         bServerSide: true,
         bFilter:false,
+        bProcessing: true,
+        bPaginate: true,
         sAjaxSource: document.URL,
         aoColumns: [
             {
                 mData: "pengguna.nama_lengkap"
             },
             {
-                mData: "username"
-            },
-            {
                 mData: "pengguna.email"
+            }
+            ,
+            {
+                mData: "role_id",
+                mRender: function(role_id) {
+                    switch(role_id){
+                        case 1 :
+                            return "Kepala Biro";
+                        break;
+                        case 2 :
+                            return "Pengguna";
+                            break;
+                        case 3 :
+                            return "Super Admin";
+                            break;
+                        case 4 :
+                            return "Kepala Bagian";
+                            break;
+                        case 5 :
+                            return "Kepala Sub Bagian";
+                            break;
+                        case 6 :
+                            return "Admin Peraturan Perundang-Undangan";
+                            break;
+                        case 7 :
+                            return "Admin Pelembagaan";
+                            break;
+                        case 8 :
+                            return "Admin Bantuan Hukum";
+                            break;
+                        case 9 :
+                            return "Admin Ketatalaksanaan";
+                            break;
+                    }
+
+                }
             },
             {
                 mData: "id",

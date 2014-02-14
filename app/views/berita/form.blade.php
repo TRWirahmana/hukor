@@ -43,6 +43,13 @@
                         </div>
                     </div>
 
+                    <div class="control-group">
+                        {{Form::label("Kategori", null, array("class" => "control-label"))}}
+                        <div class="controls">
+                            {{Form::select("kategori", Category::lists('nama_kategori', 'id'))}}
+                        </div>
+                    </div>
+
                     <div class="control-group {{$errors->has('berita')? 'error':''}}">
                         {{ Form::label('berita', 'Isi Berita', array('class' => 'control-label')) }}
                         <div class="controls">
@@ -59,17 +66,6 @@
                             @foreach($errors->get('berita') as $error)
                             <span class="help-block">{{ $error }}</span>
                             @endforeach
-                        </div>
-                    </div>
-
-                    <div class="control-group {{$errors->has('penulis')?'error':''}}">
-                        {{ Form::label('penulis', 'Penulis Berita', array('class' => 'control-label')) }}
-                        <div class="controls">
-                            @if(!is_object($berita->penulis))
-                            {{ Form::text('penulis', $berita->penulis, array('placeholder' => 'Isi Penulis Berita')) }}
-                            @else
-                            {{ Form::text('penulis', $berita->penulis, array('placeholder' => 'Isi Penulis Berita.')) }}
-                            @endif
                         </div>
                     </div>
 
@@ -141,3 +137,4 @@
     Berita.Form();
 </script>
 @stop
+    

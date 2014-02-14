@@ -46,11 +46,12 @@ class DAL_Layanan {
 //            'id'
 //        ));
 
-        $data = Layanan::join('sub_menu', 'layanan.submenu_id', '=', 'sub_menu.id')
-        ->join('menu', 'layanan.menu_id', '=', 'menu.id')
-            ->select(array('id' => 'menu.id',
-                'menu' => 'menu.nama_menu',
-                'sub_menu' => 'sub_menu.nama_submenu',
+        $data = Layanan::leftJoin('sub_menu', 'layanan.submenu_id', '=', 'sub_menu.id')
+        ->leftJoin('menu', 'layanan.menu_id', '=', 'menu.id')
+            ->select(array(
+                'menu.id',
+                'menu.nama_menu'
+            ,'sub_menu.nama_submenu'
             ));
 
         if(0 != $filter)

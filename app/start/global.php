@@ -99,6 +99,7 @@ require app_path().'/filters.php';
 */
 define("DS", DIRECTORY_SEPARATOR);
 define("RETANE_UPLOAD_FOLDER", base_path().'/public/assets/uploads/' );
+define("HUKOR_FONT_FOLDER", base_path().'/public/assets/fonts/' );
 define("DOT_SEPARATOR", '.' );
 define("PREFIX_FOTO", 'retane_user_' );
 define("PREFIX_LAMPIRAN", 'retane_attach_' );

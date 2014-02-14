@@ -92,7 +92,7 @@ class BeritaController extends BaseController {
                 'class' => 'form-horizontal',
                 'id' => 'form_berita'
             ),
-            'berita' => new Berita(),
+            'berita' => new Berita()
         ));
     }
 
@@ -123,7 +123,8 @@ class BeritaController extends BaseController {
                 $berita->SetData(array(
                     'judul' => $input['judul'],
                     'berita' => $input['berita'],
-                    'penulis' => $input['penulis'], // Aktif
+                    'id_kategori' => $input['kategori'],
+//                    'penulis' => $input['penulis'],
                     'gambar' => $filename,
                     'tgl_penulisan' => new DateTime,
                     'created_at' => date('Y-m-d H:i:s'),
@@ -132,7 +133,7 @@ class BeritaController extends BaseController {
 
                 if($berita->Save()){
                     Session::flash('success', 'Berita berhasil ditambahkan!');
-                    Cache::forget('Berita');
+//                    Cache::forget('Berita');
                     return Redirect::to('admin/berita');
                 }else{
                     Session::flash('error', 'Gagal mengirim data. Pastikan Berita sudah benar.');

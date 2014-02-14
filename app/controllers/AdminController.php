@@ -18,6 +18,83 @@ class AdminController extends BaseController {
         ));
     }
 
+    public function dashboard() {
+
+        if(Request::ajax()) {
+            $perUU = DAL_PerUU::getMonthlyCount();
+            $pelembagaan = DAL_Pelembagaan::getMonthlyCount();
+            $bantuanHukum = DAL_BantuanHukun::getMonthlyCount();
+
+            $data = array();
+            foreach($perUU->get() as $obj)
+                $data["per_uu"][] = intval($obj->jumlah);
+
+            foreach($pelembagaan->get() as $obj)
+                $data["pelembagaan"][] = intval($obj->jumlah);
+
+            foreach($bantuanHukum->get() as $obj)
+                $data["bantuan_hukum"][] = intval($obj->jumlah);
+
+            return Response::json($data);
+        }
+
+
+        $this->layout->content = View::make('admin.dashboard');
+    }
+
+    public function cetakLaporan() {
+        $modul = Input::get('modul', null);
+        $firstDate = Input::get("firstDate", null);
+        $lastDate = Input::get("lastDate", null);
+
+        $style = array("<style>");
+        $style[] = "table { border-collapse: collapse; }";
+        $style[] = "table td, table th { padding: 5px; }";
+        $style[] = "</style>";
+
+        $html = array("<h1>Laporan</h1>");
+        $html[] = "<table><tr>";
+        if(null != $status)
+            $html[] = "<td><strong>Status</strong></td><td>: ".DAL_PerUU::getStatus($status)."</td>";
+        if(null != $firstDate)
+            $html[] = "<td><strong>Tgl awal</strong></td><td>: {$firstDate}</td>";
+        if(null != $lastDate)
+            $html[] = "<td><strong>Tgl akhir</strong></td><td>: {$lastDate}</td>";
+        $html[] = "</tr></table><hr />";
+
+        switch ($modul) {
+            case 1:
+                $html[] = "<h2>Peraturan Perundang Undangan</h2>";
+                $html[] = DAL_PerUU::getPrintTable(null, $firstDate, $lastDate);
+                break;
+            case 2:
+                $html[] = "<h2>Pelembagaan</h2>";
+                $html[] = DAL_Pelembagaan::getPrintTable(null, $firstDate, $lastDate);
+                break;
+            case 3:
+                $html[] = "<h2>Bantuan Hukum</h2>";
+                $html[] = DAL_BantuanHukun::getPrintTable($firstDate, $lastDate);
+                break;            
+            default:
+                $html[] = "<h2>Peraturan Perundang Undangan</h2>";
+                $html[] = DAL_PerUU::getPrintTable(null, $firstDate, $lastDate);
+                $html[] = "<h2>Pelembagaan</h2>";
+                $html[] = DAL_Pelembagaan::getPrintTable(null, $firstDate, $lastDate);
+                $html[] = "<h2>Bantuah Hukum</h2>";
+                $html[] = DAL_BantuanHukun::getPrintTable($firstDate, $lastDate);
+                break;
+        }
+
+        $pdf = new DOMPDF();
+        $pdf->load_html(join("", $style) . join("",$html));
+        $pdf->render();
+        $pdf->stream("laporan.pdf");
+        // $response = Response::make($pdf->output());
+        // $response->header('Content-Type', "application/pdf");
+        // return $response;
+
+    }
+
 	public function index()
 	{
 //        $this->layout = "layouts.admin";

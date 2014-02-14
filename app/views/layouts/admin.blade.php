@@ -65,6 +65,11 @@
             <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
             @endif
 
+            @if($user->role_id == 4)
+                 <li id="beranda"><a href="{{URL::to('kepala_biro/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
+                <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
+            @endif
+
             <!-- Admin PERUU-->
             @if($user->role_id == 6)
             <li id="beranda"><a href="{{URL::to('per_uu/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
@@ -100,7 +105,8 @@
             <!-- SUPER ADMIN -->
             @if($user->role_id == 3)
             <li id="beranda"><a href="{{URL::to('admin/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
-            <li id="news"><a href="{{URL::to('admin/berita')}}"><span class="rulycon-newspaper"></span> Berita</a></li>
+            
+             <li id="news"><a href="#menu_berita"><span class="rulycon-newspaper"></span> Berita</a></li>
 <!--            <li id="informasi"><a href="#info"><span class="rulycon-address-book"></span> Informasi</a></li>-->
             <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
             <li id="managemen"><a href="#manage"><span class="rulycon-user"></span> User</a></li>
@@ -192,6 +198,32 @@
                 <!-- end list-->
                 @endif
 
+                @if($user->role_id == 4)
+                    <li class="dropdown" >
+                    <ul id="app">
+                        <li id="app_puu"><a href="{{ URL::route('kepala_bagian.per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
+                            <!-- <ul>
+                                <li><a href="#">Lembar Usulan</a></li>
+                                <li><a href="#">Informasi & Status usulan</a></li>
+                            </ul> -->
+                        </li>
+                        <li id="app_pelembagaan" ><a href="{{ URL::route('kepala_bagian.pelembagaan') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a>
+                            <!-- <ul>
+                                <li><a href="#">Lembar Usulan</a></li>
+                                <li><a href="#">Informasi & Status usulan</a></li>
+                            </ul> -->
+                        </li>
+                        <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>
+                            <ul>
+                                <li><a href="#">Lembar Permohonan</a></li>
+                                <li><a href="#">Informasi Perkara</a></li>
+                            </ul>
+                        </li>
+<!--                        <li id="app_internal"><a href="#"><span class="iconfa-envelope"></span> Aplikasi Internal</a></li>-->
+                    </ul>
+                </li>
+                @endif
+
 <!--                ADMIN RULES-->
                 @if($user->role_id == 3)
                 <!-- list aplikasi-->
@@ -215,11 +247,11 @@
                                 <li><a href="{{URL::route('index_analisis_jabatan')}}">Analisis Jabatan</a></li>
                             </ul>
                         </li>
-                        <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>
-                            <ul>
-                                <li><a href="#">Lembar Permohonan</a></li>
-                                <li><a href="#">Informasi Perkara</a></li>
-                            </ul>
+                        <li id="app_bahu"><a href="{{ URL::to('admin/bantuan_hukum') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
+<!--                            <ul>-->
+<!--                                <li><a href="#">Lembar Permohonan</a></li>-->
+<!--                                <li><a href="#">Informasi Perkara</a></li>-->
+<!--                            </ul>-->
                         </li>
 <!--                        <li id="app_internal"><a href="#"><span class="iconfa-envelope"></span> Aplikasi Internal</a></li>-->
 <li id="app_forum">
@@ -239,6 +271,14 @@
                 <li class="dropdown">
                     <ul id="manage">
                         <li id="kelola"><a href="{{URL::to('admin/account')}}"><span class="iconfa-laptop"></span> Kelola Akun</a></li>
+                    </ul>
+                </li>
+
+                <!-- list manajemen user-->
+                <li class="dropdown">
+                    <ul id="menu_berita">
+                        <li><a href="{{URL::to('admin/berita')}}">Berita</a></li>
+                        <li><a href="{{URL::route('admin.categories.index')}}">Kategori Berita</a></li>
                     </ul>
                 </li>
 
@@ -294,10 +334,10 @@
                 <li class="dropdown" >
                     <ul id="app">
                         <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>
-                            <ul>
-                                <li><a href="#">Lembar Permohonan</a></li>
-                                <li><a href="#">Informasi Perkara</a></li>
-                            </ul>
+<!--                            <ul>-->
+<!--                                <li><a href="#">Lembar Permohonan</a></li>-->
+<!--                                <li><a href="#">Informasi Perkara</a></li>-->
+<!--                            </ul>-->
                         </li>
                     </ul>
                 </li>
@@ -348,11 +388,20 @@
 <script type="text/javascript">
     jQuery(function ($) {
 
+        $("#news").click(function(){
+            $("#info").hide();
+            $("#app").hide();
+            $("#manage").hide();
+            $("#manage-menu").hide();
+            $("#menu_berita").show();
+        });
+
         $("#beranda").click(function(){
             $("#info").hide();
             $("#app").hide();
             $("#manage").hide();
             $("#manage-menu").hide();
+            $("#menu_berita").hide();
 
         });
 
@@ -361,6 +410,7 @@
             $("#app").hide();
             $("#manage").hide();
             $("#manage-menu").hide();
+            $("#menu_berita").hide();
         });
 
         $("#ketatalaksanaan").click(function(){
@@ -371,6 +421,7 @@
             $("#info").hide();
             $("#app").show();
             $("#manage").hide();
+            $("#menu_berita").hide();
             $("#manage-menu").hide();
         });
 
@@ -379,6 +430,7 @@
             $("#app").hide();
             $("#manage-menu").hide();
             $("#manage").show();
+            $("#menu_berita").hide();
         });
 
         $("#menu").click(function(){
@@ -386,6 +438,7 @@
             $("#app").hide();
             $("#manage").hide();
             $("#manage-menu").show();
+            $("#menu_berita").hide();
         });
 
         $("#cbox-forum").change(function(e){

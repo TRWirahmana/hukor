@@ -179,11 +179,12 @@
 
               <div class="span15">
                   <div class="controls">
-                      {{ HTML::image(Captcha::img(), 'Captcha image') }}
+                      <img src="{{URL::to('captcha')}}" id="captcha" /><br/>
                   </div>
 <!--                  <br>-->
                   <div class="controls">
-                      {{ Form::text('captcha', '', array('placeholder' => 'Input Captcha here...')) }}
+                      <input name="code" type="text" id="code">
+                      <a href="#" onclick="document.getElementById('captcha').src='{{URL::to('captcha')}}?rnd=' + Math.random();">Not readable? Change text.</a>
                   </div>
               </div>
 
@@ -193,7 +194,7 @@
 
         <div class="row-fluid">
           <div class="span24 text-center">
-            <button class="btn btn-hukor" type="submit">Register</button>
+            <button class="btn btn-hukor" type="submit" id="submit">Register</button>
           </div>
         </div>
 

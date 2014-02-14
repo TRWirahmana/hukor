@@ -5,13 +5,13 @@ jQuery(document).ready(function(e){
     };
     dom.$table_news.dataTable({
         bServerSide: true,
+        bFilter:false,
+        bProcessing: true,
+        bPaginate: true,
         sAjaxSource: document.URL,
         aoColumns: [
             {
                 mData: "nama_menu"
-            },
-            {
-                mData: "nama_submenu"
             },
             {
                 mData: "id",

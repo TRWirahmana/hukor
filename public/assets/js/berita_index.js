@@ -5,13 +5,15 @@ jQuery(document).ready(function(e){
     };
     dom.$table_news.dataTable({
         bServerSide: true,
+        bProcessing: true,
+        bPaginate: true,
         sAjaxSource: document.URL,
         aoColumns: [
             {
                 mData: "judul"
             },
             {
-                mData: "penulis"
+                mData: "nama_kategori"
             },
             {
                 mData: "tgl_penulisan"
@@ -30,7 +32,7 @@ jQuery(document).ready(function(e){
         },
         fnDrawCallback: function() {
 
-            dom.$table_news.fnSetColumnVis( 4,  role == 3 );
+//            dom.$table_news.fnSetColumnVis( 5,  role == 3 );
         }
     });
 

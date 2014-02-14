@@ -158,8 +158,10 @@ class MenuController extends BaseController {
         $menu = Menu::find($id);
 //        var_dump($user);exit;
         if(!is_null($menu)) {
+            $menu->layanan->delete;
             $menu->submenu()->delete();
             $menu->delete();
+
         }
 
     }

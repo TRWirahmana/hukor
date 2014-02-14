@@ -139,7 +139,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
         Route::get('download/{id}', "PeruuController@downloadLampiran");
         Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
         Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
-        Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
+        Route::get('print', array('as' => 'admin.per_uu.print', 'uses' => 'PeruuController@printTable'));
     });
 
     Route::group(array("prefix" => "ketatalaksanaan"), function() {
@@ -306,7 +306,7 @@ Route::group(array('prefix' => 'per_uu', 'before' => 'auth|per_uu'), function() 
         Route::get('download/{id}', "PeruuController@downloadLampiran");
         Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
         Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
-        Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
+        Route::get('print', array('as' => 'per_uu.print', 'uses' => 'PeruuController@printTable'));
     }
 });
 
@@ -475,4 +475,12 @@ Route::group(array("prefix" => "kepala_bagian", "before" => "auth|kepala_bagian"
     Route::get('setting', 'AdminController@setting');
     Route::put('setting/save', 'AdminController@save');
     Route::get('cetakLaporan', array('as' => 'admin.cetakLaporan', 'uses' => 'AdminController@cetakLaporan'));
+
+    Route::get('per_uu', array('as' => 'kepala_bagian.per_uu', 'uses' => 'PeruuController@index'));
+    Route::get('per_uu/print', array('as' => 'kepala_bagian.per_uu.print', 'uses' => 'PeruuController@printTable'));
+    Route::get('per_uu/download/{id}', "PeruuController@downloadLampiran");
+
+    Route::get('pelembagaan', array("as" => "kepala_bagian.pelembagaan", 'uses' => "PelembagaanController@index"));
+    Route::get('pelembagaan/print', array("as" => "kepala_bagian.pelembagaan.print", "uses" => "PelembagaanController@printTable"));
+    Route::get('{id}/download', array('as' => 'kepala_bagian.pelembagaan.downloadLampiran', 'uses' => 'PelembagaanController@downloadLampiran'));
 });

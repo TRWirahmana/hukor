@@ -216,7 +216,8 @@
                       <ul>
                         <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_sistem_prosedur')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan Sistem dan Prosedur</a></li>
                         <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_analisis_jabatan')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan Analisis Jabatan</a></li>
-                        <li id="menu-pelembagaan-informasi"><a href="#"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
+                        <li id="menu-pelembagaan-informasi"><a href="{{URL::route('informasi_sistem_prosedur')}}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan Sistem dan Prosedur</a></li>
+                         <li id="menu-pelembagaan-informasi"><a href="{{URL::route('informasi_analisis_jabatan')}}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan Analisis Jabatan</a></li>
                       </ul>
                     </div>
                   </div>

@@ -10,6 +10,15 @@ class SistemDanProsedurController extends BaseController {
                 ->with('user', $user);
 	}
 
+    public function informasi() {
+        // handle dataTable request
+        if (Request::ajax())
+            return Datatables::of(DAL_SistemDanProsedur::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
+
+        $this->layout = View::make('layouts.master');
+        $this->layout->content = View::make('Ketatalaksanaan.informasi');
+    }
+
 	public function prosesUsulanSistemProsedur() {
 		$input = Input::get('sistem_dan_prosedur');
         $img = Input::file('sistem_dan_prosedur.lampiran');

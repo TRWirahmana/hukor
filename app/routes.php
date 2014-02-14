@@ -429,8 +429,12 @@ Route::group(array('prefix' => 'per-uu'), function() {
 Route::group(array('prefix' => "ketatalaksanaan"), function(){
     Route::get('usulanSistemProsedur', array("as" => "usulan_sistem_prosedur", "uses" => "SistemDanProsedurController@usulanSistemProsedur"));
     Route::post('usulanSistemProsedur', array("as" => "proses_usulan_sistem_prosedur", "uses" => "SistemDanProsedurController@prosesUsulanSistemProsedur"));
+    Route::get('informasiSistemProsedur', array("as" => "informasi_sistem_prosedur", "uses" => "SistemDanProsedurController@informasi"));
     Route::get('usulanAnalisisJabatan', array("as" => "usulan_analisis_jabatan", "uses" => "AnalisisJabatanController@usulan"));
     Route::post('usulanAnalisisJabatan', array("as" => "proses_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUsulan"));
+    Route::get('informasiAnalisisJabatan', array("as" => "informasi_analisis_jabatan", "uses" => "AnalisisJabatanController@informasi"));
+    Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "SistemDanProsedurController@downloadSistemDanProsedur"));
+    Route::get('analisisJabatan/download/{id}', "AnalisisJabatanController@downloadLampiran");
 });
 
 

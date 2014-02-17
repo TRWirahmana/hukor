@@ -10,32 +10,56 @@ a:hover {
 }
 
 /* HUKOR NEWS CUSTOM LAYOUT */
+.accent {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #202020;
+}
 .header {
+  background: #064d95;
   padding: 0 20px;
+  /*border: 1px solid #202020;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15);*/
+  height: auto;
+  box-shadow: inset 0 5px 0 rgba(0, 0, 0, .15);
 }
 .header .logo {
   width: auto;
   min-width: 100px;
-  padding-top: 0;
-  padding-left: 24px;
-  padding-right: 24px;
-  min-height: 110px;
-  background: rgba(0, 0, 0, .075);
+  padding: 0 0 12px;
+  height: auto;
+  /*background: rgba(0, 0, 0, .075);*/
 }
 .header .logo img {
-  padding-top: 12px;
+  padding-top: 18px;
+  padding-bottom: 4px;
+}
+.headmenu > li {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.headmenu > li, .headmenu > li.odd {
+  background: rgba(0, 0, 0, .15);
+  border: none;
+  margin-left: 1px;
 }
 .headmenu > li > a {
-  padding: 28px 8px 14px;
+  padding: 20px 8px 8px;
   text-align: center;
   /*box-shadow: inset 0 -4px 0 rgba(0, 0, 0, .25);*/
 }
 .headmenu > li > a > span[class *= "rulycon"] {
-  font-size: 32px;
-  padding: 20px;
+  font-size: 11px;
+  padding: 8px 9px;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 50em;
 }
 .headmenu > li > a .headmenu-label {
-  margin-top: 8px;
+  margin-top: 10px;
+  opacity: 1;
+  font-size: 11px;
 }
 .headmenu .dropdown-menu {
   display: block;
@@ -45,8 +69,9 @@ a:hover {
   margin: 0 !important;
 }
 .sub-header {
-  background: #064d95;
-  border-bottom: 1px solid #cccccc;
+  background: url("../images/leftpanelbg.png") repeat;
+  /*box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15);
+  border-bottom: 1px solid #cccccc;*/
 }
 .sub-menu li {
   display: inline-block;
@@ -56,8 +81,13 @@ a:hover {
 .sub-menu li a {
   color: #ffffff;
   display: inline-block;
-  margin-right: 12px;
+  margin-right: 18px;
   padding: 6px 0;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+.sub-menu li a > [class*=rulycon] {
+  margin-right: 4px;
 }
 .sub-menu .sub-menu-indicator {
   text-transform: uppercase;
@@ -68,18 +98,61 @@ a:hover {
   margin-top: 24px;
   margin-bottom: 48px;
 }
-.carousel-control {
+.carousel-inner > .item {
+}
+.carousel-indicators li {
+  width: 40px;
+  height: 6px;
+  border-radius: 0;
+  margin-right: 0;
+}
+.carousel-indicators li:hover {
+  cursor: pointer;
+}
+.section-title {
+  position: relative;
+  background: #dc3c00;
+  color: #ffffff;
+  padding: 12px;
+  font-weight: normal;
+  font-size: 16px;
+}
+.section-title#news-feed:after, .section-title#widgets:after {
+  font-family: Rulycons;
+  position: absolute;
+  right: 4px;
   width: 24px;
   height: 24px;
-  border: none;
+  color: #ffffff;
+}
+.section-title#news-feed:after {
+  content: "\e004";
+}
+.section-title#widgets:after {
+  content: "\e14c";
 }
 .footer {
-  padding: 4px 0 8px;
-  position: fixed;
-  bottom: 0;
-  display: block;
-  width: 100%;
-  background: url("../images/leftpanelbg.png") repeat;
-  border: none;
+  padding: 32px 0;
+  background: #02A29E;
+  /*border: 1px solid #02A29E;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25);
+  background: url("../images/leftpanelbg.png") repeat;*/
+  color: #ffffff;
+  box-shadow: inset 0 8px 0 rgba(0, 0, 0, .075);
+}
+.footer-menu {
+  float: left;
+  margin: 0;
+  margin-right: 32px;
+}
+.footer-menu > li {
+  list-style: none;
+}
+.footer-menu > li:first-child {
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, .25);
+  margin-bottom: 8px;
+}
+.footer-menu > li > a {
   color: #ffffff;
 }

@@ -121,12 +121,12 @@
 <script type="text/javascript">
     Menu.Form();
 </script>
-<style>
-    .leftmenu .nav-tabs.nav-stacked > li.dropdown ul {
-        display: block !important;
-    }
-    #produkhukum, #ketatalaksanaan, #bahu, #puu, #diskusi, #callcenter, #app, #manage, #info {
-        display: none !important;
-    }
-</style>
+<!--<style>-->
+<!--    .leftmenu .nav-tabs.nav-stacked > li.dropdown ul {-->
+<!--        display: block !important;-->
+<!--    }-->
+<!--    #produkhukum, #ketatalaksanaan, #bahu, #puu, #diskusi, #callcenter, #app, #manage, #info {-->
+<!--        display: none !important;-->
+<!--    }-->
+<!--</style>-->
 @stop

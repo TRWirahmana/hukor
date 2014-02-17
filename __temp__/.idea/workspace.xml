@@ -46,7 +46,7 @@
           <file leaf-file-name="_fuck-off.html" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/_fuck-off.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="433" column="32" selection-start="23287" selection-end="23287" vertical-scroll-proportion="0.48300537" vertical-offset="7091" max-vertical-offset="7871">
+                <state line="30" column="20" selection-start="1458" selection-end="1458" vertical-scroll-proportion="0.24329159" vertical-offset="374" max-vertical-offset="7871">
                   <folding />
                 </state>
               </provider>
@@ -55,7 +55,7 @@
           <file leaf-file-name="_fuck-off-boxed.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/_fuck-off-boxed.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="483" column="63" selection-start="20608" selection-end="20608" vertical-scroll-proportion="-17.576923" vertical-offset="7754" max-vertical-offset="8687">
+                <state line="484" column="10" selection-start="20619" selection-end="20673" vertical-scroll-proportion="-18.23077" vertical-offset="7754" max-vertical-offset="8721">
                   <folding />
                 </state>
               </provider>
@@ -77,7 +77,7 @@
           <file leaf-file-name="hukor-news.css" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/css/hukor-news.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="315" column="23" selection-start="6289" selection-end="6289" vertical-scroll-proportion="0.23244147" vertical-offset="5216" max-vertical-offset="5848">
+                <state line="242" column="41" selection-start="4607" selection-end="4644" vertical-scroll-proportion="0.4464883" vertical-offset="3847" max-vertical-offset="5899">
                   <folding />
                 </state>
               </provider>
@@ -316,21 +316,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_fuck-off-boxed.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="483" column="63" selection-start="20608" selection-end="20608" vertical-scroll-proportion="-17.576923" vertical-offset="7754" max-vertical-offset="8687">
+        <state line="484" column="10" selection-start="20619" selection-end="20673" vertical-scroll-proportion="-18.23077" vertical-offset="7754" max-vertical-offset="8721">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_fuck-off.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="433" column="32" selection-start="23287" selection-end="23287" vertical-scroll-proportion="0.48300537" vertical-offset="7091" max-vertical-offset="7871">
+        <state line="30" column="20" selection-start="1458" selection-end="1458" vertical-scroll-proportion="0.24329159" vertical-offset="374" max-vertical-offset="7871">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/hukor-news.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="315" column="23" selection-start="6289" selection-end="6289" vertical-scroll-proportion="0.23244147" vertical-offset="5216" max-vertical-offset="5848">
+        <state line="242" column="41" selection-start="4607" selection-end="4644" vertical-scroll-proportion="0.4464883" vertical-offset="3847" max-vertical-offset="5899">
           <folding />
         </state>
       </provider>

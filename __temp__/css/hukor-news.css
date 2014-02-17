@@ -83,9 +83,9 @@ p {
   font-size: 11px;
 }
 .headmenu > li > a:hover .headmenu-label {
-  /*opacity: 0;*/
-  margin-top: -2px;
-  padding-bottom: 12px;
+  opacity: 0;
+  /*margin-top: -2px;
+  padding-bottom: 12px;*/
 }
 .headmenu .dropdown-menu {
   display: block;

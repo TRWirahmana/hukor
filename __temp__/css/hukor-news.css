@@ -48,14 +48,17 @@ p {
   text-transform: uppercase;
 }
 .headmenu > li, .headmenu > li.odd {
-  background: rgba(0, 0, 0, .15);
+  background: transparent;
   border: none;
   margin-left: 1px;
 }
-.headmenu > li > a {
+.headmenu > li > a, .headmenu > li.odd > a {
+  background: rgba(0, 0, 0, .15);
   padding: 32px 8px 16px;
   text-align: center;
-  /*box-shadow: inset 0 -4px 0 rgba(0, 0, 0, .25);*/
+}
+.headmenu > li > a:hover {
+  background: rgba(0, 0, 0, .25);
 }
 .headmenu > li > a > span[class *= "rulycon"] {
   font-size: 11px;
@@ -63,11 +66,23 @@ p {
   color: #ffffff;
   border: 2px solid #ffffff;
   border-radius: 50em;
+  -moz-transition: all .2s ease-out;
+  -ms-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+}
+.headmenu > li > a:hover > span[class *= "rulycon"] {
+  padding: 18px 19px;
+  border-color: rgba(0, 0, 0, .25);
 }
 .headmenu > li > a .headmenu-label {
   margin-top: 10px;
   opacity: 1;
   font-size: 11px;
+}
+.headmenu > li > a:hover .headmenu-label {
+  opacity: 0;
 }
 .headmenu .dropdown-menu {
   display: block;
@@ -92,6 +107,9 @@ p {
   text-transform: uppercase;
   font-size: 11px;
 }
+.sub-menu li a:hover {
+
+}
 .sub-menu li a > [class*=rulycon] {
   margin-right: 4px;
 }
@@ -109,6 +127,9 @@ p {
 #main-carousel {
   margin-bottom: 32px;
 }
+#main-carousel.boxed {
+  margin-top: 32px;
+}
 .carousel.slide > .container {
   position: relative;
 }
@@ -116,6 +137,14 @@ p {
 }
 .carousel-inner > .item > img {
   width: 100%;
+}
+.boxed .carousel-indicators {
+  top: 16px;
+  right: 16px;
+}
+.carousel-indicators {
+  right: 0;
+  top: 24px;
 }
 .carousel-indicators li {
   width: 24px;
@@ -126,6 +155,27 @@ p {
 .carousel-indicators li:hover {
   cursor: pointer;
 }
+.latest-news {
+  display: block;
+  width: 100%;
+  background: rgba(0, 0, 0, .025);
+  padding: 16px 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+}
+.latest-news h6 {
+  margin-bottom: 0;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  color: #dc3c00;
+}
+.latest-news p:first-child {
+  font-weight: bold;
+}
+.latest-news span[class *= "rulycon"] {
+  margin-right: 4px;
+}
 .section-title {
   position: relative;
   background: #dc3c00;
@@ -133,6 +183,7 @@ p {
   padding: 12px 24px;
   font-weight: normal;
   font-size: 16px;
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
 }
 .section-title#widgets {
   background: #02A29E;
@@ -151,12 +202,24 @@ p {
 .section-title#widgets:after {
   content: "\e14c";
 }
+.section-title#widgets > * {
+  display: block;
+  width: 100%;
+}
 .news-content {
-  padding: 24px;
+  padding: 32px 24px 48px;
   border-bottom: 1px solid rgba(220, 60, 0, .25);
+  -moz-transition: all .2s ease-out;
+  -ms-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+}
+.news-content .read-more, .latest-news .read-more {
+  color: #dc3c00;
 }
 .news-content:hover {
-  background: rgba(255, 255, 255, .85);
+  background: rgba(255, 255, 255, .55);
 }
 .news-content h4 {
   margin-bottom: 16px;
@@ -166,7 +229,19 @@ p {
 .news-content .date-time.pull-right {
   font-family: "Monaco", monospace;
   font-size: 10px;
-  color: #dc3c00;
+  color: #ffffff;
+  background: #dc3c00;
+  padding: 6px 12px;
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
+  text-align: center;
+  margin-top: -32px;
+}
+.news-content .date-time .date {
+  display: block;
+  width: 100%;
+  font-size: 32px;
+  margin-top: 2px;
+  margin-bottom: 1px;
 }
 .pagination {
   margin-top: 24px;

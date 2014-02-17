@@ -14,7 +14,7 @@ class MenuController extends BaseController {
         $this->layout = View::make('layouts.admin');
         $this->layout->content = View::make('menu.form', array(
             'title' => 'Tambah Menu',
-            'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',
+            'detail' => 'Lengkapi data dibawah ini untuk menambahkan menu baru.',
             'form_opts' => array(
                 'route' => 'admin.menu.store',
                 'method' => 'post',
@@ -34,59 +34,31 @@ class MenuController extends BaseController {
     {
 
         $input = Input::all();
-//        $in_menu = $input['menu'];
-        $in_submenu = $input['submenu'];
+//        $in_submenu = $input['submenu'];
         /* save to table user */
         $menu = new Menu();
         $menu->nama_menu = $input['menu'];
 
-        if($in_submenu != null){
+        $menu->save();
 
-            $menu->save();
-
-            foreach ($in_submenu as $data) {
-                if(empty($data['nama_submenu'])) continue;
-
-                $data['menu_id'] = $menu->id;
-                $data['created_at'] = date("Y-m-d H:i:s");
-                $data['updated_at'] = date("Y-m-d H:i:s");
-                $menu->submenu()->save(new Submenu($data));
-            }
-
-        }else{
-            $menu->save();
-        }
+//        if($in_submenu != null){
+//
+//            $menu->save();
+//
+//            foreach ($in_submenu as $data) {
+//                if(empty($data['nama_submenu'])) continue;
+//
+//                $data['menu_id'] = $menu->id;
+//                $data['created_at'] = date("Y-m-d H:i:s");
+//                $data['updated_at'] = date("Y-m-d H:i:s");
+//                $menu->submenu()->save(new Submenu($data));
+//            }
+//
+//        }else{
+//            $menu->save();
+//        }
 
         return Redirect::to('admin/menu')->with('success', 'Menu berhasil ditambahkan.');
-    }
-
-    public function save() {
-
-        $input = Input::all();
-        $user = Auth::user();
-
-        $rules = array();
-        $messages = array();
-
-        if($input['username'] !== $user->username) {
-            $rules['username'] = 'required|unique:registrasi|min:6';
-            $messages['username.unique'] = 'Username tidak tersedia.';
-            $messages['username.min'] = 'Username minimal 6 karakter.';
-
-            $user->username = $input['username'];
-        }
-
-        if(!empty($input['password'])) {
-            $rules['password'] = 'confirmed|min:6';
-            $messages['password.confirmed'] = 'Konfirmasi password salah.';
-            $messages['password.min'] = 'Password minimal 6 karakter.';
-
-            $user->password = Hash::make($input['password']);
-        }
-
-        $user->save();
-
-        return Redirect::to('admin/Index')->with('success', 'Pengaturan akun berhasil disimpan.');
     }
 
     /**
@@ -129,7 +101,7 @@ class MenuController extends BaseController {
 
             $menu->save();
 
-            $menu->submenu()->delete();
+//            $menu->submenu()->delete();
             foreach ($in_submenu as $data) {
                 if(empty($data['nama_submenu'])) continue;
 

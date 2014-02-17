@@ -5,7 +5,9 @@ class DAL_Menu {
         $data = Menu::leftJoin('sub_menu', 'menu.id', '=', 'sub_menu.menu_id')
             ->select(array('id' => 'menu.id',
                'menu' => 'menu.nama_menu',
-               'sub_menu' => 'sub_menu.nama_submenu'));
+               'sub_menu' => 'sub_menu.nama_submenu'))
+            ->distinct('menu.nama_menu')
+            ->groupby('menu.nama_menu');
 
 //        $data = Menu::select(array(
 //            'nama_menu',

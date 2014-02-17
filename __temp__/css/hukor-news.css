@@ -74,6 +74,7 @@ p {
 }
 .headmenu > li > a:hover > span[class *= "rulycon"] {
   padding: 18px 19px;
+  border-width: 6px;
   border-color: rgba(0, 0, 0, .25);
 }
 .headmenu > li > a .headmenu-label {
@@ -117,6 +118,26 @@ p {
   text-transform: uppercase;
   margin-right: 12px;
 }
+.sub-menu .has-child ul {
+  position: absolute;
+  background: url("../images/leftpanelbg.png") repeat;
+  margin-left: -16px;
+  display: none;
+}
+.sub-menu .has-child > ul li {
+  display: block;
+  width: 100%;
+}
+.sub-menu .has-child > ul li a {
+  margin-right: 0;
+  padding: 8px 16px;
+}
+.sub-menu .has-child > ul li a:hover {
+  background: rgba(0, 0, 0, .25);
+}
+.sub-menu .has-child:hover > ul {
+  display: block;
+}
 .content-wrapper {
   margin-top: 136px;
 }
@@ -159,7 +180,7 @@ p {
   display: block;
   width: 100%;
   background: rgba(0, 0, 0, .025);
-  padding: 16px 24px;
+  padding: 24px;
   margin-bottom: 32px;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
 }
@@ -209,6 +230,7 @@ p {
 .news-content {
   padding: 32px 24px 48px;
   border-bottom: 1px solid rgba(220, 60, 0, .25);
+  background: rgba(255, 255, 255, .55);
   -moz-transition: all .2s ease-out;
   -ms-transition: all .2s ease-out;
   -o-transition: all .2s ease-out;
@@ -219,7 +241,7 @@ p {
   color: #dc3c00;
 }
 .news-content:hover {
-  background: rgba(255, 255, 255, .55);
+  background: transparent;
 }
 .news-content h4 {
   margin-bottom: 16px;

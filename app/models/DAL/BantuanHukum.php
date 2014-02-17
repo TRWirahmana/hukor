@@ -333,4 +333,19 @@ class DAL_BantuanHukun
         return $data;
     }
 
+    public static function getTotalCount() {
+        return  BantuanHukum::count();
+    }
+
+    public static function getUnreadCount() {
+        $lastActive = Auth::user()->last_active;
+        $count = BantuanHukum::where("created_at", ">=", $lastActive)->count();
+        return $count;
+    }
+
+    public static function getTodayCount() {
+        $count = BantuanHukum::where(DB::raw("DATE(created_at)"), "=", DB::raw("DATE(NOW())"))->count();
+        return $count;
+    }
+
 }

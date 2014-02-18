@@ -3,7 +3,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li><a href="{{URL::previous()}}">Manage Menu <span class="separator"></span></li>
+        <li><a href="{{URL::previous()}}">Manage Menu</a> <span class="separator"></span></li>
         <li>Kelola Submenu</li>
     </ul>
     @include('adminflash')
@@ -25,9 +25,11 @@
 
             <!-- MAIN CONTENT -->
             <div class="stripe-accent"></div>
-
+            <?php $set_menu = Menu::all();
+            $count = count($set_menu);?>
             <form class="form-inline">
                 <fieldset>
+                    @if($count != 0)
                     <legend><a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/create_submenu')}}">Tambah Submenu Baru</a></legend>
                     <!--                    <label for="select_role" class="control-label">Tipe Pengguna</label>-->
                     <!--                    <select id="select_role">-->
@@ -35,6 +37,7 @@
                     <!--                        <option value="2">User</option>-->
                     <!--                        <option value="3">Admin</option>-->
                     <!--                    </select>-->
+                    @endif
                 </fieldset>
             </form>
 

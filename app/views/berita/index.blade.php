@@ -31,9 +31,6 @@
                     @if($user->role_id == 3)
                     <legend><a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/berita/create')}}">Tambah Berita Baru</a></legend>
                     @endif
-                    @if($user->role_id == 1)
-                    <legend><a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/kepala_biro/berita/create')}}">Tambah Berita Baru</a></legend>
-                    @endif
 
             <table id="table_news" class="table">
                 <thead>

@@ -197,18 +197,19 @@ class AdminController extends BaseController {
 	public function create()
 	{
 
-        $listRole = array(
-            '1' => 'Kepala Biro',
-//            '2' => 'Pengguna',
-            '3' => 'Super Admin',
-            '4' => 'Kepala Bagian',
-            '5' => 'Kepala Sub Bagian',
-            '6' => 'Admin Peraturan Perundang-Undangan',
-            '7' => 'Admin Pelembagaan',
-            '8' => 'Admin Bantuan Hukum',
-            '9' => 'Admin Ketatalaksanaan'
-
-        );
+        $listRole = array("" => "-- Pilih Role --") + Role::lists('nama', 'id');
+//        $listRole = array(
+//            '1' => 'Kepala Biro',
+////            '2' => 'Pengguna',
+//            '3' => 'Super Admin',
+//            '4' => 'Kepala Bagian',
+//            '5' => 'Kepala Sub Bagian',
+//            '6' => 'Admin Peraturan Perundang-Undangan',
+//            '7' => 'Admin Pelembagaan',
+//            '8' => 'Admin Bantuan Hukum',
+//            '9' => 'Admin Ketatalaksanaan'
+//
+//        );
 
 		$this->layout->content = View::make('admin.form', array(
 			'title' => 'Tambah Akun Admin',
@@ -344,17 +345,19 @@ class AdminController extends BaseController {
 	{
 
         $role = User::select('role_id');
-        $listRole = array(
-            '1' => 'Kepala Biro',
-            '2' => 'Pengguna',
-            '3' => 'Super Admin',
-            '4' => 'Kepala Bagian',
-            '5' => 'Kepala Sub Bagian',
-            '6' => 'Admin Peraturan Perundang-Undangan',
-            '7' => 'Admin Pelembagaan',
-            '8' => 'Admin Bantuan Hukum',
-            '9' => 'Admin Ketatalaksanaan'
-        );
+
+        $listRole = array("" => "-- Pilih Role --") + Role::lists('nama', 'id');
+//        $listRole = array(
+//            '1' => 'Kepala Biro',
+//            '2' => 'Pengguna',
+//            '3' => 'Super Admin',
+//            '4' => 'Kepala Bagian',
+//            '5' => 'Kepala Sub Bagian',
+//            '6' => 'Admin Peraturan Perundang-Undangan',
+//            '7' => 'Admin Pelembagaan',
+//            '8' => 'Admin Bantuan Hukum',
+//            '9' => 'Admin Ketatalaksanaan'
+//        );
 
 		//
 		$user = User::find($id);

@@ -50,7 +50,7 @@
 
     <script type="text/javascript">
         var baseUrl = '{{URL::to('/')}}';
-        var role = '<?php $user = Auth::user()-role_id; ?>';
+        var role = {{Auth::user()->role_id}};
     </script>
 </head>
 <body class="main-layout">
@@ -173,23 +173,14 @@
                 @if($user->role_id == 1)
                 <li class="dropdown" >
                     <ul id="app">
-                        <li id="app_puu"><a href="{{ URL::route('index_per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
-                            <!-- <ul>
-                                <li><a href="#">Lembar Usulan</a></li>
-                                <li><a href="#">Informasi & Status usulan</a></li>
-                            </ul> -->
+                        <li id="app_puu"><a href="{{ URL::to('kepala_biro/per_uu/') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
+
                         </li>
-                        <li id="app_pelembagaan" ><a href="{{ URL::to('admin/pelembagaan') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a>
-                            <!-- <ul>
-                                <li><a href="#">Lembar Usulan</a></li>
-                                <li><a href="#">Informasi & Status usulan</a></li>
-                            </ul> -->
+                        <li id="app_pelembagaan" ><a href="{{ URL::to('kepala_biro/pelembagaan/') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a>
+
                         </li>
-                        <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>
-                            <ul>
-                                <li><a href="#">Lembar Permohonan</a></li>
-                                <li><a href="#">Informasi Perkara</a></li>
-                            </ul>
+                        <li id="app_bahu"><a href="{{ URL::to('kepala_biro/bantuan_hukum/') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
+<!--
                         </li>
 <!--                        <li id="app_internal"><a href="#"><span class="iconfa-envelope"></span> Aplikasi Internal</a></li>-->
                     </ul>

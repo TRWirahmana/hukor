@@ -19,7 +19,7 @@ class PelembagaanController extends BaseController {
 
 	       	// $listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
 	        // 													->lists('usulan_year', 'usulan_year');
-        if($user->role_id == 3 || $user->role_id == 7 || $user->role_id == 4 || $user->role_id == 1){
+        if($user->role_id == 3 || $user->role_id == 7 || $user->role_id == 4 || $user->role_id == 1 || $user->role_id == 5 || $user->role_id == 6 || $user->role_id == 8 || $user->role_id == 9){
 			$this->layout = View::make('layouts.admin');
         } else {
         	$this->layout = View::make('layouts.master');

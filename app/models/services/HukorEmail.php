@@ -1,4 +1,3 @@
-
 <?php
 class HukorEmail {
     public function sendMail($subject, $to_email, $template, $data) {
@@ -23,4 +22,3 @@ class HukorEmail {
         });
     }
 }
-?>

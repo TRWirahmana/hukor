@@ -2,7 +2,6 @@
 @include('flash')
 
 <div class="rightpanel">
-
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
         <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
@@ -26,9 +25,6 @@
     </ul>
 
     <div class="pageheader">
-        <!--        <form action="results.html" method="post" class="searchbar">-->
-        <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
-        <!--        </form>-->
         <div class="pageicon">&nbsp;</div>
         <div class="pagetitle">
             <!--<h5>Events</h5>-->
@@ -41,7 +37,6 @@
         <div class="maincontentinner">
 
             <!-- MAIN CONTENT -->
-<!--            {{-- form informasi layanan kelembagaan --}}-->
             {{ Form::open($form_opts) }}
 
             <div class="row-fluid">
@@ -160,11 +155,8 @@
         <!--maincontentinner-->
     </div>
     <!--maincontent-->
-
-
 </div>
 <!--rightpanel-->
-
 @stop
 
 
@@ -173,7 +165,6 @@
 <script src="{{ asset('assets/lib/tinymce/tinymce.min.js') }}"></script>
 <script src="{{asset('assets/js/jquery.validate.js')}}"></script>
 <script src="{{asset('assets/js/additional-methods.js')}}"></script>
-
 <script src="{{asset('assets/js/registrasi.js')}}"></script>
 
 <script type="text/javascript">

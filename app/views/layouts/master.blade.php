@@ -115,7 +115,7 @@
 
             <li class="menu-header">Informasi</li>
               <li id="menu-beranda"><a href="#"><span class="rulycon-books"></span>Beranda</a></li>
-              <li id="menu-produk-hukum"><a href="#"><span class="rulycon-book"></span>Produk Hukum</a></li>
+              <li id="menu-produk-hukum"><a href="{{ URL::to('produkhukum') }}"><span class="rulycon-book"></span>Produk Hukum</a></li>
 
               <!-- Menu Layanan(Dinamisasi)-->
               <?php $menu = Menu::all();

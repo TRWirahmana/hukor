@@ -4,29 +4,23 @@ use Carbon\Carbon;
 
 class PelembagaanController extends BaseController {
 
-//    protected $layout = 'layouts.admin';
-
 	public function index()
 	{
-
 		$user = Auth::user();
 		
         if(Request::ajax())           
             return Datatables::of(DAL_Pelembagaan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
             
-        	 $statusUn = Pelembagaan::where('status', null)->count();
-        	 $statusPro = Pelembagaan::where('status', 1)->count();
-        	 $statusPerUU = Pelembagaan::where('status', 2)->count();
+      	$statusUn = Pelembagaan::where('status', 0)->count();
+        $statusPro = Pelembagaan::where('status', 1)->count();
+        $statusPerUU = Pelembagaan::where('status', 2)->count();
 
-	       	// $listTgl = array("" => "Semua") + Pelembagaan::select(array( DB::raw('DATE_FORMAT(tgl_usulan,"%Y") As usulan_year')))
-	        // 													->lists('usulan_year', 'usulan_year');
         if($user->role_id == 3 || $user->role_id == 7){
 			$this->layout = View::make('layouts.admin');
         } else {
         	$this->layout = View::make('layouts.master');
         }	    
-//	    $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user, 'status_belum' => $statusUn, 'status_proses' => $statusPro));		
-	    $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user));//, array( 'status_belum' => $statusUn, 'status_proses' => $statusPro));
+	    $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user, 'status_belum' => $statusUn, 'status_proses' => $statusPro));
 	}
 
     public function datatable()
@@ -43,8 +37,6 @@ class PelembagaanController extends BaseController {
 	public function show($id)
 	{
 		//
-		//$status = LogPelembagaan::where('status', null)->count();
-
 	}    
 
 	public function create()
@@ -53,7 +45,6 @@ class PelembagaanController extends BaseController {
 		$user = Auth::user();
 
 		$this->layout = View::make('layouts.master');
-
 		$this->layout->content = View::make('Pelembagaan.form', array(
 				'title' => 'Tambah Akun',
 				'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',
@@ -75,16 +66,16 @@ class PelembagaanController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+
 	public function edit($id)
 	{
 		if(Request::ajax())  
         	return Datatables::of(DAL_LogPelembagaan::getDataTable($id))->make(true);
 
 		$pelembagaan = Pelembagaan::find($id);
+		$user = Auth::user();
 
     	$this->layout = View::make('layouts.admin');
-
-		$user = Auth::user();
 
 		if(!is_null($pelembagaan))
 			if($user->role_id == 7){
@@ -106,8 +97,6 @@ class PelembagaanController extends BaseController {
 					'id' => $id,
 				));
 			}
-				
-
 	}
 
 	public function update() //$id)
@@ -121,20 +110,15 @@ class PelembagaanController extends BaseController {
 		$filename = $img->getClientOriginalName();
 		$uploadSuccess = $img->move($destinationPath, $filename);
 
-//		$pelembagaan->id_pengguna = $id;
-
 		$log_pelembagaan = new LogPelembagaan();
 		$log_pelembagaan->status = Input::get('status');
-
 		$pelembagaan->status = $log_pelembagaan->status;
 		$log_pelembagaan->catatan = Input::get('catatan');
 		$log_pelembagaan->keterangan = Input::get('keterangan');
 		$log_pelembagaan->lampiran = $filename;
-
 		$log_pelembagaan->pelembagaan_id = $id;
         $log_pelembagaan->tgl_proses = Carbon::now();
 		$log_pelembagaan->save();
-
 
 		// kirim usulan ke bagian per-uu
 		if($pelembagaan->status == 2){
@@ -146,10 +130,8 @@ class PelembagaanController extends BaseController {
             $perUU->tgl_usulan = new DateTime;
           	// status kirim dari bagian pelembagaan
             $perUU->status = 1;
-
         
             if($perUU->save()){
-
             	$penanggungJawabPelembagaan = DAL_PenanggungJawabPelembagaan::getDataTable($id);
 
             	$penanggungJawab = new PenanggungJawabPerUU();
@@ -179,11 +161,9 @@ class PelembagaanController extends BaseController {
 						'perihal' => Input::get('perihal'),
 						'status' => $pelembagaan->getStatus(Input::get('status'))
 					);
-
-					// kirim email user... 
 					Mail::send('emails.reppelembagaan', $data, function($message) use ($user)
 					{
-						$message->to(array('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com')); 
+						$message->to(array($penanggungJawabPelembagaan[0]->email)); 
 						$message->subject('Re: Usulan Pelembagaan telh di redirect ke bagian per UU');
 					});
             }
@@ -197,7 +177,7 @@ class PelembagaanController extends BaseController {
 			'status' => $pelembagaan->getStatus(Input::get('status'))
 		);
 
-		// kirim email user... 
+		// kirim email user 
 		Mail::send('emails.reppelembagaan', $data, function($message) use ($user)
 		{
 			$message->to(array('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com')); 
@@ -243,7 +223,6 @@ class PelembagaanController extends BaseController {
 			  $message->subject('Usulan Pelembagaan');
 			});
 
-
 		if($uploadSuccess) {
 			if($pelembagaan->save()) {
 		     	$penanggungJawab = new PenanggungJawabPelembagaan();
@@ -270,8 +249,6 @@ class PelembagaanController extends BaseController {
 		Session::flash('success', 'Data berhasil dikirim.');
 		return Redirect::to('pelembagaan/usulan');
 	}
-
-
 
 	public function destroy($id)
 	{
@@ -322,10 +299,4 @@ class PelembagaanController extends BaseController {
 		$pdf->render();
 		$pdf->stream("pelembagaan.pdf");
 	}
-
-
-
-
-
-
 }

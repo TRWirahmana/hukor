@@ -1,13 +1,11 @@
 @section('admin')
 
 <div class="rightpanel">
-
 <ul class="breadcrumbs">
         <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
         <li><a href="{{URL::previous()}}">Berita</a>  <span class="separator"></span></li>
         <li>Call Center</li>
 </ul>
-
     <div class="pageheader">
         <div class="pageicon">&nbsp;</div>
         <div class="pagetitle">
@@ -18,9 +16,7 @@
 
  <div class="maincontent">
  @include('flash')
-
         <div class="maincontentinner">
-
             <!-- MAIN CONTENT -->
             {{ Form::open($form_opts ) }}
 
@@ -34,7 +30,6 @@
                         @else
                             {{ Form::text('email') }}
                         @endif
-
                         </div>
                     </div>
                     <div class="control-group">
@@ -45,7 +40,6 @@
                         @else
                             {{ Form::text('alamat') }}
                         @endif
-
                         </div>
                     </div>
                     <div class="control-group">
@@ -76,7 +70,6 @@
                     </div>
                 </div>
             </div>
-
             {{ Form::close() }}
 
             <div class="footer">
@@ -90,7 +83,6 @@
             <!--footer-->
         </div>
 </div>   
-
 
 
 @section('scripts')
@@ -114,7 +106,6 @@
         theme_advanced_buttons3 : "",
         height:"350px"
     });
-//    Berita.Form();
 </script>
 @stop
 @stop

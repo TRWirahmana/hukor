@@ -36,8 +36,8 @@ class BantuanHukumController extends BaseController{
             $data = $reg->findPengguna($user->id);
 
             // show form with empty model
-            $this->layout = View::make('layouts.admin');
-            $this->layout->content = View::make('bantuanhukum.form', array(
+            $this->layout = View::make('layouts.master');
+            $this->layout->content = View::make('BantuanHukum.form', array(
                 'user' => $data
             ));
         }
@@ -88,7 +88,8 @@ class BantuanHukumController extends BaseController{
         $banhuk = $DAL->GetSingleBantuanHukum($id);
 
         // show form with empty model
-        $this->layout->content = View::make('bantuanhukum.detail', array(
+        $this->layout  = View::make("layouts.master");
+        $this->layout->content = View::make('BantuanHukum.detail', array(
             'banhuk' => $banhuk
         ));
     }

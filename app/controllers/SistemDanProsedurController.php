@@ -55,10 +55,10 @@ class SistemDanProsedurController extends BaseController {
                         'user' => Auth::user(),
                         'data' => $sistemDanProsedur
                     );
-                    Mail::send('emails.usulanbaru', $data, function($message) {
+                    Mail::send('Ketatalaksanaan.emailUsulanBaru', $data, function($message) {
                         // admin email (testing)
                         $message->to('egisolehhasdi@gmail.com', 'egisolehhasdi@gmail.com')
-                                ->subject('Usulan Baru Peraturan Perundang-Undangan');
+                                ->subject('Usulan Baru Sistem dan Prosedur');
                     });
 
                     Session::flash('success', 'Data berhasil dikirim.');

@@ -162,6 +162,8 @@ class LoginController extends BaseController
 
 
         $user = Auth::user();
+        $user->last_active = new DateTime('now');
+        $user->save();
 
         if($user->role_id ==2){
             Auth::logout();

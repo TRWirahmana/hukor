@@ -51,4 +51,6 @@ class Pelembagaan extends Eloquent {
                 break;
         }
     }
+
+  
 }

@@ -83,7 +83,7 @@ var Layanan = (function(LAY) {
         });
 
         function getSubmenu(menu_id) {
-            jQuery.getJSON(baseUrl + "/admin/submenu", {menu_id: menu_id}, function(data) {
+            jQuery.getJSON(baseUrl + "/admin/submenus", {menu_id: menu_id}, function(data) {
                 jQuery("#submenu")
                     .empty()
                     .append(jQuery("<option></option>", {

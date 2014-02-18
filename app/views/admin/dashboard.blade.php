@@ -23,6 +23,7 @@
         <div class="maincontentinner">
 
             <!-- MAIN CONTENT -->
+            @include('informasiUsulan');
             <div id="line-chart"></div>
             <hr>
             <form id="form-filter" class="form form-horizontal" action="{{URL::route('admin.cetakLaporan')}}">

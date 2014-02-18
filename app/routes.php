@@ -102,7 +102,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::post('SubmitLayanan', 'LayananController@submit');
 
     Route::get('create_layanan', 'LayananController@create');
-    Route::get('submenu', 'LayananController@submenu');
+    Route::get('submenus', 'LayananController@submenu');
     Route::get('index_layanan', 'LayananController@index');
 
 // call center
@@ -119,7 +119,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
         Route::get('download/{id}', "PeruuController@downloadLampiran");
         Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
         Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
-        Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
+        Route::get('print', array('as' => 'admin.per_uu.print', 'uses' => 'PeruuController@printTable'));
     });
 
     Route::group(array("prefix" => "ketatalaksanaan"), function() {
@@ -160,6 +160,29 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('index_menu', 'MenuController@index');
     Route::get('setting_menu', 'MenuController@setting');
     Route::put('setting/save', 'MenuController@save');
+
+    Route::group(array("prefix" => "bantuan_hukum"), function(){
+        Route::resource('bantuan_hukum', 'BantuanHukumController');
+        Route::get('/', 'BantuanHukumController@index');
+        Route::get('tabelbahu', 'BantuanHukumController@datatable');
+    Route::get('log_banhuk', 'BantuanHukumController@tablelog');
+    Route::get('addbahu', 'BantuanHukumController@add');
+    Route::get('detail_banhuk', 'BantuanHukumController@detail');
+    Route::get('delete_banhuk', 'BantuanHukumController@delete');
+    Route::get('delete_log_banhuk', 'BantuanHukumController@deletelog');
+    Route::post('save', 'BantuanHukumController@save');
+    Route::post('convertpdf', 'BantuanHukumController@convertpdf');
+    Route::post('banhuk_update', 'BantuanHukumController@update');
+    Route::get('download_banhuk', 'BantuanHukumController@download');
+    Route::get('log_banhuk', 'BantuanHukumController@tablelog');
+    });
+
+    //Managemen Submenu
+    Route::resource('submenu', 'SubmenuController');
+    Route::get('create_submenu', 'SubmenuController@create');
+    Route::get('index_submenu', 'SubmenuController@index');
+    Route::get('setting_submenu', 'SubmenuController@setting');
+    Route::put('settings/save', 'SubmenuController@save');
 });
 
 //pengaturan route Kepala Biro sisi ADMIN
@@ -286,7 +309,7 @@ Route::group(array('prefix' => 'per_uu', 'before' => 'auth|per_uu'), function() 
         Route::get('download/{id}', "PeruuController@downloadLampiran");
         Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
         Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
-        Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
+        Route::get('print', array('as' => 'per_uu.print', 'uses' => 'PeruuController@printTable'));
     }
 });
 
@@ -394,13 +417,18 @@ Route::group(array('prefix' => 'admin/layananketatalaksanaan', 'before' => 'auth
 Route::group(array('prefix' => 'per-uu'), function() {
     Route::get('usulan', array('as' => 'pengajuan_per_uu', 'uses' => 'PeruuController@pengajuanUsulan'));
     Route::post('usulan', array('as' => 'proses_pengajuan', 'uses' => 'PeruuController@prosesPengajuan'));
+    Route::get('informasi', array('as' => 'per_uu.informasi', 'uses' => 'PeruuController@informasi'));
 });
 
 Route::group(array('prefix' => "ketatalaksanaan"), function(){
     Route::get('usulanSistemProsedur', array("as" => "usulan_sistem_prosedur", "uses" => "SistemDanProsedurController@usulanSistemProsedur"));
     Route::post('usulanSistemProsedur', array("as" => "proses_usulan_sistem_prosedur", "uses" => "SistemDanProsedurController@prosesUsulanSistemProsedur"));
+    Route::get('informasiSistemProsedur', array("as" => "informasi_sistem_prosedur", "uses" => "SistemDanProsedurController@informasi"));
     Route::get('usulanAnalisisJabatan', array("as" => "usulan_analisis_jabatan", "uses" => "AnalisisJabatanController@usulan"));
     Route::post('usulanAnalisisJabatan', array("as" => "proses_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUsulan"));
+    Route::get('informasiAnalisisJabatan', array("as" => "informasi_analisis_jabatan", "uses" => "AnalisisJabatanController@informasi"));
+    Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "SistemDanProsedurController@downloadSistemDanProsedur"));
+    Route::get('analisisJabatan/download/{id}', "AnalisisJabatanController@downloadLampiran");
 });
 
 
@@ -445,4 +473,12 @@ Route::group(array("prefix" => "kepala_bagian", "before" => "auth|kepala_bagian"
     Route::get('setting', 'AdminController@setting');
     Route::put('setting/save', 'AdminController@save');
     Route::get('cetakLaporan', array('as' => 'admin.cetakLaporan', 'uses' => 'AdminController@cetakLaporan'));
+
+    Route::get('per_uu', array('as' => 'kepala_bagian.per_uu', 'uses' => 'PeruuController@index'));
+    Route::get('per_uu/print', array('as' => 'kepala_bagian.per_uu.print', 'uses' => 'PeruuController@printTable'));
+    Route::get('per_uu/download/{id}', "PeruuController@downloadLampiran");
+
+    Route::get('pelembagaan', array("as" => "kepala_bagian.pelembagaan", 'uses' => "PelembagaanController@index"));
+    Route::get('pelembagaan/print', array("as" => "kepala_bagian.pelembagaan.print", "uses" => "PelembagaanController@printTable"));
+    Route::get('{id}/download', array('as' => 'kepala_bagian.pelembagaan.downloadLampiran', 'uses' => 'PelembagaanController@downloadLampiran'));
 });

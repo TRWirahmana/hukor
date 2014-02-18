@@ -5,6 +5,8 @@ jQuery(document).ready(function(e){
     };
     dom.$table_news.dataTable({
         bServerSide: true,
+        bProcessing: true,
+        bPaginate: true,
         sAjaxSource: document.URL,
         aoColumns: [
             {
@@ -30,7 +32,7 @@ jQuery(document).ready(function(e){
         },
         fnDrawCallback: function() {
 
-            dom.$table_news.fnSetColumnVis( 5,  role == 3 );
+//            dom.$table_news.fnSetColumnVis( 5,  role == 3 );
         }
     });
 

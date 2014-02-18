@@ -16,7 +16,7 @@
         <div class="pagetitle">
             <!--<h5>Events</h5>-->
 
-            <h1>Informasi Layanan</h1>
+            <h1></h1>
         </div>
     </div>
     <!--pageheader-->
@@ -26,7 +26,8 @@
 
             <!-- MAIN CONTENT -->
             <!--            {{-- form informasi layanan kelembagaan --}}-->
-            {{ Form::open(array('action' => array('LayananController@submit'), 'method' => 'post', 'id'=>'layanan-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', 'enctype' => "multipart/form-data" )) }}
+            {{ Form::open($form_opts) }}
+<!--            {{ Form::open(array('action' => array('LayananController@submit'), 'method' => 'post', 'id'=>'layanan-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', 'enctype' => "multipart/form-data" )) }}-->
             <div class="row-fluid">
                 <!--            left content-->
                 <div class="span24">
@@ -35,27 +36,31 @@
                     </div>
 
                     <div class="span24">
-                        <div class="control-group">
-                            {{ Form::label('menu', 'Pilih Menu', array('class' => 'control-label')) }}
-                            <div class="controls">
-                                {{ Form::select('layanan[menu]', $listMenu, null , array("id" => "menu")) }}
+                            <div class="control-group">
+                                {{ Form::label('menu', 'Pilih Menu', array('class' => 'control-label')) }}
+                                <div class="controls">
+                                    {{ Form::select('layanan[menu]', $listMenu, $menu->submenu->menu->id , array("id" => "menu")) }}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="control-group">
-                            {{ Form::label('submenu', 'Pilih Submenu', array('class' => 'control-label')) }}
-                            <div class="controls">
-<!--                                {{ Form::select('layanan[submenu]', $listSubmenu, null , array("id" => "submenu")) }}-->
-                                <select name="layanan[submenu]" id="submenu">
-                                </select>
+                            <div class="control-group">
+                                {{ Form::label('submenu', 'Pilih Submenu', array('class' => 'control-label')) }}
+                                <div class="controls">
+                                    @if(!is_null($menu))
+                                    {{ Form::select('layanan[submenu]', $listSubmenu, $menu->submenu->id , array("id" => "submenu")) }}
+                                    @else
+
+                                    <select name="layanan[submenu]" id="submenu">
+                                    </select>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
                         <div class="control-group {{$errors->has('berita')?'error':''}}">
                             {{ Form::label('berita', 'Informasi / Berita', array('class' => 'control-label')) }}
                             <div class="controls">
-                                @if(!is_null($info))
-                                {{ Form::textarea('layanan[berita]', $menu->submenu->layanan->berita,
+                                @if(!is_null($menu))
+                                {{ Form::textarea('layanan[berita]', $menu->berita,
                                 array('placeholder' => 'ketikkan Informasi atau berita anda di sini...', 'id' => 'berita'))
                                 }}
                                 @else
@@ -74,8 +79,8 @@
                         <div class="control-group {{$errors->has('penanggung_jawab')?'error':''}}">
                             {{ Form::label('penanggung_jawab', 'Unit Penanggung Jawab', array('class' => 'control-label')) }}
                             <div class="controls">
-                                @if(!is_null($info))
-                                {{Form::text('layanan[penanggung_jawab]', $menu->submenu->layanan->penanggung_jawab,
+                                @if(!is_null($menu))
+                                {{Form::text('layanan[penanggung_jawab]', $menu->penanggung_jawab,
                                 array('placeholder' => 'ketikkan unit penanggungjawab di sini...'))
                                 }}
                                 @else
@@ -114,7 +119,7 @@
 
                 <div class="footer">
                     <div class="footer-left">
-                        <span>&copy; 2013. Admin Template. All Rights Reserved.</span>
+                        <span>&copy; 2014. Admin Template. All Rights Reserved.</span>
                     </div>
                     <div class="footer-right">
                         <span></span>
@@ -162,12 +167,12 @@
         });
 
     </script>
-    <style>
-        .leftmenu .nav-tabs.nav-stacked > li.dropdown ul {
-            display: block !important;
-        }
-        #produkhukum, #ketatalaksanaan, #bahu, #puu, #diskusi, #callcenter, #app, #manage, #info {
-            display: none !important;
-        }
-    </style>
+<!--    <style>-->
+<!--        .leftmenu .nav-tabs.nav-stacked > li.dropdown ul {-->
+<!--            display: block !important;-->
+<!--        }-->
+<!--        #produkhukum, #ketatalaksanaan, #bahu, #puu, #diskusi, #callcenter, #app, #manage, #info {-->
+<!--            display: none !important;-->
+<!--        }-->
+<!--    </style>-->
     @stop

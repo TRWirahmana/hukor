@@ -3,7 +3,8 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li>Kelola Menu</li>
+        <li><a href="{{URL::previous()}}">Manage Menu <span class="separator"></span></li>
+        <li>Kelola Submenu</li>
     </ul>
     @include('adminflash')
     <div class="pageheader">
@@ -14,7 +15,7 @@
         <div class="pagetitle">
             <!--<h5>Events</h5>-->
 
-            <h1>Kelola Menu</h1>
+            <h1>Kelola Submenu</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -27,21 +28,21 @@
 
             <form class="form-inline">
                 <fieldset>
-                    <legend><a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/create_menu')}}">Tambah Menu Baru</a></legend>
-<!--                    <label for="select_role" class="control-label">Tipe Pengguna</label>-->
-<!--                    <select id="select_role">-->
-<!--                        <option value="0">Semua User</option>-->
-<!--                        <option value="2">User</option>-->
-<!--                        <option value="3">Admin</option>-->
-<!--                    </select>-->
+                    <legend><a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/create_submenu')}}">Tambah Submenu Baru</a></legend>
+                    <!--                    <label for="select_role" class="control-label">Tipe Pengguna</label>-->
+                    <!--                    <select id="select_role">-->
+                    <!--                        <option value="0">Semua User</option>-->
+                    <!--                        <option value="2">User</option>-->
+                    <!--                        <option value="3">Admin</option>-->
+                    <!--                    </select>-->
                 </fieldset>
             </form>
 
-            <table id="table_menu" class="table">
+            <table id="table_submenu" class="table">
                 <thead>
                 <tr>
                     <td>Nama Menu</td>
-<!--                    <td>Sub Menu</td>-->
+                    <td>Sub Menu</td>
                     <td></td>
                 </tr>
                 </thead>
@@ -69,7 +70,7 @@
 
 @section('scripts')
 @parent
-<script src="{{asset('assets/js/management_menu.js')}}"></script>
+<script src="{{asset('assets/js/management_submenu.js')}}"></script>
 <!--<style>-->
 <!--    .leftmenu .nav-tabs.nav-stacked > li.dropdown ul {-->
 <!--        display: block !important;-->

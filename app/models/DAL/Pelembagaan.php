@@ -54,6 +54,21 @@ class DAL_Pelembagaan {
                 ->groupBy(DB::raw("bulan.nama"))
                 ->orderBy("bulan.id");
     }
+
+    public static function getTotalCount() {
+        return  Pelembagaan::count();
+    }
+
+    public static function getUnreadCount() {
+        $lastActive = Auth::user()->last_active;
+        $count = Pelembagaan::where("tgl_usulan", ">=", $lastActive)->count();
+        return $count;
+    }
+
+    public static function getTodayCount() {
+        $count = Pelembagaan::where(DB::raw("DATE(tgl_usulan)"), "=", DB::raw("DATE(NOW())"))->count();
+        return $count;
+    }
 }
 
 

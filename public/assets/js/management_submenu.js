@@ -1,6 +1,6 @@
 jQuery(document).ready(function(e){
     var dom = {
-        $table_news: jQuery("#table_layanan")
+        $table_news: jQuery("#table_submenu")
 
     };
     dom.$table_news.dataTable({
@@ -19,8 +19,8 @@ jQuery(document).ready(function(e){
             {
                 mData: "id",
                 mRender: function(id) {
-                    return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
-                        + "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/admin/layanan/"+id+"'>"
+                    return "<a href='"+baseUrl+"/admin/submenu/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
+                        + "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/admin/submenu/"+id+"'>"
                         + "<i class='icon-trash'></i></a>";
                 }
             }

@@ -27,7 +27,7 @@
             <!-- MAIN CONTENT -->
 
             <div class="content-non-title">
-                <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_table')}}">
+                <form id="form-filter" class="form form-horizontal" action="{{$printUrl}}">
                     <fieldset>
                         <legend class="f_legend">Filter</legend>
                         <div class="row-fluid">
@@ -194,9 +194,12 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            return "<a href='per_uu/download/" + data + "'><i class='icon-download'></i></a> " +
-                                    "<a href='per_uu/update_per_uu/" + data + "'><i class='icon-edit'></i></a> " +
-                                    "<a class='delete' href='javascript:void(0)' data-id='" + data + "'><i class='icon-trash'></i></a>";
+                            var btns = new Array("<a href='per_uu/download/" + data + "'><i class='icon-download'></i></a> ");
+                            if(all._role_id == 3 || all._role_id == 6) {
+                                btns.push("<a href='per_uu/update_per_uu/" + data + "'><i class='icon-edit'></i></a> "); 
+                                btns.push("<a class='delete' href='javascript:void(0)' data-id='" + data + "'><i class='icon-trash'></i></a>");   
+                            }
+                            return  btns.join("&nbsp;");
                         }
                     }
                 ],

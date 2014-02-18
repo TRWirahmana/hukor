@@ -379,18 +379,13 @@ class RegistrasiController extends BaseController {
     }
 
     public function form(){
-//        $regid = Auth::user()->pengguna->id;
-//
-//        $registrasi = Pengguna::find($regid)->where('user_id', Auth::user()->id)->first();
 
         $this->layout->content = View::make('registrasi.form', array(
-//            'date' => RetaneHelper::listDate(),
-//            'month' => RetaneHelper::listMonth(),
-//            'year' => RetaneHelper::listYear(date('Y') - 55, date('Y') - 15),
-//            'user' => $registrasi
+//            'date' => RetaneHelper::listDate()
         ));
     }
 
+    //function for generate captcha
     public function captcha(){
         session_start();
 
@@ -406,7 +401,7 @@ class RegistrasiController extends BaseController {
 
         $image = imagecreatetruecolor(165, 50);
 
-// random number 1 or 2
+        // random number 1 or 2
         $num = rand(1,2);
         if($num==1)
         {
@@ -435,6 +430,8 @@ class RegistrasiController extends BaseController {
 
         header("Content-type: image/png");
         imagepng($image);
+//        return $string;
+
     }
 
     public function lihatLampiran() {

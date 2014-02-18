@@ -36,4 +36,19 @@ class DAL_AnalisisJabatan {
         ->orderBy('tgl_proses', 'desc ');
         return $data;
     }
+
+     public static function getTotalCount() {
+        return  AnalisisJabatan::count();
+    }
+
+    public static function getUnreadCount() {
+        $lastActive = Auth::user()->last_active;
+        $count = AnalisisJabatan::where("tgl_usulan", ">=", $lastActive)->count();
+        return $count;
+    }
+
+    public static function getTodayCount() {
+        $count = AnalisisJabatan::where(DB::raw("DATE(tgl_usulan)"), "=", DB::raw("DATE(NOW())"))->count();
+        return $count;
+    }
 }

@@ -15,7 +15,7 @@ class PelembagaanController extends BaseController {
         $statusPro = Pelembagaan::where('status', 1)->count();
         $statusPerUU = Pelembagaan::where('status', 2)->count();
 
-        if($user->role_id == 3 || $user->role_id == 7){
+        if($user->role_id == 3 || $user->role_id == 7 || $user->role_id == 4){
 			$this->layout = View::make('layouts.admin');
         } else {
         	$this->layout = View::make('layouts.master');

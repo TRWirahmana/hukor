@@ -47,6 +47,8 @@
 
   <script type="text/javascript">
     var baseUrl = '{{ URL::to('/') }}';
+
+//      alert(baseUrl);
   </script>
 
 </head>
@@ -63,12 +65,11 @@
 
         @if($user != null)
         <p id="username" class="welcome-message user-not-null"><span>Selamat datang, <span id="name"><?php echo $user->pengguna->nama_lengkap; ?></span></span></p>
-        @if($user != null)
+
         <ul class="welcome-message user-not-null-links">
           <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span>User settings</a></li>
           <li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span>Sign out</a></li>
         </ul>
-        @endif
         @else
         <p id="username" class="welcome-message">Selamat datang <span id="name">guest</span></p>
           @if($user == null)
@@ -116,7 +117,8 @@
             <li class="menu-header">Informasi</li>
               <li id="menu-beranda"><a href="#"><span class="rulycon-books"></span>Beranda</a></li>
               <li id="menu-produk-hukum"><a href="{{ URL::to('produkhukum') }}"><span class="rulycon-book"></span>Produk Hukum</a></li>
-
+              <li id="menu-beranda"><a href="{{URL::to('/')}}"><span class="rulycon-books"></span>Beranda</a></li>
+              <li id="menu-produk-hukum"><a href="#"><span class="rulycon-book"></span>Produk Hukum</a></li>
               <!-- Menu Layanan(Dinamisasi)-->
               <?php $menu = Menu::all();
 //              echo $menu;exit;
@@ -137,7 +139,11 @@
                                   <div class="accordion-inner">
                                       <ul>
                                           @foreach($menus->submenu as $submenus)
-                                          <li><a href="{{ URL::to('/layanan/detail?id='. $submenus->layanan->id .'') }}"><span class="rulycon-earth"></span> {{ $submenus->nama_submenu }}</a></li>
+                                              @if($submenus->layanan->id != null)
+                                                <li><a href="{{ URL::to('/layanan/detail?id='. $submenus->layanan->id .'') }}"><span class="rulycon-earth"></span> {{ $submenus->nama_submenu }}</a></li>
+                                              @else
+                                                <li><a href="#"><span class="rulycon-earth"></span> {{ $submenus->nama_submenu }}</a></li>
+                                              @endif
                                           @endforeach
                                       </ul>
                                   </div>
@@ -171,7 +177,10 @@
                   <div id="collapse3" class="accordion-body collapse">
                     <div class="accordion-inner">
                       <ul>
-                        <li id="menu-peruu-usulan"><a href="{{ URL::route('pengajuan_per_uu')  }}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan</a></li>
+                          <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=1') }}"><span class="rulycon-checkbox-unchecked"></span>Peraturan Perundang-Undangan</a></li>
+                          @if($user->role_id == 2)
+                          <li id="menu-peruu-usulan"><a href="{{ URL::route('pengajuan_per_uu')  }}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan</a></li>
+                          @endif
                         <li id="menu-peruu-informasi"><a href="#"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
                       </ul>
                     </div>
@@ -193,8 +202,11 @@
                   <div id="collapse5" class="accordion-body collapse">
                     <div class="accordion-inner">
                       <ul>
+                          <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=2') }}"><span class="rulycon-checkbox-unchecked"></span>Pelembagaan</a></li>
+                        @if($user->role_id == 2)
                         <li id="menu-pelembagaan-usulan"><a href="{{URL::route('create_pelembagaan')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan</a></li>
-                        <li id="menu-pelembagaan-informasi"><a href="{{ URL::route('informasi_pelembagaan') }}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
+                        @endif
+                          <li id="menu-pelembagaan-informasi"><a href="{{ URL::route('informasi_pelembagaan') }}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
                       </ul>
                     </div>
                   </div>
@@ -216,20 +228,20 @@
                       <ul>
                         <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_sistem_prosedur')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan Sistem dan Prosedur</a></li>
                         <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_analisis_jabatan')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan Analisis Jabatan</a></li>
-                        <li id="menu-pelembagaan-informasi"><a href="#"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
+                        <li id="menu-pelembagaan-informasi"><a href="{{URL::route('informasi_sistem_prosedur')}}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan Sistem dan Prosedur</a></li>
+                        <li id="menu-pelembagaan-informasi"><a href="{{URL::route('informasi_analisis_jabatan')}}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan Analisis Jabatan</a></li>
                       </ul>
                     </div>
                   </div>
                 </div>
               </div>
             </li>
-            
 
-
-
-
-
-            <li id="menu-bantuan-hukum"><a href="{{URL::to('BantuanHukum')}}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>
+              @if($user->role_id == 2)
+            <li id="menu-bantuan-hukum"><a href="{{ URL::to('BantuanHukum') }}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>
+              @else
+              <li id="menu-bantuan-hukum"><a href="{{ URL::to('/layanan/detail?id=3') }}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>
+              @endif
           </ul>
         </div>
         <h6 id="copyright">© 2014 Direktorat Jenderal Kebudayaan Republik Indonesia</h6>

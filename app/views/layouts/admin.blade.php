@@ -65,6 +65,11 @@
             <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
             @endif
 
+            @if($user->role_id == 4)
+                 <li id="beranda"><a href="{{URL::to('kepala_biro/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
+                <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
+            @endif
+
             <!-- Admin PERUU-->
             @if($user->role_id == 6)
             <li id="beranda"><a href="{{URL::to('per_uu/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
@@ -193,6 +198,32 @@
                 <!-- end list-->
                 @endif
 
+                @if($user->role_id == 4)
+                    <li class="dropdown" >
+                    <ul id="app">
+                        <li id="app_puu"><a href="{{ URL::route('kepala_bagian.per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
+                            <!-- <ul>
+                                <li><a href="#">Lembar Usulan</a></li>
+                                <li><a href="#">Informasi & Status usulan</a></li>
+                            </ul> -->
+                        </li>
+                        <li id="app_pelembagaan" ><a href="{{ URL::route('kepala_bagian.pelembagaan') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a>
+                            <!-- <ul>
+                                <li><a href="#">Lembar Usulan</a></li>
+                                <li><a href="#">Informasi & Status usulan</a></li>
+                            </ul> -->
+                        </li>
+                        <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>
+                            <ul>
+                                <li><a href="#">Lembar Permohonan</a></li>
+                                <li><a href="#">Informasi Perkara</a></li>
+                            </ul>
+                        </li>
+<!--                        <li id="app_internal"><a href="#"><span class="iconfa-envelope"></span> Aplikasi Internal</a></li>-->
+                    </ul>
+                </li>
+                @endif
+
 <!--                ADMIN RULES-->
                 @if($user->role_id == 3)
                 <!-- list aplikasi-->
@@ -216,11 +247,11 @@
                                 <li><a href="{{URL::route('index_analisis_jabatan')}}">Analisis Jabatan</a></li>
                             </ul>
                         </li>
-                        <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>
-                            <ul>
-                                <li><a href="#">Lembar Permohonan</a></li>
-                                <li><a href="#">Informasi Perkara</a></li>
-                            </ul>
+                        <li id="app_bahu"><a href="{{ URL::to('admin/bantuan_hukum') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
+<!--                            <ul>-->
+<!--                                <li><a href="#">Lembar Permohonan</a></li>-->
+<!--                                <li><a href="#">Informasi Perkara</a></li>-->
+<!--                            </ul>-->
                         </li>
 <!--                        <li id="app_internal"><a href="#"><span class="iconfa-envelope"></span> Aplikasi Internal</a></li>-->
 <li id="app_forum">
@@ -255,7 +286,9 @@
                 <li class="dropdown">
                     <ul id="manage-menu">
                         <li id="menu"><a href="{{URL::to('admin/index_menu')}}"><span class="iconfa-laptop"></span> Kelola Menu</a></li>
+                        <li id="kelola_submenu"><a href="{{URL::to('admin/index_submenu')}}"><span class="iconfa-laptop"></span> Kelola Submenu</a></li>
                         <li id="layanan"><a href="{{URL::to('admin/layanan')}}"><span class="iconfa-laptop"></span> Kelola Konten Layanan</a></li>
+                        <li id="layanan"><a href="{{URL::to('admin/editcallcenter')}}"><span class="iconfa-laptop"></span> Kelola Call Center</a></li>
                     </ul>
                 </li>
                 @endif
@@ -303,10 +336,10 @@
                 <li class="dropdown" >
                     <ul id="app">
                         <li id="app_bahu" class="dropdown"><a href=""><span class="iconfa-signal"></span> Bantuan Hukum</a>
-                            <ul>
-                                <li><a href="#">Lembar Permohonan</a></li>
-                                <li><a href="#">Informasi Perkara</a></li>
-                            </ul>
+<!--                            <ul>-->
+<!--                                <li><a href="#">Lembar Permohonan</a></li>-->
+<!--                                <li><a href="#">Informasi Perkara</a></li>-->
+<!--                            </ul>-->
                         </li>
                     </ul>
                 </li>

@@ -1,34 +1,27 @@
 jQuery(document).ready(function(e){
     var dom = {
-        $table_news: jQuery("#table_news")
+        $table_news: jQuery("#table_submenu")
 
     };
     dom.$table_news.dataTable({
         bServerSide: true,
+        bFilter:false,
         bProcessing: true,
         bPaginate: true,
         sAjaxSource: document.URL,
         aoColumns: [
             {
-                mData: "judul"
+                mData: "nama_menu"
             },
             {
-                mData: "nama_kategori"
-            },
-            {
-                mData: "tgl_penulisan"
+                mData: "nama_submenu"
             },
             {
                 mData: "id",
                 mRender: function(id) {
-                    if(role == 3){
-                        return "<a href='"+baseUrl+"/admin/berita/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
-                            + "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/admin/berita/"+id+"'>"
-                            + "<i class='icon-trash'></i></a>";
-                    }else{
-                        return null;
-                    }
-
+                    return "<a href='"+baseUrl+"/admin/submenu/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
+                        + "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/admin/submenu/"+id+"'>"
+                        + "<i class='icon-trash'></i></a>";
                 }
             }
         ],
@@ -36,8 +29,8 @@ jQuery(document).ready(function(e){
             aoData.push({name: "filter", value: 1});
         },
         fnDrawCallback: function() {
-//            var role = '<?php echo Auth::user()->role_id; ?>' ;
-//            dom.$table_news.fnSetColumnVis( 2,  role == 3 );
+
+//            dom.$table_news.fnSetColumnVis( 3,  (dom.$select_role.val() == 0 || dom.$select_role.val() == 3 || dom.$select_role.val() == 2));
         }
     });
 

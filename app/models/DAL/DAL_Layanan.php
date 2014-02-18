@@ -49,7 +49,7 @@ class DAL_Layanan {
         $data = Layanan::leftJoin('sub_menu', 'layanan.submenu_id', '=', 'sub_menu.id')
         ->leftJoin('menu', 'layanan.menu_id', '=', 'menu.id')
             ->select(array(
-                'menu.id',
+                'layanan.id',
                 'menu.nama_menu'
             ,'sub_menu.nama_submenu'
             ));

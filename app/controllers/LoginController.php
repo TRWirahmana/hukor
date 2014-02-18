@@ -98,14 +98,25 @@ class LoginController extends BaseController
                     if($user->role_id != 2){
                         switch ($user->role_id) {
 
+
+
+                            case 1:
+                                Session::flash('success', 'Selamat datang ' . $user->username . ' !');
+                                return Redirect::to('/kepala_biro/Home');
+                                break;
+
                             case 3:
                                 Session::flash('success', 'Selamat datang admin!');
                                 return Redirect::to('/admin/Home');
                                 break;
 
-                            case 1:
+                            case 4:
                                 Session::flash('success', 'Selamat datang ' . $user->username . ' !');
-                                return Redirect::to('/kepala_biro/Home');
+                                return Redirect::to('/kepala_bagian');
+                                break;
+                            case 5:
+                                Session::flash('success', 'Selamat datang ' . $user->username . ' !');
+                                return Redirect::to('/kepala_subbagian');
                                 break;
 
                             case 6:
@@ -126,10 +137,7 @@ class LoginController extends BaseController
                                 Session::flash('success', 'Selamat datang ' . $user->username . ' !');
                                 return Redirect::to('/ketatalaksanaan/Home');
                                 break;
-                            case 4:
-                                Session::flash('success', 'Selamat datang ' . $user->username . ' !');
-                                return Redirect::to('/kepala_bagian');
-                                break;
+
                             default:
                                 return Redirect::to('/admin/');
                                 break;

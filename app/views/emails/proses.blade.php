@@ -31,7 +31,6 @@
                 break;
         }
         ?>
-        ?>
         <td>: {{ $jenis_perkara }}</td>
     </tr>
     <tr>

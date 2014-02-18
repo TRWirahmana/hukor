@@ -57,6 +57,12 @@ Route::filter("kepala_bagian", function(){
 		App::abort(404, "Page Not Found.");
 });
 
+Route::filter("kepala_subbagian", function(){
+    $user = Auth::user();
+    if($user->role_id != "5")
+        App::abort(404, "Page Not Found.");
+});
+
 Route::filter('ketatalaksanaan', function(){
     $user = Auth::user();
     if($user->role_id != "9")

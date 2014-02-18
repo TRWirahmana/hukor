@@ -16,7 +16,6 @@
             <div>Jenis Usulan   : {{ $jenis_usulan }} </div>  
 
             Mohon Segera ditindaklanjuti...
-                http://localhost:8000/pelembagaan/33/edit
             Terima Kasih
         </div>
     </body>

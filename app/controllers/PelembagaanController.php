@@ -150,7 +150,8 @@ class PelembagaanController extends BaseController {
                         'user' => Auth::user(),
                         'perUU' => $perUU
                     );
-                    Mail::send('emails.usulanbaru', $data, function($message) {
+
+                    Mail::send('emails.usulanbaru', $data, function($message) use($perUU) {
                         // admin email (testing)
                         $message->to('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com')
                                 ->subject('Usulan Baru dari Pelembagaan');
@@ -164,7 +165,7 @@ class PelembagaanController extends BaseController {
 					Mail::send('emails.reppelembagaan', $data, function($message) use ($user)
 					{
 						$message->to(array($penanggungJawabPelembagaan[0]->email)); 
-						$message->subject('Re: Usulan Pelembagaan telh di redirect ke bagian per UU');
+						$message->subject('Re: Usulan Pelembagaan telah di redirect ke bagian per UU');
 					});
             }
         }
@@ -217,11 +218,12 @@ class PelembagaanController extends BaseController {
 			'perihal' => Input::get('perihal'),
 			'jenis_usulan' => $pelembagaan->getJenisUsulan(Input::get('jenis_usulan'))
 		);	 
-			Mail::send('emails.reqpelembagaan', $data, function($message) use ($user)
-			{
-			  $message->to(array('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com'));
-			  $message->subject('Usulan Pelembagaan');
-			});
+
+		Mail::send('emails.reqpelembagaan', $data, function($message) use ($user)
+		{
+			$message->to(array('jufri.suandi@gmail.com', 'andhy.m0rphin@gmail.com'));
+		  	$message->subject('Usulan Pelembagaan');
+		});
 
 		if($uploadSuccess) {
 			if($pelembagaan->save()) {

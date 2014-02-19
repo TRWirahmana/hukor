@@ -13,7 +13,7 @@ class BantuanHukumController extends BaseController{
     public function index() {
         $user = Auth::user()->role_id;
 //        echo($user);exit;
-        if($user== 2){
+        if($user == 2 || $user == null){
             $this->layout = View::make('layouts.master');
             $this->layout->content = View::make('BantuanHukum.index', array('user'=> $user));
         }else{

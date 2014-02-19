@@ -196,7 +196,7 @@
                         mRender: function(data, type, all) {
                             var btns = new Array("<a href='per_uu/download/" + data + "'><i class='icon-download'></i></a> ");
                             if(all._role_id == 3 || all._role_id == 6) {
-                                btns.push("<a href='per_uu/update_per_uu/" + data + "'><i class='icon-edit'></i></a> "); 
+                                btns.push("<a href='per_uu/update/" + data + "'><i class='icon-edit'></i></a> "); 
                                 btns.push("<a class='delete' href='javascript:void(0)' data-id='" + data + "'><i class='icon-trash'></i></a>");   
                             }
                             return  btns.join("&nbsp;");

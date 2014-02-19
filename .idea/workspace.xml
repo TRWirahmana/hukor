@@ -77,7 +77,7 @@
       <file leaf-file-name="master.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="261" column="32" selection-start="14390" selection-end="14390" vertical-scroll-proportion="0.8986083" vertical-offset="3985" max-vertical-offset="4981">
+            <state line="253" column="38" selection-start="13614" selection-end="13614" vertical-scroll-proportion="0.62823063" vertical-offset="3985" max-vertical-offset="4981">
               <folding />
             </state>
           </provider>
@@ -189,7 +189,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/SubmenuController.php" />
         <option value="$PROJECT_DIR$/app/views/submenu/index.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/AdminController.php" />
         <option value="$PROJECT_DIR$/app/views/berita/index.blade.php" />
@@ -205,6 +204,7 @@
         <option value="$PROJECT_DIR$/app/controllers/BantuanHukumController.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/dikbud.css" />
       </list>
     </option>
   </component>
@@ -631,11 +631,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/submenu/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="39" selection-start="205" selection-end="205" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="1530" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/berita_index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="21" selection-start="970" selection-end="970" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1156" />
@@ -782,9 +777,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/dikbud.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="630" column="21" selection-start="14787" selection-end="14787" vertical-scroll-proportion="0.52998066" vertical-offset="10436" max-vertical-offset="15147">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="32" selection-start="14390" selection-end="14390" vertical-scroll-proportion="0.8986083" vertical-offset="3985" max-vertical-offset="4981">
+        <state line="253" column="38" selection-start="13614" selection-end="13614" vertical-scroll-proportion="0.62823063" vertical-offset="3985" max-vertical-offset="4981">
           <folding />
         </state>
       </provider>

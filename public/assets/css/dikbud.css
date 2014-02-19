@@ -413,7 +413,7 @@ html, .main-layout, .admin,
 }
 .sidebar > header {
   position: relative;
-  background: #16a085;
+  background: #2875A8;
   text-align: center;
   padding-top: 15px;
   padding-bottom: 20px;
@@ -628,7 +628,7 @@ html, .main-layout, .admin,
   font-weight: normal;
   text-transform: uppercase;
   text-align: center;
-  background: #16a085;
+  background: #2875A8;
   margin-bottom: 0;
   font-size: 9px;
 }
@@ -670,7 +670,7 @@ html, .main-layout, .admin,
   right: 0;
 }
 .main-content > h2 {
-  background: #16a085;
+  background: #2875A8;
   color: #ffffff;
   text-transform: uppercase;
   font-size: 24px;

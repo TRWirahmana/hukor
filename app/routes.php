@@ -99,6 +99,7 @@ Route::group(array('before' => 'auth'), function() {
 
 Route::group(array('before' => 'auth|user'), function() {
     Route::post('update', 'RegistrasiController@update');
+
 });
 
 //pengaturan route Role ADMIN

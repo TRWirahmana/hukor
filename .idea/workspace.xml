@@ -30,7 +30,7 @@
             <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/app/routes.php">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="130" column="0" selection-start="6015" selection-end="6015" vertical-scroll-proportion="3.06" vertical-offset="68" max-vertical-offset="12750">
+                  <state line="51" column="8" selection-start="2451" selection-end="2543" vertical-scroll-proportion="0.2448" vertical-offset="561" max-vertical-offset="12767">
                     <folding />
                   </state>
                 </provider>
@@ -74,19 +74,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="master.blade.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="master.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="253" column="80" selection-start="13858" selection-end="13858" vertical-scroll-proportion="-8.884615" vertical-offset="4070" max-vertical-offset="4930">
+            <state line="261" column="32" selection-start="14390" selection-end="14390" vertical-scroll-proportion="0.8986083" vertical-offset="3985" max-vertical-offset="4981">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BantuanHukumController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BantuanHukumController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/BantuanHukumController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="195" selection-end="195" vertical-scroll-proportion="0.3624031" vertical-offset="0" max-vertical-offset="3128">
+            <state line="11" column="0" selection-start="195" selection-end="195" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="3128">
               <folding />
             </state>
           </provider>
@@ -200,11 +200,11 @@
         <option value="$PROJECT_DIR$/app/controllers/PelembagaanController.php" />
         <option value="$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/bantuanhukum/index_admin.blade.php" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/admin.blade.php" />
         <option value="$PROJECT_DIR$/app/views/bantuanhukum/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/BantuanHukumController.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
       </list>
     </option>
   </component>
@@ -687,13 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="0" selection-start="6015" selection-end="6015" vertical-scroll-proportion="3.06" vertical-offset="68" max-vertical-offset="12750">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/bantuanhukum/index_admin.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="236" column="0" selection-start="8972" selection-end="8972" vertical-scroll-proportion="-10.846154" vertical-offset="3730" max-vertical-offset="4828">
@@ -775,16 +768,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/BantuanHukumController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="253" column="80" selection-start="13858" selection-end="13858" vertical-scroll-proportion="-8.884615" vertical-offset="4070" max-vertical-offset="4930">
+        <state line="11" column="0" selection-start="195" selection-end="195" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="3128">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/BantuanHukumController.php">
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="195" selection-end="195" vertical-scroll-proportion="0.3624031" vertical-offset="0" max-vertical-offset="3128">
+        <state line="51" column="8" selection-start="2451" selection-end="2543" vertical-scroll-proportion="0.2448" vertical-offset="561" max-vertical-offset="12767">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="261" column="32" selection-start="14390" selection-end="14390" vertical-scroll-proportion="0.8986083" vertical-offset="3985" max-vertical-offset="4981">
           <folding />
         </state>
       </provider>

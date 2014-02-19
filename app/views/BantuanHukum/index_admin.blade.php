@@ -158,7 +158,7 @@
                 sClass: "center",
                 mRender: function(id){
                     var jenis_perkara;
-                    switch (id){
+                    switch (parseInt(id)){
                         case 1:
                             jenis_perkara = 'Tata Usaha Negara';
                             break;
@@ -183,7 +183,7 @@
                 mData: "status_pemohon",
                 mRender: function(id){
                     var status_pemohon;
-                    switch (id){
+                    switch (parseInt(id)){
                         case 1:
                             status_pemohon = 'Tergugat';
                             break;
@@ -209,7 +209,7 @@
                 mData: "advokasi",
                 mRender: function(id){
                     var advokasi;
-                    switch (id){
+                    switch (parseInt(id)){
                         case 1:
                             advokasi = "Bankum I";
                             break;

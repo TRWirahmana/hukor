@@ -49,7 +49,7 @@
                   @endif
 
 @else
-      <h2>Layanan Ketatalaksanaan</h2>
+      <h2>Layanan Pelembagaan</h2>
       <div class="stripe-accent"></div>
       <legend>Informasi dan Status</legend>
 @endif
@@ -61,8 +61,8 @@
               <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_table_pelembagaan_user')}}">
 @endif
                     <fieldset>
-                        <legend class="f_legend">Filter</legend>
-                        <div class="row-fluid">
+<!--                         <legend class="f_legend">Filter</legend>
+ -->                        <div class="row-fluid">
                             <div class="span6">
                                 <div class="control-group">
                                     <label for="" class="control-label">Tanggal Awal</label>
@@ -167,9 +167,13 @@
             var role_id = <?php if($user->role_id) echo $user->role_id; else echo '0'; ?>;
             
             $dataTable = $("#tbl-pelembagaan").dataTable({
-                bServerSide: true,
-                bFilter: false,
+                bFilter: true,
+                bInfo: false,
+                bSort: false,
+                bPaginate: true,
                 bLengthChange: false,
+                bServerSide: true,
+                bProcessing: true, 
                 sAjaxSource: document.location.href,
                 aoColumns: [
                   {

@@ -41,6 +41,12 @@ class DAL_Pelembagaan {
         return HukorHelper::generateHtmlTable($result);
     }
 
+    public static function sendEmailToUser() {
+        
+        
+    }
+
+
     public static function getMonthlyCount() {
         return DB::table("bulan")
                 ->leftJoin('pelembagaan', function($join){

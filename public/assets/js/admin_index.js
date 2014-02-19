@@ -21,7 +21,7 @@ jQuery(document).ready(function(e){
             {
                 mData: "role_id",
                 mRender: function(role_id) {
-                    switch(role_id){
+                    switch(parseInt(role_id)){
                         case 1 :
                             return "Kepala Biro";
                         break;

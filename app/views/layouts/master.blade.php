@@ -236,11 +236,30 @@
               </div>
             </li>
 
-              @if($user->role_id == 2)
-            <li id="menu-bantuan-hukum"><a href="{{ URL::to('BantuanHukum') }}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>
-              @else
-              <li id="menu-bantuan-hukum"><a href="{{ URL::to('/layanan/detail?id=3') }}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>
-              @endif
+
+              <li id="menu-bantuan-hukum">
+                  <div class="accordion" id="accordion6">
+                      <div class="accordion-group">
+                          <div class="accordion-heading">
+                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapse6">
+                                  <span class="rulycon-book"></span>Bantuan Hukum
+                                  <span class="rulycon-menu-2 pull-right"></span>
+                              </a>
+                          </div>
+                          <div id="collapse6" class="accordion-body collapse">
+                              <div class="accordion-inner">
+                                  <ul>
+                                      <li id="menu-bantuan-hukum-info"><a href="{{ URL::to('/layanan/detail?id=3') }}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>
+                                      @if($user->role_id == 2)
+                                      <li id="menu-bantuan-hukum"><a href="{{ URL::to('/addbahu') }}"><span class="rulycon-books"></span>Lembar Usulan</a></li>
+                                      @endif
+                                      <li id="menu-banhuk-informasi"><a href="{{ URL::to('BantuanHukum') }}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </li>
           </ul>
         </div>
         <h6 id="copyright">© 2014 Direktorat Jenderal Kebudayaan Republik Indonesia</h6>

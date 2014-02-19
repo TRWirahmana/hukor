@@ -209,7 +209,7 @@
                 <!-- list aplikasi-->
                 <li class="dropdown" >
                     <ul id="app">
-                        <li id="app_puu"><a href="{{ URL::to('admin/per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
+                        <li id="app_puu"><a href="{{ URL::to('admin/per_uu/index_per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
 
                         </li>
                         <li id="app_pelembagaan" ><a href="{{ URL::to('admin/pelembagaan') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a>

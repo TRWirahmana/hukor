@@ -30,8 +30,7 @@
 
 @include('flash')
 
-{{ Form::open(array('route' => 'proses_update_sistem_dan_prosedur', 'method' => 'post', 'files' => true, 'class' => 'form form-horizontal')) }}
-    {{ Form::hidden('id', $data->id) }}
+{{ Form::open(array('route' => array('admin.sp.update', $data->id), 'method' => 'put', 'files' => true, 'class' => 'form form-horizontal')) }}
 <div class="row-fluid">
     <div class="span6">
         <fieldset>
@@ -164,7 +163,7 @@
 </div>
 
 <div class="form-actions">
-    <a href="{{ URL::route('index_sistem_dan_prosedur') }}" class="btn">Batal</a>
+    <a href="{{ URL::route('admin.sp.index') }}" class="btn btn-primary">Batal</a>
     {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
 </div>
 {{ Form::close() }}

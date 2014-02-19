@@ -225,9 +225,11 @@
                   <div id="collapse4" class="accordion-body collapse">
                     <div class="accordion-inner">
                       <ul>
-                        <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_sistem_prosedur')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan Sistem dan Prosedur</a></li>
+                        @if ($user->role_id == 2)
+                        <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('sp.create')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan Sistem dan Prosedur</a></li>
                         <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_analisis_jabatan')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan Analisis Jabatan</a></li>
-                        <li id="menu-pelembagaan-informasi"><a href="{{URL::route('informasi_sistem_prosedur')}}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan Sistem dan Prosedur</a></li>
+                        @endif
+                        <li id="menu-pelembagaan-informasi"><a href="{{URL::route('sp.index')}}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan Sistem dan Prosedur</a></li>
                         <li id="menu-pelembagaan-informasi"><a href="{{URL::route('informasi_analisis_jabatan')}}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan Analisis Jabatan</a></li>
                       </ul>
                     </div>

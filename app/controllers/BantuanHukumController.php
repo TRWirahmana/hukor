@@ -12,9 +12,7 @@ class BantuanHukumController extends BaseController{
 
     public function index() {
         $user = Auth::user()->role_id;
-
 //        echo($user);exit;
-
         if($user== 2){
             $this->layout = View::make('layouts.master');
             $this->layout->content = View::make('BantuanHukum.index', array('user'=> $user));
@@ -62,11 +60,11 @@ class BantuanHukumController extends BaseController{
             $DAL->SaveBantuanHukum($input, Input::file('lampiran')); //save bantuan hukum
             $DAL->SendEmailToAllAdminBankum(); // send email
 
-            return Redirect::to('addbahu')->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
+            return Redirect::route('create_bahu')->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
         }
         else
         {
-            return Redirect::to('addbahu')->with('error', 'Lampiran Gagal Disimpan.');
+            return Redirect::route('create_bahu')->with('error', 'Lampiran Gagal Disimpan.');
         }
     }
 

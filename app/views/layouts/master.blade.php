@@ -189,7 +189,6 @@
               </div>
             </li>
 
-
             <li id="menu-pelembagaan">
               <div class="accordion" id="accordion5">
                 <div class="accordion-group">
@@ -236,6 +235,39 @@
                 </div>
               </div>
             </li>
+
+
+            <li id="menu-bantuanhukum">
+              <div class="accordion" id="accordion6">
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapse6">
+                      <span class="rulycon-book"></span>Bantuan Hukum
+                      <span class="rulycon-menu-2 pull-right"></span>
+                    </a>
+                  </div>
+                  <div id="collapse6" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                      <ul>
+                          <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=3') }}"><span class="rulycon-checkbox-unchecked"></span>Bantuan Hukum</a></li>
+                        @if($user->role_id == 2)
+                        <li id="menu-bahu-usulan"><a href="{{URL::route('create_bahu')}}"><span class="rulycon-checkbox-unchecked"></span>Lembar Usulan</a></li>
+                        @endif
+                          <li id="menu-bahu-informasi"><a href="{{ URL::route('informasi_bahu') }}"><span class="rulycon-strikethrough"></span>Informasi dan Status Usulan</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+
+
+
+
+
+
+
 
               @if($user->role_id == 2)
             <li id="menu-bantuan-hukum"><a href="{{ URL::to('BantuanHukum') }}"><span class="rulycon-books"></span>Bantuan Hukum</a></li>

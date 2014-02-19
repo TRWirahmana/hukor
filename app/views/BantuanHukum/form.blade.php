@@ -7,9 +7,10 @@
 
 @include('flash')
 
-    {{ Form::open(array('action' => 'BantuanHukumController@save', 'method' => 'post',
+    {{ Form::open(array('route' => 'save_bahu', 'method' => 'post',
                         'id' => 'user-registrasi-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal',
                         'enctype' => "multipart/form-data")) }}
+
 
         {{ Form::hidden('id', $user->id, array('id' => 'id')) }}
         <div class="row-fluid">

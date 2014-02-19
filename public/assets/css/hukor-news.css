@@ -1,0 +1,342 @@
+/* ================================ */
+/* - HUKOR NEWS CUSTOM STYLESHEET - */
+/* ================================ */
+
+body {
+  background: url(../images/bg1.png) repeat;
+}
+a:hover {
+  text-decoration: none;
+}
+p {
+  margin-bottom: 12px;
+}
+
+/* HUKOR NEWS CUSTOM LAYOUT */
+.accent {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #202020;
+}
+#top-bar {
+  position: fixed;
+  top: 0;
+  display: block;
+  width: 100%;
+  z-index: 10001;
+}
+.header {
+  background: #064d95;
+  padding: 0 20px;
+  height: auto;
+  box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);
+}
+.header .logo {
+  width: auto;
+  min-width: 100px;
+  padding: 0 0 12px;
+  height: auto;
+  /*background: rgba(0, 0, 0, .075);*/
+}
+.header .logo img {
+  padding-top: 28px;
+  padding-bottom: 4px;
+}
+.headmenu > li {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.headmenu > li, .headmenu > li.odd {
+  background: transparent;
+  border: none;
+  margin-left: 1px;
+}
+.headmenu > li > a, .headmenu > li.odd > a {
+  background: rgba(0, 0, 0, .15);
+  padding: 32px 8px 16px;
+  text-align: center;
+}
+.headmenu > li > a:hover {
+  background: rgba(0, 0, 0, .25);
+}
+.headmenu > li > a > span[class *= "rulycon"] {
+  font-size: 11px;
+  padding: 8px 9px;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 50em;
+  -moz-transition: all .2s ease-out;
+  -ms-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+}
+.headmenu > li > a:hover > span[class *= "rulycon"] {
+  padding: 18px 19px;
+  border-width: 6px;
+  border-color: rgba(0, 0, 0, .25);
+}
+.headmenu > li > a .headmenu-label {
+  margin-top: 10px;
+  opacity: 1;
+  font-size: 11px;
+}
+.headmenu > li > a:hover .headmenu-label {
+  opacity: 0;
+  /*margin-top: -2px;
+  padding-bottom: 12px;*/
+}
+.headmenu .dropdown-menu {
+  display: block;
+  width: 100%;
+}
+.headerinner {
+  margin: 0 !important;
+}
+.sub-header {
+  background: url("../images/leftpanelbg.png") repeat;
+}
+.sub-menu ul {
+  display: inline-table;
+}
+.sub-menu li {
+  display: inline-block;
+  list-style: none;
+  color: #ffffff;
+}
+.sub-menu li a {
+  color: #ffffff;
+  display: inline-block;
+  margin-right: 18px;
+  padding: 6px 0;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+.sub-menu li a:hover {
+
+}
+.sub-menu li a > [class*=rulycon] {
+  margin-right: 4px;
+}
+.sub-menu .sub-menu-indicator {
+  text-transform: uppercase;
+  margin-right: 12px;
+}
+/*.sub-menu .has-child {
+  position: relative;
+}*/
+.sub-menu .has-child ul {
+  position: absolute;
+  background: url("../images/leftpanelbg.png") repeat;
+  margin-left: -16px;
+  display: none;
+  opacity: 0;
+}
+.sub-menu .has-child > ul li {
+  display: block;
+  width: 100%;
+}
+.sub-menu .has-child > ul li a {
+  margin-right: 0;
+  padding: 8px 16px;
+}
+.sub-menu .has-child > ul li a:hover {
+  background: rgba(0, 0, 0, .25);
+}
+.sub-menu .has-child:hover > ul {
+  display: block;
+  opacity: 1;
+}
+.content-wrapper {
+  margin-top: 136px;
+}
+.maincontent {
+  background: url("../images/bg1.png") repeat;
+  margin-bottom: 48px;
+}
+#main-carousel {
+  margin-bottom: 32px;
+}
+#main-carousel.boxed {
+  margin-top: 32px;
+}
+.carousel.slide > .container {
+  position: relative;
+}
+.carousel-inner > .item {
+}
+.carousel-inner > .item > img {
+  width: 100%;
+}
+.boxed .carousel-indicators {
+  top: 16px;
+  right: 16px;
+}
+.carousel-indicators {
+  right: 0;
+  top: 24px;
+}
+.carousel-indicators li {
+  width: 24px;
+  height: 6px;
+  border-radius: 0;
+  margin-right: 0;
+}
+.carousel-indicators li:hover {
+  cursor: pointer;
+}
+.latest-news {
+  display: block;
+  width: 100%;
+  background: rgba(0, 0, 0, .025);
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+}
+.latest-news h6 {
+  margin-bottom: 0;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  color: #dc3c00;
+}
+.latest-news p:first-child {
+  font-weight: bold;
+}
+.latest-news span[class *= "rulycon"] {
+  margin-right: 4px;
+}
+.section-title {
+  position: relative;
+  background: #dc3c00;
+  color: #ffffff;
+  padding: 12px 24px;
+  font-weight: normal;
+  font-size: 16px;
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
+}
+.section-title#widgets {
+  background: #02A29E;
+}
+.section-title#news-feed:after, .section-title#widgets:after {
+  font-family: Rulycons;
+  position: absolute;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+}
+.section-title#news-feed:after {
+  content: "\e004";
+}
+.section-title#widgets:after {
+  content: "\e14c";
+}
+.section-title#widgets > * {
+  display: block;
+  width: 100%;
+}
+.news-content {
+  padding: 32px 0 48px 24px;
+  border-bottom: 1px solid rgba(220, 60, 0, .25);
+  /*background: rgba(255, 255, 255, .55);*/
+  -moz-transition: all .2s ease-out;
+  -ms-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+}
+.news-content .read-more, .latest-news .read-more {
+  color: #dc3c00;
+}
+.news-content .read-more span[class *= "rulycon"],
+.latest-news .read-more span[class *= "rulycon"] {
+  margin-left: 4px;
+}
+.news-content:hover {
+  background: transparent;
+}
+.news-content h4 {
+  margin-bottom: 16px;
+  font-style: italic;
+  font-size: 20px;
+}
+.news-content .date-time.pull-right {
+  font-family: "Monaco", monospace;
+  font-size: 10px;
+  color: #ffffff;
+  background: #dc3c00;
+  padding: 24px 12px;
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
+  text-align: center;
+  margin-top: -32px;
+}
+.news-content .date-time .date {
+  display: block;
+  width: 100%;
+  font-size: 32px;
+  margin-top: 2px;
+  margin-bottom: 1px;
+}
+.pagination {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.pagination ul {
+  box-shadow: none;
+}
+.pagination > ul > li.disabled a {
+  color: rgba(0, 0, 0, .55);
+}
+.pagination > ul > li a {
+  border-color: rgba(220, 60, 0, .25);
+  background: rgba(255, 255, 255, .55);
+  color: #dc3c00;
+}
+.pagination > ul > li a:hover {
+  background: transparent;
+}
+.footer {
+  padding: 32px 0;
+  /*background: #02A29E;*/
+  background: url("../images/leftpanelbg.png") repeat;
+  color: #ffffff;
+  box-shadow: inset 0 8px 0 rgba(0, 0, 0, .25);
+}
+.footer address {
+  margin-bottom: 12px;
+}
+.footer address > span:first-child {
+  font-size: 15px;
+}
+.footer .social-links span[class *= "rulycon"] {
+  font-size: 16px;
+  padding: 6px 6px 4px;
+  color: #ffffff;
+}
+.footer-menu {
+  float: left;
+  margin: 0;
+  margin-right: 48px;
+}
+.footer-menu > li {
+  list-style: none;
+}
+.footer-menu > li:first-child {
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, .075);
+  margin-bottom: 8px;
+  color: #dc3c00;
+  font-size: 13px;
+  line-height: 200%;
+}
+.footer-menu > li > a {
+  color: #ffffff;
+  max-width: 120px;
+  /*text-transform: uppercase;*/
+}
+.rulycon-facebook { background: #4d73b5; }
+.rulycon-twitter { background: #15aef0; }
+.rulycon-linkedin { background: #0077b5; }
+.rulycon-yahoo { background: #6e329d; }

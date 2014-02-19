@@ -25,19 +25,6 @@ Route::group(array('before' => 'guest'), function() {
 	Route::get('error', 'LoginController@error');
 	Route::get('manual_registrasi', 'HomeController@download_manual');
 
-/*
-        Route::get('tabelbahu', 'BantuanHukumController@datatable');
-        Route::get('log_banhuk', 'BantuanHukumController@tablelog');
-        Route::get('addbahu', 'BantuanHukumController@add');
-        Route::get('detail_banhuk', 'BantuanHukumController@detail');
-        Route::get('delete_banhuk', 'BantuanHukumController@delete');
-        Route::get('delete_log_banhuk', 'BantuanHukumController@deletelog');
-        Route::post('save', 'BantuanHukumController@save');
-        Route::post('convertpdf', 'BantuanHukumController@convertpdf');
-        Route::post('banhuk_update', 'BantuanHukumController@update');
-        Route::get('download_banhuk', 'BantuanHukumController@download');
-        Route::get('log_banhuk', 'BantuanHukumController@tablelog');
-*/
 
         Route::get('download_banhuk', 'BantuanHukumController@download');
 
@@ -85,6 +72,9 @@ Route::group(array('before' => 'guest'), function() {
         Route::get('{id}/detail', array('as' => 'detail_produkhukum', 'uses' => 'ProdukHukumController@detail'));
         Route::get('{id}/download', 'ProdukHukumController@downloadLampiran');
     });
+
+    //news
+    Route::get('news', 'NewsController@index');
 });
 
 
@@ -99,6 +89,7 @@ Route::group(array('before' => 'auth'), function() {
 
 Route::group(array('before' => 'auth|user'), function() {
     Route::post('update', 'RegistrasiController@update');
+
 });
 
 //pengaturan route Role ADMIN

@@ -748,18 +748,11 @@ Route::group(array('prefix' => 'download'), function(){
     });
 });
 
-
-Route::group(array('prefix' => "admin"), function(){
-    Route::group(array('prefix' => 'sp'), function(){
-        Route::get('printTable', array('as' => 'admin.sp.printTable', 'uses' => 'SistemDanProsedurController@printTable'));
-        Route::get('{id}/download', array("as" => "admin.sp.lampiran", "uses" => "SistemDanProsedurController@downloadLampiran"));
-    });
-});
-
 Route::resource("sp", 'SistemDanProsedurController', array("only" => array("index")));    
 Route::group(array('before' => 'auth'), function(){
     Route::resource("sp", 'SistemDanProsedurController', array("only" => array("create", "store")));    
     Route::group(array("prefix" => "admin", "before" => "super_admin"), function(){
+        Route::get('printTable', array('as' => 'admin.sp.printTable', 'uses' => 'SistemDanProsedurController@printTable'));
         Route::resource("sp", "SistemDanProsedurController", array("except" => array("create", "store")));
     });
 });

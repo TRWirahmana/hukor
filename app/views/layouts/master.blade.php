@@ -225,13 +225,19 @@
                   <div id="collapse4" class="accordion-body collapse">
                     <div class="accordion-inner">
                       <ul>
+                          <li id="menu-prosedur-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span class="rulycon-checkbox-unchecked"></span>Sistem Prosedur</a></li>
                           <li id="menu-pelembagaan-informasi"><a href="{{URL::route('informasi_sistem_prosedur')}}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan Sistem dan Prosedur</a></li>
-                          <li id="menu-pelembagaan-informasi"><a href="{{URL::route('informasi_analisis_jabatan')}}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan Analisis Jabatan</a></li>
+
 
                           @if($user->role_id == 2)
                             <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_sistem_prosedur')}}"><span class="rulycon-envelop"></span>Lembar Usulan Sistem dan Prosedur</a></li>
-                            <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_analisis_jabatan')}}"><span class="rulycon-envelop"></span>Lembar Usulan Analisis Jabatan</a></li>
-                        @endif
+                          @endif
+
+                          <li id="menu-analisa-info"><a href="{{ URL::to('/layanan/detail?id=5') }}"><span class="rulycon-checkbox-unchecked"></span>Analisis Jabatan</a></li>
+                          <li id="menu-pelembagaan-informasi"><a href="{{URL::route('informasi_analisis_jabatan')}}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan Analisis Jabatan</a></li>
+                          @if($user->role_id == 2)
+                          <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_analisis_jabatan')}}"><span class="rulycon-envelop"></span>Lembar Usulan Analisis Jabatan</a></li>
+                          @endif
                       </ul>
                     </div>
                   </div>

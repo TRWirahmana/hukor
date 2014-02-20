@@ -28,9 +28,10 @@
             <?php $set_menu = Menu::all();
             $count = count($set_menu);?>
             <form class="form-inline">
+                <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/create_submenu')}}">Tambah Submenu Baru</a>
                 <fieldset>
                     @if($count != 0)
-                    <legend><a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/create_submenu')}}">Tambah Submenu Baru</a></legend>
+                    <legend></legend>
                     <!--                    <label for="select_role" class="control-label">Tipe Pengguna</label>-->
                     <!--                    <select id="select_role">-->
                     <!--                        <option value="0">Semua User</option>-->

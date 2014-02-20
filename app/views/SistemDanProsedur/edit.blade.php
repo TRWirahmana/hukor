@@ -5,7 +5,7 @@
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
         <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
-        <li>Analisis Jabatan</li>
+        <li>Sistem dan Prosedur</li>
     </ul>
     @include('adminflash')
     <div class="pageheader">
@@ -16,7 +16,7 @@
         <div class="pagetitle">
             <!--<h5>Events</h5>-->
 
-            <h1>Analisis Jabatan</h1>
+            <h1>Sistem dan Prosedur</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -30,43 +30,42 @@
 
 @include('flash')
 
-{{ Form::open(array('route' => 'proses_update_analisis_jabatan', 'method' => 'post', 'files' => true, 'class' => 'form form-horizontal')) }}
-    {{ Form::hidden('id', $analisisJabatan->id) }}
+{{ Form::open(array('route' => array('admin.sp.update', $data->id), 'method' => 'put', 'files' => true, 'class' => 'form form-horizontal')) }}
 <div class="row-fluid">
     <div class="span6">
         <fieldset>
             <legend>Penanggung Jawab</legend>
             <div class="control-group">
                 <label for="" class="control-label">Tgl Usulan</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $analisisJabatan->tgl_usulan }}"></div>
+                <div class="controls"><input type="text" disabled="" value="{{ $data->tgl_usulan }}"></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">Unit Kerja</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $analisisJabatan->penanggungJawab->unit_kerja }}"></div>
+                <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->unit_kerja }}"></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">Jabatan</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $analisisJabatan->penanggungJawab->jabatan }}"></div>
+                <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->jabatan }}"></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">NIP</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $analisisJabatan->penanggungJawab->NIP }}"></div>
+                <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->NIP }}"></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">Nama</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $analisisJabatan->penanggungJawab->nama }}"></div>
+                <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->nama }}"></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">Alamat</label>
-                <div class="controls"><textarea rows="3" disabled>{{ $analisisJabatan->penanggungJawab->alamat_kantor }}</textarea></div>
+                <div class="controls"><textarea rows="3" disabled>{{ $data->penanggungJawab->alamat_kantor }}</textarea></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">Telp Kantor</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $analisisJabatan->penanggungJawab->telepon_kantor }}"></div>
+                <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->telepon_kantor }}"></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">Email</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $analisisJabatan->penanggungJawab->email }}"></div>
+                <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->email }}"></div>
             </div>
         </fieldset>
     </div>
@@ -75,27 +74,27 @@
             <legend>INFORMASI PERIHAL & LAMPIRAN</legend>
             <div class="control-group">
                 <label for="" class="control-label">Perihal</label>
-                <div class="controls"><input type="text" disabled="" value="{{ $analisisJabatan->perihal }}"></div>
+                <div class="controls"><input type="text" disabled="" value="{{ $data->perihal }}"></div>
             </div>
             <div class="control-group">
                 <label for="" class="control-label">Lampiran</label>
                 <div class="controls">
-                    <a href="/admin/per_uu/download/{{$analisisJabatan->id}}">{{ explode('/', $analisisJabatan->lampiran)[1] }}</a>
+                    <a href="/admin/ketatalaksanaan/downloadSistemDanProsedur/{{$data->id}}">{{ explode('/', $data->lampiran)[1] }}</a>
                 </div>
             </div>
 
             <div class="control-group">
                 <label for="" class="control-label">Status Terakhir</label>
                 <div class="controls">
-                    @if ($analisisJabatan->status == 1)
+                    @if ($data->status == 1)
                         Diproses
-                    @elseif($analisisJabatan->status == 2)
+                    @elseif($data->status == 2)
                         Ditunda
-                    @elseif($analisisJabatan->status == 3)
+                    @elseif($data->status == 3)
                         Ditolak
-                    @elseif($analisisJabatan->status == 4)
+                    @elseif($data->status == 4)
                         Buat Salinan
-                    @elseif($analisisJabatan->status == 5)
+                    @elseif($data->status == 5)
                         Penetapan
                     @endif
                 </div>
@@ -164,7 +163,7 @@
 </div>
 
 <div class="form-actions">
-    <a href="{{ URL::route('index_analisis_jabatan') }}" class="btn">Batal</a>
+    <a href="{{ URL::route('admin.sp.index') }}" class="btn btn-primary">Batal</a>
     {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
 </div>
 {{ Form::close() }}
@@ -242,7 +241,7 @@
                 {
                     mData: "lampiran",
                     mRender: function(data, type, full) {
-                        return '<a href="/admin/per_uu/download/'+full.id_per_uu+'">'+data.split('/')[1]+'</a>';
+                        return '<a href="/admin/ketatalaksanaan/downloadSistemDanProsedur/'+full.id_sistem_dan_prosedur+'">'+data.split('/')[1]+'</a>';
                     }
                 }
                 // {mData: "id"}

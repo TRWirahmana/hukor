@@ -5,7 +5,7 @@
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
         <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
-        <li>Sistem dan Prosedur</li>
+        <li>Analisis Jabatan</li>
     </ul>
     @include('adminflash')
     <div class="pageheader">
@@ -16,7 +16,7 @@
         <div class="pagetitle">
             <!--<h5>Events</h5>-->
 
-            <h1>Sistem dan Prosedur</h1>
+            <h1>ANALISIS JABATAN</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -27,7 +27,7 @@
             <!-- MAIN CONTENT -->
 
             <div class="content-non-title">
-                <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_sistem_dan_prosedur')}}">
+                <form id="form-filter" class="form form-horizontal" action="{{URL::route('admin.aj.printTable')}}">
                     <fieldset>
                         <legend class="f_legend">Filter</legend>
                         <div class="row-fluid">
@@ -194,9 +194,9 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            return "<a href='downloadSistemDanProsedur/" + data + "'><i class='icon-download'></i></a> " +
-                                    "<a href='updateSistemDanProsedur/" + data + "'><i class='icon-edit'></i></a> " +
-                                    "<a class='delete' href='javascript:void(0)' data-id='" + data + "'><i class='icon-trash'></i></a>";
+                            return "<a href='/aj/download/" + data + "'><i class='icon-download'></i></a> " +
+                                    "<a href='/admin/aj/" + data + "/edit'><i class='icon-edit'></i></a> " +
+                                    "<a data-delete href='/admin/aj/" + data + "'><i class='icon-trash'></i></a>";
                         }
                     }
                 ],
@@ -217,14 +217,13 @@
                 }
             });
 
-            $dataTable.on('click', '.delete', function() {
+            $dataTable.on('click', 'a[data-delete]', function(e) {
                 if (!confirm('Apakah anda yakin?'))
                     return;
-
-                var id = $(this).data('id');
-                $.post('deleteSistemDanProsedur', {id: id}, function() {
+                $.post($(this).attr('href'), {_method: 'delete'}, function(r) {
                     $dataTable.fnReloadAjax();
                 });
+                e.preventDefault();
             });
 
             $("#select-status, #first-date, #last-date").change(function() {
@@ -234,7 +233,6 @@
             $("#form-filter").on("reset", function(){
                 $dataTable.fnReloadAjax();
             });
-
 
         });
 

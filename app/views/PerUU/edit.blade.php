@@ -30,8 +30,7 @@
 
 @include('flash')
 
-{{ Form::open(array('route' => 'proses_update_per_uu', 'method' => 'post', 'files' => true, 'class' => 'form form-horizontal')) }}
-    {{ Form::hidden('id', $perUU->id) }}
+{{ Form::open(array('route' => array('admin.puu.update', $perUU->id), 'method' => 'put', 'files' => true, 'class' => 'form form-horizontal')) }}
 <div class="row-fluid">
     <div class="span6">
         <fieldset>
@@ -164,7 +163,7 @@
 </div>
 
 <div class="form-actions">
-    <a href="{{ URL::route('index_per_uu') }}" class="btn">Batal</a>
+    <a href="{{ URL::route('admin.puu.index') }}" class="btn">Batal</a>
     {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
 </div>
 {{ Form::close() }}

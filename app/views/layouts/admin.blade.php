@@ -62,7 +62,7 @@
             <!-- Kepala Biro-->
             @if($user->role_id == 1)
             <li id="beranda"><a href="{{URL::to('kepala_biro/Home')}}"><span class="rulycon-home-2"></span> Beranda</a></li>
-            <li id="news"><a href="{{URL::to('kepala_biro/berita')}}"><span class="rulycon-newspaper"></span> Berita</a></li>
+<!--            <li id="news"><a href="{{URL::to('kepala_biro/berita')}}"><span class="rulycon-newspaper"></span> Berita</a></li>-->
 <!--            <li id="informasi"><a href="#info"><span class="rulycon-address-book"></span> Informasi</a></li>-->
             <li id="aplikasi"><a href="#app"><span class="rulycon-wrench"></span> Aplikasi</a></li>
             @endif
@@ -145,39 +145,6 @@
             <ul class="nav nav-tabs nav-stacked">
                 <li class="nav-header">Navigation</li>
 
-                <!-- list informasi-->
-<!--                <li class="dropdown">-->
-<!--                    <ul id="info">-->
-<!--                        <li id="produkhukum"><a href="#"><span class="iconfa-laptop"></span> Produk Hukum</a></li>-->
-<!--                        <li id="ketatalaksanaan" class="dropdown"><a href="admin/layanan_ketatalaksanaan/edit_ketatalaksanaan"><span class="iconfa-hand-up"></span> Layanan Ketatalaksanaan</a>-->
-<!--                            <ul>-->
-<!--                                 <li><a href="{{URL::to('admin/edit_ketatalaksanaan')}}">Home</a></li> -->
-<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_spk')}}">Sistem dan Prosedur Kerja</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_smm')}}">Sistem manajemen mutu</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_analisis_jabatan')}}">Analisis Jabatan</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_pbk')}}">Perhitungan beban kerja</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_tata_nilai')}}">Tata nilai & budaya kerja organisasi</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_pelayanan_publik')}}">Pelayanan publik</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_tnd')}}">Tata naskah dinas</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li id="kelembagaan" class="dropdown"><a href="#"><span class="iconfa-briefcase"></span> Kelembagaan</a>-->
-<!--                            <ul>-->
-<!--                                <li id="laykel"><a href="{{URL::to('admin/layanankelembagaan/edit_kelembagaan')}}">Layanan Kelembagaan</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_pembentukan')}}">Pembentukan</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_penataan')}}">Penataan</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_statuta')}}">Statuta</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_penutupan')}}">Penutupan</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li id="bahu"><a href="#"><span class="iconfa-th-list"></span> Layanan Bantuan Hukum</a></li>-->
-<!--                        <li id="puu"><a href="#"><span class="iconfa-picture"></span> Layanan Peraturan Perundang-Undangan</a></li>-->
-<!--                        <li id="diskusi"><a href="#"><span class="iconfa-font"></span> Forum Diskusi</a></li>-->
-<!--                        <li id="callcenter"><a href="{{URL::to('admin/editcallcenter')}}"><span class="iconfa-signal"></span> Call Center</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
-                <!-- end list-->
-
                 <!-- KEPALA BIRO RULES-->
                 <!-- list aplikasi-->
                 @if($user->role_id == 1)
@@ -190,7 +157,7 @@
 
                         <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
                             <ul>
-                                <li><a href="{{URL::to('kepala_biro/ketatalaksanaan/sistemDanProsedur')}}">Sistem dan Prosedur</a></li>
+                                <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                 <li><a href="{{URL::to('kepala_biro/ketatalaksanaan/analisisJabatan/')}}">Analisis Jabatan</a></li>
                             </ul>
                         </li>
@@ -209,7 +176,7 @@
                 <!-- list aplikasi-->
                 <li class="dropdown" >
                     <ul id="app">
-                        <li id="app_puu"><a href="{{ URL::to('admin/per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
+                        <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
 
                         </li>
                         <li id="app_pelembagaan" ><a href="{{ URL::to('admin/pelembagaan') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a>
@@ -217,8 +184,8 @@
                         </li>
                         <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
                             <ul>
-                                <li><a href="{{URL::route('index_sistem_dan_prosedur')}}">Sistem dan Prosedur</a></li>
-                                <li><a href="{{URL::route('index_analisis_jabatan')}}">Analisis Jabatan</a></li>
+                                <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
+                                <li><a href="{{URL::route('admin.aj.index')}}">Analisis Jabatan</a></li>
                             </ul>
                         </li>
                         <li id="app_bahu"><a href="{{ URL::to('admin/bantuan_hukum') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
@@ -352,7 +319,7 @@
                         <li id="app_pelembagaan" ><a href="{{ URL::to('bantuan_hukum/pelembagaan/') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a></li>
                         <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
                             <ul>
-                                <li><a href="{{URL::to('bantuan_hukum/ketatalaksanaan/sistemDanProsedur')}}">Sistem dan Prosedur</a></li>
+                                <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                 <li><a href="{{URL::to('bantuan_hukum/ketatalaksanaan/analisisJabatan/')}}">Analisis Jabatan</a></li>
                             </ul>
                         </li>
@@ -374,7 +341,7 @@
                         <li id="app_pelembagaan" ><a href="{{ URL::to('ketatalaksanaan/pelembagaan/') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a></li>
                         <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
                             <ul>
-                                <li><a href="{{URL::to('ketatalaksanaan/ketatalaksanaan/sistemDanProsedur')}}">Sistem dan Prosedur</a></li>
+                                <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                 <li><a href="{{URL::route('index_analisis_jabatan')}}">Analisis Jabatan</a></li>
                             </ul>
                         </li>

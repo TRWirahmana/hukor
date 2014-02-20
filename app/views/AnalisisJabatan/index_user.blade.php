@@ -2,7 +2,7 @@
 
 <h2>Ketatalaksanaan</h2>
 <div class="stripe-accent"></div>
-<legend>Informasi & Status Usulan Sistem dan Prosedur</legend>
+<legend>Informasi & Status Usulan Analisis Jabatan</legend>
 
 @include('flash')
 <div class="content-non-title">
@@ -96,7 +96,7 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            return "<a href='analisisJabatan/download/" + data + "'><i class='icon-download'></i></a> ";
+                            return "<a href='aj/download/" + data + "'><i class='icon-download'></i></a> ";
                         }
                     }
                 ],

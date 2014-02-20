@@ -194,8 +194,8 @@
                             var downloadUrl = baseUrl + '/download_banhuk?id=' + data;
 
                             return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a> &nbsp;' +
-                                '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
-                                '<a href="' + deleteUrl + '" title="Delete" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
+                                '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;';
+//                                '<a href="' + deleteUrl + '" title="Delete" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
                         }
                     }
                 ],

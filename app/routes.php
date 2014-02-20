@@ -417,8 +417,6 @@ Route::group(array("prefix" => "kepala_bagian", "before" => "auth|kepala_bagian"
     Route::resource('account', 'AdminController');
     Route::get('setting', 'AdminController@setting');
     Route::put('setting/save', 'AdminController@save');
-    Route::get('cetakLaporan', array('as' => 'admin.cetakLaporan', 'uses' => 'AdminController@cetakLaporan'));
-
     Route::get('per_uu', array('as' => 'kepala_bagian.per_uu', 'uses' => 'PeruuController@index'));
     Route::get('per_uu/print', array('as' => 'kepala_bagian.per_uu.print', 'uses' => 'PeruuController@printTable'));
     Route::get('per_uu/download/{id}', "PeruuController@downloadLampiran");
@@ -453,7 +451,6 @@ Route::group(array("prefix" => "kepala_subbagian", "before" => "auth|kepala_subb
     Route::resource('account', 'AdminController');
     Route::get('setting', 'AdminController@setting');
     Route::put('setting/save', 'AdminController@save');
-    Route::get('cetakLaporan', array('as' => 'admin.cetakLaporan', 'uses' => 'AdminController@cetakLaporan'));
 
     Route::get('per_uu', array('as' => 'kepala_subbagian.per_uu', 'uses' => 'PeruuController@index'));
     Route::get('per_uu/print', array('as' => 'kepala_subbagian.per_uu.print', 'uses' => 'PeruuController@printTable'));
@@ -490,11 +487,12 @@ Route::group(array('before' => 'auth'), function(){
     Route::resource("sp", 'SistemDanProsedurController', array("only" => array("create", "store")));    
     Route::resource("aj", "AnalisisJabatanController", array("only" => array("create", "store")));
     Route::resource('puu', 'PeruuController', array("only" => array("create", "store")));
-    Route::group(array("prefix" => "admin"), function(){
+    Route::group(array("prefix" => "admin"), function() {
         Route::get('/', array("as" => "admin.index", "uses" => "AdminController@home"));
         Route::get('setting', array("as" => "admin.setting", "uses" => "AdminController@setting"));
         Route::put('setting/save', array("as" => "admin.setting.save", "uses" => 'AdminController@save'));
         Route::get('logout', array("as" => "admin.logout", "uses" => "LoginController@signout"));
+        Route::get('cetakLaporan', array("as" => "admin.cetakLaporan", "uses" => "AdminController@cetakLaporan"));
 
         Route::get('sp/printTable', array('as' => 'admin.sp.printTable', 'uses' => 'SistemDanProsedurController@printTable'));
         Route::resource("sp", "SistemDanProsedurController", array("except" => array("create", "store")));

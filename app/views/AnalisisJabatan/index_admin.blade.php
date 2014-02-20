@@ -194,9 +194,12 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            return "<a href='/aj/download/" + data + "'><i class='icon-download'></i></a> " +
-                                    "<a href='/admin/aj/" + data + "/edit'><i class='icon-edit'></i></a> " +
-                                    "<a data-delete href='/admin/aj/" + data + "'><i class='icon-trash'></i></a>";
+                            var html = ["<a href='/aj/download/" + data + "'><i class='icon-download'></i></a>"];
+                            if(all._role_id == 3 || all._role_id == 9) {
+                                html.push("<a href='/admin/aj/" + data + "/edit'><i class='icon-edit'></i></a> ");
+                                html.push("<a data-delete href='/admin/aj/" + data + "'><i class='icon-trash'></i></a>")
+                            }
+                            return html.join("&nbsp;");
                         }
                     }
                 ],

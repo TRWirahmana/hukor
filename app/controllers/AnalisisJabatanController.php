@@ -4,8 +4,11 @@ class AnalisisJabatanController extends BaseController {
 
     public function index() {
         // handle dataTable request
+        $roleId = Auth::user()->role_id;
         if (Request::ajax())
-            return Datatables::of(DAL_AnalisisJabatan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
+            return Datatables::of(DAL_AnalisisJabatan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))
+                ->add_column("_role_id", $roleId)
+                ->make(true);
 
         if(Auth::user()->role_id == 2 || Auth::guest()) {
             $this->layout = View::make('layouts.master');

@@ -19,9 +19,24 @@ class NewsController extends BaseController {
         $news_feed = DB::table('berita')
             ->whereNotIn('id', array(1, 2, 3, 4))->get();
 
+        $count_news = count($latest_news);
+
         $this->layout->content = View::make('news.index', array(
             'latest_news' => $latest_news,
             'news_feed' => $news_feed,
+            'count_news' => $count_news,
+        ));
+    }
+
+    public function detail(){
+        $id = Input::get('id');
+
+        $berita = Berita::find($id);
+
+        $this->layout = View::make('layouts.berita');
+
+        $this->layout->content = View::make('news.detail', array(
+            'berita' => $berita
         ));
     }
 }

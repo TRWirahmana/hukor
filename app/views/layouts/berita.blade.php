@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/hukor-news.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycon.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycons.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.dataTables.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/simplePagination.css')}}">
 
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive-tables-news.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}">
@@ -59,7 +59,7 @@
                 <div class="headerinner">
                     <ul class="headmenu pull-right">
                         <li class="odd">
-                            <a href="{{URL::to('news/')}}">
+                            <a href="{{URL::to('/')}}">
                                 <span class="rulycon-home"></span>
                                 <span class="headmenu-label" id="berita">Berita</span>
                             </a>
@@ -77,13 +77,13 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-toggle" data-toggle="dropdown" id="produk_hukum">
+                            <a href="{{URL::to('produkhukum')}}" id="produk_hukum">
                                 <span class="rulycon-notebook"></span>
                                 <span class="headmenu-label">Produk Hukum</span>
                             </a>
                         </li>
                         <li class="odd">
-                            <a href="{{URL::to('/')}}">
+                            <a href="{{URL::to('site')}}">
                                 <span class="rulycon-user"></span>
                                 <span class="headmenu-label" id="login">Login</span>
                             </a>
@@ -164,6 +164,21 @@
     <!--content-wrapper-->
 
     <div class="footer">
+        <div class="rows">
+            <ul>
+                <li><img src="{{asset('assets/img/logo_ditjenbud/1.png')}}" alt=""></li>
+                <li><img src="{{asset('assets/img/logo_ditjenbud/2.png')}}" alt=""></li>
+                <li><img src="{{asset('assets/img/logo_ditjenbud/3.png')}}" alt=""></li>
+                <li><img src="{{asset('assets/img/logo_ditjenbud/4.png')}}" alt=""></li>
+                <li><img src="{{asset('assets/img/logo_ditjenbud/5.png')}}" alt=""></li>
+                <li><img src="{{asset('assets/img/logo_ditjenbud/6.png')}}" alt=""></li>
+                <li><img src="{{asset('assets/img/logo_ditjenbud/7.png')}}" alt=""></li>
+                <li><img src="{{asset('assets/img/logo_ditjenbud/8.png')}}" alt=""></li>
+                <li><img src="{{asset('assets/img/logo_ditjenbud/9.png')}}" alt=""></li>
+                <li><img src="{{asset('assets/img/logo_ditjenbud/10.png')}}" alt=""></li>
+                <li><img src="{{asset('assets/img/logo_ditjenbud/11.png')}}" alt=""></li>
+            </ul>
+        </div>
         <div class="container">
             <div class="row-fluid">
                 <div class="span9">

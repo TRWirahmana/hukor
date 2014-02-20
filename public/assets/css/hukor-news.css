@@ -343,17 +343,15 @@ p {
 
 .rowsy{
     display: block;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    width: 100%;
 }
 .rowsy ul {
     display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px;
+    width: 100%;
 }
 
 .rowsy ul li{
     display: inline-block;
-    margin-left: 10px ;
+    width:8%;
+    margin-left:4px;
 }

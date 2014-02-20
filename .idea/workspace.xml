@@ -80,7 +80,7 @@
       <file leaf-file-name="berita.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="15" selection-start="7652" selection-end="7652" vertical-scroll-proportion="-3.6538463" vertical-offset="2744" max-vertical-offset="5117">
+            <state line="181" column="18" selection-start="9288" selection-end="9288" vertical-scroll-proportion="-11.5" vertical-offset="2778" max-vertical-offset="5151">
               <folding>
                 <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ul#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -94,7 +94,7 @@
       <file leaf-file-name="hukor-news.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/hukor-news.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="345" column="19" selection-start="6901" selection-end="6901" vertical-scroll-proportion="0.69372696" vertical-offset="5489" max-vertical-offset="6188">
+            <state line="345" column="32" selection-start="6914" selection-end="6914" vertical-scroll-proportion="0.40405905" vertical-offset="5646" max-vertical-offset="6188">
               <folding />
             </state>
           </provider>
@@ -642,7 +642,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="15" selection-start="7652" selection-end="7652" vertical-scroll-proportion="-3.6538463" vertical-offset="2744" max-vertical-offset="5117">
+        <state line="181" column="18" selection-start="9288" selection-end="9288" vertical-scroll-proportion="-11.5" vertical-offset="2778" max-vertical-offset="5151">
           <folding>
             <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -654,7 +654,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/hukor-news.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="345" column="19" selection-start="6901" selection-end="6901" vertical-scroll-proportion="0.69372696" vertical-offset="5489" max-vertical-offset="6188">
+        <state line="345" column="32" selection-start="6914" selection-end="6914" vertical-scroll-proportion="0.40405905" vertical-offset="5646" max-vertical-offset="6188">
           <folding />
         </state>
       </provider>

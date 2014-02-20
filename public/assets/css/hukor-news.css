@@ -343,8 +343,8 @@ p {
 
 .rowsy{
     display: block;
-    margin-left: 10% !important;
-    margin-right:5% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 .rowsy ul {
     display: inline-block;

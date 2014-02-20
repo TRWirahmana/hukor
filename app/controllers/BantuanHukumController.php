@@ -76,9 +76,8 @@ class BantuanHukumController extends BaseController{
         return $data;
     }
 
-    public function detail()
+    public function detail($id)
     {
-        $id = Input::get('id');
         $DAL = new DAL_BantuanHukun();
 
         //get bantuan hukum by id
@@ -91,19 +90,16 @@ class BantuanHukumController extends BaseController{
         ));
     }
 
-    public function update()
+    public function update($id)
     {
         $user = Auth::user()->role_id;
         $input = Input::all();
+        $input['id'] = $id;
 
         $DAL = new DAL_BantuanHukun();
         $data = $DAL->UpdateBantuanHukum($input); // update bantuan hukum
 
-        if($user != 2){
-            $link = URL::to('/') . '/admin/bantuan_hukum/detail_banhuk?id=' . $data; //link to bantuan hukum with id bantuan hukum            
-        } else {
-            $link = URL::to('/') . '/bantuanhukum/detail_banhuk?id=' . $data; //link to bantuan hukum with id bantuan hukum            
-        }
+        $link = URL::to('admin/bantuan_hukum'); //link to bantuan hukum with id bantuan hukum            
 
         return Redirect::to($link)->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
     }
@@ -117,10 +113,9 @@ class BantuanHukumController extends BaseController{
         return $data;
     }
 
-    public function delete()
+    public function delete($id)
     {
         $user = Auth::user()->role_id;
-        $id = Input::get('id');
         $DAL = new DAL_BantuanHukun();
 
         $DAL->DeleteBantuanHukum($id);
@@ -132,23 +127,20 @@ class BantuanHukumController extends BaseController{
         }
     }
 
-    public function deletelog()
+    public function deletelog($id)
     {
-        $id = Input::get('id');
         $DAL = new DAL_BantuanHukun();
 
         $data = $DAL->GetSingleLogBantuanHukum($id);
         $DAL->DeleteLogBantuanHukum(false, $id);
 
-        $link = URL::to('/') . '/admin/bantuan_hukum/detail_banhuk?id=' . $data->bantuan_hukum_id;
+        $link = URL::to('/') . '/admin/bantuan_hukum/detail/' . $data->bantuan_hukum_id;
 
         return Redirect::to($link)->with('success', 'Data Berhasil Di Hapus.');
     }
 
-    public function download()
+    public function download($id)
     {
-        $id = Input::get('id');
-        
         $DAL = new DAL_BantuanHukun();
         $helper = new HukorHelper();
 

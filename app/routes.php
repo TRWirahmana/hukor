@@ -21,10 +21,11 @@ Route::group(array('before' => 'guest'), function() {
     Route::get('captcha', 'RegistrasiController@captcha');
 	Route::post('Kirim', 'RegistrasiController@send');
 	Route::get('/', 'HomeController@index');
+    Route::get('site', 'HomeController@main_site');
     Route::get('admin/login', 'HomeController@adminlogin');
 	Route::get('error', 'LoginController@error');
 	Route::get('manual_registrasi', 'HomeController@download_manual');
-
+    Route::get('news/detail', 'NewsController@detail');
 
         Route::get('download_banhuk', 'BantuanHukumController@download');
 

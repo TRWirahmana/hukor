@@ -61,8 +61,15 @@
             <div class="span3 latest-news">
                 <h6>{{$data->judul}}</h6>
                 <p><small><span class="rulycon-clock"></span> {{$data->tgl_penulisan}}</small></p>
-                <p>{{$data->berita}}</p>
-                <p><a href="#" class="read-more">Read more <span class="rulycon-arrow-right-3"></span></a></p>
+                <?php $berita = strip_tags($data->berita);
+                $highlight = substr($berita, 0, 150);
+                ?>
+                @if(strlen($berita) > 150)
+                    <p>{{$highlight}}...</p>
+                    <p><a href="{{ URL::to('/news/detail?id='. $data->id .'') }}" class="read-more">Read more <span class="rulycon-arrow-right-3"></span></a></p>
+                @else
+                    <p>{{$berita}}</p>
+                @endif
             </div>
             @endif
             <? $t++; ?>
@@ -80,11 +87,19 @@
                     <div class="row-fluid">
                         <div class="span9">
                             <h4>{{$news_feeds->judul}}</h4>
-                            <p>{{$news_feeds->berita}}</p>
-                            <p><a class="read-more" href="#">Read more <span class="rulycon-arrow-right-3"></span></a></p>
+                            <?php $berita_feed = strip_tags($news_feeds->berita);
+                            $highlight_feed = substr($berita_feed, 0, 150);
+                            ?>
+                            @if(strlen($berita_feed) > 150)
+                            <p>{{$highlight_feed}}</p>
+                            <p><a class="read-more" href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">Read more <span class="rulycon-arrow-right-3"></span></a></p>
+                            @else
+                            <p>{{$berita_feed}}</p>
+                            @endif
                         </div>
                         <div class="span3">
-                            <span class="date-time pull-right">Feb <span class="date">17</span> 2014</span>
+                            <?php $date = new DateTime($news_feeds->tgl_penulisan); ?>
+                            <span class="date-time pull-right">{{$date->format('d')}}  <span class="date"><?php echo HukorHelper::castMonthToString3($date->format('m'))?></span> {{$date->format('Y')}}</span>
                         </div>
                     </div>
                 </div>
@@ -117,5 +132,17 @@
     <!--container-->
 </div>
 <!--maincontent-->
-
+@section('scripts')
+@parent
+<script src="{{asset('assets/js/jquery.simplePagination.js')}}"></script>
+<script type="text/javascript">
+    var $ = jQuery.noConflict();
+    $(function() {
+        $(".paginate").pagination({
+            items: {{$count_news}},
+            itemsOnPage: 5
+        });
+    });
+</script>
+@stop
 @stop

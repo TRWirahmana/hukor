@@ -99,7 +99,7 @@ class BantuanHukumController extends BaseController{
         $DAL = new DAL_BantuanHukun();
         $data = $DAL->UpdateBantuanHukum($input); // update bantuan hukum
 
-        $link = URL::to('/') . '/detail_banhuk?id=' . $data; //link to bantuan hukum with id bantuan hukum
+        $link = URL::to('site') . '/detail_banhuk?id=' . $data; //link to bantuan hukum with id bantuan hukum
 
         return Redirect::to($link)->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
     }
@@ -131,7 +131,7 @@ class BantuanHukumController extends BaseController{
         $data = $DAL->GetSingleLogBantuanHukum($id);
         $DAL->DeleteLogBantuanHukum(false, $id);
 
-        $link = URL::to('/') . '/detail_banhuk?id=' . $data->bantuan_hukum_id;
+        $link = URL::to('site') . '/detail_banhuk?id=' . $data->bantuan_hukum_id;
 
         return Redirect::to($link)->with('success', 'Data Berhasil Di Hapus.');
     }

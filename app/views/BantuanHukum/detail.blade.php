@@ -232,7 +232,7 @@
         <div class="control-group">
             {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
             <div class="controls">
-                <a href="<?php echo URL::to('/') . '/download_banhuk?id=' . $banhuk->id; ?>">Download Lampiran</a>
+                <a href="<?php echo URL::to('site') . '/download_banhuk?id=' . $banhuk->id; ?>">Download Lampiran</a>
             </div>
         </div>
 

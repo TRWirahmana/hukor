@@ -114,7 +114,7 @@
         </div>  -->
 
     <div class="form-actions">
-        <a href="{{ URL::to('/') }}" class="btn btn-primary">Batal</a>
+        <a href="{{ URL::to('site') }}" class="btn btn-primary">Batal</a>
         {{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
     </div>
 

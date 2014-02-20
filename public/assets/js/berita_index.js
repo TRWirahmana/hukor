@@ -43,12 +43,8 @@ jQuery(document).ready(function(e){
 
     dom.$table_news.on('click', '.btn_delete', function(e){
         if (confirm('Apakah anda yakin?')) {
-            jQuery.ajax({
-                url: jQuery(this).attr('href'),
-                type: 'DELETE',
-                success: function(response) {
-                    dom.$table_news.fnReloadAjax();
-                }
+            jQuery.post(jQuery(this).attr('href'), {_method: 'delete'}, function(r){
+                dom.$table_news.fnReloadAjax();
             });
         }
         e.preventDefault();

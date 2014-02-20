@@ -94,19 +94,16 @@ Route::group(array('before' => 'auth|user'), function() {
 
 //pengaturan route Role ADMIN
 Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), function() {
-    Route::get('/', function() {
-        return "Hello World";
-    });
 
     Route::post('/enableForum', "AdminController@enableForum");
 
-    Route::resource('account', 'AdminController');
-    Route::get('Index', 'AdminController@index');
-    Route::get('Home', 'AdminController@home');
-    Route::get('setting', 'AdminController@setting');
-    Route::put('setting/save', 'AdminController@save');
+    // Route::resource('account', 'AdminController');
+    // Route::get('Index', 'AdminController@index');
+    // Route::get('Home', 'AdminController@home');
+    // Route::get('setting', 'AdminController@setting');
+    // Route::put('setting/save', 'AdminController@save');
 
-//    berita
+   // berita
     Route::resource('berita', 'BeritaController');
     Route::get('IndexBerita', 'BeritaController@index');
     Route::get('HomeBerita', 'BeritaController@home');
@@ -154,7 +151,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('create_menu', 'MenuController@create');
     Route::get('index_menu', 'MenuController@index');
     Route::get('setting_menu', 'MenuController@setting');
-    Route::put('setting/save', 'MenuController@save');
+    // Route::put('setting/save', 'MenuController@save');
 
 
     //bantuan hukum
@@ -179,7 +176,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('create_submenu', 'SubmenuController@create');
     Route::get('index_submenu', 'SubmenuController@index');
     Route::get('setting_submenu', 'SubmenuController@setting');
-    Route::put('settings/save', 'SubmenuController@save');
+    // Route::put('settings/save', 'SubmenuController@save');
 });
 
 //pengaturan route Kepala Biro sisi ADMIN
@@ -340,7 +337,7 @@ Route::group(array('prefix' => 'pelembagaan', 'before' => 'auth|pelembagaan'), f
 //        return "Hello World";
 //    });
 //
-////    Route::resource('account', 'AdminController');
+//    Route::resource('account', 'AdminController');
 ////    Route::get('Index', 'AdminController@index');
 ////    Route::get('Home', 'AdminController@home');
 ////    Route::get('setting', 'AdminController@setting');
@@ -489,14 +486,6 @@ Route::group(array("prefix" => "kepala_subbagian", "before" => "auth|kepala_subb
  
 });
 
-
-Route::group(array('prefix' => 'download'), function(){
-    Route::group(array('prefix' => "per_uu"), function(){
-        Route::get('lampiran/{id}', 'PeruuController@downloadLampiran');
-        Route::get('printTable', 'PeruuController@printTable');
-    });
-});
-
 Route::resource("sp", 'SistemDanProsedurController', array("only" => array("index")));    
 Route::resource("aj", "AnalisisJabatanController", array("only" => array("index")));
 Route::resource("puu", "PeruuController", array("only" => array("index")));
@@ -504,7 +493,12 @@ Route::group(array('before' => 'auth'), function(){
     Route::resource("sp", 'SistemDanProsedurController', array("only" => array("create", "store")));    
     Route::resource("aj", "AnalisisJabatanController", array("only" => array("create", "store")));
     Route::resource('puu', 'PeruuController', array("only" => array("create", "store")));
-    Route::group(array("prefix" => "admin", "before" => "super_admin"), function(){
+    Route::group(array("prefix" => "admin"), function(){
+        Route::get('/', array("as" => "admin.index", "uses" => "AdminController@home"));
+        Route::get('setting', array("as" => "admin.setting", "uses" => "AdminController@setting"));
+        Route::put('setting/save', array("as" => "admin.setting.save", "uses" => 'AdminController@save'));
+        Route::get('logout', array("as" => "admin.logout", "uses" => "LoginController@signout"));
+
         Route::get('sp/printTable', array('as' => 'admin.sp.printTable', 'uses' => 'SistemDanProsedurController@printTable'));
         Route::resource("sp", "SistemDanProsedurController", array("except" => array("create", "store")));
 
@@ -513,6 +507,8 @@ Route::group(array('before' => 'auth'), function(){
 
         Route::get('puu/printTable', array("as" => "admin.puu.printTable", "uses" => "PeruuController@printTable"));
         Route::resource('puu', 'PeruuController', array("create", "store"));
+
+        Route::resource('account', 'AdminController');
     });
 });
 Route::get('aj/download/{id}', 'AnalisisJabatanController@downloadLampiran');

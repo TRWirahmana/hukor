@@ -136,7 +136,7 @@ class AdminController extends BaseController {
                 'title' => 'Pengaturan Akun',
                 'detail' => '',
                 'form_opts' => array(
-                    'url' => URL::to('admin/setting/save'),
+                    'url' => URL::route('admin.setting.save'),
                     'method' => 'put',
                     'class' => 'form-horizontal'
                 ),
@@ -186,7 +186,7 @@ class AdminController extends BaseController {
 
         $user->save();
 
-            return Redirect::to('admin/Index')->with('success', 'Pengaturan akun berhasil disimpan.');
+            return Redirect::route('admin.index')->with('success', 'Pengaturan akun berhasil disimpan.');
     }
 
 	/**
@@ -322,7 +322,7 @@ class AdminController extends BaseController {
 
 		}
 
-		return Redirect::to('admin/account')->with('success', 'Akun berhasil ditambahkan.');
+		return Redirect::route('admin.account.index')->with('success', 'Akun berhasil ditambahkan.');
 	}
 
 	/**
@@ -473,7 +473,7 @@ class AdminController extends BaseController {
                 ->subject('Sistem Layanan Hukum & Organisasi');
         });
 
-		return Redirect::to('admin/account')->with('success', 'Data berhasil diubah.');
+		return Redirect::route('admin.account.index')->with('success', 'Data berhasil diubah.');
 	}
 
 	/**
@@ -491,6 +491,7 @@ class AdminController extends BaseController {
 			$user->pengguna()->delete();
 			$user->delete();
 		}
+        return 1;
 			
 	}
 

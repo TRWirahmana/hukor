@@ -59,7 +59,7 @@
                 <div class="headerinner">
                     <ul class="headmenu pull-right">
                         <li class="odd">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="{{URL::to('news/')}}">
+                            <a href="{{URL::to('news/')}}">
                                 <span class="rulycon-home"></span>
                                 <span class="headmenu-label" id="berita">Berita</span>
                             </a>
@@ -83,7 +83,7 @@
                             </a>
                         </li>
                         <li class="odd">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="{{URL::to('/')}}">
+                            <a href="{{URL::to('/')}}">
                                 <span class="rulycon-user"></span>
                                 <span class="headmenu-label" id="login">Login</span>
                             </a>
@@ -97,7 +97,27 @@
         <div class="sub-header">
             <div class="container">
                 <ul class="sub-menu" id="sub-informasi" style="display: none">
-                    <li><a href="#">Tes</a></li>
+                    <?php $menu = Menu::all(); ?>
+                    @foreach($menu as $menus)
+                        @if($menus->submenu == null)
+                            <li><a href="#">{{$menus->nama_menu}}</a></li>
+                        @else
+                            <li class="has-child">
+                                <a href="#">{{$menus->nama_menu}}</a>
+                                <ul>
+                                    @foreach($menus->submenu as $submenus)
+                                        @if($submenus->layanan->id != null)
+                                            <li><a href="{{ URL::to('/layanan/detail?id='. $submenus->layanan->id .'') }}">{{ $submenus->nama_submenu }}</a></li>
+                                        @else
+                                            <li><a href="#">{{ $submenus->nama_submenu }}</a></li>
+                                        @endif
+                                    @endforeach
+
+                                </ul>
+                            </li>
+                        @endif
+                    @endforeach
+
                 </ul>
 
                 <ul class="sub-menu" id="sub-aplikasi" style="display: none">
@@ -118,11 +138,11 @@
                     <li class="has-child">
                         <a href="#">Ketatalaksanaan</a>
                         <ul>
-                                    <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>
-                                    <li><a href="{{URL::route('informasi_sistem_prosedur')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
+                            <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>
+                            <li><a href="{{URL::route('informasi_sistem_prosedur')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
 
-                                    <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Analisis jabatan</a></li>
-                                    <li><a href="{{URL::route('usulan_analisis_jabatan')}}">Informasi dan Status Usulan</a></li>
+                            <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Analisis jabatan</a></li>
+                            <li><a href="{{URL::route('informasi_analisis_jabatan')}}">Informasi dan Status Usulan</a></li>
                         </ul>
                     </li>
                     <li class="has-child">
@@ -147,47 +167,51 @@
         <div class="container">
             <div class="row-fluid">
                 <div class="span9">
-                    <ul class="footer-menu">
-                        <li>Menu 01</li>
-                        <li><a href="#">Sub-menu-01-01</a></li>
-                        <li><a href="#">Sub-menu-01-02</a></li>
-                        <li><a href="#">Sub-menu-01-03</a></li>
-                        <li><a href="#">Sub-menu-01-04</a></li>
-                        <li><a href="#">Sub-menu-01-05</a></li>
-                        <li><a href="#">Sub-menu-01-06</a></li>
-                    </ul>
-                    <ul class="footer-menu">
-                        <li>Menu 02</li>
-                        <li><a href="#">Sub-menu-02-01</a></li>
-                        <li><a href="#">Sub-menu-02-02</a></li>
-                        <li><a href="#">Sub-menu-02-03</a></li>
-                        <li><a href="#">Sub-menu-02-04</a></li>
-                    </ul>
-                    <ul class="footer-menu">
-                        <li>Menu 03</li>
-                        <li><a href="#">Sub-menu-03-01</a></li>
-                        <li><a href="#">Sub-menu-03-02</a></li>
-                        <li><a href="#">Sub-menu-03-03</a></li>
-                        <li><a href="#">Sub-menu-03-04</a></li>
-                        <li><a href="#">Sub-menu-03-05</a></li>
-                    </ul>
-                    <ul class="footer-menu">
-                        <li>Menu 04</li>
-                        <li><a href="#">Sub-menu-04-01</a></li>
-                        <li><a href="#">Sub-menu-04-02</a></li>
-                        <li><a href="#">Sub-menu-04-03</a></li>
-                        <li><a href="#">Sub-menu-04-04</a></li>
-                        <li><a href="#">Sub-menu-04-05</a></li>
-                        <li><a href="#">Sub-menu-04-06</a></li>
-                        <li><a href="#">Sub-menu-04-07</a></li>
-                    </ul>
-                    <ul class="footer-menu">
-                        <li>Menu 05</li>
-                        <li><a href="#">Sub-menu-05-01</a></li>
-                        <li><a href="#">Sub-menu-05-02</a></li>
-                        <li><a href="#">Sub-menu-05-03</a></li>
-                        <li><a href="#">Sub-menu-05-04</a></li>
-                    </ul>
+                    <div id="footer-menu-informasi" style="display: none">
+                        @foreach($menu as $menus)
+                        <ul class="footer-menu">
+
+                            @if($menus->submenu == null)
+                                <li>{{$menus->nama_menu}}</li>
+                            @else
+                                <li>{{$menus->nama_menu}}</li>
+                                @foreach($menus->submenu as $submenus)
+                                    @if($submenus->layanan->id != null)
+                                    <li><a href="{{ URL::to('/layanan/detail?id='. $submenus->layanan->id .'') }}">{{ $submenus->nama_submenu }}</a> </li>
+                                    @else
+                                    <li><a href="#">{{ $submenus->nama_submenu }}</a> </li>
+                                    @endif
+                                @endforeach
+                            @endif
+
+                        </ul>
+                        @endforeach
+                    </div>
+                    <div id="footer-menu-aplikasi" style="display: none">
+                        <ul class="footer-menu">
+                            <li>Peraturan Perundang-undangan</li>
+                            <li><a href="{{ URL::to('/layanan/detail?id=1') }}"></a>Peraturan Perundang-undangan</li>
+                            <li><a href="{{URL::route('per_uu.informasi')}}">Informasi dan Status Usulan</a></li>
+                        </ul>
+                        <ul class="footer-menu">
+                            <li>Pelembagaan</li>
+                            <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Pelembagaan</a></li>
+                            <li><a href="{{ URL::route('informasi_pelembagaan') }}">Informasi dan Status Usulan</a></li>
+                        </ul>
+                        <ul class="footer-menu">
+                            <li>Ketatalaksanaan</li>
+                            <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>
+                            <li><a href="{{URL::route('informasi_sistem_prosedur')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
+                            <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Analisis Jabatan</a></li>
+                            <li><a href="{{URL::route('informasi_analisis_jabatan')}}">Informasi dan Status Usulan Analisis Jabatan</a></li>
+                        </ul>
+                        <ul class="footer-menu">
+                            <li>Bantuan Hukum</li>
+                            <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>
+                            <li><a href="{{ URL::to('BantuanHukum') }}">Informasi dan Status Usulan</a></li>
+                        </ul>
+                    </div>
+
                 </div>
                 <div class="span3">
                     <address>
@@ -232,18 +256,22 @@
     var $ = jQuery.noConflict();
     $(document).ready(function () {
         $("#main-carousel").carousel({
-            interval: 1000,
+            interval: 5000,
             cycle: true
         });
     });
 
     $("#informasi").click(function(){
         $("#sub-informasi").show();
+        $("#footer-menu-informasi").show();
+        $("#footer-menu-aplikasi").hide();
         $("#sub-aplikasi").hide();
     });
 
     $("#aplikasi").click(function(){
         $("#sub-informasi").hide();
+        $("#footer-menu-aplikasi").show();
+        $("#footer-menu-informasi").hide();
         $("#sub-aplikasi").show();
     });
 </script>

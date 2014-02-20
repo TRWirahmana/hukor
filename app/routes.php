@@ -117,7 +117,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::post('SubmitLayanan', 'LayananController@submit');
 
     Route::get('create_layanan', 'LayananController@create');
-    Route::get('submenu', 'LayananController@submenu');
+    Route::get('submenus', 'LayananController@submenu');
     Route::get('index_layanan', 'LayananController@index');
 
 // call center
@@ -173,6 +173,13 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('download_banhuk', 'BantuanHukumController@download');
     Route::get('log_banhuk', 'BantuanHukumController@tablelog');
     });
+
+    //Managemen Submenu
+    Route::resource('submenu', 'SubmenuController');
+    Route::get('create_submenu', 'SubmenuController@create');
+    Route::get('index_submenu', 'SubmenuController@index');
+    Route::get('setting_submenu', 'SubmenuController@setting');
+    Route::put('settings/save', 'SubmenuController@save');
 });
 
 //pengaturan route Kepala Biro sisi ADMIN

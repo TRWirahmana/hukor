@@ -225,12 +225,12 @@
                   <div id="collapse4" class="accordion-body collapse">
                     <div class="accordion-inner">
                       <ul>
-                          <li id="menu-prosedur-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span class="rulycon-checkbox-unchecked"></span>Sistem Prosedur</a></li>
-                          <li id="menu-pelembagaan-informasi"><a href="{{URL::route('sp.index')}}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan Sistem dan Prosedur</a></li>
+                          <li id="menu-prosedur-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span class="rulycon-checkbox-unchecked"></span>Sistem dan Prosedur</a></li>
+                          <li id="menu-pelembagaan-informasi"><a href="{{URL::route('informasi_sistem_prosedur')}}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan Sistem dan Prosedur</a></li>
 
 
                           @if($user->role_id == 2)
-                            <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('sp.create')}}"><span class="rulycon-envelop"></span>Lembar Usulan Sistem dan Prosedur</a></li>
+                            <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_sistem_prosedur')}}"><span class="rulycon-envelop"></span>Lembar Usulan Sistem dan Prosedur</a></li>
                           @endif
 
                           <li id="menu-analisa-info"><a href="{{ URL::to('/layanan/detail?id=5') }}"><span class="rulycon-checkbox-unchecked"></span>Analisis Jabatan</a></li>

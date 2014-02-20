@@ -26,6 +26,24 @@
 </legend>
 @endif
 
+@if($info->id == 4)
+<h2>Ketatalaksanaan</h2>
+<div class="stripe-accent"></div>
+
+<legend>
+    Informasi Sistem dan Prosedur
+</legend>
+@endif
+
+@if($info->id == 5)
+<h2>Ketatalaksanaan</h2>
+<div class="stripe-accent"></div>
+
+<legend>
+    Informasi Analisis Jabatan
+</legend>
+@endif
+
 
 
 @include('flash')

@@ -56,9 +56,9 @@
 
               <!-- Filter -->
 @if($user->role_id == 3 )              
-              <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_pelembagaan')}}">
+              <form id="form-filter" class="form form-horizontal" action="{{URL::route('admin.pelembagaan.printTable')}}">
 @else                
-              <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_table_pelembagaan_user')}}">
+              <form id="form-filter" class="form form-horizontal" action="{{URL::route('pelembagaan.printTable')}}">
 @endif
                     <fieldset>
 <!--                         <legend class="f_legend">Filter</legend>

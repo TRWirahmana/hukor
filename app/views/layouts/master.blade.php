@@ -202,9 +202,9 @@
                       <ul>
                           <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=2') }}"><span class="rulycon-checkbox-unchecked"></span>Pelembagaan</a></li>
                         @if($user->role_id == 2)
-                        <li id="menu-pelembagaan-usulan"><a href="{{URL::route('pelembagaan.index')}}"><span class="rulycon-envelop"></span>Lembar Usulan</a></li>
+                        <li id="menu-pelembagaan-usulan"><a href="{{URL::route('pelembagaan.create')}}"><span class="rulycon-envelop"></span>Lembar Usulan</a></li>
                         @endif
-                          <li id="menu-pelembagaan-informasi"><a href="{{ URL::route('') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan</a></li>
+                          <li id="menu-pelembagaan-informasi"><a href="{{ URL::route('pelembagaan.index') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan</a></li>
                       </ul>
                     </div>
                   </div>

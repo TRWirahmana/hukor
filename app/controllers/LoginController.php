@@ -38,7 +38,7 @@ class LoginController extends BaseController {
 
                     if ($user->role_id == 2) {
                         Session::flash('success', 'Selamat datang ' . $user->username . ' !');
-                        return Redirect::to('/');
+                        return Redirect::to('site');
                     } else {
                         Auth::logout();
                         Session::forget('key');

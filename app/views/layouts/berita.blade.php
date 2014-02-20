@@ -132,7 +132,7 @@
                         <a href="#">Pelembagaan</a>
                         <ul>
                             <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Pelembagaan</a></li>
-                            <li><a href="{{ URL::route('informasi_pelembagaan') }}">Informasi dan Status Usulan</a></li>
+                            <li><a href="{{ URL::route('pelembagaan.index') }}">Informasi dan Status Usulan</a></li>
                         </ul>
                     </li>
                     <li class="has-child">
@@ -214,7 +214,7 @@
                         <ul class="footer-menu">
                             <li>Pelembagaan</li>
                             <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Pelembagaan</a></li>
-                            <li><a href="{{ URL::route('informasi_pelembagaan') }}">Informasi dan Status Usulan</a></li>
+                            <li><a href="{{ URL::route('pelembagaan.index') }}">Informasi dan Status Usulan</a></li>
                         </ul>
                         <ul class="footer-menu">
                             <li>Ketatalaksanaan</li>

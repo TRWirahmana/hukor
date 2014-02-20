@@ -82,7 +82,7 @@ class RegistrasiController extends BaseController {
         if($user->role_id == 3){
             return Redirect::to('admin/account')->with('success', 'Pengaturan akun berhasil disimpan.');
         }else{
-            return Redirect::to('/')->with('success', 'Pengaturan akun berhasil disimpan.');
+            return Redirect::to('site')->with('success', 'Pengaturan akun berhasil disimpan.');
         }
 
     }
@@ -543,7 +543,7 @@ class RegistrasiController extends BaseController {
 
 //            $this->sendMail($username, $password, $email);
                 Session::flash('success', 'Registrasi berhasil. Silahkan login kedalam sistem!');
-                return Redirect::to('/');
+                return Redirect::to('site');
             } else {
                 Session::flash('error', 'Registrasi gagal! Harap ulangi dan Pastikan alamat email anda valid!');
                 return Redirect::to('registrasi');
@@ -598,7 +598,7 @@ class RegistrasiController extends BaseController {
 
 //            $this->sendMail($username, $password, $email);
                     Session::flash('success', 'Registrasi berhasil. Silahkan login kedalam sistem!');
-                    return Redirect::to('/');
+                    return Redirect::to('site');
                 } else {
                     Session::flash('error', 'Registrasi gagal! Harap ulangi dan Pastikan alamat email anda valid!');
                     return Redirect::to('registrasi');

@@ -340,3 +340,14 @@ p {
 .rulycon-twitter { background: #15aef0; }
 .rulycon-linkedin { background: #0077b5; }
 .rulycon-yahoo { background: #6e329d; }
+
+.rows ul {
+    display: inline-block;
+    margin-left: 150px;
+    margin-bottom: 15px;
+}
+
+.rows ul li{
+    display: inline-block;
+    margin-left: 10px ;
+}

@@ -277,7 +277,6 @@ class DAL_BantuanHukun
     {
         $email = new HukorEmail();
 
-
         $reg = new DAL_Registrasi();
 
         $admin = DAL_Registrasi::findAdminByRoleId(8); //get all admin bantuan hukum

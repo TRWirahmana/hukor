@@ -5,21 +5,8 @@ class AdminController extends BaseController {
 
 	protected $layout = 'layouts.admin';
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
 
-    public function home(){
-        $user = Auth::user();
-        $this->layout->content = View::make('admin.home', array(
-            'user'=> $user
-        ));
-    }
-
-    public function dashboard() {
-
+    public function home() {
         if(Request::ajax()) {
             $perUU = DAL_PerUU::getMonthlyCount();
             $pelembagaan = DAL_Pelembagaan::getMonthlyCount();
@@ -38,8 +25,10 @@ class AdminController extends BaseController {
             return Response::json($data);
         }
 
-
-        $this->layout->content = View::make('admin.dashboard');
+        $user = Auth::user();
+        $this->layout->content = View::make('admin.dashboard', array(
+            'user'=> $user
+        ));
     }
 
     public function cetakLaporan() {
@@ -80,7 +69,7 @@ class AdminController extends BaseController {
                 $html[] = DAL_PerUU::getPrintTable(null, $firstDate, $lastDate);
                 $html[] = "<h2>Pelembagaan</h2>";
                 $html[] = DAL_Pelembagaan::getPrintTable(null, $firstDate, $lastDate);
-                $html[] = "<h2>Bantuah Hukum</h2>";
+                $html[] = "<h2>Bantuan Hukum</h2>";
                 $html[] = DAL_BantuanHukun::getPrintTable($firstDate, $lastDate);
                 break;
         }

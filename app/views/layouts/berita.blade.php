@@ -139,10 +139,10 @@
                         <a href="#">Ketatalaksanaan</a>
                         <ul>
                             <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>
-                            <li><a href="{{URL::route('informasi_sistem_prosedur')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
+                            <li><a href="{{URL::route('sp.index')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
 
                             <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Analisis jabatan</a></li>
-                            <li><a href="{{URL::route('informasi_analisis_jabatan')}}">Informasi dan Status Usulan</a></li>
+                            <li><a href="{{URL::route('aj.index')}}">Informasi dan Status Usulan</a></li>
                         </ul>
                     </li>
                     <li class="has-child">
@@ -164,22 +164,22 @@
     <!--content-wrapper-->
 
     <div class="footer">
-        <div class="rows">
-            <ul>
-                <li><img src="{{asset('assets/img/logo_ditjenbud/1.png')}}" alt=""></li>
-                <li><img src="{{asset('assets/img/logo_ditjenbud/2.png')}}" alt=""></li>
-                <li><img src="{{asset('assets/img/logo_ditjenbud/3.png')}}" alt=""></li>
-                <li><img src="{{asset('assets/img/logo_ditjenbud/4.png')}}" alt=""></li>
-                <li><img src="{{asset('assets/img/logo_ditjenbud/5.png')}}" alt=""></li>
-                <li><img src="{{asset('assets/img/logo_ditjenbud/6.png')}}" alt=""></li>
-                <li><img src="{{asset('assets/img/logo_ditjenbud/7.png')}}" alt=""></li>
-                <li><img src="{{asset('assets/img/logo_ditjenbud/8.png')}}" alt=""></li>
-                <li><img src="{{asset('assets/img/logo_ditjenbud/9.png')}}" alt=""></li>
-                <li><img src="{{asset('assets/img/logo_ditjenbud/10.png')}}" alt=""></li>
-                <li><img src="{{asset('assets/img/logo_ditjenbud/11.png')}}" alt=""></li>
-            </ul>
-        </div>
         <div class="container">
+            <div class="rows">
+                <ul>
+                    <li> <a href="http://www.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/1.png')}}" alt=""></a> </li>
+                    <li><a href="http://www.setjen.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/2.png')}}" alt=""></a></li>
+                    <li><a href="http://www.paudni.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/3.png')}}" alt=""></a></li>
+                    <li><a href="http://www.dikdas.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/4.png')}}" alt=""></a></li>
+                    <li><a href="http://www.dikmen.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/5.png')}}" alt=""></a></li>
+                    <li><a href="http://www.dikti.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/6.png')}}" alt=""></a></li>
+                    <li><a href="http://www.itjen.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/7.png')}}" alt=""></a></li>
+                    <li><a href="http://www.litbang.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/8.png')}}" alt=""></a></li>
+                    <li><a href="http://www.badanbahasa.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/9.png')}}" alt=""></a></li>
+                    <li><a href="http://www.bpsdmpk.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/10.png')}}" alt=""></a></li>
+                    <li><a href="http://www.kebudayaanindonesia.net"><img src="{{asset('assets/img/logo_ditjenbud/11.png')}}" alt=""></a></li>
+                </ul>
+            </div>
             <div class="row-fluid">
                 <div class="span9">
                     <div id="footer-menu-informasi" style="display: none">
@@ -216,9 +216,9 @@
                         <ul class="footer-menu">
                             <li>Ketatalaksanaan</li>
                             <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>
-                            <li><a href="{{URL::route('informasi_sistem_prosedur')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
+                            <li><a href="{{URL::route('sp.index')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
                             <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Analisis Jabatan</a></li>
-                            <li><a href="{{URL::route('informasi_analisis_jabatan')}}">Informasi dan Status Usulan Analisis Jabatan</a></li>
+                            <li><a href="{{URL::route('aj.index')}}">Informasi dan Status Usulan Analisis Jabatan</a></li>
                         </ul>
                         <ul class="footer-menu">
                             <li>Bantuan Hukum</li>

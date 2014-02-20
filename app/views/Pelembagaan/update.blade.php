@@ -27,7 +27,7 @@
             <!-- MAIN CONTENT -->
 
     {{ Form::open($form_opts) }}
-    
+
      {{ Form::hidden('id', $id) }}
 
         <div class="row-fluid">
@@ -150,6 +150,7 @@
             <th>Catatan</th>
             <th>Lampiran</th>
             <th> Ket </th>
+            <th> - </th>
         </tr>        </thead>
         <tbody></tbody>
 
@@ -157,9 +158,6 @@
 
 </div>
     {{ Form::close() }}
-
-
-
 
                 <!-- END OF MAIN CONTENT -->
 
@@ -180,8 +178,6 @@
 </div>
 <!--rightpanel-->
 @stop
-
-
 
 @section('scripts')
     @parent
@@ -227,19 +223,47 @@
                         mData: "lampiran",
                         sClass: 'center-ac',                              
                         sWidth: '14%',
-                        mRender: function(lampiran) {
-//                          return "<a href='"+baseUrl+"/assets/uploads/"+lampiran+"' >Unduh</a>"
-                            return  "<a href='"+location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/" + "assets/uploads/"+lampiran+"' >Unduh</a>"
+                        mRender: function(data, type, full) {
+                             var downloadUrl = baseUrl + '/assets/uploads/pelembagaan/' + data;
+                             return "<a href=" + downloadUrl + "> Unduh </>";
+//                            return  "<a href='"+location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/" + "assets/uploads/pelembagaan/"+lampiran+"' >Unduh</a>"
                         }
                     },
                     {
                         mData: "keterangan",
                         sClass: 'center-ac',                              
                         sWidth: '14%'
+                    },
+                    {
+                        mData: "id",
+                        sClass: 'center-ac',                              
+                        sWidth: '10%',
+                        mRender: function(data, type, full) {
+                           var deleteUrl = baseUrl + '/admin/pelembagaan/deletelog/' + data;
+
+                            return "<a class='btn_delete' title='Hapus' href='" + deleteUrl + "'>"
+                                                + "<i class='icon-trash'></i></a>";
+                        }        
                     }
                     ]
         });
     });
+
+        $("#tbl-log_pelembagaan").on('click', '.btn_delete', function(e){
+            if (confirm('Apakah anda yakin ?')) {
+    
+                $.ajax({
+                url: $(this).attr('href'),
+                     type: 'DELETE',
+                     success: function(response) {
+                            oTable.fnReloadAjax();
+                        }
+                });
+             }
+            e.preventDefault();
+            return false;
+        });
+
 
          $("#kirim_btn").click(function(e){
              oTable.fnReloadAjax();

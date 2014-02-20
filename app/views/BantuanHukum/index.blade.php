@@ -108,7 +108,7 @@
                 bServerSide: true,
                 bProcessing: true,
 //                sAjaxSource: baseUrl + "/lkpm/data",
-                sAjaxSource: '<?php echo URL::to("tabelbahu"); ?>',
+                sAjaxSource: '<?php echo URL::to("bantuanhukum/tabelbahu"); ?>',
                 aoColumns: [
                     {mData: "pengguna.nama_lengkap"},
                     {
@@ -116,7 +116,7 @@
                         sClass: "center",
                         mRender: function(id){
                             var jenis_perkara;
-                            switch (id){
+                            switch (parseInt(id)){
                                 case 1:
                                     jenis_perkara = 'Tata Usaha Negara';
                                     break;
@@ -141,7 +141,7 @@
                         mData: "status_pemohon",
                         mRender: function(id){
                             var status_pemohon;
-                            switch (id){
+                            switch (parseInt(id)){
                                 case 1:
                                     status_pemohon = 'Tergugat';
                                     break;
@@ -194,8 +194,8 @@
                             var downloadUrl = baseUrl + '/download_banhuk?id=' + data;
 
                             return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a> &nbsp;' +
-                                '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
-                                '<a href="' + deleteUrl + '" title="Delete" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
+                                '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;';
+//                                '<a href="' + deleteUrl + '" title="Delete" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
                         }
                     }
                 ],

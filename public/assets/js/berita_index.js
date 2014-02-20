@@ -21,9 +21,14 @@ jQuery(document).ready(function(e){
             {
                 mData: "id",
                 mRender: function(id) {
-                    return "<a href='"+baseUrl+"/admin/berita/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
-                        + "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/admin/berita/"+id+"'>"
-                        + "<i class='icon-trash'></i></a>";
+                    if(role == 3){
+                        return "<a href='"+baseUrl+"/admin/berita/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
+                            + "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/admin/berita/"+id+"'>"
+                            + "<i class='icon-trash'></i></a>";
+                    }else{
+                        return null;
+                    }
+
                 }
             }
         ],
@@ -31,19 +36,15 @@ jQuery(document).ready(function(e){
             aoData.push({name: "filter", value: 1});
         },
         fnDrawCallback: function() {
-
-//            dom.$table_news.fnSetColumnVis( 5,  role == 3 );
+//            var role = '<?php echo Auth::user()->role_id; ?>' ;
+//            dom.$table_news.fnSetColumnVis( 2,  role == 3 );
         }
     });
 
     dom.$table_news.on('click', '.btn_delete', function(e){
         if (confirm('Apakah anda yakin?')) {
-            jQuery.ajax({
-                url: jQuery(this).attr('href'),
-                type: 'DELETE',
-                success: function(response) {
-                    dom.$table_news.fnReloadAjax();
-                }
+            jQuery.post(jQuery(this).attr('href'), {_method: 'delete'}, function(r){
+                dom.$table_news.fnReloadAjax();
             });
         }
         e.preventDefault();

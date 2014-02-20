@@ -3,7 +3,6 @@
 class BantuanHukumController extends BaseController{
 
 //    protected $layout = 'layouts.master';
-
     /**
      * Display a listing of the resource.
      *
@@ -12,10 +11,8 @@ class BantuanHukumController extends BaseController{
 
     public function index() {
         $user = Auth::user()->role_id;
-
 //        echo($user);exit;
-
-        if($user== 2){
+        if($user == 2 || $user == null){
             $this->layout = View::make('layouts.master');
             $this->layout->content = View::make('BantuanHukum.index', array('user'=> $user));
         }else{
@@ -36,8 +33,8 @@ class BantuanHukumController extends BaseController{
             $data = $reg->findPengguna($user->id);
 
             // show form with empty model
-            $this->layout = View::make('layouts.admin');
-            $this->layout->content = View::make('bantuanhukum.form', array(
+            $this->layout = View::make('layouts.master');
+            $this->layout->content = View::make('BantuanHukum.form', array(
                 'user' => $data
             ));
         }
@@ -62,11 +59,11 @@ class BantuanHukumController extends BaseController{
             $DAL->SaveBantuanHukum($input, Input::file('lampiran')); //save bantuan hukum
             $DAL->SendEmailToAllAdminBankum(); // send email
 
-            return Redirect::to('addbahu')->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
+            return Redirect::route('create_bahu')->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
         }
         else
         {
-            return Redirect::to('addbahu')->with('error', 'Lampiran Gagal Disimpan.');
+            return Redirect::route('create_bahu')->with('error', 'Lampiran Gagal Disimpan.');
         }
     }
 
@@ -88,19 +85,25 @@ class BantuanHukumController extends BaseController{
         $banhuk = $DAL->GetSingleBantuanHukum($id);
 
         // show form with empty model
-        $this->layout->content = View::make('bantuanhukum.detail', array(
+        $this->layout  = View::make("layouts.admin");
+        $this->layout->content = View::make('BantuanHukum.detail', array(
             'banhuk' => $banhuk
         ));
     }
 
     public function update()
     {
+        $user = Auth::user()->role_id;
         $input = Input::all();
 
         $DAL = new DAL_BantuanHukun();
         $data = $DAL->UpdateBantuanHukum($input); // update bantuan hukum
 
-        $link = URL::to('/') . '/detail_banhuk?id=' . $data; //link to bantuan hukum with id bantuan hukum
+        if($user != 2){
+            $link = URL::to('/') . '/admin/bantuan_hukum/detail_banhuk?id=' . $data; //link to bantuan hukum with id bantuan hukum            
+        } else {
+            $link = URL::to('/') . '/bantuanhukum/detail_banhuk?id=' . $data; //link to bantuan hukum with id bantuan hukum            
+        }
 
         return Redirect::to($link)->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
     }
@@ -116,12 +119,17 @@ class BantuanHukumController extends BaseController{
 
     public function delete()
     {
+        $user = Auth::user()->role_id;
         $id = Input::get('id');
         $DAL = new DAL_BantuanHukun();
 
         $DAL->DeleteBantuanHukum($id);
 
-        return Redirect::to('bantuanhukum')->with('success', 'Usulan Bantuan Hukum Berhasil Di Hapus.');
+        if($user == 2){
+            return Redirect::to('bantuanhukum')->with('success', 'Usulan Bantuan Hukum Berhasil Di Hapus.');
+        } else {
+            return Redirect::to('admin/bantuan_hukum')->with('success', 'Usulan Bantuan Hukum Berhasil Di Hapus.');            
+        }
     }
 
     public function deletelog()
@@ -132,7 +140,7 @@ class BantuanHukumController extends BaseController{
         $data = $DAL->GetSingleLogBantuanHukum($id);
         $DAL->DeleteLogBantuanHukum(false, $id);
 
-        $link = URL::to('/') . '/detail_banhuk?id=' . $data->bantuan_hukum_id;
+        $link = URL::to('/') . '/admin/bantuan_hukum/detail_banhuk?id=' . $data->bantuan_hukum_id;
 
         return Redirect::to($link)->with('success', 'Data Berhasil Di Hapus.');
     }
@@ -140,6 +148,7 @@ class BantuanHukumController extends BaseController{
     public function download()
     {
         $id = Input::get('id');
+        
         $DAL = new DAL_BantuanHukun();
         $helper = new HukorHelper();
 

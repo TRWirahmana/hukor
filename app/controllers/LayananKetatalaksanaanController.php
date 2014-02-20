@@ -1,9 +1,8 @@
 <?php
 class LayananKetatalaksanaanController extends BaseController {
 
-//	protected $layout = 'layout.admin';
 	public function index(){
-
+		
 		$info = LayananKetatalaksanaan::find(1);
 		$this->layout = View::make('layouts.master');
 
@@ -18,9 +17,7 @@ class LayananKetatalaksanaanController extends BaseController {
 
 		$info = LayananKetatalaksanaan::find(2);
         $this->layout = View::make('layouts.master');
-
         $this->layout->content = View::make('layananketatalaksanaan.index',
-
             array(
                 'info' => $info,
                 'id' => 2
@@ -31,11 +28,9 @@ class LayananKetatalaksanaanController extends BaseController {
 
 		$info = LayananKetatalaksanaan::find(3);
         $this->layout = View::make('layouts.master');
-
         $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
-//            'image' => $this->lihatLampiran()
                 'id' => 3
             ));
     }
@@ -44,7 +39,6 @@ class LayananKetatalaksanaanController extends BaseController {
 
 		$info = LayananKetatalaksanaan::find(4);
         $this->layout = View::make('layouts.master');
-
         $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
@@ -56,7 +50,6 @@ class LayananKetatalaksanaanController extends BaseController {
 
 		$info = LayananKetatalaksanaan::find(5);
         $this->layout = View::make('layouts.master');
-
         $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
@@ -69,11 +62,9 @@ class LayananKetatalaksanaanController extends BaseController {
 
 		$info = LayananKetatalaksanaan::find(6);
         $this->layout = View::make('layouts.master');
-
         $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
-//            'image' => $this->lihatLampiran()
                 'id' => 6
             ));
     }
@@ -82,7 +73,6 @@ class LayananKetatalaksanaanController extends BaseController {
 
 		$info = LayananKetatalaksanaan::find(7);
         $this->layout = View::make('layouts.master');
-
         $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
@@ -94,7 +84,6 @@ class LayananKetatalaksanaanController extends BaseController {
 
 		$info = LayananKetatalaksanaan::find(8);
         $this->layout = View::make('layouts.master');
-
         $this->layout->content = View::make('layananketatalaksanaan.index',
             array(
                 'info' => $info,
@@ -106,20 +95,19 @@ class LayananKetatalaksanaanController extends BaseController {
 		$info = LayananKetatalaksanaan::find(1);
 		
 		$this->layout = View::make('layouts.admin');
-
 		$this->layout->content = View::make('layananketatalaksanaan.form',
-		array(
-				'form_opts' => array(
-					'action' => 'LayananKetatalaksanaanController@submit',
-					'method' => 'post',
-					'id'=>'user-layananketatalaksanaan-form',
-					'class' =>'front-form form-horizontal',
-					'autocomplete' => 'off',
-					'enctype' => "multipart/form-data"
-				),
-				'info' => $info,
-				'id' => 1
-		));
+				array(
+					'form_opts' => array(
+						'action' => 'LayananKetatalaksanaanController@submit',
+						'method' => 'post',
+						'id'=>'user-layananketatalaksanaan-form',
+						'class' =>'front-form form-horizontal',
+						'autocomplete' => 'off',
+						'enctype' => "multipart/form-data"
+					),
+					'info' => $info,
+					'id' => 1
+				));
 	}
 
     public function create_spk(){
@@ -127,48 +115,45 @@ class LayananKetatalaksanaanController extends BaseController {
 
         $this->layout = View::make('layouts.admin');
         $this->layout->content = View::make('layananketatalaksanaan.form',
-            array(
-            	'form_opts' => array(
-	            		'action' => 'LayananKetatalaksanaanController@submit',
-	            		'method' => 'post', 
-	            		'id'=>'user-register-form', 
-	            		'class' =>'front-form form-horizontal', 
-	            		'autocomplete' => 'off', 
-	            		'enctype' => "multipart/form-data"
-            		),
-                'info' => $info,
-                'id' => 2
-            ));
+	            array(
+	            	'form_opts' => array(
+		            	'action' => 'LayananKetatalaksanaanController@submit',
+		            	'method' => 'post', 
+		            	'id'=>'user-register-form', 
+		            	'class' =>'front-form form-horizontal', 
+		            	'autocomplete' => 'off', 
+		            	'enctype' => "multipart/form-data"
+	            	),
+	                'info' => $info,
+	                'id' => 2
+	            ));
     }
 
     public function create_smm(){
 		$info = LayananKetatalaksanaan::find(3);
 
         $this->layout = View::make('layouts.admin');
-
         $this->layout->content = View::make('layananketatalaksanaan.form',
-            array(
-            	'form_opts' => array(
-	            	'action' => 'LayananKetatalaksanaanController@submit', 
-	            	'method' => 'post', 
-	            	'id'=>'user-register-form', 
-	            	'class' =>'front-form form-horizontal', 
-	            	'autocomplete' => 'off', 
-	            	'enctype' => "multipart/form-data"
-	            	),
-                'info' => $info,
-                'id' => 3
-            ));
+	            array(
+	            	'form_opts' => array(
+		            	'action' => 'LayananKetatalaksanaanController@submit', 
+		            	'method' => 'post', 
+		            	'id'=>'user-register-form', 
+		            	'class' =>'front-form form-horizontal', 
+		            	'autocomplete' => 'off', 
+		            	'enctype' => "multipart/form-data"
+		            	),
+	                'info' => $info,
+	                'id' => 3
+	            ));
     }
 
     public function create_analisis_jabatan(){
 		$info = LayananKetatalaksanaan::find(4);
 
         $this->layout = View::make('layouts.admin');
-
         $this->layout->content = View::make('layananketatalaksanaan.form',
             array(
-
             	'form_opts' => array(
             			'action' => 'LayananKetatalaksanaanController@submit',
             			'method' => 'post',
@@ -186,7 +171,6 @@ class LayananKetatalaksanaanController extends BaseController {
 		$info = LayananKetatalaksanaan::find(5);
 
         $this->layout = View::make('layouts.admin');
-
         $this->layout->content = View::make('layananketatalaksanaan.form',
             array(
             	'form_opts' => array(
@@ -206,7 +190,6 @@ class LayananKetatalaksanaanController extends BaseController {
 		$info = LayananKetatalaksanaan::find(6);
 
         $this->layout = View::make('layouts.admin');
-
         $this->layout->content = View::make('layananketatalaksanaan.form',
             array(
             	'form_opts' => array(
@@ -226,7 +209,6 @@ class LayananKetatalaksanaanController extends BaseController {
 		$info = LayananKetatalaksanaan::find(7);
 
         $this->layout = View::make('layouts.admin');
-
         $this->layout->content = View::make('layananketatalaksanaan.form',
             array(
             	'form_opts' => array(
@@ -246,7 +228,6 @@ class LayananKetatalaksanaanController extends BaseController {
 		$info = LayananKetatalaksanaan::find(8);
 
         $this->layout = View::make('layouts.admin');
-
         $this->layout->content = View::make('layananketatalaksanaan.form',
             array(
             	'form_opts' => array(
@@ -265,15 +246,11 @@ class LayananKetatalaksanaanController extends BaseController {
 	public function submit()
 	{
 		$id = Input::get('id');
-
 		$input = Input::get('layananketatalaksanaan');		
 		$img = Input::file('layananketatalaksanaan.image');
-		$ketatalaksanaan = LayananKetatalaksanaan::find($id);
-
-		$rows = count($ketatalaksanaan);
-
-
 		
+		$ketatalaksanaan = LayananKetatalaksanaan::find($id);
+		$rows = count($ketatalaksanaan);
 
 		if($img->isValid()){ 
 			$uqFolder = "layananketatalaksanaan";
@@ -289,14 +266,13 @@ class LayananKetatalaksanaanController extends BaseController {
 						case '1':
 							//find data dari tabel layanan_ketatalaksanaan yang idnya = 1	
 							$data = LayananKetatalaksanaan::find(1);
-
 							$img_exists = $destinationPath . '/' . $data->image;
 
 					   		//pengecekkan file image apakah ada atau tidak
 		                    if(file_exists($img_exists))
 
-		                        //delete file image di folder yang terdaftar di database
-		                        unlink($img_exists);
+		                    //delete file image di folder yang terdaftar di database
+		                    unlink($img_exists);
 
 		                    // update data layanan_ketatalaksanaan
 		                    $DAL = new DAL_LayananKetatalaksanaan();
@@ -318,8 +294,8 @@ class LayananKetatalaksanaanController extends BaseController {
 					   		//pengecekkan file image apakah ada atau tidak
 		                    if(file_exists($img_exists))
 
-		                        //delete file image di folder yang terdaftar di database
-		                        unlink($img_exists);
+		                    //delete file image di folder yang terdaftar di database
+		                    unlink($img_exists);
 
 		                    // update data layanan_ketatalaksanaan
 		                    $DAL = new DAL_LayananKetatalaksanaan();
@@ -341,8 +317,8 @@ class LayananKetatalaksanaanController extends BaseController {
 					   		//pengecekkan file image apakah ada atau tidak
 		                    if(file_exists($img_exists))
 
-		                        //delete file image di folder yang terdaftar di database
-		                        unlink($img_exists);
+		                    //delete file image di folder yang terdaftar di database
+		                    unlink($img_exists);
 
 		                    // update data layanan_ketatalaksanaan
 		                    $DAL = new DAL_LayananKetatalaksanaan();
@@ -364,8 +340,8 @@ class LayananKetatalaksanaanController extends BaseController {
 					   		//pengecekkan file image apakah ada atau tidak
 		                    if(file_exists($img_exists))
 
-		                        //delete file image di folder yang terdaftar di database
-		                        unlink($img_exists);
+		                    //delete file image di folder yang terdaftar di database
+		                    unlink($img_exists);
 
 		                    // update data layanan_ketatalaksanaan
 		                    $DAL = new DAL_LayananKetatalaksanaan();
@@ -387,8 +363,8 @@ class LayananKetatalaksanaanController extends BaseController {
 					   		//pengecekkan file image apakah ada atau tidak
 		                    if(file_exists($img_exists))
 
-		                        //delete file image di folder yang terdaftar di database
-		                        unlink($img_exists);
+		                    //delete file image di folder yang terdaftar di database
+		                    unlink($img_exists);
 
 		                    // update data layanan_ketatalaksanaan
 		                    $DAL = new DAL_LayananKetatalaksanaan();
@@ -410,8 +386,8 @@ class LayananKetatalaksanaanController extends BaseController {
 					   		//pengecekkan file image apakah ada atau tidak
 		                    if(file_exists($img_exists))
 
-		                        //delete file image di folder yang terdaftar di database
-		                        unlink($img_exists);
+		                    //delete file image di folder yang terdaftar di database
+		                    unlink($img_exists);
 
 		                    // update data layanan_ketatalaksanaan
 		                    $DAL = new DAL_LayananKetatalaksanaan();
@@ -433,8 +409,8 @@ class LayananKetatalaksanaanController extends BaseController {
 					   		//pengecekkan file image apakah ada atau tidak
 		                    if(file_exists($img_exists))
 
-		                        //delete file image di folder yang terdaftar di database
-		                        unlink($img_exists);
+		                    //delete file image di folder yang terdaftar di database
+		                    unlink($img_exists);
 
 		                    // update data layanan_ketatalaksanaan
 		                    $DAL = new DAL_LayananKetatalaksanaan();
@@ -456,8 +432,8 @@ class LayananKetatalaksanaanController extends BaseController {
 					   		//pengecekkan file image apakah ada atau tidak
 		                    if(file_exists($img_exists))
 
-		                        //delete file image di folder yang terdaftar di database
-		                        unlink($img_exists);
+		                    //delete file image di folder yang terdaftar di database
+		                    unlink($img_exists);
 
 		                    // update data layanan_ketatalaksanaan
 		                    $DAL = new DAL_LayananKetatalaksanaan();
@@ -641,16 +617,11 @@ class LayananKetatalaksanaanController extends BaseController {
 				}
 			}
 		}else{
-                    
-                    
-                    
-                    
-	            Session::flash('error', 'Gagal mengirim berkas.');
-	            return Redirect::back();
+            Session::flash('error', 'Gagal mengirim berkas.');
+            return Redirect::back();
 		}
 	}
 	
-
     public function lihatLampiran() {
 
         $lampiran = LayananKetatalaksanaan::find(1);

@@ -15,7 +15,7 @@ class UserController extends BaseController {
         if(file_exists($manual_path))
             return Response::download($manual_path);
         else
-            return Redirect::to('/')->with('error', 'Kesalahan, berkas tidak ditemukan.');
+            return Redirect::to('site')->with('error', 'Kesalahan, berkas tidak ditemukan.');
     }
 
 }

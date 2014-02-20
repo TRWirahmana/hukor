@@ -23,6 +23,8 @@
         <div class="maincontentinner">
 
             <!-- MAIN CONTENT -->
+           @include('informasiUsulan');
+
             <div class="footer">
                 <div class="footer-left">
                     <span>&copy; 2013. Admin Template. All Rights Reserved.</span>

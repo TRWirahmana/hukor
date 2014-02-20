@@ -89,4 +89,19 @@ class DAL_PerUU {
                 break;
         }
     }
+
+    public static function getTotalCount() {
+        return  PerUU::count();
+    }
+
+    public static function getUnreadCount() {
+        $lastActive = Auth::user()->last_active;
+        $count = PerUU::where("tgl_usulan", ">=", $lastActive)->count();
+        return $count;
+    }
+
+    public static function getTodayCount() {
+        $count = PerUU::where(DB::raw("DATE(tgl_usulan)"), "=", DB::raw("DATE(NOW())"))->count();
+        return $count;
+    }
 }

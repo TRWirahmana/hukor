@@ -1,7 +1,6 @@
 @section('content')
     <h2>Layanan Ketatalaksanaan</h2>
 <div class="stripe-accent"></div>
-
         @if($id == 2)
            <legend>Informasi Layanan Sistem dan Prosedur Kerja</legend>
         @elseif($id == 3)
@@ -29,7 +28,7 @@
 
     <p>Unit Penanggung Jawab: <?php echo $info->penanggung_jawab; ?></p>
     <br>
-
+    
 <!--    Load Image-->
     <?php $attach = $info->image; ?>
     {{ HTML::image('assets/uploads/layananketatalaksanaan/' . $attach) }}

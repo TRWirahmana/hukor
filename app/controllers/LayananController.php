@@ -54,8 +54,16 @@ class LayananController extends BaseController {
 
         $this->layout = View::make('layouts.admin');
 
-        $this->layout->content = View::make('layanan.form',
-            array(
+        $this->layout->content = View::make('layanan.form', array(
+            'title' => 'Tambah Submenu',
+            'detail' => 'Lengkapi data dibawah ini untuk menambahkan konten layanan baru.',
+            'form_opts' => array(
+                'route' => 'admin.layanan.store',
+                'method' => 'post',
+                'class' => 'form-horizontal',
+                'id' => 'layanan_form',
+                'enctype' => "multipart/form-data"
+            ),
                 'listSubmenu' => $listSubmenu,
                 'listMenu' => $listMenu,
                 'menu' => new Menu()
@@ -73,19 +81,25 @@ class LayananController extends BaseController {
     {
         $this->layout = View::make('layouts.admin');
 
-        $layanan = Menu::find($id);
+        $listMenu = array("" => "Pilih Menu") + Menu::lists("nama_menu", "id");
+
+        $listSubmenu = array("" => "Pilih Submenu") + Submenu::lists("nama_submenu", "id");
+
+        $layanan = Layanan::find($id);
 
         if(!is_null($layanan))
             $this->layout->content = View::make('layanan.form', array(
-                'title' => 'Ubah Info Layanan #' . $layanan->submenu->layanan->id,
+                'title' => 'Ubah Info Layanan #' . $layanan->id,
                 'detail' => '',
                 'form_opts' => array(
-                    'route' => array('admin.layanan.update', $layanan->submenu->layanan->id),
+                    'route' => array('admin.layanan.update', $layanan->id),
                     'enctype' => 'multipart/form-data',
                     'method' => 'put',
                     'class' => 'form-horizontal'
                 ),
                 'menu' => $layanan,
+                'listMenu' => $listMenu,
+                'listSubmenu' => $listSubmenu,
             ));
     }
 
@@ -103,7 +117,7 @@ class LayananController extends BaseController {
 
     }
 
-    public function submit()
+    public function store()
     {
         $input = Input::get('layanan');
         $img = Input::file('layanan.image');
@@ -165,57 +179,55 @@ class LayananController extends BaseController {
 
     public function update($id)
     {
-
-
-        $input = Input::all('layanan');
+        $input = Input::get('layanan');
 
         $img = Input::file('layanan.image');
 
-        $layanan = Menu::find($id);
+        $layanan = Layanan::find($id);
 
-        if($img->isValid()){
-            $uqFolder = "berita";
-//            var_dump($uqFolder);exit;
-            $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
-            $filename = $img->getClientOriginalName();
-            $uploadSuccess = $img->move($destinationPath, $filename);
+        if($img != null){
+            if($img->isValid()){
+                $uqFolder = "layanan";
+                $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
+                $filename = $img->getClientOriginalName();
+                $uploadSuccess = $img->move($destinationPath, $filename);
 
-            if($uploadSuccess){
+                if($uploadSuccess){
+//                    echo $input['menu'];exit;
+                    $layanan->menu_id = $input['menu'];
+                    $layanan->submenu_id = $input['submenu'];
+                    $layanan->berita = $input['berita'];
+                    $layanan->penanggung_jawab = $input['penanggung_jawab'];
+                    $layanan->gambar = $filename;
 
-                $img_exists = $destinationPath . '/' . $layanan->submenu->layanan->gambar;
+                    $layanan->save();
 
-                //pengecekkan file image apakah ada atau tidak
-                if(file_exists($img_exists))
-
-                    //delete file image di folder yang terdaftar di database
-                    unlink($img_exists);
-
-
-                /* update to table layanan */
-//                $berita->judul = $input['judul'];
-                $layanan->submenu->layanan->menu_id = $input['menu'];
-                $layanan->submenu->layanan->submenu_id = $input['submenu'];
-                $layanan->submenu->layanan->berita = $input['berita'];
-                $layanan->submenu->layanan->penulis = $input['penulis'];
-                $layanan->submenu->layanan->gambar = $filename;
-                $layanan->submenu->layanan->created_at = date('Y-m-d H:i:s');
-                $layanan->submenu->layanan->updated_at = date('Y-m-d H:i:s');
-
-                $layanan->submenu->layanan->save();
-
-                if($layanan->submenu->layanan->save()){
-                    Session::flash('success', 'Berita berhasil dirubah!');
-                    return Redirect::to('admin/berita');
-                }else{
-                    Session::flash('error', 'Gagal mengirim data. Pastikan Berita sudah benar.');
-                    return Redirect::back();
+                    if($layanan->save()){
+                        Session::flash('success', 'Informasi Layanan berhasil dirubah!');
+                        return Redirect::to('admin/layanan');
+                    }else{
+                        Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
+                        return Redirect::back();
+                    }
                 }
-
+            }else{
+                Session::flash('error', 'Gagal mengirim berkas.');
+                return Redirect::back();
             }
-
         }else{
-            Session::flash('error', 'Gagal mengirim berkas.');
-            return Redirect::back();
+            $layanan->menu_id = $input['menu'];
+            $layanan->submenu_id = $input['submenu'];
+            $layanan->berita = $input['berita'];
+            $layanan->penanggung_jawab = $input['penanggung_jawab'];
+//            $layanan->gambar = $filename;
+
+            if($layanan->save()){
+                Session::flash('success', 'Informasi Layanan berhasil dirubah!');
+                return Redirect::to('admin/layanan');
+            }else{
+                Session::flash('error', 'Gagal mengirim data. Pastikan Informasi sudah benar.');
+                return Redirect::back();
+            }
         }
     }
 
@@ -228,11 +240,11 @@ class LayananController extends BaseController {
     public function destroy($id)
     {
 
-        $menu = Menu::find($id);
+        $layanan = Layanan::find($id);
 //        echo $menu->submenu->layanan;exit;
 //        var_dump($user);exit;
-        if(!is_null($menu->submenu->layanan)) {
-            $menu->submenu->layanan()->delete();
+        if(!is_null($layanan)) {
+            $layanan->delete();
         }
 
     }

@@ -23,7 +23,8 @@ class DAL_Berita {
                 'berita.penulis',
                 'berita.tgl_penulisan',
                 'berita.id'
-            ));
+            ))
+            ->orderBy('berita.id', 'desc');
 
         if(0 != $filter)
             $data = $data->where('berita.id', '!=', 0);

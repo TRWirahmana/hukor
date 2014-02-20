@@ -5,21 +5,8 @@ class AdminController extends BaseController {
 
 	protected $layout = 'layouts.admin';
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
 
-    public function home(){
-        $user = Auth::user();
-        $this->layout->content = View::make('admin.home', array(
-            'user'=> $user
-        ));
-    }
-
-    public function dashboard() {
-
+    public function home() {
         if(Request::ajax()) {
             $perUU = DAL_PerUU::getMonthlyCount();
             $pelembagaan = DAL_Pelembagaan::getMonthlyCount();
@@ -38,8 +25,10 @@ class AdminController extends BaseController {
             return Response::json($data);
         }
 
-
-        $this->layout->content = View::make('admin.dashboard');
+        $user = Auth::user();
+        $this->layout->content = View::make('admin.dashboard', array(
+            'user'=> $user
+        ));
     }
 
     public function cetakLaporan() {
@@ -80,7 +69,7 @@ class AdminController extends BaseController {
                 $html[] = DAL_PerUU::getPrintTable(null, $firstDate, $lastDate);
                 $html[] = "<h2>Pelembagaan</h2>";
                 $html[] = DAL_Pelembagaan::getPrintTable(null, $firstDate, $lastDate);
-                $html[] = "<h2>Bantuah Hukum</h2>";
+                $html[] = "<h2>Bantuan Hukum</h2>";
                 $html[] = DAL_BantuanHukun::getPrintTable($firstDate, $lastDate);
                 break;
         }
@@ -136,7 +125,7 @@ class AdminController extends BaseController {
                 'title' => 'Pengaturan Akun',
                 'detail' => '',
                 'form_opts' => array(
-                    'url' => URL::to('admin/setting/save'),
+                    'url' => URL::route('admin.setting.save'),
                     'method' => 'put',
                     'class' => 'form-horizontal'
                 ),
@@ -186,7 +175,7 @@ class AdminController extends BaseController {
 
         $user->save();
 
-            return Redirect::to('admin/Index')->with('success', 'Pengaturan akun berhasil disimpan.');
+            return Redirect::route('admin.index')->with('success', 'Pengaturan akun berhasil disimpan.');
     }
 
 	/**
@@ -197,18 +186,19 @@ class AdminController extends BaseController {
 	public function create()
 	{
 
-        $listRole = array(
-            '1' => 'Kepala Biro',
-//            '2' => 'Pengguna',
-            '3' => 'Super Admin',
-            '4' => 'Kepala Bagian',
-            '5' => 'Kepala Sub Bagian',
-            '6' => 'Admin Peraturan Perundang-Undangan',
-            '7' => 'Admin Pelembagaan',
-            '8' => 'Admin Bantuan Hukum',
-            '9' => 'Admin Ketatalaksanaan'
-
-        );
+        $listRole = array("" => "-- Pilih Role --") + Role::lists('nama', 'id');
+//        $listRole = array(
+//            '1' => 'Kepala Biro',
+////            '2' => 'Pengguna',
+//            '3' => 'Super Admin',
+//            '4' => 'Kepala Bagian',
+//            '5' => 'Kepala Sub Bagian',
+//            '6' => 'Admin Peraturan Perundang-Undangan',
+//            '7' => 'Admin Pelembagaan',
+//            '8' => 'Admin Bantuan Hukum',
+//            '9' => 'Admin Ketatalaksanaan'
+//
+//        );
 
 		$this->layout->content = View::make('admin.form', array(
 			'title' => 'Tambah Akun Admin',
@@ -239,6 +229,7 @@ class AdminController extends BaseController {
         $user->role_id = $input['role'];
 		$user->username = $input['email'];
 		$user->password = Hash::make($input['password']);
+        $user->last_active = new DateTime('now');
 		
 		if($user->save()){
             /* save to table registrasi */
@@ -320,7 +311,7 @@ class AdminController extends BaseController {
 
 		}
 
-		return Redirect::to('admin/account')->with('success', 'Akun berhasil ditambahkan.');
+		return Redirect::route('admin.account.index')->with('success', 'Akun berhasil ditambahkan.');
 	}
 
 	/**
@@ -344,17 +335,19 @@ class AdminController extends BaseController {
 	{
 
         $role = User::select('role_id');
-        $listRole = array(
-            '1' => 'Kepala Biro',
-            '2' => 'Pengguna',
-            '3' => 'Super Admin',
-            '4' => 'Kepala Bagian',
-            '5' => 'Kepala Sub Bagian',
-            '6' => 'Admin Peraturan Perundang-Undangan',
-            '7' => 'Admin Pelembagaan',
-            '8' => 'Admin Bantuan Hukum',
-            '9' => 'Admin Ketatalaksanaan'
-        );
+
+        $listRole = array("" => "-- Pilih Role --") + Role::lists('nama', 'id');
+//        $listRole = array(
+//            '1' => 'Kepala Biro',
+//            '2' => 'Pengguna',
+//            '3' => 'Super Admin',
+//            '4' => 'Kepala Bagian',
+//            '5' => 'Kepala Sub Bagian',
+//            '6' => 'Admin Peraturan Perundang-Undangan',
+//            '7' => 'Admin Pelembagaan',
+//            '8' => 'Admin Bantuan Hukum',
+//            '9' => 'Admin Ketatalaksanaan'
+//        );
 
 		//
 		$user = User::find($id);
@@ -469,7 +462,7 @@ class AdminController extends BaseController {
                 ->subject('Sistem Layanan Hukum & Organisasi');
         });
 
-		return Redirect::to('admin/account')->with('success', 'Data berhasil diubah.');
+		return Redirect::route('admin.account.index')->with('success', 'Data berhasil diubah.');
 	}
 
 	/**
@@ -487,6 +480,7 @@ class AdminController extends BaseController {
 			$user->pengguna()->delete();
 			$user->delete();
 		}
+        return 1;
 			
 	}
 

@@ -232,7 +232,7 @@
         <div class="control-group">
             {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
             <div class="controls">
-                <a href="<?php echo URL::to('/') . '/download_banhuk?id=' . $banhuk->id; ?>">Download Lampiran</a>
+                <a href="<?php echo URL::to('site') . '/download_banhuk?id=' . $banhuk->id; ?>">Download Lampiran</a>
             </div>
         </div>
 
@@ -250,8 +250,8 @@
 
 <div class="row-fluid">
     <div class="span24 text-center">
-        <button class="btn" type="submit">Simpan</button>
-        <button class="btn" type="button">Batal</button>
+        <button class="btn btn-primary" type="submit">Simpan</button>
+        <a class="btn btn-primary" type="button" href="{{URL::to('BantuanHukum')}}">Batal</a>
     </div>
 </div>
 {{ Form::close() }}
@@ -287,29 +287,29 @@
                 {mData: "tanggal"},
                 {
                     mData: "status_pemohon",
-                    sClass: "center",
-                    mRender: function(id){
-                        var status_pemohon;
-                        switch (id){
-                            case 1:
-                                status_pemohon = "Tergugat";
-                                break;
-                            case 2:
-                                status_pemohon = "Penggugat";
-                                break;
-                            case 3:
-                                status_pemohon = "Interfent";
-                                break;
-                            case 4:
-                                status_pemohon = "Saksi";
-                                break;
-                            case 5:
-                                status_pemohon = "Pemohon";
-                                break;
-                        }
+                    sClass: "center"
+                    // mRender: function(id){
+                    //     var status_pemohon;
+                    //     switch (parseInt(id)){
+                    //         case 1:
+                    //             status_pemohon = "Tergugat";
+                    //             break;
+                    //         case 2:
+                    //             status_pemohon = "Penggugat";
+                    //             break;
+                    //         case 3:
+                    //             status_pemohon = "Interfent";
+                    //             break;
+                    //         case 4:
+                    //             status_pemohon = "Saksi";
+                    //             break;
+                    //         case 5:
+                    //             status_pemohon = "Pemohon";
+                    //             break;
+                    //     }
 
-                        return status_pemohon;
-                    }
+                    //     return status_pemohon;
+                    // }
                 },
                 {mData: "catatan"},
                 {mData: "lampiran"},
@@ -317,7 +317,7 @@
                     mData: "advokasi",
                     mRender: function(id){
                         var advokasi;
-                        switch (id){
+                        switch (parseInt(id)){
                             case 1:
                                 advokasi = "Bankum I";
                                 break;

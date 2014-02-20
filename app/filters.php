@@ -36,7 +36,7 @@ App::after(function($request, $response)
 Route::filter('auth', function()
 {
 	if (Auth::guest())
-		return Redirect::to('/')->with('error', 'Anda harus login terlebih dahulu.');
+		return Redirect::to('site')->with('error', 'Anda harus login terlebih dahulu.');
 });
 
 Route::filter('super_admin', function(){
@@ -55,6 +55,12 @@ Route::filter("kepala_bagian", function(){
 	$user = Auth::user();
 	if($user->role_id != "4")
 		App::abort(404, "Page Not Found.");
+});
+
+Route::filter("kepala_subbagian", function(){
+    $user = Auth::user();
+    if($user->role_id != "5")
+        App::abort(404, "Page Not Found.");
 });
 
 Route::filter('ketatalaksanaan', function(){

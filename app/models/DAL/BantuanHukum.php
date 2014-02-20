@@ -276,6 +276,7 @@ class DAL_BantuanHukun
     public function SendEmailToAllAdminBankum()
     {
         $email = new HukorEmail();
+
         $reg = new DAL_Registrasi();
 
         $admin = DAL_Registrasi::findAdminByRoleId(8); //get all admin bantuan hukum
@@ -331,6 +332,21 @@ class DAL_BantuanHukun
                         ->where('bantuan_hukum.created_at', '<=', $end)->get()->toArray();
 
         return $data;
+    }
+
+    public static function getTotalCount() {
+        return  BantuanHukum::count();
+    }
+
+    public static function getUnreadCount() {
+        $lastActive = Auth::user()->last_active;
+        $count = BantuanHukum::where("created_at", ">=", $lastActive)->count();
+        return $count;
+    }
+
+    public static function getTodayCount() {
+        $count = BantuanHukum::where(DB::raw("DATE(created_at)"), "=", DB::raw("DATE(NOW())"))->count();
+        return $count;
     }
 
 }

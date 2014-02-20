@@ -3,109 +3,44 @@
 
 class SistemDanProsedurController extends BaseController {
 
-	public function usulanSistemProsedur() {
-        $user = Auth::user();
-        $this->layout = View::make('layouts.master');
-        $this->layout->content = View::make("Ketatalaksanaan.usulanSistemProsedur")
-                ->with('user', $user);
-	}
-
-    public function informasi() {
-        // handle dataTable request
+    public function index() 
+    {
+        $roleId = Auth::user()->role_id;
         if (Request::ajax())
-            return Datatables::of(DAL_SistemDanProsedur::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
+            return Datatables::of(DAL_SistemDanProsedur::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))
+                ->add_column("_role_id", $roleId)
+                ->make(true);
 
-        $this->layout = View::make('layouts.master');
-        $this->layout->content = View::make('Ketatalaksanaan.informasi');
-    }
-
-	public function prosesUsulanSistemProsedur() {
-		$input = Input::get('sistem_dan_prosedur');
-        $img = Input::file('sistem_dan_prosedur.lampiran');
-        $input2 = Input::get('penanggungJawab');
-
-        if ($img->isValid()) {
-            $uqFolder = str_random(8);
-            $destinationPath = UPLOAD_PATH . '/' . $uqFolder;
-            $filename = $img->getClientOriginalName();
-            $uploadSuccess = $img->move($destinationPath, $filename);
-
-            if ($uploadSuccess) {
-                $sistemDanProsedur = new SistemDanProsedur;
-                $sistemDanProsedur->id_pengguna = 1;
-                $sistemDanProsedur->perihal = $input['perihal'];
-                $sistemDanProsedur->catatan = $input['catatan'];
-                $sistemDanProsedur->lampiran = $uqFolder . DS . $filename;
-                $sistemDanProsedur->tgl_usulan = new DateTime;
-                $sistemDanProsedur->status = 0;
-                if ($sistemDanProsedur->save()) {
-                    $penanggungJawab = new PenanggungJawabSistemDanProsedur();
-                    $penanggungJawab->id_sistem_dan_prosedur = $perUU->id;
-                    $penanggungJawab->nama = $input2['nama'];
-                    $penanggungJawab->jabatan = $input2['jabatan'];
-                    $penanggungJawab->NIP = $input2['nip'];
-                    $penanggungJawab->unit_kerja = $input2['unit_kerja'];
-                    $penanggungJawab->alamat_kantor = $input2['alamat_kantor'];
-                    $penanggungJawab->telepon_kantor = $input2['telp_kantor'];
-                    $penanggungJawab->email = $input2['email'];
-                    $penanggungJawab->save();
-
-                    // kirim email ke admin
-                    $data = array(
-                        'user' => Auth::user(),
-                        'data' => $sistemDanProsedur
-                    );
-                    Mail::send('emails.usulanbaru', $data, function($message) {
-                        // admin email (testing)
-                        $message->to('egisolehhasdi@gmail.com', 'egisolehhasdi@gmail.com')
-                                ->subject('Usulan Baru Peraturan Perundang-Undangan');
-                    });
-
-                    Session::flash('success', 'Data berhasil dikirim.');
-                    return Redirect::to('/');
-                } else {
-                    Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
-                    return Redirect::back();
-                }
-            }
+        if(Auth::user()->role_id == 2 || Auth::guest()) {
+            $this->layout = View::make('layouts.master');
+            $this->layout->content = View::make('SistemDanProsedur.informasi');
         } else {
-            Session::flash('error', 'Gagal mengirim berkas. Pastikan berkas berupa PDF dan kurang dari 512k.');
-            return Redirect::back();
+            $this->layout = View::make('layouts.admin');
+            $this->layout->content = View::make('SistemDanProsedur.index');
         }
-	}
-
-    public function indexSistemDanProsedur() 
-    {
-      // handle dataTable request
-        if (Request::ajax())
-            return Datatables::of(DAL_SistemDanProsedur::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
-
-        $this->layout = View::make('layouts.admin');
-        $this->layout->content = View::make('Ketatalaksanaan.indexSistemProsedur');
     }
 
-    public function deleteSistemDanProsedur()
+    public function destroy($id)
     {
-        $sistemDanProsedur = SistemDanProsedur::find(Input::get('id'));
+        $sistemDanProsedur = SistemDanProsedur::find($id);
         if (null != $sistemDanProsedur)
             $sistemDanProsedur->delete();
         echo 1;
     }
 
-    public function updateSistemDanProsedur($id)
+    public function edit($id)
     {
         if (Request::ajax())
             return Datatables::of(DAL_SistemDanProsedur::getLogUsulan($id))->make(true);
 
         $sistemDanProsedur = SistemDanProsedur::with('Pengguna')->find($id);
         $this->layout = View::make('layouts.admin');
-        $this->layout->content = View::make('Ketatalaksanaan.updateSistemDanProsedur')
+        $this->layout->content = View::make('SistemDanProsedur.edit')
                 ->with('data', $sistemDanProsedur);
     }
 
-    public function prosesUpdateSistemDanProsedur()
+    public function update($id)
     {
-        $id = Input::get('id');
         $status = Input::get('status', 0);
         $catatan = Input::get('catatan', '');
         $ketLampiran = Input::get('ket_lampiran', '');
@@ -144,27 +79,90 @@ class SistemDanProsedurController extends BaseController {
                 'data' => $sistemDanProsedur
             );
 
-            Mail::send('Ketatalaksanaan.emailUpdateStatus', $data, function($message) use($sistemDanProsedur) {
+            Mail::send('emails.SistemDanProsedur.update', $data, function($message) use($sistemDanProsedur) {
                 $message->to($sistemDanProsedur->pengguna->email)
                         ->subject('Perubahan Status Usulan');
             });
 
             Session::flash('success', 'Usulan berhasil diperbaharui.');
-            return Redirect::route('index_sistem_dan_prosedur');
+            return Redirect::route('admin.sp.index');
         } else {
             Session::flash('error', 'Usulah gagal diperbaharui.');
             return Redirect::back();
         }
     }
 
-    public function downloadSistemDanProsedur($id)
+
+    public function create() {
+        $user = Auth::user();
+        $this->layout = View::make('layouts.master');
+        $this->layout->content = View::make("SistemDanProsedur.create")
+                ->with('user', $user);
+    }
+
+    public function store() {
+        $input = Input::get('sistem_dan_prosedur');
+        $img = Input::file('sistem_dan_prosedur.lampiran');
+        $input2 = Input::get('penanggungJawab');
+
+        if ($img->isValid()) {
+            $uqFolder = str_random(8);
+            $destinationPath = UPLOAD_PATH . '/' . $uqFolder;
+            $filename = $img->getClientOriginalName();
+            $uploadSuccess = $img->move($destinationPath, $filename);
+
+            if ($uploadSuccess) {
+                $sistemDanProsedur = new SistemDanProsedur;
+                $sistemDanProsedur->id_pengguna = Auth::user()->pengguna->id_pengguna;
+                $sistemDanProsedur->perihal = $input['perihal'];
+                $sistemDanProsedur->catatan = $input['catatan'];
+                $sistemDanProsedur->lampiran = $uqFolder . DS . $filename;
+                $sistemDanProsedur->tgl_usulan = new DateTime;
+                $sistemDanProsedur->status = 0;
+                if ($sistemDanProsedur->save()) {
+                    $penanggungJawab = new PenanggungJawabSistemDanProsedur();
+                    $penanggungJawab->id_sistem_dan_prosedur = $sistemDanProsedur->id;
+                    $penanggungJawab->nama = $input2['nama'];
+                    $penanggungJawab->jabatan = $input2['jabatan'];
+                    $penanggungJawab->NIP = $input2['nip'];
+                    $penanggungJawab->unit_kerja = $input2['unit_kerja'];
+                    $penanggungJawab->alamat_kantor = $input2['alamat_kantor'];
+                    $penanggungJawab->telepon_kantor = $input2['telp_kantor'];
+                    $penanggungJawab->email = $input2['email'];
+                    $penanggungJawab->save();
+
+                    // kirim email ke admin
+                    $data = array(
+                        'user' => Auth::user(),
+                        'data' => $sistemDanProsedur
+                    );
+                    Mail::send('emails.SistemDanProsedur.new', $data, function($message) {
+                        // admin email (testing)
+                        $message->to('egisolehhasdi@gmail.com', 'egisolehhasdi@gmail.com')
+                                ->subject('Usulan Baru Sistem dan Prosedur');
+                    });
+
+                    Session::flash('success', 'Data berhasil dikirim.');
+                    return Redirect::to('site');
+                } else {
+                    Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
+                    return Redirect::back();
+                }
+            }
+        } else {
+            Session::flash('error', 'Gagal mengirim berkas. Pastikan berkas berupa PDF dan kurang dari 512k.');
+            return Redirect::back();
+        }
+    }
+
+    public function downloadLampiran($id)
     {
         $sistemDanProsedur = SistemDanProsedur::find($id) or App::abort(404);
         $path = UPLOAD_PATH . DS . $sistemDanProsedur->lampiran;
         return Response::download($path, explode('/', $sistemDanProsedur->lampiran)[1]);
     }
 
-    public function printSistemDanProsedur() {
+    public function printTable() {
         $status = Input::get("status", null);
         $firstDate = Input::get("firstDate", null);
         $lastDate = Input::get("lastDate", null);
@@ -202,8 +200,9 @@ class SistemDanProsedurController extends BaseController {
         $pdf = new DOMPDF();
         $pdf->load_html(join("", $style) . join("",$html));
         $pdf->render();
-        return $pdf->stream("ketatalaksanaan.pdf");
+        return $pdf->stream("SistemDanProsedur.pdf");
     }
+
 
 
     private function getStatus($status) {

@@ -1,10 +1,10 @@
 @section('content')
       <h2>Produk Hukum</h2>
       <div class="stripe-accent"></div>
-<!--       <legend>Peraturan Perundang-Undangan</legend> -->
 
-    <div id="filtermenu" class="icon-download form-horizontal" >
-        <legend>Filter</legend>
+    <div id="filtermenu">
+        <legend>Filter <i id="iconfilter" class='icon-plus'></i>        
+        </legend>
     </div>
 
     <div id="filterdiv" class="filterdiv" >
@@ -61,7 +61,7 @@
      </div>           
 
                 <br />
-                  <table id="tbl-produkhukum">  
+                  <table id="tbl-produkhukum" class="dataTable">  
                       <thead>
                       <tr>
                           <th>No</th>
@@ -73,7 +73,6 @@
                       </tr>
                       </thead>
                       <tbody></tbody>
-
                   </table>
 
 @stop
@@ -90,22 +89,21 @@
   //   }); 
   // });
 
-  $(document).ready(function(){
-    $('#filtermenu').click(function(){
-      // var $this = $(this),
-      //     mFilter = $this.clildren('div.filterdiv'),
-      //     $header = $this.find();
-        if ( $("#filterdiv").is(':hidden')) {
-          $("#filterdiv").slideDown('200');
-          $("#filtermenu").addClass('icon-edit');
-          $("#filtermenu").removeClass('icon-download');
-        } else {
-          $("#filterdiv").slideUp('200');
-          $("#filtermenu").removeClass('icon-edit');
-          $("#filtermenu").addClass('icon-download');
-        }
-    });
-  });
+  // $(document).ready(function(){
+  //   $('#filtermenu').click(function(){
+  //       if ( $("#filterdiv").is(':hidden')) {
+  //         $("#filterdiv").slideDown('200');
+  //         $("#iconfilter").addClass('icon-edit');
+  //         $("#iconfilter").removeClass('icon-plus');
+  //       } else {
+  //         $("#filterdiv").slideUp('200');
+  //         $("#iconfilter").removeClass('icon-edit');
+  //         $("#iconfilter").addClass('icon-plus');
+  //       }
+  //   });
+  // });
+
+  
   </script>        
 @stop
 
@@ -134,10 +132,13 @@
             var role_id = <?php if($user->role_id) echo $user->role_id; else echo '0'; ?>;
             
             $dataTable = $("#tbl-produkhukum").dataTable({
-                bServerSide: true,
                 bFilter: true,
+                bInfo: false,
+                bSort: false,
+                bPaginate: true,
                 bLengthChange: false,
- 
+                bServerSide: true,
+                bProcessing: true, 
                 sAjaxSource: document.location.href,
                 aoColumns: [
                   {
@@ -205,12 +206,9 @@
 
                         ],
                         fnServerParams: function(aoData) {
-    //                        aoData.push({name: "status", value: $("#select-status").val()});
                             aoData.push({name: "kategori", value: $("#select-kategori").val()});
                             aoData.push({name: "masalah", value: $("#select-masalah").val()});
                             aoData.push({name: "tahunFilter", value: $("#tahun-filter").val()});
-                            aoData.push({name: "firstDate", value: $("#first-date").val()});
-    //                        aoData.push({name: "lastDate", value: $("#last-date").val()});
                         },
                         fnDrawCallback: function ( oSettings ) {
                            if ( oSettings.bSorted || oSettings.bFiltered )
@@ -242,11 +240,8 @@
                           e.preventDefault();
                           return false;
                   });
-
-                  // $("#filter_unit").keyup( function() { fnFilterUnit ( 3 ); } );
-                  // $("#filter_tahun").change( function() { fnFilterTahun( 2 ); } );
                           
-                  $("#select-status, #select-kategori, #select-masalah, #first-date, #tahun-filter, #last-date").change(function() {
+                  $("#select-status, #select-kategori, #select-masalah, #tahun-filter").change(function() {
                       $dataTable.fnReloadAjax();
                   });
 
@@ -254,8 +249,6 @@
                       $dataTable.fnReloadAjax();
                   });
 
-//          });
-          
 });
         </script>        
 @stop

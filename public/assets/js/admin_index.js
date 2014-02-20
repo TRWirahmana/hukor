@@ -21,7 +21,7 @@ jQuery(document).ready(function(e){
             {
                 mData: "role_id",
                 mRender: function(role_id) {
-                    switch(role_id){
+                    switch(parseInt(role_id)){
                         case 1 :
                             return "Kepala Biro";
                         break;
@@ -73,12 +73,8 @@ jQuery(document).ready(function(e){
 
     dom.$table_admin.on('click', '.btn_delete', function(e){
         if (confirm('Apakah anda yakin?')) {
-            jQuery.ajax({
-                url: jQuery(this).attr('href'),
-                type: 'DELETE',
-                success: function(response) {
-                    dom.$table_admin.fnReloadAjax();
-                }
+            jQuery.post(jQuery(this).attr('href'), {_method: 'delete'}, function(r){
+                dom.$table_admin.fnReloadAjax();
             });
         }
         e.preventDefault();

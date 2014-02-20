@@ -3,8 +3,6 @@
 class PeruuController extends BaseController
 {
 
-//	protected $layout = 'layouts.master';
-
     public function index()
     {
         $roleId = Auth::user()->role_id;
@@ -14,26 +12,25 @@ class PeruuController extends BaseController
                 ->add_column("_role_id", $roleId)
                 ->make(true);
 
-        $printUrl = URL::route("admin.per_uu.print");
-        if('6' == $roleId)
-            $printUrl = URL::route('per_uu.print');
-        elseif ('4' == $roleId)
-            $printUrl = URL::route('kepala_bagian.per_uu.print');
-
-        $this->layout = View::make('layouts.admin');
-        $this->layout->content = View::make('PerUU.index')
-            ->with('printUrl', $printUrl);
+        if(Auth::user()->role_id == 2 || Auth::guest()) {
+            $this->layout = View::make('layouts.master');
+            $this->layout->content = View::make('PerUU.informasi');    
+        } else {
+            $this->layout = View::make('layouts.admin');
+            $this->layout->content = View::make('PerUU.index');    
+        }
+        
     }
 
-    public function pengajuanUsulan()
+    public function create()
     {
         $user = Auth::user();
         $this->layout = View::make('layouts.master');
-        $this->layout->content = View::make('PerUU.pengajuanUsulan')
+        $this->layout->content = View::make('PerUU.create')
                 ->with('user', $user);
     }
 
-    public function prosesPengajuan()
+    public function store()
     {
         $input = Input::get('per_uu');
         $img = Input::file('per_uu.lampiran');
@@ -70,14 +67,14 @@ class PeruuController extends BaseController
                         'user' => Auth::user(),
                         'perUU' => $perUU
                     );
-                    Mail::send('emails.usulanbaru', $data, function($message) {
+                    Mail::send('emails.PerUU.new', $data, function($message) {
                         // admin email (testing)
                         $message->to('egisolehhasdi@gmail.com', 'egisolehhasdi@gmail.com')
                                 ->subject('Usulan Baru Peraturan Perundang-Undangan');
                     });
 
                     Session::flash('success', 'Data berhasil dikirim.');
-                    return Redirect::to('/');
+                    return Redirect::to('site');
                 } else {
                     Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
                     return Redirect::back();
@@ -89,20 +86,19 @@ class PeruuController extends BaseController
         }
     }
 
-    public function updateUsulan($id)
+    public function edit($id)
     {
         if (Request::ajax())
             return Datatables::of(DAL_PerUU::getLogUsulan($id))->make(true);
 
         $perUU = PerUU::with('Pengguna')->find($id);
         $this->layout = View::make('layouts.admin');
-        $this->layout->content = View::make('PerUU.updateUsulan')
+        $this->layout->content = View::make('PerUU.edit')
                 ->with('perUU', $perUU);
     }
 
-    public function prosesUpdateUsulan()
+    public function update($id)
     {
-        $id = Input::get('id');
         $status = Input::get('status', 0);
         $catatan = Input::get('catatan', '');
         $ketLampiran = Input::get('ket_lampiran', '');
@@ -141,22 +137,22 @@ class PeruuController extends BaseController
                 'perUU' => $perUU
             );
 
-            Mail::send('emails.perubahanUsulan', $data, function($message) use($perUU) {
+            Mail::send('emails.PerUU.update', $data, function($message) use($perUU) {
                 $message->to($perUU->pengguna->email)
                         ->subject('Perubahan Status Usulan');
             });
 
             Session::flash('success', 'Usulan berhasil diperbaharui.');
-            return Redirect::route('index_per_uu');
+            return Redirect::route('admin.puu.index');
         } else {
             Session::flash('error', 'Usulah gagal diperbaharui.');
             return Redirect::back();
         }
     }
 
-    public function hapusUsulan()
+    public function destroy($id)
     {
-        $perUU = PerUU::find(Input::get('id'));
+        $perUU = PerUU::find($id);
         if (null != $perUU)
             $perUU->delete();
         echo 1;
@@ -196,17 +192,5 @@ class PeruuController extends BaseController
         $pdf->render();
         $pdf->stream("peruu.pdf");
     }
-
-    public function informasi() {
-        if (Request::ajax())
-            return Datatables::of(DAL_PerUU::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))
-                ->add_column("_role_id", $roleId)
-                ->make(true);
-
-        $this->layout = View::make('layouts.master');
-        $this->layout->content = View::make('PerUU.informasi');
-
-    }
-
 
 }

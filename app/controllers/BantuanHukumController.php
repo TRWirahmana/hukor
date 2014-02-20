@@ -99,7 +99,7 @@ class BantuanHukumController extends BaseController{
         $DAL = new DAL_BantuanHukun();
         $data = $DAL->UpdateBantuanHukum($input); // update bantuan hukum
 
-        if($user == 2){
+        if($user != 2){
             $link = URL::to('/') . '/admin/bantuan_hukum/detail_banhuk?id=' . $data; //link to bantuan hukum with id bantuan hukum            
         } else {
             $link = URL::to('/') . '/bantuanhukum/detail_banhuk?id=' . $data; //link to bantuan hukum with id bantuan hukum            

@@ -240,6 +240,7 @@ class AdminController extends BaseController {
         $user->role_id = $input['role'];
 		$user->username = $input['email'];
 		$user->password = Hash::make($input['password']);
+        $user->last_active = new DateTime('now');
 		
 		if($user->save()){
             /* save to table registrasi */

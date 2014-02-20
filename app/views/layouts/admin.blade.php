@@ -157,7 +157,7 @@
 
                         <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
                             <ul>
-                                <li><a href="{{URL::to('kepala_biro/ketatalaksanaan/sistemDanProsedur')}}">Sistem dan Prosedur</a></li>
+                                <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                 <li><a href="{{URL::to('kepala_biro/ketatalaksanaan/analisisJabatan/')}}">Analisis Jabatan</a></li>
                             </ul>
                         </li>
@@ -184,7 +184,7 @@
                         </li>
                         <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
                             <ul>
-                                <li><a href="{{URL::route('index_sistem_dan_prosedur')}}">Sistem dan Prosedur</a></li>
+                                <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                 <li><a href="{{URL::route('index_analisis_jabatan')}}">Analisis Jabatan</a></li>
                             </ul>
                         </li>
@@ -319,7 +319,7 @@
                         <li id="app_pelembagaan" ><a href="{{ URL::to('bantuan_hukum/pelembagaan/') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a></li>
                         <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
                             <ul>
-                                <li><a href="{{URL::to('bantuan_hukum/ketatalaksanaan/sistemDanProsedur')}}">Sistem dan Prosedur</a></li>
+                                <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                 <li><a href="{{URL::to('bantuan_hukum/ketatalaksanaan/analisisJabatan/')}}">Analisis Jabatan</a></li>
                             </ul>
                         </li>
@@ -341,7 +341,7 @@
                         <li id="app_pelembagaan" ><a href="{{ URL::to('ketatalaksanaan/pelembagaan/') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a></li>
                         <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
                             <ul>
-                                <li><a href="{{URL::to('ketatalaksanaan/ketatalaksanaan/sistemDanProsedur')}}">Sistem dan Prosedur</a></li>
+                                <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                 <li><a href="{{URL::route('index_analisis_jabatan')}}">Analisis Jabatan</a></li>
                             </ul>
                         </li>

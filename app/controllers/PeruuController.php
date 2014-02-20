@@ -14,12 +14,6 @@ class PeruuController extends BaseController
                 ->add_column("_role_id", $roleId)
                 ->make(true);
 
-        $printUrl = URL::route("admin.per_uu.print");
-        if('6' == $roleId)
-            $printUrl = URL::route('per_uu.print');
-        elseif ('4' == $roleId)
-            $printUrl = URL::route('kepala_bagian.per_uu.print');
-
         $this->layout = View::make('layouts.admin');
         $this->layout->content = View::make('PerUU.index')
             ->with('printUrl', $printUrl);

@@ -27,7 +27,7 @@
             <!-- MAIN CONTENT -->
 
             <div class="content-non-title">
-                <form id="form-filter" class="form form-horizontal" action="{{$printUrl}}">
+                <form id="form-filter" class="form form-horizontal" action="{{ URL::to('/download/per_uu/printTable') }}">
                     <fieldset>
                         <legend class="f_legend">Filter</legend>
                         <div class="row-fluid">
@@ -194,7 +194,7 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            var btns = new Array("<a href='per_uu/download/" + data + "'><i class='icon-download'></i></a> ");
+                            var btns = new Array("<a href='/download/per_uu/lampiran/" + data + "'><i class='icon-download'></i></a> ");
                             if(all._role_id == 3 || all._role_id == 6) {
                                 btns.push("<a href='per_uu/update/" + data + "'><i class='icon-edit'></i></a> "); 
                                 btns.push("<a class='delete' href='javascript:void(0)' data-id='" + data + "'><i class='icon-trash'></i></a>");   

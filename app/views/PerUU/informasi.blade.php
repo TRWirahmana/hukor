@@ -96,7 +96,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            return "<a href='per_uu/download/" + data + "'><i class='icon-download'></i></a> ";
+                            return "<a href='/puu/download/" + data + "'><i class='icon-download'></i></a> ";
                         }
                     }
                 ],

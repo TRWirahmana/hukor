@@ -209,7 +209,7 @@
                 <!-- list aplikasi-->
                 <li class="dropdown" >
                     <ul id="app">
-                        <li id="app_puu"><a href="{{ URL::to('admin/per_uu/index_per_uu') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
+                        <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
 
                         </li>
                         <li id="app_pelembagaan" ><a href="{{ URL::to('admin/pelembagaan') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a>
@@ -218,7 +218,7 @@
                         <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
                             <ul>
                                 <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
-                                <li><a href="{{URL::route('index_analisis_jabatan')}}">Analisis Jabatan</a></li>
+                                <li><a href="{{URL::route('admin.aj.index')}}">Analisis Jabatan</a></li>
                             </ul>
                         </li>
                         <li id="app_bahu"><a href="{{ URL::to('admin/bantuan_hukum') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>

@@ -178,9 +178,9 @@
                       <ul>
                           <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=1') }}"><span class="rulycon-checkbox-unchecked"></span>Peraturan Perundang-Undangan</a></li>
                           @if($user->role_id == 2)
-                          <li id="menu-peruu-usulan"><a href="{{ URL::route('pengajuan_per_uu')  }}"><span class="rulycon-envelop"></span>Lembar Usulan</a></li>
+                          <li id="menu-peruu-usulan"><a href="{{ URL::route('puu.create')  }}"><span class="rulycon-envelop"></span>Lembar Usulan</a></li>
                           @endif
-                        <li id="menu-peruu-informasi"><a href="{{URL::route('per_uu.informasi')}}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan</a></li>
+                        <li id="menu-peruu-informasi"><a href="{{URL::route('puu.index')}}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan</a></li>
                       </ul>
                     </div>
                   </div>
@@ -234,9 +234,9 @@
                           @endif
 
                           <li id="menu-analisa-info"><a href="{{ URL::to('/layanan/detail?id=5') }}"><span class="rulycon-checkbox-unchecked"></span>Analisis Jabatan</a></li>
-                          <li id="menu-pelembagaan-informasi"><a href="{{URL::route('informasi_analisis_jabatan')}}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan Analisis Jabatan</a></li>
+                          <li id="menu-pelembagaan-informasi"><a href="{{URL::route('aj.index')}}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan Analisis Jabatan</a></li>
                           @if($user->role_id == 2)
-                          <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('usulan_analisis_jabatan')}}"><span class="rulycon-envelop"></span>Lembar Usulan Analisis Jabatan</a></li>
+                          <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('aj.create')}}"><span class="rulycon-envelop"></span>Lembar Usulan Analisis Jabatan</a></li>
                           @endif
                       </ul>
                     </div>

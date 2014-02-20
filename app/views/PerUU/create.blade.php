@@ -1,13 +1,13 @@
 @section('content')
 
-<h2>Ketatalaksanaan</h2>
+<h2>PERATURAN PERUNDANG-UNDANGAN</h2>
 <div class="stripe-accent"></div>
-<legend>Pengajuan Usulan Analisis Jabatan</legend>
+<legend>Pengajuan Usulan</legend>
 
 @include('flash')
 <div class="content-non-title">
 
-    {{ Form::open(array('route' => 'proses_analisis_jabatan', 'files' => true, 'class' => 'form form-horizontal', 'id' => 'form-perUU'))}}
+    {{ Form::open(array('route' => 'puu.store', 'files' => true, 'class' => 'form form-horizontal', 'id' => 'form-perUU'))}}
 
     <div class="row-fluid">
         <div class="span12">
@@ -70,23 +70,23 @@
                 <legend>Informasi Perihal & Lampiran</legend>
 
                 <div class="control-group">
-                    {{ Form::label("analisisJabatan[perihal]", "Perihal", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::text("analisisJabatan[perihal]") }}</div>
+                    {{ Form::label("per_uu[perihal]", "Perihal", array('class' => 'control-label')) }}
+                    <div class="controls">{{ Form::text("per_uu[perihal]") }}</div>
                 </div>
                 <div class="control-group">
-                    {{ Form::label("analisisJabatan[lampiran]", "Lampiran", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::file("analisisJabatan[lampiran]") }}</div>
+                    {{ Form::label("per_uu[lampiran]", "Lampiran", array('class' => 'control-label')) }}
+                    <div class="controls">{{ Form::file("per_uu[lampiran]") }}</div>
                 </div>
                 <div class="control-group">
-                    {{ Form::label("analisisJabatan[catatan]", "Catatan", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::textarea("analisisJabatan[catatan]") }}</div>
+                    {{ Form::label("per_uu[catatan]", "Catatan", array('class' => 'control-label')) }}
+                    <div class="controls">{{ Form::textarea("per_uu[catatan]") }}</div>
                 </div>
 
             </fieldset>
 
         </div>
 
-    </div>  
+    </div>	
 
     <!--    <div class="row-fluid">
             <div class="span6"></div>
@@ -111,7 +111,7 @@
                 </fieldset>
             </div>
             <div class="span6"></div>
-        </div>  -->
+        </div>	-->
 
     <div class="form-actions">
         <a href="{{ URL::to('/') }}" class="btn btn-primary">Batal</a>
@@ -141,8 +141,8 @@ $("#form-perUU").validate({
         'penanggungJawab[alamat_kantor]': 'required',
         'penanggungJawab[telp_kantor]': 'required',
         'penanggungJawab[email]': 'required',
-        'analisisJabatan[perihal]': 'required',
-        'analisisJabatan[lampiran]': 'required'
+        'per_uu[perihal]': 'required',
+        'per_uu[lampiran]': 'required'
 
     },
     messages: {
@@ -167,10 +167,10 @@ $("#form-perUU").validate({
         'penanggungJawab[email]': {
             required: 'Email penanggung jawab tidak boleh kosong.'
         },
-        'analisisJabatan[perihal]': {
+        'per_uu[perihal]': {
             required: 'Perihal tidak boleh kosong.'
         },
-        'analisisJabatan[lampiran]': {
+        'per_uu[lampiran]': {
             required: 'Mohon sertakan lampiran.'
         }
     },

@@ -135,24 +135,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
         Route::post('delete','PeruuController@hapusUsulan');
     });
 
-    Route::group(array("prefix" => "ketatalaksanaan"), function() {
-        Route::get('sistemDanProsedur', array("as" => "index_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@indexSistemDanProsedur"));
-        Route::get("updateSistemDanProsedur/{id}", array("as" => "update_status_dan_prosedur", "uses" => "SistemDanProsedurController@updateSistemDanProsedur"));
-        Route::post('deleteSistemDanProsedur', array("as" => "delete_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@deleteSistemDanProsedur"));
-        Route::post('updateSistemDanProsedur', array("as" => "proses_update_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@prosesUpdateSistemDanProsedur"));
-        Route::get('downloadSistemDanProsedur/{id}', "SistemDanProsedurController@downloadSistemDanProsedur");
-        Route::get('printSistemDanProsedur', array('as' => 'print_sistem_dan_prosedur', 'uses' => 'SistemDanProsedurController@printSistemDanProsedur'));
-
-    Route::group(array("prefix" => "analisisJabatan"), function(){
-        Route::get('/', array("as" => "index_analisis_jabatan", "uses" => "AnalisisJabatanController@index"));
-        Route::get('print', array("as" => "print_analisis_jabatan", "uses" => "AnalisisJabatanController@printTable"));
-        Route::get('download/{id}', "AnalisisJabatanController@downloadLampiran");
-        Route::post('delete', array('as' => 'hapus_analisis_jabatan', 'uses' => 'AnalisisJabatanController@hapusUsulan'));
-        Route::get('update/{id}', array("as" => "update_analisis_jabatan", "uses" => "AnalisisJabatanController@update"));
-        Route::post('update', array("as" => "proses_update_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUpdate"));
-        });
-    });
-
 
     Route::resource('pelembagaan', 'PelembagaanController');   
     
@@ -242,25 +224,6 @@ Route::group(array('prefix' => 'kepala_biro', 'before' => 'auth|kepala_biro'), f
     Route::get('setting_menu', 'MenuController@setting');
     Route::put('setting/save', 'MenuController@save');
 
-    //Ketatalaksanaan
-    Route::group(array("prefix" => "ketatalaksanaan"), function() {
-        Route::get('sistemDanProsedur', array("as" => "index_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@indexSistemDanProsedur"));
-        Route::get("updateSistemDanProsedur/{id}", array("as" => "update_status_dan_prosedur", "uses" => "SistemDanProsedurController@updateSistemDanProsedur"));
-        Route::post('deleteSistemDanProsedur', array("as" => "delete_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@deleteSistemDanProsedur"));
-        Route::post('updateSistemDanProsedur', array("as" => "proses_update_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@prosesUpdateSistemDanProsedur"));
-        Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "SistemDanProsedurController@downloadSistemDanProsedur"));
-        Route::get('printSistemDanProsedur', array('as' => 'print_sistem_dan_prosedur', 'uses' => 'SistemDanProsedurController@printSistemDanProsedur'));
-
-        Route::group(array("prefix" => "analisisJabatan"), function(){
-            Route::get('/', "AnalisisJabatanController@index");
-            Route::get('print', array("as" => "print_analisis_jabatan", "uses" => "AnalisisJabatanController@printTable"));
-            Route::get('download/{id}', "AnalisisJabatanController@downloadLampiran");
-            Route::post('delete', array('as' => 'hapus_analisis_jabatan', 'uses' => 'AnalisisJabatanController@hapusUsulan'));
-            Route::get('update/{id}', array("as" => "update_analisis_jabatan", "uses" => "AnalisisJabatanController@update"));
-            Route::post('update', array("as" => "proses_update_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUpdate"));
-        });
-    });
-
 });
 
 //pengaturan route Bantuan Hukum sisi ADMIN
@@ -312,168 +275,8 @@ Route::group(array('prefix' => 'bantuan_hukum', 'before' => 'auth|bantuan_hukum'
         Route::get('{id}/download', 'PelembagaanController@downloadLampiran');
     });
 //Ketatalaksanaan
-    Route::group(array("prefix" => "ketatalaksanaan"), function() {
-        Route::get('sistemDanProsedur', "SistemDanProsedurController@indexSistemDanProsedur");
-        Route::get("updateSistemDanProsedur/{id}", array("as" => "update_status_dan_prosedur", "uses" => "SistemDanProsedurController@updateSistemDanProsedur"));
-        Route::post('deleteSistemDanProsedur', array("as" => "delete_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@deleteSistemDanProsedur"));
-        Route::post('updateSistemDanProsedur', array("as" => "proses_update_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@prosesUpdateSistemDanProsedur"));
-        Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "SistemDanProsedurController@downloadSistemDanProsedur"));
-        Route::get('printSistemDanProsedur', array('as' => 'print_sistem_dan_prosedur', 'uses' => 'SistemDanProsedurController@printSistemDanProsedur'));
-
-        Route::group(array("prefix" => "analisisJabatan"), function(){
-            Route::get('/', "AnalisisJabatanController@index");
-            Route::get('print', array("as" => "print_analisis_jabatan", "uses" => "AnalisisJabatanController@printTable"));
-            Route::get('download/{id}', "AnalisisJabatanController@downloadLampiran");
-            Route::post('delete', array('as' => 'hapus_analisis_jabatan', 'uses' => 'AnalisisJabatanController@hapusUsulan'));
-            Route::get('update/{id}', array("as" => "update_analisis_jabatan", "uses" => "AnalisisJabatanController@update"));
-            Route::post('update', array("as" => "proses_update_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUpdate"));
-        });
-    });
 
 });
-
-//pengaturan route PERUU sisi ADMIN
-Route::group(array('prefix' => 'per_uu', 'before' => 'auth|per_uu'), function() {
-    // Route::get('/', function() {
-    //     return "Hello World";
-    // });
-
-    Route::resource('account', 'AdminController');
-    Route::get('Index', 'AdminController@index');
-    Route::get('Home', 'AdminController@home');
-    Route::get('setting', 'AdminController@setting');
-    Route::put('setting/save', 'AdminController@save');
-
-    $user = Auth::user();
-    if(6 == $user->role_id) {
-        Route::get('/', array('as' => 'index_per_uu', 'uses' => 'PeruuController@index'));
-        Route::get('update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
-        Route::get('download/{id}', "PeruuController@downloadLampiran");
-        Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
-        Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
-        Route::get('print', array('as' => 'per_uu.print', 'uses' => 'PeruuController@printTable'));
-
-        //pelembagaan
-        Route::group(array("prefix" => "pelembagaan"), function(){
-            Route::resource('pelembagaan', 'PelembagaanController');
-            Route::get('/', 'PelembagaanController@index');
-            //    Route::get('/', array('as' => 'index_pelembagaan', 'uses' =>  'PelembagaanController@index'));
-            Route::get('{id}/update', array('as' => 'update_pelembagaan_admin', 'uses' =>  'PelembagaanController@edit'));
-            Route::post('update', array('as' => 'proses_update_pelembagaan_admin', 'uses' =>  'PelembagaanController@update'));
-            Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PelembagaanController@drop'));
-            Route::get('print', array('as' => 'print_pelembagaan', 'uses' => 'PelembagaanController@printTable'));
-            Route::get('{id}/download', 'PelembagaanController@downloadLampiran');
-        });
-
-        //bantuan hukum
-        Route::group(array("prefix" => "bantuan_hukum"), function(){
-            Route::resource('bantuan_hukum', 'BantuanHukumController');
-            Route::get('/', 'BantuanHukumController@index');
-            Route::get('tabelbahu', 'BantuanHukumController@datatable');
-            Route::get('log_banhuk', 'BantuanHukumController@tablelog');
-            Route::get('addbahu', 'BantuanHukumController@add');
-            Route::get('detail_banhuk', 'BantuanHukumController@detail');
-            Route::get('delete_banhuk', 'BantuanHukumController@delete');
-            Route::get('delete_log_banhuk', 'BantuanHukumController@deletelog');
-            Route::post('save', 'BantuanHukumController@save');
-            Route::post('convertpdf', 'BantuanHukumController@convertpdf');
-            Route::post('banhuk_update', 'BantuanHukumController@update');
-            Route::get('download_banhuk', 'BantuanHukumController@download');
-            Route::get('log_banhuk', 'BantuanHukumController@tablelog');
-        });
-
-        //Ketatalaksanaan
-        Route::group(array("prefix" => "ketatalaksanaan"), function() {
-            Route::get('sistemDanProsedur', "SistemDanProsedurController@indexSistemDanProsedur");
-            Route::get("updateSistemDanProsedur/{id}", array("as" => "update_status_dan_prosedur", "uses" => "SistemDanProsedurController@updateSistemDanProsedur"));
-            Route::post('deleteSistemDanProsedur', array("as" => "delete_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@deleteSistemDanProsedur"));
-            Route::post('updateSistemDanProsedur', array("as" => "proses_update_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@prosesUpdateSistemDanProsedur"));
-            Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "SistemDanProsedurController@downloadSistemDanProsedur"));
-            Route::get('printSistemDanProsedur', array('as' => 'print_sistem_dan_prosedur', 'uses' => 'SistemDanProsedurController@printSistemDanProsedur'));
-
-            Route::group(array("prefix" => "analisisJabatan"), function(){
-                Route::get('/', "AnalisisJabatanController@index");
-                Route::get('print', array("as" => "print_analisis_jabatan", "uses" => "AnalisisJabatanController@printTable"));
-                Route::get('download/{id}', "AnalisisJabatanController@downloadLampiran");
-                Route::post('delete', array('as' => 'hapus_analisis_jabatan', 'uses' => 'AnalisisJabatanController@hapusUsulan'));
-                Route::get('update/{id}', array("as" => "update_analisis_jabatan", "uses" => "AnalisisJabatanController@update"));
-                Route::post('update', array("as" => "proses_update_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUpdate"));
-            });
-        });
-    }
-});
-
-
-//pengaturan route KETATALAKSANAAN sisi ADMIN
-Route::group(array('prefix' => 'ketatalaksanaan', 'before' => 'auth|ketatalaksanaan'), function() {
-
-    Route::resource('account', 'AdminController');
-    Route::get('Index', 'AdminController@index');
-    Route::get('Home', 'AdminController@home');
-    Route::get('setting', 'AdminController@setting');
-    Route::put('setting/save', 'AdminController@save');
-
-    $user = Auth::user();
-    if(9 == $user->role_id) {
-        Route::group(array("prefix" => "ketatalaksanaan"), function() {
-            Route::get('sistemDanProsedur', "SistemDanProsedurController@indexSistemDanProsedur");
-            Route::get("updateSistemDanProsedur/{id}", array("as" => "update_status_dan_prosedur", "uses" => "SistemDanProsedurController@updateSistemDanProsedur"));
-            Route::post('deleteSistemDanProsedur', array("as" => "delete_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@deleteSistemDanProsedur"));
-            Route::post('updateSistemDanProsedur', array("as" => "proses_update_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@prosesUpdateSistemDanProsedur"));
-            Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "SistemDanProsedurController@downloadSistemDanProsedur"));
-            Route::get('printSistemDanProsedur', array('as' => 'print_sistem_dan_prosedur', 'uses' => 'SistemDanProsedurController@printSistemDanProsedur'));
-
-            Route::group(array("prefix" => "analisisJabatan"), function(){
-                Route::get('/', array("as" => "index_analisis_jabatan", "uses" => "AnalisisJabatanController@index"));
-                Route::get('print', array("as" => "print_analisis_jabatan", "uses" => "AnalisisJabatanController@printTable"));
-                Route::get('download/{id}', "AnalisisJabatanController@downloadLampiran");
-                Route::post('delete', array('as' => 'hapus_analisis_jabatan', 'uses' => 'AnalisisJabatanController@hapusUsulan'));
-                Route::get('update/{id}', array("as" => "update_analisis_jabatan", "uses" => "AnalisisJabatanController@update"));
-                Route::post('update', array("as" => "proses_update_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUpdate"));
-            });
-    });
-
-        //peruu
-        Route::group(array("prefix" => "per_uu"), function() {
-            Route::get('/', 'PeruuController@index');
-            Route::get('update/{id}', array('as' => 'update_per_uu', 'uses' => 'PeruuController@updateUsulan'));
-            Route::get('download/{id}', "PeruuController@downloadLampiran");
-            Route::post('update', array('as' => 'proses_update_per_uu', 'uses' => 'PeruuController@prosesUpdateUsulan'));
-            Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PeruuController@hapusUsulan'));
-            Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
-        });
-
-        //pelembagaan
-        Route::group(array("prefix" => "pelembagaan"), function(){
-            Route::resource('pelembagaan', 'PelembagaanController');
-            Route::get('/', 'PelembagaanController@index');
-            //    Route::get('/', array('as' => 'index_pelembagaan', 'uses' =>  'PelembagaanController@index'));
-            Route::get('{id}/update', array('as' => 'update_pelembagaan_admin', 'uses' =>  'PelembagaanController@edit'));
-            Route::post('update', array('as' => 'proses_update_pelembagaan_admin', 'uses' =>  'PelembagaanController@update'));
-            Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PelembagaanController@drop'));
-            
-        });
-
-        //bantuan hukum
-        Route::group(array("prefix" => "bantuan_hukum"), function(){
-            Route::resource('bantuan_hukum', 'BantuanHukumController');
-            Route::get('/', 'BantuanHukumController@index');
-            Route::get('tabelbahu', 'BantuanHukumController@datatable');
-            Route::get('log_banhuk', 'BantuanHukumController@tablelog');
-            Route::get('addbahu', 'BantuanHukumController@add');
-            Route::get('detail_banhuk', 'BantuanHukumController@detail');
-            Route::get('delete_banhuk', 'BantuanHukumController@delete');
-            Route::get('delete_log_banhuk', 'BantuanHukumController@deletelog');
-            Route::post('save', 'BantuanHukumController@save');
-            Route::post('convertpdf', 'BantuanHukumController@convertpdf');
-            Route::post('banhuk_update', 'BantuanHukumController@update');
-            Route::get('download_banhuk', 'BantuanHukumController@download');
-            Route::get('log_banhuk', 'BantuanHukumController@tablelog');
-        });
-    }
-});
-
-
 
 //pengaturan route pelembagaan sisi ADMIN
 Route::group(array('prefix' => 'pelembagaan', 'before' => 'auth|pelembagaan'), function() {
@@ -522,24 +325,6 @@ Route::group(array('prefix' => 'pelembagaan', 'before' => 'auth|pelembagaan'), f
         Route::get('log_banhuk', 'BantuanHukumController@tablelog');
     });
 
-    //Ketatalaksanaan
-    Route::group(array("prefix" => "ketatalaksanaan"), function() {
-        Route::get('sistemDanProsedur', "SistemDanProsedurController@indexSistemDanProsedur");
-        Route::get("updateSistemDanProsedur/{id}", array("as" => "update_status_dan_prosedur", "uses" => "SistemDanProsedurController@updateSistemDanProsedur"));
-        Route::post('deleteSistemDanProsedur', array("as" => "delete_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@deleteSistemDanProsedur"));
-        Route::post('updateSistemDanProsedur', array("as" => "proses_update_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@prosesUpdateSistemDanProsedur"));
-        Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "SistemDanProsedurController@downloadSistemDanProsedur"));
-        Route::get('printSistemDanProsedur', array('as' => 'print_sistem_dan_prosedur', 'uses' => 'SistemDanProsedurController@printSistemDanProsedur'));
-
-        Route::group(array("prefix" => "analisisJabatan"), function(){
-            Route::get('/', "AnalisisJabatanController@index");
-            Route::get('print', array("as" => "print_analisis_jabatan", "uses" => "AnalisisJabatanController@printTable"));
-            Route::get('download/{id}', "AnalisisJabatanController@downloadLampiran");
-            Route::post('delete', array('as' => 'hapus_analisis_jabatan', 'uses' => 'AnalisisJabatanController@hapusUsulan'));
-            Route::get('update/{id}', array("as" => "update_analisis_jabatan", "uses" => "AnalisisJabatanController@update"));
-            Route::post('update', array("as" => "proses_update_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUpdate"));
-        });
-    });
 
 });
 
@@ -587,16 +372,7 @@ Route::group(array('prefix' => 'per-uu'), function() {
     Route::get('informasi', array('as' => 'per_uu.informasi', 'uses' => 'PeruuController@informasi'));
 });
 
-Route::group(array('prefix' => "ketatalaksanaan"), function(){
-    Route::get('usulanSistemProsedur', array("as" => "usulan_sistem_prosedur", "uses" => "SistemDanProsedurController@usulanSistemProsedur"));
-    Route::post('usulanSistemProsedur', array("as" => "proses_usulan_sistem_prosedur", "uses" => "SistemDanProsedurController@prosesUsulanSistemProsedur"));
-    Route::get('informasiSistemProsedur', array("as" => "informasi_sistem_prosedur", "uses" => "SistemDanProsedurController@informasi"));
-    Route::get('usulanAnalisisJabatan', array("as" => "usulan_analisis_jabatan", "uses" => "AnalisisJabatanController@usulan"));
-    Route::post('usulanAnalisisJabatan', array("as" => "proses_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUsulan"));
-    Route::get('informasiAnalisisJabatan', array("as" => "informasi_analisis_jabatan", "uses" => "AnalisisJabatanController@informasi"));
-    Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "SistemDanProsedurController@downloadSistemDanProsedur"));
-    Route::get('analisisJabatan/download/{id}', "AnalisisJabatanController@downloadLampiran");
-});
+
 
 
 Route::group(array('prefix' => 'pelembagaan'), function() {
@@ -667,24 +443,7 @@ Route::group(array("prefix" => "kepala_bagian", "before" => "auth|kepala_bagian"
         Route::get('log_banhuk', 'BantuanHukumController@tablelog');
     });
 
-    //Ketatalaksanaan
-    Route::group(array("prefix" => "ketatalaksanaan"), function() {
-       
-        Route::get("updateSistemDanProsedur/{id}", array("as" => "update_status_dan_prosedur", "uses" => "SistemDanProsedurController@updateSistemDanProsedur"));
-        Route::post('deleteSistemDanProsedur', array("as" => "delete_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@deleteSistemDanProsedur"));
-        Route::post('updateSistemDanProsedur', array("as" => "proses_update_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@prosesUpdateSistemDanProsedur"));
-        Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "SistemDanProsedurController@downloadSistemDanProsedur"));
-        Route::get('printSistemDanProsedur', array('as' => 'print_sistem_dan_prosedur', 'uses' => 'SistemDanProsedurController@printSistemDanProsedur'));
 
-        Route::group(array("prefix" => "analisisJabatan"), function(){
-            Route::get('/', "AnalisisJabatanController@index");
-            Route::get('print', array("as" => "print_analisis_jabatan", "uses" => "AnalisisJabatanController@printTable"));
-            Route::get('download/{id}', "AnalisisJabatanController@downloadLampiran");
-            Route::post('delete', array('as' => 'hapus_analisis_jabatan', 'uses' => 'AnalisisJabatanController@hapusUsulan'));
-            Route::get('update/{id}', array("as" => "update_analisis_jabatan", "uses" => "AnalisisJabatanController@update"));
-            Route::post('update', array("as" => "proses_update_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUpdate"));
-        });
-    });
 });
 
 //ROUTE ROLE KEPALA SUB BAGIAN
@@ -720,24 +479,7 @@ Route::group(array("prefix" => "kepala_subbagian", "before" => "auth|kepala_subb
         Route::get('log_banhuk', 'BantuanHukumController@tablelog');
     });
 
-    //Ketatalaksanaan
-    Route::group(array("prefix" => "ketatalaksanaan"), function() {
-        Route::get('sistemDanProsedur', array("as" => "index_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@indexSistemDanProsedur"));
-        Route::get("updateSistemDanProsedur/{id}", array("as" => "update_status_dan_prosedur", "uses" => "SistemDanProsedurController@updateSistemDanProsedur"));
-        Route::post('deleteSistemDanProsedur', array("as" => "delete_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@deleteSistemDanProsedur"));
-        Route::post('updateSistemDanProsedur', array("as" => "proses_update_sistem_dan_prosedur", "uses" => "SistemDanProsedurController@prosesUpdateSistemDanProsedur"));
-        Route::get('downloadSistemDanProsedur/{id}', array('as' => 'download_sistem_dan_prosedur', 'uses' => "SistemDanProsedurController@downloadSistemDanProsedur"));
-        Route::get('printSistemDanProsedur', array('as' => 'print_sistem_dan_prosedur', 'uses' => 'SistemDanProsedurController@printSistemDanProsedur'));
-
-        Route::group(array("prefix" => "analisisJabatan"), function(){
-            Route::get('/', "AnalisisJabatanController@index");
-            Route::get('print', array("as" => "print_analisis_jabatan", "uses" => "AnalisisJabatanController@printTable"));
-            Route::get('download/{id}', "AnalisisJabatanController@downloadLampiran");
-            Route::post('delete', array('as' => 'hapus_analisis_jabatan', 'uses' => 'AnalisisJabatanController@hapusUsulan'));
-            Route::get('update/{id}', array("as" => "update_analisis_jabatan", "uses" => "AnalisisJabatanController@update"));
-            Route::post('update', array("as" => "proses_update_analisis_jabatan", "uses" => "AnalisisJabatanController@prosesUpdate"));
-        });
-    });
+ 
 });
 
 
@@ -749,11 +491,23 @@ Route::group(array('prefix' => 'download'), function(){
 });
 
 Route::resource("sp", 'SistemDanProsedurController', array("only" => array("index")));    
+Route::resource("aj", "AnalisisJabatanController", array("only" => array("index")));
+Route::resource("puu", "PeruuController", array("only" => array("index")));
 Route::group(array('before' => 'auth'), function(){
     Route::resource("sp", 'SistemDanProsedurController', array("only" => array("create", "store")));    
+    Route::resource("aj", "AnalisisJabatanController", array("only" => array("create", "store")));
+    Route::resource('puu', 'PeruuController', array("only" => array("create", "store")));
     Route::group(array("prefix" => "admin", "before" => "super_admin"), function(){
-        Route::get('printTable', array('as' => 'admin.sp.printTable', 'uses' => 'SistemDanProsedurController@printTable'));
+        Route::get('sp/printTable', array('as' => 'admin.sp.printTable', 'uses' => 'SistemDanProsedurController@printTable'));
         Route::resource("sp", "SistemDanProsedurController", array("except" => array("create", "store")));
+
+        Route::get('aj/printTable', array('as' => 'admin.aj.printTable', 'uses' => 'AnalisisJabatanController@printTable'));
+        Route::resource("aj", "AnalisisJabatanController", array("except" => array("create", "store")));
+
+        Route::get('puu/printTable', array("as" => "admin.puu.printTable", "uses" => "PeruuController@printTable"));
+        Route::resource('puu', 'PeruuController', array("create", "store"));
     });
 });
+Route::get('aj/download/{id}', 'AnalisisJabatanController@downloadLampiran');
 Route::get('sp/download/{id}', 'SistemDanProsedurController@downloadLampiran');
+Route::get('puu/download/{id}', 'PeruuController@downloadLampiran');

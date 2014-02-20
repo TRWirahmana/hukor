@@ -77,24 +77,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="berita.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="berita.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="165" column="24" selection-start="7608" selection-end="7608" vertical-scroll-proportion="0.35785288" vertical-offset="2625" max-vertical-offset="5100">
+            <state line="167" column="15" selection-start="7652" selection-end="7652" vertical-scroll-proportion="-3.6538463" vertical-offset="2744" max-vertical-offset="5117">
               <folding>
                 <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ul#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hukor-news.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="hukor-news.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/hukor-news.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="344" column="26" selection-start="6891" selection-end="6891" vertical-scroll-proportion="0.0" vertical-offset="5506" max-vertical-offset="6069">
+            <state line="343" column="7" selection-start="6861" selection-end="6861" vertical-scroll-proportion="0.6309963" vertical-offset="5489" max-vertical-offset="6188">
               <folding />
             </state>
           </provider>
@@ -160,8 +160,8 @@
         <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/views/news/index.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/BantuanHukumController.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/hukor-news.css" />
         <option value="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/hukor-news.css" />
       </list>
     </option>
   </component>
@@ -640,22 +640,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/hukor-news.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="344" column="26" selection-start="6891" selection-end="6891" vertical-scroll-proportion="0.0" vertical-offset="5506" max-vertical-offset="6069">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="24" selection-start="7608" selection-end="7608" vertical-scroll-proportion="0.35785288" vertical-offset="2625" max-vertical-offset="5100">
+        <state line="167" column="15" selection-start="7652" selection-end="7652" vertical-scroll-proportion="-3.6538463" vertical-offset="2744" max-vertical-offset="5117">
           <folding>
             <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/hukor-news.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="343" column="7" selection-start="6861" selection-end="6861" vertical-scroll-proportion="0.6309963" vertical-offset="5489" max-vertical-offset="6188">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -341,12 +341,19 @@ p {
 .rulycon-linkedin { background: #0077b5; }
 .rulycon-yahoo { background: #6e329d; }
 
-.rows ul {
+.rowsy{
+    display: block;
+    margin-left: 10% !important;
+    margin-right:10% !important;
+}
+.rowsy ul {
     display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 15px;
 }
 
-.rows ul li{
+.rowsy ul li{
     display: inline-block;
     margin-left: 10px ;
 }

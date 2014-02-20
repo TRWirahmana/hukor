@@ -135,13 +135,14 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
 
     Route::resource('pelembagaan', 'PelembagaanController');           
     Route::group(array("prefix" => "pelembagaan"), function(){            
-   //         Route::resource('pelembagaan', 'PelembagaanController');
+   //       Route::resource('pelembagaan', 'PelembagaanController');
             Route::get('/', 'PelembagaanController@index');
-            Route::get('{id}/update', array('as' => 'update_pelembagaan_admin', 'uses' =>  'PelembagaanController@edit'));
+            Route::get('{id}/update', 'PelembagaanController@edit'); // array('as' => 'update_pelembagaan_admin', 'uses' =>  'PelembagaanController@edit'));
             Route::post('update', array('as' => 'proses_update_pelembagaan_admin', 'uses' =>  'PelembagaanController@update'));
             Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PelembagaanController@drop'));
             Route::get('print', array('as' => 'print_pelembagaan', 'uses' => 'PelembagaanController@printTable'));
             Route::get('{id}/download', 'PelembagaanController@downloadLampiran');
+            Route::post('deletelog/{id}', array('as' => 'deletelog_pelembagaan', 'uses' => 'PelembagaanController@deleteLog'));
     });
 
     //Managemen Menu
@@ -150,7 +151,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('index_menu', 'MenuController@index');
     Route::get('setting_menu', 'MenuController@setting');
     Route::put('setting/save', 'MenuController@save');
-
 
     //bantuan hukum
     Route::group(array("prefix" => "bantuan_hukum"), function(){
@@ -272,10 +272,12 @@ Route::group(array('prefix' => 'bantuan_hukum', 'before' => 'auth|bantuan_hukum'
         Route::get('/', 'PelembagaanController@index');
         //    Route::get('/', array('as' => 'index_pelembagaan', 'uses' =>  'PelembagaanController@index'));
         Route::get('{id}/update', array('as' => 'update_pelembagaan_admin', 'uses' =>  'PelembagaanController@edit'));
-        Route::post('update', array('as' => 'proses_update_pelembagaan_admin', 'uses' =>  'PelembagaanController@update'));
+        Route::post('update', array('as' => 'proses_update_pelembagaan_bahu', 'uses' =>  'PelembagaanController@update'));
         Route::post('delete', array('as' => 'hapus_usulan', 'uses' => 'PelembagaanController@drop'));
         Route::get('print', array('as' => 'print_pelembagaan', 'uses' => 'PelembagaanController@printTable'));
         Route::get('{id}/download', 'PelembagaanController@downloadLampiran');
+        Route::post('deletelog/{id}', array('as' => 'deletelog_pelembagaan', 'uses' => 'PelembagaanController@deleteLog'));
+
     });
 //Ketatalaksanaan
 
@@ -300,6 +302,8 @@ Route::group(array('prefix' => 'pelembagaan', 'before' => 'auth|pelembagaan'), f
     Route::post('update', array('as' => 'proses_update_pelembagaan', 'uses' =>  'PelembagaanController@update'));
     Route::get('print', array('as' => 'print_pelembagaan', 'uses' => 'PelembagaanController@printTable'));
     Route::get('{id}/download', "PelembagaanController@downloadLampiran");
+    Route::post('deletelog/{id}', array('as' => 'deletelog_pelembagaan', 'uses' => 'PelembagaanController@deleteLog'));
+
 
     //     Per UU
     Route::group(array("prefix" => "per_uu"), function() {
@@ -384,6 +388,8 @@ Route::group(array('prefix' => 'pelembagaan'), function() {
     Route::post('usulan', array('as' => 'store_pelembagaan', 'uses' => 'PelembagaanController@store'));
     Route::get('print', array('as' => 'print_table_pelembagaan_user', 'uses' => 'PelembagaanController@printTable'));
     Route::get('{id}/download', 'PelembagaanController@downloadLampiran');
+    Route::post('deletelog/{id}', array('as' => 'deletelog_pelembagaan', 'uses' => 'PelembagaanController@deleteLog'));
+
 });
 
 Route::group(array('prefix' => 'layanan'), function() {

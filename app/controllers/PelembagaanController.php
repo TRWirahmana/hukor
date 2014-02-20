@@ -68,7 +68,15 @@ class PelembagaanController extends BaseController {
 				'pelembagaan' => $pelembagaan,
 				'id' => $id,
 			));
-		} else {
+		} else if($user->role_id == 8) {
+			$this->layout->content = View::make('Pelembagaan.update', array(
+				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
+				'detail' => '',
+				'form_opts' => array('route' => 'proses_update_pelembagaan_bahu','method' => 'post','class' => 'form-horizontal','id' => 'pelembagaan-update','files' => true),
+				'pelembagaan' => $pelembagaan,
+				'id' => $id,
+			));
+		} else if($user->role_id == 3) {
 			$this->layout->content = View::make('Pelembagaan.update', array(
 				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
 				'detail' => '',
@@ -100,7 +108,8 @@ class PelembagaanController extends BaseController {
         	//
         } else {
 	        // EMAIL To User
-			$DAL->sendEmailToUser($id, 'Usulan Anda Telah di Proses');        	
+	        $message = 'Usulan Anda Telah di Proses';
+			$DAL->sendEmailToUser($id, $message);        	
         }
 
 		$user = Auth::user();		
@@ -142,6 +151,13 @@ class PelembagaanController extends BaseController {
 	   	$penanggungJawab = PenanggungJawabPelembagaan::where('pelembagaan_id', $id);
 		if(!is_null($pelembagaan)) {
 			$penanggungJawab->delete();
+		}
+	}
+
+	public function deleteLog($id){
+		$logPelembagaan = logPelembagaan::find($id);
+		if(!is_null($logPelembagaan)) {
+			$logPelembagaan->delete();
 		}
 	}
 

@@ -167,7 +167,7 @@
         <div class="container">
             <div class="rowsy">
                 <ul>
-                    <li> <a href="http://kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/1.png')}}" alt=""></a> </li>
+                    <li> <a href="http://kemdikbud.go.id"><img src="sangku-devel2.cloudapp.net/hukor/public/assets/img/logo_ditjenbud/1.png" alt=""></a> </li>
                     <li><a href="http://setjen.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/2.png')}}" alt=""></a></li>
                     <li><a href="http://paudni.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/3.png')}}" alt=""></a></li>
                     <li><a href="http://dikdas.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/4.png')}}" alt=""></a></li>

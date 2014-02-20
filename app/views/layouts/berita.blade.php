@@ -166,9 +166,11 @@
     <div class="footer">
         <div class="container">
             <div class="rowsy">
+                <a href="http://kemdikbud.go.id"><img src="{{asset('assets/img/1.png')}}" /></a>
+                <img src="{{asset('assets/img/1.png')}}" />
                 <ul>
                     <img src="{{asset('assets/img/logo-kemendiknas-white-text.png')}}" alt=""/>
-                    <li><img src="{{asset('assets/img/1.png')}}" /> </li>
+                    <li><a href="http://kemdikbud.go.id"><img src="{{asset('assets/img/1.png')}}" /></a> </li>
                     <li><a href="http://setjen.kemdikbud.go.id"><img src="{{asset('assets/img/2.png')}}" alt=""></a></li>
                     <li><a href="http://paudni.kemdikbud.go.id"><img src="{{asset('assets/img/3.png')}}" alt=""></a></li>
                     <li><a href="http://dikdas.kemdikbud.go.id"><img src="{{asset('assets/img/4.png')}}" alt=""></a></li>

@@ -225,7 +225,7 @@
                   <div id="collapse4" class="accordion-body collapse">
                     <div class="accordion-inner">
                       <ul>
-                          <li id="menu-prosedur-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span class="rulycon-checkbox-unchecked"></span>Sistem Prosedur</a></li>
+                          <li id="menu-prosedur-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span class="rulycon-checkbox-unchecked"></span>Sistem dan Prosedur</a></li>
                           <li id="menu-pelembagaan-informasi"><a href="{{URL::route('informasi_sistem_prosedur')}}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan Sistem dan Prosedur</a></li>
 
 

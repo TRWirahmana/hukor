@@ -29,8 +29,9 @@
             <div class="stripe-accent"></div>
 
             <form class="form-inline">
+                <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/layanan/create')}}">Tambah Info Layanan Baru</a>
                 <fieldset>
-                    <legend><a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/layanan/create')}}">Tambah Info Layanan Baru</a></legend>
+                    <legend></legend>
                     <!--                    <label for="select_role" class="control-label">Tipe Pengguna</label>-->
                     <!--                    <select id="select_role">-->
                     <!--                        <option value="0">Semua User</option>-->

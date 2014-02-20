@@ -145,39 +145,6 @@
             <ul class="nav nav-tabs nav-stacked">
                 <li class="nav-header">Navigation</li>
 
-                <!-- list informasi-->
-<!--                <li class="dropdown">-->
-<!--                    <ul id="info">-->
-<!--                        <li id="produkhukum"><a href="#"><span class="iconfa-laptop"></span> Produk Hukum</a></li>-->
-<!--                        <li id="ketatalaksanaan" class="dropdown"><a href="admin/layanan_ketatalaksanaan/edit_ketatalaksanaan"><span class="iconfa-hand-up"></span> Layanan Ketatalaksanaan</a>-->
-<!--                            <ul>-->
-<!--                                 <li><a href="{{URL::to('admin/edit_ketatalaksanaan')}}">Home</a></li> -->
-<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_spk')}}">Sistem dan Prosedur Kerja</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_smm')}}">Sistem manajemen mutu</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_analisis_jabatan')}}">Analisis Jabatan</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_pbk')}}">Perhitungan beban kerja</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_tata_nilai')}}">Tata nilai & budaya kerja organisasi</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_pelayanan_publik')}}">Pelayanan publik</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layananketatalaksanaan/edit_tnd')}}">Tata naskah dinas</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li id="kelembagaan" class="dropdown"><a href="#"><span class="iconfa-briefcase"></span> Kelembagaan</a>-->
-<!--                            <ul>-->
-<!--                                <li id="laykel"><a href="{{URL::to('admin/layanankelembagaan/edit_kelembagaan')}}">Layanan Kelembagaan</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_pembentukan')}}">Pembentukan</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_penataan')}}">Penataan</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_statuta')}}">Statuta</a></li>-->
-<!--                                <li><a href="{{URL::to('admin/layanankelembagaan/edit_penutupan')}}">Penutupan</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li id="bahu"><a href="#"><span class="iconfa-th-list"></span> Layanan Bantuan Hukum</a></li>-->
-<!--                        <li id="puu"><a href="#"><span class="iconfa-picture"></span> Layanan Peraturan Perundang-Undangan</a></li>-->
-<!--                        <li id="diskusi"><a href="#"><span class="iconfa-font"></span> Forum Diskusi</a></li>-->
-<!--                        <li id="callcenter"><a href="{{URL::to('admin/editcallcenter')}}"><span class="iconfa-signal"></span> Call Center</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
-                <!-- end list-->
-
                 <!-- KEPALA BIRO RULES-->
                 <!-- list aplikasi-->
                 @if($user->role_id == 1)

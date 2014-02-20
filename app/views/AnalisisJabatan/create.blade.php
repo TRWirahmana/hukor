@@ -7,7 +7,7 @@
 @include('flash')
 <div class="content-non-title">
 
-    {{ Form::open(array('route' => 'proses_analisis_jabatan', 'files' => true, 'class' => 'form form-horizontal', 'id' => 'form-perUU'))}}
+    {{ Form::open(array('route' => 'aj.store', 'files' => true, 'class' => 'form form-horizontal', 'id' => 'form-perUU'))}}
 
     <div class="row-fluid">
         <div class="span12">

@@ -27,7 +27,7 @@
             <!-- MAIN CONTENT -->
 
     {{ Form::open($form_opts) }}
-
+    
      {{ Form::hidden('id', $id) }}
 
         <div class="row-fluid">
@@ -87,7 +87,7 @@
                     {{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
                         <div class="controls">
 
-                            <a href= {{ URL::asset('assets/uploads/' . $pelembagaan->lampiran ); }} > {{ $pelembagaan->lampiran}} </a>
+                            <a href= {{ URL::asset('assets/uploads/pelembagaan/' . $pelembagaan->lampiran ); }} > {{ $pelembagaan->lampiran}} </a>
                     </div>
                     </div>
                 </fieldset>

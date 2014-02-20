@@ -1,38 +1,34 @@
 <?php
 
+class AnalisisJabatanController extends BaseController {
 
-class AnalisisJabatanController extends BaseController 
-{
-	public function index() 
-	{
+    public function index() {
         // handle dataTable request
+        $roleId = Auth::user()->role_id;
         if (Request::ajax())
-            return Datatables::of(DAL_AnalisisJabatan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
+            return Datatables::of(DAL_AnalisisJabatan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))
+                ->add_column("_role_id", $roleId)
+                ->make(true);
 
-        $this->layout = View::make('layouts.admin');
-        $this->layout->content = View::make('AnalisisJabatan.index');
-	}
-
-    public function informasi() {
-        // handle dataTable request
-        if (Request::ajax())
-            return Datatables::of(DAL_AnalisisJabatan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
-
-        $this->layout = View::make('layouts.master');
-        $this->layout->content = View::make('AnalisisJabatan.informasi');
+        if(Auth::user()->role_id == 2 || Auth::guest()) {
+            $this->layout = View::make('layouts.master');
+            $this->layout->content = View::make('AnalisisJabatan.index_user');    
+        } else {
+            $this->layout = View::make('layouts.admin');
+            $this->layout->content = View::make('AnalisisJabatan.index_admin');    
+        }
+        
     }
 
-	public function usulan() 
-	{
-	    $user = Auth::user();
+    public function create() {
+        $user = Auth::user();
         $this->layout = View::make('layouts.master');
-        $this->layout->content = View::make('AnalisisJabatan.usulan')
-			->with('user', $user);
-	}
+        $this->layout->content = View::make('AnalisisJabatan.create')
+                ->with('user', $user);
+    }
 
-	public function prosesUsulan() 
-	{
-		$input = Input::get('analisisJabatan');
+    public function store() {
+        $input = Input::get('analisisJabatan');
         $img = Input::file('analisisJabatan.lampiran');
         $input2 = Input::get('penanggungJawab');
 
@@ -84,101 +80,26 @@ class AnalisisJabatanController extends BaseController
             Session::flash('error', 'Gagal mengirim berkas. Pastikan berkas berupa PDF dan kurang dari 512k.');
             return Redirect::back();
         }
-	}
-
-    public function printTable() {
-        $status = Input::get("status", null);
-        $firstDate = Input::get("firstDate", null);
-        $lastDate = Input::get("lastDate", null);
-
-        $dataAnalisisJabatan = DAL_AnalisisJabatan::getDataTable($status, $firstDate, $lastDate);
-        $data = array();
-        foreach($dataAnalisisJabatan->get() as $index => $analisisJabatan) {
-            $tglUsulan = new DateTime($analisisJabatan->tgl_usulan);
-            $data[$index]['ID'] = $analisisJabatan->id;
-            $data[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
-            $data[$index]['Unit Kerja'] = $analisisJabatan->unit_kerja;
-            $data[$index]['Perihal'] = $analisisJabatan->perihal;
-            $data[$index]['status'] = $this->getStatus($perUU->status);
-            $data[$index]['lampiran'] = '<a href="#">'.explode("/", $analisisJabatan->lampiran)[1].'</a>';
-        }
-
-        $table = HukorHelper::generateHtmlTable($data);
-
-        $style = array("<style>");
-        $style[] = "table { border-collapse: collapse; }";
-        $style[] = "table td, table th { padding: 5px; }";
-        $style[] = "</style>";
-
-        $html = array("<h1>Analisis Jabatan</h1>");
-        $html[] = "<table><tr>";
-        if(null != $status)
-            $html[] = "<td><strong>Status</strong></td><td>: ".$this->getStatus($status)."</td>";
-        if(null != $firstDate)
-            $html[] = "<td><strong>Tgl awal</strong></td><td>: {$firstDate}</td>";
-        if(null != $lastDate)
-            $html[] = "<td><strong>Tgl akhir</strong></td><td>: {$lastDate}</td>";
-        $html[] = "</tr></table>";
-        $html[] = $table;
-
-        $pdf = new DOMPDF();
-        $pdf->load_html(join("", $style) . join("",$html));
-        $pdf->render();
-        $pdf->stream("analisis_jabatan.pdf");
     }
 
-    private function getStatus($status) {
-        switch ($status) {
-            case 1:
-                return "Diproses";
-                break;
-            case 2:
-                return "Ditunda";
-                break;
-            case 3:
-                return "Ditolak";
-                break;
-            case 4:
-                return "Buat Salinan";
-                break;
-            case 5:
-                return "Penetapan";
-                break;
-            default:
-                return "";
-                break;
-        }
-    }
-
-    public function downloadLampiran($id)
-    {
-        $analisisJabatan = AnalisisJabatan::find($id) or App::abort(404);
-        $path = UPLOAD_PATH . DS . $analisisJabatan->lampiran;
-        return Response::download($path, explode('/', $analisisJabatan->lampiran)[1]);
-    }
-
-    public function hapusUsulan()
-    {
-        $analisisJabatan = AnalisisJabatan::find(Input::get('id'));
+    public function destroy($id) {
+        $analisisJabatan = AnalisisJabatan::find($id);
         if (null != $analisisJabatan)
             $analisisJabatan->delete();
         echo 1;
     }
 
-    public function update($id)
-    {
+    public function edit($id) {
         if (Request::ajax())
             return Datatables::of(DAL_AnalisisJabatan::getLogUsulan($id))->make(true);
 
         $analisisJabatan = AnalisisJabatan::with('Pengguna')->find($id);
         $this->layout = View::make('layouts.admin');
-        $this->layout->content = View::make('AnalisisJabatan.update')
+        $this->layout->content = View::make('AnalisisJabatan.edit')
                 ->with('analisisJabatan', $analisisJabatan);
     }
 
-    public function prosesUpdate()
-    {
-        $id = Input::get('id');
+    public function update($id) {
         $status = Input::get('status', 0);
         $catatan = Input::get('catatan', '');
         $ketLampiran = Input::get('ket_lampiran', '');
@@ -222,12 +143,68 @@ class AnalisisJabatanController extends BaseController
                         ->subject('Perubahan Status Usulan Analisis Jabatan');
             });
             Session::flash('success', 'Usulan berhasil diperbaharui.');
-            return Redirect::route('index_analisis_jabatan');
+            return Redirect::route('admin.aj.index');
         } else {
             Session::flash('error', 'Usulah gagal diperbaharui.');
             return Redirect::back();
         }
     }
 
+    public function downloadLampiran($id) {
+        $analisisJabatan = AnalisisJabatan::find($id) or App::abort(404);
+        $path = UPLOAD_PATH . DS . $analisisJabatan->lampiran;
+        return Response::download($path, explode('/', $analisisJabatan->lampiran)[1]);
+    }
+
+    public function informasi() {
+        // handle dataTable request
+        if (Request::ajax())
+            return Datatables::of(DAL_AnalisisJabatan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
+
+        $this->layout = View::make('layouts.master');
+        $this->layout->content = View::make('AnalisisJabatan.informasi');
+    }
+
+    public function printTable() {
+        $status = Input::get("status", null);
+        $firstDate = Input::get("firstDate", null);
+        $lastDate = Input::get("lastDate", null);
+
+        $dataAnalisisJabatan = DAL_AnalisisJabatan::getDataTable($status, $firstDate, $lastDate);
+        $data = array();
+        foreach ($dataAnalisisJabatan->get() as $index => $analisisJabatan) {
+            $tglUsulan = new DateTime($analisisJabatan->tgl_usulan);
+            $data[$index]['ID'] = $analisisJabatan->id;
+            $data[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
+            $data[$index]['Unit Kerja'] = $analisisJabatan->unit_kerja;
+            $data[$index]['Perihal'] = $analisisJabatan->perihal;
+            $data[$index]['status'] = $perUU->status;
+            $data[$index]['lampiran'] = '<a href="#">' . explode("/", $analisisJabatan->lampiran)[1] . '</a>';
+        }
+
+
+        $table = HukorHelper::generateHtmlTable($data);
+
+        $style = array("<style>");
+        $style[] = "table { border-collapse: collapse; }";
+        $style[] = "table td, table th { padding: 5px; }";
+        $style[] = "</style>";
+
+        $html = array("<h1>Analisis Jabatan</h1>");
+        $html[] = "<table><tr>";
+        if (null != $status)
+            $html[] = "<td><strong>Status</strong></td><td>: " . $status . "</td>";
+        if (null != $firstDate)
+            $html[] = "<td><strong>Tgl awal</strong></td><td>: {$firstDate}</td>";
+        if (null != $lastDate)
+            $html[] = "<td><strong>Tgl akhir</strong></td><td>: {$lastDate}</td>";
+        $html[] = "</tr></table>";
+        $html[] = $table;
+
+        $pdf = new DOMPDF();
+        $pdf->load_html(join("", $style) . join("", $html));
+        $pdf->render();
+        $pdf->stream("analisis_jabatan.pdf");
+    }
 
 }

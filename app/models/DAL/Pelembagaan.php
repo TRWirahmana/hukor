@@ -1,4 +1,5 @@
 <?php
+use Carbon\Carbon;
 
 class DAL_Pelembagaan {
     public static function getDataTable($filter = null, $firstDate = null, $lastDate = null) {
@@ -24,7 +25,150 @@ class DAL_Pelembagaan {
         return $data;
     }  
 
-    public static function getPrintTable($status, $firstDate, $lastDate) {
+    public function savePelembagaan($input, $file) 
+    {
+        $pelembagaan = new Pelembagaan;
+
+        $pelembagaan->id_pengguna = $input['id'];
+        $pelembagaan->jenis_usulan = $input['jenis_usulan'];
+        $pelembagaan->perihal = $input['perihal'];
+        $pelembagaan->catatan = $input['catatan'];
+        $pelembagaan->lampiran = $file->getClientOriginalName();
+        $pelembagaan->status = 0;   // status default = 0 (belum di proses)
+        $pelembagaan->tgl_usulan = Carbon::now();
+        $pelembagaan->save();
+
+        $this->insertPenanggungJawab($pelembagaan->id, $input);
+    }
+
+    public function insertPenanggungJawab($idPelembagaan, $input)
+    {
+        $penanggungJawab = new PenanggungJawabPelembagaan();
+
+        $penanggungJawab->pelembagaan_id = $idPelembagaan;
+        $penanggungJawab->nama = $input['nama_pemohon'];
+//      $penanggungJawab->jabatan = $input['jabatan'];
+        $penanggungJawab->nip = $input['nip'];              
+        $penanggungJawab->unit_kerja = $input['unit_kerja'];
+        $penanggungJawab->alamat_kantor = $input['alamat_kantor'];
+        $penanggungJawab->telp_kantor = $input['telp_kantor'];
+        $penanggungJawab->email = $input['email'];
+        $penanggungJawab->save();
+    }
+
+    public static function getPelembagaanById($id){
+        return Pelembagaan::find($id);
+    }
+
+    public static function getPenangungJawab($idPelembagaan)
+    {
+        return DB::table('penanggung_jawab_pelembagaan')->
+                    where('pelembagaan_id', '=', $idPelembagaan)->get(); 
+    }
+
+    public static function sendToPerUU($idPelembagaan)
+    {
+        // Kirim Data Ke Bagian PerUU
+        $pelembagaan = DAL_Pelembagaan::getPelembagaanById($idPelembagaan);
+        $penanggungJawabPelembagaan = DAL_Pelembagaan::getPenangungJawab($idPelembagaan);
+
+        $perUU = new PerUU;
+        $perUU->id_pengguna = $pelembagaan->id_pengguna;
+        $perUU->perihal = $pelembagaan->perihal;
+        $perUU->catatan = $pelembagaan->catatan;
+        $perUU->lampiran = $pelembagaan->lampiran;
+        $perUU->tgl_usulan = new DateTime;
+        $perUU->status = 1; // status kirim dari bagian pelembagaan
+        $perUU->save();
+
+        $penanggungJawab = new PenanggungJawabPerUU();
+        $penanggungJawab->id_per_uu = $perUU->id;
+        $penanggungJawab->nama = $penanggungJawabPelembagaan[0]->nama;
+        $penanggungJawab->jabatan = $penanggungJawabPelembagaan[0]->jabatan;
+        $penanggungJawab->NIP = $penanggungJawabPelembagaan[0]->nip;
+        $penanggungJawab->unit_kerja = $penanggungJawabPelembagaan[0]->unit_kerja;
+        $penanggungJawab->alamat_kantor = $penanggungJawabPelembagaan[0]->alamat_kantor;
+        $penanggungJawab->telepon_kantor = $penanggungJawabPelembagaan[0]->telp_kantor;
+        $penanggungJawab->email = $penanggungJawabPelembagaan[0]->email;
+        $penanggungJawab->save();
+    }
+
+    public function saveLogPelembagaan($input, $file, $id)
+    {
+        $pelembagaan = Pelembagaan::find($id);
+
+        $log_pelembagaan = new LogPelembagaan();
+        $log_pelembagaan->status = $input['status'];
+        $log_pelembagaan->catatan = $input['catatan'];
+        $log_pelembagaan->keterangan = $input['keterangan'];
+        $log_pelembagaan->lampiran = $file->getClientOriginalName();
+        $log_pelembagaan->pelembagaan_id = $id;
+        $log_pelembagaan->tgl_proses = Carbon::now();
+        $log_pelembagaan->save();
+
+        // change status pelembagaan
+        $pelembagaan->status = $input['status'];
+        $pelembagaan->save();
+
+        return $log_pelembagaan->status;
+    }
+
+    public function sendEmailToAllAdminPelembagaan()
+    {
+        $email = new HukorEmail();
+        $reg = new DAL_Registrasi();
+
+        $admin = DAL_Registrasi::findAdminByRoleId(8); //get all admin pelembagaan
+        
+        $data = array(
+                    'title' => 'Pengajuan Usulan Pelembagaan',
+                    'pengguna' => $reg->findPengguna(Auth::user()->id)
+        );
+        // send email to all admin pelembagaan
+        foreach ($admin as $adm) {
+            $email->sendMail('Usulan Pelembagaan', $adm->email, 'emails.usulan', $data);
+        }
+    }
+
+    public function sendEmailToAllAdminPerUU()
+    {
+        $email = new HukorEmail();
+        $reg = new DAL_Registrasi();
+
+        $admin = DAL_Registrasi::findAdminByRoleId(6); //get all admin pelembagaan
+        
+        $data = array(
+                    'title' => 'Pengajuan Usulan PerUU',
+                    'pengguna' => $reg->findPengguna(Auth::user()->id)
+        );
+        // send email to all admin pelembagaan
+        foreach ($admin as $adm) {
+            $email->sendMail('Usulan PerU', $adm->email, 'emails.usulan', $data);
+        }
+    }
+
+    public static function sendEmailToUser($id, $message)
+    {
+        $email = new HukorEmail();
+        $dest = DAL_Pelembagaan::getEmailPenanggungJawab($id);
+
+        $data = array(
+                    'title' => 'Balasan Usulan Pelembagaan',
+                    'pengguna' => 'testing'
+        );
+        $email->sendMail('Balasan Usulan Pelembagaan', $dest, 'emails.reppelembagaan', $data);
+        $email->subject($message);
+    }
+
+    public static function getEmailPenanggungJawab($id)
+    {
+        $email = DB::table('penanggung_jawab_pelembagaan')->select('email')
+                 ->where('pelembagaan_id', '=', $id)->get(); 
+
+        return $email[0]->email;
+    }
+
+  public static function getPrintTable($status, $firstDate, $lastDate) {
         $data = Self::getDataTable($status, $firstDate, $lastDate)->get();
         $result = array();
 
@@ -39,11 +183,6 @@ class DAL_Pelembagaan {
         }
 
         return HukorHelper::generateHtmlTable($result);
-    }
-
-    public static function sendEmailToUser() {
-        
-        
     }
 
 

@@ -93,14 +93,6 @@ Route::group(array('before' => 'auth|user'), function() {
 //pengaturan route Role ADMIN
 Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), function() {
 
-    Route::post('/enableForum', "AdminController@enableForum");
-
-    // Route::resource('account', 'AdminController');
-    // Route::get('Index', 'AdminController@index');
-    // Route::get('Home', 'AdminController@home');
-    // Route::get('setting', 'AdminController@setting');
-    // Route::put('setting/save', 'AdminController@save');
-
    // berita
     Route::resource('berita', 'BeritaController');
     Route::get('IndexBerita', 'BeritaController@index');
@@ -493,6 +485,7 @@ Route::group(array('before' => 'auth'), function(){
         Route::put('setting/save', array("as" => "admin.setting.save", "uses" => 'AdminController@save'));
         Route::get('logout', array("as" => "admin.logout", "uses" => "LoginController@signout"));
         Route::get('cetakLaporan', array("as" => "admin.cetakLaporan", "uses" => "AdminController@cetakLaporan"));
+        Route::post('enableForum', "AdminController@enableForum");
 
         Route::get('sp/printTable', array('as' => 'admin.sp.printTable', 'uses' => 'SistemDanProsedurController@printTable'));
         Route::resource("sp", "SistemDanProsedurController", array("except" => array("create", "store")));

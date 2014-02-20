@@ -150,7 +150,7 @@
 //        bFilter:false,
         bProcessing: true,
         bPaginate: true,
-        sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/tabelbahuadmin"); ?>',
+        sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/datatable"); ?>',
         aoColumns: [
             {mData: "pengguna.nama_lengkap"},
             {
@@ -231,9 +231,9 @@
             {
                 mData: "id",
                 mRender: function(data, type, full){
-                    var detailUrl = baseUrl + '/admin/bantuan_hukum/detail_banhuk?id=' + data;
-                    var deleteUrl = baseUrl + '/admin/bantuan_hukum/delete_banhuk?id=' + data;
-                    var downloadUrl = baseUrl + '/admin/bantuan_hukum/download_banhuk?id=' + data;
+                    var detailUrl = baseUrl + '/admin/bantuan_hukum/detail/' + data;
+                    var deleteUrl = baseUrl + '/admin/bantuan_hukum/delete/' + data;
+                    var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
 
                     if(role == 3 || role == 8){
                         return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a> &nbsp;' +

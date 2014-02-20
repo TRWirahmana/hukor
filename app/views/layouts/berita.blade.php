@@ -165,21 +165,27 @@
 
     <div class="footer">
         <div class="container">
-            <div class="rows">
+            <div class="rowsy">
+                <a href="http://kemdikbud.go.id"><img src="{{asset('assets/img/1.png')}}" /></a>
+                <img src="{{asset('assets/img/1.png')}}" />
                 <ul>
-                    <li> <a href="http://www.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/1.png')}}" alt=""></a> </li>
-                    <li><a href="http://www.setjen.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/2.png')}}" alt=""></a></li>
-                    <li><a href="http://www.paudni.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/3.png')}}" alt=""></a></li>
-                    <li><a href="http://www.dikdas.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/4.png')}}" alt=""></a></li>
-                    <li><a href="http://www.dikmen.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/5.png')}}" alt=""></a></li>
-                    <li><a href="http://www.dikti.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/6.png')}}" alt=""></a></li>
-                    <li><a href="http://www.itjen.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/7.png')}}" alt=""></a></li>
-                    <li><a href="http://www.litbang.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/8.png')}}" alt=""></a></li>
-                    <li><a href="http://www.badanbahasa.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/9.png')}}" alt=""></a></li>
-                    <li><a href="http://www.bpsdmpk.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/10.png')}}" alt=""></a></li>
-                    <li><a href="http://www.kebudayaanindonesia.net"><img src="{{asset('assets/img/logo_ditjenbud/11.png')}}" alt=""></a></li>
+                    <img src="{{asset('assets/img/logo-kemendiknas-white-text.png')}}" alt=""/>
+                    <li><a href="http://kemdikbud.go.id"><img src="{{asset('assets/img/1.png')}}" /></a> </li>
+                    <li><a href="http://setjen.kemdikbud.go.id"><img src="{{asset('assets/img/2.png')}}" alt=""></a></li>
+                    <li><a href="http://paudni.kemdikbud.go.id"><img src="{{asset('assets/img/3.png')}}" alt=""></a></li>
+                    <li><a href="http://dikdas.kemdikbud.go.id"><img src="{{asset('assets/img/4.png')}}" alt=""></a></li>
+                    <li><a href="http://dikmen.kemdikbud.go.id"><img src="{{asset('assets/img/5.png')}}" alt=""></a></li>
+                    <li><a href="http://dikti.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/6.png')}}" alt=""></a></li>
+                    <li><a href="http://itjen.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/7.png')}}" alt=""></a></li>
+                    <li><a href="http://litbang.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/8.png')}}" alt=""></a></li>
+                    <li><a href="http://badanbahasa.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/9.png')}}" alt=""></a></li>
+                    <li><a href="http://bpsdmpk.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/10.png')}}" alt=""></a></li>
+                    <li><a href="http://kebudayaanindonesia.net"><img src="{{asset('assets/img/logo_ditjenbud/11.png')}}" alt=""></a></li>
                 </ul>
             </div>
+        </div>
+        <div class="container">
+
             <div class="row-fluid">
                 <div class="span9">
                     <div id="footer-menu-informasi" style="display: none">

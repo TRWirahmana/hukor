@@ -117,7 +117,6 @@
             <li class="menu-header">Informasi</li>
               <li id="menu-beranda"><a href="{{URL::to('/')}}"><span class="rulycon-home-2"></span>Beranda</a></li>
               <li id="menu-produk-hukum"><a href="{{URL::to('produkhukum')}}"><span class="rulycon-book"></span>Produk Hukum</a></li>
-
               <!-- Menu Layanan(Dinamisasi)-->
               <?php $menu = Menu::all();
 //              echo $menu;exit;
@@ -203,9 +202,9 @@
                       <ul>
                           <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=2') }}"><span class="rulycon-checkbox-unchecked"></span>Pelembagaan</a></li>
                         @if($user->role_id == 2)
-                        <li id="menu-pelembagaan-usulan"><a href="{{URL::route('create_pelembagaan')}}"><span class="rulycon-envelop"></span>Lembar Usulan</a></li>
+                        <li id="menu-pelembagaan-usulan"><a href="{{URL::route('pelembagaan.index')}}"><span class="rulycon-envelop"></span>Lembar Usulan</a></li>
                         @endif
-                          <li id="menu-pelembagaan-informasi"><a href="{{ URL::route('informasi_pelembagaan') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan</a></li>
+                          <li id="menu-pelembagaan-informasi"><a href="{{ URL::route('') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan</a></li>
                       </ul>
                     </div>
                   </div>

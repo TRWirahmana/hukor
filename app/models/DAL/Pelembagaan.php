@@ -157,7 +157,7 @@ class DAL_Pelembagaan {
                     'pengguna' => 'testing'
         );
         $email->sendMail('Balasan Usulan Pelembagaan', $dest, 'emails.reppelembagaan', $data);
-        $email->subject($message);
+     //       ->subject($message);
     }
 
     public static function getEmailPenanggungJawab($id)

@@ -251,14 +251,15 @@
 
         $("#tbl-log_pelembagaan").on('click', '.btn_delete', function(e){
             if (confirm('Apakah anda yakin ?')) {
-            $.ajax({
-            url: $(this).attr('href'),
-                type: 'DELETE',
-                success: function(response) {
-                       oTable.fnReloadAjax();
-                    }
-                    });
-                }
+    
+                $.ajax({
+                url: $(this).attr('href'),
+                     type: 'DELETE',
+                     success: function(response) {
+                            oTable.fnReloadAjax();
+                        }
+                });
+             }
             e.preventDefault();
             return false;
         });

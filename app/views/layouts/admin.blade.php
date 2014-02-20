@@ -110,7 +110,7 @@
                                     <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}">
                                         <span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
                                     </li>
-                                    <li id="app_pelembagaan"><a href="{{ URL::to('kepala_biro/pelembagaan/') }}">
+                                    <li id="app_pelembagaan"><a href="{{ URL::route('index_pelembagaan_admin') }}">
                                         <span class="iconfa-hand-up"></span> Pelembagaan</a>
                                     </li>
                                     <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>

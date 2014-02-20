@@ -160,6 +160,7 @@ class PelembagaanController extends BaseController {
 			$logPelembagaan->delete();
 		}
 	}
+	
 
 	public function downloadLampiran($id)
     {

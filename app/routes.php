@@ -25,8 +25,7 @@ Route::group(array('before' => 'guest'), function() {
 	Route::get('error', 'LoginController@error');
 	Route::get('manual_registrasi', 'HomeController@download_manual');
 
-
-        Route::get('download_banhuk', 'BantuanHukumController@download');
+    Route::get('download_banhuk', 'BantuanHukumController@download');
 
     //bantuan hukum
     Route::group(array("prefix" => "bantuanhukum"), function(){
@@ -129,7 +128,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
         Route::post('delete','PeruuController@hapusUsulan');
     });
 
-
     Route::resource('pelembagaan', 'PelembagaanController');           
     Route::group(array("prefix" => "pelembagaan"), function(){            
    //       Route::resource('pelembagaan', 'PelembagaanController');
@@ -217,6 +215,7 @@ Route::group(array('prefix' => 'kepala_biro', 'before' => 'auth|kepala_biro'), f
     //     Route::get('print', array('as' => 'print_table', 'uses' => 'PeruuController@printTable'));
     // });
 
+
     //Managemen Menu
     Route::resource('menu', 'MenuController');
     Route::get('create_menu', 'MenuController@create');
@@ -266,7 +265,7 @@ Route::group(array('prefix' => 'bantuan_hukum', 'before' => 'auth|bantuan_hukum'
     //pelembagaan
     Route::group(array("prefix" => "pelembagaan"), function(){
         Route::resource('pelembagaan', 'PelembagaanController');
-        Route::get('/', 'PelembagaanController@index');
+        Route::get('/', array('as' => 'index_pelembagaan_admin', 'uses' => 'PelembagaanController@index'));
         //    Route::get('/', array('as' => 'index_pelembagaan', 'uses' =>  'PelembagaanController@index'));
         Route::get('{id}/update', array('as' => 'update_pelembagaan_admin', 'uses' =>  'PelembagaanController@edit'));
         Route::post('update', array('as' => 'proses_update_pelembagaan_bahu', 'uses' =>  'PelembagaanController@update'));
@@ -375,9 +374,6 @@ Route::group(array('prefix' => 'per-uu'), function() {
     Route::post('usulan', array('as' => 'proses_pengajuan', 'uses' => 'PeruuController@prosesPengajuan'));
     Route::get('informasi', array('as' => 'per_uu.informasi', 'uses' => 'PeruuController@informasi'));
 });
-
-
-
 
 Route::group(array('prefix' => 'pelembagaan'), function() {
     Route::get('informasi', array('as' => 'informasi_pelembagaan', 'uses' => 'PelembagaanController@index'));

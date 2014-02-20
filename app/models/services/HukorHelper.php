@@ -118,13 +118,6 @@ class HukorHelper {
         return implode('-', $result);
     }
 
-    public static function RemoveUnderline($string)
-    {
-        $tamp = explode('_', $string);
-        $result = implode(' ', $tamp);
-        return $result;
-    }
-
     /*
      * Upload File
      * $dir adalah untuk nama direktori
@@ -206,61 +199,15 @@ class HukorHelper {
         return join("", $html);
     }
     
-    public function DownloadFile($dir, $file) {
+public function DownloadFile($dir, $file) {
         $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $dir;
         $img_exists = $destinationPath . '/' . $file;
 
         if(file_exists($img_exists))
+//            return Response::download($img_exists);
             return $img_exists;
         else
+//            return Redirect::to('bantuanhukum')->with('error', 'Kesalahan, berkas tidak ditemukan.');
             return null;
-    }
-
-    public static function GeneratePDf($data, $header)
-    {
-        $count = count($header);
-        $headerClone = $header;
-        $html =  "<h1>Judul</h1>
-
-		<center>
-			<table style='border: 1px solid black;border-collapse:collapse;'>
-				<tr>";
-                    for($x = 0; $x < $count; $x++)
-                    {
-                        if(strpos($headerClone[$x], '_'))
-                        {
-                            $headerClone[$x] = HukorHelper::RemoveUnderline($headerClone[$x]);
-                        }
-                        $html .= "<th style='border: 1px solid black;text-align:center;'>".strtoupper($headerClone[$x])."</th>";
-                    }
-
-        $html .= "</tr>";
-
-        foreach($data as $uid){
-
-            $html .= "<tr>";
-
-                for($y = 0; $y < $count; $y++)
-                {
-                    $html .= "<th style='border: 1px solid black;text-align:center;'>" . $uid[$header[$y]] . "</th>";
-                }
-
-            $html .= "</tr>";
-        }
-        $html .="
-			</table>
-		</center>";
-
-        $dompdf = new DOMPDF();
-        $dompdf->load_html($html);
-        $dompdf->set_paper("A4", "landscape");
-        $dompdf->render();
-
-
-        // Use this to output to the broswer
-        //$dompdf->stream('Registrasi.pdf',array('Attachment'=>0));
-
-        // Use this to download the file.
-        $dompdf->stream("Registrasi.pdf");
     }
 }

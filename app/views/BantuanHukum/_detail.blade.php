@@ -1,38 +1,19 @@
-
 @section('admin')
 
-<div class="rightpanel">
 
-    <ul class="breadcrumbs">
-        <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
-        <li>Bantuan Hukum</li>
-    </ul>
-    @include('adminflash')
-    <div class="pageheader">
-        <!--        <form action="results.html" method="post" class="searchbar">-->
-        <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
-        <!--        </form>-->
-        <div class="pageicon">&nbsp;</div>
-        <div class="pagetitle">
-            <!--<h5>Events</h5>-->
+<h2>BANTUAN HUKUM</h2>
+<div class="stripe-accent"></div>
+<legend>Bantuan Hukum</legend>
 
-            <h1>BANTUAN HUKUM</h1>
-        </div>
-    </div>
-    <!--pageheader-->
-
-    <div class="maincontent">
-        <div class="maincontentinner">
-
-            <!-- MAIN CONTENT -->
+@include('flash')
 
 {{ Form::open(array('route' => 'banhuk_update', 'method' => 'post',
 'id' => 'user-registrasi-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal',
 'enctype' => "multipart/form-data")) }}
 
-{{ Form::hidden('id', $banhuk->id, array('id' => 'id')) }}
 
+
+{{ Form::hidden('id', $banhuk->id, array('id' => 'id')) }}
 <div class="row-fluid">
     <div class="span12">
         <div class="nav nav-tabs">
@@ -291,34 +272,9 @@
     </thead>
 </table>
 
-
-                <!-- END OF MAIN CONTENT -->
-
-                <div class="footer">
-                <div class="footer-left">
-                    <span>&copy; 2013. Admin Template. All Rights Reserved.</span>
-                </div>
-                <div class="footer-right">
-                    <span></span>
-                </div>
-            </div>
-            <!--footer-->
-        </div>
-        <!--maincontentinner-->
-    </div>
-    <!--maincontent-->
-
-</div>
-<!--rightpanel-->
-@stop
-
-
     @section('scripts')
     @parent
     <script type="text/javascript">
-
-     jQuery(function($){ 
-
         var tbl_data = $("#basictable").dataTable({
             bFilter: false,
             bInfo: false,
@@ -399,11 +355,7 @@
                     fnCallback(json);
                 });
             }
-        });        
-
-     });
-
-
-
+        });
     </script>
     @stop
+@stop

@@ -8,6 +8,8 @@
 @include('flash')
 	{{ Form::open($form_opts) }}
 
+    {{ Form::hidden('id', $user->id, array('id' => 'id')) }}
+    
 		<div class="row-fluid">
 			<div class="span12">
 				<fieldset>

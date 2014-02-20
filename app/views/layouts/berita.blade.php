@@ -139,10 +139,10 @@
                         <a href="#">Ketatalaksanaan</a>
                         <ul>
                             <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>
-                            <li><a href="{{URL::route('informasi_sistem_prosedur')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
+                            <li><a href="{{URL::route('sp.index')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
 
                             <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Analisis jabatan</a></li>
-                            <li><a href="{{URL::route('informasi_analisis_jabatan')}}">Informasi dan Status Usulan</a></li>
+                            <li><a href="{{URL::route('aj.index')}}">Informasi dan Status Usulan</a></li>
                         </ul>
                     </li>
                     <li class="has-child">
@@ -216,9 +216,9 @@
                         <ul class="footer-menu">
                             <li>Ketatalaksanaan</li>
                             <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>
-                            <li><a href="{{URL::route('informasi_sistem_prosedur')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
+                            <li><a href="{{URL::route('sp.index')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
                             <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Analisis Jabatan</a></li>
-                            <li><a href="{{URL::route('informasi_analisis_jabatan')}}">Informasi dan Status Usulan Analisis Jabatan</a></li>
+                            <li><a href="{{URL::route('aj.index')}}">Informasi dan Status Usulan Analisis Jabatan</a></li>
                         </ul>
                         <ul class="footer-menu">
                             <li>Bantuan Hukum</li>

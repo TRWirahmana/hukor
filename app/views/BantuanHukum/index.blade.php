@@ -108,7 +108,7 @@
                 bServerSide: true,
                 bProcessing: true,
 //                sAjaxSource: baseUrl + "/lkpm/data",
-                sAjaxSource: '<?php echo URL::to("bantuanhukum/tabelbahu"); ?>',
+                sAjaxSource: '<?php echo URL::to(""); ?>',
                 aoColumns: [
                     {mData: "pengguna.nama_lengkap"},
                     {

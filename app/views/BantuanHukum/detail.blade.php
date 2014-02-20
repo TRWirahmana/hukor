@@ -7,7 +7,7 @@
 
 @include('flash')
 
-{{ Form::open(array('action' => 'BantuanHukumController@update', 'method' => 'post',
+{{ Form::open(array('route' => array('admin.bantuan_hukum.update', $banhuk->id), 'method' => 'put',
 'id' => 'user-registrasi-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal',
 'enctype' => "multipart/form-data")) }}
 
@@ -336,7 +336,7 @@
                 {
                     mData: "id",
                     mRender: function(data){
-                        var deleteUrl = baseUrl + '/delete_log_banhuk?id=' + data;
+                        var deleteUrl = baseUrl + '/admin/bantuan_hukum/delete_log/=' + data;
 
                         return '<a href="' + deleteUrl + '" class="btn_delete"><i class="icon-trash"></i></a>';
                     }

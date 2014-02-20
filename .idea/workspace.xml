@@ -80,7 +80,7 @@
       <file leaf-file-name="berita.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="179" column="33" selection-start="9028" selection-end="9028" vertical-scroll-proportion="0.72962224" vertical-offset="2676" max-vertical-offset="5151">
+            <state line="179" column="40" selection-start="9105" selection-end="9105" vertical-scroll-proportion="0.72962224" vertical-offset="2676" max-vertical-offset="5151">
               <folding>
                 <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ul#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -649,7 +649,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="33" selection-start="9028" selection-end="9028" vertical-scroll-proportion="0.72962224" vertical-offset="2676" max-vertical-offset="5151">
+        <state line="179" column="40" selection-start="9105" selection-end="9105" vertical-scroll-proportion="0.72962224" vertical-offset="2676" max-vertical-offset="5151">
           <folding>
             <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />

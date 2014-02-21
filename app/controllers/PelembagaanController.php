@@ -64,7 +64,7 @@ class PelembagaanController extends BaseController {
 			$this->layout->content = View::make('Pelembagaan.update', array(
 				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
 				'detail' => '',
-				'form_opts' => array('route' => 'proses_update_pelembagaan','method' => 'post','class' => 'form-horizontal','id' => 'pelembagaan-update','files' => true),
+				'form_opts' => array('route' => 'proses_update_pelembagaan_admin','method' => 'post','class' => 'form-horizontal','id' => 'pelembagaan-update','files' => true),
 				'pelembagaan' => $pelembagaan,
 				'id' => $id,
 			));
@@ -116,7 +116,7 @@ class PelembagaanController extends BaseController {
 		if($user->role_id == 3)
 			return Redirect::to('admin/pelembagaan')->with('success', 'Data berhasil diubah.');
 		else if($user->role_id == 7)
-			return Redirect::to('pelembagaan/index_pelembagaan')->with('success', 'Data berhasil diubah.');
+			return Redirect::to('admin/pelembagaan')->with('success', 'Data berhasil diubah.');
 	}  
 
 	public function store()

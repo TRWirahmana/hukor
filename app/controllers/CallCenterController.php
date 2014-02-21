@@ -6,7 +6,8 @@ class CallCenterController extends BaseController {
     public function index(){
 	$user = Auth::user();
     	$call = CallCenter::find(1);
-
+// var_dump($call);
+// exit;
     	$this->layout = View::make('layouts.master');	
 	$this->layout->content = View::make('callcenter.index',
 				    array(				
@@ -16,16 +17,15 @@ class CallCenterController extends BaseController {
 	}
 
     public function home(){
+	$call = CallCenter::find(1);
 
-		$call = CallCenter::find(0);
-
-		if(null != $call) {
-			$this->layout->content = View::make('callcenter.form',
-			    array(				
-					'form_opts' => array(
-						'route' => array('admin.callcenter.update', $call->id),
-						'method' => 'put',
-						'class' => 'form-horizontal',
+	if(null != $call) {
+		$this->layout->content = View::make('callcenter.form',
+		    array(				
+			'form_opts' => array(
+				'route' => array('admin.callcenter.update', $call->id),
+					'method' => 'put',
+					'class' => 'form-horizontal',
 					    'id' => 'callcenter-form',
 						'files' => true
 					),   	
@@ -52,7 +52,7 @@ class CallCenterController extends BaseController {
 		if(null == $call){
 			$call = new CallCenter();			
 		}		
-
+		$call->id = 1; // default id
  		$call->email = Input::get('email');
  		$call->fax = Input::get('fax');
 		$call->alamat = Input::get('alamat');

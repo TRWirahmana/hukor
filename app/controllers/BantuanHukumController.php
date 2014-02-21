@@ -84,10 +84,8 @@ class BantuanHukumController extends BaseController{
         $banhuk = $DAL->GetSingleBantuanHukum($id);
 
         // show form with empty model
-        $this->layout  = View::make("layouts.admin");
-        $this->layout->content = View::make('BantuanHukum.detail', array(
-            'banhuk' => $banhuk
-        ));
+        $this->layout = View::make('layouts.admin');
+        $this->layout->content = View::make('BantuanHukum.detail', array('banhuk'=> $banhuk));
     }
 
     public function update($id)
@@ -158,23 +156,49 @@ class BantuanHukumController extends BaseController{
 
     public function convertpdf()
     {
-        $start = Input::get('start_date');
-        $end = Input::get('end_date');
+        $start = Input::get('start_date', null);
+        $end = Input::get('end_date', null);
 
-        $DAL = new DAL_BantuanHukun();
-        $helper = new HukorHelper();
+        if(null != $start)
+            $start = date_format(new DateTime($start), "d/m/Y");
+        if(null != $end)
+            $end = date_format(new DateTime($end), "d/m/Y");
 
-        $fields = array(
-            'nama_lengkap',
-            'jenis_perkara',
-            'status_pemohon',
-            'status_perkara',
-            'advokasi',
-            'advokator'
-        );
-        $data = $DAL->GetBankumByDate($start, $end);
+        // $DAL = new DAL_BantuanHukun();
+        // $helper = new HukorHelper();
 
-        $helper->GeneratePDf($data, $fields);
+        // $fields = array(
+        //     'nama_lengkap',
+        //     'jenis_perkara',
+        //     'status_pemohon',
+        //     'status_perkara',
+        //     'advokasi',
+        //     'advokator'
+        // );
+        // $data = $DAL->GetBankumByDate($start, $end);
+
+        // $helper->GeneratePDf($data, $fields);
+
+
+        $style = array("<style>");
+        $style[] = "table { border-collapse: collapse; }";
+        $style[] = "table td, table th { padding: 5px; }";
+        $style[] = "</style>";
+
+        $html = array("<h1>Bantuan Hukum</h1>");
+        $html[] = "<table><tr>";
+        if(null != $start)
+            $html[] = "<td><strong>Tgl awal</strong></td><td>: {$start}</td>";
+        if(null != $end)
+            $html[] = "<td><strong>Tgl akhir</strong></td><td>: {$end}</td>";
+        $html[] = "</tr></table>";
+
+        $html[] = DAL_BantuanHukun::getPrintTable($start, $end);
+
+        $pdf = new DOMPDF();
+        $pdf->load_html(join("", $style) . join("",$html));
+        $pdf->render();
+        $pdf->stream("bantuan_hukum.pdf");
     }
 }
 

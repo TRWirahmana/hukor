@@ -8,7 +8,7 @@
     </div>
 
     <div id="filterdiv" class="filterdiv" >
-    <form id="form-filter" class="form form-horizontal" action="{{URL::route('print_table_pelembagaan_user')}}">
+    <form id="form-filter" class="form form-horizontal" action="#">
 	 	<fieldset>
                 <div class="row-fluid">
                             <div class="span6">

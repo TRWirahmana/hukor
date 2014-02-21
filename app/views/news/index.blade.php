@@ -54,27 +54,27 @@
     </div>
     <div class="container">
         <!-- Latest News -->
-        <div class="row-fluid">
-            <?php $t = 0;?>
-            @foreach($latest_news as $data)
-            @if($t++ < 4)
-            <div class="span3 latest-news">
-                <h6>{{$data->judul}}</h6>
-                <p><small><span class="rulycon-clock"></span> {{$data->tgl_penulisan}}</small></p>
-                <?php $berita = strip_tags($data->berita);
-                $highlight = substr($berita, 0, 150);
-                ?>
-                @if(strlen($berita) > 150)
-                    <p>{{$highlight}}...</p>
-                    <p><a href="{{ URL::to('/news/detail?id='. $data->id .'') }}" class="read-more">Read more <span class="rulycon-arrow-right-3"></span></a></p>
-                @else
-                    <p>{{$berita}}</p>
-                @endif
-            </div>
-            @endif
-            <? $t++; ?>
-            @endforeach
-        </div>
+        <!--        <div class="row-fluid">-->
+<!--            --><?php $t = 0;?>
+<!--            @foreach($latest_news as $data)-->
+<!--            @if($t++ < 4)-->
+<!--            <div class="span3 latest-news">-->
+<!--                <h6>{{$data->judul}}</h6>-->
+<!--                <p><small><span class="rulycon-clock"></span> {{$data->tgl_penulisan}}</small></p>-->
+<!--                --><?php $berita = strip_tags($data->berita);
+//                $highlight = substr($berita, 0, 150);
+//                ?>
+<!--                @if(strlen($berita) > 150)-->
+<!--                    <p>{{$highlight}}...</p>-->
+<!--                    <p><a href="{{ URL::to('/news/detail?id='. $data->id .'') }}" class="read-more">Read more <span class="rulycon-arrow-right-3"></span></a></p>-->
+<!--                @else-->
+<!--                    <p>{{$berita}}</p>-->
+<!--                @endif-->
+<!--            </div>-->
+<!--            @endif-->
+<!--            --><? $t++; ?>
+<!--            @endforeach-->
+<!--        </div>-->
 
         <?php $f = 4;?>
         <!-- News Feed -->
@@ -86,7 +86,7 @@
                 <div class="news-content">
                     <div class="row-fluid">
                         <div class="span9">
-                            <h4>{{$news_feeds->judul}}</h4>
+                            <h4><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a></h4>
                             <?php $berita_feed = strip_tags($news_feeds->berita);
                             $highlight_feed = substr($berita_feed, 0, 150);
                             ?>

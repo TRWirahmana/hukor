@@ -209,7 +209,7 @@ p {
 }
 .section-title {
   position: relative;
-  background: #dc3c00;
+  background: #064D95;
   color: #ffffff;
   padding: 12px 24px;
   font-weight: normal;
@@ -217,7 +217,7 @@ p {
   box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
 }
 .section-title#widgets {
-  background: #02A29E;
+  background: #064D95;
 }
 .section-title#news-feed:after, .section-title#widgets:after {
   font-family: Rulycons;
@@ -266,7 +266,7 @@ p {
   font-family: "Monaco", monospace;
   font-size: 10px;
   color: #ffffff;
-  background: #dc3c00;
+  background: #064D95;
   padding: 24px 12px;
   box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
   text-align: center;

@@ -169,7 +169,7 @@ class DAL_Pelembagaan {
     }
 
   public static function getPrintTable($status, $firstDate, $lastDate) {
-        $data = Self::getDataTable($status, $firstDate, $lastDate)->get();
+        $data = self::getDataTable($status, $firstDate, $lastDate)->get();
         $result = array();
 
         foreach($data as $index => $pelembagaan) {

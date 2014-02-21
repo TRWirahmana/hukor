@@ -4,12 +4,11 @@ class CallCenterController extends BaseController {
     protected $layout = 'layouts.admin';
 
     public function index(){
-		$user = Auth::user();
-
-    	$call = CallCenter::find(0);
+	$user = Auth::user();
+    	$call = CallCenter::find(1);
 
     	$this->layout = View::make('layouts.master');	
-		$this->layout->content = View::make('callcenter.index',
+	$this->layout->content = View::make('callcenter.index',
 				    array(				
 				    	'call' => $call,
 				    	'user' => $user

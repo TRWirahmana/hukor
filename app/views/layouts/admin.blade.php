@@ -251,7 +251,7 @@
                             $("#menu_berita").hide();
                     });
                             $("#cbox-forum").change(function(e){
-                    $.post("/admin/enableForum", {value: $(this).is(":checked")}, function(resp){
+                    $.post(baseUrl + "/admin/enableForum", {value: $(this).is(":checked")}, function(resp){
                     console.log(resp);
                     });
                     });

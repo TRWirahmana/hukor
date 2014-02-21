@@ -107,8 +107,8 @@
                   <table id="tbl-pelembagaan">  
                       <thead>
                       <tr>
-                          <th>No</th>
-                          <th>No. Usulan</th>
+                          <th>#</th>
+<!--                           <th>No Usulan</th> -->
                           <th>Tgl Usulan</th>
                           <th>Unit Kerja</th>
                           <th>Jenis Usulan</th>
@@ -168,10 +168,10 @@
             
             $dataTable = $("#tbl-pelembagaan").dataTable({
                 bFilter: true,
-                bInfo: false,
+           //     bInfo: false,
                 bSort: false,
                 bPaginate: true,
-                bLengthChange: false,
+             //   bLengthChange: false,
                 bServerSide: true,
                 bProcessing: true, 
                 sAjaxSource: document.location.href,
@@ -179,14 +179,15 @@
                   {
                               mData: "id",
                               sClass: 'center-ac',
-                              sWidth: '3%'
+                              sWidth: '1%'
                             },
 
-                            {
-                              mData: "id",
-                              sClass: 'center-ac',
-                              sWidth: '5%'
-                            },
+                            // {
+                            //   mData: "id",
+                            //   sClass: 'center-ac',
+                            //   sWidth: '6%'
+                            // },
+
                             {
                               mData: "tgl_usulan",
                               sClass: 'center-ac',
@@ -261,8 +262,8 @@
                                                 + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+data+"'>"
                                                 + "<i class='icon-trash'></i></a>";
                                         } else if(role_id == 7 ){
-                                          return "<a href='"+data+"/download'> <i class='icon-download'></i></a>"  
-                                                + "&nbsp;<a href='"+data+"/update' title='Detail'><i class='icon-edit'></i></a>"
+                                          return "<a href='pelembagaan/"+data+"/download'> <i class='icon-download'></i></a>"  
+                                                + "&nbsp;<a href='pelembagaan/"+data+"/update' title='Detail'><i class='icon-edit'></i></a>"
                                                 + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+data+"'>"
                                                 + "<i class='icon-trash'></i></a>";
                                         } else if(role_id == 0 ) {

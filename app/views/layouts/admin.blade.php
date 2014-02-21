@@ -119,7 +119,7 @@
                                             <li><a href="{{URL::route('admin.aj.index')}}">Analisis Jabatan</a></li>
                                         </ul>
                                     </li>
-                                    <li id="app_bahu"><a href="{{ URL::to('kepala_biro/bantuan_hukum/') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
+                                    <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
 
                                 </ul>
                             </li>

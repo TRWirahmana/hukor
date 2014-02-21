@@ -402,3 +402,4 @@ Route::get('sp/download/{id}', 'SistemDanProsedurController@downloadLampiran');
 Route::get('puu/download/{id}', 'PeruuController@downloadLampiran');
 Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
 Route::get('bantuan_hukum/download/{id}', 'BantuanHukumController@download');
+Route::get('bantuan_hukum/datatable','BantuanHukumController@datatable');

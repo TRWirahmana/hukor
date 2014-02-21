@@ -82,7 +82,7 @@
             <div id="dashboard-left" class="span9">
                 <h3 class="section-title" id="news-feed">News feed</h3>
                 @foreach($latest_news as $news_feeds)
-                @if($f++ > 4)
+
                 <div class="news-content">
                     <div class="row-fluid">
                         <div class="span9">
@@ -103,8 +103,7 @@
                         </div>
                     </div>
                 </div>
-                @endif
-                <? $f++; ?>
+
                 @endforeach
 
                 <div class="pagination">

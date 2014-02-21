@@ -267,42 +267,6 @@ Route::group(array("prefix" => "admin", "before" => "auth|super_admin"), functio
     Route::resource('categories', 'CategoriesController');
 });
 
-//ROUTE ROLE KEPALA BAGIAN
-Route::group(array("prefix" => "kepala_bagian", "before" => "auth|kepala_bagian"), function(){
-    Route::get('/', "AdminController@dashboard");
-    Route::resource('account', 'AdminController');
-    Route::get('setting', 'AdminController@setting');
-    Route::put('setting/save', 'AdminController@save');
-    Route::get('per_uu', array('as' => 'kepala_bagian.per_uu', 'uses' => 'PeruuController@index'));
-    Route::get('per_uu/print', array('as' => 'kepala_bagian.per_uu.print', 'uses' => 'PeruuController@printTable'));
-    Route::get('per_uu/download/{id}', "PeruuController@downloadLampiran");
-
-    // Route::get('pelembagaan', array("as" => "kepala_bagian.pelembagaan", 'uses' => "PelembagaanController@index"));
-    // Route::get('pelembagaan/print', array("as" => "kepala_bagian.pelembagaan.print", "uses" => "PelembagaanController@printTable"));
-    // Route::get('{id}/download', array('as' => 'kepala_bagian.pelembagaan.downloadLampiran', 'uses' => 'PelembagaanController@downloadLampiran'));
-
-    //bantuan hukum
-
-
-
-});
-
-//ROUTE ROLE KEPALA SUB BAGIAN
-Route::group(array("prefix" => "kepala_subbagian", "before" => "auth|kepala_subbagian"), function(){
-    Route::get('/', "AdminController@dashboard");
-    Route::resource('account', 'AdminController');
-    Route::get('setting', 'AdminController@setting');
-    Route::put('setting/save', 'AdminController@save');
-
-    Route::get('per_uu', array('as' => 'kepala_subbagian.per_uu', 'uses' => 'PeruuController@index'));
-    Route::get('per_uu/print', array('as' => 'kepala_subbagian.per_uu.print', 'uses' => 'PeruuController@printTable'));
-    Route::get('per_uu/download/{id}', "PeruuController@downloadLampiran");
-
-    // Route::get('pelembagaan', array("as" => "kepala_subbagian.pelembagaan", 'uses' => "PelembagaanController@index"));
-    // Route::get('pelembagaan/print', array("as" => "kepala_subbagian.pelembagaan.print", "uses" => "PelembagaanController@printTable"));
-    // Route::get('{id}/download', array('as' => 'kepala_subbagian.pelembagaan.downloadLampiran', 'uses' => 'PelembagaanController@downloadLampiran'));
-
-});
 
 Route::resource("sp", 'SistemDanProsedurController', array("only" => array("index")));    
 Route::resource("aj", "AnalisisJabatanController", array("only" => array("index")));

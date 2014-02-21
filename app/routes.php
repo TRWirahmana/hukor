@@ -364,6 +364,7 @@ Route::resource("sp", 'SistemDanProsedurController', array("only" => array("inde
 Route::resource("aj", "AnalisisJabatanController", array("only" => array("index")));
 Route::resource("puu", "PeruuController", array("only" => array("index")));
 Route::resource("pelembagaan", "PelembagaanController", array("only" => array("index", "printTable"))); 
+Route::resource('bantuan_hukum', 'BantuanHukumController', array("onlly" => array("index")));
 Route::group(array('before' => 'auth'), function(){
     Route::resource("sp", 'SistemDanProsedurController', array("only" => array("create", "store")));    
     Route::resource("aj", "AnalisisJabatanController", array("only" => array("create", "store")));

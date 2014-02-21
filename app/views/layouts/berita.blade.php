@@ -125,7 +125,7 @@
                         <a href="#">Peraturan Perundang-undangan</a>
                         <ul>
                             <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Peraturan Perundang-undangan</a></li>
-                            <li><a href="{{URL::route('per_uu.informasi')}}">Informasi dan Status Usulan</a></li>
+                            <li><a href="{{URL::route('puu.index')}}">Informasi dan Status Usulan</a></li>
                         </ul>
                     </li>
                     <li class="has-child">
@@ -149,7 +149,7 @@
                         <a href="#">Bantuan Hukum</a>
                         <ul>
                             <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>
-                            <li><a href="{{ URL::to('BantuanHukum') }}">Informasi dan Status Usulan</a></li>
+                            <li><a href="{{ URL::route('bantuan_hukum.index') }}">Informasi dan Status Usulan</a></li>
                         </ul>
                     </li>
                 </ul>

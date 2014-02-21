@@ -229,9 +229,10 @@
                                       return 'Statuta';
                                     } else if(data === '4' ){
                                       return 'Penutupan';
+                                    } else {
+                                      return 'lain-lain';                                      
                                     }
                                   }
-                                     return data;
                               }
                             },
 

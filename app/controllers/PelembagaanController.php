@@ -39,7 +39,7 @@ class PelembagaanController extends BaseController {
 				'title' => 'Tambah Akun',
 				'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',
 				'form_opts' => array(
-					'route' => 'store_pelembagaan',					
+					'route' => 'pelembagaan.store',					
 					'method' => 'post',
 					'class' => 'form-horizontal',
 		            'id' => 'pelembagaan-form',
@@ -134,11 +134,10 @@ class PelembagaanController extends BaseController {
         	$DAL->sendEmailToAllAdminPelembagaan();        						// send Email to admin
 
 			Session::flash('success', 'Data berhasil dikirim.');
-			return Redirect::to('pelembagaan/usulan');
 		} else {
 			Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
-			return Redirect::to('pelembagaan/usulan');
-		}					
+		}				
+		return Redirect::route('pelembagaan.create');	
 	}
 
 	public function destroy($id)

@@ -30,22 +30,6 @@ Route::group(array('before' => 'guest'), function() {
     Route::get('news/detail', 'NewsController@detail');
     Route::get('download_banhuk', 'BantuanHukumController@download');
 
-    //bantuan hukum
-    Route::group(array("prefix" => "bantuanhukum"), function(){
-        Route::resource('bantuan_hukum', 'BantuanHukumController');
-        Route::get('informasi',  array('as' => 'informasi_bahu', 'uses' => 'BantuanHukumController@index'));
-        Route::get('tabelbahu', 'BantuanHukumController@datatable');
-        Route::get('log_banhuk', 'BantuanHukumController@tablelog');
-        Route::get('addbahu', array('as' => 'create_bahu', 'uses' => 'BantuanHukumController@add'));
-        Route::get('detail_banhuk', 'BantuanHukumController@detail');
-        Route::get('delete_banhuk', 'BantuanHukumController@delete');
-        Route::get('delete_log_banhuk', 'BantuanHukumController@deletelog');
-        Route::post('save',  array('as' => 'save_bahu', 'uses' => 'BantuanHukumController@save'));
-        Route::post('convertpdf', 'BantuanHukumController@convertpdf');
-        Route::post('banhuk_update', 'BantuanHukumController@update');
-        Route::get('download_banhuk', 'BantuanHukumController@download');
-        Route::get('log_banhuk', 'BantuanHukumController@tablelog');
-    });
 
     Route::resource('user', 'UserController');
     Route::resource('bantuanhukum', 'BantuanHukumController');
@@ -121,22 +105,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('setting_menu', 'MenuController@setting');
     // Route::put('setting/save', 'MenuController@save');
 
-    //bantuan hukum
-    // Route::group(array("prefix" => "bantuan_hukum"), function(){
-    //     Route::resource('bantuan_hukum', 'BantuanHukumController');
-    //     Route::get('/', 'BantuanHukumController@index');
-    //     Route::get('tabelbahuadmin','BantuanHukumController@datatable');
-    //     Route::get('log_banhuk', 'BantuanHukumController@tablelog');
-    //     Route::get('addbahu', 'BantuanHukumController@add');
-    //     Route::get('detail_banhuk', 'BantuanHukumController@detail');
-    //     Route::get('delete_banhuk', 'BantuanHukumController@delete');
-    //     Route::get('delete_log_banhuk', 'BantuanHukumController@deletelog');
-    //     Route::post('save', 'BantuanHukumController@save');
-    //     Route::post('convertpdf', 'BantuanHukumController@convertpdf');
-    //     Route::post('banhuk_update', array("as" => "banhuk_update", "uses" =>  'BantuanHukumController@update'));
-    //     Route::get('download_banhuk', 'BantuanHukumController@download');
-    //     Route::get('log_banhuk', 'BantuanHukumController@tablelog');
-    // });
 
     //Managemen Submenu
     Route::resource('submenu', 'SubmenuController');
@@ -197,14 +165,6 @@ Route::group(array('prefix' => 'kepala_biro', 'before' => 'auth|kepala_biro'), f
     Route::put('setting/save', 'MenuController@save');
 });
 
-//pengaturan route Bantuan Hukum sisi ADMIN
-Route::group(array('prefix' => 'bantuan_hukum', 'before' => 'auth|bantuan_hukum'), function() {
-    Route::get('/', function() {
-        return "Hello World";
-    });
-    //peruu   
-//Ketatalaksanaan
-});
 
 
 // // ################
@@ -342,29 +302,13 @@ Route::group(array("prefix" => "kepala_subbagian", "before" => "auth|kepala_subb
     // Route::get('pelembagaan/print', array("as" => "kepala_subbagian.pelembagaan.print", "uses" => "PelembagaanController@printTable"));
     // Route::get('{id}/download', array('as' => 'kepala_subbagian.pelembagaan.downloadLampiran', 'uses' => 'PelembagaanController@downloadLampiran'));
 
-    //bantuan hukum
-    Route::group(array("prefix" => "bantuan_hukum"), function(){
-        Route::resource('bantuan_hukum', 'BantuanHukumController');
-        Route::get('/', 'BantuanHukumController@index');
-        Route::get('tabelbahu', 'BantuanHukumController@datatable');
-        Route::get('log_banhuk', 'BantuanHukumController@tablelog');
-        Route::get('addbahu', 'BantuanHukumController@add');
-        Route::get('detail_banhuk', 'BantuanHukumController@detail');
-        Route::get('delete_banhuk', 'BantuanHukumController@delete');
-        Route::get('delete_log_banhuk', 'BantuanHukumController@deletelog');
-        Route::post('save', 'BantuanHukumController@save');
-        Route::post('convertpdf', 'BantuanHukumController@convertpdf');
-        Route::post('banhuk_update', 'BantuanHukumController@update');
-        Route::get('download_banhuk', 'BantuanHukumController@download');
-        Route::get('log_banhuk', 'BantuanHukumController@tablelog');
-    });
 });
 
 Route::resource("sp", 'SistemDanProsedurController', array("only" => array("index")));    
 Route::resource("aj", "AnalisisJabatanController", array("only" => array("index")));
 Route::resource("puu", "PeruuController", array("only" => array("index")));
 Route::resource("pelembagaan", "PelembagaanController", array("only" => array("index", "printTable"))); 
-Route::resource('bantuan_hukum', 'BantuanHukumController', array("onlly" => array("index")));
+Route::resource('bantuan_hukum', 'BantuanHukumController', array("only" => array("index")));
 Route::group(array('before' => 'auth'), function(){
     Route::resource("sp", 'SistemDanProsedurController', array("only" => array("create", "store")));    
     Route::resource("aj", "AnalisisJabatanController", array("only" => array("create", "store")));

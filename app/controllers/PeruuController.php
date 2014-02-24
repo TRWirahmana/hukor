@@ -165,6 +165,14 @@ class PeruuController extends BaseController
         return Response::download($path, explode('/', $perUU->lampiran)[1]);
     }
 
+
+	public function downloadLampiranLog($id)
+	{
+		$log = LogPerUU::find($id) or App::abort(404);
+		$path = UPLOAD_PATH . DS . $log->lampiran;
+		return Response::download($path, explode('/', $perUU->lampiran)[1]);
+	}
+
     public function printTable() {
         $status = Input::get("status", null);
         $firstDate = Input::get("firstDate", null);

@@ -82,6 +82,12 @@
                                 <span class="headmenu-label">Produk Hukum</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ URL::to('forumdiskusi') }}" id="forum_diskusi">
+                                <span class="rulycon-notebook"></span>
+                                <span class="headmenu-label">Forum</span>
+                            </a>
+                        </li>
                         <li class="odd">
                             <a href="{{URL::to('site')}}">
                                 <span class="rulycon-user"></span>
@@ -226,7 +232,7 @@
                         <ul class="footer-menu">
                             <li>Bantuan Hukum</li>
                             <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>
-                            <li><a href="{{ URL::to('BantuanHukum') }}">Informasi dan Status Usulan</a></li>
+                            <li><a href="{{ URL::route('bantuan_hukum.index') }}">Informasi dan Status Usulan</a></li>
                         </ul>
                     </div>
 

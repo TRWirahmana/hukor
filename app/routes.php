@@ -32,7 +32,7 @@ Route::group(array('before' => 'guest'), function() {
 
 
     Route::resource('user', 'UserController');
-    Route::resource('bantuanhukum', 'BantuanHukumController');
+    //Route::resource('bantuanhukum', 'BantuanHukumController');
     Route::resource('forget', 'ForgetPasswordController@index');
     
     Route::resource('document', 'DocumentController');
@@ -278,6 +278,7 @@ Route::group(array('before' => 'auth'), function(){
     Route::resource("aj", "AnalisisJabatanController", array("only" => array("create", "store")));
     Route::resource('puu', 'PeruuController', array("only" => array("create", "store")));
     Route::resource('pelembagaan', "PelembagaanController", array("only" => array("create", "store", "index")));
+    Route::resource('bantuan_hukum', "BantuanHukumController", array("only" => array("create", "store", "index")));
     Route::group(array("prefix" => "admin"), function() {
         Route::get('/', array("as" => "admin.index", "uses" => "AdminController@home"));
         Route::get('setting', array("as" => "admin.setting", "uses" => "AdminController@setting"));
@@ -286,14 +287,17 @@ Route::group(array('before' => 'auth'), function(){
         Route::get('cetakLaporan', array("as" => "admin.cetakLaporan", "uses" => "AdminController@cetakLaporan"));
         Route::post('enableForum', "AdminController@enableForum");
 
+	Route::get('sp/log/download/{id}', array('as' => "admin.sp.log.download", 'uses' => 'SistemDanProsedurController@downloadLogLampiran'));
         Route::get('sp/printTable', array('as' => 'admin.sp.printTable', 'uses' => 'SistemDanProsedurController@printTable'));
         Route::resource("sp", "SistemDanProsedurController", array("except" => array("create", "store")));
 
+	Route::get('aj/log/download/{id}', array('as' => 'admin.aj.log.download', 'uses' => 'AnalisisJabatanController@downloadLampiranLog'));
         Route::get('aj/printTable', array('as' => 'admin.aj.printTable', 'uses' => 'AnalisisJabatanController@printTable'));
         Route::resource("aj", "AnalisisJabatanController", array("except" => array("create", "store")));
 
+	Route::get('puu/log/download/{id}', array('as' => 'admin.puu.log.download', 'uses' => 'PeruuController@downloadLampiranLog'));
         Route::get('puu/printTable', array("as" => "admin.puu.printTable", "uses" => "PeruuController@printTable"));
-        Route::resource('puu', 'PeruuController', array("create", "store"));
+        Route::resource('puu', 'PeruuController', array("except" => array("create", "store")));
 
         Route::get('pelembagaan/printTable', array("as" => "admin.pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));
         Route::resource('pelembagaan', 'PelembagaanController', array("create", "store", "update", "edit", "index"));
@@ -311,11 +315,11 @@ Route::group(array('before' => 'auth'), function(){
         Route::resource('bantuan_hukum', 'BantuanHukumController');
     });
 });
-Route::get('aj/download/{id}', 'AnalisisJabatanController@downloadLampiran');
-Route::get('sp/download/{id}', 'SistemDanProsedurController@downloadLampiran');
-Route::get('puu/download/{id}', 'PeruuController@downloadLampiran');
+Route::get('aj/download/{id}', array('as' => 'aj.download', 'uses' => 'AnalisisJabatanController@downloadLampiran'));
+Route::get('sp/download/{id}', array('as' => "sp.download", "uses" => 'SistemDanProsedurController@downloadLampiran'));
+Route::get('puu/download/{id}', array('as' => 'puu.download', 'uses' => 'PeruuController@downloadLampiran'));
 Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
 Route::get('pelembagaan/printTable', array("as" => "pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));
-Route::get('bantuan_hukum/download/{id}', 'BantuanHukumController@download');
+Route::get('bantuan_hukum/download/{id}', array('as' => 'bantuan_hukum.download', 'uses' => 'BantuanHukumController@download'));
 Route::get('bantuan_hukum/datatable','BantuanHukumController@datatable');
 Route::get('pelembagaan/printTable', array("as" => "pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));

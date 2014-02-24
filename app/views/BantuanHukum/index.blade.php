@@ -39,7 +39,7 @@
                 bServerSide: true,
                 bProcessing: true,
 //                sAjaxSource: baseUrl + "/lkpm/data",
-                sAjaxSource: '/bantuan_hukum/datatable',
+                sAjaxSource: baseUrl + '/bantuan_hukum/datatable',
                 aoColumns: [
                     {mData: "pengguna.nama_lengkap"},
                     {

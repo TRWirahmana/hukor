@@ -27,7 +27,7 @@ p {
   z-index: 10001;
 }
 .header {
-  background: #064d95;
+  background: #2980b9;
   padding: 0 20px;
   height: auto;
   box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);
@@ -42,6 +42,7 @@ p {
 .header .logo img {
   padding-top: 28px;
   padding-bottom: 4px;
+  width: 360px;
 }
 .headmenu > li {
   font-size: 12px;
@@ -50,15 +51,16 @@ p {
 .headmenu > li, .headmenu > li.odd {
   background: transparent;
   border: none;
-  margin-left: 1px;
+  margin-left: 6px;
 }
 .headmenu > li > a, .headmenu > li.odd > a {
   background: rgba(0, 0, 0, .15);
   padding: 32px 8px 16px;
   text-align: center;
+  box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);
 }
 .headmenu > li > a:hover {
-  background: rgba(0, 0, 0, .25);
+
 }
 .headmenu > li > a > span[class *= "rulycon"] {
   font-size: 11px;
@@ -95,7 +97,10 @@ p {
   margin: 0 !important;
 }
 .sub-header {
-  background: url("../images/leftpanelbg.png") repeat;
+  background: #1e577e;
+  display: block;
+  width: 100%;
+  min-height: 33px;
 }
 .sub-menu ul {
   display: inline-table;
@@ -149,7 +154,7 @@ p {
   opacity: 1;
 }
 .content-wrapper {
-  margin-top: 103px;
+  margin-top: 160px;
 }
 .maincontent {
   background: url("../images/bg1.png") repeat;
@@ -161,20 +166,28 @@ p {
 #main-carousel.boxed {
   margin-top: 32px;
 }
-.carousel.slide > .container {
-  position: relative;
-}
 .carousel-inner > .item {
 }
 .carousel-inner > .item > img {
   width: 100%;
+}
+.carousel-caption {
+  background: rgba(236, 100, 60, .85);
+}
+.carousel-caption h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.carousel-caption p {
+  line-height: 120%;
 }
 .boxed .carousel-indicators {
   top: 16px;
   right: 16px;
 }
 .carousel-indicators {
-  right: 0;
+  right: 24px;
   top: 24px;
 }
 .carousel-indicators li {
@@ -209,7 +222,7 @@ p {
 }
 .section-title {
   position: relative;
-  background: #dc3c00;
+  background: #2980b9;
   color: #ffffff;
   padding: 12px 24px;
   font-weight: normal;
@@ -217,7 +230,7 @@ p {
   box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
 }
 .section-title#widgets {
-  background: #02A29E;
+  background: #2980b9;
 }
 .section-title#news-feed:after, .section-title#widgets:after {
   font-family: Rulycons;
@@ -266,7 +279,7 @@ p {
   font-family: "Monaco", monospace;
   font-size: 10px;
   color: #ffffff;
-  background: #dc3c00;
+  background: #2980b9;
   padding: 24px 12px;
   box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
   text-align: center;
@@ -341,17 +354,16 @@ p {
 .rulycon-linkedin { background: #0077b5; }
 .rulycon-yahoo { background: #6e329d; }
 
-.rowsy{
-    display: block;
-    width: 100%;
-}
 .rowsy ul {
-    display: inline-block;
-    width: 100%;
+  margin: 0;
+  padding: 0;
 }
-
-.rowsy ul li{
-    display: inline-block;
-    width:8%;
-    margin-left:4px;
+.rowsy li {
+  float: left;
+  list-style: none;
+  width: 9.0909%;
+  text-align: center;
+}
+.rowsy li img {
+  width: 100%;
 }

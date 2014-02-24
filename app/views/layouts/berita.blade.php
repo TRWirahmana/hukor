@@ -82,6 +82,12 @@
                                 <span class="headmenu-label">Produk Hukum</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ URL::to('forumdiskusi') }}" id="forum_diskusi">
+                                <span class="rulycon-notebook"></span>
+                                <span class="headmenu-label">Forum</span>
+                            </a>
+                        </li>
                         <li class="odd">
                             <a href="{{URL::to('site')}}">
                                 <span class="rulycon-user"></span>

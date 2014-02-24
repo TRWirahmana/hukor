@@ -145,6 +145,7 @@ p {
 .sub-menu .has-child > ul li a {
   margin-right: 0;
   padding: 8px 16px;
+  display: block;
 }
 .sub-menu .has-child > ul li a:hover {
   background: rgba(0, 0, 0, .25);
@@ -368,12 +369,13 @@ p {
   display: block;
   width: 100%;
   margin: 24px 0;
+  background: rgba(236, 100, 60, 1);
 }
 #visitor-counter #header {
   text-align: center;
+  color: #ffffff;
 }
 #visitor-counter #counter {
-  background: rgba(236, 100, 60, .85);
   color: #ffffff;
   text-align: center;
   font-family: "monacoregular", "Monaco", monospace;

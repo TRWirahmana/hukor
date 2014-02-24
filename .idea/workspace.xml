@@ -28,10 +28,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="berita.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="berita.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="85" selection-start="3882" selection-end="3882" vertical-scroll-proportion="0.6714542" vertical-offset="1071" max-vertical-offset="5253">
+            <state line="261" column="18" selection-start="13737" selection-end="13737" vertical-scroll-proportion="-1.9615384" vertical-offset="4386" max-vertical-offset="5253">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="39" selection-start="672" selection-end="672" vertical-scroll-proportion="0.54937166" vertical-offset="0" max-vertical-offset="2958">
               <folding />
             </state>
           </provider>
@@ -40,7 +49,7 @@
       <file leaf-file-name="master.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="160" column="43" selection-start="7932" selection-end="7961" vertical-scroll-proportion="-16.346153" vertical-offset="2295" max-vertical-offset="5066">
+            <state line="20" column="62" selection-start="1294" selection-end="1294" vertical-scroll-proportion="27.333334" vertical-offset="1734" max-vertical-offset="5066">
               <folding />
             </state>
           </provider>
@@ -56,7 +65,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/app/views/AnalisisJabatan/usulan.blade.php" />
         <option value="$PROJECT_DIR$/app/views/bantuanhukum/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/views/PerUU/pengajuanUsulan.blade.php" />
@@ -64,7 +72,6 @@
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/NewsController.php" />
         <option value="$PROJECT_DIR$/app/views/news/detail.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/news/index.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/BantuanHukumController.php" />
         <option value="$PROJECT_DIR$/public/assets/css/hukor-news.css" />
         <option value="$PROJECT_DIR$/app/controllers/LoginController.php" />
@@ -72,6 +79,8 @@
         <option value="$PROJECT_DIR$/app/config/database.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/news/counter.txt" />
+        <option value="$PROJECT_DIR$/app/views/news/index.blade.php" />
       </list>
     </option>
   </component>
@@ -156,6 +165,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diknasrokum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="news" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -279,18 +310,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="0" selection-start="5594" selection-end="5594" vertical-scroll-proportion="0.0" vertical-offset="2432" max-vertical-offset="2992">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/BantuanHukumController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="5" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.0" vertical-offset="1411" max-vertical-offset="2346" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
         <state line="90" column="45" selection-start="3097" selection-end="3097" vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="1819">
           <folding />
         </state>
@@ -363,14 +382,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="43" selection-start="7932" selection-end="7961" vertical-scroll-proportion="-16.346153" vertical-offset="2295" max-vertical-offset="5066">
+        <state line="20" column="62" selection-start="1294" selection-end="1294" vertical-scroll-proportion="27.333334" vertical-offset="1734" max-vertical-offset="5066">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="85" selection-start="3882" selection-end="3882" vertical-scroll-proportion="0.6714542" vertical-offset="1071" max-vertical-offset="5253">
+        <state line="261" column="18" selection-start="13737" selection-end="13737" vertical-scroll-proportion="-1.9615384" vertical-offset="4386" max-vertical-offset="5253">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="39" selection-start="672" selection-end="672" vertical-scroll-proportion="0.54937166" vertical-offset="0" max-vertical-offset="2958">
           <folding />
         </state>
       </provider>

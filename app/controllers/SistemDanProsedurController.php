@@ -113,7 +113,7 @@ class SistemDanProsedurController extends BaseController {
 
             if ($uploadSuccess) {
                 $sistemDanProsedur = new SistemDanProsedur;
-                $sistemDanProsedur->id_pengguna = Auth::user()->pengguna->id_pengguna;
+                $sistemDanProsedur->id_pengguna = Auth::user()->pengguna->id;
                 $sistemDanProsedur->perihal = $input['perihal'];
                 $sistemDanProsedur->catatan = $input['catatan'];
                 $sistemDanProsedur->lampiran = $uqFolder . DS . $filename;
@@ -161,6 +161,13 @@ class SistemDanProsedurController extends BaseController {
         $path = UPLOAD_PATH . DS . $sistemDanProsedur->lampiran;
         return Response::download($path, explode('/', $sistemDanProsedur->lampiran)[1]);
     }
+
+	public function downloadLogLampiran($id)
+	{
+		$log = LogSistemDanProsedur::find($id) or App::abort(404);
+		$path = UPLOAD_PATH . DS . $log->lampiran;
+		return Response::download($path, explode('/', $sistemDanProsedur->lampiran)[1]);
+	}
 
     public function printTable() {
         $status = Input::get("status", null);

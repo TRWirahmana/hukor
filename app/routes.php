@@ -286,6 +286,7 @@ Route::group(array('before' => 'auth'), function(){
         Route::get('cetakLaporan', array("as" => "admin.cetakLaporan", "uses" => "AdminController@cetakLaporan"));
         Route::post('enableForum', "AdminController@enableForum");
 
+	Route::get('sp/log/download/{id}', array('as' => "admin.sp.log.download", 'uses' => 'SistemDanProsedurController@downloadLogLampiran'));
         Route::get('sp/printTable', array('as' => 'admin.sp.printTable', 'uses' => 'SistemDanProsedurController@printTable'));
         Route::resource("sp", "SistemDanProsedurController", array("except" => array("create", "store")));
 
@@ -312,7 +313,7 @@ Route::group(array('before' => 'auth'), function(){
     });
 });
 Route::get('aj/download/{id}', 'AnalisisJabatanController@downloadLampiran');
-Route::get('sp/download/{id}', 'SistemDanProsedurController@downloadLampiran');
+Route::get('sp/download/{id}', array('as' => "sp.download", "uses" => 'SistemDanProsedurController@downloadLampiran'));
 Route::get('puu/download/{id}', 'PeruuController@downloadLampiran');
 Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
 Route::get('pelembagaan/printTable', array("as" => "pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));

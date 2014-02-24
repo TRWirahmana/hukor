@@ -79,7 +79,7 @@
             <div class="control-group">
                 <label for="" class="control-label">Lampiran</label>
                 <div class="controls">
-                    <a href="/admin/ketatalaksanaan/downloadSistemDanProsedur/{{$data->id}}">{{ explode('/', $data->lampiran)[1] }}</a>
+                    <a href="{{ URL::route('sp.download', array('id' => $data->id)) }}">{{ explode('/', $data->lampiran)[1] }}</a>
                 </div>
             </div>
 
@@ -241,7 +241,7 @@
                 {
                     mData: "lampiran",
                     mRender: function(data, type, full) {
-                        return '<a href="/admin/ketatalaksanaan/downloadSistemDanProsedur/'+full.id_sistem_dan_prosedur+'">'+data.split('/')[1]+'</a>';
+                        return '<a href="'+baseUrl+'/admin/sp/log/download/'+full.id+'">'+data.split('/')[1]+'</a>';
                     }
                 }
                 // {mData: "id"}

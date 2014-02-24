@@ -256,7 +256,7 @@
         <div class="control-group">
             {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
             <div class="controls">
-                <a href="/bantuan_hukum/download/{{$banhuk->id}}">Download Lampiran</a>
+                <a href="{{ URL::route('bantuan_hukum.download', array('id' => $banhuk->id)) }}">Download Lampiran</a>
             </div>
         </div>
 

@@ -293,7 +293,7 @@ Route::group(array('before' => 'auth'), function(){
         Route::resource("aj", "AnalisisJabatanController", array("except" => array("create", "store")));
 
         Route::get('puu/printTable', array("as" => "admin.puu.printTable", "uses" => "PeruuController@printTable"));
-        Route::resource('puu', 'PeruuController', array("create", "store"));
+        Route::resource('puu', 'PeruuController', array("except" => array("create", "store")));
 
         Route::get('pelembagaan/printTable', array("as" => "admin.pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));
         Route::resource('pelembagaan', 'PelembagaanController', array("create", "store", "update", "edit", "index"));

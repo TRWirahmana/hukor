@@ -21,58 +21,6 @@
 ?>
 
 <div class="maincontent">
-    <div id="main-carousel" class="carousel slide">
-        <div class="container">
-            <ol class="carousel-indicators">
-                <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#main-carousel" data-slide-to="1" class=""></li>
-                <li data-target="#main-carousel" data-slide-to="2" class=""></li>
-                <li data-target="#main-carousel" data-slide-to="3" class=""></li>
-            </ol>
-        </div>
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-01.jpg')}}" alt="">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <h4>First Thumbnail label</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                            at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-02.jpg')}}" alt="">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <h4>Second Thumbnail label</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                            at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-03.jpg')}}" alt="">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <h4>Third Thumbnail label</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                            at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-04.jpg')}}" alt="">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <h4>Fourth Thumbnail label</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                            at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container">
         <!-- Latest News -->
         <!--        <div class="row-fluid">-->
@@ -101,6 +49,48 @@
         <!-- News Feed -->
         <div class="row-fluid">
             <div id="dashboard-left" class="span9">
+              <div id="main-carousel" class="carousel slide">
+                <ol class="carousel-indicators">
+                  <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#main-carousel" data-slide-to="1" class=""></li>
+                  <li data-target="#main-carousel" data-slide-to="2" class=""></li>
+                  <li data-target="#main-carousel" data-slide-to="3" class=""></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-01.jpg')}}" alt="">
+                    <div class="carousel-caption">
+                      <h4>First Thumbnail label</h4>
+                      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
+                        at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-02.jpg')}}" alt="">
+                    <div class="carousel-caption">
+                      <h4>Second Thumbnail label</h4>
+                      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
+                        at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-03.jpg')}}" alt="">
+                    <div class="carousel-caption">
+                      <h4>Third Thumbnail label</h4>
+                      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
+                        at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-04.jpg')}}" alt="">
+                    <div class="carousel-caption">
+                      <h4>Fourth Thumbnail label</h4>
+                      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
+                        at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
                 <h3 class="section-title" id="news-feed">News feed</h3>
                 @foreach($latest_news as $news_feeds)
 
@@ -143,7 +133,14 @@
 
             <div id="dashboard-right" class="span3">
                 <h3 class="section-title" id="widgets">Widgets</h3>
-                <?php echo $counter; ?>
+              <div id="visitor-counter">
+                <div id="header">
+                  <h4>Visitor counter</h4>
+                </div>
+                <div id="counter">
+                  <p><?php echo $counter; ?></p>
+                </div>
+              </div>
             </div>
             <!--span3-->
         </div>

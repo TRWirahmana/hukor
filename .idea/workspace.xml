@@ -28,10 +28,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="master.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="berita.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="85" column="85" selection-start="3882" selection-end="3882" vertical-scroll-proportion="0.6714542" vertical-offset="1071" max-vertical-offset="5253">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="master.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="17" selection-start="4130" selection-end="4130" vertical-scroll-proportion="0.3967684" vertical-offset="1326" max-vertical-offset="5066">
+            <state line="160" column="43" selection-start="7932" selection-end="7961" vertical-scroll-proportion="-16.346153" vertical-offset="2295" max-vertical-offset="5066">
               <folding />
             </state>
           </provider>
@@ -59,10 +68,10 @@
         <option value="$PROJECT_DIR$/app/controllers/BantuanHukumController.php" />
         <option value="$PROJECT_DIR$/public/assets/css/hukor-news.css" />
         <option value="$PROJECT_DIR$/app/controllers/LoginController.php" />
-        <option value="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
         <option value="$PROJECT_DIR$/public/forum/config.php" />
         <option value="$PROJECT_DIR$/app/config/database.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
       </list>
     </option>
   </component>
@@ -268,13 +277,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/forum/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="391">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="150" column="0" selection-start="5594" selection-end="5594" vertical-scroll-proportion="0.0" vertical-offset="2432" max-vertical-offset="2992">
@@ -361,7 +363,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="17" selection-start="4130" selection-end="4130" vertical-scroll-proportion="0.3967684" vertical-offset="1326" max-vertical-offset="5066">
+        <state line="160" column="43" selection-start="7932" selection-end="7961" vertical-scroll-proportion="-16.346153" vertical-offset="2295" max-vertical-offset="5066">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="85" selection-start="3882" selection-end="3882" vertical-scroll-proportion="0.6714542" vertical-offset="1071" max-vertical-offset="5253">
           <folding />
         </state>
       </provider>

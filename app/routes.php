@@ -320,6 +320,6 @@ Route::get('sp/download/{id}', array('as' => "sp.download", "uses" => 'SistemDan
 Route::get('puu/download/{id}', array('as' => 'puu.download', 'uses' => 'PeruuController@downloadLampiran'));
 Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
 Route::get('pelembagaan/printTable', array("as" => "pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));
-Route::get('bantuan_hukum/download/{id}', 'BantuanHukumController@download');
+Route::get('bantuan_hukum/download/{id}', array('as' => 'bantuan_hukum.download', 'uses' => 'BantuanHukumController@download'));
 Route::get('bantuan_hukum/datatable','BantuanHukumController@datatable');
 Route::get('pelembagaan/printTable', array("as" => "pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));

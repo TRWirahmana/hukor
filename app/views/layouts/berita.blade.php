@@ -232,7 +232,7 @@
                         <ul class="footer-menu">
                             <li>Bantuan Hukum</li>
                             <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>
-                            <li><a href="{{ URL::to('BantuanHukum') }}">Informasi dan Status Usulan</a></li>
+                            <li><a href="{{ URL::route('bantuan_hukum.index') }}">Informasi dan Status Usulan</a></li>
                         </ul>
                     </div>
 

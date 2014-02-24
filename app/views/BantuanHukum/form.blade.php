@@ -7,7 +7,7 @@
 
 @include('flash')
 
-    {{ Form::open(array('route' => 'save_bahu', 'method' => 'post',
+    {{ Form::open(array('route' => 'bantuan_hukum.store', 'method' => 'post',
                         'id' => 'user-registrasi-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal',
                         'enctype' => "multipart/form-data")) }}
 

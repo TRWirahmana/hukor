@@ -32,7 +32,7 @@ Route::group(array('before' => 'guest'), function() {
 
 
     Route::resource('user', 'UserController');
-    Route::resource('bantuanhukum', 'BantuanHukumController');
+    //Route::resource('bantuanhukum', 'BantuanHukumController');
     Route::resource('forget', 'ForgetPasswordController@index');
     
     Route::resource('document', 'DocumentController');
@@ -278,6 +278,7 @@ Route::group(array('before' => 'auth'), function(){
     Route::resource("aj", "AnalisisJabatanController", array("only" => array("create", "store")));
     Route::resource('puu', 'PeruuController', array("only" => array("create", "store")));
     Route::resource('pelembagaan', "PelembagaanController", array("only" => array("create", "store", "index")));
+    Route::resource('bantuan_hukum', "BantuanHukumController", array("only" => array("create", "store", "index")));
     Route::group(array("prefix" => "admin"), function() {
         Route::get('/', array("as" => "admin.index", "uses" => "AdminController@home"));
         Route::get('setting', array("as" => "admin.setting", "uses" => "AdminController@setting"));

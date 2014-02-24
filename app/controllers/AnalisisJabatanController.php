@@ -156,6 +156,12 @@ class AnalisisJabatanController extends BaseController {
         return Response::download($path, explode('/', $analisisJabatan->lampiran)[1]);
     }
 
+	public function downloadLampiranLog($id) {
+		$log = LogAnalisisJabatan::find($id) or App::abort(404);
+		$path = UPLOAD_PATH . DS . $log->lampiran;
+		return Response::download($path, explode('/', $log->lampiran)[1]);
+	}
+
     public function informasi() {
         // handle dataTable request
         if (Request::ajax())

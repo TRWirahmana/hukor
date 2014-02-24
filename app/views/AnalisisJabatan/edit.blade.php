@@ -80,7 +80,7 @@
             <div class="control-group">
                 <label for="" class="control-label">Lampiran</label>
                 <div class="controls">
-                    <a href="/admin/per_uu/download/{{$analisisJabatan->id}}">{{ explode('/', $analisisJabatan->lampiran)[1] }}</a>
+                    <a href="{{ URL::route('aj.download', array('id' => $analisisJabatan->id)) }}">{{ explode('/', $analisisJabatan->lampiran)[1] }}</a>
                 </div>
             </div>
 
@@ -242,7 +242,7 @@
                 {
                     mData: "lampiran",
                     mRender: function(data, type, full) {
-                        return '<a href="/admin/per_uu/download/'+full.id_per_uu+'">'+data.split('/')[1]+'</a>';
+                        return '<a href="'+baseUrl+'/admin/aj/log/download/'+full.id+'">'+data.split('/')[1]+'</a>';
                     }
                 }
                 // {mData: "id"}

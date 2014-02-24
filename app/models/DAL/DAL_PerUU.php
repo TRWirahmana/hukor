@@ -33,7 +33,7 @@ class DAL_PerUU {
             $result[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
             $result[$index]['Unit Kerja'] = $perUU->unit_kerja;
             $result[$index]['Perihal'] = $perUU->perihal;
-            $result[$index]['status'] = Self::getStatus($perUU->status);
+            $result[$index]['status'] = self::getStatus($perUU->status);
             $result[$index]['lampiran'] = '<a href="#">'.explode("/", $perUU->lampiran)[1].'</a>';
         }
         return HukorHelper::generateHtmlTable($result);

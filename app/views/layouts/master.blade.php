@@ -97,11 +97,11 @@
           Form::text('username', '', array(
           'class'=>'username validate[required] text-input',
           'id'=>'username',
-          'placeholder'=>'ketikkan email anda di sini...'
+          'placeholder'=>'Masukan email anda di sini...'
           ))
           }}
           {{ Form::password('password', array('class'=>'password validate[required] text-input',
-          'id'=>'password','placeholder'=>'ketikkan password di sini...')) }}
+          'id'=>'password','placeholder'=>'Masukan password di sini...')) }}
           <button class="btn" id="btn-signin" type="submit">Sign in</button>
           <a href="{{URL::to('forget')}}"> Lupa password? </a>
           <a href="{{URL::to('registrasi')}}" class="pull-right">Belum memiliki akun?</a>

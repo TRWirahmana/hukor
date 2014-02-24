@@ -4,7 +4,7 @@ $db_type = 'mysql';
 $db_host = 'localhost';
 $db_name = 'hukor';
 $db_username = 'root';
-$db_password = 'Sangkuriang@Sampurna9';
+$db_password = '';
 $db_prefix = 'forum_';
 $p_connect = false;
 

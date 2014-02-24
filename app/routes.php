@@ -290,6 +290,7 @@ Route::group(array('before' => 'auth'), function(){
         Route::get('sp/printTable', array('as' => 'admin.sp.printTable', 'uses' => 'SistemDanProsedurController@printTable'));
         Route::resource("sp", "SistemDanProsedurController", array("except" => array("create", "store")));
 
+	Route::get('aj/log/download/{id}', array('as' => 'admin.aj.log.download', 'uses' => 'AnalisisJabatanController@downloadLampiranLog'));
         Route::get('aj/printTable', array('as' => 'admin.aj.printTable', 'uses' => 'AnalisisJabatanController@printTable'));
         Route::resource("aj", "AnalisisJabatanController", array("except" => array("create", "store")));
 
@@ -312,7 +313,7 @@ Route::group(array('before' => 'auth'), function(){
         Route::resource('bantuan_hukum', 'BantuanHukumController');
     });
 });
-Route::get('aj/download/{id}', 'AnalisisJabatanController@downloadLampiran');
+Route::get('aj/download/{id}', array('as' => 'aj.download', 'uses' => 'AnalisisJabatanController@downloadLampiran'));
 Route::get('sp/download/{id}', array('as' => "sp.download", "uses" => 'SistemDanProsedurController@downloadLampiran'));
 Route::get('puu/download/{id}', 'PeruuController@downloadLampiran');
 Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');

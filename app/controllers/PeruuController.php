@@ -56,6 +56,7 @@ class PeruuController extends BaseController
                     $penanggungJawab->nama = $input2['nama'];
                     $penanggungJawab->jabatan = $input2['jabatan'];
                     $penanggungJawab->NIP = $input2['nip'];
+		    $penanggungJawab->no_handphone = $input2['no_handphone'];
                     $penanggungJawab->unit_kerja = $input2['unit_kerja'];
                     $penanggungJawab->alamat_kantor = $input2['alamat_kantor'];
                     $penanggungJawab->telepon_kantor = $input2['telp_kantor'];

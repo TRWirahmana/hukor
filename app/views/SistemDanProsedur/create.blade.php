@@ -34,6 +34,13 @@
                     </div>
                 </div>
 
+		<div class="control-group">
+                    {{ Form::label('penanggungJawab[no_handphone]', "No Handphone", array('class' => 'control-label'))}}
+                    <div class="controls">
+                        {{ Form::text('penanggungJawab[no_handphone]', $user->pengguna->handphone) }}
+                    </div>
+                </div>
+
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[unit_kerja]', "Unit Kerja", array('class' => 'control-label'))}}
                     <div class="controls">
@@ -44,7 +51,7 @@
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[alamat_kantor]', 'Alamat Kantor', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[alamat_kantor]', $user->pengguna->alamat_kantor) }}
+                        {{ Form::textarea('penanggungJawab[alamat_kantor]', $user->pengguna->alamat_kantor, array('rows' => 2)) }}
                     </div>
                 </div>
 
@@ -67,21 +74,22 @@
 
         <div class="span12">
             <fieldset>
-                <legend>Informasi Perihal & Lampiran</legend>
+                <legend>Informasi Usulan</legend>
 
                 <div class="control-group">
                     {{ Form::label("sistem_dan_prosedur[perihal]", "Perihal", array('class' => 'control-label')) }}
                     <div class="controls">{{ Form::text("sistem_dan_prosedur[perihal]") }}</div>
                 </div>
+
                 <div class="control-group">
-                    {{ Form::label("sistem_dan_prosedur[lampiran]", "Lampiran", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::file("sistem_dan_prosedur[lampiran]") }}</div>
-                </div>
-                <div class="control-group">
-                    {{ Form::label("sistem_dan_prosedur[catatan]", "Catatan", array('class' => 'control-label')) }}
+                    {{ Form::label("sistem_dan_prosedur[catatan]", "Deskripsi", array('class' => 'control-label')) }}
                     <div class="controls">{{ Form::textarea("sistem_dan_prosedur[catatan]") }}</div>
                 </div>
 
+		<div class="control-group">
+                    {{ Form::label("sistem_dan_prosedur[lampiran]", "Lampiran", array('class' => 'control-label')) }}
+                    <div class="controls">{{ Form::file("sistem_dan_prosedur[lampiran]") }}</div>
+                </div>
             </fieldset>
 
         </div>

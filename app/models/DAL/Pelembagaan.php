@@ -60,11 +60,17 @@ class DAL_Pelembagaan {
         return Pelembagaan::find($id);
     }
 
+//    public static function getPenangungJawab($idPelembagaan)
+//    {
+//        return DB::table('penanggung_jawab_pelembagaan')->
+//                    where('pelembagaan_id', '=', $idPelembagaan);
+//    }
+
     public static function getPenangungJawab($idPelembagaan)
     {
-        return DB::table('penanggung_jawab_pelembagaan')->
-                    where('pelembagaan_id', '=', $idPelembagaan)->get(); 
+        return PenanggungJawabPelembagaan::where('pelembagaan_id', '=', $idPelembagaan )->get();
     }
+
 
     public static function sendToPerUU($idPelembagaan)
     {

@@ -55,11 +55,13 @@ class PelembagaanController extends BaseController {
 		if(Request::ajax())  
         	return Datatables::of(DAL_LogPelembagaan::getDataTable($id))->make(true);
 
-		$pelembagaan = Pelembagaan::find($id);
-		$user = Auth::user();
+        $user = Auth::user();
+		$DAL = new DAL_Pelembagaan();
+        $pelembagaan = $DAL->getPelembagaanById($id);
+        $penanggungJawab = $DAL->getPenangungJawab($id)[0];
+
 
     	$this->layout = View::make('layouts.admin');
-
 		if($user->role_id == 7){
 			$this->layout->content = View::make('Pelembagaan.update', array(
 				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
@@ -67,14 +69,7 @@ class PelembagaanController extends BaseController {
 				'form_opts' => array('route' => 'proses_update_pelembagaan_admin','method' => 'post','class' => 'form-horizontal','id' => 'pelembagaan-update','files' => true),
 				'pelembagaan' => $pelembagaan,
 				'id' => $id,
-			));
-		} else if($user->role_id == 8) {
-			$this->layout->content = View::make('Pelembagaan.update', array(
-				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
-				'detail' => '',
-				'form_opts' => array('route' => 'proses_update_pelembagaan_bahu','method' => 'post','class' => 'form-horizontal','id' => 'pelembagaan-update','files' => true),
-				'pelembagaan' => $pelembagaan,
-				'id' => $id,
+                'penanggungJawab' => $penanggungJawab,
 			));
 		} else if($user->role_id == 3) {
 			$this->layout->content = View::make('Pelembagaan.update', array(
@@ -83,6 +78,7 @@ class PelembagaanController extends BaseController {
 				'form_opts' => array('route' => 'proses_update_pelembagaan_admin','method' => 'post','class' => 'form-horizontal','id' => 'pelembagaan-update','files' => true),
 				'pelembagaan' => $pelembagaan,
 				'id' => $id,
+                'penanggungJawab' => $penanggungJawab,
 			));
 		}
 	}

@@ -112,6 +112,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('index_submenu', 'SubmenuController@index');
     Route::get('setting_submenu', 'SubmenuController@setting');
     // Route::put('settings/save', 'SubmenuController@save');
+
+    //Managemen Link
+    Route::resource('linked', 'DikbudController');
+    Route::post('savelinked', 'DikbudController@save');
+    Route::post('updatelinked', 'DikbudController@update');
 });
 
 

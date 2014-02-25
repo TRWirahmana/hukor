@@ -75,14 +75,13 @@ Route::group(array('before' => 'auth|user'), function() {
 
 //pengaturan route Role ADMIN
 Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), function() {
-
    // berita
     Route::resource('berita', 'BeritaController');
     Route::get('IndexBerita', 'BeritaController@index');
     Route::get('HomeBerita', 'BeritaController@home');
     Route::put('saveberita', 'BeritaController@save');
 
-//    Route::resource('layanan', 'LayananController');
+    // Route::resource('layanan', 'LayananController');
     Route::resource('layanan', 'LayananController');
     Route::post('SubmitLayanan', 'LayananController@submit');
 
@@ -90,13 +89,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('submenus', 'LayananController@submenu');
     Route::get('index_layanan', 'LayananController@index');
 
-// call center
+    // call center
     Route::resource('callcenter', 'CallCenterController');
 //    Route::get('indexcallcenter', 'CallCenterController@index');
     Route::get('editcallcenter', 'CallCenterController@home');
     Route::put('updatecallcenter', 'CallCenterController@update');
-
-    
 
     //Managemen Menu
     Route::resource('menu', 'MenuController');
@@ -104,7 +101,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('index_menu', 'MenuController@index');
     Route::get('setting_menu', 'MenuController@setting');
     // Route::put('setting/save', 'MenuController@save');
-
 
     //Managemen Submenu
     Route::resource('submenu', 'SubmenuController');
@@ -308,6 +304,7 @@ Route::group(array('before' => 'auth'), function(){
         Route::resource('pelembagaan', 'PelembagaanController', array("create", "store", "update", "edit", "index"));
         Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
         Route::get('pelembagaan/{id}/update', 'PelembagaanController@edit');
+        Route::get('pelembagaan/deletelog/{id}', 'PelembagaanController@deleteLog');
         Route::post('update', array('as' => 'proses_update_pelembagaan_admin', 'uses' =>  'PelembagaanController@update'));
         Route::resource('account', 'AdminController');
 

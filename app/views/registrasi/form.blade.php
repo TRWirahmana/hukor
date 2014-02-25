@@ -24,7 +24,7 @@
                 Form::text('email','', array(
                 'class'=>'password text-input',
                 'id'=>'email',
-                'placeholder'=>'ketikkan alamat email di sini...',
+                'placeholder'=>'Masukkan alamat email di sini...',
                 ))
                 }}
               </div>
@@ -57,13 +57,56 @@
                   {{ Form::label('nama_lengkap', 'Nama Lengkap', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('nama_lengkap', '',
-                      array('placeholder' => 'ketikkan Nama Lengkap di sini...')) }}
+                      array('placeholder' => 'Masukkan Nama Lengkap di sini...')) }}
 
                       @foreach($errors->get('nama_lengkap') as $error)
                       <span class="help-block">{{$error}}</span>
                       @endforeach
                   </div>
               </div>
+
+              <div class="control-group {{$errors->has('tempat_lahir')?'error':''}}">
+                  {{ Form::label('tempat_lahir', 'Tempat Lahir', array('class' => 'control-label required')) }}
+                  <div class="controls">
+                      {{ Form::text('tempat_lahir', '',
+                      array('placeholder' => 'Masukkan Tempat Lahir anda di sini...')) }}
+
+                      @foreach($errors->get('tempat_lahir') as $error)
+                      <span class="help-block">{{$error}}</span>
+                      @endforeach
+                  </div>
+              </div>
+
+              <div class="control-group {{$errors->has('tgl_lahir')?'error':''}}">
+                  {{ Form::label('tgl_lahir', 'Tanggal Lahir', array('class' => 'control-label required')) }}
+                  <div class="controls">
+                      {{ Form::text('tgl_lahir', '', array('class'=>'datepicker')) }}
+
+                      @foreach($errors->get('tgl_lahir') as $error)
+                      <span class="help-block">{{$error}}</span>
+                      @endforeach
+                  </div>
+              </div>
+
+
+              <div class="control-group {{$errors->has('jenis_kelamin')?'error':''}}">
+                  {{ Form::label('jenis_kelamin', 'Jenis Kelamin', array('class' => 'control-label required')) }}
+                  <div class="controls">
+                      <label class="radio">
+                          <input type="radio" name="jenis_kelamin" value="1">Laki-laki<br>
+                          <!--                          {{ Form::radio('jenis_kelamin', 1, array('id'=>'kelamin-laki2') ) }} <span>Laki-laki</span>-->
+                      </label>
+                      <label class="radio">
+                          <input type="radio" name="jenis_kelamin" value="0">Perempuan<br>
+                          <!--                          {{ Form::radio('jenis_kelamin', 0, array('id'=>'kelamin-perempuan')) }} <span>Perempuan</span>-->
+                      </label>
+                      @foreach($errors->get('jenis_kelamin') as $error)
+                      <span class="help-block">{{$error}}</span>
+                      @endforeach
+                  </div>
+              </div>
+
+
               <div class="control-group {{$errors->has('nip')?'error':''}}">
                   {{ Form::label('nip', 'NIP', array('class' => 'control-label required')) }}
                   <div class="controls">
@@ -76,7 +119,17 @@
                   </div>
               </div>
 
+              <div class="control-group {{$errors->has('unit_kerja')?'error':''}}">
+                  {{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label required')) }}
+                  <div class="controls">
+                      {{ Form::text('unit_kerja', '',
+                      array('placeholder' => 'Masukkan Unit Kerja anda di sini...')) }}
 
+                      @foreach($errors->get('unit_kerja') as $error)
+                      <span class="help-block">{{$error}}</span>
+                      @endforeach
+                  </div>
+              </div>
 
               <div class="control-group {{$errors->has('jabatan')?'error':''}}">
                   {{ Form::label('jabatan', 'Jabatan', array('class' => 'control-label required')) }}
@@ -84,34 +137,6 @@
                       {{ Form::select('jabatan', array('1' => 'Direktur', '2' => 'Kepala Divisi'), 'Pilih Pekerjaan') }}
 
                       @foreach($errors->get('jabatan') as $error)
-                      <span class="help-block">{{$error}}</span>
-                      @endforeach
-                  </div>
-              </div>
-
-              <div class="control-group {{$errors->has('jenis_kelamin')?'error':''}}">
-                  {{ Form::label('jenis_kelamin', 'Jenis Kelamin', array('class' => 'control-label required')) }}
-                  <div class="controls">
-                      <label class="radio">
-                          <input type="radio" name="jenis_kelamin" value="1">Laki-laki<br>
-<!--                          {{ Form::radio('jenis_kelamin', 1, array('id'=>'kelamin-laki2') ) }} <span>Laki-laki</span>-->
-                      </label>
-                      <label class="radio">
-                          <input type="radio" name="jenis_kelamin" value="0">Perempuan<br>
-<!--                          {{ Form::radio('jenis_kelamin', 0, array('id'=>'kelamin-perempuan')) }} <span>Perempuan</span>-->
-                      </label>
-                      @foreach($errors->get('jenis_kelamin') as $error)
-                      <span class="help-block">{{$error}}</span>
-                      @endforeach
-                  </div>
-              </div>
-
-              <div class="control-group {{$errors->has('tgl_lahir')?'error':''}}">
-                  {{ Form::label('tgl_lahir', 'Tanggal Lahir', array('class' => 'control-label required')) }}
-                  <div class="controls">
-                      {{ Form::text('tgl_lahir', '', array('class'=>'datepicker')) }}
-
-                      @foreach($errors->get('tgl_lahir') as $error)
                       <span class="help-block">{{$error}}</span>
                       @endforeach
                   </div>
@@ -133,7 +158,7 @@
                   {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::textarea('alamat_kantor', '',
-                      array('placeholder' => 'ketikkan Alamat Kantor anda di sini...')) }}
+                      array('placeholder' => 'Masukkan Alamat Kantor anda di sini...')) }}
 
                       @foreach($errors->get('alamat_kantor') as $error)
                       <span class="help-block">{{$error}}</span>
@@ -157,21 +182,9 @@
                   {{ Form::label('handphone', 'Handphone', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('handphone', '',
-                      array('placeholder' => 'ketikkan nomor handphone anda di sini...')) }}
+                      array('placeholder' => 'Masukkan nomor handphone anda di sini...')) }}
 
                       @foreach($errors->get('handphone') as $error)
-                      <span class="help-block">{{$error}}</span>
-                      @endforeach
-                  </div>
-              </div>
-
-              <div class="control-group {{$errors->has('unit_kerja')?'error':''}}">
-                  {{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label required')) }}
-                  <div class="controls">
-                      {{ Form::text('unit_kerja', '',
-                      array('placeholder' => 'ketikkan Unit Kerja anda di sini...')) }}
-
-                      @foreach($errors->get('unit_kerja') as $error)
                       <span class="help-block">{{$error}}</span>
                       @endforeach
                   </div>
@@ -184,7 +197,7 @@
 <!--                  <br>-->
                   <div class="controls">
                       <input name="code" type="text" id="code">
-                      <a href="#" onclick="document.getElementById('captcha').src='{{URL::to('captcha')}}?rnd=' + Math.random();">Not readable? Change text.</a>
+                      <a href="#" onclick="document.getElementById('captcha').src='{{URL::to('captcha')}}?rnd=' + Math.random();">Ubah Kode.</a>
                   </div>
               </div>
 

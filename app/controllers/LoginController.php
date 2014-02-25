@@ -37,7 +37,7 @@ class LoginController extends BaseController {
                     //validation estimasi pendaftaran for role
 
                     if ($user->role_id == 2) {
-                        Session::flash('success', 'Selamat datang ' . $user->username . ' !');
+                        Session::flash('success', 'Selamat datang ' . $user->pengguna->nama_lengkap . ' !');
                         return Redirect::to('site');
                     } else {
                         Auth::logout();

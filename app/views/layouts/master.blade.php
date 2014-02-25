@@ -68,7 +68,7 @@
 
         <ul class="welcome-message user-not-null-links">
           <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span>User settings</a></li>
-          <li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span>Sign out</a></li>
+          <li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span>Keluar</a></li>
         </ul>
         @else
         <p id="username" class="welcome-message">Selamat datang <span id="name">guest</span></p>
@@ -102,7 +102,7 @@
           }}
           {{ Form::password('password', array('class'=>'password validate[required] text-input',
           'id'=>'password','placeholder'=>'Masukan password di sini...')) }}
-          <button class="btn" id="btn-signin" type="submit">Sign in</button>
+          <button class="btn" id="btn-signin" type="submit">Masuk</button>
           <a href="{{URL::to('forget')}}"> Lupa password? </a>
           <a href="{{URL::to('registrasi')}}" class="pull-right">Belum memiliki akun?</a>
           {{ Form::close() }}

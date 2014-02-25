@@ -187,6 +187,8 @@ class AdminController extends BaseController {
 	{
 
         $listRole = array("" => "-- Pilih Role --") + Role::lists('nama', 'id');
+        $listBagian = array("" => "-- Pilih Bagian --") + Bagian::lists('nama_bagian', 'id');
+        $listSubbagian = array("" => "-- Pilih Sub Bagian --") + Subbagian::lists('nama_sub_bagian', 'id');
 //        $listRole = array(
 //            '1' => 'Kepala Biro',
 ////            '2' => 'Pengguna',
@@ -210,7 +212,9 @@ class AdminController extends BaseController {
                 'id' => 'reg_admin'
 			),
 			'user' => new User(),
-            'listRole' => $listRole
+            'listRole' => $listRole,
+            'listbagian' => $listBagian,
+            'listsubbagian' => $listSubbagian,
 		));
 	}
 
@@ -236,6 +240,8 @@ class AdminController extends BaseController {
 			$registrasi = new Pengguna();
             $registrasi->user_id = $user->id;
 			$registrasi->nama_lengkap = $input['nama_lengkap'];
+            $registrasi->bagian = $input['bagian'];
+            $registrasi->sub_bagian = $input['sub_bagian'];
             $registrasi->email = $input['email'];
 
 			$registrasi->save();
@@ -335,6 +341,8 @@ class AdminController extends BaseController {
 	{
 
         $role = User::select('role_id');
+        $listBagian = array("" => "-- Pilih Bagian --") + Bagian::lists('nama_bagian', 'id');
+        $listSubbagian = array("" => "-- Pilih Sub Bagian --") + Subbagian::lists('nama_sub_bagian', 'id');
 
         $listRole = array("" => "-- Pilih Role --") + Role::lists('nama', 'id');
 //        $listRole = array(
@@ -362,7 +370,9 @@ class AdminController extends BaseController {
 					'class' => 'form-horizontal'
 				),
 				'user' => $user,
-				'listRole' => $listRole
+                'listRole' => $listRole,
+                'listbagian' => $listBagian,
+                'listsubbagian' => $listSubbagian,
 			));
 	}
 

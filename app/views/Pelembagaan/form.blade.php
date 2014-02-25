@@ -45,7 +45,7 @@
 					<div class="control-group">
 						{{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label'))}}
 						<div class="controls">
-							{{ Form::text('alamat_kantor') }}
+							{{ Form::textarea('alamat_kantor') }}
 						</div>
 					</div>	
 
@@ -55,8 +55,17 @@
 							{{ Form::text('telp_kantor') }}
 						</div>
 					</div>
+
+                    <div class="control-group">
+                        {{ Form::label('hp', 'Handphone', array('class' => 'control-label'))}}
+                        <div class="controls">
+                            {{ Form::text('hp') }}
+                        </div>
+                    </div>
+
+
 					<div class="control-group">
-						{{ Form::label('pos_el', 'Pos_el', array('class' => 'control-label'))}}
+						{{ Form::label('pos_el', 'Pos El', array('class' => 'control-label'))}}
 						<div class="controls">
 							{{ Form::text('email', $user->pengguna->email) }}
 						</div>
@@ -67,7 +76,7 @@
 
 			<div class="span12">
 				<fieldset>
-		              <legend> Informasi Perihal & Lampiran
+		              <legend> Informasi Usulan
 		              </legend>
 					<div class="control-group">
 					{{ Form::label("perihal", "Perihal", array('class' => 'control-label')) }}

@@ -97,7 +97,7 @@
                 </div>
                 <div id="user-links">
                     <a href="{{URL::route('admin.setting')}}"><span class="rulycon-cog"></span> Settings</a>
-                    <a href="{{URL::route('admin.logout')}}"><span class="rulycon-exit"></span> Sign out</a>
+                    <a href="{{URL::route('admin.logout')}}"><span class="rulycon-exit"></span> Keluar</a>
                 </div>
 
                 <div class="leftmenu">

@@ -61,11 +61,11 @@
                             <div class="controls">
                                 @if(!is_null($menu))
                                 {{ Form::textarea('layanan[berita]', $menu->berita,
-                                array('placeholder' => 'ketikkan Informasi atau berita anda di sini...', 'id' => 'berita'))
+                                array('placeholder' => 'Masukan Informasi atau berita anda di sini...', 'id' => 'berita'))
                                 }}
                                 @else
                                 {{ Form::textarea('layanan[berita]', '',
-                                array('placeholder' => 'ketikkan Informasi atau berita anda di sini...', 'id' => 'berita')) }}
+                                array('placeholder' => 'Masukan Informasi atau berita anda di sini...', 'id' => 'berita')) }}
                                 @endif
 
 
@@ -80,12 +80,9 @@
                             {{ Form::label('penanggung_jawab', 'Unit Penanggung Jawab', array('class' => 'control-label')) }}
                             <div class="controls">
                                 @if(!is_null($menu))
-                                {{Form::text('layanan[penanggung_jawab]', $menu->penanggung_jawab,
-                                array('placeholder' => 'ketikkan unit penanggungjawab di sini...'))
-                                }}
+                                {{ Form::select('layanan[penanggung_jawab]', $listPJ, $user->pengguna->bagian, array("id" => "PJ")) }}
                                 @else
-                                {{ Form::text('layanan[penanggung_jawab]', '',
-                                array('placeholder' => 'ketikkan unit penanggungjawab di sini...')) }}
+                                {{ Form::select('layanan[penanggung_jawab]', $listPJ, $user->pengguna->bagian, array("id" => "PJ")) }}
                                 @endif
 
                                 @foreach($errors->get('penanggung_jawab') as $error)

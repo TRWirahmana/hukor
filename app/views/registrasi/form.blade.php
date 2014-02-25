@@ -65,7 +65,7 @@
                   </div>
               </div>
 
-              <div class="control-group {{$errors->has('unit_kerja')?'error':''}}">
+              <div class="control-group {{$errors->has('tempat_lahir')?'error':''}}">
                   {{ Form::label('tempat_lahir', 'Tempat Lahir', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('tempat_lahir', '',

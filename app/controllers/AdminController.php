@@ -341,6 +341,8 @@ class AdminController extends BaseController {
 	{
 
         $role = User::select('role_id');
+        $listBagian = array("" => "-- Pilih Bagian --") + Bagian::lists('nama_bagian', 'id');
+        $listSubbagian = array("" => "-- Pilih Sub Bagian --") + Subbagian::lists('nama_sub_bagian', 'id');
 
         $listRole = array("" => "-- Pilih Role --") + Role::lists('nama', 'id');
 //        $listRole = array(
@@ -368,7 +370,9 @@ class AdminController extends BaseController {
 					'class' => 'form-horizontal'
 				),
 				'user' => $user,
-				'listRole' => $listRole
+                'listRole' => $listRole,
+                'listbagian' => $listBagian,
+                'listsubbagian' => $listSubbagian,
 			));
 	}
 

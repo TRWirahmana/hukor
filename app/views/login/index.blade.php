@@ -38,11 +38,11 @@
                     Form::text('username', '', array(
                         'class'=>'username validate[required] text-input',
                         'id'=>'username',
-                        'placeholder'=>'ketikkan username di sini...'
+                        'placeholder'=>'Masukan username di sini...'
                     )) 
                 }}
                 <label for='password'>Password</label>
-                {{ Form::password('password', array('class'=>'password validate[required] text-input', 'id'=>'password','placeholder'=>'ketikkan password di sini...')) }}
+                {{ Form::password('password', array('class'=>'password validate[required] text-input', 'id'=>'password','placeholder'=>'Masukan password di sini...')) }}
                 <span><button class="btn" id="btn-signin" type="submit">Sign in</button>
                 Belum memiliki akun? <a href="javascript:void(0)" class="form-toggler">Tukar form registrasi</a></span>
                 <!-- Belum memiliki akun? <a href="javascript:void(0)" class="form-toggler">Tukar form registrasi</a></span> -->
@@ -56,7 +56,7 @@
                     Form::text('no_ktp', '', array(
                         'class'=>'no_ktp text-input', 
                         'id'=>'no_ktp',
-                        'placeholder'=>'ketikkan nomor KTP di sini...', 
+                        'placeholder'=>'Masukan nomor KTP di sini...',
                     ))
                 }}
 
@@ -65,7 +65,7 @@
                     Form::text('email','', array(
                         'class'=>'password text-input', 
                         'id'=>'email',
-                        'placeholder'=>'ketikkan alamat email di sini...',
+                        'placeholder'=>'Masukan alamat email di sini...',
                     )) 
                 }}
 

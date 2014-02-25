@@ -60,7 +60,6 @@ class PelembagaanController extends BaseController {
         $pelembagaan = $DAL->getPelembagaanById($id);
         $penanggungJawab = $DAL->getPenangungJawab($id)[0];
 
-
     	$this->layout = View::make('layouts.admin');
 		if($user->role_id == 7){
 			$this->layout->content = View::make('Pelembagaan.update', array(
@@ -149,7 +148,8 @@ class PelembagaanController extends BaseController {
 		}
 	}
 
-	public function deleteLog($id){
+	public function deleteLog($id)
+    {
 		$logPelembagaan = logPelembagaan::find($id);
 		if(!is_null($logPelembagaan)) {
 			$logPelembagaan->delete();

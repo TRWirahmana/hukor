@@ -50,16 +50,21 @@
                         <div class="controls"> <input type="text" disabled="" value="{{ $penanggungJawab->nama }}"></div>
                     </div>  
 
-
                     <div class="control-group">
                         {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label'))}}
-                        <div class="controls"> <input type="text" disabled="" value="{{ $penanggungJawab->alamat_kantor }}"></div>
+                        <div class="controls"> <textarea disabled> {{ $penanggungJawab->alamat_kantor }} </textarea></div>
                     </div>  
 
                     <div class="control-group">
                         {{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label'))}}
                         <div class="controls"> <input type="text" disabled="" value="{{ $penanggungJawab->telp_kantor }}"></div>
-                    </div>  
+                    </div>
+
+                    <div class="control-group">
+                        {{ Form::label('hp', 'Handphone', array('class' => 'control-label'))}}
+                        <div class="controls"> <input type="text" disabled="" value="{{ $penanggungJawab->hp }}"></div>
+                    </div>
+
 
                     <div class="control-group">
                         {{ Form::label('pos_el', 'Pos_el', array('class' => 'control-label'))}}
@@ -70,11 +75,11 @@
                 <br />
                 <fieldset>
                       <div class="nav nav-tabs">
-                        <h4>Informasi Perihal & Lampiran</h4>
+                        <h4>Informasi Usulan</h4>
                       </div>
                     <div class="control-group">
                     {{ Form::label("perihal", "Perihal", array('class' => 'control-label')) }}
-                        <div class="controls"> <input type="text" disabled="" value="{{$penanggungJawab->perihal }}"></div>
+                        <div class="controls"> <input type="text" disabled="" value="{{$pelembagaan->perihal }}"></div>
                     </div>
 
                     <div class="control-group">
@@ -245,7 +250,6 @@
 
         $("#tbl-log_pelembagaan").on('click', '.btn_delete', function(e){
             if (confirm('Apakah anda yakin ?')) {
-    
                 $.ajax({
                 url: $(this).attr('href'),
                      type: 'DELETE',
@@ -257,6 +261,28 @@
             e.preventDefault();
             return false;
         });
+
+/*
+                  $("#tbl-pelembagaan").on('click', '.btn_delete', function(e){
+                          if (confirm('Apakah anda yakin ?')) {
+                            $.ajax({
+                              url: $(this).attr('href'),
+                              type: 'DELETE',
+                              success: function(response) {
+                                $dataTable.fnReloadAjax();
+                              }
+                            });
+                          }
+                          e.preventDefault();
+                          return false;
+                  });
+
+
+
+ */
+
+
+
 
 
          $("#kirim_btn").click(function(e){

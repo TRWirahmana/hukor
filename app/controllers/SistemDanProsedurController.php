@@ -123,6 +123,7 @@ class SistemDanProsedurController extends BaseController {
                     $penanggungJawab = new PenanggungJawabSistemDanProsedur();
                     $penanggungJawab->id_sistem_dan_prosedur = $sistemDanProsedur->id;
                     $penanggungJawab->nama = $input2['nama'];
+		    $penanggungJawab->no_handphone = $input2['no_handphone'];
                     $penanggungJawab->jabatan = $input2['jabatan'];
                     $penanggungJawab->NIP = $input2['nip'];
                     $penanggungJawab->unit_kerja = $input2['unit_kerja'];

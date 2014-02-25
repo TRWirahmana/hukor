@@ -36,6 +36,17 @@
                     <p class="text-info">{{$detail}}</p>
 
                     <div class="control-group">
+                        {{ Form::label('nip', 'NIP', array('class' => 'control-label')); }}
+                        <div class="controls">
+                            @if(!is_object($user->pengguna))
+                            {{ Form::text('nip', $user->pengguna->nip, array('placeholder' => 'Masukan NIP.')) }}
+                            @else
+                            {{ Form::text('nip', $user->pengguna->nip, array('placeholder' => 'Masukan NIP.')) }}
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="control-group">
                         {{ Form::label('nama_lengkap', 'Nama Lengkap', array('class' => 'control-label')); }}
                         <div class="controls">
                             @if(!is_object($user->pengguna))
@@ -58,6 +69,20 @@
                             @foreach($errors->get('email') as $error)
                             <span class="help-block">{{ $error }}</span>
                             @endforeach
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        {{ Form::label('bagian', 'Pilih Bagian', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{ Form::select('bagian', $listbagian, $user->pengguna->bagian, array("id" => "bagian")) }}
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        {{ Form::label('sub_bagian', 'Pilih Sub Bagian', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{ Form::select('sub_bagian', $listsubbagian, $user->pengguna->sub_bagian, array("id" => "sub_bagian")) }}
                         </div>
                     </div>
 

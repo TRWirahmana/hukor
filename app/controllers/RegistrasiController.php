@@ -380,6 +380,7 @@ class RegistrasiController extends BaseController {
 
     public function form(){
 
+
         $this->layout->content = View::make('registrasi.form', array(
 //            'date' => RetaneHelper::listDate()
         ));

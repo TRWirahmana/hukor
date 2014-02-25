@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/PelembagaanController.php" afterPath="$PROJECT_DIR$/app/controllers/PelembagaanController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/DAL/Pelembagaan.php" afterPath="$PROJECT_DIR$/app/models/DAL/Pelembagaan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php" afterPath="$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/LoginController.php" afterPath="$PROJECT_DIR$/app/controllers/LoginController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/RegistrasiController.php" afterPath="$PROJECT_DIR$/app/controllers/RegistrasiController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/DAL/DAL_User.php" afterPath="$PROJECT_DIR$/app/models/DAL/DAL_User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/master.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/registrasi/form.blade.php" afterPath="$PROJECT_DIR$/app/views/registrasi/form.blade.php" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,10 +89,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pelembagaan.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Pelembagaan.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/DAL/Pelembagaan.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="0" selection-start="2957" selection-end="2957" vertical-scroll-proportion="0.39458415">
+            <state line="64" column="60" selection-start="2709" selection-end="2709" vertical-scroll-proportion="-2.6153846">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -130,7 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/SistemDanProsedur/create.blade.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/NewsController.php" />
         <option value="$PROJECT_DIR$/app/views/news/detail.blade.php" />
@@ -146,6 +154,7 @@
         <option value="$PROJECT_DIR$/app/models/DAL/Pelembagaan.php" />
         <option value="$PROJECT_DIR$/app/controllers/PelembagaanController.php" />
         <option value="$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
       </list>
     </option>
   </component>
@@ -425,13 +434,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="18" selection-start="13747" selection-end="13747" vertical-scroll-proportion="0.031657357">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="62" selection-start="1294" selection-end="1294" vertical-scroll-proportion="0.031657357">
@@ -532,7 +534,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/DAL/Pelembagaan.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="0" selection-start="2957" selection-end="2957" vertical-scroll-proportion="0.39458415">
+        <state line="64" column="60" selection-start="2709" selection-end="2709" vertical-scroll-proportion="-2.6153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

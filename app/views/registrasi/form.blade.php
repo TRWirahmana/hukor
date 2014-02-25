@@ -197,7 +197,7 @@
 <!--                  <br>-->
                   <div class="controls">
                       <input name="code" type="text" id="code">
-                      <a href="#" onclick="document.getElementById('captcha').src='{{URL::to('captcha')}}?rnd=' + Math.random();">Not readable? Change text.</a>
+                      <a href="#" onclick="document.getElementById('captcha').src='{{URL::to('captcha')}}?rnd=' + Math.random();">Ubah Kode.</a>
                   </div>
               </div>
 

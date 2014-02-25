@@ -65,6 +65,7 @@
                     </div>
                 </div>
 
+
                 <div class="control-group {{$errors->has('password')?'error':''}}">
                     {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label')) }}
                     <div class="controls">
@@ -141,28 +142,31 @@
 
 
                 <div class="nav nav-tabs">
-                    <h4>INFORMASI LAMPIRAN</h4>
+                    <h4>Informasi Usulan</h4>
                 </div>
+
+
                 <div class="control-group">
+                    {{ Form::label('catatan', 'Deskripsi', array('class' => 'control-label')) }}
+                    <div class="controls">
+                        {{ Form::textarea('catatan', '', array('id' => 'catatan')) }}
+                    </div>
+                </div>
+
+		<div class="control-group">
                     {{ Form::label('ket_lampiran', 'Keterangan Lampiran', array('class' => 'control-label')) }}
                     <div class="controls">
                         {{ Form::text('ket_lampiran', '', array('id' => 'ket_lampiran')) }}
                     </div>
-                </div>
+                </div>	
 
-                <div class="control-group">
+		<div class="control-group">
                     {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
                     <div class="controls">
                         {{ Form::file('lampiran', array('id'=>'lampiran')) }}
                     </div>
                 </div>
 
-                <div class="control-group">
-                    {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
-                    <div class="controls">
-                        {{ Form::textarea('catatan', '', array('id' => 'catatan')) }}
-                    </div>
-                </div>
             </div>
         </div>
 

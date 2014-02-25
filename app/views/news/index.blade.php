@@ -96,8 +96,13 @@
 
                 <div class="news-content">
                     <div class="row-fluid">
+                      <div class="span3">
+                        <img src="{{asset('assets/images/thumb-01.jpg')}}" alt=""/>
+                      </div>
                         <div class="span9">
                             <h4><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a></h4>
+                          <?php $date = new DateTime($news_feeds->tgl_penulisan); ?>
+                          <span class="date-time">{{$date->format('d')}}  <span class="date"><?php echo HukorHelper::castMonthToString3($date->format('m'))?></span> {{$date->format('Y')}}</span>
                             <?php $berita_feed = strip_tags($news_feeds->berita);
                             $highlight_feed = substr($berita_feed, 0, 150);
                             ?>
@@ -107,10 +112,6 @@
                             @else
                             <p>{{$berita_feed}}</p>
                             @endif
-                        </div>
-                        <div class="span3">
-                            <?php $date = new DateTime($news_feeds->tgl_penulisan); ?>
-                            <span class="date-time pull-right">{{$date->format('d')}}  <span class="date"><?php echo HukorHelper::castMonthToString3($date->format('m'))?></span> {{$date->format('Y')}}</span>
                         </div>
                     </div>
                 </div>

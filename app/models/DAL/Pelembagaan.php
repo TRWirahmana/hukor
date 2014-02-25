@@ -52,6 +52,7 @@ class DAL_Pelembagaan {
         $penanggungJawab->unit_kerja = $input['unit_kerja'];
         $penanggungJawab->alamat_kantor = $input['alamat_kantor'];
         $penanggungJawab->telp_kantor = $input['telp_kantor'];
+        $penanggungJawab->hp = $input['hp'];
         $penanggungJawab->email = $input['email'];
         $penanggungJawab->save();
     }
@@ -95,6 +96,7 @@ class DAL_Pelembagaan {
         $penanggungJawab->unit_kerja = $penanggungJawabPelembagaan[0]->unit_kerja;
         $penanggungJawab->alamat_kantor = $penanggungJawabPelembagaan[0]->alamat_kantor;
         $penanggungJawab->telepon_kantor = $penanggungJawabPelembagaan[0]->telp_kantor;
+        $penanggungJawab->no_handphone = $penanggungJawabPelembagaan[0]->hp;
         $penanggungJawab->email = $penanggungJawabPelembagaan[0]->email;
         $penanggungJawab->save();
     }

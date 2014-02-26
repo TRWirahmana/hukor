@@ -235,22 +235,23 @@
                     </div>
 
                 </div>
+                <?php $call = CallCenter::find(1); ?>
                 <div class="span3">
                     <address>
-                        <span>Kementerian Pendidikan &amp; Kebudayaan Republik Indonesia</span><br/>
+                        <span>Kementerian Pendidikan Dan Kebudayaan Republik Indonesia</span><br/>
                         <br/>
-                        Jalan Sempurna no.9, Bandung, 40131 <br/>
-                        <span class="rulycon-phone"></span> (022) 2512345, ext 1234<br/>
-                        <span class="rulycon-print"></span> (022) 2512345, ext 1234<br/>
-                        Jawa Barat, Indonesia
+                        {{ $call->alamat }} <br/>
+                        <span class="rulycon-phone"></span> {{ $call->telp }}<br/>
+                        <span class="rulycon-print"></span> {{ $call->fax }}<br/>
+<!--                        Jawa Barat, Indonesia-->
                     </address>
-                    <p class="social-links">
-                        <a href="#"><span class="rulycon-facebook"></span></a>
-                        <a href="#"><span class="rulycon-twitter"></span></a>
-                        <a href="#"><span class="rulycon-linkedin"></span></a>
-                        <a href="#"><span class="rulycon-yahoo"></span></a>
-                    </p>
-                    <p><span>&copy; 2014 Kementerian Pendidikan &amp; Kebudayaan Republik Indonesia.</span></p>
+<!--                    <p class="social-links">-->
+<!--                        <a href="#"><span class="rulycon-facebook"></span></a>-->
+<!--                        <a href="#"><span class="rulycon-twitter"></span></a>-->
+<!--                        <a href="#"><span class="rulycon-linkedin"></span></a>-->
+<!--                        <a href="#"><span class="rulycon-yahoo"></span></a>-->
+<!--                    </p>-->
+                    <p><span>&copy; 2014 Kementerian Pendidikan Dan Kebudayaan Republik Indonesia.</span></p>
                 </div>
             </div>
         </div>

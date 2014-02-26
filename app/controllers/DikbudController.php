@@ -7,9 +7,9 @@ class DikbudController extends BaseController {
     {
         $data = Dikbud::all();
 
-        if(!empty($data))
+        if(count($data->toArray()) != 0)
         {
-            $this->layout->content = View::make('dikbud.index', array(
+            $this->layout->content = View::make('dikbud.edit', array(
                 'title' => 'Pengaturan Link',
                 'detail' => '',
                 'form_opts' => array(

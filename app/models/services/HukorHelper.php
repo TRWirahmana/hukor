@@ -144,6 +144,27 @@ class HukorHelper {
         return $uploadSuccess;
     }
 
+
+    public static function MultipleUploadFile($dir, $inputFile)
+    {
+	$filenames = array();
+        $uqFolder = str_random(8);
+	foreach($inputFile as $file) {
+		// set destination folder
+        	$destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $dir . DIRECTORY_SEPARATOR . $uqFolder; 
+        	//get real file name
+        	$filename = $file->getClientOriginalName();
+        	//upload file
+        	$uploadSuccess = $file->move($destinationPath, $filename);
+		if($uploadSuccess)
+		     $filenames[] = $uqFolder . DIRECTORY_SEPARATOR . $filename;
+	}
+       return $filenames;
+     } 
+
+
+
+
     /*
      * Upload File
      * $dir adalah untuk nama direktori

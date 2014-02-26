@@ -119,14 +119,25 @@ class PelembagaanController extends BaseController {
 	{
         $input = Input::all();
 
+	var_dump($input);
+	exit;	
+
         $DAL = new DAL_Pelembagaan();
         $helper = new HukorHelper();
 
         // Upload File
-        $uploadSuccess = $helper->UploadFile('pelembagaan', Input::file('lampiran'));
+        //$uploadSuccess = $helper->UploadFile('pelembagaan', Input::file('lampiran'));
+
+
+        
+	// Upload Multiple File
+          $filenames = $helper->MultipleUploadFile('pelembagaan', Input::file('lampiran'));
+
 
         if($uploadSuccess) {
-        	$DAL->savePelembagaan($input, Input::file('lampiran'));         	// save pelembagaan
+  
+//        	$DAL->savePelembagaan($input, Input::file('lampiran'));         	// save pelembagaan
+        	$DAL->savePelembagaan($input, $filenames);         	// save pelembagaan
         	$DAL->sendEmailToAllAdminPelembagaan();        						// send Email to admin
 
 			Session::flash('success', 'Data berhasil dikirim.');
@@ -137,8 +148,8 @@ class PelembagaanController extends BaseController {
 	}
 
 	public function destroy($id)
-	{
-		$pelembagaan = Pelembagaan::find($id);
+	{	
+			$pelembagaan = Pelembagaan::find($id);
 		if(!is_null($pelembagaan)) {
 			$pelembagaan->delete();
 		}

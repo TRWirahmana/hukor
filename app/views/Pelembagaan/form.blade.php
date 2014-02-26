@@ -6,15 +6,14 @@
 
 
 @include('flash')
-	{{ Form::open($form_opts) }}
-
+{{ Form::open($form_opts) }}
     {{ Form::hidden('id', $user->id, array('id' => 'id')) }}
     
-		<div class="row-fluid">
-			<div class="span12">
-				<fieldset>
-		              <legend>Informasi Pengusul</legend>		
-					<div class="control-group">		
+	<div class="row-fluid">
+		<div class="span12">
+			<fieldset>
+	              <legend>Informasi Pengusul</legend>		
+				<div class="control-group">		
 						{{ Form::label('jenis_usulan', 'Jenis Usulan', array('class' => 'control-label'))}}
 						<div class="controls">
 							{{ Form::select('jenis_usulan', array('' => 'Pilih Jenis Usulan','1' => 'Pendirian', '2' => 'Perubahan', '3' => 'Statuta', '4' => 'Penutupan' )); }}
@@ -56,6 +55,12 @@
 						</div>
 					</div>
 					<div class="control-group">
+						{{ Form::label('hp', 'Hanphone', array('class' => 'control-label'))}}
+						<div class="controls">
+							{{ Form::text('hp') }}
+						</div>
+					</div>
+					<div class="control-group">
 						{{ Form::label('pos_el', 'Pos_el', array('class' => 'control-label'))}}
 						<div class="controls">
 							{{ Form::text('email', $user->pengguna->email) }}
@@ -77,7 +82,7 @@
 					<div class="control-group">
 					{{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
 						<div class="controls">
-							{{ Form::file('lampiran') }}</div>
+							{{ Form::file('lampiran', array('multiple' => true)) }}</div>
 					</div>
 					<div class="control-group">
 					{{ Form::label('catatan', "Keterangan", array('class' => 'control-label')) }}

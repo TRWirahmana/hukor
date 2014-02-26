@@ -317,7 +317,7 @@ Route::group(array('before' => 'auth'), function(){
 });
 Route::get('aj/download/{id}', array('as' => 'aj.download', 'uses' => 'AnalisisJabatanController@downloadLampiran'));
 Route::get('sp/download/{id}', array('as' => "sp.download", "uses" => 'SistemDanProsedurController@downloadLampiran'));
-Route::get('puu/download/{id}', array('as' => 'puu.download', 'uses' => 'PeruuController@downloadLampiran'));
+Route::get('puu/download/{id}/{index}', array('as' => 'puu.download', 'uses' => 'PeruuController@download'));
 Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
 Route::get('pelembagaan/printTable', array("as" => "pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));
 Route::get('bantuan_hukum/download/{id}', array('as' => 'bantuan_hukum.download', 'uses' => 'BantuanHukumController@download'));

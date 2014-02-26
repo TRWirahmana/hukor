@@ -25,7 +25,7 @@ class DAL_Pelembagaan {
         return $data;
     }  
 
-    public function savePelembagaan($input, $file) 
+    public function savePelembagaan($input, $filenames) 
     {
         $pelembagaan = new Pelembagaan;
 
@@ -33,7 +33,9 @@ class DAL_Pelembagaan {
         $pelembagaan->jenis_usulan = $input['jenis_usulan'];
         $pelembagaan->perihal = $input['perihal'];
         $pelembagaan->catatan = $input['catatan'];
-        $pelembagaan->lampiran = $file->getClientOriginalName();
+       // $pelembagaan->lampiran = $file->getClientOriginalName();
+	$pelembagaan->lampiran = $serialize($filenames);
+	
         $pelembagaan->status = 0;   // status default = 0 (belum di proses)
         $pelembagaan->tgl_usulan = Carbon::now();
         $pelembagaan->save();
@@ -52,6 +54,7 @@ class DAL_Pelembagaan {
         $penanggungJawab->unit_kerja = $input['unit_kerja'];
         $penanggungJawab->alamat_kantor = $input['alamat_kantor'];
         $penanggungJawab->telp_kantor = $input['telp_kantor'];
+	$penanggungJawab->hp = $input['hp'];
         $penanggungJawab->email = $input['email'];
         $penanggungJawab->save();
     }

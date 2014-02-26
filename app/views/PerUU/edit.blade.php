@@ -79,7 +79,11 @@
             <div class="control-group">
                 <label for="" class="control-label">Lampiran</label>
                 <div class="controls">
-                    <a href="{{ URL::route('puu.download', array('id' => $perUU->id)) }}">{{ explode('/', $perUU->lampiran)[1] }}</a>
+			<ul style="list-style:none">
+			@foreach(unserialize($perUU->lampiran) as $index => $lampiran)
+				<li><a href="{{ URL::route('puu.download', array('id' => $perUU->id, 'index' => $index)) }}">{{ explode('/',$lampiran)[1] }} </a></li>
+			@endforeach
+			</ul>
                 </div>
             </div>
 
@@ -88,9 +92,7 @@
                 <div class="controls">
                     @if ($perUU->status == 1)
                         Diproses
-                    @elseif($perUU->status == 2)
-                        Ditunda
-                    @elseif($perUU->status == 3)
+                    @elseif($perUU->status == 2) Ditunda @elseif($perUU->status == 3)
                         Ditolak
                     @elseif($perUU->status == 4)
                         Buat Salinan
@@ -137,7 +139,7 @@
                 {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
                 <div class="controls">
                     {{
-                        Form::file('lampiran', array());
+                        Form::file('lampiran[]', array('multiple' => true));
                     }}
                 </div>
             </div>
@@ -241,7 +243,7 @@
                 {
                     mData: "lampiran",
                     mRender: function(data, type, full) {
-                        return '<a href="'+baseUrl+'/admin/puu/log/download/'+full.id+'">'+data.split('/')[1]+'</a>';
+                        return '<a href="'+baseUrl+'/admin/puu/log/download/'+full.id+'">Unduh</a>';
                     }
                 }
                 // {mData: "id"}

@@ -142,7 +142,7 @@
 
 
                 <div class="nav nav-tabs">
-                    <h4>Informasi Usulan</h4>
+                    <h4>INFORMASI USULAN</h4>
                 </div>
 
 

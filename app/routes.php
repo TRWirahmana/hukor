@@ -112,7 +112,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     //Managemen Link
     Route::resource('linked', 'DikbudController');
     Route::post('savelinked', 'DikbudController@save');
-    Route::get('updatelinked', 'DikbudController@update');
+    Route::post('updatelinked', 'DikbudController@update');
 });
 
 

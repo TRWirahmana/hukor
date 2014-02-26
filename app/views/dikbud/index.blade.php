@@ -42,7 +42,7 @@
                                 <div class="controls">
                                     <input type="text" name="link[]" value="<?php echo $dat['link']; ?>" class="link" placeholder="contoh : kemdikbud.go.id">
 
-                                    <input type="hidden" name="id[]" value="<?php echo $dat['id']; ?>">
+                                    <input type="hidden" class="id_link" name="id[]" value="<?php echo $dat['id']; ?>">
 
                                     <input type="file" name="gambar[]" value="<?php echo $dat['gambar']; ?>" class="gambar">
                                     @foreach($errors->get('gambar') as $error)
@@ -116,6 +116,7 @@
 
         jQuery(this).parents('fieldset').find('.control-group').last().find('.link').val('');
         jQuery(this).parents('fieldset').find('.control-group').last().find('.gambar').val('');
+        jQuery(this).parents('fieldset').find('.control-group').last().find('.id_link').val('');
     });
 
     jQuery('.hapus').live('click', function(){

@@ -5,17 +5,18 @@ class DikbudController extends BaseController {
 
     public function index()
     {
-        $data = Dikbud::all();
+        $DAL = new DAL_Dikbud();
+        $data = $DAL->GetAllLink();
 
         if(count($data->toArray()) != 0)
         {
-            $this->layout->content = View::make('dikbud.edit', array(
+            $this->layout->content = View::make('dikbud.index', array(
                 'title' => 'Pengaturan Link',
                 'detail' => '',
                 'form_opts' => array(
-                    'action' => array('DikbudController@update', 1),
+                    'route' => array('admin.linked.update', '1'),
                     'enctype' => 'multipart/form-data',
-                    'method' => 'post',
+                    'method' => 'put',
                     'class' => 'form-horizontal',
                     'id' => 'form_linked'
                 ),
@@ -61,11 +62,55 @@ class DikbudController extends BaseController {
         return Redirect::to('admin/linked')->with('success', 'Data Berhasil Di Simpan.');
     }
 
-    public function update()
+    /**
+     * jika id yang di dalam database tidak terdapat di dalam array input id, maka gambar di hapus.
+     * setelah pengahpusan gambar, truncate table.
+     * jika table sudah kosong, insert ulang dengan kondisi:
+     *      - jika inputan gambar dari form tidak terisi, maka ambil gambar dari data yang di get sebelumnya.
+     *      - dan jika gambar dari form terisi, maka insert baru dan upload gambar baru.
+     */
+    public function update($id)
     {
-        echo "<pre>";
-        print_r('a');
-        echo "</pre>";
-        exit;
+        $input = Input::all();
+
+        $DAL = new DAL_Dikbud();
+        $helper = new HukorHelper();
+
+        $data = $DAL->GetAllLink();
+
+        foreach($data as $dat)
+        {
+            if(!in_array($dat->id, $input['id']))
+            {
+                $helper->DeleteFile('link', $dat->gambar);
+            }
+        }
+
+        DB::table('link_dikbud')->truncate(); //truncate table dikbud
+
+        for($x = 0; $x < count($input['link']); $x++)
+        {
+            if($input['gambar'][$x] == "" || empty($input['gambar'][$x]))
+            {
+                foreach($data as $dt)
+                {
+                    if($input['id'][$x] == $dt->id)
+                    {
+                        $DAL->InsertToTable($input['link'][$x], $dt->gambar);
+                    }
+                }
+            }
+            else
+            {
+                $uploadSuccess = $helper->UploadFile('link', $input['gambar'][$x]);
+
+                if($uploadSuccess)
+                {
+                    $DAL->InsertToTable($input['link'][$x], $input['gambar'][$x]);
+                }
+            }
+        }
+
+        return Redirect::to('admin/linked')->with('success', 'Data Berhasil Di Simpan.');
     }
 }

@@ -36,33 +36,38 @@
                     </div>
                     
                     <div class="control-group">
-                        {{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label'))}}
-                        <div class="controls"> <input type="text" disabled="" value="{{ $penanggungJawab->unit_kerja }}"></div>
-                    </div>      
-
-                    <div class="control-group">
                         {{ Form::label('nip', "NIP", array('class' => 'control-label'))}}
                         <div class="controls"> <input type="text" disabled="" value="{{ $penanggungJawab->nip }}"></div>
                     </div>
+
+                    <div class="control-group">
+                        {{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label'))}}
+                        <div class="controls"> <input type="text" disabled="" value="{{ $penanggungJawab->unit_kerja }}"></div>
+                    </div>      
 
                     <div class="control-group">
                         {{ Form::label('nama_pemohon', "Nama", array('class' => 'control-label'))}}
                         <div class="controls"> <input type="text" disabled="" value="{{ $penanggungJawab->nama }}"></div>
                     </div>  
 
-
                     <div class="control-group">
                         {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label'))}}
-                        <div class="controls"> <input type="text" disabled="" value="{{ $penanggungJawab->alamat_kantor }}"></div>
+                        <div class="controls"> <textarea disabled> {{ $penanggungJawab->alamat_kantor }} </textarea></div>
                     </div>  
 
                     <div class="control-group">
                         {{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label'))}}
                         <div class="controls"> <input type="text" disabled="" value="{{ $penanggungJawab->telp_kantor }}"></div>
-                    </div>  
+                    </div>
 
                     <div class="control-group">
-                        {{ Form::label('pos_el', 'Pos_el', array('class' => 'control-label'))}}
+                        {{ Form::label('hp', 'Handphone', array('class' => 'control-label'))}}
+                        <div class="controls"> <input type="text" disabled="" value="{{ $penanggungJawab->hp }}"></div>
+                    </div>
+
+
+                    <div class="control-group">
+                        {{ Form::label('pos_el', 'Email', array('class' => 'control-label'))}}
                         <div class="controls"> <input type="text" disabled="" value="{{ $penanggungJawab->email }}"></div>
                     </div>  
                 </fieldset>
@@ -70,18 +75,23 @@
                 <br />
                 <fieldset>
                       <div class="nav nav-tabs">
-                        <h4>Informasi Perihal & Lampiran</h4>
+                        <h4>Informasi Usulan</h4>
                       </div>
                     <div class="control-group">
                     {{ Form::label("perihal", "Perihal", array('class' => 'control-label')) }}
-                        <div class="controls"> <input type="text" disabled="" value="{{$penanggungJawab->perihal }}"></div>
+                        <div class="controls"> <input type="text" disabled="" value="{{$pelembagaan->perihal }}"></div>
                     </div>
 
                     <div class="control-group">
                     {{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
                         <div class="controls">
-
-                            <a href= {{ URL::asset('assets/uploads/pelembagaan/' . $pelembagaan->lampiran ); }} > {{ $pelembagaan->lampiran}} </a>
+			<ul style="list-style:none">
+			@foreach(unserialize($pelembagaan->lampiran) as $index => $lampiran )
+			<li><a href="{{ URL::route('pelembagaan.download', array('id' => $pelembagaan->id, 'index' => $index)) }}">{{ explode('/',$lampiran)[2] }}</a> </li>
+			@endforeach</ul>
+				
+			
+                         <!--   <a href= {{ URL::asset('assets/uploads/pelembagaan/' . $pelembagaan->lampiran ); }} > {{ $pelembagaan->lampiran}} </a>  --> 
                     </div>
                     </div>
                 </fieldset>
@@ -112,7 +122,7 @@
                     <div class="control-group">
                     {{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
                         <div class="controls">
-                            {{ Form::file('lampiran') }}</div>
+                            {{ Form::file('lampiran[]', array('multiple' => true)) }}</div>
                     </div>
 
                     <div class="control-group">
@@ -150,8 +160,7 @@
 
     </table>
 
-</div>
-    {{ Form::close() }}
+</div> {{ Form::close() }}
 
                 <!-- END OF MAIN CONTENT -->
 
@@ -218,8 +227,9 @@
                         sClass: 'center-ac',                              
                         sWidth: '14%',
                         mRender: function(data, type, full) {
-                             var downloadUrl = baseUrl + '/assets/uploads/pelembagaan/' + data;
-                             return "<a href=" + downloadUrl + "> Unduh </>";
+                            // var downloadUrl = baseUrl + '/assets/uploads/pelembagaan/' + data;
+                            // return "<a href=" + downloadUrl + "> Unduh </>";
+                             return '<a href="'+baseUrl+'/admin/pelembagaan/log/download/'+full.id+'">Unduh</a>';
 //                            return  "<a href='"+location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/" + "assets/uploads/pelembagaan/"+lampiran+"' >Unduh</a>"
                         }
                     },
@@ -245,10 +255,9 @@
 
         $("#tbl-log_pelembagaan").on('click', '.btn_delete', function(e){
             if (confirm('Apakah anda yakin ?')) {
-    
                 $.ajax({
                 url: $(this).attr('href'),
-                     type: 'DELETE',
+                     type: 'GET',
                      success: function(response) {
                             oTable.fnReloadAjax();
                         }
@@ -257,6 +266,21 @@
             e.preventDefault();
             return false;
         });
+/*
+                  $("#tbl-pelembagaan").on('click', '.btn_delete', function(e){
+                          if (confirm('Apakah anda yakin ?')) {
+                            $.ajax({
+                              url: $(this).attr('href'),
+                              type: 'DELETE',
+                              success: function(response) {
+                                $dataTable.fnReloadAjax();
+                              }
+                            });
+                          }
+                          e.preventDefault();
+                          return false;
+                  });
+ */
 
 
          $("#kirim_btn").click(function(e){

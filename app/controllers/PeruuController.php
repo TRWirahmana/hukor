@@ -3,6 +3,9 @@
 class PeruuController extends BaseController
 {
 
+
+	private $uploadFolder = "Peraturan Perundang-Undangan";
+
 	public function index()
 	{
 		$roleId = Auth::user()->role_id;
@@ -32,16 +35,8 @@ class PeruuController extends BaseController
 
 	public function store()
 	{
-		$filenames = array();
-		$uqFolder = str_random(8);
-		foreach(Input::file('per_uu.lampiran') as $file) {
-			$destPath = UPLOAD_PATH . DS . $uqFolder;
-			$filename = $file->getClientOriginalName();
-			$uploadSuccess = $file->move($destPath, $filename);	
-			if($uploadSuccess) 
-				$filenames[] = $uqFolder . DS . $filename;
+		$filenames = HukorHelper::MultipleUploadFile($this->uploadFolder, Input::file('per_uu.lampiran'));
 
-		}
 		$input = Input::get('per_uu');
 		$input2 = Input::get('penanggungJawab');
 
@@ -113,19 +108,8 @@ class PeruuController extends BaseController
 		$perUU->status = $status;
 		$perUU->catatan = $catatan;
 
-		$attachments = Input::file('lampiran');
-		$filenames = array();
-		if(!empty($attachments)) {
-			$uqFolder = str_random(8); 
-			foreach($attachments as $attachment) {
-				$destPath = UPLOAD_PATH . '/' . $uqFolder;	
-				$filename = $attachment->getClientOriginalName();
-				$uploaded = $attachment->move($destPath, $filename);
-				if($uploaded)
-					$filenames[] = $uqFolder . DS . $filename;
-			}				
-			$perUU->lampiran = serialize($filenames);
-		}
+		$filenames = HukorHelper::MultipleUploadFile($this->uploadFolder, Input::file('lampiran'));
+		$perUU->lampiran = serialize($filenames);
 
 		if ($perUU->save() && $logPerUU->save()) {
 			// Kirim email notifikasi ke pembuat usulan
@@ -154,52 +138,19 @@ class PeruuController extends BaseController
 		echo 1;
 	}
 
-	public function download($id, $index) {
+	public function download($id, $index = null) {
 		if($object = PerUU::find($id)){
 			$attachments = unserialize($object->lampiran);
-			if(!empty($attachments) && isset($attachments[$index])) {
-				$filename  = $attachments[$index];
-				$originalName = explode('/', $filename)[1];
-				$path = UPLOAD_PATH . DS . $filename;
-				if(file_exists($path))
-					return Response::download($path, $originalName);
-			}
+			return HukorHelper::downloadAttachment($attachments, $index);
 		}
 		return App::abort(404);
 	}
 
-	public function downloadLampiran($id)
-	{
-		$perUU = PerUU::find($id) or App::abort(404);
-		$path = UPLOAD_PATH . DS . $perUU->lampiran;
-		return Response::download($path, explode('/', $perUU->lampiran)[1]);
-	}
-
-
 	public function downloadLampiranLog($id)
 	{
-		if($log = LogPerUU::find($id))
-		{
-			if($files = unserialize($log->lampiran))
-			{
-				$folder = explode('/', $files[0])[0];
-				$filename = UPLOAD_PATH . DS . $folder  . '.zip';
-				if(!file_exists($filename)) {
-					$zip = new ZipArchive;		
-					$result = $zip->open($filename, ZipArchive::CREATE);
-					if(true === $result) 
-					{
-						foreach($files as $file) 
-						{
-							list($foldername, $fname) =  explode('/', $file);
-							$f = UPLOAD_PATH . DS . $file;
-							$zip->addFile($f, $fname);
-						}	
-						$zip->close();
-					}
-				}
-				return Response::download($filename, $folder . '.zip');
-			}
+		if($log = LogPerUU::find($id)) {
+			$attachments = unserialize($log->lampiran);
+			return HukorHelper::downloadAttachment($attachments);
 		}
 		return App::abort(404);
 	}

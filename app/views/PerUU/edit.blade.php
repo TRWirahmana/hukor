@@ -81,7 +81,11 @@
                 <div class="controls">
 			<ul style="list-style:none">
 			@foreach(unserialize($perUU->lampiran) as $index => $lampiran)
-				<li><a href="{{ URL::route('puu.download', array('id' => $perUU->id, 'index' => $index)) }}">{{ explode('/',$lampiran)[1] }} </a></li>
+				<li>
+					<a href="{{ URL::route('puu.download', array('id' => $perUU->id, 'index' => $index)) }}">
+					{{ explode(DS,$lampiran)[count(explode(DS, $lampiran)) - 1] }}	
+					 </a>
+				</li>
 			@endforeach
 			</ul>
                 </div>

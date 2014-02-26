@@ -65,7 +65,7 @@
                   </div>
               </div>
 
-              <div class="control-group {{$errors->has('unit_kerja')?'error':''}}">
+              <div class="control-group {{$errors->has('tempat_lahir')?'error':''}}">
                   {{ Form::label('tempat_lahir', 'Tempat Lahir', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('tempat_lahir', '',
@@ -111,7 +111,7 @@
                   {{ Form::label('nip', 'NIP', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('nip', '',
-                      array('placeholder' => 'ketikkan NIP di sini...')) }}
+                      array('placeholder' => 'Masukkan NIP di sini...')) }}
 
                       @foreach($errors->get('nip') as $error)
                       <span class="help-block">{{$error}}</span>
@@ -146,7 +146,7 @@
                   {{ Form::label('pekerjaan', 'Pekerjaan', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('pekerjaan', '',
-                      array('placeholder' => 'ketikkan Pekerjaan anda di sini...')) }}
+                      array('placeholder' => 'Masukkan Pekerjaan anda di sini...')) }}
 
                       @foreach($errors->get('pekerjaan') as $error)
                       <span class="help-block">{{$error}}</span>
@@ -197,7 +197,7 @@
 <!--                  <br>-->
                   <div class="controls">
                       <input name="code" type="text" id="code">
-                      <a href="#" onclick="document.getElementById('captcha').src='{{URL::to('captcha')}}?rnd=' + Math.random();">Not readable? Change text.</a>
+                      <a href="#" onclick="document.getElementById('captcha').src='{{URL::to('captcha')}}?rnd=' + Math.random();">Ubah Kode.</a>
                   </div>
               </div>
 

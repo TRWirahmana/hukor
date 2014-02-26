@@ -163,7 +163,7 @@
 		<div class="control-group">
                     {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::file('lampiran', array('id'=>'lampiran')) }}
+                        {{ Form::file('lampiran[]', array('id'=>'lampiran', 'multiple' => true)) }}
                     </div>
                 </div>
 

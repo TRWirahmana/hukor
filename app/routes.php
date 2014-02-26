@@ -75,14 +75,13 @@ Route::group(array('before' => 'auth|user'), function() {
 
 //pengaturan route Role ADMIN
 Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), function() {
-
    // berita
     Route::resource('berita', 'BeritaController');
     Route::get('IndexBerita', 'BeritaController@index');
     Route::get('HomeBerita', 'BeritaController@home');
     Route::put('saveberita', 'BeritaController@save');
 
-//    Route::resource('layanan', 'LayananController');
+    // Route::resource('layanan', 'LayananController');
     Route::resource('layanan', 'LayananController');
     Route::post('SubmitLayanan', 'LayananController@submit');
 
@@ -90,13 +89,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('submenus', 'LayananController@submenu');
     Route::get('index_layanan', 'LayananController@index');
 
-// call center
+    // call center
     Route::resource('callcenter', 'CallCenterController');
 //    Route::get('indexcallcenter', 'CallCenterController@index');
     Route::get('editcallcenter', 'CallCenterController@home');
     Route::put('updatecallcenter', 'CallCenterController@update');
-
-    
 
     //Managemen Menu
     Route::resource('menu', 'MenuController');
@@ -105,13 +102,17 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('setting_menu', 'MenuController@setting');
     // Route::put('setting/save', 'MenuController@save');
 
-
     //Managemen Submenu
     Route::resource('submenu', 'SubmenuController');
     Route::get('create_submenu', 'SubmenuController@create');
     Route::get('index_submenu', 'SubmenuController@index');
     Route::get('setting_submenu', 'SubmenuController@setting');
     // Route::put('settings/save', 'SubmenuController@save');
+
+    //Managemen Link
+    Route::resource('linked', 'DikbudController');
+    Route::post('savelinked', 'DikbudController@save');
+    Route::post('updatelinked', 'DikbudController@update');
 });
 
 
@@ -301,8 +302,9 @@ Route::group(array('before' => 'auth'), function(){
 
         Route::get('pelembagaan/printTable', array("as" => "admin.pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));
         Route::resource('pelembagaan', 'PelembagaanController', array("create", "store", "update", "edit", "index"));
-        Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
+        Route::get('pelembagaan/log/download/{id}', 'PelembagaanController@downloadLampiranLog');
         Route::get('pelembagaan/{id}/update', 'PelembagaanController@edit');
+        Route::get('pelembagaan/deletelog/{id}', 'PelembagaanController@deleteLog');
         Route::post('update', array('as' => 'proses_update_pelembagaan_admin', 'uses' =>  'PelembagaanController@update'));
         Route::resource('account', 'AdminController');
 
@@ -315,10 +317,11 @@ Route::group(array('before' => 'auth'), function(){
         Route::resource('bantuan_hukum', 'BantuanHukumController');
     });
 });
-Route::get('aj/download/{id}', array('as' => 'aj.download', 'uses' => 'AnalisisJabatanController@downloadLampiran'));
-Route::get('sp/download/{id}', array('as' => "sp.download", "uses" => 'SistemDanProsedurController@downloadLampiran'));
-Route::get('puu/download/{id}/{index}', array('as' => 'puu.download', 'uses' => 'PeruuController@download'));
-Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
+Route::get('aj/download/{id}/{index?}', array('as' => 'aj.download', 'uses' => 'AnalisisJabatanController@download'));
+Route::get('sp/download/{id}/{index?}', array('as' => "sp.download", "uses" => 'SistemDanProsedurController@download'));
+Route::get('puu/download/{id}/{index?}', array('as' => 'puu.download', 'uses' => 'PeruuController@download'));
+Route::get('pelembagaan/download/{id}/{index?}', array('as' => 'pelembagaan.download', 'uses' => 'PelembagaanController@download' ) );
+//Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
 Route::get('pelembagaan/printTable', array("as" => "pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));
 Route::get('bantuan_hukum/download/{id}', array('as' => 'bantuan_hukum.download', 'uses' => 'BantuanHukumController@download'));
 Route::get('bantuan_hukum/datatable','BantuanHukumController@datatable');

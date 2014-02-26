@@ -42,7 +42,7 @@ jQuery(document).ready(function(e){
     });
 
     dom.$table_news.on('click', '.btn_delete', function(e){
-        if (confirm('Apakah anda yakin?')) {
+        if (confirm('Apakah anda yakin menghapus berita?')) {
             jQuery.post(jQuery(this).attr('href'), {_method: 'delete'}, function(r){
                 dom.$table_news.fnReloadAjax();
             });

@@ -111,7 +111,7 @@
                   {{ Form::label('nip', 'NIP', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('nip', '',
-                      array('placeholder' => 'ketikkan NIP di sini...')) }}
+                      array('placeholder' => 'Masukkan NIP di sini...')) }}
 
                       @foreach($errors->get('nip') as $error)
                       <span class="help-block">{{$error}}</span>
@@ -146,7 +146,7 @@
                   {{ Form::label('pekerjaan', 'Pekerjaan', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('pekerjaan', '',
-                      array('placeholder' => 'ketikkan Pekerjaan anda di sini...')) }}
+                      array('placeholder' => 'Masukkan Pekerjaan anda di sini...')) }}
 
                       @foreach($errors->get('pekerjaan') as $error)
                       <span class="help-block">{{$error}}</span>

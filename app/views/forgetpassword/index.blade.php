@@ -18,7 +18,7 @@
       'style'=>'margin-bottom: 0; min-width: 360px;'
       ))
       }}
-      <button class="btn btn-hukor" type="submit">Submit</button>
+      <button class="btn btn-hukor" type="submit">KIRIM</button>
     </div>
 
     {{ Form::close() }}

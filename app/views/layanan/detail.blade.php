@@ -13,7 +13,26 @@
 <br>
 <p><?php echo $info->berita; ?></p>
 
-<p>Unit Penanggung Jawab: <?php echo $info->penanggung_jawab; ?></p>
+<?php
+switch($info->penanggung_jawab){
+    case 1:
+        echo "<p>Unit Penanggung Jawab: Bagian Peraturan Perundang-Undangan</p>";
+        break;
+
+    case 2:
+        echo "<p>Unit Penanggung Jawab: Bagian Bantuan Hukum</p>";
+        break;
+
+    case 3:
+        echo "<p>Unit Penanggung Jawab: Bagian Kelembagaan</p>";
+        break;
+
+    case 4:
+        echo "<p>Unit Penanggung Jawab: Bagian Ketatalaksanaan</p>";
+        break;
+}
+?>
+
 <br>
 
 <!--    Load Image-->

@@ -173,17 +173,15 @@
         <div class="container">
             <div class="rowsy">
                 <ul>
-                    <li> <a href="http://kemdikbud.go.id"><img src="{{asset('assets/img/satu.png')}}"></a> </li>
-                    <li><a href="http://setjen.kemdikbud.go.id"><img src="{{asset('assets/img/2.png')}}" alt=""></a></li>
-                    <li><a href="http://paudni.kemdikbud.go.id"><img src="{{asset('assets/img/3.png')}}" alt=""></a></li>
-                    <li><a href="http://dikdas.kemdikbud.go.id"><img src="{{asset('assets/img/4.png')}}" alt=""></a></li>
-                    <li><a href="http://dikmen.kemdikbud.go.id"><img src="{{asset('assets/img/5.png')}}" alt=""></a></li>
-                    <li><a href="http://dikti.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/6.png')}}" alt=""></a></li>
-                    <li><a href="http://itjen.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/7.png')}}" alt=""></a></li>
-                    <li><a href="http://litbang.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/8.png')}}" alt=""></a></li>
-                    <li><a href="http://badanbahasa.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/9.png')}}" alt=""></a></li>
-                    <li><a href="http://bpsdmpk.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/10.png')}}" alt=""></a></li>
-                    <li><a href="http://kebudayaanindonesia.net"><img src="{{asset('assets/img/logo_ditjenbud/11.png')}}" alt=""></a></li>
+                    <?php
+                    $DAL = new DAL_Dikbud();
+                    $link_dikbud = $DAL->GetAllLink();
+                    ?>
+                    @foreach($link_dikbud as $dikbud)
+                    <?php $link = "http://" . $dikbud->link; ?>
+                    <?php $assets = asset('assets/img/'.$dikbud->gambar); ?>
+                        <li> <a href="{{ $link }}"><img src="{{ $assets }}"></a> </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

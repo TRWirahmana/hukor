@@ -188,6 +188,24 @@
         <div class="container">
 
             <div class="row-fluid">
+              <?php $call = CallCenter::find(1); ?>
+              <div class="span3">
+                <address>
+                  <span>Kementerian Pendidikan Dan Kebudayaan Republik Indonesia</span><br/>
+                  <br/>
+                  {{ $call->alamat }} <br/>
+                  <span class="rulycon-phone"></span> {{ $call->telp }}<br/>
+                  <span class="rulycon-print"></span> {{ $call->fax }}<br/>
+                  <!--                        Jawa Barat, Indonesia-->
+                </address>
+                <!--                    <p class="social-links">-->
+                <!--                        <a href="#"><span class="rulycon-facebook"></span></a>-->
+                <!--                        <a href="#"><span class="rulycon-twitter"></span></a>-->
+                <!--                        <a href="#"><span class="rulycon-linkedin"></span></a>-->
+                <!--                        <a href="#"><span class="rulycon-yahoo"></span></a>-->
+                <!--                    </p>-->
+                <p><span>&copy; 2014 Kementerian Pendidikan Dan Kebudayaan Republik Indonesia.</span></p>
+              </div>
                 <div class="span9">
                     <div id="footer-menu-informasi" style="display: none">
                         @foreach($menu as $menus)
@@ -234,24 +252,6 @@
                         </ul>
                     </div>
 
-                </div>
-                <?php $call = CallCenter::find(1); ?>
-                <div class="span3">
-                    <address>
-                        <span>Kementerian Pendidikan Dan Kebudayaan Republik Indonesia</span><br/>
-                        <br/>
-                        {{ $call->alamat }} <br/>
-                        <span class="rulycon-phone"></span> {{ $call->telp }}<br/>
-                        <span class="rulycon-print"></span> {{ $call->fax }}<br/>
-<!--                        Jawa Barat, Indonesia-->
-                    </address>
-<!--                    <p class="social-links">-->
-<!--                        <a href="#"><span class="rulycon-facebook"></span></a>-->
-<!--                        <a href="#"><span class="rulycon-twitter"></span></a>-->
-<!--                        <a href="#"><span class="rulycon-linkedin"></span></a>-->
-<!--                        <a href="#"><span class="rulycon-yahoo"></span></a>-->
-<!--                    </p>-->
-                    <p><span>&copy; 2014 Kementerian Pendidikan Dan Kebudayaan Republik Indonesia.</span></p>
                 </div>
             </div>
         </div>

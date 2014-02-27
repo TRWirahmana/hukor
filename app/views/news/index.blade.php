@@ -60,7 +60,7 @@
                   <div class="item active">
                     <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-01.jpg')}}" alt="">
                     <div class="carousel-caption">
-                      <h4>First Thumbnail label</h4>
+                      <h3>First Thumbnail label</h3>
                       <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
                         at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     </div>
@@ -68,7 +68,7 @@
                   <div class="item">
                     <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-02.jpg')}}" alt="">
                     <div class="carousel-caption">
-                      <h4>Second Thumbnail label</h4>
+                      <h3>Second Thumbnail label</h3>
                       <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
                         at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     </div>
@@ -76,7 +76,7 @@
                   <div class="item">
                     <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-03.jpg')}}" alt="">
                     <div class="carousel-caption">
-                      <h4>Third Thumbnail label</h4>
+                      <h3>Third Thumbnail label</h3>
                       <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
                         at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     </div>
@@ -84,7 +84,7 @@
                   <div class="item">
                     <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-04.jpg')}}" alt="">
                     <div class="carousel-caption">
-                      <h4>Fourth Thumbnail label</h4>
+                      <h3>Fourth Thumbnail label</h3>
                       <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
                         at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     </div>
@@ -100,7 +100,7 @@
                         <img src="{{asset('assets/images/thumb-01.jpg')}}" alt=""/>
                       </div>
                         <div class="span9">
-                            <h4><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a></h4>
+                            <h4 style="font-style: normal;"><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a></h4>
                           <?php $date = new DateTime($news_feeds->tgl_penulisan); ?>
                           <span class="date-time">{{$date->format('d')}}  <span class="date"><?php echo HukorHelper::castMonthToString3($date->format('m'))?></span> {{$date->format('Y')}}</span>
                             <?php $berita_feed = strip_tags($news_feeds->berita);

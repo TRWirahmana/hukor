@@ -83,7 +83,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ URL::to('forumdiskusi') }}" id="forum_diskusi">
+                            <a href="#" id="forum_diskusi">
                                 <span class="rulycon-notebook"></span>
                                 <span class="headmenu-label">Forum</span>
                             </a>
@@ -296,6 +296,24 @@
         $("#footer-menu-aplikasi").show();
         $("#footer-menu-informasi").hide();
         $("#sub-aplikasi").show();
+    });
+
+    $('#forum_diskusi').click(function(){
+        var user = '<?php echo Auth::user(); ?>';
+
+        if(user)
+        {
+            window.location.replace("{{ URL::to('forumdiskusi') }}");
+        }
+        else
+        {
+            var r = confirm("Anda Belum Login. Harap Login Terlebih Dahulu. Klik OK Untuk Registrasi Jika Anda Belum Memiliki Akun.");
+            if (r==true)
+            {
+                window.location.replace("{{URL::to('registrasi')}}");
+            }
+        }
+
     });
 </script>
 @show

@@ -158,7 +158,7 @@
 <!--            <li id="menu-layanan-bantuan-hukum"><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>-->
 <!--            <li id="menu-layanan-peraturan-perundangan"><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>-->
             @if (null != AppConfig::find('enable_forum') && AppConfig::find('enable_forum')->value == "true")
-              <li id="menu-forum"><a href="{{ URL::to('forumdiskusi') }}"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
+              <li id="menu-forum"><a href="#"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
             @endif
             <li id="menu-call-center"><a href="{{ URL::to('callcenter') }}"><span class="rulycon-phone"></span>Call Center</a></li>
 
@@ -287,6 +287,25 @@
 <script src="{{asset('assets/js/jquery.ui.datepicker.js')}}"></script>
 <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/js/DatatableReloadAjax.js')}}"></script>
+<script>
+    $('#menu-forum').click(function(){
+        var user = '<?php echo Auth::user(); ?>';
+
+        if(user)
+        {
+            window.location.replace("{{ URL::to('forumdiskusi') }}");
+        }
+        else
+        {
+            var r = confirm("Anda Belum Login. Harap Login Terlebih Dahulu. Klik OK Untuk Registrasi Jika Anda Belum Memiliki Akun.");
+            if (r==true)
+            {
+                window.location.replace("{{URL::to('registrasi')}}");
+            }
+        }
+
+    });
+</script>
 @show
 </body>
 </html>

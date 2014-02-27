@@ -1,25 +1,5 @@
 @section('news-content')
 
-<?php
-    $counter = 0;
-    $handle = fopen(asset('assets/counter.txt'), "r"); //open file with read mode
-    if(!$handle){
-        echo "could not open the file" ;
-    }
-    else
-    {
-        // membaca data dari file dengan 20 byte dan di convert ke int
-        $counter = (int ) fread($handle,20);
-        fclose ($handle); // menutup fil
-        $counter++; // data dari file ditambah 1
-//        echo" <strong> you are visitor no ". $counter . " </strong> " ;
-
-        $handle = fopen("counter.txt", "w" ); //open file with write mode
-        fwrite($handle,$counter) ; //write $counter value to file
-        fclose ($handle) ; //close file
-    }
-?>
-
 <div class="maincontent">
     <div class="container">
         <!-- Latest News -->
@@ -147,7 +127,7 @@
                   <h4>Visitor counter</h4>
                 </div>
                 <div id="counter">
-                  <p><?php echo $counter; ?></p>
+                  <p><div style="text-align:center;"><script type="text/javascript" src="http://services.webestools.com/cpt_visitors/12224-8-9.js"></script></p>
                 </div>
               </div>
             </div>

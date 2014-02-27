@@ -91,44 +91,52 @@
                   </div>
                 </div>
               </div>
-                <h3 class="section-title" id="news-feed">News feed</h3>
-                @foreach($latest_news as $news_feeds)
+                <div id="paging_container">
+                    <h3 class="section-title" id="news-feed">News feed</h3>
+                    <ul class="content">
 
-                <div class="news-content">
-                    <div class="row-fluid">
-                      <div class="span3">
-                        <img src="{{asset('assets/images/thumb-01.jpg')}}" alt=""/>
-                      </div>
-                        <div class="span9">
-                            <h4 style="font-style: normal;"><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a></h4>
-                          <?php $date = new DateTime($news_feeds->tgl_penulisan); ?>
-                          <span class="date-time">{{$date->format('d')}}  <span class="date"><?php echo HukorHelper::castMonthToString3($date->format('m'))?></span> {{$date->format('Y')}}</span>
-                            <?php $berita_feed = strip_tags($news_feeds->berita);
-                            $highlight_feed = substr($berita_feed, 0, 150);
-                            ?>
-                            @if(strlen($berita_feed) > 150)
-                            <p>{{$highlight_feed}}</p>
-                            <p><a class="read-more" href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">Read more <span class="rulycon-arrow-right-3"></span></a></p>
-                            @else
-                            <p>{{$berita_feed}}</p>
-                            @endif
-                        </div>
-                    </div>
-                </div>
+                        @foreach($latest_news as $news_feeds)
+                        <li>
+                            <div class="news-content">
+                                <div class="row-fluid">
+                                    <div class="span3">
+                                        <img src="{{asset('assets/images/thumb-01.jpg')}}" alt=""/>
+                                    </div>
+                                    <div class="span9">
+                                        <h4 style="font-style: normal;"><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a></h4>
+                                        <?php $date = new DateTime($news_feeds->tgl_penulisan); ?>
+                                        <span class="date-time">{{$date->format('d')}}  <span class="date"><?php echo HukorHelper::castMonthToString3($date->format('m'))?></span> {{$date->format('Y')}}</span>
+                                        <?php $berita_feed = strip_tags($news_feeds->berita);
+                                        $highlight_feed = substr($berita_feed, 0, 150);
+                                        ?>
+                                        @if(strlen($berita_feed) > 150)
+                                        <p>{{$highlight_feed}}</p>
+                                        <p><a class="read-more" href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">Read more <span class="rulycon-arrow-right-3"></span></a></p>
+                                        @else
+                                        <p>{{$berita_feed}}</p>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
 
-                @endforeach
+                        @endforeach
 
-                <div class="pagination">
-                    <ul>
-                        <li class="disabled"><a href="#">«</a></li>
-                        <li class="disabled"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">»</a></li>
                     </ul>
+                    <div class="page_navigation pagination"></div>
                 </div>
+
+<!--                <div class="pagination">-->
+<!--                    <ul>-->
+<!--                        <li class="disabled"><a href="#">«</a></li>-->
+<!--                        <li class="disabled"><a href="#">1</a></li>-->
+<!--                        <li><a href="#">2</a></li>-->
+<!--                        <li><a href="#">3</a></li>-->
+<!--                        <li><a href="#">4</a></li>-->
+<!--                        <li><a href="#">5</a></li>-->
+<!--                        <li><a href="#">»</a></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
             </div>
             <!--span9-->
 
@@ -153,13 +161,18 @@
 <!--maincontent-->
 @section('scripts')
 @parent
-<script src="{{asset('assets/js/jquery.simplePagination.js')}}"></script>
+<script src="{{asset('assets/js/jquery.pajinate.js')}}"></script>
 <script type="text/javascript">
     var $ = jQuery.noConflict();
     $(function() {
-        $(".paginate").pagination({
-            items: {{$count_news}},
-            itemsOnPage: 5
+//        $(".news-feed").pagination({
+//            items: {{$count_news}},
+//            itemsOnPage: 4
+//        });
+
+        $('#paging_container').pajinate({
+//            start_page : 1,
+            items_per_page : 5
         });
     });
 </script>

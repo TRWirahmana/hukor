@@ -52,11 +52,15 @@ class BantuanHukumController extends BaseController{
         $helper = new HukorHelper();
 
         //updaload file
-        $uploadSuccess = $helper->UploadFile('bantuanhukum', Input::file('lampiran'));
+ 	$filenames = array();
+	$filenames = $helper->MultipleUploadFile('bantuanhukum', Input::file('lampiran'));
+//     $uploadSuccess = $helper->UploadFile('bantuanhukum', Input::file('lampiran'));
 
-        if($uploadSuccess)
+       // if($uploadSuccess)
+       if($filenames)
         {
-            $DAL->SaveBantuanHukum($input, Input::file('lampiran')); //save bantuan hukum
+            //$DAL->SaveBantuanHukum($input, Input::file('lampiran')); //save bantuan hukum
+            $DAL->SaveBantuanHukum($input, $filenames); //save bantuan hukum
             $DAL->SendEmailToAllAdminBankum(); // send email
 
             return Redirect::route('bantuan_hukum.create')->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
@@ -136,6 +140,30 @@ class BantuanHukumController extends BaseController{
 
         return Redirect::to($link)->with('success', 'Data Berhasil Di Hapus.');
     }
+
+	public function downloadLampiranLog($id)
+{
+	if($log = LogPelembagaan::find($id))
+		return HukorHelper::downloadAsZIP(unserialize($log->lampiran));
+	return App::abort(404);
+}
+		
+	public function download($id, $index = null) {
+		if($object = BantuanHukum::find($id)) {
+		$attachments = unserialize($object->lampiran);	
+		if(!empty($attachments) && null !== $index && isset($attachments[$index]) )
+		{
+			$filename = $attachments[$index];	
+			$originalName = explode('/', $filenam)[1];
+			$path = UPLOAD_PATH . DS . $filename;
+			if(file_exists($path))
+				return Response::download($path, $originalname);
+		} else {
+			return HukorHelper::downloadAsZIP($attachments);
+		}
+		}
+		return App::abort(404);
+	}
 
     public function download($id)
     {

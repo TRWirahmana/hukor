@@ -302,7 +302,7 @@ Route::group(array('before' => 'auth'), function(){
 
         Route::get('pelembagaan/printTable', array("as" => "admin.pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));
         Route::resource('pelembagaan', 'PelembagaanController', array("create", "store", "update", "edit", "index"));
-        Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
+        Route::get('pelembagaan/log/download/{id}', 'PelembagaanController@downloadLampiranLog');
         Route::get('pelembagaan/{id}/update', 'PelembagaanController@edit');
         Route::get('pelembagaan/deletelog/{id}', 'PelembagaanController@deleteLog');
         Route::post('update', array('as' => 'proses_update_pelembagaan_admin', 'uses' =>  'PelembagaanController@update'));
@@ -317,10 +317,11 @@ Route::group(array('before' => 'auth'), function(){
         Route::resource('bantuan_hukum', 'BantuanHukumController');
     });
 });
-Route::get('aj/download/{id}', array('as' => 'aj.download', 'uses' => 'AnalisisJabatanController@downloadLampiran'));
-Route::get('sp/download/{id}', array('as' => "sp.download", "uses" => 'SistemDanProsedurController@downloadLampiran'));
-Route::get('puu/download/{id}', array('as' => 'puu.download', 'uses' => 'PeruuController@downloadLampiran'));
-Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
+Route::get('aj/download/{id}/{index?}', array('as' => 'aj.download', 'uses' => 'AnalisisJabatanController@download'));
+Route::get('sp/download/{id}/{index?}', array('as' => "sp.download", "uses" => 'SistemDanProsedurController@download'));
+Route::get('puu/download/{id}/{index?}', array('as' => 'puu.download', 'uses' => 'PeruuController@download'));
+Route::get('pelembagaan/download/{id}/{index?}', array('as' => 'pelembagaan.download', 'uses' => 'PelembagaanController@download' ) );
+//Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
 Route::get('pelembagaan/printTable', array("as" => "pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));
 Route::get('bantuan_hukum/download/{id}', array('as' => 'bantuan_hukum.download', 'uses' => 'BantuanHukumController@download'));
 Route::get('bantuan_hukum/datatable','BantuanHukumController@datatable');

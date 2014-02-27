@@ -25,7 +25,7 @@ class DAL_Pelembagaan {
         return $data;
     }  
 
-    public function savePelembagaan($input, $file) 
+    public function savePelembagaan($input, array $filenames ) 
     {
         $pelembagaan = new Pelembagaan;
 
@@ -33,7 +33,8 @@ class DAL_Pelembagaan {
         $pelembagaan->jenis_usulan = $input['jenis_usulan'];
         $pelembagaan->perihal = $input['perihal'];
         $pelembagaan->catatan = $input['catatan'];
-        $pelembagaan->lampiran = $file->getClientOriginalName();
+       // $pelembagaan->lampiran = $file->getClientOriginalName();
+	$pelembagaan->lampiran = serialize($filenames);
         $pelembagaan->status = 0;   // status default = 0 (belum di proses)
         $pelembagaan->tgl_usulan = Carbon::now();
         $pelembagaan->save();
@@ -101,7 +102,7 @@ class DAL_Pelembagaan {
         $penanggungJawab->save();
     }
 
-    public function saveLogPelembagaan($input, $file, $id)
+    public function saveLogPelembagaan($input, array $filenames, $id)
     {
         $pelembagaan = Pelembagaan::find($id);
 
@@ -109,7 +110,8 @@ class DAL_Pelembagaan {
         $log_pelembagaan->status = $input['status'];
         $log_pelembagaan->catatan = $input['catatan'];
         $log_pelembagaan->keterangan = $input['keterangan'];
-        $log_pelembagaan->lampiran = $file->getClientOriginalName();
+	$log_pelembagaan->lampiran = serialize($filenames);
+       // $log_pelembagaan->lampiran = $file->getClientOriginalName();
         $log_pelembagaan->pelembagaan_id = $id;
         $log_pelembagaan->tgl_proses = Carbon::now();
         $log_pelembagaan->save();

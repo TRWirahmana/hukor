@@ -88,7 +88,7 @@
 		
 		<div class="control-group">
                     {{ Form::label("per_uu[lampiran]", "Lampiran", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::file("per_uu[lampiran]") }}</div>
+                    <div class="controls">{{ Form::file("per_uu[lampiran][]", array('multiple' => true)) }}</div>
                 </div>
             </fieldset>
 

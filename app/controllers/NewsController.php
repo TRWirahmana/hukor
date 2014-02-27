@@ -24,7 +24,7 @@ class NewsController extends BaseController {
         $this->layout->content = View::make('news.index', array(
             'latest_news' => $latest_news,
             'news_feed' => $news_feed,
-            'count_news' => $count_news,
+            'count_news' => $count_news
         ));
     }
 

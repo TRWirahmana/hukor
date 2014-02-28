@@ -121,10 +121,10 @@
                 mData: "id",
                 sClass: "center",
                 mRender: function(data){
-                    var detailUrl = baseUrl + '/admin/detaildoc?id=' + data;
-                    var updateUrl = baseUrl + '/admin/editdoc?id=' + data;
-                    var publishUrl = baseUrl + '/admin/publishdoc?id=' + data;
-                    var deleteUrl = baseUrl + '/admin/deletedoc?id=' + data;
+                    var detailUrl = "<?php echo URL::to('admin/detaildoc'); ?>" + "/" + data;
+                    var updateUrl = "<?php echo URL::to('admin/editdoc'); ?>" + "/" + data;
+                    var publishUrl = "<?php echo URL::to('admin/publishdoc'); ?>" + "/" + data;
+                    var deleteUrl = "<?php echo URL::to('admin/deletedoc'); ?>" + "/" + data;
 
                     return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
                         '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +

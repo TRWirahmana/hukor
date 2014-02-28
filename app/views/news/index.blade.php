@@ -130,6 +130,28 @@
             </div>
           </div>
         </div>
+
+          <div id="twitter-widget">
+              <h3 class="section-title widgets">Peraturan</h3>
+              <div class="widget-body">
+                  <div class="widget-content">
+                      <table>
+                          <tr>
+                              <td>No</td>
+                              <td>Perihal</td>
+                          </tr>
+                          <?php $counter = 1; ?>
+                          @foreach($document as $doc)
+                          <tr>
+                              <td><?php echo $counter; ?></td>
+                              <td>{{ $doc->perihal }}</td>
+                          </tr>
+                          <?php $counter++; ?>
+                          @endforeach
+                      </table>
+                  </div>
+              </div>
+          </div>
         
         <div id="twitter-widget">
           <h3 class="section-title widgets">Twitter</h3>

@@ -103,4 +103,11 @@ class DAL_Document {
 
         $data->save();
     }
+
+    public function GetLastTen()
+    {
+        $data = Document::orderBy('id', 'DESC')->take(10)->get();
+
+        return $data;
+    }
 }

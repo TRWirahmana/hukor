@@ -135,11 +135,22 @@
             <div id="dashboard-right" class="span3">
                 <h3 class="section-title" id="widgets">Peraturan</h3>
                 <div id="visitor-counter">
-                    <!--                <div id="header">-->
-                    <!--                  <h4>Visitor counter</h4>-->
-                    <!--                </div>-->
-                    <div id="counter">
-                        <p><?php echo HukorHelper::GetCounterVisitor(); ?></p>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>No</td>
+                                <td>Perihal</td>
+                            </tr>
+                            <?php $increment = 1; ?>
+                            @foreach($document as $doc)
+                            <tr>
+                                <td><?php echo $increment; ?></td>
+                                <td>{{ $doc->perihal }}</td>
+                            </tr>
+                            <?php $increment++; ?>
+                            @endforeach
+                        </table>
+
                     </div>
                 </div>
             </div>

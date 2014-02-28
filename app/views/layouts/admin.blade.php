@@ -136,6 +136,7 @@
                                         <ul>
                                             <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                             <li><a href="{{URL::route('admin.aj.index')}}">Analisis Jabatan</a></li>
+                                            <li><a href="{{URL::to('admin/document')}}">Dokumentasi</a></li>
                                         </ul>
                                     </li>
                                     <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>

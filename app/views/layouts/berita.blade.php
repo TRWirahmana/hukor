@@ -83,7 +83,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ URL::to('forumdiskusi') }}" id="forum_diskusi">
+                            <a href="#" id="forum_diskusi">
                                 <span class="rulycon-notebook"></span>
                                 <span class="headmenu-label">Forum</span>
                             </a>
@@ -188,6 +188,24 @@
         <div class="container">
 
             <div class="row-fluid">
+              <?php $call = CallCenter::find(1); ?>
+              <div class="span3">
+                <address>
+                  <span>Kementerian Pendidikan Dan Kebudayaan Republik Indonesia</span><br/>
+                  <br/>
+                  {{ $call->alamat }} <br/>
+                  <span class="rulycon-phone"></span> {{ $call->telp }}<br/>
+                  <span class="rulycon-print"></span> {{ $call->fax }}<br/>
+                  <!--                        Jawa Barat, Indonesia-->
+                </address>
+                <!--                    <p class="social-links">-->
+                <!--                        <a href="#"><span class="rulycon-facebook"></span></a>-->
+                <!--                        <a href="#"><span class="rulycon-twitter"></span></a>-->
+                <!--                        <a href="#"><span class="rulycon-linkedin"></span></a>-->
+                <!--                        <a href="#"><span class="rulycon-yahoo"></span></a>-->
+                <!--                    </p>-->
+                <p><span>&copy; 2014 Kementerian Pendidikan Dan Kebudayaan Republik Indonesia.</span></p>
+              </div>
                 <div class="span9">
                     <div id="footer-menu-informasi" style="display: none">
                         @foreach($menu as $menus)
@@ -235,23 +253,6 @@
                     </div>
 
                 </div>
-                <div class="span3">
-                    <address>
-                        <span>Kementerian Pendidikan &amp; Kebudayaan Republik Indonesia</span><br/>
-                        <br/>
-                        Jalan Sempurna no.9, Bandung, 40131 <br/>
-                        <span class="rulycon-phone"></span> (022) 2512345, ext 1234<br/>
-                        <span class="rulycon-print"></span> (022) 2512345, ext 1234<br/>
-                        Jawa Barat, Indonesia
-                    </address>
-                    <p class="social-links">
-                        <a href="#"><span class="rulycon-facebook"></span></a>
-                        <a href="#"><span class="rulycon-twitter"></span></a>
-                        <a href="#"><span class="rulycon-linkedin"></span></a>
-                        <a href="#"><span class="rulycon-yahoo"></span></a>
-                    </p>
-                    <p><span>&copy; 2014 Kementerian Pendidikan &amp; Kebudayaan Republik Indonesia.</span></p>
-                </div>
             </div>
         </div>
     </div>
@@ -295,6 +296,24 @@
         $("#footer-menu-aplikasi").show();
         $("#footer-menu-informasi").hide();
         $("#sub-aplikasi").show();
+    });
+
+    $('#forum_diskusi').click(function(){
+        var user = '<?php echo Auth::user(); ?>';
+
+        if(user)
+        {
+            window.location.replace("{{ URL::to('forumdiskusi') }}");
+        }
+        else
+        {
+            var r = confirm("Anda Belum Login. Harap Login Terlebih Dahulu. Klik OK Untuk Registrasi Jika Anda Belum Memiliki Akun.");
+            if (r==true)
+            {
+                window.location.replace("{{URL::to('registrasi')}}");
+            }
+        }
+
     });
 </script>
 @show

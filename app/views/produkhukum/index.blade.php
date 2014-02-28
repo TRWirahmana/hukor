@@ -42,18 +42,19 @@
                                             <option value="1">Kepegawaian</option>
                                             <option value="2">Keuangan</option>
                                             <option value="3">Organisasi</option>
-                                            <option value="4">Umum</option>
                                             <option value="5">Perlengkapan</option>
+                                            <option value="4">Umum</option>
+                                            <option value="7">Tim</option>
                                             <option value="6">Lainnya</option>
                                         </select>        
                                     </div>
                                 </div>
 
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
-                                    </div>
-                                </div>
+<!--                                <div class="control-group">-->
+<!--                                    <div class="controls">-->
+<!--                                        <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">-->
+<!--                                    </div>-->
+<!--                                </div>-->
                             </div>
                         </div>
                     </fieldset>
@@ -148,12 +149,12 @@
 
                             {
                               mData: "nomor",
-                              sWidth: '5%'
+                              sWidth: '10%'
                             },
                             
                             {
                               mData: "deskripsi",
-                              sWidth: '14%'
+                              sWidth: '15%'
                             },
                             {
                               mData: "kategori",
@@ -196,7 +197,7 @@
                             },
                             {
                               mData: "id",
-                              sWidth: '14%',
+                              sWidth: '5%',
                                 mRender: function(data, type, full) {
                                     return "<a href='produkhukum/"+data+"/detail'> <i class='icon-edit'></i></a>"
                                           +"&nbsp;<a href='produkhukum/"+data+"/download'> <i class='icon-download'></i></a>" ;

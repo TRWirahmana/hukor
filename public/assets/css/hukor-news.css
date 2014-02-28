@@ -397,15 +397,31 @@ p {
   color: #ffffff;
   text-align: center;
   font-family: "monacoregular", "Monaco", monospace;
-  font-size: 36px;
+  font-size: 48px;
 }
 .widget-body .widget-content p {
-  line-height: 180%;
+  line-height: 160%;
   padding-top: 12px;
-  padding-bottom: 12px;
+  padding-bottom: 6px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .25);
 }
 #counter-widget .widget-body {
-  background: -webkit-linear-gradient(top, #4fb4c0 0%, #44a8b4 50%, #4fb4c0 51%, #44a8b4 100%);
+  position: relative;
+  background: -moz-linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
+  background: -ms-linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
+  background: -o-linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
+  background: -webkit-linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
+  background: linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
+}
+#counter-widget .widget-body:after {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #3b8790;
+  content: "";
+  top: 50%;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .25);
 }
 #counter-widget .section-title:after { content: "\e04d"; }
 #twitter-widget .section-title:after { content: "\e16d"; }

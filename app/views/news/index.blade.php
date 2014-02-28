@@ -121,15 +121,39 @@
             <!--span9-->
 
             <div id="dashboard-right" class="span3">
-                <h3 class="section-title" id="widgets">Widgets</h3>
+                <h3 class="section-title" id="widgets">Visitor counter</h3>
               <div id="visitor-counter">
-                <div id="header">
-                  <h4>Visitor counter</h4>
-                </div>
+<!--                <div id="header">-->
+<!--                  <h4>Visitor counter</h4>-->
+<!--                </div>-->
                 <div id="counter">
                   <p><?php echo HukorHelper::GetCounterVisitor(); ?></p>
                 </div>
               </div>
+            </div>
+
+            <div id="dashboard-right" class="span3">
+                <h3 class="section-title" id="widgets">Peraturan</h3>
+                <div id="visitor-counter">
+                    <!--                <div id="header">-->
+                    <!--                  <h4>Visitor counter</h4>-->
+                    <!--                </div>-->
+                    <div id="counter">
+                        <p><?php echo HukorHelper::GetCounterVisitor(); ?></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="dashboard-right" class="span3">
+                <h3 class="section-title" id="widgets">Twitter</h3>
+                <div id="visitor-counter">
+                    <!--                <div id="header">-->
+                    <!--                  <h4>Visitor counter</h4>-->
+                    <!--                </div>-->
+                    <div id="counter">
+                        <p><?php echo HukorHelper::GetCounterVisitor(); ?></p>
+                    </div>
+                </div>
             </div>
             <!--span3-->
         </div>

@@ -108,6 +108,7 @@ define('DOWNLOAD_PATH', public_path() . DS . 'assets' . DS . 'downloads');
 define('UPLOAD_PATH', public_path() . DS . 'assets' . DS . 'uploads');
 define('PUN_ROOT', public_path() . DS . 'forum' . DS);
 define('DOMPDF_ENABLE_AUTOLOAD', false);
+define('XML_COUNTER', base_path().'/public/assets/');
 require PUN_ROOT.'include/common.php';
 require base_path() . "/vendor/dompdf/dompdf/dompdf_config.inc.php";
 

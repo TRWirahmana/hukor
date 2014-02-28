@@ -23,14 +23,14 @@
 					<div class="control-group">
 						{{ Form::label('nip', "NIP", array('class' => 'control-label'))}}
 						<div class="controls">
-							{{ Form::text('nip')}}
+							{{ Form::text('nip', null, array('placeholder' => "Masukkan NIP..."))}}
 						</div>
 					</div>
 				
 					<div class="control-group">
 						{{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label'))}}
 						<div class="controls">
-							{{ Form::text('unit_kerja') }}
+							{{ Form::text('unit_kerja',null, array('placeholder' => "Masukkan Unit erja...")) }}
 						</div>
 					</div>		
 
@@ -38,28 +38,28 @@
 					<div class="control-group">
 						{{ Form::label('nama_pemohon', "Nama Pemohon", array('class' => 'control-label'))}}					
 						<div class="controls">
-							{{ Form::text('nama_pemohon', $user->pengguna->nama_lengkap ) }}
+							{{ Form::text('nama_pemohon', $user->pengguna->nama_lengkap, array('placeholder' => "Masukkan Nama Lengkap...") ) }}
 						</div>
 					</div>	
 
 					<div class="control-group">
 						{{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label'))}}
 						<div class="controls">
-							{{ Form::textarea('alamat_kantor') }}
+							{{ Form::textarea('alamat_kantor', null, array('placeholder' => "Masukkan Alamat Kantor...")) }}
 						</div>
 					</div>	
 
 					<div class="control-group">
 						{{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label'))}}
 						<div class="controls">
-							{{ Form::text('telp_kantor') }}
+							{{ Form::text('telp_kantor', null, array('placeholder' => "Masukkan Nomor Telepon Kantor...")) }}
 						</div>
 					</div>
 
                     <div class="control-group">
                         {{ Form::label('hp', 'Handphone', array('class' => 'control-label'))}}
                         <div class="controls">
-                            {{ Form::text('hp') }}
+                            {{ Form::text('hp', null, array('placeholder' => "Masukkan Nomor Handphone...")) }}
                         </div>
                     </div>
 
@@ -80,11 +80,11 @@
 		              </legend>
 					<div class="control-group">
 					{{ Form::label("perihal", "Perihal", array('class' => 'control-label')) }}
-						<div class="controls">{{ Form::text('perihal', $pelembagaan->perihal) }}</div>
+						<div class="controls">{{ Form::text('perihal', $pelembagaan->perihal, array('placeholder' => "Masukkan Perihal...")) }}</div>
 					</div>
 					<div class="control-group">
 					{{ Form::label('catatan', "Keterangan", array('class' => 'control-label')) }}
-						<div class="controls">{{ Form::textarea('catatan', $pelembagaan->catatan) }}</div>
+						<div class="controls">{{ Form::textarea('catatan', $pelembagaan->catatan, array('placeholder' => "Masukkan Catatan...")) }}</div>
 					</div>
 					<div class="control-group">
 					{{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}

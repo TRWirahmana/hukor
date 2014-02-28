@@ -122,7 +122,7 @@ class DAL_BantuanHukun
     public function GetSingleBantuanHukum($id)
     {
         $data = BantuanHukum::find($id)->with('pjbantuanhukum')->first();
-
+//        $data = BantuanHukum::find($id)->with('pjbantuanhukum');
         return $data;
     }
 
@@ -141,7 +141,7 @@ class DAL_BantuanHukun
      * fungsi untuk update data di table bantuan_hukum dan insert baru di table log_bantuan_hukum
      */
 
-    public function UpdateBantuanHukum($input)
+    public function UpdateBantuanHukum($input, array $filenames)
     {
         $data = BantuanHukum::find($input['id']); // find record by id
 
@@ -160,7 +160,8 @@ class DAL_BantuanHukun
         $log->ket_lampiran = $input['ket_lampiran'];
         $log->catatan = $input['catatan'];
         //getClientOriginalName() for get real file name
-        $log->lampiran = ($input['lampiran'] != null) ? $input['lampiran']->getClientOriginalName() : null;
+        //$log->lampiran = ($input['lampiran'] != null) ? $input['lampiran']->getClientOriginalName() : null;
+        $log->lampiran = ($input['lampiran'] != null) ? serialize($filenames) : null;
         $log->tanggal = date("Y-m-d");
 
         $log->save();

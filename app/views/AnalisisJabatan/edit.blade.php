@@ -125,10 +125,10 @@
                 </div>
             </div>
             <div class="control-group">
-                {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
+                {{ Form::label('catatan', 'Deskripsi', array('class' => 'control-label')) }}
                 <div class="controls">
                     {{
-                        Form::textarea('catatan', null, array('rows' => 2))
+                        Form::textarea('catatan', null, array('rows' => 2, 'placeholder' => 'Masukan deskripsi usulan'))
                     }}
                 </div>
             </div>
@@ -136,7 +136,7 @@
                 {{ Form::label('ket_lampiran', 'Ket. Lampiran', array('class' => 'control-label')) }}
                 <div class="controls">
                     {{
-                        Form::text('ket_lampiran', null, array())
+                        Form::text('ket_lampiran', null, array('placeholder' => 'Masukan keterangan lampiran...'))
                     }}
                 </div>
             </div>

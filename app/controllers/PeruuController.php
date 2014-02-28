@@ -84,6 +84,7 @@ class PeruuController extends BaseController
 		if (Request::ajax())
 			return Datatables::of(DAL_PerUU::getLogUsulan($id))->make(true);
 
+		$user = Auth::user();
 		$perUU = PerUU::with('Pengguna')->find($id);
 		$this->layout = View::make('layouts.admin');
 		$this->layout->content = View::make('PerUU.edit')

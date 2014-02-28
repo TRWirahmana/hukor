@@ -172,7 +172,7 @@ p {
 #main-carousel {
   margin-bottom: 32px;
   border: 6px solid #ffffff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .075);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
 }
 #main-carousel.boxed {
   margin-top: 32px;
@@ -183,16 +183,21 @@ p {
   width: 100%;
 }
 .carousel-caption {
-  background: rgba(255, 255, 255, .25);
+  background: rgba(255, 255, 255, .35);
   padding: 16px 24px;
 }
-.carousel-caption h4 {
-  font-size: 14px;
+.carousel-caption h3, .carousel-caption p {
+  width: 55%;
+}
+.carousel-caption h3 {
+  color: #ffffff;
+  font-size: 18px;
   text-transform: uppercase;
-  margin: 0;
+  margin: 0 0 6px;
+  font-family: "pt_sans_narrowbold", sans-serif;
 }
 .carousel-caption p {
-  line-height: 120%;
+  line-height: 160%;
 }
 .boxed .carousel-indicators {
   top: 16px;
@@ -234,17 +239,14 @@ p {
 }
 .section-title {
   position: relative;
-  background: #2980b9;
+  background: url("../images/leftpanelbg.png") repeat;
   color: #ffffff;
   padding: 12px 24px;
   font-weight: normal;
   font-size: 16px;
   box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
 }
-.section-title#widgets {
-  background: #2980b9;
-}
-.section-title#news-feed:after, .section-title#widgets:after {
+.section-title#news-feed:after, .section-title.widget:after {
   font-family: Rulycons;
   position: absolute;
   right: 16px;
@@ -255,17 +257,13 @@ p {
 .section-title#news-feed:after {
   content: "\e004";
 }
-.section-title#widgets:after {
-  content: "\e14c";
-}
 .section-title#widgets > * {
   display: block;
   width: 100%;
 }
 .news-content {
   padding: 32px 0 48px 24px;
-  border-bottom: 1px solid rgba(220, 60, 0, .25);
-  /*background: rgba(255, 255, 255, .55);*/
+  border-bottom: 1px solid rgba(0, 0, 0, .075);
   -moz-transition: all .2s ease-out;
   -ms-transition: all .2s ease-out;
   -o-transition: all .2s ease-out;
@@ -279,13 +277,21 @@ p {
 .latest-news .read-more span[class *= "rulycon"] {
   margin-left: 4px;
 }
-.news-content:hover {
-  background: transparent;
+.news-content .span3 > img {
+  border: 4px solid #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
 }
 .news-content h4 {
-  margin-bottom: 16px;
   font-style: italic;
   font-size: 20px;
+}
+.news-content h4 > a {
+  color: #4fb4c0;
+}
+.news-content .date-time {
+  margin-bottom: 12px;
+  font-size: 11px;
+  color: rgba(0, 0, 0, .55);
 }
 .pagination {
   margin-top: 24px;
@@ -375,31 +381,45 @@ p {
   width: 95%;
 }
 
-#visitor-counter {
+.widget-body {
   display: block;
   width: 100%;
   margin: 4px 0 24px;
-  background: #2980b9;
+  background: #4fb4c0;
   box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
 }
-#visitor-counter #header {
+.widget-body #header {
   text-align: left;
   color: #ffffff;
   padding: 12px 24px;
 }
-#visitor-counter #counter {
+.widget-body .widget-content {
   color: #ffffff;
   text-align: center;
   font-family: "monacoregular", "Monaco", monospace;
   font-size: 36px;
 }
-#visitor-counter #counter p {
+.widget-body .widget-content p {
   line-height: 180%;
+  padding-top: 12px;
   padding-bottom: 12px;
 }
+#counter-widget .widget-body {
+  background: -webkit-linear-gradient(top, #4fb4c0 0%, #44a8b4 50%, #4fb4c0 51%, #44a8b4 100%);
+}
+#counter-widget .section-title:after {
+  content: "\e04d";
+}
 
+#paging_container .content {
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .075);
+}
 #paging_container .content > li {
   list-style: none;
+}
+#paging_container .content > li:hover {
+  background: rgba(0, 0, 0, .025);
 }
 
 .page_navigation > a {

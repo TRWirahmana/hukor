@@ -21,7 +21,7 @@
                 <div class="control-group">
                     {{ Form::label('nama', 'Nama Penanggung Jawab', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('nama', '', array('id' => 'nama')) }}
+                        {{ Form::text('nama', '', array('id' => 'nama', 'placeholder' => "Masukkan Nama Penanggung Jawab...")) }}
                     </div>
                 </div>
 
@@ -47,21 +47,21 @@
                 <div class="control-group">
                     {{ Form::label('tgl_lahir', 'Tanggal Lahir', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('tgl_lahir', '', array('id' => 'tgl_lahir', 'class' => 'datepicker')) }}
+                        {{ Form::text('tgl_lahir', '', array('id' => 'tgl_lahir', 'class' => 'datepicker', 'placeholder' => "Masukkan Tanggal Lahir...")) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('pekerjaan', 'Pekerjaan', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('pekerjaan', '', array('id' => 'pekerjaan')) }}
+                        {{ Form::text('pekerjaan', '', array('id' => 'pekerjaan', 'placeholder' => "Masukkan Pekerjaan...")) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('nip', 'NIP', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('nip', '', array('id'=>'nip')) }}
+                        {{ Form::text('nip', '', array('id'=>'nip', 'placeholder' => "Masukkan NIP...")) }}
                     </div>
                 </div>
 
@@ -69,28 +69,28 @@
                 <div class="control-group {{$errors->has('password')?'error':''}}">
                     {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::textarea('alamat_kantor', '', array('id'=>'alamat_kantor')) }}
+                        {{ Form::textarea('alamat_kantor', '', array('id'=>'alamat_kantor', 'placeholder' => "Masukkan Alamat Kantor...")) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('telp_kantor', '', array('id'=>'telp_kantor')) }}
+                        {{ Form::text('telp_kantor', '', array('id'=>'telp_kantor', 'placeholder' => "Masukkan Nomor Telepon Kantor...")) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('handphone', 'Telepon Genggam', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('handphone', '', array('id'=>'handphone')) }}
+                        {{ Form::text('handphone', '', array('id'=>'handphone' , 'placeholder' => "Masukkan Nomor Handphone...")) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('email', 'E-Mail', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('email', '', array('id'=>'email')) }}
+                        {{ Form::text('email', '', array('id'=>'email', 'placeholder' => "Masukkan Email...")) }}
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                 <div class="control-group">
                     {{ Form::label('status_perkara', 'Status Perkara', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('status_perkara', '', array('id' => 'status_perkara')) }}
+                        {{ Form::text('status_perkara', '', array('id' => 'status_perkara', 'placeholder' => "Masukkan Status Perkara...")) }}
                     </div>
                 </div>
 
@@ -136,7 +136,7 @@
                 <div class="control-group">
                     {{ Form::label('uraian', 'Uraian Singkat Mengenai Pokok Persoalan yang Dimohonkan Bantuan Hukum', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::textarea('uraian', '', array('id' => 'catatan')) }}
+                        {{ Form::textarea('uraian', '', array('id' => 'catatan', 'placeholder' => "Masukkan Uraian...")) }}
                     </div>
                 </div>
 
@@ -149,14 +149,14 @@
                 <div class="control-group">
                     {{ Form::label('catatan', 'Deskripsi', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::textarea('catatan', '', array('id' => 'catatan')) }}
+                        {{ Form::textarea('catatan', '', array('id' => 'catatan', 'placeholder' => "Masukkan Deskripsi...")) }}
                     </div>
                 </div>
 
 		<div class="control-group">
                     {{ Form::label('ket_lampiran', 'Keterangan Lampiran', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('ket_lampiran', '', array('id' => 'ket_lampiran')) }}
+                        {{ Form::text('ket_lampiran', '', array('id' => 'ket_lampiran', 'placeholder' => "Masukkan Keterangan Lampiran...")) }}
                     </div>
                 </div>	
 

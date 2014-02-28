@@ -152,7 +152,7 @@
         <div class="control-group">
             {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
             <div class="controls">
-                {{ Form::file('lampiran', array('id'=>'lampiran')) }}
+                {{ Form::file('lampiran[]', array('id'=>'lampiran', 'multiple' => true)) }}
             </div>
         </div>
 
@@ -360,7 +360,12 @@
                     // }
                 },
                 {mData: "catatan"},
-                {mData: "lampiran"},
+                {
+		    mData: "lampiran",
+                    mRender: function(data, type, full) {
+                             return '<a href="'+baseUrl+'/admin/bantuan_hukum/log/download/'+full.id+'">Unduh</a>';
+		    }
+		},
                 {
                     mData: "advokasi",
                     mRender: function(id){

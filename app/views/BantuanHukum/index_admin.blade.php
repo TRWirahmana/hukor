@@ -139,7 +139,8 @@
 
     var tbl_data = jQuery("#basictable").dataTable({
         bServerSide: true,
-//        bFilter:false,
+        bFilter:false,
+	bLengthChange: false,
         bProcessing: true,
         bPaginate: true,
         sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/datatable"); ?>',

@@ -228,6 +228,31 @@ class AdminController extends BaseController {
 
 		$input = Input::all();
 
+        $rules = array(
+            'nip' => 'required|numeric|unique:pengguna,nip',
+            'email' => 'required|email|unique:pengguna,email'
+        );
+
+        $messages = array(
+            'nip.required' => 'NIP tidak boleh kosong.',
+            'nip.numeric' => 'Format NIP harus numeric.',
+            'nip.unique' => 'NIP ini telah teregistrasi.',
+            'email.required' => 'Email tidak boleh kosong.',
+            'email.email' => 'Format email salah.',
+            'email.unique' => 'Email ini telah teregistrasi.',
+        );
+
+        $validator = Validator::make(Input::all(), $rules, $messages);
+
+        //message for new registration
+        if($validator->fails()){
+            foreach ($validator->messages()->all() as $message) {
+                return Redirect::route('admin.account.create')
+                    ->with('error', $message);
+            }
+
+        }
+
         /* save to table user */
 		$user = new User();
         $user->role_id = $input['role'];
@@ -239,6 +264,7 @@ class AdminController extends BaseController {
             /* save to table registrasi */
 			$registrasi = new Pengguna();
             $registrasi->user_id = $user->id;
+            $registrasi->nip = $input['nip'];
 			$registrasi->nama_lengkap = $input['nama_lengkap'];
             $registrasi->bagian = $input['bagian'];
             $registrasi->sub_bagian = $input['sub_bagian'];
@@ -505,6 +531,19 @@ class AdminController extends BaseController {
         $config->value = Input::get("value", "false");
         $config->save();
         exit;
+    }
+
+    public function subbagian(){
+
+        $bagian_id = Input::get('bagian_id');
+
+        $DAL = new DAL_Bagian();
+
+        $subbagian = $DAL->subbagian($bagian_id);
+//        echo json_encode($submenu);exit;
+
+        return Response::json(array('data' => $subbagian->get()->toArray()));
+
     }
 
 }

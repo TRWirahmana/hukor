@@ -2,7 +2,6 @@
 	@parent
 @stop
 @section('admin')
-
 <div class="rightpanel">
 
     <ul class="breadcrumbs">
@@ -10,7 +9,7 @@
         <li><a href="{{URL::previous()}}">Kelola Akun</a>  <span class="separator"></span></li>
         <li>{{$title}}</li>
     </ul>
-
+    @include('adminflash')
     <div class="pageheader">
 <!--        <form action="results.html" method="post" class="searchbar">-->
 <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
@@ -82,7 +81,8 @@
                     <div class="control-group">
                         {{ Form::label('sub_bagian', 'Pilih Sub Bagian', array('class' => 'control-label')) }}
                         <div class="controls">
-                            {{ Form::select('sub_bagian', $listsubbagian, $user->pengguna->sub_bagian, array("id" => "sub_bagian")) }}
+                            <select name="sub_bagian" id="sub_bagian">
+                            </select>
                         </div>
                     </div>
 

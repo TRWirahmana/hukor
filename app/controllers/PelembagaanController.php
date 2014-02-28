@@ -39,7 +39,7 @@ class PelembagaanController extends BaseController {
 				'title' => 'Tambah Akun',
 				'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',
 				'form_opts' => array(
-					'route' => 'store_pelembagaan',					
+					'route' => 'pelembagaan.store',					
 					'method' => 'post',
 					'class' => 'form-horizontal',
 		            'id' => 'pelembagaan-form',
@@ -55,26 +55,20 @@ class PelembagaanController extends BaseController {
 		if(Request::ajax())  
         	return Datatables::of(DAL_LogPelembagaan::getDataTable($id))->make(true);
 
-		$pelembagaan = Pelembagaan::find($id);
-		$user = Auth::user();
+        $user = Auth::user();
+		$DAL = new DAL_Pelembagaan();
+        $pelembagaan = $DAL->getPelembagaanById($id);
+        $penanggungJawab = $DAL->getPenangungJawab($id)[0];
 
     	$this->layout = View::make('layouts.admin');
-
 		if($user->role_id == 7){
 			$this->layout->content = View::make('Pelembagaan.update', array(
 				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
 				'detail' => '',
-				'form_opts' => array('route' => 'proses_update_pelembagaan','method' => 'post','class' => 'form-horizontal','id' => 'pelembagaan-update','files' => true),
+				'form_opts' => array('route' => 'proses_update_pelembagaan_admin','method' => 'post','class' => 'form-horizontal','id' => 'pelembagaan-update','files' => true),
 				'pelembagaan' => $pelembagaan,
 				'id' => $id,
-			));
-		} else if($user->role_id == 8) {
-			$this->layout->content = View::make('Pelembagaan.update', array(
-				'title' => 'Ubah Pelembagaan #' . $pelembagaan->id,
-				'detail' => '',
-				'form_opts' => array('route' => 'proses_update_pelembagaan_bahu','method' => 'post','class' => 'form-horizontal','id' => 'pelembagaan-update','files' => true),
-				'pelembagaan' => $pelembagaan,
-				'id' => $id,
+                'penanggungJawab' => $penanggungJawab,
 			));
 		} else if($user->role_id == 3) {
 			$this->layout->content = View::make('Pelembagaan.update', array(
@@ -83,6 +77,7 @@ class PelembagaanController extends BaseController {
 				'form_opts' => array('route' => 'proses_update_pelembagaan_admin','method' => 'post','class' => 'form-horizontal','id' => 'pelembagaan-update','files' => true),
 				'pelembagaan' => $pelembagaan,
 				'id' => $id,
+                'penanggungJawab' => $penanggungJawab,
 			));
 		}
 	}
@@ -95,8 +90,11 @@ class PelembagaanController extends BaseController {
         $DAL = new DAL_Pelembagaan();
         $helper = new HukorHelper();
 
-        $uploadSuccess = $helper->UploadFile('pelembagaan', Input::file('lampiran'));         // Upload File
-        $logPelembagaan =  $DAL->saveLogPelembagaan($input, Input::file('lampiran'), $id);	  // save pelembagaan
+       // $uploadSuccess = $helper->UploadFile('pelembagaan', Input::file('lampiran'));         // Upload File
+	$filenames = array();
+	$filenames = $helper->MultipleUploadFile('pelembagaan', Input::file('lampiran'));
+        
+	$DAL->saveLogPelembagaan($input, $filenames, $id);	  // save pelembagaan
 
 		// kirim usulan ke bagian per-uu
 		if(Input::get('status') == 2){
@@ -116,34 +114,36 @@ class PelembagaanController extends BaseController {
 		if($user->role_id == 3)
 			return Redirect::to('admin/pelembagaan')->with('success', 'Data berhasil diubah.');
 		else if($user->role_id == 7)
-			return Redirect::to('pelembagaan/index_pelembagaan')->with('success', 'Data berhasil diubah.');
+			return Redirect::to('admin/pelembagaan')->with('success', 'Data berhasil diubah.');
 	}  
 
 	public function store()
-	{
-        $input = Input::all();
-
+	{ 
+	$input = Input::all(); 
         $DAL = new DAL_Pelembagaan();
         $helper = new HukorHelper();
-
         // Upload File
-        $uploadSuccess = $helper->UploadFile('pelembagaan', Input::file('lampiran'));
+        //$uploadSuccess = $helper->UploadFile('pelembagaan', Input::file('lampiran'));
 
-        if($uploadSuccess) {
-        	$DAL->savePelembagaan($input, Input::file('lampiran'));         	// save pelembagaan
-        	$DAL->sendEmailToAllAdminPelembagaan();        						// send Email to admin
+	// Upload Multiple File
+	$filenames = array();
+	$filenames = $helper->MultipleUploadFile('pelembagaan', Input::file('lampiran'));
+
+        if($filenames) {
+//        	$DAL->savePelembagaan($input, Input::file('lampiran'));         	// save pelembagaan
+        	$DAL->savePelembagaan($input, $filenames);         	// save pelembagaan
+	       	$DAL->sendEmailToAllAdminPelembagaan();        						// send Email to admin
 
 			Session::flash('success', 'Data berhasil dikirim.');
-			return Redirect::to('pelembagaan/usulan');
 		} else {
 			Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
-			return Redirect::to('pelembagaan/usulan');
-		}					
+		}				
+		return Redirect::route('pelembagaan.create');	
 	}
 
 	public function destroy($id)
-	{
-		$pelembagaan = Pelembagaan::find($id);
+	{	
+			$pelembagaan = Pelembagaan::find($id);
 		if(!is_null($pelembagaan)) {
 			$pelembagaan->delete();
 		}
@@ -154,20 +154,47 @@ class PelembagaanController extends BaseController {
 		}
 	}
 
-	public function deleteLog($id){
-		$logPelembagaan = logPelembagaan::find($id);
+	public function deleteLog($id)
+    {
+		$logPelembagaan = LogPelembagaan::find($id);
 		if(!is_null($logPelembagaan)) {
 			$logPelembagaan->delete();
 		}
 	}
 	
 
-	public function downloadLampiran($id)
+     public function downloadLampiran($id)
     {
         $pelembagaan = Pelembagaan::find($id) or App::abort(404);
         $path = UPLOAD_PATH . '/pelembagaan/' . $pelembagaan->lampiran;
         return Response::download($path, explode('/', $pelembagaan->lampiran)[1]);
     }
+
+	public function downloadLampiranLog($id)
+{
+	if($log = LogPelembagaan::find($id))
+		return HukorHelper::downloadAsZIP(unserialize($log->lampiran));
+	return App::abort(404);
+}
+
+	public function download($id, $index = null) 
+	{
+		if($object = Pelembagaan::find($id)) 
+		{
+		$attachments = unserialize($object->lampiran);	
+		if(!empty($attachments) && null !== $index && isset($attachments[$index]) )
+		{
+			$filename = $attachments[$index];	
+			$originalName = explode('/', $filenam)[1];
+			$path = UPLOAD_PATH . DS . $filename;
+			if(file_exists($path))
+				return Response::download($path, $originalname);
+		} else {
+			return HukorHelper::downloadAsZIP($attachments);
+		}
+		}
+		return App::abort(404);
+	}
 
     public function printTable() {
     	

@@ -7,7 +7,7 @@
 
 @include('flash')
 
-    {{ Form::open(array('route' => 'save_bahu', 'method' => 'post',
+    {{ Form::open(array('route' => 'bantuan_hukum.store', 'method' => 'post',
                         'id' => 'user-registrasi-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal',
                         'enctype' => "multipart/form-data")) }}
 
@@ -64,6 +64,7 @@
                         {{ Form::text('nip', '', array('id'=>'nip')) }}
                     </div>
                 </div>
+
 
                 <div class="control-group {{$errors->has('password')?'error':''}}">
                     {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label')) }}
@@ -141,28 +142,31 @@
 
 
                 <div class="nav nav-tabs">
-                    <h4>INFORMASI LAMPIRAN</h4>
-                </div>
-                <div class="control-group">
-                    {{ Form::label('ket_lampiran', 'Keterangan Lampiran', array('class' => 'control-label')) }}
-                    <div class="controls">
-                        {{ Form::text('ket_lampiran', '', array('id' => 'ket_lampiran')) }}
-                    </div>
+                    <h4>INFORMASI USULAN</h4>
                 </div>
 
-                <div class="control-group">
-                    {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
-                    <div class="controls">
-                        {{ Form::file('lampiran', array('id'=>'lampiran')) }}
-                    </div>
-                </div>
 
                 <div class="control-group">
-                    {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
+                    {{ Form::label('catatan', 'Deskripsi', array('class' => 'control-label')) }}
                     <div class="controls">
                         {{ Form::textarea('catatan', '', array('id' => 'catatan')) }}
                     </div>
                 </div>
+
+		<div class="control-group">
+                    {{ Form::label('ket_lampiran', 'Keterangan Lampiran', array('class' => 'control-label')) }}
+                    <div class="controls">
+                        {{ Form::text('ket_lampiran', '', array('id' => 'ket_lampiran')) }}
+                    </div>
+                </div>	
+
+		<div class="control-group">
+                    {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
+                    <div class="controls">
+                        {{ Form::file('lampiran[]', array('id'=>'lampiran', 'multiple' => true)) }}
+                    </div>
+                </div>
+
             </div>
         </div>
 

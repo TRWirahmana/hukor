@@ -25,7 +25,7 @@ class DAL_Pelembagaan {
         return $data;
     }  
 
-    public function savePelembagaan($input, $file) 
+    public function savePelembagaan($input, array $filenames ) 
     {
         $pelembagaan = new Pelembagaan;
 
@@ -33,7 +33,8 @@ class DAL_Pelembagaan {
         $pelembagaan->jenis_usulan = $input['jenis_usulan'];
         $pelembagaan->perihal = $input['perihal'];
         $pelembagaan->catatan = $input['catatan'];
-        $pelembagaan->lampiran = $file->getClientOriginalName();
+       // $pelembagaan->lampiran = $file->getClientOriginalName();
+	$pelembagaan->lampiran = serialize($filenames);
         $pelembagaan->status = 0;   // status default = 0 (belum di proses)
         $pelembagaan->tgl_usulan = Carbon::now();
         $pelembagaan->save();
@@ -52,6 +53,7 @@ class DAL_Pelembagaan {
         $penanggungJawab->unit_kerja = $input['unit_kerja'];
         $penanggungJawab->alamat_kantor = $input['alamat_kantor'];
         $penanggungJawab->telp_kantor = $input['telp_kantor'];
+        $penanggungJawab->hp = $input['hp'];
         $penanggungJawab->email = $input['email'];
         $penanggungJawab->save();
     }
@@ -60,11 +62,17 @@ class DAL_Pelembagaan {
         return Pelembagaan::find($id);
     }
 
+//    public static function getPenangungJawab($idPelembagaan)
+//    {
+//        return DB::table('penanggung_jawab_pelembagaan')->
+//                    where('pelembagaan_id', '=', $idPelembagaan);
+//    }
+
     public static function getPenangungJawab($idPelembagaan)
     {
-        return DB::table('penanggung_jawab_pelembagaan')->
-                    where('pelembagaan_id', '=', $idPelembagaan)->get(); 
+        return PenanggungJawabPelembagaan::where('pelembagaan_id', '=', $idPelembagaan )->get();
     }
+
 
     public static function sendToPerUU($idPelembagaan)
     {
@@ -89,11 +97,12 @@ class DAL_Pelembagaan {
         $penanggungJawab->unit_kerja = $penanggungJawabPelembagaan[0]->unit_kerja;
         $penanggungJawab->alamat_kantor = $penanggungJawabPelembagaan[0]->alamat_kantor;
         $penanggungJawab->telepon_kantor = $penanggungJawabPelembagaan[0]->telp_kantor;
+        $penanggungJawab->no_handphone = $penanggungJawabPelembagaan[0]->hp;
         $penanggungJawab->email = $penanggungJawabPelembagaan[0]->email;
         $penanggungJawab->save();
     }
 
-    public function saveLogPelembagaan($input, $file, $id)
+    public function saveLogPelembagaan($input, array $filenames, $id)
     {
         $pelembagaan = Pelembagaan::find($id);
 
@@ -101,7 +110,8 @@ class DAL_Pelembagaan {
         $log_pelembagaan->status = $input['status'];
         $log_pelembagaan->catatan = $input['catatan'];
         $log_pelembagaan->keterangan = $input['keterangan'];
-        $log_pelembagaan->lampiran = $file->getClientOriginalName();
+	$log_pelembagaan->lampiran = serialize($filenames);
+       // $log_pelembagaan->lampiran = $file->getClientOriginalName();
         $log_pelembagaan->pelembagaan_id = $id;
         $log_pelembagaan->tgl_proses = Carbon::now();
         $log_pelembagaan->save();
@@ -169,7 +179,7 @@ class DAL_Pelembagaan {
     }
 
   public static function getPrintTable($status, $firstDate, $lastDate) {
-        $data = Self::getDataTable($status, $firstDate, $lastDate)->get();
+        $data = self::getDataTable($status, $firstDate, $lastDate)->get();
         $result = array();
 
         foreach($data as $index => $pelembagaan) {

@@ -1,15 +1,39 @@
-@section('content')
+@section('admin')
 
+<div class="rightpanel">
 
-<h2>BANTUAN HUKUM</h2>
-<div class="stripe-accent"></div>
-<legend>Bantuan Hukum</legend>
+    <ul class="breadcrumbs">
+        <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
+        <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
+        <li>BANTUAN HUKUM</li>
+    </ul>
+    @include('adminflash')
+    <div class="pageheader">
+        <!--        <form action="results.html" method="post" class="searchbar">-->
+        <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
+        <!--        </form>-->
+        <div class="pageicon">&nbsp;</div>
+        <div class="pagetitle">
+            <!--<h5>Events</h5>-->
+
+            <h1>Detail Bantuan Hukum</h1>
+        </div>
+    </div>
+    <!--pageheader-->
+
+    <div class="maincontent">
+        <div class="maincontentinner">
+
+            <!-- MAIN CONTENT -->
+
+<legend>Perbaharui Usulan</legend>
 
 @include('flash')
-
 {{ Form::open(array('route' => array('admin.bantuan_hukum.update', $banhuk->id), 'method' => 'put',
 'id' => 'user-registrasi-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal',
 'enctype' => "multipart/form-data")) }}
+
+
 
 {{ Form::hidden('id', $banhuk->id, array('id' => 'id')) }}
 <div class="row-fluid">
@@ -232,7 +256,7 @@
         <div class="control-group">
             {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
             <div class="controls">
-                <a href="<?php echo URL::to('site') . '/download_banhuk?id=' . $banhuk->id; ?>">Download Lampiran</a>
+                <a href="{{ URL::route('bantuan_hukum.download', array('id' => $banhuk->id)) }}">Download Lampiran</a>
             </div>
         </div>
 
@@ -251,7 +275,7 @@
 <div class="row-fluid">
     <div class="span24 text-center">
         <button class="btn btn-primary" type="submit">Simpan</button>
-        <a class="btn btn-primary" type="button" href="{{URL::to('BantuanHukum')}}">Batal</a>
+        <a class="btn btn-primary" type="button" href="{{URL::to('admin/bantuan_hukum')}}">Batal</a>
     </div>
 </div>
 {{ Form::close() }}
@@ -270,9 +294,33 @@
     </thead>
 </table>
 
-    @section('scripts')
-    @parent
+
+                <!-- END OF MAIN CONTENT -->
+
+                <div class="footer">
+                <div class="footer-left">
+                    <span>&copy; 2013. Admin Template. All Rights Reserved.</span>
+                </div>
+                <div class="footer-right">
+                    <span></span>
+                </div>
+            </div>
+            <!--footer-->
+        </div>
+        <!--maincontentinner-->
+    </div>
+    <!--maincontent-->
+
+
+</div>
+<!--rightpanel-->
+
+@stop
+
+@section('scripts')
+@parent
     <script type="text/javascript">
+        jQuery(function($){
         var tbl_data = $("#basictable").dataTable({
             bFilter: false,
             bInfo: false,
@@ -282,7 +330,7 @@
             bServerSide: true,
             bProcessing: true,
     //                sAjaxSource: baseUrl + "/lkpm/data",
-            sAjaxSource: '<?php echo URL::to("log_banhuk"); ?>',
+            sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/tablelog"); ?>',
             aoColumns: [
                 {mData: "tanggal"},
                 {
@@ -336,7 +384,7 @@
                 {
                     mData: "id",
                     mRender: function(data){
-                        var deleteUrl = baseUrl + '/admin/bantuan_hukum/delete_log/=' + data;
+                        var deleteUrl = baseUrl + '/admin/bantuan_hukum/delete_log/' + data;
 
                         return '<a href="' + deleteUrl + '" class="btn_delete"><i class="icon-trash"></i></a>';
                     }
@@ -354,6 +402,6 @@
                 });
             }
         });
+    })
     </script>
-    @stop
 @stop

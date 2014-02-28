@@ -93,8 +93,11 @@ class DAL_BantuanHukun
      * fungsi untuk insert data ke table bantuan_hukum
      */
 
-    public function SaveBantuanHukum($input, $file)
+    public function SaveBantuanHukum($input, array $filenames)
     {
+
+//	var_dump($filenames);
+//	exit;
         $bantuanHukum = new BantuanHukum;
 
         //pasrse input data to fields
@@ -104,9 +107,9 @@ class DAL_BantuanHukun
         $bantuanHukum->status_pemohon = $input['status_pemohon'];
         $bantuanHukum->uraian_singkat = $input['uraian'];
         $bantuanHukum->catatan = $input['catatan'];
-        $bantuanHukum->lampiran = $file->getClientOriginalName();
+        //$bantuanHukum->lampiran = $file->getClientOriginalName();
+        $bantuanHukum->lampiran = serialize($filenames);
         $bantuanHukum->ket_lampiran = $input['ket_lampiran'];
-
         $bantuanHukum->save();
 
         $this->InsertPenanggungJawab($bantuanHukum->id, $input);
@@ -194,6 +197,17 @@ class DAL_BantuanHukun
                     'iTotalDisplayRecords' => $iTotalDisplayRecords
         ));
     }
+
+
+
+
+
+
+
+
+
+
+
 
     /*
      * fungsi untuk menghapus data dan file upload bantuan hukum

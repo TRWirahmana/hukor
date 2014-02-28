@@ -57,16 +57,16 @@
                 Form::text('username', '', array(
                 'class'=>'username validate[required] text-input',
                 'id'=>'username',
-                'placeholder'=>'ketikkan username di sini...'
+                'placeholder'=>'Masukan username di sini...'
                 ))
                 }}
             </div>
             <div class="inputwrapper animate2 bounceIn">
                 {{ Form::password('password', array('class'=>'password validate[required] text-input',
-                'id'=>'password','placeholder'=>'ketikkan password di sini...')) }}
+                'id'=>'password','placeholder'=>'Masukan password di sini...')) }}
             </div>
             <div class="inputwrapper animate3 bounceIn">
-                <button class="btn" id="btn-signin" type="submit">Sign in</button>
+                <button class="btn" id="btn-signin" type="submit">Masuk</button>
             </div>
 
         {{ Form::close() }}

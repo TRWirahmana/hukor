@@ -51,6 +51,7 @@ class LayananController extends BaseController {
         $listSubmenu = array("" => "Pilih Submenu") + Submenu::lists("nama_submenu", "id");
 
 //        $submenu = Submenu::select('id', 'nama_submenu');
+        $listPJ = array("" => "-- Pilih Bagian --") + Bagian::lists('nama_bagian', 'id');
 
         $this->layout = View::make('layouts.admin');
 
@@ -66,6 +67,7 @@ class LayananController extends BaseController {
             ),
                 'listSubmenu' => $listSubmenu,
                 'listMenu' => $listMenu,
+                'listPJ' => $listPJ,
                 'menu' => new Menu()
             ));
 
@@ -85,6 +87,7 @@ class LayananController extends BaseController {
 
         $listSubmenu = array("" => "Pilih Submenu") + Submenu::lists("nama_submenu", "id");
 
+        $listPJ = array("" => "-- Pilih Bagian --") + Bagian::lists('nama_bagian', 'id');
         $layanan = Layanan::find($id);
 
         if(!is_null($layanan))
@@ -100,6 +103,7 @@ class LayananController extends BaseController {
                 'menu' => $layanan,
                 'listMenu' => $listMenu,
                 'listSubmenu' => $listSubmenu,
+                'listPJ' => $listPJ,
             ));
     }
 

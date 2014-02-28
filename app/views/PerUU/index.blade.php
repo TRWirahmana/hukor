@@ -78,7 +78,7 @@
                             <th>#</th>
                             <th>Tgl Usulan</th>
                             <th>Unit Kerja</th>
-                            <th>Jabatan</th>
+                            <!--<th>Jabatan</th>-->
                             <th>Perihal</th>
                             <th>Status</th>
                             <th></th>
@@ -155,10 +155,10 @@
                         mData: "unit_kerja",
                         sWidth: "10%"
                     },
-                    {
-                        mData: "nama_jabatan",
-                        sWidth: "10%"
-                    },
+                    //{
+                    //    mData: "nama_jabatan",
+                    //    sWidth: "10%"
+                    //},
                     {
                         mData: "perihal",
                         sWidth: "30%"
@@ -194,10 +194,10 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            var btns = new Array("<a href='/puu/download/" + data + "'><i class='icon-download'></i></a> ");
+                            var btns = new Array("<a href='"+baseUrl+"/puu/download/" + data + "'><i class='icon-download'></i></a> ");
                             if(all._role_id == 3 || all._role_id == 6) {
-                                btns.push("<a href='/admin/puu/" + data + "/edit'><i class='icon-edit'></i></a> "); 
-                                btns.push("<a data-delete href='/admin/puu/"+data+"'><i class='icon-trash'></i></a>");   
+                                btns.push("<a href='"+baseUrl+"/admin/puu/" + data + "/edit'><i class='icon-edit'></i></a> "); 
+                                btns.push("<a data-delete href='"+baseUrl+"/admin/puu/"+data+"'><i class='icon-trash'></i></a>");   
                             }
                             return  btns.join("&nbsp;");
                         }

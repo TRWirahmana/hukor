@@ -68,7 +68,7 @@
 
         <ul class="welcome-message user-not-null-links">
           <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span>User settings</a></li>
-          <li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span>Sign out</a></li>
+          <li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span>Keluar</a></li>
         </ul>
         @else
         <p id="username" class="welcome-message">Selamat datang <span id="name">guest</span></p>
@@ -97,12 +97,12 @@
           Form::text('username', '', array(
           'class'=>'username validate[required] text-input',
           'id'=>'username',
-          'placeholder'=>'ketikkan email anda di sini...'
+          'placeholder'=>'Masukan email anda di sini...'
           ))
           }}
           {{ Form::password('password', array('class'=>'password validate[required] text-input',
-          'id'=>'password','placeholder'=>'ketikkan password di sini...')) }}
-          <button class="btn" id="btn-signin" type="submit">Sign in</button>
+          'id'=>'password','placeholder'=>'Masukan password di sini...')) }}
+          <button class="btn" id="btn-signin" type="submit">Masuk</button>
           <a href="{{URL::to('forget')}}"> Lupa password? </a>
           <a href="{{URL::to('registrasi')}}" class="pull-right">Belum memiliki akun?</a>
           {{ Form::close() }}
@@ -158,7 +158,7 @@
 <!--            <li id="menu-layanan-bantuan-hukum"><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>-->
 <!--            <li id="menu-layanan-peraturan-perundangan"><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>-->
             @if (null != AppConfig::find('enable_forum') && AppConfig::find('enable_forum')->value == "true")
-              <li id="menu-forum"><a href="{{ URL::to('forumdiskusi') }}"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
+              <li id="menu-forum"><a href="#"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
             @endif
             <li id="menu-call-center"><a href="{{ URL::to('callcenter') }}"><span class="rulycon-phone"></span>Call Center</a></li>
 
@@ -259,9 +259,9 @@
                                   <ul>
                                       <li id="menu-bantuan-hukum-info"><a href="{{ URL::to('/layanan/detail?id=3') }}"><span class="rulycon-checkbox-unchecked"></span>Bantuan Hukum</a></li>
                                       @if($user->role_id == 2)
-                                      <li id="menu-bantuan-hukum"><a href="{{ URL::to('bantuanhukum/addbahu') }}"><span class="rulycon-envelop"></span>Lembar Usulan</a></li>
+                                      <li id="menu-bantuan-hukum"><a href="{{ URL::route('bantuan_hukum.create') }}"><span class="rulycon-envelop"></span>Lembar Usulan</a></li>
                                       @endif
-                                      <li id="menu-banhuk-informasi"><a href="{{ URL::to('BantuanHukum') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan</a></li>
+                                      <li id="menu-banhuk-informasi"><a href="{{ URL::route('bantuan_hukum.index') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan</a></li>
                                   </ul>
                               </div>
                           </div>
@@ -287,6 +287,25 @@
 <script src="{{asset('assets/js/jquery.ui.datepicker.js')}}"></script>
 <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/js/DatatableReloadAjax.js')}}"></script>
+<script>
+    $('#menu-forum').click(function(){
+        var user = '<?php echo Auth::user(); ?>';
+
+        if(user)
+        {
+            window.location.replace("{{ URL::to('forumdiskusi') }}");
+        }
+        else
+        {
+            var r = confirm("Anda Belum Login. Harap Login Terlebih Dahulu. Klik OK Untuk Registrasi Jika Anda Belum Memiliki Akun.");
+            if (r==true)
+            {
+                window.location.replace("{{URL::to('registrasi')}}");
+            }
+        }
+
+    });
+</script>
 @show
 </body>
 </html>

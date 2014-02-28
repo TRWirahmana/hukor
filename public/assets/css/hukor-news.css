@@ -27,7 +27,7 @@ p {
   z-index: 10001;
 }
 .header {
-  background: #064d95;
+  background: #2980b9;
   padding: 0 20px;
   height: auto;
   box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);
@@ -40,7 +40,7 @@ p {
   /*background: rgba(0, 0, 0, .075);*/
 }
 .header .logo img {
-  padding-top: 28px;
+  padding-top: 20px;
   padding-bottom: 4px;
 }
 .headmenu > li {
@@ -50,15 +50,13 @@ p {
 .headmenu > li, .headmenu > li.odd {
   background: transparent;
   border: none;
-  margin-left: 1px;
+  margin-left: 6px;
 }
 .headmenu > li > a, .headmenu > li.odd > a {
-  background: rgba(0, 0, 0, .15);
-  padding: 32px 8px 16px;
+  background: transparent;
+  padding: 32px 8px 18px;
   text-align: center;
-}
-.headmenu > li > a:hover {
-  background: rgba(0, 0, 0, .25);
+  box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);
 }
 .headmenu > li > a > span[class *= "rulycon"] {
   font-size: 11px;
@@ -87,6 +85,18 @@ p {
   /*margin-top: -2px;
   padding-bottom: 12px;*/
 }
+.headmenu > li:nth-child(1) > a { background: #4fb4c0; }
+.headmenu > li:nth-child(2) > a { background: #00a5e2; }
+.headmenu > li:nth-child(3) > a { background: #5eb35e; }
+.headmenu > li:nth-child(4) > a { background: #e19544; }
+.headmenu > li:nth-child(5) > a { background: #dc5f3a; }
+.headmenu > li:nth-child(6) > a { background: #c64040; }
+/*.headmenu > li:nth-child(1) > a { background: #5fc6d2; }
+.headmenu > li:nth-child(2) > a { background: #00BAFF; }
+.headmenu > li:nth-child(3) > a { background: #6ec36e; }
+.headmenu > li:nth-child(4) > a { background: #d29a5f; }
+.headmenu > li:nth-child(5) > a { background: #EC643C; }
+.headmenu > li:nth-child(6) > a { background: rgba(0, 0, 0, .25); }*/
 .headmenu .dropdown-menu {
   display: block;
   width: 100%;
@@ -95,7 +105,10 @@ p {
   margin: 0 !important;
 }
 .sub-header {
-  background: url("../images/leftpanelbg.png") repeat;
+  background: #226c9c;
+  display: block;
+  width: 100%;
+  min-height: 33px;
 }
 .sub-menu ul {
   display: inline-table;
@@ -140,6 +153,7 @@ p {
 .sub-menu .has-child > ul li a {
   margin-right: 0;
   padding: 8px 16px;
+  display: block;
 }
 .sub-menu .has-child > ul li a:hover {
   background: rgba(0, 0, 0, .25);
@@ -149,7 +163,7 @@ p {
   opacity: 1;
 }
 .content-wrapper {
-  margin-top: 136px;
+  margin-top: 160px;
 }
 .maincontent {
   background: url("../images/bg1.png") repeat;
@@ -157,24 +171,35 @@ p {
 }
 #main-carousel {
   margin-bottom: 32px;
+  border: 6px solid #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .075);
 }
 #main-carousel.boxed {
   margin-top: 32px;
-}
-.carousel.slide > .container {
-  position: relative;
 }
 .carousel-inner > .item {
 }
 .carousel-inner > .item > img {
   width: 100%;
 }
+.carousel-caption {
+  background: rgba(255, 255, 255, .25);
+  padding: 16px 24px;
+}
+.carousel-caption h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.carousel-caption p {
+  line-height: 120%;
+}
 .boxed .carousel-indicators {
   top: 16px;
   right: 16px;
 }
 .carousel-indicators {
-  right: 0;
+  right: 24px;
   top: 24px;
 }
 .carousel-indicators li {
@@ -209,7 +234,7 @@ p {
 }
 .section-title {
   position: relative;
-  background: #dc3c00;
+  background: #2980b9;
   color: #ffffff;
   padding: 12px 24px;
   font-weight: normal;
@@ -217,7 +242,7 @@ p {
   box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
 }
 .section-title#widgets {
-  background: #02A29E;
+  background: #2980b9;
 }
 .section-title#news-feed:after, .section-title#widgets:after {
   font-family: Rulycons;
@@ -262,23 +287,6 @@ p {
   font-style: italic;
   font-size: 20px;
 }
-.news-content .date-time.pull-right {
-  font-family: "Monaco", monospace;
-  font-size: 10px;
-  color: #ffffff;
-  background: #dc3c00;
-  padding: 24px 12px;
-  box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
-  text-align: center;
-  margin-top: -32px;
-}
-.news-content .date-time .date {
-  display: block;
-  width: 100%;
-  font-size: 32px;
-  margin-top: 2px;
-  margin-bottom: 1px;
-}
 .pagination {
   margin-top: 24px;
   margin-bottom: 24px;
@@ -286,13 +294,18 @@ p {
 .pagination ul {
   box-shadow: none;
 }
+.pagination > ul > li a {
+  margin-right: 6px;
+  padding: 6px 12px;
+  border: none;
+}
 .pagination > ul > li.disabled a {
-  color: rgba(0, 0, 0, .55);
+  background: #2980b9;
+  color: #ffffff;
 }
 .pagination > ul > li a {
-  border-color: rgba(220, 60, 0, .25);
-  background: rgba(255, 255, 255, .55);
-  color: #dc3c00;
+  background: #ffffff;
+  color: #2980b9;
 }
 .pagination > ul > li a:hover {
   background: transparent;
@@ -302,7 +315,7 @@ p {
   /*background: #02A29E;*/
   background: url("../images/leftpanelbg.png") repeat;
   color: #ffffff;
-  box-shadow: inset 0 8px 0 rgba(0, 0, 0, .25);
+  box-shadow: inset 0 8px 0 #1e577e;
 }
 .footer address {
   margin-bottom: 12px;
@@ -341,17 +354,69 @@ p {
 .rulycon-linkedin { background: #0077b5; }
 .rulycon-yahoo { background: #6e329d; }
 
-.rowsy{
-    display: block;
-    width: 100%;
-}
 .rowsy ul {
-    display: inline-block;
-    width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 100%;
+  min-height: 68px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, .055);
+  margin-bottom: 24px;
+  text-align: center;
+}
+.rowsy li {
+  display: inline-block;
+  list-style: none;
+  width: 9.0909%;
+  text-align: center;
+}
+.rowsy li img {
+  width: 95%;
 }
 
-.rowsy ul li{
-    display: inline-block;
-    width:8%;
-    margin-left:4px;
+#visitor-counter {
+  display: block;
+  width: 100%;
+  margin: 4px 0 24px;
+  background: #2980b9;
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
 }
+#visitor-counter #header {
+  text-align: left;
+  color: #ffffff;
+  padding: 12px 24px;
+}
+#visitor-counter #counter {
+  color: #ffffff;
+  text-align: center;
+  font-family: "monacoregular", "Monaco", monospace;
+  font-size: 36px;
+}
+#visitor-counter #counter p {
+  line-height: 180%;
+  padding-bottom: 12px;
+}
+
+#paging_container .content > li {
+  list-style: none;
+}
+
+.page_navigation > a {
+  background: #ffffff;
+  padding: 12px 8px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.page_navigation > a:hover {
+  cursor: pointer;
+}
+.page_navigation > a:first-child { margin-left: 0; }
+.page_navigation > a:last-child { margin-right: 0; }
+.page_navigation > a.active_page, .page_navigation > a.no_more,
+.page_navigation > a:hover {
+  background: #2980b9;
+  color: #ffffff;
+  cursor: default;
+}
+

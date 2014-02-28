@@ -380,6 +380,7 @@ class RegistrasiController extends BaseController {
 
     public function form(){
 
+
         $this->layout->content = View::make('registrasi.form', array(
 //            'date' => RetaneHelper::listDate()
         ));
@@ -484,6 +485,7 @@ class RegistrasiController extends BaseController {
         $tlp_ktr = Input::get('tlp_kantor');
         $hp = Input::get('handphone');
         $uk = Input::get('unit_kerja');
+        $tempat = Input::get('tempat_lahir');
         $code = Input::get('code');
 
 //        var_dump($captcha);die;
@@ -527,7 +529,7 @@ class RegistrasiController extends BaseController {
 
             if ($data !== 0) {
                 $dal_user = new DAL_User();
-                $dal_user->SetPengguna($data, $email, $nama, $nip, $jabatan, $jk, $tgl_lahir, $pekerjaan, $alamat_kantor, $tlp_ktr, $hp, $uk);
+                $dal_user->SetPengguna($data, $email, $nama, $nip, $jabatan, $jk, $tgl_lahir, $pekerjaan, $alamat_kantor, $tlp_ktr, $hp, $uk, $tempat);
                 $dal_user->SaveBiodata($data);
 
                 // register user to forum database!
@@ -542,7 +544,7 @@ class RegistrasiController extends BaseController {
                 $forumUser->save();
 
 //            $this->sendMail($username, $password, $email);
-                Session::flash('success', 'Registrasi berhasil. Silahkan login kedalam sistem!');
+                Session::flash('success', 'Registrasi berhasil. Silahkan login.');
                 return Redirect::to('site');
             } else {
                 Session::flash('error', 'Registrasi gagal! Harap ulangi dan Pastikan alamat email anda valid!');

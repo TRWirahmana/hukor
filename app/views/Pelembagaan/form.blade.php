@@ -6,15 +6,14 @@
 
 
 @include('flash')
-	{{ Form::open($form_opts) }}
-
+{{ Form::open($form_opts) }}
     {{ Form::hidden('id', $user->id, array('id' => 'id')) }}
     
-		<div class="row-fluid">
-			<div class="span12">
-				<fieldset>
-		              <legend>Informasi Pengusul</legend>		
-					<div class="control-group">		
+	<div class="row-fluid">
+		<div class="span12">
+			<fieldset>
+	              <legend>Informasi Pengusul</legend>		
+				<div class="control-group">		
 						{{ Form::label('jenis_usulan', 'Jenis Usulan', array('class' => 'control-label'))}}
 						<div class="controls">
 							{{ Form::select('jenis_usulan', array('' => 'Pilih Jenis Usulan','1' => 'Pendirian', '2' => 'Perubahan', '3' => 'Statuta', '4' => 'Penutupan' )); }}
@@ -22,18 +21,19 @@
 					</div>
 					
 					<div class="control-group">
+						{{ Form::label('nip', "NIP", array('class' => 'control-label'))}}
+						<div class="controls">
+							{{ Form::text('nip')}}
+						</div>
+					</div>
+				
+					<div class="control-group">
 						{{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label'))}}
 						<div class="controls">
 							{{ Form::text('unit_kerja') }}
 						</div>
 					</div>		
 
-					<div class="control-group">
-						{{ Form::label('nip', "NIP", array('class' => 'control-label'))}}
-						<div class="controls">
-							{{ Form::text('nip')}}
-						</div>
-					</div>
 
 					<div class="control-group">
 						{{ Form::label('nama_pemohon', "Nama Pemohon", array('class' => 'control-label'))}}					
@@ -45,7 +45,7 @@
 					<div class="control-group">
 						{{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label'))}}
 						<div class="controls">
-							{{ Form::text('alamat_kantor') }}
+							{{ Form::textarea('alamat_kantor') }}
 						</div>
 					</div>	
 
@@ -55,35 +55,43 @@
 							{{ Form::text('telp_kantor') }}
 						</div>
 					</div>
-					<div class="control-group">
-						{{ Form::label('pos_el', 'Pos_el', array('class' => 'control-label'))}}
-						<div class="controls">
-							{{ Form::text('email', $user->pengguna->email) }}
-						</div>
-					</div>	
+
+                    <div class="control-group">
+                        {{ Form::label('hp', 'Handphone', array('class' => 'control-label'))}}
+                        <div class="controls">
+                            {{ Form::text('hp') }}
+                        </div>
+                    </div>
+
+
+			<div class="control-group">
+			{{ Form::label('pos_el', 'Email', array('class' => 'control-label'))}}
+			<div class="controls">
+				{{ Form::text('email', $user->pengguna->email) }}
+			</div>
+			</div>	
 				</fieldset>
 			</div>
 
 
 			<div class="span12">
 				<fieldset>
-		              <legend> Informasi Perihal & Lampiran
+		              <legend> Informasi Usulan
 		              </legend>
 					<div class="control-group">
 					{{ Form::label("perihal", "Perihal", array('class' => 'control-label')) }}
 						<div class="controls">{{ Form::text('perihal', $pelembagaan->perihal) }}</div>
 					</div>
-
-					<div class="control-group">
-					{{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
-						<div class="controls">
-							{{ Form::file('lampiran') }}</div>
-					</div>
 					<div class="control-group">
 					{{ Form::label('catatan', "Keterangan", array('class' => 'control-label')) }}
 						<div class="controls">{{ Form::textarea('catatan', $pelembagaan->catatan) }}</div>
 					</div>
-				</fieldset>
+					<div class="control-group">
+					{{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
+						<div class="controls">
+							{{ Form::file('lampiran[]', array('multiple' => true)) }}</div>
+					</div>
+			</fieldset>
 			</div>
 		</div>
 

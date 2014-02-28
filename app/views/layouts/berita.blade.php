@@ -82,6 +82,12 @@
                                 <span class="headmenu-label">Produk Hukum</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="#" id="forum_diskusi">
+                                <span class="rulycon-notebook"></span>
+                                <span class="headmenu-label">Forum</span>
+                            </a>
+                        </li>
                         <li class="odd">
                             <a href="{{URL::to('site')}}">
                                 <span class="rulycon-user"></span>
@@ -122,21 +128,21 @@
 
                 <ul class="sub-menu" id="sub-aplikasi" style="display: none">
                     <li class="has-child">
-                        <a href="#">Peraturan Perundang-undangan</a>
+                        <a href="#"><span class="rulycon-notebook"> &nbsp; Peraturan Perundang-undangan </span></a>
                         <ul>
                             <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Peraturan Perundang-undangan</a></li>
-                            <li><a href="{{URL::route('per_uu.informasi')}}">Informasi dan Status Usulan</a></li>
+                            <li><a href="{{URL::route('puu.index')}}">Informasi dan Status Usulan</a></li>
                         </ul>
                     </li>
                     <li class="has-child">
-                        <a href="#">Pelembagaan</a>
+                        <a href="#"><span class="rulycon-file-3"> &nbsp; Pelembagaan</span></a>
                         <ul>
                             <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Pelembagaan</a></li>
                             <li><a href="{{ URL::route('pelembagaan.index') }}">Informasi dan Status Usulan</a></li>
                         </ul>
                     </li>
                     <li class="has-child">
-                        <a href="#">Ketatalaksanaan</a>
+                        <a href="#"><span class="rulycon-file-4"> &nbsp; Ketatalaksanaan</span></a>
                         <ul>
                             <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>
                             <li><a href="{{URL::route('sp.index')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
@@ -146,10 +152,10 @@
                         </ul>
                     </li>
                     <li class="has-child">
-                        <a href="#">Bantuan Hukum</a>
+                        <a href="#"><span class="rulycon-stack"> &nbsp; Bantuan Hukum</span></a>
                         <ul>
                             <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>
-                            <li><a href="{{ URL::to('BantuanHukum') }}">Informasi dan Status Usulan</a></li>
+                            <li><a href="{{ URL::route('bantuan_hukum.index') }}">Informasi dan Status Usulan</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -167,23 +173,39 @@
         <div class="container">
             <div class="rowsy">
                 <ul>
-                    <li> <a href="http://kemdikbud.go.id"><img src="{{asset('assets/img/satu.png')}}"></a> </li>
-                    <li><a href="http://setjen.kemdikbud.go.id"><img src="{{asset('assets/img/2.png')}}" alt=""></a></li>
-                    <li><a href="http://paudni.kemdikbud.go.id"><img src="{{asset('assets/img/3.png')}}" alt=""></a></li>
-                    <li><a href="http://dikdas.kemdikbud.go.id"><img src="{{asset('assets/img/4.png')}}" alt=""></a></li>
-                    <li><a href="http://dikmen.kemdikbud.go.id"><img src="{{asset('assets/img/5.png')}}" alt=""></a></li>
-                    <li><a href="http://dikti.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/6.png')}}" alt=""></a></li>
-                    <li><a href="http://itjen.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/7.png')}}" alt=""></a></li>
-                    <li><a href="http://litbang.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/8.png')}}" alt=""></a></li>
-                    <li><a href="http://badanbahasa.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/9.png')}}" alt=""></a></li>
-                    <li><a href="http://bpsdmpk.kemdikbud.go.id"><img src="{{asset('assets/img/logo_ditjenbud/10.png')}}" alt=""></a></li>
-                    <li><a href="http://kebudayaanindonesia.net"><img src="{{asset('assets/img/logo_ditjenbud/11.png')}}" alt=""></a></li>
+                    <?php
+                    $DAL = new DAL_Dikbud();
+                    $link_dikbud = $DAL->GetAllLink();
+                    ?>
+                    @foreach($link_dikbud as $dikbud)
+                    <?php $link = "http://" . $dikbud->link; ?>
+                    <?php $assets = asset('assets/img/'.$dikbud->gambar); ?>
+                        <li> <a href="{{ $link }}"><img src="{{ $assets }}"></a> </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
         <div class="container">
 
             <div class="row-fluid">
+              <?php $call = CallCenter::find(1); ?>
+              <div class="span3">
+                <address>
+                  <span>Kementerian Pendidikan Dan Kebudayaan Republik Indonesia</span><br/>
+                  <br/>
+                  {{ $call->alamat }} <br/>
+                  <span class="rulycon-phone"></span> {{ $call->telp }}<br/>
+                  <span class="rulycon-print"></span> {{ $call->fax }}<br/>
+                  <!--                        Jawa Barat, Indonesia-->
+                </address>
+                <!--                    <p class="social-links">-->
+                <!--                        <a href="#"><span class="rulycon-facebook"></span></a>-->
+                <!--                        <a href="#"><span class="rulycon-twitter"></span></a>-->
+                <!--                        <a href="#"><span class="rulycon-linkedin"></span></a>-->
+                <!--                        <a href="#"><span class="rulycon-yahoo"></span></a>-->
+                <!--                    </p>-->
+                <p><span>&copy; 2014 Kementerian Pendidikan Dan Kebudayaan Republik Indonesia.</span></p>
+              </div>
                 <div class="span9">
                     <div id="footer-menu-informasi" style="display: none">
                         @foreach($menu as $menus)
@@ -226,27 +248,10 @@
                         <ul class="footer-menu">
                             <li>Bantuan Hukum</li>
                             <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>
-                            <li><a href="{{ URL::to('BantuanHukum') }}">Informasi dan Status Usulan</a></li>
+                            <li><a href="{{ URL::route('bantuan_hukum.index') }}">Informasi dan Status Usulan</a></li>
                         </ul>
                     </div>
 
-                </div>
-                <div class="span3">
-                    <address>
-                        <span>Kementerian Pendidikan &amp; Kebudayaan Republik Indonesia</span><br/>
-                        <br/>
-                        Jalan Sempurna no.9, Bandung, 40131 <br/>
-                        <span class="rulycon-phone"></span> (022) 2512345, ext 1234<br/>
-                        <span class="rulycon-print"></span> (022) 2512345, ext 1234<br/>
-                        Jawa Barat, Indonesia
-                    </address>
-                    <p class="social-links">
-                        <a href="#"><span class="rulycon-facebook"></span></a>
-                        <a href="#"><span class="rulycon-twitter"></span></a>
-                        <a href="#"><span class="rulycon-linkedin"></span></a>
-                        <a href="#"><span class="rulycon-yahoo"></span></a>
-                    </p>
-                    <p><span>&copy; 2014 Kementerian Pendidikan &amp; Kebudayaan Republik Indonesia.</span></p>
                 </div>
             </div>
         </div>
@@ -291,6 +296,24 @@
         $("#footer-menu-aplikasi").show();
         $("#footer-menu-informasi").hide();
         $("#sub-aplikasi").show();
+    });
+
+    $('#forum_diskusi').click(function(){
+        var user = '<?php echo Auth::user(); ?>';
+
+        if(user)
+        {
+            window.location.replace("{{ URL::to('forumdiskusi') }}");
+        }
+        else
+        {
+            var r = confirm("Anda Belum Login. Harap Login Terlebih Dahulu. Klik OK Untuk Registrasi Jika Anda Belum Memiliki Akun.");
+            if (r==true)
+            {
+                window.location.replace("{{URL::to('registrasi')}}");
+            }
+        }
+
     });
 </script>
 @show

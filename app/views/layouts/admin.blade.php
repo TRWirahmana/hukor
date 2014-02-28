@@ -97,7 +97,7 @@
                 </div>
                 <div id="user-links">
                     <a href="{{URL::route('admin.setting')}}"><span class="rulycon-cog"></span> Settings</a>
-                    <a href="{{URL::route('admin.logout')}}"><span class="rulycon-exit"></span> Sign out</a>
+                    <a href="{{URL::route('admin.logout')}}"><span class="rulycon-exit"></span> Keluar</a>
                 </div>
 
                 <div class="leftmenu">
@@ -119,7 +119,7 @@
                                             <li><a href="{{URL::route('admin.aj.index')}}">Analisis Jabatan</a></li>
                                         </ul>
                                     </li>
-                                    <li id="app_bahu"><a href="{{ URL::to('kepala_biro/bantuan_hukum/') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
+                                    <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
 
                                 </ul>
                             </li>
@@ -174,6 +174,7 @@
                                     <li id="kelola_submenu"><a href="{{URL::to('admin/index_submenu')}}"><span class="iconfa-laptop"></span> Kelola Submenu</a></li>
                                     <li id="layanan"><a href="{{URL::to('admin/layanan')}}"><span class="iconfa-laptop"></span> Kelola Konten Layanan</a></li>
                                     <li id="layanan"><a href="{{URL::to('admin/editcallcenter')}}"><span class="iconfa-laptop"></span> Kelola Call Center</a></li>
+                                    <li id="layanan"><a href="{{URL::to('admin/linked')}}"><span class="iconfa-laptop"></span> Kelola Link Dikbud</a></li>
                                 </ul>
                             </li>
                         @endif
@@ -251,7 +252,7 @@
                             $("#menu_berita").hide();
                     });
                             $("#cbox-forum").change(function(e){
-                    $.post("/admin/enableForum", {value: $(this).is(":checked")}, function(resp){
+                    $.post(baseUrl + "/admin/enableForum", {value: $(this).is(":checked")}, function(resp){
                     console.log(resp);
                     });
                     });

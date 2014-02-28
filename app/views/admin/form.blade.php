@@ -74,16 +74,22 @@
                     <div class="control-group">
                         {{ Form::label('bagian', 'Pilih Bagian', array('class' => 'control-label')) }}
                         <div class="controls">
-                            {{ Form::select('bagian', $listbagian, $user->pengguna->bagian, array("id" => "bagian")) }}
+                            {{ Form::select('bagian', $listbagian, $nama_bagian, array("id" => "bagian")) }}
                         </div>
                     </div>
 
                     <div class="control-group">
                         {{ Form::label('sub_bagian', 'Pilih Sub Bagian', array('class' => 'control-label')) }}
                         <div class="controls">
+                            @if(!is_null($nama_subbagian))
+                            {{ Form::select('sub_bagian', $listsubbagian, $nama_subbagian , array("id" => "sub_bagian")) }}
+                            @else
+
                             <select name="sub_bagian" id="sub_bagian">
                             </select>
+                            @endif
                         </div>
+
                     </div>
 
                     <div class="control-group {{$errors->has('password')?'error':''}}">

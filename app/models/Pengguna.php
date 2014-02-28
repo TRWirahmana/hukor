@@ -73,4 +73,8 @@ class Pengguna extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('AnalisisJabatan');
     }
 
+    public function bagian() {
+        return $this->belongsToMany('Bagian');
+    }
+
 }

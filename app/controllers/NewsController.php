@@ -11,7 +11,6 @@ class NewsController extends BaseController {
 //                            ->get();
 
         $latest_news = DB::table('berita')
-            ->select('id', 'judul', 'berita', 'tgl_penulisan')
             ->orderBy('id', 'desc')
             ->get();
 

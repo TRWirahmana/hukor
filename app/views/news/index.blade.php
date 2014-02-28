@@ -72,7 +72,7 @@
                 </div>
               </div>
                 <div id="paging_container">
-                    <h3 class="section-title" id="news-feed">News feed</h3>
+                    <h3 class="section-title" id="news-feed">Berita</h3>
                     <ul class="content">
 
                         @foreach($latest_news as $news_feeds)
@@ -80,7 +80,7 @@
                             <div class="news-content">
                                 <div class="row-fluid">
                                     <div class="span3">
-                                        <img src="{{asset('assets/images/thumb-01.jpg')}}" alt=""/>
+                                        {{ HTML::image('assets/uploads/berita/' . $news_feeds->gambar) }}
                                     </div>
                                     <div class="span9">
                                         <h4 style="font-style: normal;"><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a></h4>

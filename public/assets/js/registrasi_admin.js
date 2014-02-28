@@ -27,6 +27,12 @@ var Admin = (function(ADM) {
             height: 300
         });
 
+        jQuery('#bagian').live('change',function(e){
+            var bagian_id = e.target.value;
+            getSubbagian(bagian_id);
+//            alert(menu_id);
+        });
+
         /*
          * Trigger Submit Form
          */
@@ -35,8 +41,11 @@ var Admin = (function(ADM) {
         });
 
         var rules = {
+            'nip': 'required',
             'nama_lengkap': 'required',
             'password': 'required',
+//            'bagian': 'required',
+//            'sub_bagian': 'required',
             'password_confirmation': 'required',
             'email': {
                 required: true,
@@ -53,6 +62,7 @@ var Admin = (function(ADM) {
                 'password': 'Password tidak boleh kosong!.',
                 'password_confirmation': 'Konfirmasi Password wajib diisi!.',
                 'nama_lengkap': 'Nama lengkap wajib diisi.',
+                'nip': 'NIP wajib diisi.',
                 'email': {
                     required: 'Alamat E-Mail wajib diisi.',
                     email: 'Format email tidak benar'
@@ -75,6 +85,24 @@ var Admin = (function(ADM) {
             }
         });
 
+
+        function getSubbagian(bagian_id) {
+            jQuery.getJSON(baseUrl + "/admin/subbagians", {bagian_id: bagian_id}, function(data) {
+                jQuery("#sub_bagian")
+                    .empty()
+                    .append(jQuery("<option></option>", {
+                        text: "-- Pilih Sub Bagian --",
+                        value: ""
+                    }));
+                jQuery.each(data.data, function(i, e) {
+//                    console.log(e);
+                    jQuery("#sub_bagian").append(jQuery("<option></option>", {
+                        value: e.id,
+                        text: e.nama_sub_bagian
+                    }));
+                });
+            });
+        }
 
     };
 

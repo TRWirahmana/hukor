@@ -245,16 +245,24 @@ jQuery(function($) {
                 }, {
                     name: 'Bantuan Hukum',
                     data: []
-                }]
+                }, {
+			name: 'Sistem dan Prosedur',
+			data: []
+		}, {
+			name: 'Analisis Jabatan',
+			data: []
+		}]
         });
 
         $highcharts = $chart.highcharts();
 
-        $.getJSON(document.location.href, null, function(response) {
-            $highcharts.series[0].setData(response.per_uu);
-            $highcharts.series[1].setData(response.pelembagaan);
-            $highcharts.series[2].setData(response.bantuan_hukum);
-        });
+	$.getJSON(document.location.href, null, function(response) {
+		$highcharts.series[0].setData(response.per_uu);
+		$highcharts.series[1].setData(response.pelembagaan);
+		$highcharts.series[2].setData(response.bantuan_hukum);
+		$highcharts.series[3].setData(response.sistem_dan_prosedur);
+		$highcharts.series[4].setData(response.analisis_jabatan);
+		});
     }
 
 

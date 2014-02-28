@@ -246,7 +246,7 @@ p {
   font-size: 16px;
   box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
 }
-.section-title#news-feed:after, .section-title.widget:after {
+.section-title#news-feed:after, .section-title.widgets:after {
   font-family: Rulycons;
   position: absolute;
   right: 16px;
@@ -257,7 +257,7 @@ p {
 .section-title#news-feed:after {
   content: "\e004";
 }
-.section-title#widgets > * {
+.section-title.widgets > * {
   display: block;
   width: 100%;
 }
@@ -407,9 +407,8 @@ p {
 #counter-widget .widget-body {
   background: -webkit-linear-gradient(top, #4fb4c0 0%, #44a8b4 50%, #4fb4c0 51%, #44a8b4 100%);
 }
-#counter-widget .section-title:after {
-  content: "\e04d";
-}
+#counter-widget .section-title:after { content: "\e04d"; }
+#twitter-widget .section-title:after { content: "\e16d"; }
 
 #paging_container .content {
   background: #ffffff;

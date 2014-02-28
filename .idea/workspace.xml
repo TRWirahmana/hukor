@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/news/index.blade.php" afterPath="$PROJECT_DIR$/app/views/news/index.blade.php" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,6 +30,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="detail.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/news/detail.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="14" selection-start="433" selection-end="494" vertical-scroll-proportion="-1.3076923" vertical-offset="170" max-vertical-offset="799">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AdminController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -51,16 +60,16 @@
       <file leaf-file-name="index.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="70" selection-start="6117" selection-end="6117" vertical-scroll-proportion="0.6166667" vertical-offset="1574" max-vertical-offset="2805">
+            <state line="99" column="43" selection-start="4629" selection-end="4629" vertical-scroll-proportion="0.5125523" vertical-offset="1438" max-vertical-offset="3332">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/form.blade.php">
+      <file leaf-file-name="NewsController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/NewsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="30" selection-start="2379" selection-end="2379" vertical-scroll-proportion="-15.423077" vertical-offset="534" max-vertical-offset="2856">
+            <state line="13" column="35" selection-start="476" selection-end="476" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="782">
               <folding />
             </state>
           </provider>
@@ -75,37 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Bagian.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Bagian.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="1" selection-start="254" selection-end="254" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="272">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Role.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Role.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="1" selection-start="184" selection-end="184" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="306">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="form.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layanan/form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="54" column="42" selection-start="2186" selection-end="2556" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="3060">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="4" selection-start="1168" selection-end="1266" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="2006">
               <folding />
             </state>
           </provider>
@@ -143,7 +125,6 @@
         <option value="$PROJECT_DIR$/app/views/news/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/NewsController.php" />
         <option value="$PROJECT_DIR$/app/controllers/HomeController.php" />
-        <option value="$PROJECT_DIR$/app/views/news/index.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/css/hukor.css" />
         <option value="$PROJECT_DIR$/app/views/emails/admreg.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
@@ -154,6 +135,7 @@
         <option value="$PROJECT_DIR$/app/models/Bagian.php" />
         <option value="$PROJECT_DIR$/app/controllers/AdminController.php" />
         <option value="$PROJECT_DIR$/app/views/admin/form.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/news/index.blade.php" />
       </list>
     </option>
   </component>
@@ -426,6 +408,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diknasrokum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -505,13 +505,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/emails/admreg.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="54" selection-start="155" selection-end="155" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="493">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/admin.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="34" selection-start="310" selection-end="310" vertical-scroll-proportion="0.38636363" vertical-offset="0" max-vertical-offset="4590">
@@ -529,13 +522,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="28" selection-start="85" selection-end="85" vertical-scroll-proportion="0.22077923" vertical-offset="0" max-vertical-offset="5576">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/news/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="29" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="799">
           <folding />
         </state>
       </provider>
@@ -608,9 +594,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/NewsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="35" selection-start="476" selection-end="476" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="782">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/news/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="14" selection-start="433" selection-end="494" vertical-scroll-proportion="-1.3076923" vertical-offset="170" max-vertical-offset="799">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="70" selection-start="6117" selection-end="6117" vertical-scroll-proportion="0.6166667" vertical-offset="1574" max-vertical-offset="2805">
+        <state line="99" column="43" selection-start="4629" selection-end="4629" vertical-scroll-proportion="0.5125523" vertical-offset="1438" max-vertical-offset="3332">
           <folding />
         </state>
       </provider>

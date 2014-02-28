@@ -89,7 +89,7 @@
               <div class="news-content">
                 <div class="row-fluid">
                   <div class="span3">
-                    <img src="{{asset('assets/images/thumb-01.jpg')}}" alt=""/>
+                      {{ HTML::image('assets/uploads/berita/' . $news_feeds->gambar) }}
                   </div>
                   <div class="span9">
                     <h4 style="font-style: normal;"><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a>

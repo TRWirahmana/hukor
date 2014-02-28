@@ -4,7 +4,7 @@
 <h2>KETATALAKSANAAN</h2>
 <div class="stripe-accent"></div>
 <legend>Document
-    <a class="btn btn-mini btn-primary" href="{{ URL::to('/adddoc')}}">
+    <a class="btn btn-mini btn-primary" href="{{ URL::to('admin/adddoc')}}">
         <i class="icon-plus"></i>&nbsp; Tambah Baru</a>
 </legend>
 
@@ -36,7 +36,7 @@
         bServerSide: true,
         bProcessing: true,
 //                sAjaxSource: baseUrl + "/lkpm/data",
-        sAjaxSource: '<?php echo URL::to("tabledoc"); ?>',
+        sAjaxSource: '<?php echo URL::to("admin/tabledoc"); ?>',
         aoColumns: [
             {mData: "nomor", sClass: "center"},
             {mData: "tgl_pengesahan", sClass: "center"},
@@ -121,10 +121,10 @@
                 mData: "id",
                 sClass: "center",
                 mRender: function(data){
-                    var detailUrl = baseUrl + '/detaildoc?id=' + data;
-                    var updateUrl = baseUrl + '/editdoc?id=' + data;
-                    var publishUrl = baseUrl + '/publishdoc?id=' + data;
-                    var deleteUrl = baseUrl + '/deletedoc?id=' + data;
+                    var detailUrl = "<?php echo URL::to('admin/detaildoc'); ?>" + "/" + data;
+                    var updateUrl = "<?php echo URL::to('admin/editdoc'); ?>" + "/" + data;
+                    var publishUrl = "<?php echo URL::to('admin/publishdoc'); ?>" + "/" + data;
+                    var deleteUrl = "<?php echo URL::to('admin/deletedoc'); ?>" + "/" + data;
 
                     return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
                         '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +

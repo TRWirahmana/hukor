@@ -34,11 +34,6 @@ Route::group(array('before' => 'guest'), function() {
     Route::resource('user', 'UserController');
     //Route::resource('bantuanhukum', 'BantuanHukumController');
     Route::resource('forget', 'ForgetPasswordController@index');
-    
-    Route::resource('document', 'DocumentController');
-    Route::get('adddoc', 'DocumentController@add');
-    Route::post('savedoc','DocumentController@save');
-    Route::get('tabledoc', 'DocumentController@datatable');
      
     Route::get('callcenter', 'CallCenterController@index');
 
@@ -115,6 +110,16 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::post('updatelinked', 'DikbudController@update');
 
     Route::get('subbagians', 'AdminController@subbagian');
+
+    //dokumentasi
+    Route::resource('document', 'DocumentController');
+    Route::get('adddoc', 'DocumentController@add');
+    Route::get('detaildoc/{key}', 'DocumentController@detail');
+    Route::get('editdoc/{key}', 'DocumentController@edit');
+    Route::get('publishdoc/{key}', 'DocumentController@publish');
+    Route::get('deletedoc/{key}', 'DocumentController@delete');
+    Route::post('savedoc','DocumentController@save');
+    Route::get('tabledoc', 'DocumentController@datatable');
 });
 
 

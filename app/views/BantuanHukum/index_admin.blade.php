@@ -49,7 +49,7 @@
    	        </div>
                 <div class="control-group">
                         <label for="jenis-perkara" class="control-label">Jenis Perkara</label>
-                        <div class="controls span4">
+                        <div class="controls">
                             <select id="jenis-perkara">
                                 <option value="0">Tampilkan Semua</option>
                                 <option value="1">Tata Usaha Negara</option>
@@ -139,7 +139,8 @@
 
     var tbl_data = jQuery("#basictable").dataTable({
         bServerSide: true,
-//        bFilter:false,
+        bFilter:false,
+	bLengthChange: false,
         bProcessing: true,
         bPaginate: true,
         sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/datatable"); ?>',

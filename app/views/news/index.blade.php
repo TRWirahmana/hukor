@@ -95,8 +95,8 @@
                     <h4 style="font-style: normal;"><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a>
                     </h4>
                     <?php $date = new DateTime($news_feeds->tgl_penulisan); ?>
-                    <span class="date-time">{{$date->format('d')}}  <span
-                          class="date"><?php echo HukorHelper::castMonthToString3($date->format('m')) ?></span> {{$date->format('Y')}}</span>
+                    <p class="date-time">{{$date->format('d')}}  <span
+                          class="date"><?php echo HukorHelper::castMonthToString3($date->format('m')) ?></span> {{$date->format('Y')}}</p>
                     <?php $berita_feed = strip_tags($news_feeds->berita);
                     $highlight_feed = substr($berita_feed, 0, 150);
                     ?>

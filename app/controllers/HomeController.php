@@ -21,6 +21,11 @@ class HomeController extends BaseController {
     public function index() {
         $this->layout = View::make('layouts.berita');
 
+        if ($_COOKIE['iwashere'] != "yes") {
+            HukorHelper::XMLFile();
+            setcookie("iwashere", "yes", time()+43200); //set cookie selama 12 jam
+        }
+
 //        $latest_news = DB::table('berita')
 //                            ->select('id', 'judul', 'berita', 'tgl_penulisan')
 //                            ->orderBy('id', 'desc')

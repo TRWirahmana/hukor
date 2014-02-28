@@ -142,13 +142,17 @@ class BantuanHukumController extends BaseController{
     }
 
 	public function downloadLampiranLog($id)
-{
-	if($log = LogPelembagaan::find($id))
-		return HukorHelper::downloadAsZIP(unserialize($log->lampiran));
-	return App::abort(404);
-}
+	{
+ 		$DAL = new DAL_BantuanHukun();
+		if($log = $DAL->GetSingleLogBantuanHukum($id))
+			return HukorHelper::downloadAsZIP(unserialize($log->lampiran));
+		return App::abort(404);
+	}
 		
 	public function download($id, $index = null) {
+		$DAL = new DAL_BantuanHukun();
+        	$helper = new HukorHelper();
+
 		if($object = BantuanHukum::find($id)) {
 		$attachments = unserialize($object->lampiran);	
 		if(!empty($attachments) && null !== $index && isset($attachments[$index]) )
@@ -165,6 +169,7 @@ class BantuanHukumController extends BaseController{
 		return App::abort(404);
 	}
 
+/*
     public function download($id)
     {
         $DAL = new DAL_BantuanHukun();
@@ -181,7 +186,7 @@ class BantuanHukumController extends BaseController{
 
         return Redirect::to('bantuanhukum')->with('error', 'Kesalahan, berkas tidak ditemukan.');
     }
-
+*/
     public function convertpdf()
     {
         $start = Input::get('start_date', null);

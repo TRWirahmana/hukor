@@ -312,6 +312,7 @@ Route::group(array('before' => 'auth'), function(){
 
         Route::get('bantuan_hukum/datatable','BantuanHukumController@datatable');
         Route::get('bantuan_hukum/detail/{id}', 'BantuanHukumController@detail');
+        Route::get('bantuan_hukum/log/download/{id}', 'BantuanHukumController@downloadLampiranLog');
         Route::get('bantuan_hukum/tablelog', 'BantuanHukumController@tablelog');
         Route::get('bantuan_hukum/delete/{id}', 'BantuanHukumController@delete');
         Route::get('bantuan_hukum/delete_log/{id}', 'BantuanHukumController@deletelog');
@@ -325,6 +326,7 @@ Route::get('puu/download/{id}/{index?}', array('as' => 'puu.download', 'uses' =>
 Route::get('pelembagaan/download/{id}/{index?}', array('as' => 'pelembagaan.download', 'uses' => 'PelembagaanController@download' ) );
 //Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
 Route::get('pelembagaan/printTable', array("as" => "pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));
-Route::get('bantuan_hukum/download/{id}', array('as' => 'bantuan_hukum.download', 'uses' => 'BantuanHukumController@download'));
+//Route::get('bantuan_hukum/download/{id}', array('as' => 'bantuan_hukum.download', 'uses' => 'BantuanHukumController@download'));
+Route::get('bantuan_hukum/download/{id}/{index?}', array('as' => 'bantuan_hukum.download', 'uses' => 'BantuanHukumController@download'));
 Route::get('bantuan_hukum/datatable','BantuanHukumController@datatable');
 Route::get('pelembagaan/printTable', array("as" => "pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));

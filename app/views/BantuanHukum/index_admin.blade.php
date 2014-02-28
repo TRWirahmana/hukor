@@ -28,13 +28,15 @@
         <div class="maincontentinner">
 
             <!-- MAIN CONTENT -->
+            {{ Form::open(array('action' => 'BantuanHukumController@convertpdf', 'method' => 'post',
+            'id' => 'pdf-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal')) }}
+	<fieldset>
 
             <div class="row-fluid">
-                <div class="span24">
-                    <div class="span4">
-                        <div class="control-group span8">
-                        <label for="status-pemohon" class="control-label span4">Status Pemohon</label>
-                        <div class="controls span4">
+            <div class="span6">
+                <div class="control-group">
+                        <label for="status-pemohon" class="control-label">Status Pemohon</label>
+                        <div class="controls">
                             <select id="status-pemohon">
                                 <option value="0">Tampilkan Semua</option>
                                 <option value="1">Tergugat</option>
@@ -43,13 +45,10 @@
                                 <option value="4">Saksi</option>
                                 <option value="5">Pemohon</option>
                             </select>
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="span4">
-                        <div class="control-group span8">
-                        <label for="jenis-perkara" class="control-label span4">Jenis Perkara</label>
+                         </div>
+   	        </div>
+                <div class="control-group">
+                        <label for="jenis-perkara" class="control-label">Jenis Perkara</label>
                         <div class="controls span4">
                             <select id="jenis-perkara">
                                 <option value="0">Tampilkan Semua</option>
@@ -60,13 +59,10 @@
                                 <option value="5">Uji Materil MA</option>
                             </select>
                         </div>
-                        </div>
-                    </div>
-
-                    <div class="span4">
-                        <div class="control-group span8">
-                        <label for="advokasi" class="control-label span4">Advokasi</label>
-                        <div class="controls span4">
+               </div>
+               <div class="control-group">
+                        <label for="advokasi" class="control-label">Advokasi</label>
+                       <div class="controls">
                             <select id="advokasi">
                                 <option value="0">Tampilkan Semua</option>
                                 <option value="1">Bankum I</option>
@@ -74,34 +70,30 @@
                                 <option value="3">Bankum III</option>
                             </select>
                         </div>
-                    </div>
-                    </div>
-                </div>
+		</div>
+	</div>
+             
+	<div class="span6">
+	    <div class="control-group">
+                     	{{ Form::label('start-date', 'Tanggal Awal', array('class' => 'control-label')) }}
+                        <div class="controls">
+                         {{ Form::text('start_date', '', array('id' => 'start-date', 'class' => 'datepicker')) }}
+                        </div>
             </div>
-
-            <br>
-            {{ Form::open(array('action' => 'BantuanHukumController@convertpdf', 'method' => 'post',
-            'id' => 'pdf-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal')) }}
-
-            <div class="control-group span24" style="margin-left: -50px !important">
-                {{ Form::label('start-date', 'Tanggal Awal', array('class' => 'control-label')) }}
-                <div class="controls span5">
-                    {{ Form::text('start_date', '', array('id' => 'start-date', 'class' => 'datepicker', 'style' => 'margin-left:-100px;')) }}
-                </div>
+            <div class="control-group">
+                     {{ Form::label('end-date', 'Tanggal Akhir', array('class' => 'control-label')) }}
+                	<div class="controls">
+                   	 {{ Form::text('end_date', '', array('id' => 'end-date', 'class' => 'datepicker')) }}
+            	   	</div>
             </div>
-
-            <div class="control-group span24" style="margin-left: -50px !important">
-                {{ Form::label('end-date', 'Tanggal Akhir', array('class' => 'control-label')) }}
-                <div class="controls span5">
-                    {{ Form::text('end_date', '', array('id' => 'end-date', 'class' => 'datepicker', 'style' => 'margin-left:-100px;')) }}
-                </div>
-            </div>
-
-            <div class="control-group span24">
-                <button class="btn btn-hukor" type="submit">Simpan</button>
-            </div>
-
-
+	   <div class="control-group">
+			<div class="controls">	
+                 		 <button class="btn btn-hukor btn-primary" type="submit">Cetak</button>
+			</div>
+           </div>
+	</div>
+        </div>
+	</fieldset>
             {{ Form::close() }}
 
             <table id="basictable" class="dataTable">

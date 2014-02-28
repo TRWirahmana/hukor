@@ -127,7 +127,7 @@
                   <h4>Visitor counter</h4>
                 </div>
                 <div id="counter">
-                  <p><div style="text-align:center;"><script type="text/javascript" src="http://services.webestools.com/cpt_visitors/12224-8-9.js"></script></p>
+                  <p><?php echo HukorHelper::GetCounterVisitor(); ?></p>
                 </div>
               </div>
             </div>

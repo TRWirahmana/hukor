@@ -5,8 +5,8 @@ class ProdukHukumController extends BaseController
 //	protected $layout = 'layouts.master';
     public function index()
     {
-        if(Request::ajax())           
-	          	return Datatables::of(DAL_ProdukHukum::getDataTable(Input::get("kategori", null), Input::get("masalah", null),Input::get("tahunFilter", null), Input::get("firstDate", null)))->make(true);
+        if(Request::ajax())
+	          	return Datatables::of(DAL_ProdukHukum::getDataTable(Input::get("kategori", null), Input::get("masalah", null), Input::get("tahunFilter", null), Input::get("firstDate", null), Input::get("bidang", null)))->make(true);
   
       	$listThn = array("" => "Semua") + Document::select(array( DB::raw('DATE_FORMAT(tgl_pengesahan,"%Y") As pengesahan_year')))
 	        													->lists('pengesahan_year', 'pengesahan_year');

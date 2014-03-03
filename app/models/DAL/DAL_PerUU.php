@@ -14,28 +14,29 @@ class DAL_PerUU {
                     'per_uu.lampiran'
         ));
 
-        if(null != $filter)
-            $data->where("per_uu.status", "=", $filter);
-        if(null != $firstDate)
-            $data->where(DB::raw("DATE(per_uu.tgl_usulan)"), ">=", DateTime::createFromFormat("d/m/Y", $firstDate)->format('Y-m-d'));
-        if(null != $lastDate)
-            $data->where(DB::raw("DATE(per_uu.tgl_usulan)"), "<=", DateTime::createFromFormat("d/m/Y", $lastDate)->format('Y-m-d'));
+	if(null != $filter)
+		$data->where("per_uu.status", "=", $filter);
+	if(null != $firstDate)
+		$data->where(DB::raw("DATE(per_uu.tgl_usulan)"), ">=", DateTime::createFromFormat("d/m/Y", $firstDate)->format('Y-m-d'));
+	if(null != $lastDate)
+		$data->where(DB::raw("DATE(per_uu.tgl_usulan)"), "<=", DateTime::createFromFormat("d/m/Y", $lastDate)->format('Y-m-d'));
 
-        return $data;
+	return $data;
     }
 
     public static function getPrintTable($status, $firstDate, $lastDate) {
-        $data = self::getDataTable($status, $firstDate, $lastDate);
-        $result = array();
-        foreach($data->get() as $index => $perUU) {
-            $tglUsulan = new DateTime($perUU->tgl_usulan);
-            $result[$index]['ID'] = $perUU->id;
-            $result[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
-            $result[$index]['Unit Kerja'] = $perUU->unit_kerja;
-            $result[$index]['Perihal'] = $perUU->perihal;
-            $result[$index]['status'] = self::getStatus($perUU->status);
-            $result[$index]['lampiran'] = '<a href="#">'.explode("/", $perUU->lampiran)[1].'</a>';
-        }
+	    $data = self::getDataTable($status, $firstDate, $lastDate);
+	    $result = array();
+	    foreach($data->get() as $index => $perUU) {
+		    $tglUsulan = new DateTime($perUU->tgl_usulan);
+		    $result[$index]['ID'] = $perUU->id;
+		    $result[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
+		    $result[$index]['Unit Kerja'] = $perUU->unit_kerja;
+		    $result[$index]['Perihal'] = $perUU->perihal;
+		    $result[$index]['status'] = self::getStatus($perUU->status);
+		    $url = URL::route('puu.download', array('id' => $perUU->id));
+		    $result[$index]['lampiran'] = "<a href='{$url}'>Unduh</a>";
+	    }
         return HukorHelper::generateHtmlTable($result);
     }
 

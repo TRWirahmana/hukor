@@ -93,8 +93,11 @@ class DAL_BantuanHukun
      * fungsi untuk insert data ke table bantuan_hukum
      */
 
-    public function SaveBantuanHukum($input, $file)
+    public function SaveBantuanHukum($input, array $filenames)
     {
+
+//	var_dump($filenames);
+//	exit;
         $bantuanHukum = new BantuanHukum;
 
         //pasrse input data to fields
@@ -104,9 +107,9 @@ class DAL_BantuanHukun
         $bantuanHukum->status_pemohon = $input['status_pemohon'];
         $bantuanHukum->uraian_singkat = $input['uraian'];
         $bantuanHukum->catatan = $input['catatan'];
-        $bantuanHukum->lampiran = $file->getClientOriginalName();
+        //$bantuanHukum->lampiran = $file->getClientOriginalName();
+        $bantuanHukum->lampiran = serialize($filenames);
         $bantuanHukum->ket_lampiran = $input['ket_lampiran'];
-
         $bantuanHukum->save();
 
         $this->InsertPenanggungJawab($bantuanHukum->id, $input);
@@ -119,7 +122,7 @@ class DAL_BantuanHukun
     public function GetSingleBantuanHukum($id)
     {
         $data = BantuanHukum::find($id)->with('pjbantuanhukum')->first();
-
+//        $data = BantuanHukum::find($id)->with('pjbantuanhukum');
         return $data;
     }
 
@@ -138,7 +141,7 @@ class DAL_BantuanHukun
      * fungsi untuk update data di table bantuan_hukum dan insert baru di table log_bantuan_hukum
      */
 
-    public function UpdateBantuanHukum($input)
+    public function UpdateBantuanHukum($input, array $filenames)
     {
         $data = BantuanHukum::find($input['id']); // find record by id
 
@@ -157,7 +160,8 @@ class DAL_BantuanHukun
         $log->ket_lampiran = $input['ket_lampiran'];
         $log->catatan = $input['catatan'];
         //getClientOriginalName() for get real file name
-        $log->lampiran = ($input['lampiran'] != null) ? $input['lampiran']->getClientOriginalName() : null;
+        //$log->lampiran = ($input['lampiran'] != null) ? $input['lampiran']->getClientOriginalName() : null;
+        $log->lampiran = ($input['lampiran'] != null) ? serialize($filenames) : null;
         $log->tanggal = date("Y-m-d");
 
         $log->save();
@@ -194,6 +198,17 @@ class DAL_BantuanHukun
                     'iTotalDisplayRecords' => $iTotalDisplayRecords
         ));
     }
+
+
+
+
+
+
+
+
+
+
+
 
     /*
      * fungsi untuk menghapus data dan file upload bantuan hukum

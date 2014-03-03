@@ -15,14 +15,14 @@
                                <div class="control-group">
                                     <label for="tahun-filter" class="control-label">Tahun</label>
                                     <div class="controls">
-                                      {{ Form::select('tahunFilter', $listThn, '', array('id' => 'tahun-filter')) }}                                        
+                                      {{ Form::select('tahunFilter', $listThn, '', array('id' => 'tahun-filter', 'style' => 'width:150%;')) }}
                                     </div>
                                 </div>
 
                                 <div class="control-group">
                                     <label for="select-kategori" class="control-label">Kategori</label>
                                     <div class="controls">
-                                        <select id="select-kategori" name="kategori">
+                                        <select id="select-kategori" name="kategori" style="width: 150%;">
                                             <option value="">Semua Kategori</option>
                                             <option value="1">Keputusan Mentri</option>
                                             <option value="2">Peraturan Mentri</option>
@@ -37,23 +37,24 @@
                                 <div class="control-group">
                                     <label for="select-masalah" class="control-label">Masalah</label>
                                     <div class="controls">
-                                        <select id="select-masalah" name="masalah">
+                                        <select id="select-masalah" name="masalah" style="width: 150%;">
                                             <option value="">Semua Masalah</option>
                                             <option value="1">Kepegawaian</option>
                                             <option value="2">Keuangan</option>
                                             <option value="3">Organisasi</option>
-                                            <option value="4">Umum</option>
                                             <option value="5">Perlengkapan</option>
+                                            <option value="4">Umum</option>
+                                            <option value="7">Tim</option>
                                             <option value="6">Lainnya</option>
                                         </select>        
                                     </div>
                                 </div>
 
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
-                                    </div>
-                                </div>
+<!--                                <div class="control-group">-->
+<!--                                    <div class="controls">-->
+<!--                                        <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">-->
+<!--                                    </div>-->
+<!--                                </div>-->
                             </div>
                         </div>
                     </fieldset>
@@ -69,7 +70,7 @@
                           <th>Tentang</th>
                           <th>Kategori</th>
                           <th>Masalah</th>
-                          <th> Unduh </th>
+                          <th>Unduh</th>
                       </tr>
                       </thead>
                       <tbody></tbody>
@@ -148,47 +149,47 @@
 
                             {
                               mData: "nomor",
-                              sWidth: '5%'
+                              sWidth: '10%'
                             },
                             
                             {
                               mData: "deskripsi",
-                              sWidth: '14%'
+                              sWidth: '15%'
                             },
                             {
-                              mData: "kategori",
-                              sWidth: '14%',
-                              mRender: function ( data, type, full ) {
-                                if(data ==='1'){
-                                    return 'Keputusan Mentri';
-                                }else if(data === '2'){
-                                   return 'Peraturan Mentri';
-                                }else if(data === '3'){
-                                  return 'Peraturan Bersama';
-                                }else if(data === '4'){
-                                  return 'Keputusan Bersama';
-                                }else if(data === '5'){
-                                  return 'Instruksi Mentri';
-                                }else if(data === '6'){
-                                  return 'Surat Edaran';
+                                mData: "kategori",
+                                sWidth: '14%',
+                                mRender: function ( data, type, full ) {
+                                    if(data ===1){
+                                        return 'Keputusan Mentri';
+                                    }else if(data === 2){
+                                        return 'Peraturan Mentri';
+                                    }else if(data === 3){
+                                        return 'Peraturan Bersama';
+                                    }else if(data === 4){
+                                        return 'Keputusan Bersama';
+                                    }else if(data === 5){
+                                        return 'Instruksi Mentri';
+                                    }else if(data === 6){
+                                        return 'Surat Edaran';
+                                    }
                                 }
-                              }
                             },
                             {
                               mData: "masalah",
                               sWidth: '14%',
                               mRender: function (data, type, full) {
-                                if(data === '1'){
+                                if(data === 1){
                                   return 'Kepegawaian';
-                                }else if(data === '2'){
+                                }else if(data === 2){
                                   return 'Keuangan';
-                                }else if(data === '3'){
+                                }else if(data === 3){
                                   return 'Organisasi';
-                                }else if(data === '4'){
+                                }else if(data === 4){
                                   return 'Umum';
-                                }else if(data === '5'){
+                                }else if(data === 5){
                                   return 'Perlengkapan';
-                                }else if(data === '6'){
+                                }else if(data === 6){
                                   return 'Lainnya';
                                 }
                               }
@@ -196,7 +197,7 @@
                             },
                             {
                               mData: "id",
-                              sWidth: '14%',
+                              sWidth: '5%',
                                 mRender: function(data, type, full) {
                                     return "<a href='produkhukum/"+data+"/detail'> <i class='icon-edit'></i></a>"
                                           +"&nbsp;<a href='produkhukum/"+data+"/download'> <i class='icon-download'></i></a>" ;

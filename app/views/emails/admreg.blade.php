@@ -4,7 +4,7 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <h2>Selamat Datang di Sistem Layanan Hukum & Organisasi</h2>
+        <h2>Selamat Datang di Sistem Layanan Hukum dan Organisasi</h2>
         <div>
         	Anda telah terdaftar di role <b>{{ $role }}</b></b>.
             Gunakan username dan password dibawah ini untuk masuk kedalam sistem

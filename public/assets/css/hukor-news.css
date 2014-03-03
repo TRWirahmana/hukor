@@ -27,7 +27,7 @@ p {
   z-index: 10001;
 }
 .header {
-  background: #064d95;
+  background: #2980b9;
   padding: 0 20px;
   height: auto;
   box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);
@@ -40,7 +40,7 @@ p {
   /*background: rgba(0, 0, 0, .075);*/
 }
 .header .logo img {
-  padding-top: 28px;
+  padding-top: 20px;
   padding-bottom: 4px;
 }
 .headmenu > li {
@@ -50,15 +50,13 @@ p {
 .headmenu > li, .headmenu > li.odd {
   background: transparent;
   border: none;
-  margin-left: 1px;
+  margin-left: 6px;
 }
 .headmenu > li > a, .headmenu > li.odd > a {
-  background: rgba(0, 0, 0, .15);
-  padding: 32px 8px 16px;
+  background: transparent;
+  padding: 32px 8px 18px;
   text-align: center;
-}
-.headmenu > li > a:hover {
-  background: rgba(0, 0, 0, .25);
+  box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);
 }
 .headmenu > li > a > span[class *= "rulycon"] {
   font-size: 11px;
@@ -87,6 +85,18 @@ p {
   /*margin-top: -2px;
   padding-bottom: 12px;*/
 }
+.headmenu > li:nth-child(1) > a { background: #4fb4c0; }
+.headmenu > li:nth-child(2) > a { background: #00a5e2; }
+.headmenu > li:nth-child(3) > a { background: #5eb35e; }
+.headmenu > li:nth-child(4) > a { background: #e19544; }
+.headmenu > li:nth-child(5) > a { background: #dc5f3a; }
+.headmenu > li:nth-child(6) > a { background: #c64040; }
+/*.headmenu > li:nth-child(1) > a { background: #5fc6d2; }
+.headmenu > li:nth-child(2) > a { background: #00BAFF; }
+.headmenu > li:nth-child(3) > a { background: #6ec36e; }
+.headmenu > li:nth-child(4) > a { background: #d29a5f; }
+.headmenu > li:nth-child(5) > a { background: #EC643C; }
+.headmenu > li:nth-child(6) > a { background: rgba(0, 0, 0, .25); }*/
 .headmenu .dropdown-menu {
   display: block;
   width: 100%;
@@ -95,7 +105,10 @@ p {
   margin: 0 !important;
 }
 .sub-header {
-  background: url("../images/leftpanelbg.png") repeat;
+  background: #226c9c;
+  display: block;
+  width: 100%;
+  min-height: 33px;
 }
 .sub-menu ul {
   display: inline-table;
@@ -140,6 +153,7 @@ p {
 .sub-menu .has-child > ul li a {
   margin-right: 0;
   padding: 8px 16px;
+  display: block;
 }
 .sub-menu .has-child > ul li a:hover {
   background: rgba(0, 0, 0, .25);
@@ -149,7 +163,7 @@ p {
   opacity: 1;
 }
 .content-wrapper {
-  margin-top: 103px;
+  margin-top: 160px;
 }
 .maincontent {
   background: url("../images/bg1.png") repeat;
@@ -157,24 +171,40 @@ p {
 }
 #main-carousel {
   margin-bottom: 32px;
+  border: 6px solid #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
 }
 #main-carousel.boxed {
   margin-top: 32px;
-}
-.carousel.slide > .container {
-  position: relative;
 }
 .carousel-inner > .item {
 }
 .carousel-inner > .item > img {
   width: 100%;
 }
+.carousel-caption {
+  background: rgba(255, 255, 255, .35);
+  padding: 16px 24px;
+}
+.carousel-caption h3, .carousel-caption p {
+  width: 55%;
+}
+.carousel-caption h3 {
+  color: #ffffff;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+  font-family: "pt_sans_narrowbold", sans-serif;
+}
+.carousel-caption p {
+  line-height: 160%;
+}
 .boxed .carousel-indicators {
   top: 16px;
   right: 16px;
 }
 .carousel-indicators {
-  right: 0;
+  right: 24px;
   top: 24px;
 }
 .carousel-indicators li {
@@ -209,17 +239,14 @@ p {
 }
 .section-title {
   position: relative;
-  background: #064D95;
+  background: url("../images/leftpanelbg.png") repeat;
   color: #ffffff;
   padding: 12px 24px;
   font-weight: normal;
   font-size: 16px;
   box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
 }
-.section-title#widgets {
-  background: #064D95;
-}
-.section-title#news-feed:after, .section-title#widgets:after {
+.section-title#news-feed:after, .section-title.widgets:after {
   font-family: Rulycons;
   position: absolute;
   right: 16px;
@@ -230,17 +257,13 @@ p {
 .section-title#news-feed:after {
   content: "\e004";
 }
-.section-title#widgets:after {
-  content: "\e14c";
-}
-.section-title#widgets > * {
+.section-title.widgets > * {
   display: block;
   width: 100%;
 }
 .news-content {
   padding: 32px 0 48px 24px;
-  border-bottom: 1px solid rgba(220, 60, 0, .25);
-  /*background: rgba(255, 255, 255, .55);*/
+  border-bottom: 1px solid rgba(0, 0, 0, .075);
   -moz-transition: all .2s ease-out;
   -ms-transition: all .2s ease-out;
   -o-transition: all .2s ease-out;
@@ -254,30 +277,21 @@ p {
 .latest-news .read-more span[class *= "rulycon"] {
   margin-left: 4px;
 }
-.news-content:hover {
-  background: transparent;
+.news-content .span3 > img {
+  border: 4px solid #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
 }
 .news-content h4 {
-  margin-bottom: 16px;
   font-style: italic;
   font-size: 20px;
 }
-.news-content .date-time.pull-right {
-  font-family: "Monaco", monospace;
-  font-size: 10px;
-  color: #ffffff;
-  background: #064D95;
-  padding: 24px 12px;
-  box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
-  text-align: center;
-  margin-top: -32px;
+.news-content h4 > a {
+  color: #4fb4c0;
 }
-.news-content .date-time .date {
-  display: block;
-  width: 100%;
-  font-size: 32px;
-  margin-top: 2px;
-  margin-bottom: 1px;
+.news-content .date-time {
+  margin-bottom: 12px;
+  font-size: 11px;
+  color: rgba(0, 0, 0, .55);
 }
 .pagination {
   margin-top: 24px;
@@ -286,13 +300,18 @@ p {
 .pagination ul {
   box-shadow: none;
 }
+.pagination > ul > li a {
+  margin-right: 6px;
+  padding: 6px 12px;
+  border: none;
+}
 .pagination > ul > li.disabled a {
-  color: rgba(0, 0, 0, .55);
+  background: #2980b9;
+  color: #ffffff;
 }
 .pagination > ul > li a {
-  border-color: rgba(220, 60, 0, .25);
-  background: rgba(255, 255, 255, .55);
-  color: #dc3c00;
+  background: #ffffff;
+  color: #2980b9;
 }
 .pagination > ul > li a:hover {
   background: transparent;
@@ -302,7 +321,7 @@ p {
   /*background: #02A29E;*/
   background: url("../images/leftpanelbg.png") repeat;
   color: #ffffff;
-  box-shadow: inset 0 8px 0 rgba(0, 0, 0, .25);
+  box-shadow: inset 0 8px 0 #1e577e;
 }
 .footer address {
   margin-bottom: 12px;
@@ -341,17 +360,98 @@ p {
 .rulycon-linkedin { background: #0077b5; }
 .rulycon-yahoo { background: #6e329d; }
 
-.rowsy{
-    display: block;
-    width: 100%;
-}
 .rowsy ul {
-    display: inline-block;
-    width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 100%;
+  min-height: 68px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, .055);
+  margin-bottom: 24px;
+  text-align: center;
+}
+.rowsy li {
+  display: inline-block;
+  list-style: none;
+  width: 9.0909%;
+  text-align: center;
+}
+.rowsy li img {
+  width: 95%;
 }
 
-.rowsy ul li{
-    display: inline-block;
-    width:8%;
-    margin-left:4px;
+.widget-body {
+  display: block;
+  width: 100%;
+  margin: 4px 0 24px;
+  background: #4fb4c0;
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
 }
+.widget-body #header {
+  text-align: left;
+  color: #ffffff;
+  padding: 12px 24px;
+}
+.widget-body .widget-content {
+  color: #ffffff;
+  text-align: center;
+  font-family: "monacoregular", "Monaco", monospace;
+  font-size: 48px;
+}
+.widget-body .widget-content p {
+  line-height: 160%;
+  padding-top: 12px;
+  padding-bottom: 6px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+}
+#counter-widget .widget-body {
+  position: relative;
+  background: -moz-linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
+  background: -ms-linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
+  background: -o-linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
+  background: -webkit-linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
+  background: linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
+}
+#counter-widget .widget-body:after {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #3b8790;
+  content: "";
+  top: 50%;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .25);
+}
+#counter-widget .section-title:after { content: "\e04d"; }
+#twitter-widget .section-title:after { content: "\e16d"; }
+
+#paging_container .content {
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .075);
+}
+#paging_container .content > li {
+  list-style: none;
+}
+#paging_container .content > li:hover {
+  background: rgba(0, 0, 0, .025);
+}
+
+.page_navigation > a {
+  background: #ffffff;
+  padding: 12px 8px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.page_navigation > a:hover {
+  cursor: pointer;
+}
+.page_navigation > a:first-child { margin-left: 0; }
+.page_navigation > a:last-child { margin-right: 0; }
+.page_navigation > a.active_page, .page_navigation > a.no_more,
+.page_navigation > a:hover {
+  background: #2980b9;
+  color: #ffffff;
+  cursor: default;
+}
+

@@ -20,6 +20,14 @@ class HomeController extends BaseController {
 
     public function index() {
         $this->layout = View::make('layouts.berita');
+        $document = new DAL_Document();
+
+        if ($_COOKIE['iwashere'] != "yes") {
+            HukorHelper::XMLFile();
+            setcookie("iwashere", "yes", time()+43200); //set cookie selama 12 jam
+        }
+
+        $dataDoc = $document->GetLastTen();
 
 //        $latest_news = DB::table('berita')
 //                            ->select('id', 'judul', 'berita', 'tgl_penulisan')
@@ -28,7 +36,6 @@ class HomeController extends BaseController {
 //                            ->get();
 
         $latest_news = DB::table('berita')
-            ->select('id', 'judul', 'berita', 'tgl_penulisan')
             ->orderBy('id', 'desc')
             ->get();
 
@@ -42,6 +49,7 @@ class HomeController extends BaseController {
             'latest_news' => $latest_news,
             'news_feed' => $news_feed,
             'count_news' => $count_news,
+            'document' => $dataDoc,
         ));
 
     }

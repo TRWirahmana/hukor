@@ -37,7 +37,7 @@ class LoginController extends BaseController {
                     //validation estimasi pendaftaran for role
 
                     if ($user->role_id == 2) {
-                        Session::flash('success', 'Selamat datang ' . $user->username . ' !');
+                        Session::flash('success', 'Selamat datang ' . $user->pengguna->nama_lengkap . ' !');
                         return Redirect::to('site');
                     } else {
                         Auth::logout();
@@ -61,18 +61,16 @@ class LoginController extends BaseController {
         $username = Input::get('username');
         $password = Input::get('password');
 
-        $user = User::where('username', '=', $username)->first();
+        $user = User::where('nip', '=', $username)->first();
 
 
         if (null !== $user) {
             $user = $user->toArray();
-
             if (Hash::check($password, $user['password'])) {
-
                 // set ulang untuk auth karena untuk auth password tidak boleh di encrypt terlebih dahulu
                 $credential = array(
                     'id' => $user['id'],
-                    'username' => $user['username'],
+                    'nip' => $user['nip'],
                     'password' => $password
                 );
 
@@ -107,7 +105,7 @@ class LoginController extends BaseController {
                 return Redirect::to('/admin/login');
             }
         } else {
-            Session::flash('error', 'User tidak terdaftar!');
+            Session::flash('error', 'User tidak terdaftar! Silahkan Login menggunakan nomor NIP');
             return Redirect::to('/admin/login');
         }
     }

@@ -14,11 +14,11 @@
       Form::text('email','', array(
       'class'=>'email text-input',
       'id'=>'email',
-      'placeholder'=>'ketikkan alamat email di sini...',
+      'placeholder'=>'Masukan alamat email di sini...',
       'style'=>'margin-bottom: 0; min-width: 360px;'
       ))
       }}
-      <button class="btn btn-hukor" type="submit">Submit</button>
+      <button class="btn btn-hukor" type="submit">KIRIM</button>
     </div>
 
     {{ Form::close() }}

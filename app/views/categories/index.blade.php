@@ -20,7 +20,6 @@
 					<table id="tbl-categories">
 						<thead>
 							<tr>
-								<th>#</th>
 								<th>Nama kategori</th>
 								<th>Dibuat Tanggal</th>
 								<th></th>
@@ -43,7 +42,6 @@
 			sAjaxSource: document.location.href,
 			bProcessing: true,
 			aoColumns: [
-				{mData: "id"},
 				{mData: "nama_kategori"},
 				{mData: "created_at"},
 				{
@@ -64,7 +62,7 @@
 		$dTblCategories.on("click", "a.delete", function(e){
 			e.preventDefault();
 
-			if(!confirm("Apakah anda yakin?"))
+			if(!confirm("Apakah anda yakin menghapus kategori berita?"))
 				return false;
 
 			$.ajax({

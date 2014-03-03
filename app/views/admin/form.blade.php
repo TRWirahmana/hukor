@@ -2,7 +2,6 @@
 	@parent
 @stop
 @section('admin')
-
 <div class="rightpanel">
 
     <ul class="breadcrumbs">
@@ -10,7 +9,7 @@
         <li><a href="{{URL::previous()}}">Kelola Akun</a>  <span class="separator"></span></li>
         <li>{{$title}}</li>
     </ul>
-
+    @include('adminflash')
     <div class="pageheader">
 <!--        <form action="results.html" method="post" class="searchbar">-->
 <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
@@ -36,6 +35,17 @@
                     <p class="text-info">{{$detail}}</p>
 
                     <div class="control-group">
+                        {{ Form::label('nip', 'NIP', array('class' => 'control-label')); }}
+                        <div class="controls">
+                            @if(!is_object($user->pengguna))
+                            {{ Form::text('nip', $user->pengguna->nip, array('placeholder' => 'Masukan NIP.')) }}
+                            @else
+                            {{ Form::text('nip', $user->pengguna->nip, array('placeholder' => 'Masukan NIP.')) }}
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="control-group">
                         {{ Form::label('nama_lengkap', 'Nama Lengkap', array('class' => 'control-label')); }}
                         <div class="controls">
                             @if(!is_object($user->pengguna))
@@ -59,6 +69,27 @@
                             <span class="help-block">{{ $error }}</span>
                             @endforeach
                         </div>
+                    </div>
+
+                    <div class="control-group">
+                        {{ Form::label('bagian', 'Pilih Bagian', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{ Form::select('bagian', $listbagian, $nama_bagian, array("id" => "bagian")) }}
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        {{ Form::label('sub_bagian', 'Pilih Sub Bagian', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            @if(!is_null($nama_subbagian))
+                            {{ Form::select('sub_bagian', $listsubbagian, $nama_subbagian , array("id" => "sub_bagian")) }}
+                            @else
+
+                            <select name="sub_bagian" id="sub_bagian">
+                            </select>
+                            @endif
+                        </div>
+
                     </div>
 
                     <div class="control-group {{$errors->has('password')?'error':''}}">

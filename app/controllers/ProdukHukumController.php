@@ -42,7 +42,7 @@ class ProdukHukumController extends BaseController
 				'title' => 'Tambah Akun',
 				'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',
 				'form_opts' => array(
-					'route' => 'store_pelembagaan',					
+//					'action' => '#',
 					'method' => 'post',
 					'class' => 'form-horizontal',
 		            'id' => 'pelembagaan-form',

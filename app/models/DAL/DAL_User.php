@@ -39,7 +39,7 @@ class DAL_User {
         }
     }
 
-    public function SetPengguna($user_id, $email, $nama, $nip, $jabatan, $jk, $tgl_lahir, $pekerjaan, $alamat_kantor, $tlp_ktr, $hp, $uk)
+    public function SetPengguna($user_id, $email, $nama, $nip, $jabatan, $jk, $tgl_lahir, $pekerjaan, $alamat_kantor, $tlp_ktr, $hp, $uk,$tempat)
     {
 //        $biodata['role_id'] = 2;
         $biodata['user_id'] = $user_id;
@@ -56,6 +56,7 @@ class DAL_User {
         $biodata['tlp_kantor'] = $tlp_ktr;
         $biodata['handphone'] = $hp;
         $biodata['unit_kerja'] = $uk;
+        $biodata['tempat_lahir'] = $tempat;
 //        $biodata['thn_pendaftaran'] = date('Y');
         $biodata['created_at'] = date("Y-m-d H:i:s");
         $biodata['updated_at'] = date("Y-m-d H:i:s");

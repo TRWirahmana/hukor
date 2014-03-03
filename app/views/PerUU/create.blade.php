@@ -17,48 +17,55 @@
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[nama]', 'Nama', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[nama]', $user->pengguna->nama_lengkap) }}
+                        {{ Form::text('penanggungJawab[nama]', null, array('placeholder' => 'Masukan nama lengkap...')) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[jabatan]', 'Jabatan', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[jabatan]', $user->pengguna->detailJabatan->nama_jabatan) }}
+                        {{ Form::text('penanggungJawab[jabatan]', null, array('placeholder' => 'Masukan jabatan')) }}
                     </div>
                 </div>
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[nip]', "NIP", array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[nip]', $user->pengguna->nip) }}
+                        {{ Form::text('penanggungJawab[nip]', null, array('placeholder' => 'Masukan NIP')) }}
+                    </div>
+                </div>
+
+		<div class="control-group">
+                    {{ Form::label('penanggungJawab[no_handphone]', "No Handphone", array('class' => 'control-label'))}}
+                    <div class="controls">
+                        {{ Form::text('penanggungJawab[no_handphone]', null, array('placeholder' => 'Masukan no handphone')) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[unit_kerja]', "Unit Kerja", array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[unit_kerja]', $user->pengguna->unit_kerja) }}
+                        {{ Form::text('penanggungJawab[unit_kerja]', null, array('placeholder' => 'Masukan unit kerja...')) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[alamat_kantor]', 'Alamat Kantor', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[alamat_kantor]', $user->pengguna->alamat_kantor) }}
+                        {{ Form::textarea('penanggungJawab[alamat_kantor]', null, array('rows' => 2, 'placeholder' => 'Masukan alamat kantor...')) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[telp_kantor]', 'Telepon Kantor', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[telp_kantor]', $user->pengguna->tlp_kantor) }}
+                        {{ Form::text('penanggungJawab[telp_kantor]', null, array('placeholder' => 'Masukan nomor telepon kantor...')) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[email]', 'Email', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[email]', $user->pengguna->email) }}
+                        {{ Form::text('penanggungJawab[email]', null, array('placeholder' => 'Masukan alamat email...')) }}
                     </div>
                 </div>
 
@@ -67,21 +74,22 @@
 
         <div class="span12">
             <fieldset>
-                <legend>Informasi Perihal & Lampiran</legend>
+                <legend>Informasi Usulan</legend>
 
                 <div class="control-group">
                     {{ Form::label("per_uu[perihal]", "Perihal", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::text("per_uu[perihal]") }}</div>
-                </div>
-                <div class="control-group">
-                    {{ Form::label("per_uu[lampiran]", "Lampiran", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::file("per_uu[lampiran]") }}</div>
-                </div>
-                <div class="control-group">
-                    {{ Form::label("per_uu[catatan]", "Catatan", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::textarea("per_uu[catatan]") }}</div>
+                    <div class="controls">{{ Form::text("per_uu[perihal]", null, array('placeholder' => 'Masukan perihal usulan...')) }}</div>
                 </div>
 
+                <div class="control-group">
+                    {{ Form::label("per_uu[catatan]", "Deskripsi", array('class' => 'control-label')) }}
+                    <div class="controls">{{ Form::textarea("per_uu[catatan]", null, array('placeholder' => 'Masukan deskripsi usulan...')) }}</div>
+                </div>
+		
+		<div class="control-group">
+                    {{ Form::label("per_uu[lampiran]", "Lampiran", array('class' => 'control-label')) }}
+                    <div class="controls">{{ Form::file("per_uu[lampiran][]", array('multiple' => true)) }}</div>
+                </div>
             </fieldset>
 
         </div>

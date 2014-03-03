@@ -183,20 +183,21 @@ p {
   width: 100%;
 }
 .carousel-caption {
-  background: rgba(255, 255, 255, .35);
+  background: rgba(255, 255, 255, .52);
   padding: 16px 24px;
 }
 .carousel-caption h3, .carousel-caption p {
   width: 55%;
 }
 .carousel-caption h3 {
-  color: #ffffff;
+  color: #226C9C;
   font-size: 18px;
   text-transform: uppercase;
   margin: 0 0 6px;
   font-family: "pt_sans_narrowbold", sans-serif;
 }
 .carousel-caption p {
+    color: #226C9C;
   line-height: 160%;
 }
 .boxed .carousel-indicators {

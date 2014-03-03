@@ -106,7 +106,7 @@
 
                 <div class="row-fluid">
                     <div class="span24 text-center">
-                        <button class="btn" type="submit">Submit</button>
+                        {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
                     </div>
                 </div>
 

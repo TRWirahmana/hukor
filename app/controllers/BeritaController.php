@@ -103,49 +103,74 @@ class BeritaController extends BaseController {
      */
     public function store()
     {
-
         $input = Input::all();
 
         $img = Input::file('gambar');
+        $slider = Input::file('slider');
 
         //save
-        if($img->isValid()){
-            $uqFolder = "berita";
+        if($img != null){
+            if($img->isValid() || $slider->isValid()){
+                $uqFolder = "berita";
 //            var_dump($uqFolder);exit;
-            $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
-            $filename = $img->getClientOriginalName();
-            $uploadSuccess = $img->move($destinationPath, $filename);
+                $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
+                $filename = $img->getClientOriginalName();
+                $slider_img = $slider->getClientOriginalName();
+                $uploadSuccess = $img->move($destinationPath, $filename);
+                $sliderupload = $slider->move($destinationPath, $slider_img);
 
-            if($uploadSuccess){
-                /* save to table berita */
-                $berita = new DAL_Berita();
+                if($uploadSuccess || $sliderupload){
+                    /* save to table berita */
+                    $berita = new DAL_Berita();
 
-                $berita->SetData(array(
-                    'judul' => $input['judul'],
-                    'berita' => $input['berita'],
-                    'id_kategori' => $input['kategori'],
+                    $berita->SetData(array(
+                        'judul' => $input['judul'],
+                        'berita' => $input['berita'],
+                        'id_kategori' => $input['kategori'],
 //                    'penulis' => $input['penulis'],
-                    'gambar' => $filename,
-                    'tgl_penulisan' => new DateTime,
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
-                ));
+                        'gambar' => $filename,
+                        'slider' => $slider_img,
+                        'tgl_penulisan' => new DateTime,
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'),
+                    ));
 
-                if($berita->Save()){
-                    Session::flash('success', 'Berita berhasil ditambahkan!');
+                    if($berita->Save()){
+                        Session::flash('success', 'Berita berhasil ditambahkan!');
 //                    Cache::forget('Berita');
-                    return Redirect::to('admin/berita');
-                }else{
-                    Session::flash('error', 'Gagal mengirim data. Pastikan Berita sudah benar.');
-                    return Redirect::back();
+                        return Redirect::to('admin/berita');
+                    }else{
+                        Session::flash('error', 'Berita Gagal disimpan. Pastikan data Berita sudah benar.');
+                        return Redirect::back();
+                    }
                 }
 
+            }else{
+                Session::flash('error', 'Gagal mengirim berkas.');
+                return Redirect::back();
             }
-
         }else{
-            Session::flash('error', 'Gagal mengirim berkas.');
-            return Redirect::back();
+            $berita = new DAL_Berita();
+
+            $berita->SetData(array(
+                'judul' => $input['judul'],
+                'berita' => $input['berita'],
+                'id_kategori' => $input['kategori'],
+                'tgl_penulisan' => new DateTime,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ));
+
+            if($berita->Save()){
+                Session::flash('success', 'Berita berhasil ditambahkan!');
+//                    Cache::forget('Berita');
+                return Redirect::to('admin/berita');
+            }else{
+                Session::flash('error', 'Berita gagal disimpan. Pastikan data Berita sudah benar.');
+                return Redirect::back();
+            }
         }
+
     }
 
     /**

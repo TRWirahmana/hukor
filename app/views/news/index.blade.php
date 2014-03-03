@@ -38,46 +38,28 @@
             <li data-target="#main-carousel" data-slide-to="3" class=""></li>
           </ol>
           <div class="carousel-inner">
-            <div class="item active">
-              <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-01.jpg')}}" alt="">
+              <?php $n = 0?>
+              @foreach($latest_news as $data)
+              @if($n++ < 4)
+              <div class="item" style="height:249px !important;">
+                  @if($data->slider != null)
+                  {{ HTML::image('assets/uploads/berita/' . $data->slider) }}
+                  @else
+                  {{ HTML::image('assets/img/noim.jpg') }}
+                  @endif
 
-              <div class="carousel-caption">
-                <h3>First Thumbnail label</h3>
+                  <div class="carousel-caption">
+                      <h3>{{$data->judul}}</h3>
+                      <?php $berita = strip_tags($data->berita);
+                      $highlight = substr($berita, 0, 150);
 
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                  at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                      ?>
+                      <p>{{$highlight}}</p>
+                  </div>
               </div>
-            </div>
-            <div class="item">
-              <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-02.jpg')}}" alt="">
-
-              <div class="carousel-caption">
-                <h3>Second Thumbnail label</h3>
-
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                  at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              </div>
-            </div>
-            <div class="item">
-              <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-03.jpg')}}" alt="">
-
-              <div class="carousel-caption">
-                <h3>Third Thumbnail label</h3>
-
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                  at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              </div>
-            </div>
-            <div class="item">
-              <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-04.jpg')}}" alt="">
-
-              <div class="carousel-caption">
-                <h3>Fourth Thumbnail label</h3>
-
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                  at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              </div>
-            </div>
+              @endif
+              <? $n++; ?>
+              @endforeach
           </div>
         </div>
         <div id="paging_container">

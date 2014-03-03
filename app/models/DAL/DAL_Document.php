@@ -46,6 +46,7 @@ class DAL_Document {
         $data->tgl_pengesahan = $input['tanggal'];
         $data->file_dokumen = $file->getClientOriginalName();
         $data->status_publish = $input['status'] == "Publish" ? 1: 0;
+        $data->bidang = $input['bidang'];
 
         return $data->save();//saving data
     }
@@ -81,6 +82,7 @@ class DAL_Document {
         $data->tgl_pengesahan = $input['tanggal'];
         $data->file_dokumen = $input['file_dokumen']->getClientOriginalName();
         $data->status_publish = $input['publish'];
+        $data->bidang = $input['bidang'];
 
         $data->save();
     }

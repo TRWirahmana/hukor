@@ -50,6 +50,22 @@
                                     </div>
                                 </div>
 
+                                <div class="control-group">
+                                    <label for="select-masalah" class="control-label">Bidang</label>
+                                    <div class="controls">
+                                        <select id="select-masalah" name="masalah" style="width: 150%;">
+                                            <option value="">Semua Bidang</option>
+                                            <option value="1">Pendidikan Dasar</option>
+                                            <option value="2">Pendidikan Menengah</option>
+                                            <option value="3">Pendidikan Tinggi</option>
+                                            <option value="4">Kebudayaan</option>
+                                            <option value="5">Pendidikan Anak Usia Dini</option>
+                                            <option value="6">Nonformal</option>
+                                            <option value="7">Informal</option>
+                                        </select>
+                                    </div>
+                                </div>
+
 <!--                                <div class="control-group">-->
 <!--                                    <div class="controls">-->
 <!--                                        <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">-->

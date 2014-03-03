@@ -48,7 +48,24 @@
                 '3' => 'Organisasi',
                 '4' => 'Umum',
                 '5' => 'Perlengkapan',
+                '7' => 'Tim',
                 '6' => 'Lainnya',
+                ), $data->masalah) }}
+            </div>
+        </div>
+
+        <div class="control-group">
+            {{ Form::label('bidang', 'Bidang', array('class' => 'control-label')) }}
+            <div class="controls">
+                {{ Form::select('bidang', array(
+                '0' => '- Pilih Bidang -',
+                '1' => 'Pendidikan Dasar',
+                '2' => 'Pendidikan Menengah',
+                '3' => 'Pendidikan Tinggi',
+                '4' => 'Kebudayaan',
+                '5' => 'Pendidikan Anak Usia Dini',
+                '6' => 'Nonformal',
+                '7' => 'Informal',
                 ), $data->masalah) }}
             </div>
         </div>

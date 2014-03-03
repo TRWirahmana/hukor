@@ -1,117 +1,153 @@
-@section('content')
+@section('admin')
 
+<div class="rightpanel">
 
-<h2>KETATALAKSANAAN</h2>
-<div class="stripe-accent"></div>
-<legend>Dokumentasi</legend>
+    <ul class="breadcrumbs">
+        <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
+        <li><a href="{{URL::previous()}}">Dokumentasi</a>  <span class="separator"></span></li>
+        <li>Tambah Dokumen</li>
+    </ul>
+    @include('adminflash')
+    <div class="pageheader">
+        <!--        <form action="results.html" method="post" class="searchbar">-->
+        <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
+        <!--        </form>-->
+        <div class="pageicon">&nbsp;</div>
+        <div class="pagetitle">
+            <!--<h5>Events</h5>-->
 
-@include('flash')
-
-{{ Form::open($form_opts) }}
-
-{{ Form::hidden('id', $data->id) }}
-
-<div class="row-fluid">
-    <div class="span12">
-        <div class="nav nav-tabs">
-            <h4>INPUT DOKUMEN</h4>
-        </div>
-        <div class="control-group">
-            {{ Form::label('nomor', 'Nomor', array('class' => 'control-label')) }}
-            <div class="controls">
-                {{ Form::text('nomor', $data->nomor, array('id' => 'nomor')) }}
-            </div>
-        </div>
-
-        <div class="control-group">
-            {{ Form::label('kategori', 'Kategori', array('class' => 'control-label')) }}
-            <div class="controls">
-                {{ Form::select('kategori', array(
-                '0' => '- Pilih Kategori -',
-                '1' => 'Keputusan Menteri',
-                '2' => 'Peraturan Menteri',
-                '3' => 'Peraturan Bersama',
-                '4' => 'Keputusan Bersama',
-                '5' => 'Instruksi Menteri',
-                '6' => 'Surat Edaran',
-                ), $data->kategori) }}
-            </div>
-        </div>
-
-        <div class="control-group">
-            {{ Form::label('masalah', 'Masalah', array('class' => 'control-label')) }}
-            <div class="controls">
-                {{ Form::select('masalah', array(
-                '0' => '- Pilih Masalah -',
-                '1' => 'Kepegawaian',
-                '2' => 'Keuangan',
-                '3' => 'Organisasi',
-                '4' => 'Umum',
-                '5' => 'Perlengkapan',
-                '7' => 'Tim',
-                '6' => 'Lainnya',
-                ), $data->masalah) }}
-            </div>
-        </div>
-
-        <div class="control-group">
-            {{ Form::label('bidang', 'Bidang', array('class' => 'control-label')) }}
-            <div class="controls">
-                {{ Form::select('bidang', array(
-                '0' => '- Pilih Bidang -',
-                '1' => 'Pendidikan Dasar',
-                '2' => 'Pendidikan Menengah',
-                '3' => 'Pendidikan Tinggi',
-                '4' => 'Kebudayaan',
-                '5' => 'Pendidikan Anak Usia Dini',
-                '6' => 'Nonformal',
-                '7' => 'Informal',
-                ), $data->masalah) }}
-            </div>
-        </div>
-
-        <div class="control-group">
-            {{ Form::label('perihal', 'Perihal', array('class' => 'control-label')) }}
-            <div class="controls">
-                {{ Form::textarea('perihal', $data->perihal, array('id' => 'perihal')) }}
-            </div>
-        </div>
-
-        <div class="control-group">
-            {{ Form::label('deskripsi', 'Deskripsi', array('class' => 'control-label')) }}
-            <div class="controls">
-                {{Form::textarea('deskripsi', $data->deskripsi, array('id'=>'deskripsi'))}}
-            </div>
-        </div>
-
-        <div class="control-group {{$errors->has('password')?'error':''}}">
-            {{ Form::label('tanggal', 'Tanggal Pengesahan', array('class' => 'control-label')) }}
-            <div class="controls">
-                {{Form::text('tanggal', $data->tgl_pengesahan, array('id'=>'tanggal', 'class'=>'datepicker'))}}
-            </div>
-        </div>
-
-        <div class="control-group">
-            {{ Form::label('file_dokumen', 'File Dokumen', array('class' => 'control-label')) }}
-            <div class="controls">
-                {{ Form::file('file_dokumen', array('id'=>'file_dokumen')) }}
-            </div>
+            <h1>Tambah Dokumen</h1>
         </div>
     </div>
-</div>
+    <!--pageheader-->
 
-<div class="row-fluid">
-    <div class="span24 text-center">
-        {{Form::submit("Draft", array("class" => "btn btn-primary", "name" => "status"))}}
-        {{Form::submit("Publish", array("class" => "btn btn-primary", "name" => "status"))}}
+    <div class="maincontent">
+        <div class="maincontentinner">
+
+            <!-- MAIN CONTENT -->
+            {{ Form::open($form_opts) }}
+
+            <div>
+                <fieldset>
+                    <legend class="f_legend">{{$title}}</legend>
+                    <p class="text-info">{{$detail}}</p>
+
+                    <div class="control-group">
+                        {{ Form::label('nomor', 'Nomor', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{ Form::text('nomor', $data->nomor, array('id' => 'nomor')) }}
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        {{ Form::label('kategori', 'Kategori', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{ Form::select('kategori', array(
+                            '0' => '- Pilih Kategori -',
+                            '1' => 'Keputusan Menteri',
+                            '2' => 'Peraturan Menteri',
+                            '3' => 'Peraturan Bersama',
+                            '4' => 'Keputusan Bersama',
+                            '5' => 'Instruksi Menteri',
+                            '6' => 'Surat Edaran',
+                            ), $data->kategori) }}
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        {{ Form::label('masalah', 'Masalah', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{ Form::select('masalah', array(
+                            '0' => '- Pilih Masalah -',
+                            '1' => 'Kepegawaian',
+                            '2' => 'Keuangan',
+                            '3' => 'Organisasi',
+                            '4' => 'Umum',
+                            '5' => 'Perlengkapan',
+                            '7' => 'Tim',
+                            '6' => 'Lainnya',
+                            ), $data->masalah) }}
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        {{ Form::label('bidang', 'Bidang', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{ Form::select('bidang', array(
+                            '0' => '- Pilih Bidang -',
+                            '1' => 'Pendidikan Dasar',
+                            '2' => 'Pendidikan Menengah',
+                            '3' => 'Pendidikan Tinggi',
+                            '4' => 'Kebudayaan',
+                            '5' => 'Pendidikan Anak Usia Dini, Nonformal, Informal',
+                            '6' => 'Lainnya',
+                            ), $data->bidang) }}
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        {{ Form::label('perihal', 'Perihal', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{ Form::textarea('perihal', $data->perihal, array('id' => 'perihal')) }}
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        {{ Form::label('deskripsi', 'Deskripsi', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{Form::textarea('deskripsi', $data->deskripsi, array('id'=>'deskripsi'))}}
+                        </div>
+                    </div>
+
+                    <div class="control-group {{$errors->has('password')?'error':''}}">
+                        {{ Form::label('tanggal', 'Tanggal Pengesahan', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{Form::text('tanggal', $data->tgl_pengesahan, array('id'=>'tanggal', 'class'=>'datepicker'))}}
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        {{ Form::label('file_dokumen', 'File Dokumen', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{ Form::file('file_dokumen', array('id'=>'file_dokumen')) }}
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <div class="form-actions">
+                    <div class="controls">
+                        {{Form::submit("Draft", array("class" => "btn btn-primary", "name" => "status"))}}
+                        {{Form::submit("Publish", array("class" => "btn btn-primary", "name" => "status"))}}
+                    </div>
+                </div>
+
+            </div>
+            {{ Form::close() }}
+
+            <div class="footer">
+                <div class="footer-left">
+                    <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
+                </div>
+                <div class="footer-right">
+                    <span></span>
+                </div>
+            </div>
+            <!--footer-->
+        </div>
+        <!--maincontentinner-->
     </div>
+    <!--maincontent-->
+
+
 </div>
-{{ Form::close() }}
+<!--rightpanel-->
 @stop
 
 @section('scripts')
 @parent
 <script type="text/javascript">
+    var $ = jQuery.noConflict();
     $(function() {
         $( ".datepicker" ).datepicker({
             dateFormat: 'yy-mm-dd',

@@ -119,6 +119,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('publishdoc/{key}', 'DocumentController@publish');
     Route::get('deletedoc/{key}', 'DocumentController@delete');
     Route::post('savedoc','DocumentController@save');
+    Route::put('updatedoc/{key}','DocumentController@update');
     Route::get('tabledoc', 'DocumentController@datatable');
 });
 

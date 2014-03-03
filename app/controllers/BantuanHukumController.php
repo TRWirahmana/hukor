@@ -81,10 +81,8 @@ class BantuanHukumController extends BaseController{
 
     public function detail($id)
     {
-	$DAL = new DAL_BantuanHukun();
-
 	//get bantuan hukum by id
-	$banhuk = $DAL->GetSingleBantuanHukum($id);
+	$banhuk = BantuanHukum::find($id);
 
 	// show form with empty model
 	$this->layout = View::make('layouts.admin');
@@ -142,27 +140,18 @@ class BantuanHukumController extends BaseController{
 
     public function downloadLampiranLog($id)
     {
-	if($log = LogPelembagaan::find($id))
+	if($log = LogBantuanHukum::find($id))
 	    return HukorHelper::downloadAsZIP(unserialize($log->lampiran));
 	return App::abort(404);
     }
 
 
     public function download($id, $index = null) {
-	if($object = BantuanHukum::find($id)) {
-	    $attachments = unserialize($object->lampiran);	
-	    if(!empty($attachments) && null !== $index && isset($attachments[$index]) )
-	    {
-		$filename = $attachments[$index];	
-		$originalName = explode('/', $filenam)[1];
-		$path = UPLOAD_PATH . DS . $filename;
-		if(file_exists($path))
-		    return Response::download($path, $originalname);
-	    } else {
-		return HukorHelper::downloadAsZIP($attachments);
+	    if($object = BantuanHukum::find($id)){
+		    $attachments = unserialize($object->lampiran);
+		    return HukorHelper::downloadAttachment($attachments, $index);
 	    }
-	}
-	return App::abort(404);
+	    return App::abort(404);
     }
 
 

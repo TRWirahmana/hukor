@@ -113,6 +113,19 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::resource('linked', 'DikbudController');
     Route::post('savelinked', 'DikbudController@save');
     Route::post('updatelinked', 'DikbudController@update');
+
+    Route::get('subbagians', 'AdminController@subbagian');
+
+    //dokumentasi
+    Route::resource('document', 'DocumentController');
+    Route::get('adddoc', 'DocumentController@add');
+    Route::get('detaildoc/{key}', 'DocumentController@detail');
+    Route::get('editdoc/{key}', 'DocumentController@edit');
+    Route::get('publishdoc/{key}', 'DocumentController@publish');
+    Route::get('deletedoc/{key}', 'DocumentController@delete');
+    Route::post('savedoc','DocumentController@save');
+    Route::put('updatedoc/{key}','DocumentController@update');
+    Route::get('tabledoc', 'DocumentController@datatable');
 });
 
 

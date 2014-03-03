@@ -59,9 +59,8 @@
                                             <option value="2">Pendidikan Menengah</option>
                                             <option value="3">Pendidikan Tinggi</option>
                                             <option value="4">Kebudayaan</option>
-                                            <option value="5">Pendidikan Anak Usia Dini</option>
-                                            <option value="6">Nonformal</option>
-                                            <option value="7">Informal</option>
+                                            <option value="5">Pendidikan Anak Usia Dini, Nonformal, Informal</option>
+                                            <option value="6">Lainnya</option>
                                         </select>
                                     </div>
                                 </div>

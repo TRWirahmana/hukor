@@ -396,14 +396,14 @@ p {
 .widget-body .widget-content {
   color: #ffffff;
   text-align: center;
-  font-family: "monacoregular", "Monaco", monospace;
-  font-size: 48px;
 }
 .widget-body .widget-content p {
   line-height: 160%;
   padding-top: 12px;
   padding-bottom: 6px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+  font-family: "monacoregular", "Monaco", monospace;
+  font-size: 48px;
 }
 #counter-widget .widget-body {
   position: relative;

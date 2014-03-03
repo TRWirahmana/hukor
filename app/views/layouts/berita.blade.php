@@ -106,10 +106,10 @@
                     <?php $menu = Menu::all(); ?>
                     @foreach($menu as $menus)
                         @if($menus->submenu == null)
-                            <li><a href="#">{{$menus->nama_menu}}</a></li>
+                            <li><span class="rulycon-file-3">&nbsp; <a href="#">{{$menus->nama_menu}}</a></li>
                         @else
                             <li class="has-child">
-                                <a href="#">{{$menus->nama_menu}}</a>
+                                <span class="rulycon-file-3">&nbsp; <a href="#">{{$menus->nama_menu}}</a>
                                 <ul>
                                     @foreach($menus->submenu as $submenus)
                                         @if($submenus->layanan->id != null)

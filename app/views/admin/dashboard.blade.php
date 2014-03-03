@@ -147,7 +147,7 @@
                         </div>
                         <div class="span6">
                             <div class="control-group">
-                                <label for="select-status" class="control-label">Modul</label>
+                                <label for="select-status" class="control-label">Usulan</label>
                                 <div class="controls">
                                     <select id="select-status" name="modul">
                                         <option value="">Semua</option>

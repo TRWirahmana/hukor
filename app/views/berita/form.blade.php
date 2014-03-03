@@ -70,7 +70,7 @@
                     </div>
 
                     <div class="control-group {{$errors->has('gambar')?'error':''}}">
-                        {{ Form::label('gambar', 'Gambar', array('class' => 'control-label')) }}
+                        {{ Form::label('gambar', 'Gambar Thumbnail', array('class' => 'control-label')) }}
                         <div class="controls">
                             {{ Form::file('gambar')}}
 
@@ -80,11 +80,22 @@
                         </div>
                     </div>
 
+                    <div class="control-group {{$errors->has('gambar')?'error':''}}">
+                        {{ Form::label('slider', 'Gambar Slider', array('class' => 'control-label')) }}
+                        <div class="controls">
+                            {{ Form::file('slider')}}
+
+                            @foreach($errors->get('slider') as $error)
+                            <span class="help-block">{{$error}}</span>
+                            @endforeach
+                        </div>
+                    </div>
+
                 </fieldset>
 
                 <div class="form-actions">
                     <div class="controls">
-                        {{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
+                        {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
                     </div>
                 </div>
 

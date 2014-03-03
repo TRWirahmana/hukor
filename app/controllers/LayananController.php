@@ -155,7 +155,7 @@ class LayananController extends BaseController {
                     }
                 }
             }else{
-                Session::flash('error', 'Gagal mengirim berkas.');
+                Session::flash('error', 'Gagal mengirim data.');
                 return Redirect::back();
             }
         }else{

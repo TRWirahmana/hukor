@@ -90,13 +90,13 @@
                 </div>
                 <div id="welcome-message">
                     @if($user->role_id == 3)
-                    <p>Welcome <span id="user-name"><?php echo $user->username; ?></span></p>
+                    <p>Selamat Datang <span id="user-name"><?php echo $user->username; ?></span></p>
                     @else
-                    <p>Welcome <span id="user-name"><?php echo $user->pengguna->nama_lengkap; ?></span></p>
+                    <p>Selamat Datang <span id="user-name"><?php echo $user->pengguna->nama_lengkap; ?></span></p>
                     @endif
                 </div>
                 <div id="user-links">
-                    <a href="{{URL::route('admin.setting')}}"><span class="rulycon-cog"></span> Settings</a>
+                    <a href="{{URL::route('admin.setting')}}"><span class="rulycon-cog"></span> Pengaturan</a>
                     <a href="{{URL::route('admin.logout')}}"><span class="rulycon-exit"></span> Keluar</a>
                 </div>
 

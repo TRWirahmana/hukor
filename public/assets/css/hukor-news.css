@@ -183,7 +183,7 @@ p {
   width: 100%;
 }
 .carousel-caption {
-  background: rgba(255, 255, 255, .52);
+  background: rgba(255, 255, 255, .75);
   padding: 16px 24px;
 }
 .carousel-caption h3, .carousel-caption p {

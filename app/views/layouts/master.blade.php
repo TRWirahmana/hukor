@@ -67,11 +67,11 @@
         <p id="username" class="welcome-message user-not-null"><span>Selamat datang, <span id="name"><?php echo $user->pengguna->nama_lengkap; ?></span></span></p>
 
         <ul class="welcome-message user-not-null-links">
-          <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span>User settings</a></li>
+          <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span>Pengaturan Akun</a></li>
           <li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span>Keluar</a></li>
         </ul>
         @else
-        <p id="username" class="welcome-message">Selamat datang <span id="name">guest</span></p>
+        <p id="username" class="welcome-message">Selamat datang <span id="name"></span></p>
           @if($user == null)
           {{-- form login--}}
           {{ Form::open(array('action' => 'LoginController@signin', 'method' => 'post', 'id'=>'user-sign-in-form',

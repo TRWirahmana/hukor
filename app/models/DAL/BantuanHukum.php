@@ -145,25 +145,32 @@ class DAL_BantuanHukun
     {
         $data = BantuanHukum::find($input['id']); // find record by id
 
-        $data->advokasi = $input['advokasi'];
-        $data->advokator = $input['advokator'];
-
-        $data->save(); // update data in table bantuan_hukum
-
         $log = new LogBantuanHukum;
 
-        $log->bantuan_hukum_id = $input['id'];
-        $log->advokasi = $input['advokasi'];
-        $log->advokator = $input['advokator'];
-        $log->status_pemohon = $input['status_permohonan'];
-        $log->status_perkara = $input['status_perkara'];
-        $log->ket_lampiran = $input['ket_lampiran'];
-        $log->catatan = $input['catatan'];
-        //getClientOriginalName() for get real file name
-        $log->lampiran = ($input['lampiran'] != null) ? $input['lampiran']->getClientOriginalName() : null;
+        $log->bantuan_hukum_id = $data->id;
+        $log->advokasi = $data->advokasi;
+        $log->advokator = $data->advokator;
+        $log->status_pemohon = $data->status_pemohon;
+        $log->status_perkara = $data->status_perkara;
+        $log->ket_lampiran = $data->ket_lampiran;
+        $log->catatan = $data->catatan;
+        $log->lampiran = $data->lampiran;
         $log->tanggal = date("Y-m-d");
 
         $log->save();
+
+        $data->advokasi = $input['advokasi'];
+        $data->advokator = $input['advokator'];
+	$data->status_pemohon = $input['status_pemohon'];
+	$data->status_perkara = $input['status_perkara'];
+	$data->ket_lampiran = $input['ket_lampiran'];
+	$data->catatan = $input['catatan'];
+
+	$filenames=	HukorHelper::MultipleUploadFile('bantuanhukum', $input['lampiran']);
+	$data->lampiran = serialize($filenames);
+
+        $data->save(); // update data in table bantuan_hukum
+
 
         $this->SendEmailToPengusul($input['id']);
 
@@ -197,6 +204,8 @@ class DAL_BantuanHukun
                     'iTotalDisplayRecords' => $iTotalDisplayRecords
         ));
     }
+ 
+    
 
 
 

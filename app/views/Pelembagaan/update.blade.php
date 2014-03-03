@@ -52,7 +52,7 @@
 
                     <div class="control-group">
                         {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label'))}}
-                        <div class="controls"> <textarea disabled> {{ $penanggungJawab->alamat_kantor }} </textarea></div>
+                        <div class="controls"> <textarea  rows="3" disabled> {{ $penanggungJawab->alamat_kantor }} </textarea></div>
                     </div>  
 
                     <div class="control-group">
@@ -110,13 +110,13 @@
                 
                     <div class="control-group">
                     {{ Form::label('catatan', "Keterangan", array('class' => 'control-label')) }}
-                        <div class="controls">{{ Form::textarea('catatan') }}</div>
+                        <div class="controls">{{ Form::textarea('catatan', null, array('placeholder' => "Masukkan Keterangan...")) }}</div>
                     </div>
 
                     <div class="control-group">
                     {{ Form::label("ket_lampiran", "Ket. Lampiran", array('class' => 'control-label')) }}
                         <div class="controls">
-                            {{ Form::text("keterangan") }}</div>
+                            {{ Form::text("keterangan", null, array('placeholder' => "Masukkan Keterangan Lampiran...")) }}</div>
                     </div>
 
                     <div class="control-group">

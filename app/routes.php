@@ -113,6 +113,19 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::resource('linked', 'DikbudController');
     Route::post('savelinked', 'DikbudController@save');
     Route::post('updatelinked', 'DikbudController@update');
+
+    Route::get('subbagians', 'AdminController@subbagian');
+
+    //dokumentasi
+    Route::resource('document', 'DocumentController');
+    Route::get('adddoc', 'DocumentController@add');
+    Route::get('detaildoc/{key}', 'DocumentController@detail');
+    Route::get('editdoc/{key}', 'DocumentController@edit');
+    Route::get('publishdoc/{key}', 'DocumentController@publish');
+    Route::get('deletedoc/{key}', 'DocumentController@delete');
+    Route::post('savedoc','DocumentController@save');
+    Route::put('updatedoc/{key}','DocumentController@update');
+    Route::get('tabledoc', 'DocumentController@datatable');
 });
 
 
@@ -314,10 +327,11 @@ Route::group(array('before' => 'auth'), function(){
         Route::get('bantuan_hukum/delete/{id}', 'BantuanHukumController@delete');
         Route::get('bantuan_hukum/delete_log/{id}', 'BantuanHukumController@deletelog');
         Route::post('bantuan_hukum/convertpdf', 'BantuanHukumController@convertpdf');
+	Route::get('bantuan_hukum/log/download/{id}', 'BantuanHukumController@downloadLampiranLog');
         Route::resource('bantuan_hukum', 'BantuanHukumController');
     });
 });
-Route::get('aj/download/{id}/{index?}', array('as' => 'aj.download', 'uses' => 'AnalisisJabatanController@download'));
+Route::get('aj/download/{id}', array('as' => 'aj.download', 'uses' => 'AnalisisJabatanController@downloadLampiran'));
 Route::get('sp/download/{id}/{index?}', array('as' => "sp.download", "uses" => 'SistemDanProsedurController@download'));
 Route::get('puu/download/{id}/{index?}', array('as' => 'puu.download', 'uses' => 'PeruuController@download'));
 Route::get('pelembagaan/download/{id}/{index?}', array('as' => 'pelembagaan.download', 'uses' => 'PelembagaanController@download' ) );

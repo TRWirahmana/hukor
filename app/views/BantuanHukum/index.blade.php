@@ -31,7 +31,7 @@
             }).val();
 
             var tbl_data = $("#basictable").dataTable({
-                bFilter: true,
+                bFilter: false,
                 bInfo: false,
                 bSort: false,
                 bPaginate: true,

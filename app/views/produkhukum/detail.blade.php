@@ -15,35 +15,35 @@
 					<div class="control-group">		
 						{{ Form::label('nomor', 'Nomor', array('class' => 'control-label'))}}
 						<div class="controls">
-							{{ Form::text('nomor', $data->nomor); }}
+							{{ $data->nomor }}
 						</div>
 					</div>
 					
 					<div class="control-group">
 						{{ Form::label('kategori', 'Kategori', array('class' => 'control-label'))}}
 						<div class="controls">
-							{{ Form::text('kategori', $data->getKategori($data->kategori)) }}						
+							{{ $data->getKategori($data->kategori) }}
 						</div>
 					</div>		
 
 					<div class="control-group">
 						{{ Form::label('masalah', 'Masalah', array('class' => 'control-label'))}}
 						<div class="controls">
-							{{ Form::text('masalah', $data->getMasalah($data->masalah)) }}
+							{{ $data->getMasalah($data->masalah) }}
 						</div>
 					</div>
 
 					<div class="control-group">
 						{{ Form::label('tentang', 'Tentang', array('class' => 'control-label'))}}					
 						<div class="controls">
-							{{ Form::text('tentang', $data->deskripsi ) }}
+							{{ $data->deskripsi }}
 						</div>
 					</div>	
 
 					<div class="control-group">
 						{{ Form::label('tgl_pengesahan', 'Tanggal Pengesahan', array('class' => 'control-label'))}}
 						<div class="controls">
-							{{ Form::text('tgl_pengesahan', $data->tgl_pengesahan) }}
+							{{ $data->tgl_pengesahan }}
 						</div>
 					</div>	
 

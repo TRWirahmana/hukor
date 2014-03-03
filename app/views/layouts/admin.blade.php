@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Layanan Hukum & Organisasi</title>
+        <title>Layanan Hukum dan Organisasi</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Registrasi Online Penyuluh Nasional">
         <meta name="author" content="Sangkuriang Internasional">
@@ -90,13 +90,13 @@
                 </div>
                 <div id="welcome-message">
                     @if($user->role_id == 3)
-                    <p>Welcome <span id="user-name"><?php echo $user->username; ?></span></p>
+                    <p>Selamat Datang <span id="user-name"><?php echo $user->username; ?></span></p>
                     @else
-                    <p>Welcome <span id="user-name"><?php echo $user->pengguna->nama_lengkap; ?></span></p>
+                    <p>Selamat Datang <span id="user-name"><?php echo $user->pengguna->nama_lengkap; ?></span></p>
                     @endif
                 </div>
                 <div id="user-links">
-                    <a href="{{URL::route('admin.setting')}}"><span class="rulycon-cog"></span> Settings</a>
+                    <a href="{{URL::route('admin.setting')}}"><span class="rulycon-cog"></span> Pengaturan</a>
                     <a href="{{URL::route('admin.logout')}}"><span class="rulycon-exit"></span> Keluar</a>
                 </div>
 
@@ -136,6 +136,7 @@
                                         <ul>
                                             <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                             <li><a href="{{URL::route('admin.aj.index')}}">Analisis Jabatan</a></li>
+                                            <li><a href="{{URL::to('admin/document')}}">Dokumentasi</a></li>
                                         </ul>
                                     </li>
                                     <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>

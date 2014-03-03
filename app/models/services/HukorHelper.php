@@ -369,5 +369,53 @@ class HukorHelper {
 		}
 	}
 
+    public static function XMLFile()
+    {
+        $dom = new DOMDocument("1.0");
+
+        if(!file_exists(XML_COUNTER . 'counter.xml'))
+        {
+            header("Content-Type:text/plain");
+
+            // create root element
+            $root = $dom->createElement('counter');
+            $dom->appendChild($root);
+
+            // create child element
+            $count = $dom->createElement('count');
+            $root->appendChild($count);
+
+            //create text node
+            $value = $dom->createTextNode(1);
+            $count->appendChild($value);
+
+            $dom->save(XML_COUNTER . 'counter.xml');
+        }
+        else
+        {
+            $dom->load(XML_COUNTER . "counter.xml");
+
+            $root = $dom->documentElement;
+
+            $counter = $root->getElementsByTagName('count')->item(0)->nodeValue;
+            $root->getElementsByTagName('count')->item(0)->nodeValue = $counter + 1;
+
+            $dom->save(XML_COUNTER . 'counter.xml');
+        }
+    }
+
+    public static function GetCounterVisitor()
+    {
+        $dom = new DOMDocument("1.0");
+
+        $dom->load(XML_COUNTER . "counter.xml");
+
+        $root = $dom->documentElement;
+
+        $counter = $root->getElementsByTagName('count')->item(0)->nodeValue;
+
+        return $counter;
+    }
+
 
 }

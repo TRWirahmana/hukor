@@ -1,32 +1,72 @@
-@section('content')
+@section('admin')
+
+<div class="rightpanel">
+
+    <ul class="breadcrumbs">
+        <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
+        <li>Dokumentasi</li>
+    </ul>
+
+    @include('adminflash')
+    <?php $user = Auth::user(); ?>
+    <div class="pageheader">
+        <!--        <form action="results.html" method="post" class="searchbar">-->
+        <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
+        <!--        </form>-->
+        <div class="pageicon">&nbsp;</div>
+        <div class="pagetitle">
+            <!--<h5>Events</h5>-->
+
+            <h1>Dokumentasi</h1>
+        </div>
+    </div>
+    <!--pageheader-->
+
+    <div class="maincontent">
+        <div class="maincontentinner">
+
+            <!-- MAIN CONTENT -->
+            <div class="stripe-accent"></div>
+            @if($user->role_id == 3)
+            <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('admin/adddoc')}}">Tambah Baru</a>
+            @endif
+            <legend></legend>
+
+            <table id="basictable" class="dataTable">
+                <thead>
+                <tr>
+                    <th>Nomor</th>
+                    <th>Tanggal</th>
+                    <th>Tentang</th>
+                    <th>Kategori</th>
+                    <th>Masalah</th>
+                    <th>Publikasi</th>
+                    <th></th>
+                </tr>
+                </thead>
+            </table>
+
+            <div class="footer">
+                <div class="footer-left">
+                    <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
+                </div>
+                <div class="footer-right">
+                    <span></span>
+                </div>
+            </div>
+            <!--footer-->
+        </div>
+        <!--maincontentinner-->
+    </div>
+    <!--maincontent-->
 
 
-<h2>KETATALAKSANAAN</h2>
-<div class="stripe-accent"></div>
-<legend>Document
-    <a class="btn btn-mini btn-primary" href="{{ URL::to('/adddoc')}}">
-        <i class="icon-plus"></i>&nbsp; Tambah Baru</a>
-</legend>
-
-@include('flash')
-
-<table id="basictable" class="dataTable">
-    <thead>
-    <tr>
-        <th>Nomor</th>
-        <th>Tanggal</th>
-        <th>Tentang</th>
-        <th>Kategori</th>
-        <th>Masalah</th>
-        <th>Publikasi</th>
-        <th></th>
-    </tr>
-    </thead>
-</table>
+</div>
 
 @section('scripts')
 @parent
 <script type="text/javascript">
+    var $ = jQuery.noConflict();
     var tbl_data = $("#basictable").dataTable({
         bFilter: false,
         bInfo: false,
@@ -36,7 +76,7 @@
         bServerSide: true,
         bProcessing: true,
 //                sAjaxSource: baseUrl + "/lkpm/data",
-        sAjaxSource: '<?php echo URL::to("tabledoc"); ?>',
+        sAjaxSource: '<?php echo URL::to("admin/tabledoc"); ?>',
         aoColumns: [
             {mData: "nomor", sClass: "center"},
             {mData: "tgl_pengesahan", sClass: "center"},
@@ -121,10 +161,10 @@
                 mData: "id",
                 sClass: "center",
                 mRender: function(data){
-                    var detailUrl = baseUrl + '/detaildoc?id=' + data;
-                    var updateUrl = baseUrl + '/editdoc?id=' + data;
-                    var publishUrl = baseUrl + '/publishdoc?id=' + data;
-                    var deleteUrl = baseUrl + '/deletedoc?id=' + data;
+                    var detailUrl = "<?php echo URL::to('admin/detaildoc'); ?>" + "/" + data;
+                    var updateUrl = "<?php echo URL::to('admin/editdoc'); ?>" + "/" + data;
+                    var publishUrl = "<?php echo URL::to('admin/publishdoc'); ?>" + "/" + data;
+                    var deleteUrl = "<?php echo URL::to('admin/deletedoc'); ?>" + "/" + data;
 
                     return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
                         '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +

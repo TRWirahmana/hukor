@@ -228,9 +228,35 @@ class AdminController extends BaseController {
 
 		$input = Input::all();
 
+        $rules = array(
+            'nip' => 'required|numeric|unique:pengguna,nip',
+            'email' => 'required|email|unique:pengguna,email'
+        );
+
+        $messages = array(
+            'nip.required' => 'NIP tidak boleh kosong.',
+            'nip.numeric' => 'Format NIP harus numeric.',
+            'nip.unique' => 'NIP ini telah teregistrasi.',
+            'email.required' => 'Email tidak boleh kosong.',
+            'email.email' => 'Format email salah.',
+            'email.unique' => 'Email ini telah teregistrasi.',
+        );
+
+        $validator = Validator::make(Input::all(), $rules, $messages);
+
+        //message for new registration
+        if($validator->fails()){
+            foreach ($validator->messages()->all() as $message) {
+                return Redirect::route('admin.account.create')
+                    ->with('error', $message);
+            }
+
+        }
+
         /* save to table user */
 		$user = new User();
         $user->role_id = $input['role'];
+        $user->nip = $input['nip'];
 		$user->username = $input['email'];
 		$user->password = Hash::make($input['password']);
         $user->last_active = new DateTime('now');
@@ -239,6 +265,7 @@ class AdminController extends BaseController {
             /* save to table registrasi */
 			$registrasi = new Pengguna();
             $registrasi->user_id = $user->id;
+            $registrasi->nip = $input['nip'];
 			$registrasi->nama_lengkap = $input['nama_lengkap'];
             $registrasi->bagian = $input['bagian'];
             $registrasi->sub_bagian = $input['sub_bagian'];
@@ -312,7 +339,7 @@ class AdminController extends BaseController {
 				Mail::send('emails.admreg', $data, function($message) use($user){
 					$message->from('admin@site.com', 'Site Admin');
 					$message->to($user->username, $user->username)
-							->subject('Sistem Layanan Hukum & Organisasi');
+							->subject('Sistem Layanan Hukum dan Organisasi');
 				});
 
 		}
@@ -345,20 +372,13 @@ class AdminController extends BaseController {
         $listSubbagian = array("" => "-- Pilih Sub Bagian --") + Subbagian::lists('nama_sub_bagian', 'id');
 
         $listRole = array("" => "-- Pilih Role --") + Role::lists('nama', 'id');
-//        $listRole = array(
-//            '1' => 'Kepala Biro',
-//            '2' => 'Pengguna',
-//            '3' => 'Super Admin',
-//            '4' => 'Kepala Bagian',
-//            '5' => 'Kepala Sub Bagian',
-//            '6' => 'Admin Peraturan Perundang-Undangan',
-//            '7' => 'Admin Pelembagaan',
-//            '8' => 'Admin Bantuan Hukum',
-//            '9' => 'Admin Ketatalaksanaan'
-//        );
 
-		//
 		$user = User::find($id);
+
+        $bagianexist = Bagian::where('id', '=', $user->pengguna->bagian)->get();
+
+        $sub_bagian = Subbagian::where('id_bagian', '=', $bagianexist['0']['id'])->get();
+
         $user->load('pengguna');
 		if(!is_null($user))
 			$this->layout->content = View::make('admin.form', array(
@@ -373,6 +393,8 @@ class AdminController extends BaseController {
                 'listRole' => $listRole,
                 'listbagian' => $listBagian,
                 'listsubbagian' => $listSubbagian,
+                'nama_bagian' => $bagianexist['0']['id'],
+                'nama_subbagian' => $sub_bagian['0']['id']
 			));
 	}
 
@@ -389,10 +411,15 @@ class AdminController extends BaseController {
 		$user = User::find($id);
 
         $user->role_id = $input['role'];
+        $user->nip = $input['nip'];
         $user->username = $input['email'];
         $user->password = Hash::make($input['password']);
 		$user->save();
+
         $user->pengguna->email = $input['email'];
+        $user->pengguna->nip = $input['nip'];
+        $user->pengguna->bagian = $input['bagian'];
+        $user->pengguna->sub_bagian = $input['sub_bagian'];
 		$user->pengguna->nama_lengkap = $input['nama_lengkap'];
 		$user->pengguna->save();
 
@@ -469,7 +496,7 @@ class AdminController extends BaseController {
         Mail::send('emails.admreg', $data, function($message) use($user){
             $message->from('admin@site.com', 'Site Admin');
             $message->to($user->username, $user->username)
-                ->subject('Sistem Layanan Hukum & Organisasi');
+                ->subject('Sistem Layanan Hukum dan Organisasi');
         });
 
 		return Redirect::route('admin.account.index')->with('success', 'Data berhasil diubah.');
@@ -505,6 +532,19 @@ class AdminController extends BaseController {
         $config->value = Input::get("value", "false");
         $config->save();
         exit;
+    }
+
+    public function subbagian(){
+
+        $bagian_id = Input::get('bagian_id');
+
+        $DAL = new DAL_Bagian();
+
+        $subbagian = $DAL->subbagian($bagian_id);
+//        echo json_encode($submenu);exit;
+
+        return Response::json(array('data' => $subbagian->get()->toArray()));
+
     }
 
 }

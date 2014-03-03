@@ -33,7 +33,7 @@ class DAL_Document {
     /*
      * fungsi untuk insert data ke table bantuan_hukum
      */
-    public function SaveDocument($input, $file)
+    public function SaveDocument($input)
     {
         $data = new Document;
 
@@ -44,8 +44,9 @@ class DAL_Document {
         $data->perihal = $input['perihal'];
         $data->deskripsi = $input['deskripsi'];
         $data->tgl_pengesahan = $input['tanggal'];
-        $data->file_dokumen = $file->getClientOriginalName();
+        $data->file_dokumen = (!empty($input['file_dokumen'])) ? $input['file_dokumen']->getClientOriginalName() : null;
         $data->status_publish = $input['status'] == "Publish" ? 1: 0;
+        $data->bidang = $input['bidang'];
 
         return $data->save();//saving data
     }
@@ -63,14 +64,16 @@ class DAL_Document {
     /*
      * fungsi untuk update data di table bantuan_hukum dan insert baru di table log_bantuan_hukum
      */
-    public function UpdateDocument($input)
+    public function UpdateDocument($input, $id)
     {
-        $data = Document::find($input['id']); // find record by id
+        $data = Document::find($id); // find record by id
         $helper = new HukorHelper();
 
-        $helper->DeleteFile('dokumen', $data->file_dokumen);
-        $helper->UploadFile('dokumen', $input['file_dokumen']);
-
+        if(!empty($input['file_dokumen']))
+        {
+            $helper->DeleteFile('dokumen', $data->file_dokumen);
+            $helper->UploadFile('dokumen', $input['file_dokumen']);
+        }
 
         //pasrse input data to fields
         $data->nomor = $input['nomor'];
@@ -79,8 +82,9 @@ class DAL_Document {
         $data->perihal = $input['perihal'];
         $data->deskripsi = $input['deskripsi'];
         $data->tgl_pengesahan = $input['tanggal'];
-        $data->file_dokumen = $input['file_dokumen']->getClientOriginalName();
+        $data->file_dokumen = (!empty($input['file_dokumen'])) ? $input['file_dokumen']->getClientOriginalName() : $data->file_dokumen;
         $data->status_publish = $input['publish'];
+        $data->bidang = $input['bidang'];
 
         $data->save();
     }
@@ -102,5 +106,12 @@ class DAL_Document {
         $data->status_publish = 1;
 
         $data->save();
+    }
+
+    public function GetLastTen()
+    {
+        $data = Document::orderBy('id', 'DESC')->take(10)->get();
+
+        return $data;
     }
 }

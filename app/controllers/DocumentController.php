@@ -2,7 +2,7 @@
 
 class DocumentController extends BaseController{
 
-    protected $layout = 'layouts.master';
+    protected $layout = 'layouts.admin';
 
     /**
      * Display a listing of the resource.
@@ -35,24 +35,20 @@ class DocumentController extends BaseController{
         $DAL = new DAL_Document();
         $helper = new HukorHelper();
 
-        $uploadSuccess = $helper->UploadFile('dokumen', Input::file('file_dokumen'));
-
-        if($uploadSuccess)
+        if(!empty($input['file_dokumen']))
         {
-            $saved = $DAL->SaveDocument($input, Input::file('file_dokumen'));
+            $helper->UploadFile('dokumen', Input::file('file_dokumen'));
+        }
 
-            if($saved)
-            {
-                return Redirect::to('document')->with('success', 'Dokumen Berhasil Di Simpan.');
-            }
-            else
-            {
-                return Redirect::to('document')->with('error', 'Dokumen Gagal Di Simpan.');
-            }
+        $saved = $DAL->SaveDocument($input, Input::file('file_dokumen'));
+
+        if($saved)
+        {
+            return Redirect::to('admin/document')->with('success', 'Dokumen Berhasil Di Simpan.');
         }
         else
         {
-            return Redirect::to('document')->with('error', 'File Gagal Disimpan.');
+            return Redirect::to('admin/document')->with('error', 'Dokumen Gagal Di Simpan.');
         }
     }
 
@@ -65,30 +61,18 @@ class DocumentController extends BaseController{
         return $data;
     }
 
-    public function detail()
+    public function detail($id)
     {
-        $id = Input::get('id');
+//        $id = Input::get('id');
         $DAL = new DAL_Document();
 
         $data = $DAL->GetSingleDocument($id);
 
         // show form with empty model
         $this->layout->content = View::make('document.detail', array(
-            'data' => $data
-        ));
-    }
-
-    public function edit()
-    {
-        $input = Input::get('id');
-
-        $DAL = new DAL_Document();
-        $data = $DAL->GetSingleDocument($input);
-
-        $this->layout->content = View::make('document.form', array(
             'data' => $data,
             'form_opts' => array(
-                'action' => 'DocumentController@update',
+//                'action' => 'DocumentController@save',
                 'method' => 'post',
                 'class' => 'form-horizontal',
                 'id' => 'document-form',
@@ -97,34 +81,53 @@ class DocumentController extends BaseController{
         ));
     }
 
-    public function update()
+    public function edit($id)
+    {
+//        $input = Input::get('id');
+
+        $DAL = new DAL_Document();
+        $data = $DAL->GetSingleDocument($id);
+
+        $this->layout->content = View::make('document.form', array(
+            'data' => $data,
+            'form_opts' => array(
+                'action' => array('DocumentController@update', $data->id),
+                'method' => 'put',
+                'class' => 'form-horizontal',
+                'id' => 'document-form',
+                'files' => true
+            ),
+        ));
+    }
+
+    public function update($id)
     {
         $input = Input::all();
 
         $DAL = new DAL_Document();
-        $data = $DAL->UpdateDocument($input);
+        $data = $DAL->UpdateDocument($input, $id);
 
-        return Redirect::to('document')->with('success', 'Dokumen Berhasil Di Ubah.');
+        return Redirect::to('admin/document')->with('success', 'Dokumen Berhasil Di Ubah.');
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $id = Input::get('id');
+//        $id = Input::get('id');
         $DAL = new DAL_Document();
 
         $DAL->DeleteDocument($id);
 
-        return Redirect::to('document')->with('success', 'Dokumen Berhasil Di Hapus.');
+        return Redirect::to('admin/document')->with('success', 'Dokumen Berhasil Di Hapus.');
     }
 
-    public function publish()
+    public function publish($id)
     {
-        $id = Input::get('id');
+//        $id = Input::get('id');
         $DAL = new DAL_Document();
 
         $DAL->PublishDocument($id);
 
-        return Redirect::to('document')->with('success', 'Dokumen Berhasil Di Publish.');
+        return Redirect::to('admin/document')->with('success', 'Dokumen Berhasil Di Publish.');
     }
 }
 

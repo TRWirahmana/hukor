@@ -166,3 +166,7 @@ div.DTTT_container {
     top: 0;
     right: 0;
 }
+
+select option{
+    border-bottom: solid #DDDDDD;
+}

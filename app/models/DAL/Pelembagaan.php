@@ -189,7 +189,9 @@ class DAL_Pelembagaan {
             $result[$index]['Unit Kerja'] = $pelembagaan->unit_kerja;
             $result[$index]['Perihal'] = $pelembagaan->perihal;
             $result[$index]['status'] = "status";
-            $result[$index]['lampiran'] = '<a href="#">'.$pelembagaan->lampiran.'</a>';       
+	    $url = URL::route('pelembagaan.download', array('id' => $pelembagaan->id));
+//          $result[$index]['lampiran'] = '<a href="#">'.$pelembagaan->lampiran.'</a>';       
+            $result[$index]['lampiran'] = "<a href='{$url}'>Unduh</a>";       
         }
 
         return HukorHelper::generateHtmlTable($result);

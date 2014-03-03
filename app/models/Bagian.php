@@ -5,4 +5,7 @@ class Bagian extends Eloquent {
     protected $guarded = array();
     public $timestamps = false;
 
+    public function pengguna() {
+        return $this->belongsToMany('Pengguna');
+    }
 }

@@ -66,7 +66,7 @@
 
                 <div class="form-actions">
                     <div class="controls">
-                        {{ Form::submit('Update', array('class' => 'btn btn-primary')) }}
+                        {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
                     </div>
                 </div>
             </div>

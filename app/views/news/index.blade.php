@@ -135,19 +135,25 @@
           <h3 class="section-title widgets">Peraturan</h3>
           <div class="widget-body">
             <div class="widget-content">
-              <table>
-                <tr>
-                  <td>No</td>
-                  <td>Perihal</td>
-                </tr>
-                <?php $increment = 1; ?>
-                @foreach($document as $doc)
-                <tr>
-                  <td><?php echo $increment; ?></td>
-                  <td>{{ $doc->perihal }}</td>
-                </tr>
-                <?php $increment++; ?>
-                @endforeach
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Perihal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @if ($document != null)
+                  <?php $increment = 1; ?>
+                  @foreach($document as $doc)
+                  <tr>
+                    <td><?php echo $increment; ?></td>
+                    <td>{{ $doc->perihal }}</td>
+                  </tr>
+                  <?php $increment++; ?>
+                  @endforeach
+                  @endif
+                </tbody>
               </table>
             </div>
           </div>

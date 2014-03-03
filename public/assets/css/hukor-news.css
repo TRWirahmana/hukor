@@ -426,6 +426,13 @@ p {
 #counter-widget .section-title:after { content: "\e04d"; }
 #rule-widget .section-title:after { content: "\e020"; }
 #twitter-widget .section-title:after { content: "\e16d"; }
+#rule-widget .table tr th:first-child {
+  width: 20px;
+  max-width: 20px;
+}
+#rule-widget .table tr th:last-child {
+  text-align: center;
+}
 
 #paging_container .content {
   background: #ffffff;

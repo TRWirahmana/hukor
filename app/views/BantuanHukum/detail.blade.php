@@ -267,7 +267,15 @@
 			<div class="control-group">
 			    {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
 			    <div class="controls">
-				<a href="{{ URL::route('bantuan_hukum.download', array('id' => $banhuk->id)) }}">Download Lampiran</a>
+				<ul>
+				@foreach(unserialize($banhuk->lampiran) as $index => $lampiran)
+				<li>
+					<a href="{{url::route('bantuan_hukum.download', array('id' => $banhuk->id, 'index' => $index )) }}">
+						{{explode(DS, $lampiran)[count(explode(DS, $lampiran)) - 1 ] }}
+					</a>
+				</li>
+				@endforeach
+				</ul>
 			    </div>
 			</div>
 
@@ -285,28 +293,36 @@
 			<legend>UPDATE STATUS</legend>
 
 			<div class="control-group">
-			    {{ Form::label('advokasi', 'Advikasi Oleh', array('class' => 'control-label')) }}
+			    {{ Form::label('advokasi', 'Advokasi Oleh', array('class' => 'control-label')) }}
 			    <div class="controls">
 				{{ Form::select('advokasi', array(
 				'0' => '- Pilih -',
 				'1' => 'Bankum I',
 				'2' => 'Bankum II',
 				'3' => 'Bankum III'
-				), 'advokasi') }}
+				), $banhuk->advokasi) }}
 			    </div>
 			</div>
 
 			<div class="control-group">
 			    {{ Form::label('advokator', 'Advokator', array('class' => 'control-label')) }}
 			    <div class="controls">
-				{{ Form::text('advokator', '', array('id' => 'advokator')) }}
+				{{ Form::text('advokator', $banhuk->advokator,  array('id' => 'advokator')) }}
 			    </div>
 			</div>
 
 			<div class="control-group">
-			    {{ Form::label('status_permohonan', 'Status Permohonan', array('class' => 'control-label')) }}
+			    {{ Form::label('status_pemohon', 'Status Pemohon', array('class' => 'control-label')) }}
 			    <div class="controls">
-				{{ Form::text('status_permohonan', $status_pemohon, array('id' => 'status_permohonan')) }}
+                        {{ Form::select('status_pemohon', array(
+                        '0' => '- Pilih Status Pemohon -',
+                        '1' => 'Tergugat',
+                        '2' => 'Penggugat',
+                        '3' => 'Interfent',
+                        '4' => 'Saksi',
+                        '5' => 'Pemohon'
+                        ), $banhuk->status_pemohon) }}
+                    
 			    </div>
 			</div>
 

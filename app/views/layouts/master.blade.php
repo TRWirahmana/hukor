@@ -274,7 +274,7 @@
                                       @if($user->role_id == 2)
                                       <li id="menu-bantuan-hukum"><a href="{{ URL::route('bantuan_hukum.create') }}"><span class="rulycon-envelop"></span>Lembar Usulan</a></li>
                                       @endif
-                                      <li id="menu-banhuk-informasi"><a href="{{ URL::route('bantuan_hukum.index') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan</a></li>
+                                      <li id="menu-banhuk-informasi"><a href="{{ URL::to('BantuanHukum') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan</a></li>
                                   </ul>
                               </div>
                           </div>

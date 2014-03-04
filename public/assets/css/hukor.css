@@ -96,6 +96,33 @@ input, textarea, select {
   box-shadow: none !important;
   border: none !important;
 }
+.well.well-success {
+  background: rgb(223, 240, 216);
+  color: #468847;
+  padding-bottom: 36px;
+}
+.well.well-success hr {
+  border-color: #468847;
+}
+.card {
+  display: block;
+  width: 100%;
+  background: rgba(0, 0, 0, .075);
+  text-align: center;
+  padding: 8px 4px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.card h4 {
+  font-size: 28px;
+}
+.card p {
+  font-family: "robotocondensed", sans-serif;
+}
+.dashboard-summary > .span4 > h4 {
+  margin-bottom: 12px;
+}
 .mainwrapper .header, .mainwrapper .leftpanel, .mainwrapper .rightpanel {
   float: left;
 }

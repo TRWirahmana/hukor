@@ -9,6 +9,7 @@ class BantuanHukumController extends BaseController{
      */
 
     public function index() {
+var_dump('asdf');exit
 	$user = Auth::user()->role_id;
         $all = Menu::all();
         $all->toArray();

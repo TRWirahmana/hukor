@@ -7,7 +7,10 @@ class CallCenterController extends BaseController {
 	    $user = Auth::user();
     	$call = CallCenter::find(1);
 
-    	$this->layout = View::make('layouts.master');
+        $all = Menu::all();
+        $all->toArray();
+
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
         $this->layout->content = View::make('callcenter.index',
             array(
                 'call' => $call,

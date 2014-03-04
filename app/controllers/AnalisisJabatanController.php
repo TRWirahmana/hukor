@@ -11,9 +11,11 @@ class AnalisisJabatanController extends BaseController {
 			return Datatables::of(DAL_AnalisisJabatan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))
 				->add_column("_role_id", $roleId)
 				->make(true);
+        $all = Menu::all();
+        $all->toArray();
 
 		if(Auth::user()->role_id == 2 || Auth::guest()) {
-			$this->layout = View::make('layouts.master');
+            $this->layout = View::make('layouts.master', array('allmenu' => $all));
 			$this->layout->content = View::make('AnalisisJabatan.index_user');    
 		} else {
 			$this->layout = View::make('layouts.admin');

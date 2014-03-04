@@ -8,13 +8,16 @@ class SistemDanProsedurController extends BaseController {
 	public function index() 
 	{
 		$roleId = Auth::user()->role_id;
+        $all = Menu::all();
+        $all->toArray();
+
 		if (Request::ajax())
 			return Datatables::of(DAL_SistemDanProsedur::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))
 				->add_column("_role_id", $roleId)
 				->make(true);
 
 		if(Auth::user()->role_id == 2 || Auth::guest()) {
-			$this->layout = View::make('layouts.master');
+            $this->layout = View::make('layouts.master', array('allmenu' => $all));
 			$this->layout->content = View::make('SistemDanProsedur.informasi');
 		} else {
 			$this->layout = View::make('layouts.admin');
@@ -87,7 +90,9 @@ class SistemDanProsedurController extends BaseController {
 
 	public function create() {
 		$user = Auth::user();
-		$this->layout = View::make('layouts.master');
+        $all = Menu::all();
+        $all->toArray();
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
 		$this->layout->content = View::make("SistemDanProsedur.create")
 			->with('user', $user);
 	}

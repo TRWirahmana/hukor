@@ -16,22 +16,29 @@ class LayananController extends BaseController {
     public function detail(){
         $id = Input::get('id');
 //        echo $id;exit;
+        $all = Menu::all();
+        $all->toArray();
 
         if($id == 1 || $id == 2 || $id == 3 ){
             $info = Layanan::find($id);
-            $this->layout = View::make('layouts.master');
+            $this->layout = View::make('layouts.master',
+            array(
+                'allmenu' => $all));
 
             $this->layout->content = View::make('layanan.info_aplikasi',
                 array(
-                    'info' => $info
+                    'info' => $info,
+                    'allmenu' => $all
                 ));
         }else{
             $info = Layanan::find($id);
-            $this->layout = View::make('layouts.master');
+            $this->layout = View::make('layouts.master',array(
+                'allmenu' => $all));
 
             $this->layout->content = View::make('layanan.detail',
                 array(
-                    'info' => $info
+                    'info' => $info,
+                    'allmenu' => $all
                 ));
         }
 

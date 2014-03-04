@@ -19,8 +19,10 @@ class RegistrasiController extends BaseController {
     // displays user setting form
     public function setting() {
         $user = Auth::user();
-
+        $all = Menu::all();
+        $all->toArray();
         if(!is_null($user))
+            $this->layout = View::make('layouts.master', array('allmenu' => $all));
             $this->layout->content = View::make('registrasi.setting', array(
                 'title' => 'Pengaturan Akun',
                 'detail' => '',
@@ -380,7 +382,9 @@ class RegistrasiController extends BaseController {
 
     public function form(){
 
-
+        $all = Menu::all();
+        $all->toArray();
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
         $this->layout->content = View::make('registrasi.form', array(
 //            'date' => RetaneHelper::listDate()
         ));

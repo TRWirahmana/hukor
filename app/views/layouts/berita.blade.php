@@ -105,23 +105,26 @@
                 <ul class="sub-menu" id="sub-informasi" style="display: none">
                     <?php $menu = Menu::all(); ?>
                     @foreach($menu as $menus)
-                        @if($menus->submenu == null)
-                            <li><span class="rulycon-file-3">&nbsp; <a href="#">{{$menus->nama_menu}}</a></li>
+                    @if($menus->submenu == null)
+                        <span class="rulycon-file-3">&nbsp;</span><a href="#">{{$menus->nama_menu}}</a></li>
+                    @else
+                    <li class="has-child"><span class="rulycon-file-3">&nbsp;</span>
+                        @if($menus->submenu != null && $menus->layanan == null)
+                            <a href="#">{{$menus->nama_menu}}</a>
                         @else
-                            <li class="has-child">
-                                <span class="rulycon-file-3">&nbsp; <a href="#">{{$menus->nama_menu}}</a>
-                                <ul>
-                                    @foreach($menus->submenu as $submenus)
-                                        @if($submenus->layanan->id != null)
-                                            <li><a href="{{ URL::to('/layanan/detail?id='. $submenus->layanan->id .'') }}">{{ $submenus->nama_submenu }}</a></li>
-                                        @else
-                                            <li><a href="#">{{ $submenus->nama_submenu }}</a></li>
-                                        @endif
-                                    @endforeach
-
-                                </ul>
-                            </li>
+                            <a href="{{ URL::to('/layanan/detail?id='. $menus->layanan->id .'') }}">{{$menus->nama_menu}}</a>
                         @endif
+                        <ul>
+                            @foreach($menus->submenu as $submenus)
+                                @if($submenus->layanan->id != null)
+                                    <li><a href="{{ URL::to('/layanan/detail?id='. $submenus->layanan->id .'') }}">{{ $submenus->nama_submenu }}</a></li>
+                                @else
+                                    <li><a href="#">{{ $submenus->nama_submenu }}</a></li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </li>
+                    @endif
                     @endforeach
 
                 </ul>

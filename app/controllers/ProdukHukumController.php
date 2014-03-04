@@ -10,8 +10,9 @@ class ProdukHukumController extends BaseController
   
       	$listThn = array("" => "Semua") + Document::select(array( DB::raw('DATE_FORMAT(tgl_pengesahan,"%Y") As pengesahan_year')))
 	        													->lists('pengesahan_year', 'pengesahan_year');
-
-        $this->layout = View::make('layouts.master');
+        $all = Menu::all();
+        $all->toArray();
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
         $this->layout->content = View::make('produkhukum.index', array('listThn' => $listThn));		
 	}
 

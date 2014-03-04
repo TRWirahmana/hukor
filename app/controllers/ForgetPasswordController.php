@@ -12,6 +12,9 @@ class ForgetPasswordController extends BaseController {
 
     public function index() {
         //exit;
+        $all = Menu::all();
+        $all->toArray();
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
         $this->layout->content = View::make('forgetpassword.index');
     }
 

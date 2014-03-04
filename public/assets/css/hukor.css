@@ -2,6 +2,14 @@
 /* - HUKOR CUSTOM STYLESHEET - */
 /* =========================== */
 
+* {
+  -moz-transition: all .2s ease-out !important;
+  -ms-transition: all .2s ease-out !important;
+  -o-transition: all .2s ease-out !important;
+  -webkit-transition: all .2s ease-out !important;
+  transition: all .2s ease-out !important;
+}
+
 /* RESETTER TEMPLATE - DON'T YOU DARE TO TOUCH THESE BLOCK */
 html, body, .mainwrapper, .mainwrapper .header,
 .mainwrapper .leftpanel, .mainwrapper .rightpanel {
@@ -34,10 +42,10 @@ body.loginpage {
   position: relative;
   display: block;
   /*width: 100%;*/
-  top: 20%;
+  top: 18%;
   left: 0;
   height: auto;
-  background: rgba(0, 0, 0, .025);
+  background: #2980b9;
   border: 1px solid rgba(0, 0, 0, .025);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
 }
@@ -46,21 +54,40 @@ body.loginpage {
   top: 0;
   left: 0;
   display: block;
-  width: 320px;
-  padding: 40px 80px 60px;
+  width: 380px;
+  padding: 40px 80px 80px;
 }
-.loginpanelinner > img {
-  display: block;
-  margin-bottom: 20px;
+.loginpanelinner .logo {
+  text-align: center;
+  padding: 0;
+  margin-bottom: 32px;
+}
+.loginpanelinner .logo img {
+}
+.loginpanelinner .logo h4 {
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: "pt_sans_narrowbold", sans-serif;
 }
 .loginpanelinner input, .loginpanelinner button {
   display: block;
   width: 100%;
-  padding: 10px;
+  padding: 6px 10px;
   height: auto;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  margin-bottom: 12px;
+}
+.loginpanelinner button, .loginpanelinner button:hover,
+.loginpanelinner button:focus {
+  border: none;
+  background: #226c9c;
+  color: #ffffff;
+}
+.loginpanelinner button:hover {
+  opacity: .85;
 }
 
 /* HUKOR CUSTOM LAYOUT */

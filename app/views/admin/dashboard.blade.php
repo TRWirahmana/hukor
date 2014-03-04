@@ -1,221 +1,246 @@
 @section('admin')
 <div class="rightpanel">
 
-  <ul class="breadcrumbs">
-    <li><a href="{{URL::to('admin/Home')}}"><i class="iconfa-home"></i></a></span></li>
-  </ul>
-  @include('adminflash')
+<ul class="breadcrumbs">
+  <li><a href="{{URL::to('admin/Home')}}"><i class="iconfa-home"></i></a></span></li>
+</ul>
+@include('adminflash')
 
-  <div class="pageheader">
-    <div class="pageicon"><span class="rulycon-home-2"></span></div>
-    <div class="pagetitle">
-      <h1>Selamat Datang</h1>
+<div class="pageheader">
+  <div class="pageicon"><span class="rulycon-home-2"></span></div>
+  <div class="pagetitle">
+    <h1>Selamat Datang</h1>
+  </div>
+</div>
+
+<div class="maincontent">
+<div class="maincontentinner">
+
+<!-- MAIN CONTENT -->
+<div class="well well-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h2>Laporan Usulan</h2>
+  <hr>
+  <div class="row-fluid dashboard-summary">
+    @if (in_array(Auth::user()->role_id, array(1, 3 ,4, 5, 6)))
+    <div class="span4">
+      <h4>Per UU</h4>
+
+      <div class="row-fluid">
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_PerUU::getUnreadCount()}}</h4>
+
+            <p>Usulan baru</p>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_PerUU::getTodayCount()}}</h4>
+
+            <p>Usulan hari ini</p>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_PerUU::getTotalCount()}}</h4>
+
+            <p>Total usulan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    @endif
+
+    @if (in_array(Auth::user()->role_id, array(1, 3, 4, 5, 7)))
+    <div class="span4">
+      <h4>Pelembagaan</h4>
+
+      <div class="row-fluid">
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_Pelembagaan::getUnreadCount()}}</h4>
+
+            <p>Usulan baru</p>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_Pelembagaan::getTodayCount()}}</h4>
+
+            <p>Usulan hari ini</p>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_Pelembagaan::getTotalCount()}}</h4>
+
+            <p>Total usulan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    @endif
+
+    @if(in_array(Auth::user()->role_id, array(1, 3, 4, 5, 8)))
+    <div class="span4">
+      <h4>Bantuan Hukum</h4>
+
+      <div class="row-fluid">
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_BantuanHukun::getUnreadCount()}}</h4>
+
+            <p>Usulan baru</p>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_BantuanHukun::getUnreadCount()}}</h4>
+
+            <p>Usulan hari ini</p>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_BantuanHukun::getTotalCount()}}</h4>
+
+            <p>Total usulan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    @endif
+  </div>
+  <br>
+  @if (in_array(Auth::user()->role_id, array(1, 3, 4, 5, 9)))
+  <div class="row-fluid dashboard-summary">
+    <div class="span4">
+      <h4>Sistem dan Prosedur</h4>
+
+      <div class="row-fluid">
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_SistemDanProsedur::getUnreadCount()}}</h4>
+
+            <p>Total usulan</p>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_SistemDanProsedur::getTodayCount()}}</h4>
+
+            <p>Total usulan</p>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_SistemDanProsedur::getTotalCount()}}</h4>
+
+            <p>Total usulan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="span4">
+      <h4>Analisis Jabatan</h4>
+
+      <div class="row-fluid">
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_AnalisisJabatan::getUnreadCount()}}</h4>
+
+            <p>Usulan baru</p>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_AnalisisJabatan::getTodayCount()}}</h4>
+
+            <p>Usulan hari ini</p>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_AnalisisJabatan::getTotalCount()}}</h4>
+
+            <p>Total usulan</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  @endif
+</div>
 
-  <div class="maincontent">
-    <div class="maincontentinner">
+@if (in_array($user->role_id, array(1, 3, 4, 5)))
+<div class="row-fluid">
+  <div class="span12">
+    <div id="line-chart"></div>
+  </div>
+</div>
+<hr>
 
-      <!-- MAIN CONTENT -->
-      <div class="well well-success">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h2>Laporan Usulan</h2>
-        <hr>
-        <div class="row-fluid dashboard-summary">
-          @if (in_array(Auth::user()->role_id, array(1, 3 ,4, 5, 6)))
-          <div class="span4">
-            <h4>Per UU</h4>
-            <div class="row-fluid">
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_PerUU::getUnreadCount()}}</h4>
-                  <p>Usulan baru</p>
-                </div>
-              </div>
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_PerUU::getTodayCount()}}</h4>
-                  <p>Usulan hari ini</p>
-                </div>
-              </div>
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_PerUU::getTotalCount()}}</h4>
-                  <p>Total usulan</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          @endif
-
-          @if (in_array(Auth::user()->role_id, array(1, 3, 4, 5, 7)))
-          <div class="span4">
-            <h4>Pelembagaan</h4>
-            <div class="row-fluid">
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_Pelembagaan::getUnreadCount()}}</h4>
-                  <p>Usulan baru</p>
-                </div>
-              </div>
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_Pelembagaan::getTodayCount()}}</h4>
-                  <p>Usulan hari ini</p>
-                </div>
-              </div>
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_Pelembagaan::getTotalCount()}}</h4>
-                  <p>Total usulan</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          @endif
-
-          @if(in_array(Auth::user()->role_id, array(1, 3, 4, 5, 8)))
-          <div class="span4">
-            <h4>Bantuan Hukum</h4>
-            <div class="row-fluid">
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_BantuanHukun::getUnreadCount()}}</h4>
-                  <p>Usulan baru</p>
-                </div>
-              </div>
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_BantuanHukun::getUnreadCount()}}</h4>
-                  <p>Usulan hari ini</p>
-                </div>
-              </div>
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_BantuanHukun::getTotalCount()}}</h4>
-                  <p>Total usulan</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          @endif
-        </div>
-        <br>
-        @if (in_array(Auth::user()->role_id, array(1, 3, 4, 5, 9)))
-        <div class="row-fluid dashboard-summary">
-          <div class="span4">
-            <h4>Sistem dan Prosedur</h4>
-            <div class="row-fluid">
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_SistemDanProsedur::getUnreadCount()}}</h4>
-                  <p>Total usulan</p>
-                </div>
-              </div>
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_SistemDanProsedur::getTodayCount()}}</h4>
-                  <p>Total usulan</p>
-                </div>
-              </div>
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_SistemDanProsedur::getTotalCount()}}</h4>
-                  <p>Total usulan</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="span4">
-            <h4>Analisis Jabatan</h4>
-            <div class="row-fluid">
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_AnalisisJabatan::getUnreadCount()}}</h4>
-                  <p>Usulan baru</p>
-                </div>
-              </div>
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_AnalisisJabatan::getTodayCount()}}</h4>
-                  <p>Usulan hari ini</p>
-                </div>
-              </div>
-              <div class="span4">
-                <div class="card three">
-                  <h4>{{DAL_AnalisisJabatan::getTotalCount()}}</h4>
-                  <p>Total usulan</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        @endif
-      </div>
-
-      @if (in_array($user->role_id, array(1, 3, 4, 5)))
-      <div id="line-chart"></div>
-      <hr>
-      <form id="form-filter" class="form form-horizontal" action="{{URL::route('admin.cetakLaporan')}}">
-        <fieldset>
+<div class="row-fluid">
+  <form id="form-filter" action="{{URL::route('admin.cetakLaporan')}}">
+    <div class="row-fluid">
+      <div class="span6">
+        <div class="form-horizontal">
           <legend class="f_legend">Cetak Laporan</legend>
-          <div class="row-fluid">
-            <div class="span6">
-              <div class="control-group">
-                <label for="" class="control-label">Tanggal Awal</label>
+          <div class="control-group">
+            <label for="" class="control-label">Tanggal Awal</label>
 
-                <div class="controls">
-                  <input type="text" id="first-date" name="firstDate">
-                </div>
-              </div>
-
-              <div class="control-group">
-                <label for="toDate" class="control-label">Tanggal Akhir</label>
-
-                <div class="controls">
-                  <input type="text" id="last-date" name="lastDate">
-                </div>
-              </div>
-            </div>
-            <div class="span6">
-              <div class="control-group">
-                <label for="select-status" class="control-label">Usulan</label>
-
-                <div class="controls">
-                  <select id="select-status" name="modul">
-                    <option value="">Semua</option>
-                    <option value="1">Peraturan Perundang Undangan</option>
-                    <option value="2">Pelembagaan</option>
-                    <option value="3">Bantuan Hukum</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="control-group">
-                <div class="controls">
-                  <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
-                  <input type="submit" value="Cetak" class="btn btn-primary">
-                </div>
-              </div>
+            <div class="controls">
+              <input type="text" id="first-date" name="firstDate">
             </div>
           </div>
-        </fieldset>
-      </form>
-      @endif
+          <div class="control-group">
+            <label for="toDate" class="control-label">Tanggal Akhir</label>
 
-      <div class="footer">
-        <div class="footer-left">
-          <span>&copy; 2013. Admin Template. All Rights Reserved.</span>
-        </div>
-        <div class="footer-right">
-          <span></span>
+            <div class="controls">
+              <input type="text" id="last-date" name="lastDate">
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="select-status" class="control-label">Usulan</label>
+
+            <div class="controls">
+              <select id="select-status" name="modul">
+                <option value="">Semua</option>
+                <option value="1">Peraturan Perundang Undangan</option>
+                <option value="2">Pelembagaan</option>
+                <option value="3">Bantuan Hukum</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for=""></label>
+
+            <div class="controls">
+              <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
+              <input type="submit" value="Cetak" class="btn btn-primary">
+            </div>
+          </div>
         </div>
       </div>
-      <!--footer-->
     </div>
-    <!--maincontentinner-->
+  </form>
+</div>
+@endif
+
+<div class="footer">
+  <div class="footer-left">
+    <span>&copy; 2013. Admin Template. All Rights Reserved.</span>
   </div>
-  <!--maincontent-->
+  <div class="footer-right">
+    <span></span>
+  </div>
+</div>
+<!--footer-->
+</div>
+<!--maincontentinner-->
+</div>
+<!--maincontent-->
 
 </div>
 <!--rightpanel-->

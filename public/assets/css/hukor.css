@@ -123,6 +123,21 @@ input, textarea, select {
 .dashboard-summary > .span4 > h4 {
   margin-bottom: 12px;
 }
+.form-horizontal .control-group .control-label {
+  text-align: left;
+  width: 110px;
+}
+.form-horizontal .control-group .controls {
+  margin-left: 110px;
+}
+.form-horizontal .control-group .controls > * {
+  display: block;
+  width: 100%;
+}
+.form-horizontal .control-group .controls > .btn {
+  display: inline-block;
+  width: auto;
+}
 .mainwrapper .header, .mainwrapper .leftpanel, .mainwrapper .rightpanel {
   float: left;
 }

@@ -7,7 +7,7 @@
     @include('adminflash')
 
     <div class="pageheader">
-        <div class="pageicon">&nbsp;</div>
+        <div class="pageicon"><span class="rulycon-home-2"></span></div>
         <div class="pagetitle">
             <h1>Selamat Datang</h1>
         </div>

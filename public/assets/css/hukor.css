@@ -97,29 +97,36 @@ input, textarea, select {
   border: none !important;
 }
 .mainwrapper .header, .mainwrapper .leftpanel, .mainwrapper .rightpanel {
-  display: inline-block;
+  float: left;
 }
-.mainwrapper .header { width: 6%; }
-.mainwrapper .leftpanel { width: 24%; }
-.mainwrapper .rightpanel { width: 69.5%; }
+.mainwrapper .header {
+  width: 6%; background: #2875A8;
+}
+.mainwrapper .leftpanel {
+  width: 24%;
+}
+.mainwrapper .rightpanel {
+  width: 70%;
+}
 #main-menu {
   margin-top: 8px;
 }
 #main-menu > li > a {
   font-size: 10px;
-  color: rgba(255, 255, 255, .55);
+  color: #ffffff;
   text-transform: uppercase;
   text-align: center;
   line-height: 120%;
   display: block;
   width: 100%;
   background: rgba(0, 0, 0, .1);
-  padding: 12px 0;
+  padding: 16px 0;
   margin-bottom: 1px;
   box-shadow: inset -4px 0 0 rgba(0, 0, 0, .25);
 }
 #main-menu > li > a:hover {
   text-decoration: none;
+  background: rgba(0, 0, 0, .25);
 }
 #main-menu > li > a > span[class*=rulycon] {
   font-size: 24px;
@@ -180,6 +187,24 @@ div.DTTT_container {
 .rightpanel .alert .close {
     top: 0;
     right: 0;
+}
+.rightpanel .breadcrumbs {
+  background: #2875A8;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.rightpanel .breadcrumbs li, .rightpanel .breadcrumbs li > a {
+  color: #ffffff;
+}
+.rightpanel .pageheader {
+  padding-bottom: 8px;
+}
+.rightpanel .pageicon {
+  font-size: 24px;
+  padding: 10px 0;
+}
+.rightpanel .pagetitle {
+  margin-left: 64px;
 }
 
 .loginpage .alert {

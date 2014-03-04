@@ -134,6 +134,24 @@ input, textarea, select {
 .card p {
   font-family: "robotocondensed", sans-serif;
 }
+.mce-menubar {
+  border: 1px solid #226c9c !important;
+}
+.mce-container.mce-panel {
+  border: none;
+}
+.mce-container.mce-panel .mce-menubtn span {
+  color: #ffffff;
+}
+.mce-container.mce-panel .mce-menubtn:hover,
+.mce-container.mce-panel .mce-menubtn:focus,
+.mce-container.mce-panel .mce-menubtn.mce-active {
+  background: #226c9c;
+}
+.mce-container .mce-panel,
+.mce-container .mce-menubar {
+  background: #2875A8;
+}
 .dashboard-summary > .span4 > h4 {
   margin-bottom: 12px;
 }

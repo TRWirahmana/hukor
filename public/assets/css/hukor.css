@@ -290,6 +290,19 @@ legend {
 .leftmenu .nav-tabs.nav-stacked > li.active > a:hover {
   background: #6c5c51;
 }
+.leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul {
+  background: rgba(0, 0, 0, .075);
+}
+.leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul li {
+  border: none;
+}
+.leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a {
+  color: #999999;
+}
+.leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a:hover {
+  color: #ffffff;
+  background: #2875A8;
+}
 
 div.DTTT_container {
   float: left;

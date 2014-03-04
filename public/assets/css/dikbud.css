@@ -805,7 +805,7 @@ table.dataTable tr.odd {
   border-bottom: 1px solid rgba(0, 0, 0, .075);
 }
 table.dataTable tr.odd > td {
-  padding: 30px 20px 40px;
+  /*padding: 30px 20px 40px;*/
 }
 .paginate_disabled_previous, .paginate_disabled_next {
   background: none;

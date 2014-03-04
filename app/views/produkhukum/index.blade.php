@@ -51,9 +51,9 @@
                                 </div>
 
                                 <div class="control-group">
-                                    <label for="select-masalah" class="control-label">Bidang</label>
+                                    <label for="select-bidang" class="control-label">Bidang</label>
                                     <div class="controls">
-                                        <select id="select-masalah" name="masalah" style="width: 150%;">
+                                        <select id="select-bidang" name="masalah" style="width: 150%;">
                                             <option value="">Semua Bidang</option>
                                             <option value="1">Pendidikan Dasar</option>
                                             <option value="2">Pendidikan Menengah</option>
@@ -225,6 +225,7 @@
                             aoData.push({name: "kategori", value: $("#select-kategori").val()});
                             aoData.push({name: "masalah", value: $("#select-masalah").val()});
                             aoData.push({name: "tahunFilter", value: $("#tahun-filter").val()});
+                            aoData.push({name: "bidang", value: $("#select-bidang").val()});
                         },
                         fnDrawCallback: function ( oSettings ) {
                            if ( oSettings.bSorted || oSettings.bFiltered )
@@ -257,7 +258,7 @@
                           return false;
                   });
                           
-                  $("#select-status, #select-kategori, #select-masalah, #tahun-filter").change(function() {
+                  $("#select-status, #select-kategori, #select-masalah, #tahun-filter, #select-bidang").change(function() {
                       $dataTable.fnReloadAjax();
                   });
 

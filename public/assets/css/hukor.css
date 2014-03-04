@@ -2,6 +2,14 @@
 /* - HUKOR CUSTOM STYLESHEET - */
 /* =========================== */
 
+* {
+  -moz-transition: all .2s ease-out !important;
+  -ms-transition: all .2s ease-out !important;
+  -o-transition: all .2s ease-out !important;
+  -webkit-transition: all .2s ease-out !important;
+  transition: all .2s ease-out !important;
+}
+
 /* RESETTER TEMPLATE - DON'T YOU DARE TO TOUCH THESE BLOCK */
 html, body, .mainwrapper, .mainwrapper .header,
 .mainwrapper .leftpanel, .mainwrapper .rightpanel {
@@ -34,10 +42,10 @@ body.loginpage {
   position: relative;
   display: block;
   /*width: 100%;*/
-  top: 20%;
+  top: 18%;
   left: 0;
   height: auto;
-  background: rgba(0, 0, 0, .025);
+  background: #2980b9;
   border: 1px solid rgba(0, 0, 0, .025);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
 }
@@ -46,21 +54,51 @@ body.loginpage {
   top: 0;
   left: 0;
   display: block;
-  width: 320px;
-  padding: 40px 80px 60px;
+  width: 380px;
+  padding: 40px 80px 80px;
 }
-.loginpanelinner > img {
-  display: block;
-  margin-bottom: 20px;
+.loginpanelinner .logo {
+  text-align: center;
+  padding: 0;
+  margin-bottom: 32px;
+}
+.loginpanelinner .logo img {
+}
+.loginpanelinner .logo h4 {
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: "pt_sans_narrowbold", sans-serif;
 }
 .loginpanelinner input, .loginpanelinner button {
   display: block;
   width: 100%;
-  padding: 10px;
+  padding: 6px 10px;
   height: auto;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  margin-bottom: 12px;
+}
+.loginpanelinner button, .loginpanelinner button:hover,
+.loginpanelinner button:focus {
+  border: none;
+  background: #226c9c;
+  color: #ffffff;
+}
+.loginpanelinner button:hover {
+  opacity: .85;
+}
+.loginpage .alert {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 360px;
+  border-radius: 4px;
+}
+.loginpage .alert .close {
+  top: 0;
+  right: 0;
 }
 
 /* HUKOR CUSTOM LAYOUT */
@@ -69,30 +107,85 @@ input, textarea, select {
   box-shadow: none !important;
   border: none !important;
 }
-.mainwrapper .header, .mainwrapper .leftpanel, .mainwrapper .rightpanel {
-  display: inline-block;
+.btn.btn-primary {
+  background: #2875A8 !important;
 }
-.mainwrapper .header { width: 6%; }
-.mainwrapper .leftpanel { width: 24%; }
-.mainwrapper .rightpanel { width: 69.5%; }
+.well.well-success {
+  background: rgb(223, 240, 216);
+  color: #468847;
+  padding-bottom: 36px;
+}
+.well.well-success hr {
+  border-color: #468847;
+}
+.card {
+  display: block;
+  width: 100%;
+  background: rgba(0, 0, 0, .075);
+  text-align: center;
+  padding: 8px 4px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.card h4 {
+  font-size: 28px;
+}
+.card p {
+  font-family: "robotocondensed", sans-serif;
+}
+.dashboard-summary > .span4 > h4 {
+  margin-bottom: 12px;
+}
+legend {
+  margin-bottom: 20px;
+}
+.form-horizontal .control-group .control-label {
+  text-align: left;
+  width: 110px;
+}
+.form-horizontal .control-group .controls {
+  margin-left: 110px;
+}
+.form-horizontal .control-group .controls > * {
+  display: block;
+  width: 100%;
+}
+.form-horizontal .control-group .controls > .btn {
+  display: inline-block;
+  width: auto;
+}
+.mainwrapper .header, .mainwrapper .leftpanel, .mainwrapper .rightpanel {
+  float: left;
+}
+.mainwrapper .header {
+  width: 6%; background: #2875A8;
+}
+.mainwrapper .leftpanel {
+  width: 24%;
+}
+.mainwrapper .rightpanel {
+  width: 70%;
+}
 #main-menu {
   margin-top: 8px;
 }
 #main-menu > li > a {
   font-size: 10px;
-  color: rgba(255, 255, 255, .55);
+  color: #ffffff;
   text-transform: uppercase;
   text-align: center;
   line-height: 120%;
   display: block;
   width: 100%;
   background: rgba(0, 0, 0, .1);
-  padding: 12px 0;
+  padding: 16px 0;
   margin-bottom: 1px;
   box-shadow: inset -4px 0 0 rgba(0, 0, 0, .25);
 }
 #main-menu > li > a:hover {
   text-decoration: none;
+  background: rgba(0, 0, 0, .25);
 }
 #main-menu > li > a > span[class*=rulycon] {
   font-size: 24px;
@@ -134,9 +227,155 @@ input, textarea, select {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+#user-links > a:hover {
+  text-decoration: none;
+  background: #2875A8;
+  color: #ffffff;
+}
+
+/* Calendar */
+.ui-datepicker.ui-widget {
+  padding: 0 !important;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 0;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
+}
+.ui-datepicker.ui-widget td {
+  padding: 0;
+  border: none;
+}
+.ui-datepicker .ui-datepicker-header {
+  background: #2875A8;
+  border: 1px solid #2875A8;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25);
+  border-radius: 0;
+}
+.ui-datepicker .ui-datepicker-title {
+  color: #ffffff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+  font-weight: normal;
+}
+.ui-datepicker .ui-datepicker-calendar {
+  background: #f5f5f5;
+}
+.ui-datepicker .ui-datepicker-calendar .ui-state-default {
+  color: #5B6C78;
+  border: none;
+}
+.ui-datepicker .ui-datepicker-calendar .ui-state-highlight {
+  font-weight: bold;
+  text-shadow: none;
+  background: #2875A8;
+  color: #ffffff;
+}
+.ui-datepicker .ui-datepicker-calendar th {
+  text-transform: uppercase;
+}
+.ui-datepicker .ui-datepicker-calendar td {
+  border: none;
+}
+.ui-datepicker .ui-datepicker-calendar td a {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65);
+}
+.ui-datepicker .ui-datepicker-prev-hover {
+  left: 2px;
+  top: 2px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .25);
+}
+.ui-datepicker .ui-datepicker-next-hover {
+  right: 2px;
+  top: 2px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .25);
+}
+.ui-datepicker-title .ui-datepicker-month, .ui-datepicker-title .ui-datepicker-year {
+  padding: 0;
+  border-radius: 2px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  height: 100%;
+}
+.ui-datepicker-title .ui-datepicker-month {
+  margin-right: 2px !important;
+}
+
+table.dataTable thead tr {
+  border: none;
+}
+table.dataTable thead tr th {
+  padding: 8px 12px;
+  background: #2875A8;
+  border: none;
+  text-align: center;
+}
+table.dataTable thead tr th.sorting_asc {
+  background: #226c9c;
+}
+table.dataTable tbody tr td {
+  padding: 8px 12px;
+}
+table.dataTable tbody tr.odd {
+  background: rgba(255, 255, 255, .85);
+}
+table.dataTable tbody tr.even {
+  background: rgba(255, 255, 255, .35);
+}
+table.dataTable tbody tr.odd td.sorting_1,
+table.dataTable tbody tr.even td.sorting_1 {
+  background: rgba(40, 117, 168, .15);
+}
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter {
+  float: none;
+  text-align: left;
+  background: #2875A8;
+  color: #ffffff;
+}
+.dataTables_wrapper .dataTables_length {
+  padding-bottom: 16px;
+  border: 1px solid #226c9c;
+}
+.dataTables_wrapper .dataTables_length select {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+  float: none;
+}
+.dataTables_wrapper .dataTables_info {
+  background: #2875A8;
+  color: #ffffff;
+}
+.dataTables_wrapper .dataTables_paginate {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+}
+.dataTables_wrapper .dataTables_paginate a,
+.dataTables_wrapper .dataTables_paginate a {
+  background: none;
+  float: none;
+}
+
 .leftmenu .nav-tabs.nav-stacked > li.active > a,
 .leftmenu .nav-tabs.nav-stacked > li.active > a:hover {
   background: #6c5c51;
+}
+.leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul {
+  background: rgba(0, 0, 0, .075);
+}
+.leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul li {
+  border: none;
+}
+.leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a {
+  color: #999999;
+}
+.leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a:hover {
+  color: #ffffff;
+  background: #2875A8;
 }
 
 div.DTTT_container {
@@ -154,18 +393,25 @@ div.DTTT_container {
     top: 0;
     right: 0;
 }
+.rightpanel .breadcrumbs {
+  background: #2875A8;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.rightpanel .breadcrumbs li, .rightpanel .breadcrumbs li > a {
+  color: #ffffff;
+}
+.rightpanel .pageheader {
+  padding-bottom: 8px;
+}
+.rightpanel .pageicon {
+  font-size: 24px;
+  padding: 10px 0;
+}
+.rightpanel .pagetitle {
+  margin-left: 64px;
+}
 
-.loginpage .alert {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 360px;
-    border-radius: 4px;
-}
-.loginpage .alert .close {
-    top: 0;
-    right: 0;
-}
 
 select option{
     border-bottom: solid #DDDDDD;

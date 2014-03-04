@@ -123,6 +123,9 @@ input, textarea, select {
 .dashboard-summary > .span4 > h4 {
   margin-bottom: 12px;
 }
+legend {
+  margin-bottom: 20px;
+}
 .form-horizontal .control-group .control-label {
   text-align: left;
   width: 110px;

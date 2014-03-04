@@ -89,6 +89,17 @@ body.loginpage {
 .loginpanelinner button:hover {
   opacity: .85;
 }
+.loginpage .alert {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 360px;
+  border-radius: 4px;
+}
+.loginpage .alert .close {
+  top: 0;
+  right: 0;
+}
 
 /* HUKOR CUSTOM LAYOUT */
 input, textarea, select {
@@ -286,6 +297,23 @@ legend {
   margin-right: 2px !important;
 }
 
+table.dataTable thead tr th {
+  padding: 8px 12px;
+}
+table.dataTable tbody tr td {
+  padding: 8px 12px;
+}
+table.dataTable tbody tr.odd {
+  background: rgba(255, 255, 255, .85);
+}
+table.dataTable tbody tr.even {
+  background: rgba(255, 255, 255, .35);
+}
+table.dataTable tbody tr.odd td.sorting_1,
+table.dataTable tbody tr.even td.sorting_1 {
+  background: rgba(40, 117, 168, .15);
+}
+
 .leftmenu .nav-tabs.nav-stacked > li.active > a,
 .leftmenu .nav-tabs.nav-stacked > li.active > a:hover {
   background: #6c5c51;
@@ -338,17 +366,6 @@ div.DTTT_container {
   margin-left: 64px;
 }
 
-.loginpage .alert {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 360px;
-    border-radius: 4px;
-}
-.loginpage .alert .close {
-    top: 0;
-    right: 0;
-}
 
 select option{
     border-bottom: solid #DDDDDD;

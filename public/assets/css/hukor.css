@@ -299,6 +299,9 @@ legend {
 
 table.dataTable thead tr th {
   padding: 8px 12px;
+  background: #2875A8;
+  border: none;
+  text-align: center;
 }
 table.dataTable tbody tr td {
   padding: 8px 12px;
@@ -312,6 +315,11 @@ table.dataTable tbody tr.even {
 table.dataTable tbody tr.odd td.sorting_1,
 table.dataTable tbody tr.even td.sorting_1 {
   background: rgba(40, 117, 168, .15);
+}
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter {
+  float: none;
+  text-align: left;
+  padding-bottom: 16px;
 }
 
 .leftmenu .nav-tabs.nav-stacked > li.active > a,

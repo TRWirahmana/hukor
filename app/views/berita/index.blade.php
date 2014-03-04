@@ -26,9 +26,11 @@
       <!-- MAIN CONTENT -->
       <div class="row-fluid">
         @if($user->role_id == 3)
-        <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/berita/create')}}">Tambah Berita Baru</a>
+        <a class="btn btn-primary" href="{{ URL::to('/admin/berita/create')}}">Tambah Berita Baru</a>
         @endif
       </div>
+
+      <br/>
 
       <table id="table_news" class="table">
         <thead>

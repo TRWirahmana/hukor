@@ -7,7 +7,7 @@
 		</ul>
 		@include('adminflash')
 		<div class="pageheader">
-			<div class="pageicon">&nbsp;</div>
+			<div class="pageicon"><span class="rulycon-newspaper"></span></div>
 			<div class="pagetitle">
 				<h1>Kategori Berita</h1>
 			</div>
@@ -15,9 +15,14 @@
 
 		<div class="maincontent">
 			<div class="maincontentinner">
+        <div class="row-fluid">
+          <a class="btn btn-primary" href="{{ URL::route('admin.categories.create') }}">Tambah Kategori Baru</a>
+        </div>
+
+        <br/>
+
 				<div class="content-non-title">
-					<a class="btn btn-mini btn-primary pull-right" href="{{ URL::route('admin.categories.create') }}">Tambah Kategori Baru</a>
-					<table id="tbl-categories">
+					<table id="tbl-categories" class="table">
 						<thead>
 							<tr>
 								<th>Nama kategori</th>

@@ -107,6 +107,9 @@ input, textarea, select {
   box-shadow: none !important;
   border: none !important;
 }
+.btn.btn-primary {
+  background: #2875A8 !important;
+}
 .well.well-success {
   background: rgb(223, 240, 216);
   color: #468847;

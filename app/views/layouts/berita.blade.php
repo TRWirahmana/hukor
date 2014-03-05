@@ -103,8 +103,9 @@
         <div class="sub-header">
             <div class="container">
                 <ul class="sub-menu" id="sub-informasi" style="display: none">
-                    <?php $menu = Menu::all(); ?>
+                    <?php $menu = Menu::all(); $s = 1;?>
                     @foreach($menu as $menus)
+                    @if($s++ <=6)
                     @if($menus->submenu == null)
                         <span class="rulycon-file-3">&nbsp;</span><a href="#">{{$menus->nama_menu}}</a></li>
                     @else
@@ -124,6 +125,7 @@
                             @endforeach
                         </ul>
                     </li>
+                    @endif
                     @endif
                     @endforeach
 

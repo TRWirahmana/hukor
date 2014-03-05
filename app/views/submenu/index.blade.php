@@ -54,7 +54,7 @@
 
             <div class="footer">
                 <div class="footer-left">
-                    <span>&copy; 2014. Admin Template. All Rights Reserved.</span>
+                    <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
                 </div>
                 <div class="footer-right">
                     <span></span>

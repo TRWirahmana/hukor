@@ -23,8 +23,9 @@
     <div class="maincontent">
         <div class="maincontentinner">
           <style>
-            #basictable tr th:last-child {
+            #basictable tr td:last-child {
               width: 80px !important;
+              text-align: center;
             }
           </style>
 

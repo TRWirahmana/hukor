@@ -1,3 +1,60 @@
 .root.timeline.twitter-timeline {
-  background: red;
+  background: transparent;
+  color: #ffffff;
+  border-radius: 0;
+}
+.root.timeline.twitter-timeline .timeline-header {
+  background: #333333;
+  text-align: center;
+}
+.root.timeline.twitter-timeline .timeline-header .summary {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+.root.timeline.twitter-timeline .follow-button {
+  background: #4fb4c0;
+  border: none;
+  border-radius: 2px;
+  color: #ffffff;
+  text-shadow: none;
+  padding: 4px 12px;
+  position: relative;
+  top: 0;
+  right: 0;
+}
+.root.timeline.twitter-timeline .follow-button:after {
+  content: " Hukor Kemdikbud";
+}
+.root.timeline.twitter-timeline .follow-button .ic-button-bird {
+  display: none;
+}
+.root.timeline.twitter-timeline .customisable-border {
+  border: none;
+}
+.root.timeline.twitter-timeline .customisable-border.tweet.with-expansion {
+  padding: 12px 20px;
+  -moz-transition: all .2s ease-out;
+  -ms-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+}
+.root.timeline.twitter-timeline .customisable-border.tweet.with-expansion:hover {
+  background: rgba(0, 0, 0, .075);
+}
+.root.timeline.twitter-timeline .customisable-highlight,
+.root.timeline.twitter-timeline a {
+  color: #ffffff;
+  background: transparent;
+}
+.root.timeline.twitter-timeline .timeline-footer {
+  background: transparent;
+}
+.root.timeline.twitter-timeline .timeline-footer .tweet-box-button {
+  background: #333333;
+  text-align: center;
+  border: none;
 }

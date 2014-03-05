@@ -11,6 +11,16 @@ a:hover {
 p {
   margin-bottom: 12px;
 }
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+}
 
 /* HUKOR NEWS CUSTOM LAYOUT */
 .accent {

@@ -17,12 +17,10 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon">&nbsp;</div>
-        <div class="pagetitle">
-            <!--<h5>Events</h5>-->
-
-            <h1>PELEMBAGAAN</h1>
-        </div>
+      <div class="pageicon"><span class="rulycon-wrench"></span></div>
+      <div class="pagetitle">
+        <h1>PELEMBAGAAN</h1>
+      </div>
     </div>
     <!--pageheader-->
 
@@ -35,7 +33,7 @@
                  @if($status_belum != 0)
                   <div class="row-fluid" style="border-bottom: 1px solid #e5e5e5;">
                   <b>
-                    <table>   
+                    <table class="table">
                       <tr>
                           <td width="100" class="style11">Status terkini : </td>
                           <td class="style10"><div align="right" style="color: red"> {{ $status_belum }} </div></td>
@@ -55,9 +53,9 @@
 @endif
 
               <!-- Filter -->
-@if($user->role_id == 3 )              
+@if($user->role_id == 3 )
               <form id="form-filter" class="form form-horizontal" action="{{URL::route('admin.pelembagaan.printTable')}}">
-@else                
+@else
               <form id="form-filter" class="form form-horizontal" action="{{URL::route('pelembagaan.printTable')}}">
 @endif
                     <fieldset>
@@ -87,7 +85,7 @@
                                             <option value="0">Belum diproses</option>
                                             <option value="1">Diproses</option>
                                             <option value="2">Dikirim Ke bagian PerUU</option>
-                                        </select>        
+                                        </select>
                                     </div>
                                 </div>
 
@@ -104,7 +102,7 @@
 
 
                 <br />
-                  <table id="tbl-pelembagaan">  
+                  <table id="tbl-pelembagaan" class="table">
                       <thead>
                       <tr>
                           <th>#</th>
@@ -148,7 +146,7 @@
 @section('scripts')
 @parent
    <script type="text/javascript">
-    jQuery(function($){        
+    jQuery(function($){
         $("#first-date").datepicker({
             dateFormat: "dd/mm/yy",
             onClose: function( selectedDate ) {
@@ -160,12 +158,12 @@
             dateFormat: "dd/mm/yy",
             onClose: function( selectedDate ) {
                   $("#first-date").datepicker("option", "maxDate", selectedDate);
-            }                    
-         });     
-        
+            }
+         });
+
  //       $(document).ready(function(){
             var role_id = <?php if($user->role_id) echo $user->role_id; else echo '0'; ?>;
-            
+
             $dataTable = $("#tbl-pelembagaan").dataTable({
                 bFilter: true,
            //     bInfo: false,
@@ -173,7 +171,7 @@
                 bPaginate: true,
              //   bLengthChange: false,
                 bServerSide: true,
-                bProcessing: true, 
+                bProcessing: true,
                 sAjaxSource: document.location.href,
                 aoColumns: [
                   {
@@ -193,13 +191,13 @@
                             },
                             {
                               mData: "unit_kerja",
-                              sClass: 'center-ac',                              
+                              sClass: 'center-ac',
                               sWidth: '14%'
                             },
 /*
                             {
                               mData: "jabatan" ,
-                              sClass: 'center-ac',                              
+                              sClass: 'center-ac',
                               mRender: function ( data, type, full ) {
                                   if (null != data && "" != data){
                                     if(data ==='1'){
@@ -225,7 +223,7 @@
                                     } else if(data === 4 ){
                                       return 'Penutupan';
                                     } else {
-                                      return 'lain-lain';                                      
+                                      return 'lain-lain';
                                     }
                                   }
                               }
@@ -253,12 +251,12 @@
                                 sWidth: '10%',
                                  mRender: function(data, type, full) {
                                         if(role_id == 3 ){
-                                          return "<a href='"+baseUrl+"/pelembagaan/download/"+data+"'> <i class='icon-download'></i></a>"  
+                                          return "<a href='"+baseUrl+"/pelembagaan/download/"+data+"'> <i class='icon-download'></i></a>"
                                                 + "&nbsp;<a href='pelembagaan/"+data+"/update' title='Detail'><i class='icon-edit'></i></a>"
                                                 + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+data+"'>"
                                                 + "<i class='icon-trash'></i></a>";
                                         } else if(role_id == 7 ){
-                                          return "<a href='"+baseUrl+"/pelembagaan/download/"+data+"'> <i class='icon-download'></i></a>"  
+                                          return "<a href='"+baseUrl+"/pelembagaan/download/"+data+"'> <i class='icon-download'></i></a>"
                                                 + "&nbsp;<a href='pelembagaan/"+data+"/update' title='Detail'><i class='icon-edit'></i></a>"
                                                 + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+data+"'>"
                                                 + "<i class='icon-trash'></i></a>";
@@ -291,7 +289,7 @@
                             ],
                         aaSorting: [[ 1, 'asc' ]]
 
-                      }); 
+                      });
 
                   $("#tbl-pelembagaan").on('click', '.btn_delete', function(e){
                           if (confirm('Apakah anda yakin ?')) {
@@ -309,7 +307,7 @@
 
                   // $("#filter_unit").keyup( function() { fnFilterUnit ( 3 ); } );
                   // $("#filter_tahun").change( function() { fnFilterTahun( 2 ); } );
-                          
+
                   $("#select-status, #first-date, #last-date").change(function() {
                       $dataTable.fnReloadAjax();
                   });
@@ -319,7 +317,7 @@
                   });
 
 //          });
-          
+
 });
-        </script>        
+        </script>
 @stop

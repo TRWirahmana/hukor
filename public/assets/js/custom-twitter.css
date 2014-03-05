@@ -2,6 +2,7 @@
   background: transparent;
   color: #ffffff;
   border-radius: 0;
+  margin: 0;
 }
 .root.timeline.twitter-timeline .timeline-header {
   background: #333333;
@@ -36,6 +37,8 @@
 }
 .root.timeline.twitter-timeline .customisable-border.tweet.with-expansion {
   padding: 12px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, .075);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .075);
   -moz-transition: all .2s ease-out;
   -ms-transition: all .2s ease-out;
   -o-transition: all .2s ease-out;
@@ -45,13 +48,18 @@
 .root.timeline.twitter-timeline .customisable-border.tweet.with-expansion:hover {
   background: rgba(0, 0, 0, .075);
 }
+.root.timeline.twitter-timeline .customisable-border.tweet.with-expansion .header {
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+}
 .root.timeline.twitter-timeline .customisable-highlight,
 .root.timeline.twitter-timeline a {
   color: #ffffff;
   background: transparent;
 }
 .root.timeline.twitter-timeline .timeline-footer {
-  background: transparent;
+  background: #333333;
+  border: none;
 }
 .root.timeline.twitter-timeline .timeline-footer .tweet-box-button {
   background: #333333;

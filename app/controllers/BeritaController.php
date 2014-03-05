@@ -109,7 +109,7 @@ class BeritaController extends BaseController {
         $slider = Input::file('slider');
 
         //save
-        if($img != null){
+        if($img != null || $slider != null){
             if($img->isValid() || $slider->isValid()){
                 $uqFolder = "berita";
 //            var_dump($uqFolder);exit;
@@ -221,52 +221,81 @@ class BeritaController extends BaseController {
         $input = Input::all();
 
         $img = Input::file('gambar');
+        $slider = Input::file('slider');
 
         $berita = Berita::find($id);
 
-        if($img->isValid()){
-            $uqFolder = "berita";
+        if($img != null || $slider != null){
+            if($img->isValid() || $slider->isValid()){
+                $uqFolder = "berita";
 //            var_dump($uqFolder);exit;
-            $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
-            $filename = $img->getClientOriginalName();
-            $uploadSuccess = $img->move($destinationPath, $filename);
+                $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
+                $filename = $img->getClientOriginalName();
+                $slider_img = $slider->getClientOriginalName();
+                $uploadSuccess = $img->move($destinationPath, $filename);
+                $sliderupload = $slider->move($destinationPath, $slider_img);
 
-            if($uploadSuccess){
+                if($uploadSuccess || $sliderupload){
 
-                $img_exists = $destinationPath . '/' . $berita->gambar;
+                    $img_exists = $destinationPath . '/' . $berita->gambar;
+                    $slider_exists = $destinationPath . '/' . $berita->slider;
 
-                //pengecekkan file image apakah ada atau tidak
-                if(file_exists($img_exists))
+                    //pengecekkan file image apakah ada atau tidak
+                    if(file_exists($img_exists) || file_exists($slider_exists))
 
-                    //delete file image di folder yang terdaftar di database
-                    unlink($img_exists);
+                        //delete file image di folder yang terdaftar di database
+                        unlink($img_exists);
+                        unlink($slider_exists);
 
 
-                /* update to table berita */
-                $berita->judul = $input['judul'];
-                $berita->berita = $input['berita'];
-                $berita->penulis = $input['penulis'];
-                $berita->gambar = $filename;
-                $berita->tgl_penulisan = new DateTime;
-                $berita->created_at = date('Y-m-d H:i:s');
-                $berita->updated_at = date('Y-m-d H:i:s');
+                    /* update to table berita */
+                    $berita->judul = $input['judul'];
+                    $berita->berita = $input['berita'];
+                    $berita->penulis = $input['penulis'];
+                    $berita->gambar = $filename;
+                    $berita->slider = $slider_img;
+                    $berita->tgl_penulisan = new DateTime;
+                    $berita->created_at = date('Y-m-d H:i:s');
+                    $berita->updated_at = date('Y-m-d H:i:s');
 
-                $berita->save();
+                    $berita->save();
 
-                if($berita->save()){
-                    Session::flash('success', 'Berita berhasil dirubah!');
-                    return Redirect::to('admin/berita');
-                }else{
-                    Session::flash('error', 'Gagal mengirim data. Pastikan Berita sudah benar.');
-                    return Redirect::back();
+                    if($berita->save()){
+                        Session::flash('success', 'Berita berhasil dirubah!');
+                        return Redirect::to('admin/berita');
+                    }else{
+                        Session::flash('error', 'Gagal mengirim data. Pastikan Berita sudah benar.');
+                        return Redirect::back();
+                    }
+
                 }
 
+            }else{
+                Session::flash('error', 'Gagal mengirim berkas.');
+                return Redirect::back();
             }
-
         }else{
-            Session::flash('error', 'Gagal mengirim berkas.');
-            return Redirect::back();
+            /* update to table berita */
+            $berita->judul = $input['judul'];
+            $berita->berita = $input['berita'];
+            $berita->penulis = $input['penulis'];
+            $berita->gambar = $input['gambar'];;
+            $berita->slider = $input['slider'];;
+            $berita->tgl_penulisan = new DateTime;
+            $berita->created_at = date('Y-m-d H:i:s');
+            $berita->updated_at = date('Y-m-d H:i:s');
+
+            $berita->save();
+
+            if($berita->save()){
+                Session::flash('success', 'Berita berhasil dirubah!');
+                return Redirect::to('admin/berita');
+            }else{
+                Session::flash('error', 'Gagal mengirim data. Pastikan Berita sudah benar.');
+                return Redirect::back();
+            }
         }
+
     }
 
     /**

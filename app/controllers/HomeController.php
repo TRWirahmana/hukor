@@ -77,6 +77,10 @@ class HomeController extends BaseController {
     }
 
     public function showForum() {
+        $all = Menu::all();
+        $all->toArray();
+
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
       $this->layout->content = View::make('layouts.forum');
     }
 

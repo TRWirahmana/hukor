@@ -400,6 +400,7 @@ table.dataTable tbody tr.even td.sorting_1 {
 }
 .leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a {
   color: #999999;
+  border: none !important;
 }
 .leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a:hover {
   color: #ffffff;

@@ -394,6 +394,12 @@ legend {
 .table th {
   text-align: center;
 }
+.well {
+  background: #4fb4c0;
+  color: #ffffff;
+  padding-bottom: 38px;
+  box-shadow: none;
+}
 
 /* DIKBUD MAIN LAYOUT */
 html, .main-layout, .admin,
@@ -752,6 +758,12 @@ html, .main-layout, .admin,
 }
 .form-in-modal {
   padding: 10px 30px;
+}
+#call-center {
+  margin-top: 80px;
+}
+#call-center p {
+  margin-bottom: 4px;
 }
 
 .required:after {

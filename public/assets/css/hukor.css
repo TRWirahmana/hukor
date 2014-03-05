@@ -107,6 +107,9 @@ input, textarea, select {
   box-shadow: none !important;
   border: none !important;
 }
+textarea {
+  resize: none;
+}
 .btn.btn-primary {
   background: #2875A8 !important;
 }

@@ -228,6 +228,7 @@ class BeritaController extends BaseController {
         if($img != null || $slider != null){
             if($img->isValid() || $slider->isValid()){
                 $uqFolder = "berita";
+
 //            var_dump($uqFolder);exit;
                 $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
                 $filename = $img->getClientOriginalName();

@@ -329,7 +329,7 @@
 <script src="{{asset('assets/js/customize-twitter-1.1.min.js')}}"></script>
 <script>
   var twitterWidgetOptions = {
-    "url": "http://localhost/hukor/public/assets/js/custom-twitter.css"
+    "url": "{{asset('assets/js/custom-twitter.css')}}"
   };
   CustomizeTwitterWidget(twitterWidgetOptions);
 </script>

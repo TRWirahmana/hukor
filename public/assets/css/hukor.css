@@ -152,6 +152,16 @@ input, textarea, select {
 .mce-container .mce-menubar {
   background: #2875A8;
 }
+.mce-floatpanel.mce-menu {
+  background: #2875A8;
+  color: #ffffff;
+}
+.mce-floatpanel.mce-menu .mce-menu-item,
+.mce-floatpanel.mce-menu .mce-menu-item .mce-text,
+.mce-floatpanel.mce-menu .mce-menu-item .mce-menu-shortcut,
+.mce-floatpanel.mce-menu .mce-menu-item .mce-ico {
+  color: #ffffff;
+}
 .dashboard-summary > .span4 > h4 {
   margin-bottom: 12px;
 }

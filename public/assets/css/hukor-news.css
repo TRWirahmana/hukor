@@ -434,6 +434,9 @@ p {
 #rule-widget .table tr th:last-child {
   text-align: center;
 }
+#twitter-widget .timeline.root {
+  background: transparent;
+}
 
 #paging_container .content {
   background: #ffffff;

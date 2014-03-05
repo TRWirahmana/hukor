@@ -10,11 +10,8 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon">&nbsp;</div>
-        <div class="pagetitle">
-            <!--<h5>Events</h5>-->
-
-            <h1>Kelola Menu</h1>
+        <div class="pageicon"><span class="rulycon-notebook"></span></div>
+        <div class="pagetitle"><h1>Kelola Menu</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -41,9 +38,9 @@
             <table id="table_menu" class="table">
                 <thead>
                 <tr>
-                    <td>Nama Menu</td>
-<!--                    <td>Sub Menu</td>-->
-                    <td></td>
+                    <th>Nama Menu</th>
+<!--                    <th>Sub Menu</th>-->
+                    <th></th>
                 </tr>
                 </thead>
             </table>

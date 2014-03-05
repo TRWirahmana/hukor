@@ -107,6 +107,9 @@ input, textarea, select {
   box-shadow: none !important;
   border: none !important;
 }
+textarea {
+  resize: none;
+}
 .btn.btn-primary {
   background: #2875A8 !important;
 }
@@ -400,6 +403,7 @@ table.dataTable tbody tr.even td.sorting_1 {
 }
 .leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a {
   color: #999999;
+  border: none !important;
 }
 .leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a:hover {
   color: #ffffff;

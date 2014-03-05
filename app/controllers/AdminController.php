@@ -426,7 +426,7 @@ class AdminController extends BaseController {
         switch($user->role_id){
             case 1:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Kepala Biro"
                 );
@@ -440,49 +440,49 @@ class AdminController extends BaseController {
                 break;
             case 3:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Super Admin"
                 );
                 break;
             case 4:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Kepala Bagian"
                 );
                 break;
             case 5:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Kepala Sub Bagian"
                 );
                 break;
             case 6:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Admin Peraturan Perundang-Undangan"
                 );
                 break;
             case 7:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Admin Pelembagaan"
                 );
                 break;
             case 8:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Admin Bantuan Hukum"
                 );
                 break;
             case 9:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Admin Ketatalasksanaan"
                 );

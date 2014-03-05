@@ -11,6 +11,7 @@ class AnalisisJabatanController extends BaseController {
 			return Datatables::of(DAL_AnalisisJabatan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))
 				->add_column("_role_id", $roleId)
 				->make(true);
+
         $all = Menu::all();
         $all->toArray();
 
@@ -26,7 +27,11 @@ class AnalisisJabatanController extends BaseController {
 
 	public function create() {
 		$user = Auth::user();
-		$this->layout = View::make('layouts.master');
+
+        $all = Menu::all();
+        $all->toArray();
+
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
 		$this->layout->content = View::make('AnalisisJabatan.create')
 			->with('user', $user);
 	}

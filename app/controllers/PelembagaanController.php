@@ -7,6 +7,7 @@ class PelembagaanController extends BaseController {
 	public function index()
 	{
 		$user = Auth::user();
+
         $all = Menu::all();
         $all->toArray();
 		
@@ -36,7 +37,10 @@ class PelembagaanController extends BaseController {
 		$pelembagaan = new Pelembagaan();
 		$user = Auth::user();
 
-		$this->layout = View::make('layouts.master');
+        $all = Menu::all();
+        $all->toArray();
+
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
 		$this->layout->content = View::make('Pelembagaan.form', array(
 				'title' => 'Tambah Akun',
 				'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',

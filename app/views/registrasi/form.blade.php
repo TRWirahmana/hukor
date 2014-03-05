@@ -179,7 +179,7 @@
               </div>
 
               <div class="control-group {{$errors->has('handphone')?'error':''}}">
-                  {{ Form::label('handphone', 'Handphone', array('class' => 'control-label required')) }}
+                  {{ Form::label('handphone', 'No Handphone', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('handphone', '',
                       array('placeholder' => 'Masukkan nomor handphone anda di sini...')) }}

@@ -22,9 +22,9 @@
                 </div>
 
                 <div class="control-group">
-                    {{ form::label('penanggungjawab[jabatan]', 'jabatan', array('class' => 'control-label'))}}
+                    {{ form::label('penanggungJawab[jabatan]', 'jabatan', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ form::text('penanggungjawab[jabatan]', null, array('placeholder' => 'Masukan jabatan...')) }}
+                        {{ form::text('penanggungJawab[jabatan]', null, array('placeholder' => 'Masukan jabatan...')) }}
                     </div>
                 </div>
                 <div class="control-group">

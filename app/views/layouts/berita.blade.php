@@ -181,7 +181,7 @@
                     ?>
                     @foreach($link_dikbud as $dikbud)
                     <?php $link = "http://" . $dikbud->link; ?>
-                    <?php $assets = asset('assets/img/'.$dikbud->gambar); ?>
+                    <?php $assets = asset('assets/uploads/link/'.$dikbud->gambar); ?>
                         <li> <a href="{{ $link }}"><img src="{{ $assets }}"></a> </li>
                     @endforeach
                 </ul>

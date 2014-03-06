@@ -144,7 +144,7 @@ class PelembagaanController extends BaseController {
 		} else {
 			Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
 		}				
-		return Redirect::route('pelembagaan.create');	
+		return Redirect::route('pelembagaan.index');
 	}
 
 	public function destroy($id)

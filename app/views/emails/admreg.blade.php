@@ -6,7 +6,7 @@
     <body>
         <h2>Selamat Datang di Sistem Layanan Hukum dan Organisasi</h2>
         <div>
-        	Anda telah terdaftar di role <b>{{ $role }}</b></b>.
+        	Anda telah terdaftar sebagai role <b>{{ $role }}</b></b>.
             Gunakan username dan password dibawah ini untuk masuk kedalam sistem
 <!--            <a href="http://kebudayaan.kemdikbud.go.id/penyuluh_budaya/public">Registrasi Online Penyuluh Budaya</a>-->
 <!--            <h3>-->

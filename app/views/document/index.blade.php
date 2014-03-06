@@ -13,17 +13,21 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon">&nbsp;</div>
+        <div class="pageicon"><span class="rulycon-wrench"></span></div>
         <div class="pagetitle">
-            <!--<h5>Events</h5>-->
-
-            <h1>Dokumentasi</h1>
+          <h1>Dokumentasi</h1>
         </div>
     </div>
     <!--pageheader-->
 
     <div class="maincontent">
         <div class="maincontentinner">
+          <style>
+            #basictable tr td:last-child {
+              width: 80px !important;
+              text-align: center;
+            }
+          </style>
 
             <!-- MAIN CONTENT -->
             <div class="stripe-accent"></div>
@@ -32,7 +36,7 @@
             @endif
             <legend></legend>
 
-            <table id="basictable" class="dataTable">
+            <table id="basictable" class="dataTable table">
                 <thead>
                 <tr>
                     <th>Nomor</th>

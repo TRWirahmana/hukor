@@ -196,6 +196,8 @@ class LayananController extends BaseController {
 
         $layanan = Layanan::find($id);
 
+
+
         if($img != null){
             if($img->isValid()){
                 $uqFolder = "layanan";
@@ -231,7 +233,8 @@ class LayananController extends BaseController {
             $layanan->berita = $input['berita'];
             $layanan->penanggung_jawab = $input['penanggung_jawab'];
 //            $layanan->gambar = $filename;
-
+            $layanan->save();
+//            var_dump($layanan);exit;
             if($layanan->save()){
                 Session::flash('success', 'Informasi Layanan berhasil dirubah!');
                 return Redirect::to('admin/layanan');

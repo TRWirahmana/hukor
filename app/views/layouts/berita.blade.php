@@ -10,13 +10,12 @@
     <!-- Stylesheet files import here -->
 
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.default.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/hukor-news.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycon.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycons.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/simplePagination.css')}}">
-
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive-tables-news.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycon.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycons.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/hukor-news.css')}}">
 
     <style type="text/css">
         .container-fluid {
@@ -103,7 +102,7 @@
         <div class="sub-header">
             <div class="container">
                 <ul class="sub-menu" id="sub-informasi" style="display: none">
-                    <?php $menu = Menu::all(); ?>
+                    <?php $menu = Menu::all(); $s = 1;?>
                     @foreach($menu as $menus)
                     @if($menus->submenu == null)
                         <span class="rulycon-file-3">&nbsp;</span><a href="#">{{$menus->nama_menu}}</a></li>
@@ -315,6 +314,24 @@
         }
 
     });
+</script>
+<script>
+  !function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id = id;
+      js.src = p + "://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+  }(document, "script", "twitter-wjs");
+</script>
+<script src="{{asset('assets/js/customize-twitter-1.1.min.js')}}"></script>
+<script>
+  var twitterWidgetOptions = {
+    "url": "{{asset('assets/js/custom-twitter.css')}}"
+  };
+  CustomizeTwitterWidget(twitterWidgetOptions);
 </script>
 @show
 </body>

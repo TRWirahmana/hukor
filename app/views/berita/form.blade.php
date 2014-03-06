@@ -91,7 +91,10 @@
           <hr/>
 
           <div class="control-group">
-            {{ Form::submit('Simpan', array('class' => 'btn btn-primary btn-block')) }}
+            <div class="controls">
+                {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
+            </div>
+
           </div>
 
         </fieldset>

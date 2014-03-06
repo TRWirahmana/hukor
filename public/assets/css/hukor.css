@@ -107,6 +107,9 @@ input, textarea, select {
   box-shadow: none !important;
   border: none !important;
 }
+textarea {
+  resize: none;
+}
 .btn.btn-primary {
   background: #2875A8 !important;
 }
@@ -151,6 +154,16 @@ input, textarea, select {
 .mce-container .mce-panel,
 .mce-container .mce-menubar {
   background: #2875A8;
+}
+.mce-floatpanel.mce-menu {
+  background: #2875A8;
+  color: #ffffff;
+}
+.mce-floatpanel.mce-menu .mce-menu-item,
+.mce-floatpanel.mce-menu .mce-menu-item .mce-text,
+.mce-floatpanel.mce-menu .mce-menu-item .mce-menu-shortcut,
+.mce-floatpanel.mce-menu .mce-menu-item .mce-ico {
+  color: #ffffff;
 }
 .dashboard-summary > .span4 > h4 {
   margin-bottom: 12px;
@@ -390,6 +403,7 @@ table.dataTable tbody tr.even td.sorting_1 {
 }
 .leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a {
   color: #999999;
+  border: none !important;
 }
 .leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a:hover {
   color: #ffffff;
@@ -415,19 +429,26 @@ div.DTTT_container {
   background: #2875A8;
   padding-left: 20px;
   padding-right: 20px;
+  border-bottom: none;
 }
 .rightpanel .breadcrumbs li, .rightpanel .breadcrumbs li > a {
   color: #ffffff;
 }
 .rightpanel .pageheader {
   padding-bottom: 8px;
+  background: #4fb4c0;
 }
 .rightpanel .pageicon {
   font-size: 24px;
   padding: 10px 0;
+  color: #ffffff;
+  border-color: #ffffff;
 }
 .rightpanel .pagetitle {
   margin-left: 64px;
+}
+.rightpanel .pagetitle h1 {
+  color: #ffffff;
 }
 
 

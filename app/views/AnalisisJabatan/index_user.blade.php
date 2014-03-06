@@ -7,7 +7,7 @@
 @include('flash')
 <div class="content-non-title">
 
-                <table id="tbl-analisis-jabatan">
+                <table id="tbl-analisis-jabatan" class="table">
                     <thead>
                         <tr>
                             <th>#</th>

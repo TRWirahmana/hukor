@@ -10,17 +10,22 @@
 <!--        <form action="results.html" method="post" class="searchbar">-->
 <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
 <!--        </form>-->
-        <div class="pageicon">&nbsp;</div>
+        <div class="pageicon"><span class="rulycon-user"></span></div>
         <div class="pagetitle">
-            <!--<h5>Events</h5>-->
-
-            <h1>Kelola Akun</h1>
+          <h1>Kelola Akun</h1>
         </div>
     </div>
     <!--pageheader-->
 
     <div class="maincontent">
         <div class="maincontentinner">
+
+          <style>
+            #table_admin tr td:last-child {
+              width: 80px !important;
+              text-align: center;
+            }
+          </style>
 
             <!-- MAIN CONTENT -->
             <div class="stripe-accent"></div>
@@ -48,17 +53,17 @@
             <table id="table_admin" class="table">
                 <thead>
                 <tr>
-                    <td>Nama Lengkap</td>
-                    <td>Email</td>
-                    <td>Role</td>
-                    <td></td>
+                    <th>Nama Lengkap</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th></th>
                 </tr>
                 </thead>
             </table>
 
             <div class="footer">
                 <div class="footer-left">
-                    <span>&copy; 2013. Admin Template. All Rights Reserved.</span>
+                    <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
                 </div>
                 <div class="footer-right">
                     <span></span>

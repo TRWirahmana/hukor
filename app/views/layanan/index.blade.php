@@ -13,11 +13,9 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon">&nbsp;</div>
+        <div class="pageicon"><span class="rulycon-notebook"></span></div>
         <div class="pagetitle">
-            <!--<h5>Events</h5>-->
-
-            <h1>Manage Layanan</h1>
+          <h1>Manage Layanan</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -44,9 +42,9 @@
             <table id="table_layanan" class="table">
                 <thead>
                 <tr>
-                    <td>Nama Menu</td>
-                    <td>Nama Submenu</td>
-                    <td></td>
+                    <th>Nama Menu</th>
+                    <th>Nama Submenu</th>
+                    <th></th>
                 </tr>
                 </thead>
             </table>

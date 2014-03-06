@@ -12,6 +12,7 @@ class ProdukHukumController extends BaseController
 	        													->lists('pengesahan_year', 'pengesahan_year');
         $all = Menu::all();
         $all->toArray();
+
         $this->layout = View::make('layouts.master', array('allmenu' => $all));
         $this->layout->content = View::make('produkhukum.index', array('listThn' => $listThn));		
 	}
@@ -38,7 +39,10 @@ class ProdukHukumController extends BaseController
 	public function detail($id)
 	{
 		$data = Document::find($id);
-        $this->layout = View::make('layouts.master');
+        $all = Menu::all();
+        $all->toArray();
+
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
         $this->layout->content = View::make('produkhukum.detail', array(
 				'title' => 'Tambah Akun',
 				'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',

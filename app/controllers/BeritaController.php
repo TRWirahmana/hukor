@@ -109,7 +109,7 @@ class BeritaController extends BaseController {
         $slider = Input::file('slider');
 
         //save
-        if($img != null || $slider != null){
+        if($img != null && $slider != null){
             if($img->isValid() || $slider->isValid()){
                 $uqFolder = "berita";
 //            var_dump($uqFolder);exit;
@@ -149,7 +149,77 @@ class BeritaController extends BaseController {
                 Session::flash('error', 'Gagal mengirim berkas.');
                 return Redirect::back();
             }
-        }else{
+
+        }
+        elseif($img != null && $slider == null){
+            if($img->isValid()){
+                $uqFolder = "berita";
+//            var_dump($uqFolder);exit;
+                $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
+                $filename = $img->getClientOriginalName();
+                $uploadSuccess = $img->move($destinationPath, $filename);
+
+                if($uploadSuccess){
+                    /* save to table berita */
+                    $berita = new DAL_Berita();
+
+                    $berita->SetData(array(
+                        'judul' => $input['judul'],
+                        'berita' => $input['berita'],
+                        'id_kategori' => $input['kategori'],
+//                    'penulis' => $input['penulis'],
+                        'gambar' => $filename,
+                        'tgl_penulisan' => new DateTime,
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'),
+                    ));
+
+                    if($berita->Save()){
+                        Session::flash('success', 'Berita berhasil ditambahkan!');
+//                    Cache::forget('Berita');
+                        return Redirect::to('admin/berita');
+                    }else{
+                        Session::flash('error', 'Berita Gagal disimpan. Pastikan data Berita sudah benar.');
+                        return Redirect::back();
+                    }
+                }
+            }
+        }
+            elseif($slider != null && $img == null){
+            if($slider->isValid()){
+                $uqFolder = "berita";
+//            var_dump($uqFolder);exit;
+                $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
+                $slider_img = $slider->getClientOriginalName();
+                $sliderupload = $slider->move($destinationPath, $slider_img);
+
+                if($sliderupload){
+                    /* save to table berita */
+                    $berita = new DAL_Berita();
+
+                    $berita->SetData(array(
+                        'judul' => $input['judul'],
+                        'berita' => $input['berita'],
+                        'id_kategori' => $input['kategori'],
+//                    'penulis' => $input['penulis'],
+                        'slider' => $slider_img,
+                        'tgl_penulisan' => new DateTime,
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'),
+                    ));
+
+                    if($berita->Save()){
+                        Session::flash('success', 'Berita berhasil ditambahkan!');
+//                    Cache::forget('Berita');
+                        return Redirect::to('admin/berita');
+                    }else{
+                        Session::flash('error', 'Berita Gagal disimpan. Pastikan data Berita sudah benar.');
+                        return Redirect::back();
+                    }
+                }
+            }
+        }
+        else{
             $berita = new DAL_Berita();
 
             $berita->SetData(array(
@@ -170,7 +240,6 @@ class BeritaController extends BaseController {
                 return Redirect::back();
             }
         }
-
     }
 
     /**

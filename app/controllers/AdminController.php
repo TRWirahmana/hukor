@@ -64,13 +64,27 @@ class AdminController extends BaseController {
                 $html[] = "<h2>Bantuan Hukum</h2>";
                 $html[] = DAL_BantuanHukun::getPrintTable($firstDate, $lastDate);
                 break;            
+	    case 4:
+                $html[] = "<h2>Sistem dan Prosedur</h2>";
+                $html[] = DAL_SistemDanProsedur::getPrintTable(null, $firstDate, $lastDate);
+                break;
+	    case 5:
+                $html[] = "<h2>Analisis Jabatan</h2>";
+                $html[] = DAL_AnalisisJabatan::getPrintTable(null, $firstDate, $lastDate);
+                break;
             default:
                 $html[] = "<h2>Peraturan Perundang Undangan</h2>";
                 $html[] = DAL_PerUU::getPrintTable(null, $firstDate, $lastDate);
-                $html[] = "<h2>Pelembagaan</h2>";
+                $html[] = "<br/><br/><h2>Pelembagaan</h2>";
                 $html[] = DAL_Pelembagaan::getPrintTable(null, $firstDate, $lastDate);
-                $html[] = "<h2>Bantuan Hukum</h2>";
+                $html[] = "<br/><br/><h2>Bantuan Hukum</h2>";
                 $html[] = DAL_BantuanHukun::getPrintTable($firstDate, $lastDate);
+		$html[] = "<br/><br/><h2>Sistem dan Prosedur</h2>";
+                $html[] = DAL_SistemDanProsedur::getPrintTable(null, $firstDate, $lastDate);
+		$html[] = "<br/><br/><h2>Analisis Jabatan</h2>";
+                $html[] = DAL_AnalisisJabatan::getPrintTable(null, $firstDate, $lastDate);
+
+
                 break;
         }
 
@@ -426,7 +440,7 @@ class AdminController extends BaseController {
         switch($user->role_id){
             case 1:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Kepala Biro"
                 );
@@ -440,49 +454,49 @@ class AdminController extends BaseController {
                 break;
             case 3:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Super Admin"
                 );
                 break;
             case 4:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Kepala Bagian"
                 );
                 break;
             case 5:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Kepala Sub Bagian"
                 );
                 break;
             case 6:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Admin Peraturan Perundang-Undangan"
                 );
                 break;
             case 7:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Admin Pelembagaan"
                 );
                 break;
             case 8:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Admin Bantuan Hukum"
                 );
                 break;
             case 9:
                 $data = array(
-                    'username' => $user->username,
+                    'username' => $user->nip,
                     'password' => $input['password'],
                     'role' => "Admin Ketatalasksanaan"
                 );

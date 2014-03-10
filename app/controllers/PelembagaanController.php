@@ -7,6 +7,9 @@ class PelembagaanController extends BaseController {
 	public function index()
 	{
 		$user = Auth::user();
+
+        $all = Menu::all();
+        $all->toArray();
 		
         if(Request::ajax())           
             return Datatables::of(DAL_Pelembagaan::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))->make(true);
@@ -14,7 +17,7 @@ class PelembagaanController extends BaseController {
         if($user->role_id == 3 || $user->role_id == 7 || $user->role_id == 4 || $user->role_id == 1 || $user->role_id == 5 || $user->role_id == 6 || $user->role_id == 8 || $user->role_id == 9){
 			$this->layout = View::make('layouts.admin');
         } else {
-        	$this->layout = View::make('layouts.master');
+            $this->layout = View::make('layouts.master', array('allmenu' => $all));
         }	    
 	    $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user ));
 	}
@@ -34,7 +37,10 @@ class PelembagaanController extends BaseController {
 		$pelembagaan = new Pelembagaan();
 		$user = Auth::user();
 
-		$this->layout = View::make('layouts.master');
+        $all = Menu::all();
+        $all->toArray();
+
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
 		$this->layout->content = View::make('Pelembagaan.form', array(
 				'title' => 'Tambah Akun',
 				'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',
@@ -138,7 +144,7 @@ class PelembagaanController extends BaseController {
 		} else {
 			Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
 		}				
-		return Redirect::route('pelembagaan.create');	
+		return Redirect::route('pelembagaan.index');
 	}
 
 	public function destroy($id)

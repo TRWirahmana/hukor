@@ -11,6 +11,16 @@ a:hover {
 p {
   margin-bottom: 12px;
 }
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+}
 
 /* HUKOR NEWS CUSTOM LAYOUT */
 .accent {
@@ -35,13 +45,29 @@ p {
 .header .logo {
   width: auto;
   min-width: 100px;
-  padding: 0 0 12px;
+  max-width: 420px;
+  padding: 24px 0 12px;
   height: auto;
-  /*background: rgba(0, 0, 0, .075);*/
+  text-align: left;
 }
 .header .logo img {
-  padding-top: 20px;
-  padding-bottom: 4px;
+  padding: 0 10px 4px 0;
+  display: inline-block;
+  width: 60px;
+}
+.header .logo h4 {
+  display: inline-block;
+  text-align: left;
+  margin: 8px 0 0;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 12px;
+  width: 320px;
+  vertical-align: top;
+}
+.header .logo h4 span:first-child {
+  font-size: 20px;
+  display: block;
 }
 .headmenu > li {
   font-size: 12px;
@@ -183,20 +209,21 @@ p {
   width: 100%;
 }
 .carousel-caption {
-  background: rgba(255, 255, 255, .35);
+  background: rgba(255, 255, 255, .75);
   padding: 16px 24px;
 }
 .carousel-caption h3, .carousel-caption p {
   width: 55%;
 }
 .carousel-caption h3 {
-  color: #ffffff;
+  color: #226C9C;
   font-size: 18px;
   text-transform: uppercase;
   margin: 0 0 6px;
   font-family: "pt_sans_narrowbold", sans-serif;
 }
 .carousel-caption p {
+    color: #226C9C;
   line-height: 160%;
 }
 .boxed .carousel-indicators {
@@ -396,14 +423,14 @@ p {
 .widget-body .widget-content {
   color: #ffffff;
   text-align: center;
-  font-family: "monacoregular", "Monaco", monospace;
-  font-size: 48px;
 }
 .widget-body .widget-content p {
   line-height: 160%;
   padding-top: 12px;
   padding-bottom: 6px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+  font-family: "monacoregular", "Monaco", monospace;
+  font-size: 48px;
 }
 #counter-widget .widget-body {
   position: relative;
@@ -424,7 +451,18 @@ p {
   box-shadow: 0 1px 0 rgba(255, 255, 255, .25);
 }
 #counter-widget .section-title:after { content: "\e04d"; }
+#rule-widget .section-title:after { content: "\e020"; }
 #twitter-widget .section-title:after { content: "\e16d"; }
+#rule-widget .table tr th:first-child {
+  width: 20px;
+  max-width: 20px;
+}
+#rule-widget .table tr th:last-child {
+  text-align: center;
+}
+#twitter-widget .timeline.root {
+  background: transparent;
+}
 
 #paging_container .content {
   background: #ffffff;

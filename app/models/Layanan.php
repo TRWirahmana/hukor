@@ -9,7 +9,7 @@ class Layanan extends Eloquent {
         return $this->belongsTo('Submenu');
     }
 
-//    public function menu() {
-//        return $this->belongsTo('Menu');
-//    }
+    public function menu() {
+        return $this->belongsTo('Menu');
+    }
 }

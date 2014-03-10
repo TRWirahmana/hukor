@@ -9,6 +9,9 @@ class PeruuController extends BaseController
 	public function index()
 	{
 		$roleId = Auth::user()->role_id;
+        $all = Menu::all();
+        $all->toArray();
+
 		// handle dataTable request
 		if (Request::ajax())
 			return Datatables::of(DAL_PerUU::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))
@@ -16,7 +19,7 @@ class PeruuController extends BaseController
 				->make(true);
 
 		if(Auth::user()->role_id == 2 || Auth::guest()) {
-			$this->layout = View::make('layouts.master');
+            $this->layout = View::make('layouts.master', array('allmenu' => $all));
 			$this->layout->content = View::make('PerUU.informasi');    
 		} else {
 			$this->layout = View::make('layouts.admin');
@@ -28,7 +31,11 @@ class PeruuController extends BaseController
 	public function create()
 	{
 		$user = Auth::user();
-		$this->layout = View::make('layouts.master');
+
+        $all = Menu::all();
+        $all->toArray();
+
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
 		$this->layout->content = View::make('PerUU.create')
 			->with('user', $user);
 	}

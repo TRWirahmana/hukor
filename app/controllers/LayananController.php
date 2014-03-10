@@ -16,22 +16,29 @@ class LayananController extends BaseController {
     public function detail(){
         $id = Input::get('id');
 //        echo $id;exit;
+        $all = Menu::all();
+        $all->toArray();
 
         if($id == 1 || $id == 2 || $id == 3 ){
             $info = Layanan::find($id);
-            $this->layout = View::make('layouts.master');
+            $this->layout = View::make('layouts.master',
+            array(
+                'allmenu' => $all));
 
             $this->layout->content = View::make('layanan.info_aplikasi',
                 array(
-                    'info' => $info
+                    'info' => $info,
+                    'allmenu' => $all
                 ));
         }else{
             $info = Layanan::find($id);
-            $this->layout = View::make('layouts.master');
+            $this->layout = View::make('layouts.master',array(
+                'allmenu' => $all));
 
             $this->layout->content = View::make('layanan.detail',
                 array(
-                    'info' => $info
+                    'info' => $info,
+                    'allmenu' => $all
                 ));
         }
 
@@ -155,7 +162,7 @@ class LayananController extends BaseController {
                     }
                 }
             }else{
-                Session::flash('error', 'Gagal mengirim berkas.');
+                Session::flash('error', 'Gagal mengirim data.');
                 return Redirect::back();
             }
         }else{
@@ -188,6 +195,8 @@ class LayananController extends BaseController {
         $img = Input::file('layanan.image');
 
         $layanan = Layanan::find($id);
+
+
 
         if($img != null){
             if($img->isValid()){
@@ -224,7 +233,8 @@ class LayananController extends BaseController {
             $layanan->berita = $input['berita'];
             $layanan->penanggung_jawab = $input['penanggung_jawab'];
 //            $layanan->gambar = $filename;
-
+            $layanan->save();
+//            var_dump($layanan);exit;
             if($layanan->save()){
                 Session::flash('success', 'Informasi Layanan berhasil dirubah!');
                 return Redirect::to('admin/layanan');

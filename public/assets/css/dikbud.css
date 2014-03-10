@@ -295,7 +295,7 @@ legend {
   text-align: center;
 }
 .form-inline {
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
 }
 .form-inline label {
   font-weight: bold;
@@ -394,6 +394,12 @@ legend {
 .table th {
   text-align: center;
 }
+.well {
+  background: #4fb4c0;
+  color: #ffffff;
+  padding-bottom: 38px;
+  box-shadow: none;
+}
 
 /* DIKBUD MAIN LAYOUT */
 html, .main-layout, .admin,
@@ -419,9 +425,27 @@ html, .main-layout, .admin,
   padding-bottom: 20px;
 }
 .sidebar > header > img {
+  width: 52px;
+  display: inline-block;
+}
+.sidebar > header > h4 {
+  font-family: "pt_sans_narrowregular", sans-serif;
+  display: inline-block;
+  text-align: left;
+  margin: 8px 0 0;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 12px;
   width: auto;
-  text-align: center;
-  width: 250px;
+  vertical-align: top;
+  font-weight: normal;
+}
+.sidebar > header > h4 span {
+  font-family: "pt_sans_narrowregular", sans-serif;
+}
+.sidebar > header >  h4 span:first-child {
+  font-size: 18px;
+  display: block;
 }
 .sidebar > header > form {
   padding: 20px;
@@ -676,8 +700,8 @@ html, .main-layout, .admin,
   font-size: 24px;
   font-family: "PT Sans Narrow", "pt_sans_narrowregular", sans-serif;
   font-weight: normal;
-  margin: 0;
-  padding: 17px 20px 20px;
+  margin: 0 0 24px;
+  padding: 20px 20px 26px;
 }
 .main-content > h2 > span[class*="rulycon"] {
   font-size: 14px;
@@ -753,6 +777,12 @@ html, .main-layout, .admin,
 .form-in-modal {
   padding: 10px 30px;
 }
+#call-center {
+  margin-top: 80px;
+}
+#call-center p {
+  margin-bottom: 4px;
+}
 
 .required:after {
   content: '*';
@@ -805,7 +835,7 @@ table.dataTable tr.odd {
   border-bottom: 1px solid rgba(0, 0, 0, .075);
 }
 table.dataTable tr.odd > td {
-  padding: 30px 20px 40px;
+  /*padding: 30px 20px 40px;*/
 }
 .paginate_disabled_previous, .paginate_disabled_next {
   background: none;

@@ -1,32 +1,76 @@
-@section('content')
+@section('admin')
+
+<div class="rightpanel">
+
+    <ul class="breadcrumbs">
+        <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
+        <li>Dokumentasi</li>
+    </ul>
+
+    @include('adminflash')
+    <?php $user = Auth::user(); ?>
+    <div class="pageheader">
+        <!--        <form action="results.html" method="post" class="searchbar">-->
+        <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
+        <!--        </form>-->
+        <div class="pageicon"><span class="rulycon-wrench"></span></div>
+        <div class="pagetitle">
+          <h1>Dokumentasi</h1>
+        </div>
+    </div>
+    <!--pageheader-->
+
+    <div class="maincontent">
+        <div class="maincontentinner">
+          <style>
+            #basictable tr td:last-child {
+              width: 80px !important;
+              text-align: center;
+            }
+          </style>
+
+            <!-- MAIN CONTENT -->
+            <div class="stripe-accent"></div>
+            @if($user->role_id == 3)
+            <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('admin/adddoc')}}">Tambah Baru</a>
+            @endif
+            <legend></legend>
+
+            <table id="basictable" class="dataTable table">
+                <thead>
+                <tr>
+                    <th>Nomor</th>
+                    <th>Tanggal</th>
+                    <th>Tentang</th>
+                    <th>Kategori</th>
+                    <th>Masalah</th>
+                    <th>Publikasi</th>
+                    <th></th>
+                </tr>
+                </thead>
+            </table>
+
+            <div class="footer">
+                <div class="footer-left">
+                    <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
+                </div>
+                <div class="footer-right">
+                    <span></span>
+                </div>
+            </div>
+            <!--footer-->
+        </div>
+        <!--maincontentinner-->
+    </div>
+    <!--maincontent-->
 
 
-<h2>KETATALAKSANAAN</h2>
-<div class="stripe-accent"></div>
-<legend>Document
-    <a class="btn btn-mini btn-primary" href="{{ URL::to('admin/adddoc')}}">
-        <i class="icon-plus"></i>&nbsp; Tambah Baru</a>
-</legend>
-
-@include('flash')
-
-<table id="basictable" class="dataTable">
-    <thead>
-    <tr>
-        <th>Nomor</th>
-        <th>Tanggal</th>
-        <th>Tentang</th>
-        <th>Kategori</th>
-        <th>Masalah</th>
-        <th>Publikasi</th>
-        <th></th>
-    </tr>
-    </thead>
-</table>
+</div>
 
 @section('scripts')
 @parent
 <script type="text/javascript">
+    var $ = jQuery.noConflict();
     var tbl_data = $("#basictable").dataTable({
         bFilter: false,
         bInfo: false,

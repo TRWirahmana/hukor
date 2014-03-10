@@ -40,8 +40,8 @@ var Berita = (function(BRT) {
         var rules = {
             'judul': 'required',
             'berita': 'required',
-            'penulis': 'required',
-            'gambar': 'required'
+            'penulis': 'required'
+//            'gambar': 'required'
         };
 
         jQuery("#form_berita").validate({
@@ -52,8 +52,8 @@ var Berita = (function(BRT) {
             messages: {
                 'judul': 'Judul Berita tidak boleh kosong!',
                 'berita': 'Isi Berita tidak boleh kosong!',
-                'penulis': 'Nama Penulis wajib diisi.',
-                'gambar': 'Gambar wajib diisi.'
+                'penulis': 'Nama Penulis wajib diisi.'
+//                'gambar': 'Gambar wajib diisi.'
             },
             errorPlacement: function(error, element) {
                 error.appendTo(element.parent('div.controls'));

@@ -12,8 +12,11 @@ class AnalisisJabatanController extends BaseController {
 				->add_column("_role_id", $roleId)
 				->make(true);
 
+        $all = Menu::all();
+        $all->toArray();
+
 		if(Auth::user()->role_id == 2 || Auth::guest()) {
-			$this->layout = View::make('layouts.master');
+            $this->layout = View::make('layouts.master', array('allmenu' => $all));
 			$this->layout->content = View::make('AnalisisJabatan.index_user');    
 		} else {
 			$this->layout = View::make('layouts.admin');
@@ -24,7 +27,11 @@ class AnalisisJabatanController extends BaseController {
 
 	public function create() {
 		$user = Auth::user();
-		$this->layout = View::make('layouts.master');
+
+        $all = Menu::all();
+        $all->toArray();
+
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
 		$this->layout->content = View::make('AnalisisJabatan.create')
 			->with('user', $user);
 	}

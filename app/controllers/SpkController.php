@@ -3,9 +3,11 @@ class SpkController extends BaseController {
 
 //	protected $layout = 'layout.admin';
 	public function index(){
+        $all = Menu::all();
+        $all->toArray();
 
 		$info = LayananKetatalaksanaan::find(2);
-		$this->layout = View::make('layouts.master');
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
 
 		$this->layout->content = View::make('layananketatalaksanaan.index',
 		array(

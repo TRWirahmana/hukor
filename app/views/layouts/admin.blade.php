@@ -86,17 +86,18 @@
 
             <div class="leftpanel">
                 <div id="logo-wrapper">
-                    <img src="{{asset('assets/images/logo-kemendiknas.png')}}" alt="Kementrian Pendidikan Nasional RI"/>
+                    <img src="{{asset('assets/images/logo-only.png')}}" alt="Kementrian Pendidikan Nasional RI"/>
+                  <h4><span>Layanan Hukum &amp; Organisasi</span><br/><span>Kementerian Pendidikan dan Kebudayaan</span></h4>
                 </div>
                 <div id="welcome-message">
                     @if($user->role_id == 3)
-                    <p>Welcome <span id="user-name"><?php echo $user->username; ?></span></p>
+                    <p>Selamat Datang <span id="user-name"><?php echo $user->username; ?></span></p>
                     @else
-                    <p>Welcome <span id="user-name"><?php echo $user->pengguna->nama_lengkap; ?></span></p>
+                    <p>Selamat Datang <span id="user-name"><?php echo $user->pengguna->nama_lengkap; ?></span></p>
                     @endif
                 </div>
                 <div id="user-links">
-                    <a href="{{URL::route('admin.setting')}}"><span class="rulycon-cog"></span> Settings</a>
+                    <a href="{{URL::route('admin.setting')}}"><span class="rulycon-cog"></span> Pengaturan</a>
                     <a href="{{URL::route('admin.logout')}}"><span class="rulycon-exit"></span> Keluar</a>
                 </div>
 
@@ -174,7 +175,7 @@
                                     <li id="menu"><a href="{{URL::to('admin/index_menu')}}"><span class="iconfa-laptop"></span> Kelola Menu</a></li>
                                     <li id="kelola_submenu"><a href="{{URL::to('admin/index_submenu')}}"><span class="iconfa-laptop"></span> Kelola Submenu</a></li>
                                     <li id="layanan"><a href="{{URL::to('admin/layanan')}}"><span class="iconfa-laptop"></span> Kelola Konten Layanan</a></li>
-                                    <li id="layanan"><a href="{{URL::to('admin/editcallcenter')}}"><span class="iconfa-laptop"></span> Kelola Call Center</a></li>
+                                    <li id="layanan"><a href="{{URL::to('admin/editcallcenter')}}"><span class="iconfa-laptop"></span> Kelola Kontak Kami</a></li>
                                     <li id="layanan"><a href="{{URL::to('admin/linked')}}"><span class="iconfa-laptop"></span> Kelola Link Dikbud</a></li>
                                 </ul>
                             </li>

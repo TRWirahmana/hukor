@@ -94,7 +94,7 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            return "<a href='/sp/download/" + data + "'><i class='icon-download'></i></a> ";
+                            return "<a href='"+baseUrl+"/sp/download/" + data + "'><i class='icon-download'></i></a> ";
                         }
                     }
                 ],

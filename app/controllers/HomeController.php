@@ -29,11 +29,23 @@ class HomeController extends BaseController {
 
         $dataDoc = $document->GetLastTen();
 
-//        $latest_news = DB::table('berita')
-//                            ->select('id', 'judul', 'berita', 'tgl_penulisan')
-//                            ->orderBy('id', 'desc')
-//                            ->limit(4)
-//                            ->get();
+        $all = Menu::leftJoin('sub_menu', 'menu.id', '=', 'sub_menu.menu_id')
+            ->leftJoin('layanan', 'sub_menu.id', '=', 'layanan.submenu_id')
+            ->select(array(
+                'menu.id',
+                'sub_menu.id',
+                'layanan.id',
+                'menu.nama_menu'
+            ))
+            ->distinct('menu.nama_menu')
+            ->groupby('menu.nama_menu');
+
+        $menlan = Layanan::leftJoin('menu', 'layanan.menu_id', '=', 'menu.id')
+            ->select(array(
+                'layanan.id',
+                'menu.nama_menu'
+            ));
+
 
         $latest_news = DB::table('berita')
             ->orderBy('id', 'desc')
@@ -50,6 +62,8 @@ class HomeController extends BaseController {
             'news_feed' => $news_feed,
             'count_news' => $count_news,
             'document' => $dataDoc,
+            'allmenu' => $all,
+            'menu_layanan' => $menlan,
         ));
 
     }
@@ -63,6 +77,10 @@ class HomeController extends BaseController {
     }
 
     public function showForum() {
+        $all = Menu::all();
+        $all->toArray();
+
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
       $this->layout->content = View::make('layouts.forum');
     }
 
@@ -74,7 +92,50 @@ class HomeController extends BaseController {
 
     public function main_site() {
         //exit;
-        $this->layout->content = View::make('layouts.home');
+
+//        $all = Menu::leftJoin('sub_menu', 'menu.id', '=', 'sub_menu.menu_id')
+//            ->leftJoin('layanan', 'sub_menu.id', '=', 'layanan.submenu_id')
+//            ->select(array(
+//                'menu.id',
+//                'sub_menu.id',
+//                'layanan.id',
+//                'menu.nama_menu'
+////                'menu_id' => 'menu.id',
+////                'submenu_id' => 'sub_menu.id',
+////                'layanan_id' => 'layanan.id',
+////                'nama_menu' => 'menu.nama_menu'
+//            ))
+//            ->distinct('menu.nama_menu')
+//            ->groupby('menu.nama_menu')
+//            ->get();
+
+        $all = Menu::all();
+        $all->toArray();
+
+        $sub = Submenu::all();
+        $sub->toArray();
+
+        $lay = Layanan::all();
+        $lay->toArray();
+
+//            $menlan = Layanan::leftJoin('menu', 'layanan.menu_id', '=', 'menu.id')
+//                ->select(array(
+//                    'layanan.id',
+//                    'menu.nama_menu'
+//                ))
+//                ->get();
+
+        $this->layout = View::make('layouts.master', array(
+            'allmenu' => $all,
+            'sub' => $sub,
+            'lay' => $lay,
+        ));
+
+        $this->layout->content = View::make('layouts.home',
+        array(
+            'allmenu' => $all,
+            'menu_layanan' => $sub,
+        ));
 
     }
 

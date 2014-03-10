@@ -43,7 +43,7 @@
           <div class="control-group">
             {{Form::label("Kategori", null, array("class" => "control-label"))}}
             <div class="controls">
-              {{Form::select("kategori", Category::lists('nama_kategori', 'id'))}}
+                {{ Form::select('kategori', $kategori, $berita->kategori->id, array("id" => "kategori_id")) }}
             </div>
           </div>
 

@@ -81,6 +81,7 @@ class BeritaController extends BaseController {
      */
     public function create()
     {
+        $listCategory = array("" => "-- Pilih Kategori Berita --") + Category::lists('nama_kategori', 'id');
 
         $this->layout->content = View::make('berita.form', array(
             'title' => 'Tambah Berita',
@@ -92,7 +93,8 @@ class BeritaController extends BaseController {
                 'class' => 'form-horizontal',
                 'id' => 'form_berita'
             ),
-            'berita' => new Berita()
+            'berita' => new Berita(),
+            'kategori' => $listCategory,
         ));
     }
 
@@ -262,6 +264,7 @@ class BeritaController extends BaseController {
     public function edit($id)
     {
         $berita = Berita::find($id);
+        $listCategory = array("" => "-- Pilih Kategori Berita --") + Category::lists('nama_kategori', 'id');
 
         if(!is_null($berita))
             $this->layout->content = View::make('berita.form', array(
@@ -274,6 +277,7 @@ class BeritaController extends BaseController {
                     'class' => 'form-horizontal'
                 ),
                 'berita' => $berita,
+                'kategori' => $listCategory,
             ));
     }
 

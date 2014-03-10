@@ -64,13 +64,27 @@ class AdminController extends BaseController {
                 $html[] = "<h2>Bantuan Hukum</h2>";
                 $html[] = DAL_BantuanHukun::getPrintTable($firstDate, $lastDate);
                 break;            
+	    case 4:
+                $html[] = "<h2>Sistem dan Prosedur</h2>";
+                $html[] = DAL_SistemDanProsedur::getPrintTable(null, $firstDate, $lastDate);
+                break;
+	    case 5:
+                $html[] = "<h2>Analisis Jabatan</h2>";
+                $html[] = DAL_AnalisisJabatan::getPrintTable(null, $firstDate, $lastDate);
+                break;
             default:
                 $html[] = "<h2>Peraturan Perundang Undangan</h2>";
                 $html[] = DAL_PerUU::getPrintTable(null, $firstDate, $lastDate);
-                $html[] = "<h2>Pelembagaan</h2>";
+                $html[] = "<br/><br/><h2>Pelembagaan</h2>";
                 $html[] = DAL_Pelembagaan::getPrintTable(null, $firstDate, $lastDate);
-                $html[] = "<h2>Bantuan Hukum</h2>";
+                $html[] = "<br/><br/><h2>Bantuan Hukum</h2>";
                 $html[] = DAL_BantuanHukun::getPrintTable($firstDate, $lastDate);
+		$html[] = "<br/><br/><h2>Sistem dan Prosedur</h2>";
+                $html[] = DAL_SistemDanProsedur::getPrintTable(null, $firstDate, $lastDate);
+		$html[] = "<br/><br/><h2>Analisis Jabatan</h2>";
+                $html[] = DAL_AnalisisJabatan::getPrintTable(null, $firstDate, $lastDate);
+
+
                 break;
         }
 

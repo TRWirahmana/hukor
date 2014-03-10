@@ -86,7 +86,12 @@
 
             <div class="leftpanel">
                 <div id="logo-wrapper">
-                    <img src="{{asset('assets/images/logo-kemendiknas.png')}}" alt="Kementrian Pendidikan Nasional RI"/>
+                    <img src="{{asset('assets/images/logo-only.png')}}" alt="Kementrian Pendidikan Nasional RI"/>
+                    <h4>
+                        <span>Biro Hukum dan Organisasi</span>
+                        <span>Kementerian Pendidikan dan Kebudayaan</span><br>
+                        <span>Republik Indonesia</span>
+                    </h4>
                 </div>
                 <div id="welcome-message">
                     @if($user->role_id == 3)

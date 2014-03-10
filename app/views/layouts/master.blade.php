@@ -60,7 +60,12 @@
       <div class="span6 sidebar">
         <?php $user = Auth::user(); ?>
         <header>
-          <img src="{{asset('assets/img/logo-kemendiknas.png')}}" alt="Kebudayaan Indonesia">
+          <img src="{{asset('assets/images/logo-only.png')}}" alt="Kebudayaan Indonesia">
+            <h4>
+                <span>Biro Hukum dan Organisasi</span>
+                <span>Kementerian Pendidikan dan Kebudayaan</span><br>
+                <span>Republik Indonesia</span>
+            </h4>
         </header>
 
         @if($user != null)

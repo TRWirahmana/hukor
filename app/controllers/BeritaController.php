@@ -321,11 +321,11 @@ class BeritaController extends BaseController {
                         unlink($img_exists);
                         unlink($slider_exists);
 
-
                     /* update to table berita */
                     $berita->judul = $input['judul'];
                     $berita->berita = $input['berita'];
                     $berita->penulis = $input['penulis'];
+		    $berita->id_kategori = $input['kategori'];
                     $berita->gambar = $filename;
                     $berita->slider = $slider_img;
                     $berita->tgl_penulisan = new DateTime;
@@ -353,6 +353,7 @@ class BeritaController extends BaseController {
             $berita->judul = $input['judul'];
             $berita->berita = $input['berita'];
             $berita->penulis = $input['penulis'];
+	    $berita->id_kategori = $input['kategori'];
             $berita->gambar = $input['gambar'];;
             $berita->slider = $input['slider'];;
             $berita->tgl_penulisan = new DateTime;

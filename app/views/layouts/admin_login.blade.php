@@ -50,7 +50,11 @@
     <div class="loginpanelinner">
         <div class="logo animate3 bounceIn">
           <img class="inputwrapper animate0 bounceIn" src="{{asset('assets/images/logo-only.png')}}" alt=""/>
-          <h4><span>Layanan Hukum &amp; Organisasi</span><br/><span>Kementerian Pendidikan dan Kebudayaan</span></h4>
+            <h4>
+                <span>Biro Hukum dan Organisasi</span><br>
+                <span>Kementerian Pendidikan dan Kebudayaan</span><br>
+                <span>Republik Indonesia</span>
+            </h4>
         </div>
         {{-- form login--}}
         {{ Form::open(array('action' => 'LoginController@signin_admin', 'method' => 'post', 'id'=>'user-sign-in-form',

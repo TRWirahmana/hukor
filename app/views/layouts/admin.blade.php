@@ -75,7 +75,7 @@
                             <span class="rulycon-wrench"></span> Aplikasi</a>
                         </li>
                         <li id="managemen"><a href="#manage">
-                            <span class="rulycon-user"></span> User</a>
+                            <span class="rulycon-user"></span> Akun</a>
                         </li>
                         <li id="menu"><a href="#manage-menu">
                             <span class="rulycon-notebook"></span> Manage Menu</a>

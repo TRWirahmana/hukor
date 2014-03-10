@@ -70,6 +70,9 @@ body.loginpage {
   font-size: 12px;
   font-family: "pt_sans_narrowbold", sans-serif;
 }
+.loginpanelinner .logo h4 > span:first-child {
+  font-size: 18px;
+}
 .loginpanelinner input, .loginpanelinner button {
   display: block;
   width: 100%;
@@ -227,6 +230,13 @@ legend {
   text-align: center;
   padding: 20px 10px 10px;
   border-bottom: 1px solid rgba(0, 0, 0, .05);
+}
+#logo-wrapper h4 {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+#logo-wrapper h4 > span:first-child {
+  font-size: 16px;
 }
 #welcome-message {
   padding: 20px 20px 10px;

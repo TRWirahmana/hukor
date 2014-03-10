@@ -70,6 +70,9 @@ body.loginpage {
   font-size: 12px;
   font-family: "pt_sans_narrowbold", sans-serif;
 }
+.loginpanelinner .logo h4 > span:first-child {
+  font-size: 18px;
+}
 .loginpanelinner input, .loginpanelinner button {
   display: block;
   width: 100%;

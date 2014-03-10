@@ -54,7 +54,11 @@
     <div class="container">
       <div class="logo">
         <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
-        <h4><span>Layanan Hukum &amp; Organisasi</span><span>Kementerian Pendidikan dan Kebudayaan</span></h4>
+        <h4>
+            <span>Biro Hukum dan Organisasi</span>
+            <span>Kementerian Pendidikan dan Kebudayaan</span><br>
+            <span>Republik Indonesia</span>
+        </h4>
       </div>
       <div class="headerinner">
         <ul class="headmenu pull-right">

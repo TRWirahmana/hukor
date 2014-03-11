@@ -15,11 +15,8 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon">&nbsp;</div>
-        <div class="pagetitle">
-            <!--<h5>Events</h5>-->
-
-            <h1>Bantuan Hukum</h1>
+        <div class="pageicon"><span class="rulycon-wrench"></span></div>
+        <div class="pagetitle"><h1>Bantuan Hukum</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -96,7 +93,14 @@
 	</fieldset>
             {{ Form::close() }}
 
-            <table id="basictable" class="dataTable">
+          <style>
+            #basictable tr td:last-child {
+              width: 80px !important;
+              text-align: center;
+            }
+          </style>
+
+            <table id="basictable" class="dataTable table">
                 <thead>
                 <tr>
                     <th>Nama Pemohon</th>
@@ -112,7 +116,7 @@
 
             <div class="footer">
                 <div class="footer-left">
-                    <span>&copy; 2013. Admin Template. All Rights Reserved.</span>
+                    <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
                 </div>
                 <div class="footer-right">
                     <span></span>

@@ -75,7 +75,7 @@
                             <span class="rulycon-wrench"></span> Aplikasi</a>
                         </li>
                         <li id="managemen"><a href="#manage">
-                            <span class="rulycon-user"></span> User</a>
+                            <span class="rulycon-user"></span> Akun</a>
                         </li>
                         <li id="menu"><a href="#manage-menu">
                             <span class="rulycon-notebook"></span> Manage Menu</a>
@@ -86,7 +86,12 @@
 
             <div class="leftpanel">
                 <div id="logo-wrapper">
-                    <img src="{{asset('assets/images/logo-kemendiknas.png')}}" alt="Kementrian Pendidikan Nasional RI"/>
+                    <img src="{{asset('assets/images/logo-only.png')}}" alt="Kementrian Pendidikan Nasional RI"/>
+                    <h4>
+                        <span>Biro Hukum dan Organisasi</span>
+                        <span>Kementerian Pendidikan dan Kebudayaan</span><br>
+                        <span>Republik Indonesia</span>
+                    </h4>
                 </div>
                 <div id="welcome-message">
                     @if($user->role_id == 3)
@@ -174,7 +179,7 @@
                                     <li id="menu"><a href="{{URL::to('admin/index_menu')}}"><span class="iconfa-laptop"></span> Kelola Menu</a></li>
                                     <li id="kelola_submenu"><a href="{{URL::to('admin/index_submenu')}}"><span class="iconfa-laptop"></span> Kelola Submenu</a></li>
                                     <li id="layanan"><a href="{{URL::to('admin/layanan')}}"><span class="iconfa-laptop"></span> Kelola Konten Layanan</a></li>
-                                    <li id="layanan"><a href="{{URL::to('admin/editcallcenter')}}"><span class="iconfa-laptop"></span> Kelola Call Center</a></li>
+                                    <li id="layanan"><a href="{{URL::to('admin/editcallcenter')}}"><span class="iconfa-laptop"></span> Kelola Kontak Kami</a></li>
                                     <li id="layanan"><a href="{{URL::to('admin/linked')}}"><span class="iconfa-laptop"></span> Kelola Link Dikbud</a></li>
                                 </ul>
                             </li>

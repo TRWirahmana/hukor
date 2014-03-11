@@ -94,26 +94,10 @@ class MenuController extends BaseController {
     public function update($id)
     {
         $input = Input::all();
-        $in_submenu = $input['submenu'];
         $menu = Menu::find($id);
 
-        if($in_submenu != null){
-
-            $menu->save();
-
-//            $menu->submenu()->delete();
-            foreach ($in_submenu as $data) {
-                if(empty($data['nama_submenu'])) continue;
-
-                $data['menu_id'] = $menu->id;
-                $data['created_at'] = date("Y-m-d H:i:s");
-                $data['updated_at'] = date("Y-m-d H:i:s");
-                $menu->submenu()->save(new Submenu($data));
-            }
-
-        }else{
-            $menu->save();
-        }
+        $menu->nama_menu = $input['menu'];
+        $menu->save();
 
         return Redirect::to('admin/menu')->with('success', 'Data Menu berhasil diubah.');
     }

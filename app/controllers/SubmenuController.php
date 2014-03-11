@@ -132,8 +132,8 @@ class SubmenuController extends BaseController {
         $submenu = Submenu::find($id);
 //        var_dump($user);exit;
         if(!is_null($submenu)) {
-            $submenu->layanan->delete();
             $submenu->delete();
+            $submenu->layanan()->delete();
 
         }
 

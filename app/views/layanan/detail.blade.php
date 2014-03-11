@@ -36,8 +36,10 @@ switch($info->penanggung_jawab){
 <br>
 
 <!--    Load Image-->
-<?php $attach = $info->gambar; ?>
-{{ HTML::image('assets/uploads/layanan/' . $attach) }}
+    <?php $attach = $info->gambar; ?>
+    @if($attach != null)
+        {{ HTML::image('assets/uploads/layanan/' . $attach) }}
+    @endif
 @endif
 
 

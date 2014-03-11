@@ -48,7 +48,14 @@
 @include('adminflash')
 <div class="loginpanel">
     <div class="loginpanelinner">
-        <div class="logo animate3 bounceIn"><img class="inputwrapper animate0 bounceIn" src="{{asset('assets/images/logo-kemendiknas.png')}}" alt=""/></div>
+        <div class="logo animate3 bounceIn">
+          <img class="inputwrapper animate0 bounceIn" src="{{asset('assets/images/logo-only.png')}}" alt=""/>
+            <h4>
+                <span>Biro Hukum dan Organisasi</span><br>
+                <span>Kementerian Pendidikan dan Kebudayaan</span><br>
+                <span>Republik Indonesia</span>
+            </h4>
+        </div>
         {{-- form login--}}
         {{ Form::open(array('action' => 'LoginController@signin_admin', 'method' => 'post', 'id'=>'user-sign-in-form',
         'class' =>'front-form', 'autocomplete' => 'off')) }}

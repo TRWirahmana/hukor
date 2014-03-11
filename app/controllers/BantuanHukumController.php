@@ -10,9 +10,11 @@ class BantuanHukumController extends BaseController{
 
     public function index() {
 	$user = Auth::user()->role_id;
+        $all = Menu::all();
+        $all->toArray();
 	//        echo($user);exit;
 	if($user == 2 || $user == null){
-	    $this->layout = View::make('layouts.master');
+	    $this->layout = View::make('layouts.master', array('allmenu' => $all));
 	    $this->layout->content = View::make('BantuanHukum.index', array('user'=> $user));
 	}else{
 	    $this->layout = View::make('layouts.admin');
@@ -26,13 +28,15 @@ class BantuanHukumController extends BaseController{
     {
 	$user = Auth::user();
 	$reg = new DAL_Registrasi();
+        $all = Menu::all();
+        $all->toArray();
 
-	if($user != null)
+        if($user != null)
 	{
 	    $data = $reg->findPengguna($user->id);
 
 	    // show form with empty model
-	    $this->layout = View::make('layouts.master');
+        $this->layout = View::make('layouts.master', array('allmenu' => $all));
 	    $this->layout->content = View::make('BantuanHukum.form', array(
 			'user' => $data
 			));

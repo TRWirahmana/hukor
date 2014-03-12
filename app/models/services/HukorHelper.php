@@ -406,15 +406,22 @@ class HukorHelper {
 
     public static function GetCounterVisitor()
     {
-        $dom = new DOMDocument("1.0");
+        if(file_exists(XML_COUNTER . 'counter.xml'))
+        {
+            $dom = new DOMDocument("1.0");
 
-        $dom->load(XML_COUNTER . "counter.xml");
+            $dom->load(XML_COUNTER . "counter.xml");
 
-        $root = $dom->documentElement;
+            $root = $dom->documentElement;
 
-        $counter = $root->getElementsByTagName('count')->item(0)->nodeValue;
+            $counter = $root->getElementsByTagName('count')->item(0)->nodeValue;
 
-        return $counter;
+            return $counter;
+        }
+        else
+        {
+            HukorHelper::XMLFile();
+        }
     }
 
 

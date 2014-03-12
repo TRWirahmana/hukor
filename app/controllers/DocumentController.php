@@ -56,7 +56,7 @@ class DocumentController extends BaseController{
     {
         $input = Input::all();
         $DAL = new DAL_Document();
-        $data = $DAL->GetAllData($input);
+        $data = $DAL->GetAllData($input, true);
 
         return $data;
     }

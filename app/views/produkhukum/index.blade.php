@@ -147,27 +147,29 @@
       bLengthChange: false,
       bServerSide: true,
       bProcessing: true,
-      sAjaxSource: document.location.href,
+      sAjaxSource: '<?php echo URL::to("produkhukum/tableph"); ?>',
       aoColumns: [
         {
-          mData: "id",
-          sWidth: '3%'
+            mData: "id",
+            sClass: "center",
+            sWidth: '5%'
         },
 
         {
-          mData: "nomor",
-          sWidth: '10%'
+            mData: "nomor",
+            sClass: "center",
+            sWidth: '15%'
         },
 
         {
           mData: "deskripsi",
-          sWidth: '15%'
+          sWidth: '55%'
         },
         {
-          mData: "kategori",
-          sWidth: '14%',
+            mData: "kategori",
+            sClass: "center",
+            sWidth: '15%',
           mRender: function (data, type, full) {
-		console.log(data);
             if (data === 1) {
               return 'Keputusan Mentri';
             } else if (data === 2) {
@@ -184,8 +186,9 @@
           }
         },
         {
-          mData: "masalah",
-          sWidth: '14%',
+            mData: "masalah",
+            sClass: "center",
+            sWidth: '15%',
           mRender: function (data, type, full) {
             if (data === 1) {
               return 'Kepegawaian';
@@ -204,8 +207,9 @@
 
         },
         {
-          mData: "id",
-          sWidth: '5%',
+            mData: "id",
+            sClass: "center",
+            sWidth: '5%',
           mRender: function (data, type, full) {
             return "<a href='produkhukum/" + data + "/detail'> <i class='icon-edit'></i></a>"
               + "&nbsp;<a href='produkhukum/" + data + "/download'> <i class='icon-download'></i></a>";

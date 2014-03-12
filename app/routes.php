@@ -46,6 +46,7 @@ Route::group(array('before' => 'guest'), function() {
         Route::get('/', 'ProdukHukumController@index');
         Route::get('{id}/detail', array('as' => 'detail_produkhukum', 'uses' => 'ProdukHukumController@detail'));
         Route::get('{id}/download', 'ProdukHukumController@downloadLampiran');
+        Route::get('tableph', 'ProdukHukumController@datatable');
     });
 
     //news

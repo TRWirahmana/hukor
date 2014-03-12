@@ -95,6 +95,7 @@ class DAL_Pelembagaan {
         $penanggungJawab->jabatan = $penanggungJawabPelembagaan[0]->jabatan;
         $penanggungJawab->NIP = $penanggungJawabPelembagaan[0]->nip;
         $penanggungJawab->unit_kerja = $penanggungJawabPelembagaan[0]->unit_kerja;
+
         $penanggungJawab->alamat_kantor = $penanggungJawabPelembagaan[0]->alamat_kantor;
         $penanggungJawab->telepon_kantor = $penanggungJawabPelembagaan[0]->telp_kantor;
         $penanggungJawab->no_handphone = $penanggungJawabPelembagaan[0]->hp;
@@ -107,17 +108,19 @@ class DAL_Pelembagaan {
         $pelembagaan = Pelembagaan::find($id);
 
         $log_pelembagaan = new LogPelembagaan();
-        $log_pelembagaan->status = $input['status'];
-        $log_pelembagaan->catatan = $input['catatan'];
+        $log_pelembagaan->status = $pelembagaan->status;
+        $log_pelembagaan->catatan = $pelembagaan->catatan;
         $log_pelembagaan->keterangan = $input['keterangan'];
-	$log_pelembagaan->lampiran = serialize($filenames);
-       // $log_pelembagaan->lampiran = $file->getClientOriginalName();
-        $log_pelembagaan->pelembagaan_id = $id;
+	$log_pelembagaan->lampiran = $pelembagaan->lampiran;       // $log_pelembagaan->lampiran = $file->getClientOriginalName();
+        $log_pelembagaan->pelembagaan_id = $pelembagaan->id;
         $log_pelembagaan->tgl_proses = Carbon::now();
         $log_pelembagaan->save();
 
         // change status pelembagaan
         $pelembagaan->status = $input['status'];
+	$pelembagaan->catatan = $input['catatan'];
+	$pelembagaan->lampiran = serialize($filenames);
+
         $pelembagaan->save();
 
         return $log_pelembagaan->status;

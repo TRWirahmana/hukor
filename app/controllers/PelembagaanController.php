@@ -144,7 +144,7 @@ class PelembagaanController extends BaseController {
 		} else {
 			Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
 		}				
-		return Redirect::route('pelembagaan.create');	
+		return Redirect::route('pelembagaan.index');
 	}
 
 	public function destroy($id)
@@ -177,11 +177,14 @@ class PelembagaanController extends BaseController {
     }
 
 	public function downloadLampiranLog($id)
-{
-	if($log = LogPelembagaan::find($id))
-		return HukorHelper::downloadAsZIP(unserialize($log->lampiran));
-	return App::abort(404);
-}
+	{
+
+		if($log = LogPelembagaan::find($id)) {
+			$attachments = unserialize($log->lampiran);
+			return HukorHelper::downloadAttachment($attachments);
+		}
+		return App::abort(404);
+	}
 
 	public function download($id, $index = null) 
 	{

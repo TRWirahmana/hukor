@@ -71,7 +71,12 @@
               <div class="news-content">
                 <div class="row-fluid">
                   <div class="span3">
-                    {{ HTML::image('assets/uploads/berita/' . $news_feeds->gambar) }}
+                      @if($news_feeds->gambar != null)
+                      {{ HTML::image('assets/uploads/berita/' . $news_feeds->gambar) }}
+                      @else
+                      {{ HTML::image('assets/img/no-available-image.png') }}
+                      @endif
+
                   </div>
                   <div class="span9">
                     <h4 style="font-style: normal;"><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a>
@@ -132,7 +137,7 @@
                 <?php $increment = 1; ?>
                 @foreach($document as $doc)
                 <tr>
-                  <td><?php echo $increment; ?></td>
+                  <td><?php echo $doc->nomor; //$increment; ?></td>
                   <td>{{ $doc->perihal }}</td>
                 </tr>
                 <?php $increment++; ?>

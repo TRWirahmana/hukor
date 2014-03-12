@@ -137,7 +137,7 @@
                 <?php $increment = 1; ?>
                 @foreach($document as $doc)
                 <tr>
-                  <td><?php echo $increment; ?></td>
+                  <td><?php echo $doc->nomor; //$increment; ?></td>
                   <td>{{ $doc->perihal }}</td>
                 </tr>
                 <?php $increment++; ?>

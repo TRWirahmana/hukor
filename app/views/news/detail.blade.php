@@ -9,8 +9,11 @@
           <div class="row-fluid">
             <div class="span9">
               <h4>{{$berita->judul}}</h4>
+		<br>
+		{{ HTML::image('assets/uploads/berita/' . $berita->gambar) }}
+		<br>
               <p>{{$berita->berita}}</p>
-              {{ HTML::image('assets/uploads/berita/' . $berita->gambar) }}
+              
             </div>
             <div class="span3">
               <?php $date = new DateTime($berita->tgl_penulisan); ?>

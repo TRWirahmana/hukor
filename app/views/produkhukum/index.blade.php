@@ -167,6 +167,7 @@
           mData: "kategori",
           sWidth: '14%',
           mRender: function (data, type, full) {
+		console.log(data);
             if (data === 1) {
               return 'Keputusan Mentri';
             } else if (data === 2) {

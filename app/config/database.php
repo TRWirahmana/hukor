@@ -30,8 +30,7 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
-	| Database Connections
-	|--------------------------------------------------------------------------
+	| Database Connections |--------------------------------------------------------------------------
 	|
 	| Here are each of the database connections setup for your application.
 	| Of course, examples of configuring each database platform that is
@@ -57,7 +56,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'hukor',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'Sangkuriang@Sampurna9',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

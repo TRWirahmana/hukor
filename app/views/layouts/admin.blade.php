@@ -78,7 +78,7 @@
                             <span class="rulycon-user"></span> Akun</a>
                         </li>
                         <li id="menu"><a href="#manage-menu">
-                            <span class="rulycon-notebook"></span> Manage Menu</a>
+                            <span class="rulycon-notebook"></span> Kelola</a>
                         </li>
                     @endif
                 </ul>

@@ -99,6 +99,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -133,7 +134,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -282,16 +282,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="289" column="42" selection-start="13789" selection-end="13789" vertical-scroll-proportion="6.5547576" vertical-offset="1262" max-vertical-offset="5559">
-          <folding />
-        </state>
+        <state line="289" column="42" selection-start="13789" selection-end="13789" vertical-scroll-proportion="6.5547576" vertical-offset="1262" max-vertical-offset="5559" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="18" selection-start="6328" selection-end="6328" vertical-scroll-proportion="4.9443445" vertical-offset="0" max-vertical-offset="3213">
-          <folding />
-        </state>
+        <state line="162" column="18" selection-start="6328" selection-end="6328" vertical-scroll-proportion="4.9443445" vertical-offset="0" max-vertical-offset="3213" />
       </provider>
     </entry>
   </component>

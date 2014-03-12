@@ -32,16 +32,16 @@
       <div class="container">
         <div class="half">
           <div id="main-carousel" class="carousel slide">
-            <ol class="carousel-indicators">
+            <!--<ol class="carousel-indicators">
               <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
               <li data-target="#main-carousel" data-slide-to="1" class=""></li>
               <li data-target="#main-carousel" data-slide-to="2" class=""></li>
               <li data-target="#main-carousel" data-slide-to="3" class=""></li>
-            </ol>
+            </ol>-->
             <div class="carousel-inner">
               <?php $n = 0 ?>
               @foreach($latest_news as $data)
-              @if($n++ < 4)
+              @if($n++ < 5)
               <div class="item" style="height:249px !important;">
                 @if($data->slider != null)
                 {{ HTML::image('assets/uploads/berita/' . $data->slider) }}
@@ -50,7 +50,7 @@
                 @endif
 
                 <div class="carousel-caption">
-                  <h3>{{$data->judul}}</h3>
+                  <h3><a href="#">{{$data->judul}}</a></h3>
                   <?php $berita = strip_tags($data->berita);
                   $highlight = substr($berita, 0, 150);
 
@@ -65,7 +65,14 @@
           </div>
         </div>
         <div class="half">
-          <p>Lorem ipsum kolor si mamet!</p>
+          <h2>Berita terbaru</h2>
+          <ul>
+            <li><a href="#" data-target="#main-carousel" data-slide-to="0">Judul berita yang kelima terserah yang punya duit</a></li>
+            <li><a href="#" data-target="#main-carousel" data-slide-to="1">Judul berita keempat paling pendek</a></li>
+            <li><a href="#" data-target="#main-carousel" data-slide-to="2">Judul berita ketiga adalah yang terpanjang dari semua judul berita yang ada di sini</a></li>
+            <li><a href="#" data-target="#main-carousel" data-slide-to="3">Judul berita kedua sedikit lebih panjang</a></li>
+            <li><a href="#" data-target="#main-carousel" data-slide-to="4">Judul berita pertama agak pendek</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -92,11 +99,11 @@
                     <h4 style="font-style: normal;"><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a>
                     </h4>
                     <?php $date = new DateTime($news_feeds->tgl_penulisan); ?>
-                    <p class="date-time">{{$date->format('d')}}  <span
+                    <p class="date-time"><span class="rulycon-clock"></span> {{$date->format('d')}}  <span
                         class="date"><?php echo HukorHelper::castMonthToString3($date->format('m')) ?></span>
                       {{$date->format('Y')}}</p>
                     <?php $berita_feed = strip_tags($news_feeds->berita);
-                    $highlight_feed = substr($berita_feed, 0, 150);
+                    $highlight_feed = substr($berita_feed, 0, 500);
                     ?>
                     @if(strlen($berita_feed) > 150)
                     <p>{{$highlight_feed}}</p>

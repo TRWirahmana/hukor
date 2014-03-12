@@ -178,10 +178,10 @@ class HukorHelper {
 		$destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $dir;
 		$img_exists = $destinationPath . '/' . $file;
 
-		if(file_exists($img_exists))
+		if(file_exists($img_exists) && is_file($img_exists))
 		{
 			//delete file image di folder yang terdaftar di database
-			unlink($img_exists);
+			@unlink($img_exists);
 		}
 	}
 

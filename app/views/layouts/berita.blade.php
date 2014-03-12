@@ -334,6 +334,7 @@
   };
   CustomizeTwitterWidget(twitterWidgetOptions);
 </script>
+<script src="{{asset('assets/js/jquery.cycle2.js')}}"></script>
 @show
 </body>
 </html>

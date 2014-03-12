@@ -325,7 +325,7 @@ p {
 
 .carousel-caption {
   background: rgba(255, 255, 255, .75);
-  padding: 16px 24px;
+  padding: 16px 24px 32px;
 }
 
 .carousel-caption h3, .carousel-caption p {
@@ -458,8 +458,6 @@ p {
 .news-content h4 {
   font-style: italic;
   font-size: 20px;
-  background: #0A3E6E;
-  padding: 8px 12px 16px 16px;
 }
 
 .news-content p {
@@ -468,7 +466,15 @@ p {
 }
 
 .news-content h4 > a {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
   color: #ffffff;
+  line-height: 140%;
+  padding: 12px 12px 16px 16px;
+  background: #0A3E6E;
 }
 
 .news-content .date-time {

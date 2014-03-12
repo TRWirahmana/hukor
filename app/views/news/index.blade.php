@@ -67,11 +67,14 @@
         <div class="half">
           <h2>Berita terbaru</h2>
           <ul>
-            <li><a href="#" data-target="#main-carousel" data-slide-to="0">Judul berita yang kelima terserah yang punya duit</a></li>
-            <li><a href="#" data-target="#main-carousel" data-slide-to="1">Judul berita keempat paling pendek</a></li>
-            <li><a href="#" data-target="#main-carousel" data-slide-to="2">Judul berita ketiga adalah yang terpanjang dari semua judul berita yang ada di sini</a></li>
-            <li><a href="#" data-target="#main-carousel" data-slide-to="3">Judul berita kedua sedikit lebih panjang</a></li>
-            <li><a href="#" data-target="#main-carousel" data-slide-to="4">Judul berita pertama agak pendek</a></li>
+              <?php $x = 0; ?>
+              @foreach($latest_news as $data)
+              @if($x++ < 5)
+                <li><a href="#" data-target="#main-carousel" data-slide-to=<?php echo $x;?>>{{$data->judul}}</a></li>
+
+              @endif
+              <? $x++;?>
+              @endforeach
           </ul>
         </div>
       </div>

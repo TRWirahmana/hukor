@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/BeritaController.php" afterPath="$PROJECT_DIR$/app/controllers/BeritaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/forum/config.php" afterPath="$PROJECT_DIR$/public/forum/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/counter.xml" afterPath="$PROJECT_DIR$/public/assets/counter.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/database.php" afterPath="$PROJECT_DIR$/app/config/database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,10 +57,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BeritaController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BeritaController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/BeritaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="387" column="21" selection-start="14400" selection-end="14400" vertical-scroll-proportion="0.2751938" vertical-offset="6437" max-vertical-offset="8177">
+            <state line="422" column="40" selection-start="15933" selection-end="15933" vertical-scroll-proportion="-10.692307" vertical-offset="6896" max-vertical-offset="8177">
               <folding />
             </state>
           </provider>
@@ -87,15 +84,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/news/detail.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="32" selection-start="1988" selection-end="1988" vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1717">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="form.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/berita/form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -109,6 +97,15 @@
         <entry file="file://$PROJECT_DIR$/app/models/Berita.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="91" column="42" selection-start="3954" selection-end="3954" vertical-scroll-proportion="0.4055666" vertical-offset="1343" max-vertical-offset="3349">
               <folding />
             </state>
           </provider>
@@ -150,13 +147,13 @@
         <option value="$PROJECT_DIR$/app/controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/app/controllers/PelembagaanController.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/news/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/admin.blade.php" />
         <option value="$PROJECT_DIR$/app/views/news/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/views/berita/form.blade.php" />
         <option value="$PROJECT_DIR$/app/config/database.php" />
         <option value="$PROJECT_DIR$/public/forum/config.php" />
         <option value="$PROJECT_DIR$/app/controllers/BeritaController.php" />
+        <option value="$PROJECT_DIR$/app/views/news/index.blade.php" />
       </list>
     </option>
   </component>
@@ -209,38 +206,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="forum" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -577,13 +542,6 @@
         <state line="181" column="31" selection-start="6899" selection-end="6899" vertical-scroll-proportion="0.0" vertical-offset="3077" max-vertical-offset="5950" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="6" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="3349">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/news/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="32" selection-start="1988" selection-end="1988" vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1717">
@@ -661,7 +619,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/BeritaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="387" column="21" selection-start="14400" selection-end="14400" vertical-scroll-proportion="0.2751938" vertical-offset="6437" max-vertical-offset="8177">
+        <state line="422" column="40" selection-start="15933" selection-end="15933" vertical-scroll-proportion="-10.692307" vertical-offset="6896" max-vertical-offset="8177">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="42" selection-start="3954" selection-end="3954" vertical-scroll-proportion="0.4055666" vertical-offset="1343" max-vertical-offset="3349">
           <folding />
         </state>
       </provider>

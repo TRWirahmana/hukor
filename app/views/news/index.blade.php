@@ -29,41 +29,51 @@
     <?php $f = 4; ?>
     <!-- News Feed -->
     <div class="row-fluid">
-      <div id="dashboard-left" class="span9">
-        <div id="main-carousel" class="carousel slide">
-          <ol class="carousel-indicators">
-            <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#main-carousel" data-slide-to="1" class=""></li>
-            <li data-target="#main-carousel" data-slide-to="2" class=""></li>
-            <li data-target="#main-carousel" data-slide-to="3" class=""></li>
-          </ol>
-          <div class="carousel-inner">
-            <?php $n = 0 ?>
-            @foreach($latest_news as $data)
-            @if($n++ < 4)
-            <div class="item" style="height:249px !important;">
-              @if($data->slider != null)
-              {{ HTML::image('assets/uploads/berita/' . $data->slider) }}
-              @else
-              {{ HTML::image('assets/img/noim.jpg') }}
-              @endif
+      <div class="container">
+        <div class="half">
+          <div id="main-carousel" class="carousel slide">
+            <ol class="carousel-indicators">
+              <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+              <li data-target="#main-carousel" data-slide-to="1" class=""></li>
+              <li data-target="#main-carousel" data-slide-to="2" class=""></li>
+              <li data-target="#main-carousel" data-slide-to="3" class=""></li>
+            </ol>
+            <div class="carousel-inner">
+              <?php $n = 0 ?>
+              @foreach($latest_news as $data)
+              @if($n++ < 4)
+              <div class="item" style="height:249px !important;">
+                @if($data->slider != null)
+                {{ HTML::image('assets/uploads/berita/' . $data->slider) }}
+                @else
+                {{ HTML::image('assets/img/noim.jpg') }}
+                @endif
 
-              <div class="carousel-caption">
-                <h3>{{$data->judul}}</h3>
-                <?php $berita = strip_tags($data->berita);
-                $highlight = substr($berita, 0, 150);
+                <div class="carousel-caption">
+                  <h3>{{$data->judul}}</h3>
+                  <?php $berita = strip_tags($data->berita);
+                  $highlight = substr($berita, 0, 150);
 
-                ?>
-                <p>{{$highlight}}</p>
+                  ?>
+                  <p>{{$highlight}}</p>
+                </div>
               </div>
+              @endif
+              <? $n++; ?>
+              @endforeach
             </div>
-            @endif
-            <? $n++; ?>
-            @endforeach
           </div>
         </div>
+        <div class="half">
+          <p>Lorem ipsum kolor si mamet!</p>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div id="dashboard-left" class="span6">
+
         <div id="paging_container">
-          <h3 class="section-title" id="news-feed">Berita</h3>
+          <!--<h3 class="section-title" id="news-feed">Berita</h3>-->
           <ul class="content">
 
             @foreach($latest_news as $news_feeds)
@@ -71,11 +81,11 @@
               <div class="news-content">
                 <div class="row-fluid">
                   <div class="span3">
-                      @if($news_feeds->gambar != null)
-                      {{ HTML::image('assets/uploads/berita/' . $news_feeds->gambar) }}
-                      @else
-                      {{ HTML::image('assets/img/no-available-image.png') }}
-                      @endif
+                    @if($news_feeds->gambar != null)
+                    {{ HTML::image('assets/uploads/berita/' . $news_feeds->gambar) }}
+                    @else
+                    {{ HTML::image('assets/img/no-available-image.png') }}
+                    @endif
 
                   </div>
                   <div class="span9">
@@ -107,63 +117,63 @@
           <div class="page_navigation pagination"></div>
         </div>
       </div>
-      <!--span9-->
+      <!--span6-->
 
-      <div class="span3">
-<!--        <div id="counter-widget">-->
-<!--          <h3 class="section-title widgets">Visitor counter</h3>-->
-<!---->
-<!--          <div class="widget-body">-->
-<!--            <div class="widget-content">-->
-<!--              <p>--><?php //echo HukorHelper::GetCounterVisitor(); ?><!--</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
+      <div class="span6">
+        <!--        <div id="counter-widget">-->
+        <!--          <h3 class="section-title widgets">Visitor counter</h3>-->
+        <!---->
+        <!--          <div class="widget-body">-->
+        <!--            <div class="widget-content">-->
+        <!--              <p>--><?php //echo HukorHelper::GetCounterVisitor(); ?><!--</p>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
 
-<!--        <div id="rule-widget">-->
-<!--          <h3 class="section-title widgets">Peraturan</h3>-->
-<!---->
-<!--          <div class="widget-body">-->
-<!--            <div class="widget-content">-->
-<!--              <table class="table">-->
-<!--                <thead>-->
-<!--                <tr>-->
-<!--                  <th>No</th>-->
-<!--                  <th>Perihal</th>-->
-<!--                </tr>-->
-<!--                </thead>-->
-<!--                <tbody>-->
-<!--                @if ($document != null)-->
-<!--                --><?php //$increment = 1; ?>
-<!--                @foreach($document as $doc)-->
-<!--                <tr>-->
-<!--                  <td>--><?php //echo $doc->nomor; //$increment; ?><!--</td>-->
-<!--                  <td>{{ $doc->perihal }}</td>-->
-<!--                </tr>-->
-<!--                --><?php //$increment++; ?>
-<!--                @endforeach-->
-<!--                @endif-->
-<!--                </tbody>-->
-<!--              </table>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
+        <!--        <div id="rule-widget">-->
+        <!--          <h3 class="section-title widgets">Peraturan</h3>-->
+        <!---->
+        <!--          <div class="widget-body">-->
+        <!--            <div class="widget-content">-->
+        <!--              <table class="table">-->
+        <!--                <thead>-->
+        <!--                <tr>-->
+        <!--                  <th>No</th>-->
+        <!--                  <th>Perihal</th>-->
+        <!--                </tr>-->
+        <!--                </thead>-->
+        <!--                <tbody>-->
+        <!--                @if ($document != null)-->
+        <!--                --><?php //$increment = 1; ?>
+        <!--                @foreach($document as $doc)-->
+        <!--                <tr>-->
+        <!--                  <td>--><?php //echo $doc->nomor; //$increment; ?><!--</td>-->
+        <!--                  <td>{{ $doc->perihal }}</td>-->
+        <!--                </tr>-->
+        <!--                --><?php //$increment++; ?>
+        <!--                @endforeach-->
+        <!--                @endif-->
+        <!--                </tbody>-->
+        <!--              </table>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
 
-<!--        <div id="twitter-widget">-->
-<!--          <h3 class="section-title widgets">Twitter</h3>-->
-<!---->
-<!--          <div class="widget-body">-->
-<!--            <div class="widget-content">-->
-<!---->
-<!--              <a class="twitter-timeline" href="https://twitter.com/hukor_kemdikbud"-->
-<!--                 data-widget-id="440745484580184065">Tweets by @hukor_kemdikbud</a>-->
-<!---->
-<!---->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
+        <!--        <div id="twitter-widget">-->
+        <!--          <h3 class="section-title widgets">Twitter</h3>-->
+        <!---->
+        <!--          <div class="widget-body">-->
+        <!--            <div class="widget-content">-->
+        <!---->
+        <!--              <a class="twitter-timeline" href="https://twitter.com/hukor_kemdikbud"-->
+        <!--                 data-widget-id="440745484580184065">Tweets by @hukor_kemdikbud</a>-->
+        <!---->
+        <!---->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
       </div>
-      <!--span3-->
+      <!--span6-->
     </div>
     <!--row-fluid-->
 

@@ -4,17 +4,46 @@ class DAL_Document {
      * mengambil seluruh data pada table document
      * $filter : variabel array yang berfungsi untuk memfilter datatable
      */
-    public function GetAllData($filter)
+    public function GetAllData($filter, $admin = true)
     {
         //get all record
         $data = Document::select();
+
+        // filter for user side
+        if($admin == false)
+        {
+            $data->where('status_publish', '=', 1);
+
+            if($filter['masalah'] != null)
+            {
+                $data->where('masalah', '=', $filter['masalah']);
+            }
+
+            if($filter['kategori'] != null)
+            {
+                $data->where('kategori', '=', $filter['kategori']);
+            }
+
+            if($filter['tahunFilter'] != null)
+            {
+                $data->where(DB::raw('DATE_FORMAT(tgl_pengesahan,"%Y")'), '=', $filter['tahunFilter']);
+            }
+
+            if($filter['bidang'] != null)
+            {
+                $data->where('bidang', '=', $filter['bidang']);
+            }
+        }
 
         //count all record
         $iTotalRecords = $data->count();
 
         //search specific record
         if(!empty($filter['sSearch'])){
-            $data->where();
+            $search = $filter['sSearch'];
+            $data->where('nomor', 'like', "%$search%")
+                ->orWhere('perihal', 'like', "%$search%");
+            ;
         }
 
         //count record after filtering
@@ -111,6 +140,14 @@ class DAL_Document {
     public function GetLastTen()
     {
         $data = Document::orderBy('id', 'DESC')->take(10)->get();
+
+        return $data;
+    }
+
+    public function GetYearOfDocument()
+    {
+        $data = array("" => "Semua") + Document::select(array( DB::raw('DATE_FORMAT(tgl_pengesahan,"%Y") As pengesahan_year')))
+                ->lists('pengesahan_year', 'pengesahan_year');
 
         return $data;
     }

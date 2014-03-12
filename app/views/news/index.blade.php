@@ -65,7 +65,14 @@
           </div>
         </div>
         <div class="half">
-          <p>Lorem ipsum kolor si mamet!</p>
+          <h2>Berita terbaru</h2>
+          <ul>
+            <li><a href="#">Judul berita pertama agak pendek</a></li>
+            <li><a href="#">Judul berita kedua sedikit lebih panjang</a></li>
+            <li><a href="#">Judul berita ketiga adalah yang terpanjang dari semua judul berita yang ada di sini</a></li>
+            <li><a href="#">Judul berita keempat paling pendek</a></li>
+            <li><a href="#">Judul berita yang kelima terserah yang punya duit</a></li>
+          </ul>
         </div>
       </div>
     </div>

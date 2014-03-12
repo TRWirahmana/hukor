@@ -190,21 +190,6 @@
 
 <div class="footer">
   <div class="container">
-    <div class="rowsy">
-      <ul>
-        <?php
-        $DAL = new DAL_Dikbud();
-        $link_dikbud = $DAL->GetAllLink();
-        ?>
-        @foreach($link_dikbud as $dikbud)
-        <?php $link = "http://" . $dikbud->link; ?>
-        <?php $assets = asset('assets/uploads/link/'.$dikbud->gambar); ?>
-        <li> <a href="{{ $link }}"><img src="{{ $assets }}"></a> </li>
-        @endforeach
-      </ul>
-    </div>
-  </div>
-  <div class="container">
 
     <div class="row-fluid">
       <?php $call = CallCenter::find(1); ?>

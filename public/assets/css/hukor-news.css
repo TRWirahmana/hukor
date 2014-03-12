@@ -23,6 +23,11 @@ p {
 }
 
 /* HUKOR NEWS CUSTOM LAYOUT */
+.container {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .accent {
   display: block;
   width: 100%;
@@ -30,22 +35,49 @@ p {
   background: #202020;
 }
 #top-bar {
-  position: fixed;
-  top: 0;
+  /*position: fixed;
+  top: 0;*/
   display: block;
   width: 100%;
   z-index: 10001;
 }
+#social-links > .container {
+  background: url("../images/bg1.png") repeat;
+}
+#social-links a {
+  padding: 9px 12px 10px;
+}
+#social-links a > span {
+  color: #ffffff;
+}
+#social-links a:first-child {
+  background: #15aef0;
+}
+#social-links a:nth-child(2) {
+  background: #feb312;
+  margin-right: 12px;
+}
+#social-links input {
+  box-shadow: none;
+}
+#social-links p, #social-links button, #social-links input {
+  margin-bottom: 0;
+}
 .header {
-  background: #2980b9;
+  /*background: #2980b9;*/
+  background: transparent;
   padding: 0 20px;
   height: auto;
-  box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);
+}
+.header > .container {
+  background: #0e5ba1;
+  padding: 0 20px;
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, .15);
 }
 .header .logo {
   width: auto;
   min-width: 100px;
-  max-width: 420px;
+  /*max-width: 420px;*/
   padding: 24px 0 12px;
   height: auto;
   text-align: left;
@@ -58,16 +90,20 @@ p {
 .header .logo h4 {
   display: inline-block;
   text-align: left;
-  margin: 8px 0 0;
   text-transform: uppercase;
   color: #ffffff;
   font-size: 12px;
-  width: 320px;
+  width: 360px;
   vertical-align: top;
 }
-.header .logo h4 span:first-child {
-  font-size: 20px;
+.header .logo h4 span {
+  font-size: 11px;
   display: block;
+  line-height: 120%;
+}
+.header .logo h4 span:first-child {
+  font-size: 24px;
+  line-height: 130%;
 }
 .headmenu > li {
   font-size: 12px;
@@ -78,11 +114,15 @@ p {
   border: none;
   margin-left: 6px;
 }
+.headmenu > li > a {
+  min-width: inherit;
+  width: 64px;
+}
 .headmenu > li > a, .headmenu > li.odd > a {
   background: transparent;
-  padding: 32px 8px 18px;
+  padding: 32px 6px 18px;
   text-align: center;
-  box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);
+  /*box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);*/
 }
 .headmenu > li > a > span[class *= "rulycon"] {
   font-size: 11px;
@@ -105,18 +145,19 @@ p {
   margin-top: 10px;
   opacity: 1;
   font-size: 11px;
+  line-height: 140%;
 }
 .headmenu > li > a:hover .headmenu-label {
   opacity: 0;
   /*margin-top: -2px;
   padding-bottom: 12px;*/
 }
-.headmenu > li:nth-child(1) > a { background: #4fb4c0; }
+/*.headmenu > li:nth-child(1) > a { background: #0e5ba1; }
 .headmenu > li:nth-child(2) > a { background: #00a5e2; }
 .headmenu > li:nth-child(3) > a { background: #5eb35e; }
 .headmenu > li:nth-child(4) > a { background: #e19544; }
 .headmenu > li:nth-child(5) > a { background: #dc5f3a; }
-.headmenu > li:nth-child(6) > a { background: #c64040; }
+.headmenu > li:nth-child(6) > a { background: #c64040; }*/
 /*.headmenu > li:nth-child(1) > a { background: #5fc6d2; }
 .headmenu > li:nth-child(2) > a { background: #00BAFF; }
 .headmenu > li:nth-child(3) > a { background: #6ec36e; }
@@ -131,10 +172,16 @@ p {
   margin: 0 !important;
 }
 .sub-header {
-  background: #226c9c;
+  /*background: #226c9c;*/
+  background: transparent;
   display: block;
   width: 100%;
+}
+.sub-header > .container {
+  background: #084c8a;
   min-height: 33px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .sub-menu ul {
   display: inline-table;
@@ -189,7 +236,7 @@ p {
   opacity: 1;
 }
 .content-wrapper {
-  margin-top: 160px;
+  margin-top: 24px;
 }
 .maincontent {
   background: url("../images/bg1.png") repeat;
@@ -266,7 +313,7 @@ p {
 }
 .section-title {
   position: relative;
-  background: url("../images/leftpanelbg.png") repeat;
+  background: #084c8a;
   color: #ffffff;
   padding: 12px 24px;
   font-weight: normal;
@@ -313,7 +360,7 @@ p {
   font-size: 20px;
 }
 .news-content h4 > a {
-  color: #4fb4c0;
+  color: #0e5ba1;
 }
 .news-content .date-time {
   margin-bottom: 12px;
@@ -382,10 +429,10 @@ p {
   max-width: 120px;
   /*text-transform: uppercase;*/
 }
-.rulycon-facebook { background: #4d73b5; }
+/*.rulycon-facebook { background: #4d73b5; }
 .rulycon-twitter { background: #15aef0; }
 .rulycon-linkedin { background: #0077b5; }
-.rulycon-yahoo { background: #6e329d; }
+.rulycon-yahoo { background: #6e329d; }*/
 
 .rowsy ul {
   margin: 0;
@@ -412,7 +459,7 @@ p {
   display: block;
   width: 100%;
   margin: 4px 0 24px;
-  background: #4fb4c0;
+  background: #0e5ba1;
   box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
 }
 .widget-body #header {
@@ -434,21 +481,17 @@ p {
 }
 #counter-widget .widget-body {
   position: relative;
-  background: -moz-linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
-  background: -ms-linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
-  background: -o-linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
-  background: -webkit-linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
-  background: linear-gradient(top, #4fb4c0 0%, #3b9eaa 50%, #4fb4c0 51%, #3b9eaa 100%);
+  background: #0e5ba1;
 }
 #counter-widget .widget-body:after {
   position: absolute;
   display: block;
   width: 100%;
   height: 2px;
-  background: #3b8790;
+  background: rgba(0, 0, 0, .075);
   content: "";
   top: 50%;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, .25);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .075);
 }
 #counter-widget .section-title:after { content: "\e04d"; }
 #rule-widget .section-title:after { content: "\e020"; }

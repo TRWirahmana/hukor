@@ -50,6 +50,16 @@
 <body>
 <div class="mainwrapper">
 <div id="top-bar">
+  <div id="social-links">
+    <div class="container">
+      <p class="pull-right">
+        <a href="#"><span class="rulycon-twitter"></span></a>
+        <a href="#"><span class="rulycon-feed-3"></span></a>
+        <input type="text" placeholder="search..."/>
+        <button class="btn btn-primary"><span class="rulycon-search"></span></button>
+      </p>
+    </div>
+  </div>
   <div class="header">
     <div class="container">
       <div class="logo">

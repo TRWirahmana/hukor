@@ -65,9 +65,9 @@
       <div class="logo">
         <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
         <h4>
-            <span>Biro Hukum dan Organisasi</span>
-            <span>Kementerian Pendidikan dan Kebudayaan</span><br>
-            <span>Republik Indonesia</span>
+          <span>Biro Hukum dan Organisasi</span>
+          <span>Kementerian Pendidikan dan Kebudayaan</span>
+          <span>Republik Indonesia</span>
         </h4>
       </div>
       <div class="headerinner">
@@ -105,7 +105,7 @@
           <li class="odd">
             <a href="{{URL::to('site')}}">
               <span class="rulycon-user"></span>
-              <span class="headmenu-label" id="login">Login</span>
+              <span class="headmenu-label" id="login">Sign in</span>
             </a>
           </li>
         </ul>
@@ -188,23 +188,8 @@
 </div>
 <!--content-wrapper-->
 
-    <div class="footer">
-        <div class="container">
-            <div class="rowsy">
-                <ul>
-                    <?php
-                    $DAL = new DAL_Dikbud();
-                    $link_dikbud = $DAL->GetAllLink();
-                    ?>
-                    @foreach($link_dikbud as $dikbud)
-                    <?php $link = "http://" . $dikbud->link; ?>
-                    <?php $assets = asset('assets/uploads/link/'.$dikbud->gambar); ?>
-                        <li> <a href="{{ $link }}"><img src="{{ $assets }}"></a> </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-        <div class="container">
+<div class="footer">
+  <div class="container">
 
     <div class="row-fluid">
       <?php $call = CallCenter::find(1); ?>
@@ -349,6 +334,7 @@
   };
   CustomizeTwitterWidget(twitterWidgetOptions);
 </script>
+<script src="{{asset('assets/js/jquery.cycle2.js')}}"></script>
 @show
 </body>
 </html>

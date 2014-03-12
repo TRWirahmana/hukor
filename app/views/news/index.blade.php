@@ -99,7 +99,7 @@
                     <h4 style="font-style: normal;"><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a>
                     </h4>
                     <?php $date = new DateTime($news_feeds->tgl_penulisan); ?>
-                    <p class="date-time">{{$date->format('d')}}  <span
+                    <p class="date-time"><span class="rulycon-clock"></span> {{$date->format('d')}}  <span
                         class="date"><?php echo HukorHelper::castMonthToString3($date->format('m')) ?></span>
                       {{$date->format('Y')}}</p>
                     <?php $berita_feed = strip_tags($news_feeds->berita);

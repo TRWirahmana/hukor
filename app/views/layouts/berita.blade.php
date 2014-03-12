@@ -105,7 +105,7 @@
           <li class="odd">
             <a href="{{URL::to('site')}}">
               <span class="rulycon-user"></span>
-              <span class="headmenu-label" id="login">Login</span>
+              <span class="headmenu-label" id="login">Sign in</span>
             </a>
           </li>
         </ul>

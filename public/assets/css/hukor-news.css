@@ -176,7 +176,7 @@ p {
 }
 
 .headmenu > li > a:hover > span[class *= "rulycon"] {
-  padding: 18px 19px;
+  /*padding: 18px 19px;*/
   border-width: 6px;
   border-color: rgba(0, 0, 0, .25);
 }
@@ -186,6 +186,8 @@ p {
   opacity: 1;
   font-size: 11px;
   line-height: 140%;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 .headmenu > li > a:hover .headmenu-label {
@@ -463,6 +465,7 @@ p {
 }
 
 .news-content .date-time {
+  margin-top: 12px;
   margin-bottom: 12px;
   font-size: 11px;
   color: rgba(0, 0, 0, .55);

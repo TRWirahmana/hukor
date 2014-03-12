@@ -67,10 +67,13 @@
         <div class="half">
           <h2>Berita terbaru</h2>
           <ul>
-            <li><a href="#" data-target="#main-carousel" data-slide-to="0">Judul berita yang kelima terserah yang punya duit</a></li>
+            <li><a href="#" data-target="#main-carousel" data-slide-to="0">Judul berita yang kelima terserah yang punya
+                duit</a></li>
             <li><a href="#" data-target="#main-carousel" data-slide-to="1">Judul berita keempat paling pendek</a></li>
-            <li><a href="#" data-target="#main-carousel" data-slide-to="2">Judul berita ketiga adalah yang terpanjang dari semua judul berita yang ada di sini</a></li>
-            <li><a href="#" data-target="#main-carousel" data-slide-to="3">Judul berita kedua sedikit lebih panjang</a></li>
+            <li><a href="#" data-target="#main-carousel" data-slide-to="2">Judul berita ketiga adalah yang terpanjang
+                dari semua judul berita yang ada di sini</a></li>
+            <li><a href="#" data-target="#main-carousel" data-slide-to="3">Judul berita kedua sedikit lebih panjang</a>
+            </li>
             <li><a href="#" data-target="#main-carousel" data-slide-to="4">Judul berita pertama agak pendek</a></li>
           </ul>
         </div>
@@ -78,7 +81,6 @@
     </div>
     <div class="row-fluid">
       <div id="dashboard-left" class="span6">
-
         <div id="paging_container">
           <!--<h3 class="section-title" id="news-feed">Berita</h3>-->
           <ul class="content">
@@ -127,58 +129,26 @@
       <!--span6-->
 
       <div class="span6">
-        <!--        <div id="counter-widget">-->
-        <!--          <h3 class="section-title widgets">Visitor counter</h3>-->
-        <!---->
-        <!--          <div class="widget-body">-->
-        <!--            <div class="widget-content">-->
-        <!--              <p>--><?php //echo HukorHelper::GetCounterVisitor(); ?><!--</p>-->
-        <!--            </div>-->
-        <!--          </div>-->
-        <!--        </div>-->
-
-        <!--        <div id="rule-widget">-->
-        <!--          <h3 class="section-title widgets">Peraturan</h3>-->
-        <!---->
-        <!--          <div class="widget-body">-->
-        <!--            <div class="widget-content">-->
-        <!--              <table class="table">-->
-        <!--                <thead>-->
-        <!--                <tr>-->
-        <!--                  <th>No</th>-->
-        <!--                  <th>Perihal</th>-->
-        <!--                </tr>-->
-        <!--                </thead>-->
-        <!--                <tbody>-->
-        <!--                @if ($document != null)-->
-        <!--                --><?php //$increment = 1; ?>
-        <!--                @foreach($document as $doc)-->
-        <!--                <tr>-->
-        <!--                  <td>--><?php //echo $doc->nomor; //$increment; ?><!--</td>-->
-        <!--                  <td>{{ $doc->perihal }}</td>-->
-        <!--                </tr>-->
-        <!--                --><?php //$increment++; ?>
-        <!--                @endforeach-->
-        <!--                @endif-->
-        <!--                </tbody>-->
-        <!--              </table>-->
-        <!--            </div>-->
-        <!--          </div>-->
-        <!--        </div>-->
-
-        <!--        <div id="twitter-widget">-->
-        <!--          <h3 class="section-title widgets">Twitter</h3>-->
-        <!---->
-        <!--          <div class="widget-body">-->
-        <!--            <div class="widget-content">-->
-        <!---->
-        <!--              <a class="twitter-timeline" href="https://twitter.com/hukor_kemdikbud"-->
-        <!--                 data-widget-id="440745484580184065">Tweets by @hukor_kemdikbud</a>-->
-        <!---->
-        <!---->
-        <!--            </div>-->
-        <!--          </div>-->
-        <!--        </div>-->
+        <script src="{{asset('assets/js/jquery.pajinate.js')}}"></script>
+        <script>$.fn.cycle.defaults.autoSelector = '.slideshow';</script>
+        <div class="slideshow vertical" data-cycle-fx=carousel
+             data-cycle-timeout=0 data-cycle-next="#next3"
+             data-cycle-prev="#prev3" data-cycle-pager="#pager3"
+             data-cycle-carousel-visible=2 data-cycle-carousel-vertical=true>
+          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-01.jpg')}}" alt=""/>
+          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-02.jpg')}}" alt=""/>
+          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-03.jpg')}}" alt=""/>
+          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-04.jpg')}}" alt=""/>
+          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-01.jpg')}}" alt=""/>
+          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-02.jpg')}}" alt=""/>
+          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-03.jpg')}}" alt=""/>
+          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-04.jpg')}}" alt=""/>
+        </div>
+        <div class="center">
+          <a href="#" id="prev3">Prev</a>
+          <a href="#" id="next3">Next</a>
+        </div>
+        <div class="cycle-pager" id="pager3"></div>
       </div>
       <!--span6-->
     </div>
@@ -190,7 +160,6 @@
 <!--maincontent-->
 @section('scripts')
 @parent
-<script src="{{asset('assets/js/jquery.pajinate.js')}}"></script>
 <script type="text/javascript">
   var $ = jQuery.noConflict();
   $(function () {

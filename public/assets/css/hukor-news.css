@@ -6,6 +6,14 @@ body {
   background: url("../images/bg1.png") repeat;
 }
 
+a {
+  -moz-transition: all .15s ease-out;
+  -ms-transition: all .15s ease-out;
+  -o-transition: all .15s ease-out;
+  -webkit-transition: all .15s ease-out;
+  transition: all .15s ease-out;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -721,6 +729,11 @@ p {
   font-size: 16px;
   padding: 12px 24px;
   background: rgba(255, 255, 255, .35);
+}
+
+.half:last-child ul a:hover {
+  background: #5CA8EE;
+  color: #ffffff;
 }
 
 

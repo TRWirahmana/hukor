@@ -32,16 +32,16 @@
       <div class="container">
         <div class="half">
           <div id="main-carousel" class="carousel slide">
-            <ol class="carousel-indicators">
+            <!--<ol class="carousel-indicators">
               <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
               <li data-target="#main-carousel" data-slide-to="1" class=""></li>
               <li data-target="#main-carousel" data-slide-to="2" class=""></li>
               <li data-target="#main-carousel" data-slide-to="3" class=""></li>
-            </ol>
+            </ol>-->
             <div class="carousel-inner">
               <?php $n = 0 ?>
               @foreach($latest_news as $data)
-              @if($n++ < 4)
+              @if($n++ < 5)
               <div class="item" style="height:249px !important;">
                 @if($data->slider != null)
                 {{ HTML::image('assets/uploads/berita/' . $data->slider) }}
@@ -50,7 +50,7 @@
                 @endif
 
                 <div class="carousel-caption">
-                  <h3>{{$data->judul}}</h3>
+                  <h3><a href="#">{{$data->judul}}</a></h3>
                   <?php $berita = strip_tags($data->berita);
                   $highlight = substr($berita, 0, 150);
 
@@ -67,11 +67,11 @@
         <div class="half">
           <h2>Berita terbaru</h2>
           <ul>
-            <li><a href="#">Judul berita pertama agak pendek</a></li>
-            <li><a href="#">Judul berita kedua sedikit lebih panjang</a></li>
-            <li><a href="#">Judul berita ketiga adalah yang terpanjang dari semua judul berita yang ada di sini</a></li>
-            <li><a href="#">Judul berita keempat paling pendek</a></li>
-            <li><a href="#">Judul berita yang kelima terserah yang punya duit</a></li>
+            <li><a href="#" data-target="#main-carousel" data-slide-to="0">Judul berita pertama agak pendek</a></li>
+            <li><a href="#" data-target="#main-carousel" data-slide-to="1">Judul berita kedua sedikit lebih panjang</a></li>
+            <li><a href="#" data-target="#main-carousel" data-slide-to="2">Judul berita ketiga adalah yang terpanjang dari semua judul berita yang ada di sini</a></li>
+            <li><a href="#" data-target="#main-carousel" data-slide-to="3">Judul berita keempat paling pendek</a></li>
+            <li><a href="#" data-target="#main-carousel" data-slide-to="4">Judul berita yang kelima terserah yang punya duit</a></li>
           </ul>
         </div>
       </div>

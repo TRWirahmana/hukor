@@ -423,8 +423,9 @@ p {
 }
 
 .news-content {
-  padding: 32px 0 48px 24px;
-  border-bottom: 1px solid rgba(0, 0, 0, .075);
+  padding: 32px 0 48px;
+  border-top: 1px solid rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85);
   -moz-transition: all .2s ease-out;
   -ms-transition: all .2s ease-out;
   -o-transition: all .2s ease-out;
@@ -442,8 +443,14 @@ p {
 }
 
 .news-content .span3 > img {
-  border: 4px solid #ffffff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+
+}
+
+.news-content .span9 {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 24px;
 }
 
 .news-content h4 {
@@ -640,7 +647,7 @@ p {
 
 #paging_container .content {
   background: transparent;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .075);
+  /*box-shadow: 0 1px 2px rgba(0, 0, 0, .075);*/
 }
 
 #paging_container .content > li {

@@ -13,10 +13,10 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/simplePagination.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive-tables-news.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.bxslider.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycon.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycons.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/hukor-news.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.bxslider.css')}}">
 
   <style type="text/css">
     .container-fluid {
@@ -52,7 +52,7 @@
 <div class="mainwrapper">
 <div id="top-bar">
   <div id="social-links">
-    <div class="container">
+    <div class="container" >
       <p class="pull-right">
         <a href="#"><span class="rulycon-twitter"></span></a>
         <a href="#"><span class="rulycon-feed-3"></span></a>
@@ -99,7 +99,7 @@
           </li>
           <li>
             <a href="#" id="forum_diskusi">
-              <span class="rulycon-notebook"></span>
+              <span class="rulycon-flip"></span>
               <span class="headmenu-label">Forum</span>
             </a>
           </li>
@@ -190,7 +190,7 @@
 <!--content-wrapper-->
 
 <div class="footer">
-  <div class="container">
+  <div class="container" style="width: 960px;">
 
     <div class="row-fluid">
       <?php $call = CallCenter::find(1); ?>
@@ -243,11 +243,11 @@
       </div>
       <div class="span3">
         <address>
-          <span>Kementerian Pendidikan Dan Kebudayaan Republik Indonesia</span><br/>
+          <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
+          <span>Kementerian Pendidikan Dan Kebudayaan Republik Indonesia</span>
           <br/>
           {{ $call->alamat }} <br/>
-          <span class="rulycon-phone"></span> {{ $call->telp }}<br/>
-          <span class="rulycon-print"></span> {{ $call->fax }}<br/>
+          <span class="rulycon-phone"></span> {{ $call->telp }} &nbsp; | &nbsp; <span class="rulycon-print"></span> {{ $call->fax }}<br/>
           <!--                        Jawa Barat, Indonesia-->
         </address>
       </div>

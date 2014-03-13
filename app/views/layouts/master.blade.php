@@ -118,10 +118,16 @@
             <!-- <li>
               <a href="http://localhost/retane_blog/wp-login.php?log=<?php //echo $datses['us']; ?>&pwd=<?php echo $datses['pd']; ?>" target="_blank"><span class="rulycon-wordpress"></span> Blog</a>
             </li> -->
-
-            <li class="menu-header">Informasi</li>
               <li id="menu-beranda"><a href="{{URL::to('/')}}"><span class="rulycon-home-2"></span>Beranda</a></li>
               <li id="menu-produk-hukum"><a href="{{URL::to('produkhukum')}}"><span class="rulycon-book"></span>Produk Hukum</a></li>
+              @if (null != AppConfig::find('enable_forum') && AppConfig::find('enable_forum')->value == "true")
+              <li id="menu-forum"><a href="#"><span class="rulycon-bubbles"></span>Forum</a></li>
+              @endif
+              <li id="menu-call-center"><a href="{{ URL::to('callcenter') }}"><span class="rulycon-phone"></span>Kontak Kami</a></li>
+
+              <li class="menu-header">Informasi</li>
+<!--              <li id="menu-beranda"><a href="{{URL::to('/')}}"><span class="rulycon-home-2"></span>Beranda</a></li>-->
+<!--              <li id="menu-produk-hukum"><a href="{{URL::to('produkhukum')}}"><span class="rulycon-book"></span>Produk Hukum</a></li>-->
               <!-- Menu Layanan(Dinamisasi)-->
 
               <?php $no = 1; ?>
@@ -175,10 +181,7 @@
 
 <!--            <li id="menu-layanan-bantuan-hukum"><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>-->
 <!--            <li id="menu-layanan-peraturan-perundangan"><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>-->
-            @if (null != AppConfig::find('enable_forum') && AppConfig::find('enable_forum')->value == "true")
-              <li id="menu-forum"><a href="#"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
-            @endif
-            <li id="menu-call-center"><a href="{{ URL::to('callcenter') }}"><span class="rulycon-phone"></span>Kontak Kami</a></li>
+
 
             <li class="menu-header">Aplikasi</li>
             <li id="menu-peraturan-perundangan"> <!-- <a href="{{ URL::route('pengajuan_per_uu') }}"><span class="rulycon-pilcrow"></span>Peraturan Perundang-undangan</a></li> -->

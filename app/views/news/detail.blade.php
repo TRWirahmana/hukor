@@ -10,7 +10,9 @@
             <div class="span9">
               <h4>{{$berita->judul}}</h4>
 		<br>
-		{{ HTML::image('assets/uploads/berita/' . $berita->gambar) }}
+                @if($berita->gambar != null)
+                {{ HTML::image('assets/uploads/berita/' . $berita->gambar) }}
+                @endif
 		<br>
               <p>{{$berita->berita}}</p>
               

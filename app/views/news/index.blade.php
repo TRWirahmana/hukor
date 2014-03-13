@@ -50,7 +50,7 @@
                 @endif
 
                 <div class="carousel-caption">
-                  <h3><a href="#">{{$data->judul}}</a></h3>
+                  <h3><a href="{{ URL::to('/news/detail?id='. $data->id .'') }}">{{$data->judul}}</a></h3>
                   <?php $berita = strip_tags($data->berita);
                   $highlight = substr($berita, 0, 150);
 

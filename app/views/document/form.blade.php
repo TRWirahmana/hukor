@@ -44,12 +44,20 @@
                         <div class="controls">
                             {{ Form::select('kategori', array(
                             '0' => '- Pilih Kategori -',
-                            '1' => 'Keputusan Menteri',
-                            '2' => 'Peraturan Menteri',
-                            '3' => 'Peraturan Bersama',
-                            '4' => 'Keputusan Bersama',
-                            '5' => 'Instruksi Menteri',
-                            '6' => 'Surat Edaran',
+                            '1' => 'Undang-undang Dasar',
+                            '2' => 'Peraturan Pemerintah',
+                            '3' => 'Peraturan Presiden',
+                            '4' => 'Keputusan Presiden',
+                            '5' => 'Instruksi Presiden',
+                            '6' => 'Peraturan Menteri',
+                            '7' => 'Keputusan Menteri',
+                            '8' => 'Instruksi Menteri',
+                            '9' => 'Surat Edaran Menteri',
+                            '10' => 'Nota Kesepakatan',
+                            '11' => 'Nota Kesepahaman',
+                            '12' => 'Peraturan Bersama',
+                            '13' => 'Keputusan Bersama',
+                            '14' => 'Surat Edaran Bersama',
                             ), $data->kategori) }}
                         </div>
                     </div>

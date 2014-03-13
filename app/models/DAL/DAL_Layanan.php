@@ -53,7 +53,7 @@ class DAL_Layanan {
                 'menu.nama_menu'
             ,'sub_menu.nama_submenu'
             ))
-->where('layanan.id', '!=', 1)
+        ->where('layanan.id', '!=', 1)
         ->where('layanan.id', '!=', 2)
         ->where('layanan.id', '!=', 3)
         ->where('layanan.id', '!=', 4)

@@ -19,7 +19,7 @@ class LayananController extends BaseController {
         $all = Menu::all();
         $all->toArray();
 
-        if($id == 1 || $id == 2 || $id == 3 ){
+        if($id == 1 || $id == 2 || $id == 3 || $id == 4 || $id == 5 ){
             $info = Layanan::find($id);
             $this->layout = View::make('layouts.master',
             array(

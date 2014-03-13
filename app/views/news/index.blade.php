@@ -113,8 +113,6 @@
                     <?php $berita_feed = strip_tags($news_feeds->berita);
                     $highlight_feed = substr($berita_feed, 0, 350);
                     ?>
-                    @if(strlen($berita_feed) > 150)
-                    <p>{{$highlight_feed}} ...</p>
                     @if(strlen($berita_feed) > 350)
                     <p>{{$highlight_feed}}</p>
 
@@ -127,7 +125,6 @@
                 </div>
               </div>
             </li>
-            @endif
             @endif
               <? $s++; ?>
             @endforeach
@@ -146,7 +143,7 @@
           ?>
           @foreach($link_dikbud as $dikbud)
           <?php $link = "http://" . $dikbud->link; ?>
-          <?php $assets = asset('assets/uploads/berita/'.$dikbud->gambar); ?>
+          <?php $assets = asset('assets/uploads/link/'.$dikbud->gambar); ?>
           <div class="slider"><a href="{{ $link }}"><img src="{{ $assets }}"></a></div>
           @endforeach
         </div>

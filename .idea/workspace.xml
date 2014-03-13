@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/berita.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/news/index.blade.php" afterPath="$PROJECT_DIR$/app/views/news/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/master.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,10 +49,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="43" selection-start="4438" selection-end="4438" vertical-scroll-proportion="-9.153846" vertical-offset="1632" max-vertical-offset="4216">
+            <state line="132" column="56" selection-start="5337" selection-end="5337" vertical-scroll-proportion="0.4055666" vertical-offset="2040" max-vertical-offset="4165">
               <folding>
                 <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -72,10 +69,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="master.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="master.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="161" column="60" selection-start="8307" selection-end="8307" vertical-scroll-proportion="0.57455266" vertical-offset="2448" max-vertical-offset="5780">
+            <state line="167" column="68" selection-start="8939" selection-end="8939" vertical-scroll-proportion="-15.038462" vertical-offset="2448" max-vertical-offset="5780">
               <folding>
                 <marker date="1394705051642" expanded="true" signature="7935:8346" placeholder="..." />
                 <marker date="1394705051642" expanded="true" signature="7999:8346" placeholder="..." />
@@ -186,12 +183,12 @@
         <option value="$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layanan/front.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layanan/detail.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/news/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/scp40883/var/www/html/hukor/app/views/layouts/master.blade.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/scp38459/var/www/html/new/app/views/layouts/master.blade.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/scp39832/var/www/html/new/app/views/forgetpassword/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/news/index.blade.php" />
       </list>
     </option>
   </component>
@@ -681,15 +678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="43" selection-start="4438" selection-end="4438" vertical-scroll-proportion="-9.153846" vertical-offset="1632" max-vertical-offset="4216">
-          <folding>
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Layanan.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="25" selection-start="1165" selection-end="1289" vertical-scroll-proportion="0.3923077" vertical-offset="561" max-vertical-offset="1258">
@@ -727,7 +715,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="60" selection-start="8307" selection-end="8307" vertical-scroll-proportion="0.57455266" vertical-offset="2448" max-vertical-offset="5780">
+        <state line="167" column="68" selection-start="8939" selection-end="8939" vertical-scroll-proportion="-15.038462" vertical-offset="2448" max-vertical-offset="5780">
           <folding>
             <marker date="1394705051642" expanded="true" signature="7935:8346" placeholder="..." />
             <marker date="1394705051642" expanded="true" signature="7999:8346" placeholder="..." />
@@ -760,6 +748,15 @@
             <marker date="1394705051642" expanded="true" signature="15531:15662" placeholder="..." />
             <marker date="1394705051642" expanded="true" signature="15570:15662" placeholder="..." />
             <marker date="1394705051642" expanded="true" signature="16590:16606" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="56" selection-start="5337" selection-end="5337" vertical-scroll-proportion="0.4055666" vertical-offset="2040" max-vertical-offset="4165">
+          <folding>
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

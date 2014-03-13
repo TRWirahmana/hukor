@@ -400,12 +400,27 @@ p {
 
 .section-title {
   position: relative;
-  background: #084c8a;
+  background: #0A3E6E;
   color: #ffffff;
   padding: 12px 24px;
   font-weight: normal;
   font-size: 16px;
-  box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
+  /*box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);*/
+  text-transform: uppercase;
+}
+
+.section-title#cemendikbud:after {
+  font-family: Rulycons;
+  content: "\e0c3";
+  position: absolute;
+  right: 24px;
+  background: #FF7200;
+  color: #ffffff;
+  height: 100%;
+  top: 0;
+  line-height: 260%;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .section-title#news-feed:after, .section-title.widgets:after {

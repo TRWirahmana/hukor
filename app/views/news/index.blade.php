@@ -138,7 +138,7 @@
       <div class="span4" style="margin-top: 32px;
   border-top: 1px solid rgba(0, 0, 0, .075);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85); padding-top: 32px;">
-        <h3 class="section-title">Tautan CEMENdikbud</h3>
+        <h3 class="section-title" id="cemendikbud">Tautan CEMENdikbud</h3>
         <div class="verticalslider">
           <?php
           $DAL = new DAL_Dikbud();

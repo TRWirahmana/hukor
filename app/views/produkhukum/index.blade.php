@@ -170,27 +170,61 @@
         },
 
         {
-          mData: "deskripsi",
+          mData: "perihal",
           sWidth: '55%'
         },
         {
             mData: "kategori",
             sClass: "center",
             sWidth: '15%',
-          mRender: function (data, type, full) {
-            if (data === 1) {
-              return 'Keputusan Menteri';
-            } else if (data === 2) {
-              return 'Peraturan Menteri';
-            } else if (data === 3) {
-              return 'Peraturan Bersama';
-            } else if (data === 4) {
-              return 'Keputusan Bersama';
-            } else if (data === 5) {
-              return 'Instruksi Menteri';
-            } else if (data === 6) {
-              return 'Surat Edaran';
-            }
+	    mRender: function (data, type, full) {
+		  var kategori = "";
+		  switch (parseInt(data))
+		  {
+			  case 1 :
+				  kategori = 'Undang-undang Dasar';
+				  break;
+			  case 2 :
+				  kategori = 'Peraturan Pemerintah';
+				  break;
+			  case 3 :
+				  kategori = 'Peraturan Presiden';
+				  break;
+			  case 4 :
+				  kategori = 'Keputusan Presiden';
+				  break;
+			  case 5 :
+				  kategori = 'Instruksi Presiden';
+				  break;
+			  case 6 :
+				  kategori = 'Peraturan Menteri';
+				  break;
+			  case 7 :
+				  kategori = 'Keputusan Menteri';
+				  break;
+			  case 8 :
+				  kategori = 'Instruksi Menteri';
+				  break;
+			  case 9 :
+				  kategori = 'Surat Edaran Menteri';
+				  break;
+			  case 10 :
+				  kategori = 'Nota Kesepakatan';
+				  break;
+			  case 11 :
+				  kategori = 'Nota Kesepahaman';
+				  break;
+			  case 12 :
+				  kategori = 'Peraturan Bersama';
+				  break;
+			  case 13 :
+				  kategori = 'Keputusan Bersama';
+				  break;
+			  case 14 :
+				  kategori = 'Surat Edaran Bersama';
+				  break;
+		  }
+		  return kategori;
           }
         },
         {
@@ -198,6 +232,7 @@
             sClass: "center",
             sWidth: '15%',
           mRender: function (data, type, full) {
+		data = parseInt(data);
             if (data === 1) {
               return 'Kepegawaian';
             } else if (data === 2) {
@@ -210,7 +245,9 @@
               return 'Perlengkapan';
             } else if (data === 6) {
               return 'Lainnya';
-            }
+	    } else {
+		    return '';
+	    }
           }
 
         },

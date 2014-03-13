@@ -91,7 +91,7 @@
                 sWidth: '15%',
                 mRender:function(kat){
                     var kategori = "";
-                    switch (kat)
+                    switch (parseInt(kat))
                     {
                         case 1 :
                             kategori = 'Undang-undang Dasar';
@@ -146,7 +146,7 @@
                 sWidth: '15%',
                 mRender:function(mas){
                     var masalah = "";
-                    switch (mas)
+                    switch (parseInt(mas))
                     {
                         case 1 :
                             masalah = 'Kepegawaian';

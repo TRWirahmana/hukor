@@ -16,7 +16,7 @@
         <div class="pagetitle">
             <!--<h5>Events</h5>-->
 
-            <h1>Tambah Dokumen</h1>
+            <h1>{{ $title }}</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -29,7 +29,6 @@
 
             <div>
                 <fieldset>
-                    <legend class="f_legend">{{$title}}</legend>
                     <p class="text-info">{{$detail}}</p>
 
                     <div class="control-group">

@@ -93,26 +93,33 @@
             <li>
               <div class="news-content">
                 <div class="row-fluid">
+                  <div class="span12">
+                    <h4 style="font-style: normal;"><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a></h4>
+                  </div>
+                </div>
+                <div class="row-fluid">
                   <div class="span3">
                     @if($news_feeds->gambar != null)
                     {{ HTML::image('assets/uploads/berita/' . $news_feeds->gambar) }}
                     @else
                     {{ HTML::image('assets/img/no-available-image.png') }}
                     @endif
-
                   </div>
                   <div class="span9">
-                    <h4 style="font-style: normal;"><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a>
-                    </h4>
                     <?php $date = new DateTime($news_feeds->tgl_penulisan); ?>
                     <p class="date-time"><span class="rulycon-clock"></span> {{$date->format('d')}}  <span
                         class="date"><?php echo HukorHelper::castMonthToString3($date->format('m')) ?></span>
                       {{$date->format('Y')}}</p>
                     <?php $berita_feed = strip_tags($news_feeds->berita);
-                    $highlight_feed = substr($berita_feed, 0, 500);
+                    $highlight_feed = substr($berita_feed, 0, 350);
                     ?>
+<<<<<<< Updated upstream
                     @if(strlen($berita_feed) > 150)
                     <p>{{$highlight_feed}} ...</p>
+=======
+                    @if(strlen($berita_feed) > 350)
+                    <p>{{$highlight_feed}}</p>
+>>>>>>> Stashed changes
 
                     <p><a class="read-more" href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">Read more
                         <span class="rulycon-arrow-right-3"></span></a></p>
@@ -134,26 +141,18 @@
       <!--span6-->
 
       <div class="span6">
-
-      <!-- jquery carousel -->
-      <div id="counter-widget">
-        <h3 class="section-title widgets">Visitor counter</h3>
-        <div class="widget-body">
-          <div class="widget-content">
-            <div class="verticalslider">
-                <?php
-                $DAL = new DAL_Dikbud();
-                $link_dikbud = $DAL->GetAllLink();
-                ?>
-                @foreach($link_dikbud as $dikbud)
-                    <?php $link = "http://" . $dikbud->link; ?>
-                    <?php $assets = asset('assets/uploads/link/'.$dikbud->gambar); echo $assets;?>
-                    <div class="slider"><a href="{{ $link }}"><img src="{{ $assets }}"></a></div>
-                @endforeach
-            </div>
-          </div>
+        <div class="verticalslider">
+          <?php
+          $DAL = new DAL_Dikbud();
+          $link_dikbud = $DAL->GetAllLink();
+          ?>
+          @foreach($link_dikbud as $dikbud)
+          <?php $link = "http://" . $dikbud->link; ?>
+          <?php $assets = asset('assets/uploads/berita/'.$dikbud->gambar); ?>
+          <div class="slider"><a href="{{ $link }}"><img src="{{ $assets }}"></a></div>
+          @endforeach
         </div>
-      </div>
+
 
         <!--        <div id="counter-widget">-->
         <!--          <h3 class="section-title widgets">Visitor counter</h3>-->
@@ -225,9 +224,8 @@
   $(document).ready(function(){
       $('.verticalslider').bxSlider({
           mode: 'vertical',
-          sliderWidth: 300,
-          minSlides: 2,
-          slideMargin: 10
+          minSlides: 3,
+          slideMargin: 1
       });
   });
 
@@ -239,7 +237,7 @@
 
     $('#paging_container').pajinate({
 //            start_page : 1,
-      items_per_page: 5
+      items_per_page: 2
     });
   });
 </script>

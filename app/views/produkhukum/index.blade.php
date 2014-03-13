@@ -17,13 +17,21 @@
               <label for="select-kategori" class="control-label">Kategori</label>
               <div class="controls">
                 <select id="select-kategori" name="kategori">
-                  <option value="">Semua Kategori</option>
-                  <option value="1">Keputusan Mentri</option>
-                  <option value="2">Peraturan Mentri</option>
-                  <option value="3">Peraturan Bersama</option>
-                  <option value="4">Keputusan Bersama</option>
-                  <option value="5">Intruksi Mentri</option>
-                  <option value="6">Surat Edaran</option>
+                    <option value="">Semua Kategori</option>
+                    <option value="1">Undang-undang Dasar</option>
+                    <option value="2">Peraturan Pemerintah</option>
+                    <option value="3">Peraturan Presiden</option>
+                    <option value="4">Keputusan Presiden</option>
+                    <option value="5">Instruksi Presiden</option>
+                    <option value="6">Peraturan Menteri</option>
+                    <option value="7">Keputusan Menteri</option>
+                    <option value="8">Instruksi Menteri</option>
+                    <option value="9">Surat Edaran Menteri</option>
+                    <option value="10">Nota Kesepakatan</option>
+                    <option value="11">Nota Kesepahaman</option>
+                    <option value="12">Peraturan Bersama</option>
+                    <option value="13">Keputusan Bersama</option>
+                    <option value="14">Surat Edaran Bersama</option>
                 </select>
               </div>
             </div>
@@ -171,15 +179,15 @@
             sWidth: '15%',
           mRender: function (data, type, full) {
             if (data === 1) {
-              return 'Keputusan Mentri';
+              return 'Keputusan Menteri';
             } else if (data === 2) {
-              return 'Peraturan Mentri';
+              return 'Peraturan Menteri';
             } else if (data === 3) {
               return 'Peraturan Bersama';
             } else if (data === 4) {
               return 'Keputusan Bersama';
             } else if (data === 5) {
-              return 'Instruksi Mentri';
+              return 'Instruksi Menteri';
             } else if (data === 6) {
               return 'Surat Edaran';
             }

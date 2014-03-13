@@ -158,14 +158,16 @@
                                   <div class="accordion-inner">
                                       <ul>
                                           @foreach($subs as $submenus)
-                                          <?php $layssubs = Layanan::where('menu_id', '=', $menus['id'])->where('submenu_id', '=', $submenus['id'])->get();?>
-                                              @if($layssubs != null)
+                                          <?php $layssubs = Layanan::leftJoin('sub_menu', 'layanan.submenu_id', '=', 'sub_menu.id')
+                                              ->leftJoin('menu', 'layanan.menu_id', '=', 'menu.id')->where('layanan.submenu_id', '=', $submenus['id'])->get();?>
+                                              @if($layssubs['id'] != null)
                                                 @foreach($layssubs as $layssub)
                                                 <li><a href="{{ URL::to('/layanan/detail?id='. $layssub['id'] .'') }}"><span class="rulycon-earth"></span> {{ $submenus['nama_submenu'] }}</a></li>
-                                          @endforeach
-                                          @else
+                                                @endforeach
+                                              @else
                                                 <li><a href="#"><span class="rulycon-earth"></span> {{ $submenus['nama_submenu'] }}</a></li>
                                               @endif
+
                                           @endforeach
                                       </ul>
                                   </div>

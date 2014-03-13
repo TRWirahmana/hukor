@@ -128,7 +128,7 @@
               </div>
             </li>
             @endif
-              @endif
+            @endif
               <? $s++; ?>
             @endforeach
 

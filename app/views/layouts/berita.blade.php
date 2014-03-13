@@ -99,7 +99,7 @@
           </li>
           <li>
             <a href="#" id="forum_diskusi">
-              <span class="rulycon-notebook"></span>
+              <span class="rulycon-flip"></span>
               <span class="headmenu-label">Forum</span>
             </a>
           </li>

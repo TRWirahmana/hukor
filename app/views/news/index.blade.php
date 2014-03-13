@@ -113,13 +113,10 @@
                     <?php $berita_feed = strip_tags($news_feeds->berita);
                     $highlight_feed = substr($berita_feed, 0, 350);
                     ?>
-<<<<<<< Updated upstream
                     @if(strlen($berita_feed) > 150)
                     <p>{{$highlight_feed}} ...</p>
-=======
                     @if(strlen($berita_feed) > 350)
                     <p>{{$highlight_feed}}</p>
->>>>>>> Stashed changes
 
                     <p><a class="read-more" href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">Read more
                         <span class="rulycon-arrow-right-3"></span></a></p>
@@ -131,6 +128,7 @@
               </div>
             </li>
             @endif
+              @endif
               <? $s++; ?>
             @endforeach
 

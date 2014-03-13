@@ -125,7 +125,7 @@
               @endif
               <li id="menu-call-center"><a href="{{ URL::to('callcenter') }}"><span class="rulycon-phone"></span>Kontak Kami</a></li>
 
-              <li class="menu-header">Informasi</li>
+              <li class="menu-header">Layanan</li>
 <!--              <li id="menu-beranda"><a href="{{URL::to('/')}}"><span class="rulycon-home-2"></span>Beranda</a></li>-->
 <!--              <li id="menu-produk-hukum"><a href="{{URL::to('produkhukum')}}"><span class="rulycon-book"></span>Produk Hukum</a></li>-->
               <!-- Menu Layanan(Dinamisasi)-->

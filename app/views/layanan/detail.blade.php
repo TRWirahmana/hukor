@@ -1,9 +1,11 @@
 @section('content')
-<h2>Layanan</h2>
+<h2>{{$info->menu->nama_menu}}</h2>
 <div class="stripe-accent"></div>
 
 <legend>
-    Informasi Layanan
+    @if($info->submenu != null)
+    {{$info->submenu->nama_submenu}}
+    @endif
 </legend>
 
 @include('flash')
@@ -11,7 +13,9 @@
 @if($info != null)
 <!--    <h1>--><?php //echo $info->judul_berita; ?><!--</h1>-->
 <br>
-<p><?php echo $info->berita; ?></p>
+<div id="beritaaas">
+    <p><?php echo $info->berita; ?></p>
+</div>
 
 <?php
 switch($info->penanggung_jawab){

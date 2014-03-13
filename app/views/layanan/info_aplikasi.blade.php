@@ -50,7 +50,10 @@
 
 @if($info != null)
 <br>
-<p><?php echo $info->berita; ?></p>
+<div id="beritaaaa">
+    <p><?php echo $info->berita; ?></p>
+</div>
+
 
 <br>
 

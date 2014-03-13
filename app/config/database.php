@@ -56,7 +56,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'hukor',
 			'username'  => 'root',
-			'password'  => 'Sangkuriang@Sampurna9',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

@@ -94,22 +94,46 @@
                     switch (kat)
                     {
                         case 1 :
-                            kategori = 'Keputusan Menteri';
+                            kategori = 'Undang-undang Dasar';
                             break;
                         case 2 :
-                            kategori = 'Peraturan Menteri';
+                            kategori = 'Peraturan Pemerintah';
                             break;
                         case 3 :
-                            kategori = 'Peraturan Bersama';
+                            kategori = 'Peraturan Presiden';
                             break;
                         case 4 :
-                            kategori = 'Keputusan Bersama';
+                            kategori = 'Keputusan Presiden';
                             break;
                         case 5 :
-                            kategori = 'Instruksi Menteri';
+                            kategori = 'Instruksi Presiden';
                             break;
                         case 6 :
-                            kategori = 'Surat Edaran';
+                            kategori = 'Peraturan Menteri';
+                            break;
+                        case 7 :
+                            kategori = 'Keputusan Menteri';
+                            break;
+                        case 8 :
+                            kategori = 'Instruksi Menteri';
+                            break;
+                        case 9 :
+                            kategori = 'Surat Edaran Menteri';
+                            break;
+                        case 10 :
+                            kategori = 'Nota Kesepakatan';
+                            break;
+                        case 11 :
+                            kategori = 'Nota Kesepahaman';
+                            break;
+                        case 12 :
+                            kategori = 'Peraturan Bersama';
+                            break;
+                        case 13 :
+                            kategori = 'Keputusan Bersama';
+                            break;
+                        case 14 :
+                            kategori = 'Surat Edaran Bersama';
                             break;
                     }
 

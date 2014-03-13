@@ -17,13 +17,21 @@
               <label for="select-kategori" class="control-label">Kategori</label>
               <div class="controls">
                 <select id="select-kategori" name="kategori">
-                  <option value="">Semua Kategori</option>
-                  <option value="1">Keputusan Menteri</option>
-                  <option value="2">Peraturan Menteri</option>
-                  <option value="3">Peraturan Bersama</option>
-                  <option value="4">Keputusan Bersama</option>
-                  <option value="5">Intruksi Menteri</option>
-                  <option value="6">Surat Edaran</option>
+                    <option value="">Semua Kategori</option>
+                    <option value="1">Undang-undang Dasar</option>
+                    <option value="2">Peraturan Pemerintah</option>
+                    <option value="3">Peraturan Presiden</option>
+                    <option value="4">Keputusan Presiden</option>
+                    <option value="5">Instruksi Presiden</option>
+                    <option value="6">Peraturan Menteri</option>
+                    <option value="7">Keputusan Menteri</option>
+                    <option value="8">Instruksi Menteri</option>
+                    <option value="9">Surat Edaran Menteri</option>
+                    <option value="10">Nota Kesepakatan</option>
+                    <option value="11">Nota Kesepahaman</option>
+                    <option value="12">Peraturan Bersama</option>
+                    <option value="13">Keputusan Bersama</option>
+                    <option value="14">Surat Edaran Bersama</option>
                 </select>
               </div>
             </div>

@@ -53,7 +53,7 @@ class DAL_Document {
 
         return Response::json(array(
             "sEcho" => $filter['sEcho'],
-            'aaData' => $data->get()->toArray(),
+            'aaData' => $data->orderBy('nomor', 'desc')->get()->toArray(),
             'iTotalRecords' => $iTotalRecords,
             'iTotalDisplayRecords' => $iTotalDisplayRecords
         ));

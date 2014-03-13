@@ -78,7 +78,7 @@
         <thead>
         <tr>
           <th>No</th>
-          <th>No. Usulan</th>
+          <th>Nomor</th>
           <th>Tentang</th>
           <th>Kategori</th>
           <th>Masalah</th>

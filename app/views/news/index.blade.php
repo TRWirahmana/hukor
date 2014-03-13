@@ -29,7 +29,7 @@
     <?php $f = 4; ?>
     <!-- News Feed -->
     <div class="row-fluid">
-      <div class="container">
+      <div class="container" style="box-shadow: 0 1px 2px rgba(0, 0, 0, .25);">
         <div class="half">
           <div id="main-carousel" class="carousel slide">
             <!--<ol class="carousel-indicators">
@@ -98,14 +98,14 @@
                   </div>
                 </div>
                 <div class="row-fluid">
-                  <div class="span3">
+                  <div class="span4">
                     @if($news_feeds->gambar != null)
                     {{ HTML::image('assets/uploads/berita/' . $news_feeds->gambar) }}
                     @else
                     {{ HTML::image('assets/img/no-available-image.png') }}
                     @endif
                   </div>
-                  <div class="span9">
+                  <div class="span8">
                     <?php $date = new DateTime($news_feeds->tgl_penulisan); ?>
                     <p class="date-time"><span class="rulycon-clock"></span> {{$date->format('d')}}  <span
                         class="date"><?php echo HukorHelper::castMonthToString3($date->format('m')) ?></span>
@@ -113,9 +113,16 @@
                     <?php $berita_feed = strip_tags($news_feeds->berita);
                     $highlight_feed = substr($berita_feed, 0, 350);
                     ?>
+<<<<<<< Updated upstream
                     @if(strlen($berita_feed) > 150)
                     <p>{{$highlight_feed}} ...</p>
                     @if(strlen($berita_feed) > 350)
+=======
+
+
+
+                    @if(strlen($berita_feed) > 150)
+>>>>>>> Stashed changes
                     <p>{{$highlight_feed}}</p>
 
                     <p><a class="read-more" href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">Read more

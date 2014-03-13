@@ -5,7 +5,7 @@
     <ul class="breadcrumbs">
         <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
         <li><a href="{{URL::previous()}}">Dokumentasi</a>  <span class="separator"></span></li>
-        <li>Tambah Dokumen</li>
+        <li>Detail Dokument</li>
     </ul>
     @include('adminflash')
     <div class="pageheader">

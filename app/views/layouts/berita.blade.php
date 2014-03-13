@@ -16,6 +16,7 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycon.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycons.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/hukor-news.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.bxslider.css')}}">
 
   <style type="text/css">
     .container-fluid {
@@ -278,6 +279,7 @@
 
 <script src="{{asset('assets/js/jquery.ui.datepicker.js')}}"></script>
 <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.bxslider.min.js')}}"></script>
 <script>
   var $ = jQuery.noConflict();
   $(document).ready(function () {

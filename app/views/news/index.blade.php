@@ -130,6 +130,27 @@
       <!--span6-->
 
       <div class="span6">
+
+      <!-- jquery carousel -->
+      <div id="counter-widget">
+        <h3 class="section-title widgets">Visitor counter</h3>
+        <div class="widget-body">
+          <div class="widget-content">
+            <div class="verticalslider">
+                <?php
+                $DAL = new DAL_Dikbud();
+                $link_dikbud = $DAL->GetAllLink();
+                ?>
+                @foreach($link_dikbud as $dikbud)
+                    <?php $link = "http://" . $dikbud->link; ?>
+                    <?php $assets = asset('assets/uploads/link/'.$dikbud->gambar); echo $assets;?>
+                    <div class="slider"><a href="{{ $link }}"><img src="{{ $assets }}"></a></div>
+                @endforeach
+            </div>
+          </div>
+        </div>
+      </div>
+
         <!--        <div id="counter-widget">-->
         <!--          <h3 class="section-title widgets">Visitor counter</h3>-->
         <!---->
@@ -196,6 +217,16 @@
 <script src="{{asset('assets/js/jquery.pajinate.js')}}"></script>
 <script type="text/javascript">
   var $ = jQuery.noConflict();
+
+  $(document).ready(function(){
+      $('.verticalslider').bxSlider({
+          mode: 'vertical',
+          sliderWidth: 300,
+          minSlides: 2,
+          slideMargin: 10
+      });
+  });
+
   $(function () {
 //        $(".news-feed").pagination({
 //            items: {{$count_news}},

@@ -247,8 +247,7 @@
           <span>Kementerian Pendidikan Dan Kebudayaan Republik Indonesia</span>
           <br/>
           {{ $call->alamat }} <br/>
-          <span class="rulycon-phone"></span> {{ $call->telp }}<br/>
-          <span class="rulycon-print"></span> {{ $call->fax }}<br/>
+          <span class="rulycon-phone"></span> {{ $call->telp }} &nbsp; | &nbsp; <span class="rulycon-print"></span> {{ $call->fax }}<br/>
           <!--                        Jawa Barat, Indonesia-->
         </address>
       </div>

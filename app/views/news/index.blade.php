@@ -81,7 +81,7 @@
       </div>
     </div>
     <div class="row-fluid">
-      <div id="dashboard-left" class="span6">
+      <div id="dashboard-left" class="span8">
 
         <div id="paging_container">
           <!--<h3 class="section-title" id="news-feed">Berita</h3>-->
@@ -94,7 +94,7 @@
               <div class="news-content">
                 <div class="row-fluid">
                   <div class="span12">
-                    <h4 style="font-style: normal;"><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a></h4>
+                    <h4><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a></h4>
                   </div>
                 </div>
                 <div class="row-fluid">
@@ -111,9 +111,9 @@
                         class="date"><?php echo HukorHelper::castMonthToString3($date->format('m')) ?></span>
                       {{$date->format('Y')}}</p>
                     <?php $berita_feed = strip_tags($news_feeds->berita);
-                    $highlight_feed = substr($berita_feed, 0, 250);
+                    $highlight_feed = substr($berita_feed, 0, 350);
                     ?>
-                    @if(strlen($berita_feed) > 250)
+                    @if(strlen($berita_feed) > 350)
                     <p>{{$highlight_feed}} ...</p>
 
                     <p><a class="read-more" href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">Read more
@@ -135,7 +135,10 @@
       </div>
       <!--span6-->
 
-      <div class="span6">
+      <div class="span4" style="margin-top: 32px;
+  border-top: 1px solid rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85); padding-top: 32px;">
+        <h3 class="section-title">Tautan CEMENdikbud</h3>
         <div class="verticalslider">
           <?php
           $DAL = new DAL_Dikbud();

@@ -778,6 +778,7 @@ p {
   color: #FF7200;
   position: absolute;
   margin-left: -24px;
+  border-radius: 50em;
 }
 
 .half:last-child ul a {

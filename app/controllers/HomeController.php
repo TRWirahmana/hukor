@@ -85,9 +85,7 @@ class HomeController extends BaseController {
     }
 
     public function adminlogin() {
-        //exit;
         return View::make('layouts.admin_login');
-
     }
 
     public function main_site() {

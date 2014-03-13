@@ -67,14 +67,15 @@
         <div class="half">
           <h2>Berita terbaru</h2>
           <ul>
-              <?php $x = 0; ?>
-              @foreach($latest_news as $data)
-              @if($x++ < 5)
-                <li><a href="#" data-target="#main-carousel" data-slide-to=<?php echo $x;?>>{{$data->judul}}</a></li>
+              <?php $x = 0;
+              foreach($latest_news as $data){
+                  if($x < 5){
+                      echo "<li><a href=# data-target=#main-carousel data-slide-to= ".$x.">". $data->judul ."</a></li>";
+                  }
+                $x++;
+              }
+              ?>
 
-              @endif
-              <? $x++;?>
-              @endforeach
           </ul>
         </div>
       </div>
@@ -86,7 +87,9 @@
           <!--<h3 class="section-title" id="news-feed">Berita</h3>-->
           <ul class="content">
 
+            <?php $s = 0; ?>
             @foreach($latest_news as $news_feeds)
+              @if($s++ >= 5)
             <li>
               <div class="news-content">
                 <div class="row-fluid">
@@ -120,7 +123,8 @@
                 </div>
               </div>
             </li>
-
+            @endif
+              <? $s++; ?>
             @endforeach
 
           </ul>

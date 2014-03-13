@@ -13,10 +13,10 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/simplePagination.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive-tables-news.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.bxslider.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycon.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycons.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/hukor-news.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.bxslider.css')}}">
 
   <style type="text/css">
     .container-fluid {

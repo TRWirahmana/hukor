@@ -671,7 +671,7 @@ p {
 }
 
 #paging_container .content > li:hover {
-  background: rgba(0, 0, 0, .025);
+  /*background: rgba(0, 0, 0, .025);*/
 }
 
 .page_navigation > a {
@@ -758,5 +758,47 @@ p {
   background: #5CA8EE;
   color: #ffffff;
 }
+
+.bx-wrapper {
+  border: none;
+  padding: 32px 0 0;
+  border-top: 1px solid rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85);
+  background: transparent;
+}
+
+.bx-wrapper .bx-viewport {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  left: 0;
+}
+
+.bx-wrapper .bx-controls .bx-controls-direction > a {
+  display: block;
+  width: 100%;
+  background: #ffffff;
+  border: none;
+  margin: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+}
+
+.bx-wrapper .bx-controls .bx-controls-direction > a:hover {
+  opacity: .85;
+}
+
+.bx-wrapper .bx-controls .bx-controls-direction > .bx-prev {
+  top: 0;
+  margin-top: 32px;
+}
+
+.bx-wrapper .bx-controls .bx-controls-direction > .bx-next {
+  top: 100%;
+  margin-top: -48px;
+}
+
+
 
 

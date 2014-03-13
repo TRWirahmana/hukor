@@ -93,22 +93,22 @@
                     var kategori = "";
                     switch (kat)
                     {
-                        case 1 :
+                        case '1' :
                             kategori = 'Keputusan Menteri';
                             break;
-                        case 2 :
+                        case '2' :
                             kategori = 'Peraturan Menteri';
                             break;
-                        case 3 :
+                        case '3' :
                             kategori = 'Peraturan Bersama';
                             break;
-                        case 4 :
+                        case '4' :
                             kategori = 'Keputusan Bersama';
                             break;
-                        case 5 :
+                        case '5' :
                             kategori = 'Instruksi Menteri';
                             break;
-                        case 6 :
+                        case '6' :
                             kategori = 'Surat Edaran';
                             break;
                     }
@@ -124,22 +124,22 @@
                     var masalah = "";
                     switch (mas)
                     {
-                        case 1 :
+                        case '1' :
                             masalah = 'Kepegawaian';
                             break;
-                        case 2 :
+                        case '2' :
                             masalah = 'Keuangan';
                             break;
-                        case 3 :
+                        case '3' :
                             masalah = 'Organisasi';
                             break;
-                        case 4 :
+                        case '4' :
                             masalah = 'Umum';
                             break;
-                        case 5 :
+                        case '5' :
                             masalah = 'Perlengkapan';
                             break;
-                        case 6 :
+                        case '6' :
                             masalah = 'Lainnya';
                             break;
                     }

@@ -89,7 +89,7 @@
                     $highlight_feed = substr($berita_feed, 0, 150);
                     ?>
                     @if(strlen($berita_feed) > 150)
-                    <p>{{$highlight_feed}}</p>
+                    <p>{{$highlight_feed}} ...</p>
 
                     <p><a class="read-more" href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">Read more
                         <span class="rulycon-arrow-right-3"></span></a></p>

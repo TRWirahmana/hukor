@@ -121,7 +121,7 @@ class DAL_BantuanHukun
 
     public function GetSingleBantuanHukum($id)
     {
-        $data = BantuanHukum::find($id)->with('pjbantuanhukum')->first();
+        $data = BantuanHukum::where('id', '=', $id)->with('pjbantuanhukum')->first();
 
         return $data;
     }
@@ -227,6 +227,7 @@ class DAL_BantuanHukun
         $helper = new HukorHelper();
 
         $this->DeleteLogBantuanHukum(true, $id);
+		
         $data = $this->GetSingleBantuanHukum($id);
 
         $helper->DeleteFile('bantuanhukum', $data->lampiran);

@@ -59,6 +59,7 @@ p {
 
 #social-links > .container {
   background: #0A3E6E;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
 }
 
 #social-links a {
@@ -101,7 +102,7 @@ p {
 .header > .container {
   background: #0e5ba1;
   padding: 0 20px;
-  /*box-shadow: inset 0 3px 0 rgba(0, 0, 0, .15);*/
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
 }
 
 .header .logo {
@@ -229,6 +230,7 @@ p {
   min-height: 33px;
   padding-left: 20px;
   padding-right: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
 }
 
 .sub-menu ul {
@@ -306,7 +308,7 @@ p {
 }
 
 #main-carousel {
-  margin-bottom: 36px;
+  margin-bottom: 0;
   /*border: 6px solid #ffffff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .25);*/
 }
@@ -398,12 +400,27 @@ p {
 
 .section-title {
   position: relative;
-  background: #084c8a;
+  background: #0A3E6E;
   color: #ffffff;
   padding: 12px 24px;
   font-weight: normal;
   font-size: 16px;
-  box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);
+  /*box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);*/
+  text-transform: uppercase;
+}
+
+.section-title#cemendikbud:after {
+  font-family: Rulycons;
+  content: "\e0c3";
+  position: absolute;
+  right: 24px;
+  background: #FF7200;
+  color: #ffffff;
+  height: 100%;
+  top: 0;
+  line-height: 260%;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .section-title#news-feed:after, .section-title.widgets:after {
@@ -425,7 +442,8 @@ p {
 }
 
 .news-content {
-  padding: 32px 0 48px;
+  padding: 32px 0 24px;
+  margin-top: 32px;
   border-top: 1px solid rgba(0, 0, 0, .075);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85);
   -moz-transition: all .2s ease-out;
@@ -444,11 +462,13 @@ p {
   margin-left: 4px;
 }
 
-.news-content .span3 > img {
-
+.news-content .span4 > img {
+  margin-top: 12px;
+  border: 4px solid #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
 }
 
-.news-content .span9 {
+.news-content .span8 {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -457,7 +477,7 @@ p {
 
 .news-content h4 {
   /*font-style: italic;*/
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .news-content p {
@@ -471,10 +491,29 @@ p {
   box-sizing: border-box;
   display: block;
   width: 100%;
-  color: #ffffff;
+  color: #666666;
   line-height: 140%;
-  padding: 12px 12px 16px 16px;
-  background: #0A3E6E;
+  padding: 12px 24px 16px 48px;
+  background: #eeeeee;
+}
+
+.news-content h4 > a:before {
+  font-family: Rulycons;
+  margin-right: 12px;
+  content: "\e005";
+  font-size: 12px;
+  color: #FF7200;
+  position: absolute;
+  margin-left: -24px;
+}
+
+.news-content h4 > a:hover {
+  color: #ffffff;
+  background: #5CA8EE;
+}
+
+.news-content h4 > a:hover:before {
+  color: #ffffff;
 }
 
 .news-content .date-time {
@@ -487,6 +526,9 @@ p {
 .pagination {
   margin-top: 24px;
   margin-bottom: 24px;
+  border-top: 1px solid rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85);
+  padding: 32px 0;
 }
 
 .pagination ul {
@@ -527,10 +569,18 @@ p {
 
 .footer address {
   margin-bottom: 12px;
+  text-align: center;
 }
 
-.footer address > span:first-child {
+.footer address img {
+  display: block;
+  margin: auto;
+  margin-bottom: 12px;
+}
+
+.footer address img + span {
   font-size: 15px;
+  display: block;
 }
 
 .footer .social-links span[class *= "rulycon"] {
@@ -697,6 +747,9 @@ p {
 .page_navigation > a:hover {
   background: #0e5ba1;
   color: #ffffff;
+}
+
+.page_navigation > a.active_page:hover, .page_navigation > a.no_more:hover {
   cursor: default;
 }
 
@@ -723,8 +776,9 @@ p {
   display: block;
   width: 100%;
   background: #0A3E6E;
-  font-size: 24px;
+  font-size: 20px;
   padding: 12px 24px;
+  text-transform: uppercase;
 }
 
 .half:last-child h2:after {
@@ -745,12 +799,23 @@ p {
   margin-bottom: 1px;
 }
 
+.half:last-child ul li a:before {
+  font-family: Rulycons;
+  margin-right: 12px;
+  content: "\e005";
+  font-size: 12px;
+  color: #FF7200;
+  position: absolute;
+  margin-left: -24px;
+  border-radius: 50em;
+}
+
 .half:last-child ul a {
   display: block;
   width: 100%;
   color: #666666;
-  font-size: 16px;
-  padding: 12px 24px;
+  font-size: 14px;
+  padding: 12px 24px 12px 48px;
   background: rgba(255, 255, 255, .35);
 }
 
@@ -759,11 +824,16 @@ p {
   color: #ffffff;
 }
 
+.half:last-child ul a:hover:before {
+  color: #ffffff;
+}
+
 .bx-wrapper {
   border: none;
   padding: 32px 0 0;
+  /*margin-top: 32px;
   border-top: 1px solid rgba(0, 0, 0, .075);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85);*/
   background: transparent;
 }
 
@@ -777,26 +847,46 @@ p {
 .bx-wrapper .bx-controls .bx-controls-direction > a {
   display: block;
   width: 100%;
-  background: #ffffff;
+  background: #eeeeee;
   border: none;
   margin: 0;
   left: 0;
   right: 0;
   height: 48px;
+  opacity: .35;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px;
 }
 
 .bx-wrapper .bx-controls .bx-controls-direction > a:hover {
-  opacity: .85;
+  opacity: .65;
 }
 
 .bx-wrapper .bx-controls .bx-controls-direction > .bx-prev {
   top: 0;
   margin-top: 32px;
+  background-image: url("../img/get-the-fuck-up.png");
+
 }
 
 .bx-wrapper .bx-controls .bx-controls-direction > .bx-next {
   top: 100%;
   margin-top: -48px;
+  background-image: url("../img/get-the-fuck-down.png");
+}
+
+#not-enough-message span[class *= rulycon] {
+  font-size: 60px;
+  margin-top: 60px;
+  margin-bottom: 24px;
+  display: block;
+  color: rgba(0, 0, 0, .15);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+#not-enough-message h5 {
+  margin-bottom: 60px;
 }
 
 

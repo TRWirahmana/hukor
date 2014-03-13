@@ -243,7 +243,8 @@
       </div>
       <div class="span3">
         <address>
-          <span>Kementerian Pendidikan Dan Kebudayaan Republik Indonesia</span><br/>
+          <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
+          <span>Kementerian Pendidikan Dan Kebudayaan Republik Indonesia</span>
           <br/>
           {{ $call->alamat }} <br/>
           <span class="rulycon-phone"></span> {{ $call->telp }}<br/>

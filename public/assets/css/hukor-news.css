@@ -511,6 +511,9 @@ p {
 .pagination {
   margin-top: 24px;
   margin-bottom: 24px;
+  border-top: 1px solid rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85);
+  padding: 32px 0;
 }
 
 .pagination ul {
@@ -551,10 +554,18 @@ p {
 
 .footer address {
   margin-bottom: 12px;
+  text-align: center;
 }
 
-.footer address > span:first-child {
+.footer address img {
+  display: block;
+  margin: auto;
+  margin-bottom: 12px;
+}
+
+.footer address img + span {
   font-size: 15px;
+  display: block;
 }
 
 .footer .social-links span[class *= "rulycon"] {
@@ -721,6 +732,9 @@ p {
 .page_navigation > a:hover {
   background: #0e5ba1;
   color: #ffffff;
+}
+
+.page_navigation > a.active_page:hover, .page_navigation > a.no_more:hover {
   cursor: default;
 }
 

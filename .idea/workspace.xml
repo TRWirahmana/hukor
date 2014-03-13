@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/news/index.blade.php" afterPath="$PROJECT_DIR$/app/views/news/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,25 +24,6 @@
     <groupTables value="false" />
     <sortChildren value="false" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="DAL_Layanan.php" pinned="false" current="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Layanan.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="57" column="38" selection-start="1549" selection-end="1549" vertical-scroll-proportion="0.6276923" vertical-offset="561" max-vertical-offset="1258">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="diknasrokum" />
@@ -53,7 +33,7 @@
       <file leaf-file-name="index.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="16" selection-start="5148" selection-end="5148" vertical-scroll-proportion="0.8310139" vertical-offset="1894" max-vertical-offset="4386">
+            <state line="134" column="23" selection-start="4886" selection-end="4886" vertical-scroll-proportion="0.66202784" vertical-offset="1945" max-vertical-offset="4403">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -65,7 +45,7 @@
       <file leaf-file-name="berita.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="50" selection-start="3531" selection-end="3531" vertical-scroll-proportion="-7.1923075" vertical-offset="1326" max-vertical-offset="5916">
+            <state line="90" column="50" selection-start="3583" selection-end="3583" vertical-scroll-proportion="-7.1923075" vertical-offset="1343" max-vertical-offset="5916">
               <folding />
             </state>
           </provider>
@@ -668,7 +648,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="50" selection-start="3531" selection-end="3531" vertical-scroll-proportion="-7.1923075" vertical-offset="1326" max-vertical-offset="5916">
+        <state line="90" column="50" selection-start="3583" selection-end="3583" vertical-scroll-proportion="-7.1923075" vertical-offset="1343" max-vertical-offset="5916">
           <folding />
         </state>
       </provider>
@@ -756,7 +736,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="16" selection-start="5148" selection-end="5148" vertical-scroll-proportion="0.8310139" vertical-offset="1894" max-vertical-offset="4386">
+        <state line="134" column="23" selection-start="4886" selection-end="4886" vertical-scroll-proportion="0.66202784" vertical-offset="1945" max-vertical-offset="4403">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />

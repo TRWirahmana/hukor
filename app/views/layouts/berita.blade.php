@@ -190,7 +190,7 @@
 <!--content-wrapper-->
 
 <div class="footer">
-  <div class="container">
+  <div class="container" style="width: 960px;">
 
     <div class="row-fluid">
       <?php $call = CallCenter::find(1); ?>

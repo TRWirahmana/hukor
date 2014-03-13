@@ -52,7 +52,7 @@
 <div class="mainwrapper">
 <div id="top-bar">
   <div id="social-links">
-    <div class="container">
+    <div class="container" >
       <p class="pull-right">
         <a href="#"><span class="rulycon-twitter"></span></a>
         <a href="#"><span class="rulycon-feed-3"></span></a>

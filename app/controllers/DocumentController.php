@@ -17,6 +17,7 @@ class DocumentController extends BaseController{
     public function add()
     {
         $this->layout->content = View::make('document.form', array(
+		'title' => 'Tambah Dokumen',
             'data' => new Document(),
             'form_opts' => array(
                 'action' => 'DocumentController@save',
@@ -89,6 +90,7 @@ class DocumentController extends BaseController{
         $data = $DAL->GetSingleDocument($id);
 
         $this->layout->content = View::make('document.form', array(
+		'title' => 'Ubah Informasi Dokumen',
             'data' => $data,
             'form_opts' => array(
                 'action' => array('DocumentController@update', $data->id),

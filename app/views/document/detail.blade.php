@@ -16,7 +16,7 @@
         <div class="pagetitle">
             <!--<h5>Events</h5>-->
 
-            <h1>Tambah Dokumen</h1>
+            <h1>Detail Dokumen</h1>
         </div>
     </div>
     <!--pageheader-->

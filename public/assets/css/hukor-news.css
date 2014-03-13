@@ -876,6 +876,19 @@ p {
   background-image: url("../img/get-the-fuck-down.png");
 }
 
+#not-enough-message span[class *= rulycon] {
+  font-size: 60px;
+  margin-top: 60px;
+  margin-bottom: 24px;
+  display: block;
+  color: rgba(0, 0, 0, .15);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+#not-enough-message h5 {
+  margin-bottom: 60px;
+}
+
 
 
 

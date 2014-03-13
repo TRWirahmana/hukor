@@ -123,6 +123,19 @@
                     @endif
                   </div>
                 </div>
+
+
+                <!-- JIKA #BERITA KURANG DARI LIMA ITEM -->
+                <div class="row-fluid">
+                  <div class="span12">
+                    <div id="not-enough-message" class="text-center">
+                      <p><span class="rulycon-info"></span></p>
+                      <h5>Belum cukup berita untuk menampilkan berita di area ini.</h5>
+                    </div>
+                  </div>
+                </div>
+
+                
               </div>
             </li>
             @endif

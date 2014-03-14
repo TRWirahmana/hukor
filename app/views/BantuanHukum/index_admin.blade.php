@@ -271,5 +271,13 @@
 
     });
 </script>
+
+<script>
+  jQuery("#app_bahu > a").addClass("sub-menu-active");
+  jQuery("#app").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
 @stop
 @stop

@@ -224,5 +224,14 @@
         }
     });
 </script>
+
+<script>
+  jQuery("#app_ketatalaksanaan > ul > li:last-child > a").addClass("sub-menu-active");
+  jQuery("#app, #app_ketatalaksanaan > ul").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
+
 @stop
 @stop

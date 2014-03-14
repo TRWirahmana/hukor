@@ -15,7 +15,7 @@
                             <th>Jabatan</th>
                             <th>Perihal</th>
                             <th>Status</th>
-                            <th></th>
+<!--                            <th></th>-->
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -92,13 +92,13 @@ $("#menu-peraturan-perundangan").addClass("active");
                             ;
                         }
                     },
-                    {
-                        mData: 'id',
-                        sWidth: "8%",
-                        mRender: function(data, type, all) {
-                            return "<a href='"+baseUrl+"/puu/download/" + data + "'><i class='icon-download'></i></a> ";
-                        }
-                    }
+//                    {
+//                        mData: 'id',
+//                        sWidth: "8%",
+//                        mRender: function(data, type, all) {
+//                            return "<a href='"+baseUrl+"/puu/download/" + data + "'><i class='icon-download'></i></a> ";
+//                        }
+//                    }
                 ],
                 "fnDrawCallback": function ( oSettings ) {
                     /* Need to redo the counters if filtered or sorted */

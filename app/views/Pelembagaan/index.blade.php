@@ -261,9 +261,9 @@
                                                 + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/"+data+"'>"
                                                 + "<i class='icon-trash'></i></a>";
                                         } else if(role_id == 0 ) {
-                                          return "<a href='" + baseUrl + '/pelembagaan/download/'+data+ "'> <i class='icon-download'></i></a>";
+//                                          return "<a href='" + baseUrl + '/pelembagaan/download/'+data+ "'> <i class='icon-download'></i></a>";
                                         }  else {
-                                          return "<a href='" + baseUrl + '/pelembagaan/download/' + data + "'> <i class='icon-download'></i></a>";
+//                                          return "<a href='" + baseUrl + '/pelembagaan/download/' + data + "'> <i class='icon-download'></i></a>";
                                         }
                               }
                             }

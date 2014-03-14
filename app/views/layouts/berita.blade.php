@@ -265,9 +265,9 @@
 <!--mainwrapper-->
 
 <!-- dialog box -->
-<div id="dialog" title="Forum">
+<!--<div id="dialog" title="Forum">
     <p>Silahkan klik LOGIN terlebih dahulu untuk masuk ke dalam Forum. Jika belum mempunyai akun, silakan klik DAFTAR untuk registrasi.</p>
-</div>
+</div>-->
 
 @section('scripts')
 <script src="{{asset('assets/js/jquery-1.10.1.min.js')}}"></script>

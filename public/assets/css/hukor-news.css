@@ -163,7 +163,8 @@ p {
   background: transparent;
   padding: 32px 6px 18px;
   text-align: center;
-  /*box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);*/
+  /*box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);
+  max-width: 75px;*/
 }
 
 .headmenu > li > a > span[class *= "rulycon"] {

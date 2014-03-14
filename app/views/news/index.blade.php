@@ -240,8 +240,8 @@
     $(document).ready(function () {
         $('.verticalslider').bxSlider({
             mode: 'vertical',
-            minSlides: 3,
-            slideMargin: 32
+            minSlides: 4,
+            slideMargin: 4
         });
     });
 

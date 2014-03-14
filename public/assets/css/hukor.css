@@ -117,12 +117,12 @@ textarea {
   background: #2875A8 !important;
 }
 .well.well-success {
-  background: rgb(223, 240, 216);
-  color: #468847;
+  background: rgba(255, 255, 255, .35);
+  color: #0A3E6E;
   padding-bottom: 36px;
 }
 .well.well-success hr {
-  border-color: #468847;
+  border-color: #2875A8;
 }
 .card {
   display: block;
@@ -452,7 +452,7 @@ div.DTTT_container {
 }
 .rightpanel .pageheader {
   padding-bottom: 8px;
-  background: #4fb4c0;
+  background: #5CA8EE;
 }
 .rightpanel .pageicon {
   font-size: 24px;

@@ -423,7 +423,7 @@ table.dataTable tbody tr.even td.sorting_1 {
 }
 .sub-menu-active {
   color: #ffffff !important;
-  background: #2875A8;
+  background: #2875A8 !important;
 }
 
 div.DTTT_container {

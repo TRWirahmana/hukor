@@ -96,4 +96,7 @@
 
 @section('scripts')
 @parent
+<script>
+  jQuery("#user-links > a:first-child").addClass("sub-menu-active");
+</script>
 @stop

@@ -19,8 +19,6 @@
           <a class="btn btn-primary" href="{{ URL::route('admin.categories.create') }}">Tambah Kategori Baru</a>
         </div>
 
-        <br/>
-
 				<div class="content-non-title">
 					<table id="tbl-categories" class="table">
 						<thead>

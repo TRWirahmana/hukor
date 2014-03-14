@@ -189,6 +189,9 @@ legend {
   display: inline-block;
   width: auto;
 }
+.form-horizontal legend {
+  margin-bottom: 12px;
+}
 .mainwrapper .header, .mainwrapper .leftpanel, .mainwrapper .rightpanel {
   float: left;
 }
@@ -380,6 +383,10 @@ table.dataTable tbody tr.even td.sorting_1 {
   background: #2875A8;
   padding: 4px 16px;
   right: 0;
+  border-radius: 2px;
+}
+.dataTables_wrapper .dataTables_filter input {
+  min-width: 180px;
 }
 .dataTables_wrapper .dataTables_length {
   padding-bottom: 16px;

@@ -289,29 +289,29 @@
                       </div>
                   </div>
               </li>
-              <li id="menu-faq">
-                  <div class="accordion" id="accordion7">
-                      <div class="accordion-group">
-                          <div class="accordion-heading">
-                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapse14">
-                                  <span class="rulycon-stack"></span>FAQ
-                                  <span class="rulycon-menu-2 pull-right"></span>
-                              </a>
-                          </div>
-                          <div id="collapse14" class="accordion-body collapse">
-                              <div class="accordion-inner">
-                                  <ul>
-                                      <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=1') }}"><span class="rulycon-checkbox-unchecked"></span>Peraturan Perundang-Undangan</a></li>
-                                      <li id="menu-pelembagaan-info"><a href="{{ URL::to('/layanan/detail?id=2') }}"><span class="rulycon-checkbox-unchecked"></span>Pelembagaan</a></li>
-                                      <li id="menu-sistem-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span class="rulycon-checkbox-unchecked"></span>Sistem dan Prosedur</a></li>
-                                      <li id="menu-analisis-info"><a href="{{ URL::to('/layanan/detail?id=5') }}"><span class="rulycon-checkbox-unchecked"></span>Analisis Jabatan</a></li>
-                                      <li id="menu-bantuan-hukum-info"><a href="{{ URL::to('/layanan/detail?id=3') }}"><span class="rulycon-checkbox-unchecked"></span>Bantuan Hukum</a></li>
-                                  </ul>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </li>
+<!--              <li id="menu-faq">-->
+<!--                  <div class="accordion" id="accordion7">-->
+<!--                      <div class="accordion-group">-->
+<!--                          <div class="accordion-heading">-->
+<!--                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapse14">-->
+<!--                                  <span class="rulycon-info"></span>FAQ-->
+<!--                                  <span class="rulycon-menu-2 pull-right"></span>-->
+<!--                              </a>-->
+<!--                          </div>-->
+<!--                          <div id="collapse14" class="accordion-body collapse">-->
+<!--                              <div class="accordion-inner">-->
+<!--                                  <ul>-->
+<!--                                      <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=1') }}"><span class="rulycon-checkbox-unchecked"></span>Peraturan Perundang-Undangan</a></li>-->
+<!--                                      <li id="menu-pelembagaan-info"><a href="{{ URL::to('/layanan/detail?id=2') }}"><span class="rulycon-checkbox-unchecked"></span>Pelembagaan</a></li>-->
+<!--                                      <li id="menu-sistem-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span class="rulycon-checkbox-unchecked"></span>Sistem dan Prosedur</a></li>-->
+<!--                                      <li id="menu-analisis-info"><a href="{{ URL::to('/layanan/detail?id=5') }}"><span class="rulycon-checkbox-unchecked"></span>Analisis Jabatan</a></li>-->
+<!--                                      <li id="menu-bantuan-hukum-info"><a href="{{ URL::to('/layanan/detail?id=3') }}"><span class="rulycon-checkbox-unchecked"></span>Bantuan Hukum</a></li>-->
+<!--                                  </ul>-->
+<!--                              </div>-->
+<!--                          </div>-->
+<!--                      </div>-->
+<!--                  </div>-->
+<!--              </li>-->
           </ul>
         </div>
         <h6 id="copyright">© 2014 Biro Hukum dan Organisasi</h6>

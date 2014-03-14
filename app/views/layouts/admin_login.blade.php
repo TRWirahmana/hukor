@@ -82,7 +82,7 @@
 </div><!--loginpanel-->
 
 <div class="loginfooter">
-    <p>&copy; 2014 Direktorat Jenderal Kebudayaan Republik Indonesia</p>
+    <p>&copy; 2014 Biro Hukum dan Organisasi</p>
 </div>
 
 </body>

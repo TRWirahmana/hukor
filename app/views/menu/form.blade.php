@@ -93,13 +93,8 @@
             </div>
 
 
-            <div class="footer">
-                <div class="footer-left">
-                    <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
-                </div>
-                <div class="footer-right">
-                    <span></span>
-                </div>
+            <div class="footer span10">
+                    <span>&copy;2014 Biro Hukum dan Organisasi</span>
             </div>
             <!--footer-->
         </div>

@@ -77,7 +77,7 @@
 
       <div class="footer">
         <div class="footer-left">
-          <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
+          <span>&copy;2014 Biro Hukum dan Organisasi</span>
         </div>
         <div class="footer-right">
           <span></span>

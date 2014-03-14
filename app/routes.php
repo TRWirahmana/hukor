@@ -101,6 +101,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('create_menu', 'MenuController@create');
     Route::get('index_menu', 'MenuController@index');
     Route::get('setting_menu', 'MenuController@setting');
+    Route::get('table_menu', 'MenuController@datatable');
     // Route::put('setting/save', 'MenuController@save');
 
     //Managemen Submenu

@@ -340,7 +340,9 @@ legend {
 .ui-datepicker-title .ui-datepicker-month {
   margin-right: 2px !important;
 }
-
+table.dataTable {
+  width: 100% !important;
+}
 table.dataTable thead tr {
   border: none;
 }
@@ -417,6 +419,10 @@ table.dataTable tbody tr.even td.sorting_1 {
 }
 .leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a:hover {
   color: #ffffff;
+  background: #2875A8;
+}
+.sub-menu-active {
+  color: #ffffff !important;
   background: #2875A8;
 }
 

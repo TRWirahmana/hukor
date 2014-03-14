@@ -68,12 +68,12 @@
 @section('scripts')
 @parent
 <script src="{{asset('assets/js/management_menu.js')}}"></script>
-<!--<style>
-    .leftmenu .nav-tabs.nav-stacked > li.dropdown ul {
-        display: block !important;
-    }
-    #produkhukum, #ketatalaksanaan, #bahu, #puu, #diskusi, #callcenter, #app, #manage, #info {
-        display: none !important;
-    }
-</style>-->
+
+<script>
+  jQuery("#manage-menu > #menu > a").addClass("sub-menu-active");
+  jQuery("#manage-menu").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
 @stop

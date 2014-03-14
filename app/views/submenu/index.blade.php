@@ -81,4 +81,12 @@
 <!--        display: none !important;-->
 <!--    }-->
 <!--</style>-->
+
+<script>
+  jQuery("#manage-menu > #kelola_submenu > a").addClass("sub-menu-active");
+  jQuery("#manage-menu").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
 @stop

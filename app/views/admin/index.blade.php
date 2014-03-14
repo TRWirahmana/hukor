@@ -96,4 +96,12 @@
 <!--        background: #0866C6;-->
 <!--    }-->
 <!--</style>-->
+
+<script>
+  jQuery("#kelola > a").addClass("sub-menu-active");
+  jQuery("#manage").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
 @stop

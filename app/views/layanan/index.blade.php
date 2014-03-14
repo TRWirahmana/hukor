@@ -72,4 +72,12 @@
 @section('scripts')
 @parent
 <script src="{{asset('assets/js/layanan_index.js')}}"></script>
+
+<script>
+  jQuery("#manage-menu > li:nth-child(3) > a").addClass("sub-menu-active");
+  jQuery("#manage-menu").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
 @stop

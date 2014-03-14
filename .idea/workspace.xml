@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="" />
+    <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/berita.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,11 +31,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="master.blade.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
+      <file leaf-file-name="berita.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="168" column="48" selection-start="8962" selection-end="8962" vertical-scroll-proportion="-2.0190356" vertical-offset="4447" max-vertical-offset="5746">
-              <folding />
+            <state line="318" column="26" selection-start="12379" selection-end="12379" vertical-scroll-proportion="0.643401" vertical-offset="4899" max-vertical-offset="6222">
+              <folding>
+                <element signature="n#style#0;n#ul#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,7 +68,6 @@
         <option value="$PROJECT_DIR$/app/controllers/DocumentController.php" />
         <option value="$PROJECT_DIR$/app/views/produkhukum/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/HomeController.php" />
-        <option value="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
         <option value="$PROJECT_DIR$/app/views/news/index.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" />
         <option value="$PROJECT_DIR$/public/.htaccess" />
@@ -71,6 +80,7 @@
         <option value="$PROJECT_DIR$/app/views/PerUU/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/PerUU/informasi.blade.php" />
         <option value="$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
       </list>
     </option>
   </component>
@@ -272,11 +282,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/assets/css/jquery.bxslider.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="14" selection-start="3430" selection-end="3430" vertical-scroll-proportion="0.71088433" vertical-offset="2484" max-vertical-offset="3434" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/start/global.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="18" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.6409938" vertical-offset="266" max-vertical-offset="1887">
@@ -301,9 +306,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="163" column="65" selection-start="7906" selection-end="7906" vertical-scroll-proportion="0.7109471" vertical-offset="2193" max-vertical-offset="3383">
-          <folding />
-        </state>
+        <state line="163" column="65" selection-start="7906" selection-end="7906" vertical-scroll-proportion="0.7109471" vertical-offset="2193" max-vertical-offset="3383" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/document/form.blade.php">
@@ -371,8 +374,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="48" selection-start="8962" selection-end="8962" vertical-scroll-proportion="-2.0190356" vertical-offset="4447" max-vertical-offset="5746">
+        <state line="296" column="72" selection-start="16598" selection-end="16598" vertical-scroll-proportion="2.4255843" vertical-offset="3060" max-vertical-offset="6137">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="318" column="26" selection-start="12379" selection-end="12379" vertical-scroll-proportion="0.643401" vertical-offset="4899" max-vertical-offset="6222">
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

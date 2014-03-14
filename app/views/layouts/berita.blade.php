@@ -264,6 +264,11 @@
 </div>
 <!--mainwrapper-->
 
+<!-- dialog box -->
+<div id="dialog" title="Forum">
+    <p>Silahkan klik LOGIN terlebih dahulu untuk masuk ke dalam Forum. Jika belum mempunyai akun, silakan klik DAFTAR untuk registrasi.</p>
+</div>
+
 @section('scripts')
 <script src="{{asset('assets/js/jquery-1.10.1.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery-ui-1.9.2.min.js')}}"></script>
@@ -303,20 +308,33 @@
     $("#sub-aplikasi").show();
   });
 
-  $('#forum_diskusi').click(function () {
-    var user = '<?php echo Auth::user(); ?>';
+    $('#forum_diskusi').click(function () {
+        var user = '<?php echo Auth::user(); ?>';
 
-    if (user) {
-      window.location.replace("{{ URL::to('forumdiskusi') }}");
-    }
-    else {
-      var r = confirm("Anda Belum Login. Harap Login Terlebih Dahulu. Klik OK Untuk Registrasi Jika Anda Belum Memiliki Akun.");
-      if (r == true) {
-        window.location.replace("{{URL::to('registrasi')}}");
-      }
-    }
+        if (user) {
+          window.location.replace("{{ URL::to('forumdiskusi') }}");
+        }
+        else {
+            $('#dialog').dialog({
+                height: 190,
+                width: 400,
+                modal: true,
+                buttons: {
+                    "Login" : function(){
+                        window.location.replace("{{URL::to('site')}}");
+                    },
 
-  });
+                    "Registrasi" : function(){
+                        window.location.replace("{{URL::to('registrasi')}}");
+                    },
+
+                    Cancel : function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        }
+    });
 </script>
 <script>
   !function (d, s, id) {

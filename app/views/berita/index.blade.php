@@ -30,8 +30,6 @@
         @endif
       </div>
 
-      <br/>
-
       <table id="table_news" class="table">
         <thead>
         <tr>

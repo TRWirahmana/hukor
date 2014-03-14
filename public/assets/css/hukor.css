@@ -374,6 +374,13 @@ table.dataTable tbody tr.even td.sorting_1 {
   background: #2875A8;
   color: #ffffff;
 }
+.dataTables_wrapper .dataTables_filter {
+  position: absolute;
+  top: -42px;
+  background: #2875A8;
+  padding: 4px 16px;
+  right: 0;
+}
 .dataTables_wrapper .dataTables_length {
   padding-bottom: 16px;
   border: 1px solid #226c9c;
@@ -424,6 +431,9 @@ table.dataTable tbody tr.even td.sorting_1 {
 .sub-menu-active {
   color: #ffffff !important;
   background: #2875A8 !important;
+}
+.sub-menu-active:hover {
+  cursor: default;
 }
 
 div.DTTT_container {

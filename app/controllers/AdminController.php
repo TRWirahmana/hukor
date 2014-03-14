@@ -100,20 +100,49 @@ class AdminController extends BaseController {
 
 	public function index()
 	{
-//        $this->layout = "layouts.admin";
+        $filter = Input::all();
         $user = Auth::user();
 
         if(Request::ajax()) {
             if(Input::get('role_id') == 0)
             {
-                $admins = User::where('user.role_id', '!=', '')->where('user.id', '!=', 1)->with('pengguna');
-//                $admins->where('nama_lengkap', '!=', '');
+//                $admins = User::where('user.role_id', '!=', '')->where('user.id', '!=', 1)->with('pengguna');
+                $admins = User::leftJoin('pengguna', 'user.id', '=', 'pengguna.user_id')
+                    ->select(array(
+                        'user.id',
+                        'pengguna.nama_lengkap',
+                        'pengguna.email',
+                        'user.username',
+                        'user.role_id'
+                    ))
+                    ->where('user.role_id', '!=', '')
+                    ->where('user.id', '!=', 1);
+
             }else
             {
-                $admins = User::where('user.role_id', '=', Input::get('role_id'))->where('user.id', '!=', 0)->with('pengguna');
+//                $admins = User::where('user.role_id', '=', Input::get('role_id'))->where('user.id', '!=', 0)->with('pengguna');
+                $admins = User::leftJoin('pengguna', 'user.id', '=', 'pengguna.user_id')
+                    ->select(array(
+                        'user.id',
+                        'pengguna.nama_lengkap',
+                        'pengguna.email',
+                        'user.username',
+                        'user.role_id'
+                    ))
+                ->where('user.role_id', '=', Input::get('role_id'))
+                    ->where('user.id', '!=', 0);
             }
 
             $totalRecords = $admins->count();
+
+            //search specific record
+            if(!empty($filter['sSearch'])){
+                $search = $filter['sSearch'];
+                $admins->where('username', 'like', "%$search%")
+                ->orWhere('nama_lengkap', 'like', "%$search%");
+                ;
+            }
+
             $totalDisplayRecords = $admins->count();
             $admins = $admins->skip(Input::get('iDisplayStart'))->take(Input::get('iDisplayLength'));
 

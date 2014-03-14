@@ -14,14 +14,14 @@
         <link rel="stylesheet" type="text/css" href="{{asset('assets/css/dusk.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-embedding-standard.min.css')}}">
         <link rel="stylesheet" href="{{asset('assets/TableTools-2.2.0/css/dataTables.tableTools.min.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('assets/css/hukor.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.default.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycon.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycons.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.dataTables.css')}}">
 
         <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.ui.datepicker.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/css/hukor.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.default.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycon.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycons.min.css')}}">
 
         <style type="text/css">
             .container-fluid {

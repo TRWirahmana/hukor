@@ -26,16 +26,17 @@
 
             <!-- MAIN CONTENT -->
             <!--            {{-- form informasi layanan kelembagaan --}}-->
-            {{ Form::open($form_opts) }}
-<!--            {{ Form::open(array('action' => array('LayananController@submit'), 'method' => 'post', 'id'=>'layanan-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', 'enctype' => "multipart/form-data" )) }}-->
-            <div class="row-fluid">
-                <!--            left content-->
-                <div class="span24">
-                    <div class="nav nav-tabs">
-                        <h4>Informasi layanan</h4>
-                    </div>
-
+            <div class="span8">
+                {{ Form::open($form_opts) }}
+                <!--            {{ Form::open(array('action' => array('LayananController@submit'), 'method' => 'post', 'id'=>'layanan-form', 'class' =>'front-form form-horizontal', 'autocomplete' => 'off', 'enctype' => "multipart/form-data" )) }}-->
+                <div class="row-fluid">
+                    <!--            left content-->
                     <div class="span24">
+                        <div class="nav nav-tabs">
+                            <h4>Informasi layanan</h4>
+                        </div>
+
+                        <div class="span24">
                             <div class="control-group">
                                 {{ Form::label('menu', 'Pilih Menu', array('class' => 'control-label')) }}
                                 <div class="controls">
@@ -56,61 +57,63 @@
                                 </div>
                             </div>
 
-                        <div class="control-group {{$errors->has('berita')?'error':''}}">
-                            {{ Form::label('berita', 'Informasi / Berita', array('class' => 'control-label')) }}
-                            <div class="controls">
-                                @if(!is_null($menu))
-                                {{ Form::textarea('layanan[berita]', $menu->berita,
-                                array('placeholder' => 'Masukan Informasi atau berita anda di sini...', 'id' => 'berita'))
-                                }}
-                                @else
-                                {{ Form::textarea('layanan[berita]', '',
-                                array('placeholder' => 'Masukan Informasi atau berita anda di sini...', 'id' => 'berita')) }}
-                                @endif
+                            <div class="control-group {{$errors->has('berita')?'error':''}}">
+                                {{ Form::label('berita', 'Informasi / Berita', array('class' => 'control-label')) }}
+                                <div class="controls">
+                                    @if(!is_null($menu))
+                                    {{ Form::textarea('layanan[berita]', $menu->berita,
+                                    array('placeholder' => 'Masukan Informasi atau berita anda di sini...', 'id' => 'berita'))
+                                    }}
+                                    @else
+                                    {{ Form::textarea('layanan[berita]', '',
+                                    array('placeholder' => 'Masukan Informasi atau berita anda di sini...', 'id' => 'berita')) }}
+                                    @endif
 
 
 
-                                @foreach($errors->get('berita') as $error)
-                                <span class="help-block">{{$error}}</span>
-                                @endforeach
+                                    @foreach($errors->get('berita') as $error)
+                                    <span class="help-block">{{$error}}</span>
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="control-group {{$errors->has('penanggung_jawab')?'error':''}}">
-                            {{ Form::label('penanggung_jawab', 'Unit Penanggung Jawab', array('class' => 'control-label')) }}
-                            <div class="controls">
-                                @if(!is_null($menu))
-                                {{ Form::select('layanan[penanggung_jawab]', $listPJ, $user->pengguna->bagian, array("id" => "PJ")) }}
-                                @else
-                                {{ Form::select('layanan[penanggung_jawab]', $listPJ, $user->pengguna->bagian, array("id" => "PJ")) }}
-                                @endif
+                            <div class="control-group {{$errors->has('penanggung_jawab')?'error':''}}">
+                                {{ Form::label('penanggung_jawab', 'Unit Penanggung Jawab', array('class' => 'control-label')) }}
+                                <div class="controls">
+                                    @if(!is_null($menu))
+                                    {{ Form::select('layanan[penanggung_jawab]', $listPJ, $user->pengguna->bagian, array("id" => "PJ")) }}
+                                    @else
+                                    {{ Form::select('layanan[penanggung_jawab]', $listPJ, $user->pengguna->bagian, array("id" => "PJ")) }}
+                                    @endif
 
-                                @foreach($errors->get('penanggung_jawab') as $error)
-                                <span class="help-block">{{$error}}</span>
-                                @endforeach
+                                    @foreach($errors->get('penanggung_jawab') as $error)
+                                    <span class="help-block">{{$error}}</span>
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="control-group {{$errors->has('image')?'error':''}}">
-                            {{ Form::label('image', 'Gambar', array('class' => 'control-label')) }}
-                            <div class="controls">
-                                {{ Form::file('layanan[image]')}}
+                            <div class="control-group {{$errors->has('image')?'error':''}}">
+                                {{ Form::label('image', 'Gambar', array('class' => 'control-label')) }}
+                                <div class="controls">
+                                    {{ Form::file('layanan[image]')}}
 
-                                @foreach($errors->get('image') as $error)
-                                <span class="help-block">{{$error}}</span>
-                                @endforeach
+                                    @foreach($errors->get('image') as $error)
+                                    <span class="help-block">{{$error}}</span>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row-fluid">
-                    <div class="span24 text-center">
-                        {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
+                    <div class="row-fluid">
+                        <div class="span24 text-center">
+                            {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
+                        </div>
                     </div>
-                </div>
 
-                {{ Form::close() }}
+                    {{ Form::close() }}
+            </div>
+
 
                 <!-- END OF MAIN CONTENT -->
 

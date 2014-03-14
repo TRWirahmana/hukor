@@ -25,43 +25,46 @@
         <div class="maincontentinner">
 
             <!-- MAIN CONTENT -->
-            {{ Form::open($form_opts) }}
+            <div class="span5">
+                {{ Form::open($form_opts) }}
 
-            <div>
-                <fieldset>
-                    <legend class="f_legend">{{$title}}</legend>
-                    <p class="text-info">{{$detail}}</p>
+                <div>
+                    <fieldset>
+                        <legend class="f_legend">{{$title}}</legend>
+                        <p class="text-info">{{$detail}}</p>
 
-                    <div class="control-group">
-                        {{ Form::label('menu', 'Pilih Menu', array('class' => 'control-label')) }}
-                        <div class="controls">
-                            {{ Form::select('menu', $listmenu, $submenu->menu->id, array("id" => "menu_id")) }}
+                        <div class="control-group">
+                            {{ Form::label('menu', 'Pilih Menu', array('class' => 'control-label')) }}
+                            <div class="controls">
+                                {{ Form::select('menu', $listmenu, $submenu->menu->id, array("id" => "menu_id")) }}
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="control-group">
-                        {{ Form::label('submenu', 'Nama Submenu', array('class' => 'control-label')); }}
-                        <div class="controls">
-                            @if(!is_object($submenu->nama_menu))
-                            {{ Form::text('submenu', $submenu->nama_submenu, array('placeholder' => 'Isi Nama Submenu')) }}
-                            @else
-                            {{ Form::text('submenu', $submenu->nama_submenu, array('placeholder' => 'Isi Nama Submenu.')) }}
-                            @endif
+                        <div class="control-group">
+                            {{ Form::label('submenu', 'Nama Submenu', array('class' => 'control-label')); }}
+                            <div class="controls">
+                                @if(!is_object($submenu->nama_menu))
+                                {{ Form::text('submenu', $submenu->nama_submenu, array('placeholder' => 'Isi Nama Submenu')) }}
+                                @else
+                                {{ Form::text('submenu', $submenu->nama_submenu, array('placeholder' => 'Isi Nama Submenu.')) }}
+                                @endif
+                            </div>
                         </div>
-                    </div>
 
-            </div>
-
-            </fieldset>
-
-            <div class="form-actions">
-                <div class="controls">
-                    {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
                 </div>
+
+                </fieldset>
+
+                <div class="form-actions">
+                    <div class="controls">
+                        {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
+                    </div>
+                </div>
+
+            </div>
+            {{ Form::close() }}
             </div>
 
-        </div>
-        {{ Form::close() }}
 
         <div class="footer">
             <div class="footer-left">

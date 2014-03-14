@@ -378,18 +378,18 @@ p {
 
 #main-carousel .carousel-caption {
   display: inline-block;
-  width: 50%;
+  /*width: 65%;*/
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 #main-carousel .item {
-  position: relative;
+  /*position: relative;*/
 }
 
 #main-carousel .carousel-list-item {
-  width: 50%;
+  width: 35%;
   vertical-align: top;
   position: absolute;
   top: 0;
@@ -443,10 +443,10 @@ p {
 #main-carousel ul a {
   display: block;
   width: 100%;
-  color: #ffffff;
+  color: #333333;
   font-size: 14px;
   padding: 12px 24px 12px 24px;
-  background: rgba(0, 0, 0, .25);
+  background: rgba(255, 255, 255, .75);
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;

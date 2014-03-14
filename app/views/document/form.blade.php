@@ -100,7 +100,7 @@
                     </div>
 
                     <div class="control-group">
-                        {{ Form::label('deskripsi', 'Deskripsi', array('class' => 'control-label')) }}
+                        {{ Form::label('deskripsi', 'Catatan', array('class' => 'control-label')) }}
                         <div class="controls">
                             {{Form::textarea('deskripsi', $data->deskripsi, array('id'=>'deskripsi'))}}
                         </div>

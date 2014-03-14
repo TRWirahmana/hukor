@@ -72,11 +72,11 @@
 <script type="text/javascript">
     var $ = jQuery.noConflict();
     var tbl_data = $("#basictable").dataTable({
-        bFilter: false,
+        bFilter: true,
         bInfo: false,
         bSort: false,
         bPaginate: true,
-        bLengthChange: false,
+        bLengthChange: true,
         bServerSide: true,
         bProcessing: true,
 //                sAjaxSource: baseUrl + "/lkpm/data",

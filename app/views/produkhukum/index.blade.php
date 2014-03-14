@@ -77,7 +77,7 @@
       <table id="tbl-produkhukum" class="dataTable table">
         <thead>
         <tr>
-          <th>No</th>
+<!--          <th>No</th>-->
           <th>Nomor</th>
           <th>Tentang</th>
           <th>Kategori</th>
@@ -157,11 +157,11 @@
       bProcessing: true,
       sAjaxSource: '<?php echo URL::to("produkhukum/tableph"); ?>',
       aoColumns: [
-        {
-            mData: "id",
-            sClass: "center",
-            sWidth: '5%'
-        },
+//        {
+//            mData: "id",
+//            sClass: "center",
+//            sWidth: '5%'
+//        },
 
         {
             mData: "nomor",
@@ -245,9 +245,9 @@
               return 'Perlengkapan';
             } else if (data === 6) {
               return 'Lainnya';
-	    } else {
-		    return '';
-	    }
+            } else {
+                return '';
+            }
           }
 
         },
@@ -270,11 +270,11 @@
         aoData.push({name: "bidang", value: $("#select-bidang").val()});
       },
       fnDrawCallback: function (oSettings) {
-        if (oSettings.bSorted || oSettings.bFiltered) {
-          for (var i = 0, iLen = oSettings.aiDisplay.length; i < iLen; i++) {
-            $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr).html(i + 1);
-          }
-        }
+//        if (oSettings.bSorted || oSettings.bFiltered) {
+//          for (var i = 0, iLen = oSettings.aiDisplay.length; i < iLen; i++) {
+//            $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr).html(i + 1);
+//          }
+//        }
       },
 
       aoColumnDefs: [

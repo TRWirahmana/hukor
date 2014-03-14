@@ -50,10 +50,20 @@ class DAL_Document {
         $iTotalDisplayRecords = $data->count();
 
         $data = $data->skip($filter['iDisplayStart'])->take($filter['iDisplayLength']);
+        $data = $data->get()->toArray();
+
+        $result = array();
+
+        foreach($data as $dat)
+        {
+            $result[] = $dat['nomor'];
+        }
+
+        array_multisort($result, SORT_ASC, $data);
 
         return Response::json(array(
             "sEcho" => $filter['sEcho'],
-            'aaData' => $data->orderBy('nomor', 'desc')->get()->toArray(),
+            'aaData' => $data,
             'iTotalRecords' => $iTotalRecords,
             'iTotalDisplayRecords' => $iTotalDisplayRecords
         ));

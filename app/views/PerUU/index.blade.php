@@ -242,6 +242,14 @@
 
 
     </script>
+
+    <script>
+      jQuery("#app_puu > a").addClass("sub-menu-active");
+      jQuery("#app").css({
+        "display": "block",
+        "visibility": "visible"
+      });
+    </script>
 </div>
 
 @stop

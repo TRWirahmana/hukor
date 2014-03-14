@@ -320,4 +320,12 @@
 
 });
         </script>
+
+    <script>
+      jQuery("#app_pelembagaan > a").addClass("sub-menu-active");
+      jQuery("#app").css({
+        "display": "block",
+        "visibility": "visible"
+      });
+    </script>
 @stop

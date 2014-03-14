@@ -66,4 +66,11 @@
 @section('scripts')
 @parent
 <script src="{{asset('assets/js/berita_index.js')}}"></script>
+<script>
+  jQuery("#menu_berita > li:first-child > a").addClass("sub-menu-active");
+  jQuery("#menu_berita").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
 @stop

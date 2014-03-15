@@ -265,9 +265,9 @@
 <!--mainwrapper-->
 
 <!-- dialog box -->
-<!--<div id="dialog" title="Forum">
-    <p>Silahkan klik LOGIN terlebih dahulu untuk masuk ke dalam Forum. Jika belum mempunyai akun, silakan klik DAFTAR untuk registrasi.</p>
-</div>-->
+<div id="dialog" title="Forum" style="display: none">
+    <p>Silakan klik SIGN IN terlebih dahulu untuk masuk ke dalam Forum. Jika belum mempunyai akun, silakan klik REGISTRASI.</p>
+</div>
 
 @section('scripts')
 <script src="{{asset('assets/js/jquery-1.10.1.min.js')}}"></script>
@@ -317,18 +317,18 @@
         else {
             $('#dialog').dialog({
                 height: 190,
-                width: 400,
+                width: 480,
                 modal: true,
                 buttons: {
-                    "Login" : function(){
+                    "SIGN IN" : function(){
                         window.location.replace("{{URL::to('site')}}");
                     },
 
-                    "Registrasi" : function(){
+                    "REGISTRASI" : function(){
                         window.location.replace("{{URL::to('registrasi')}}");
                     },
 
-                    Cancel : function() {
+                    "CANCEL" : function() {
                         $(this).dialog("close");
                     }
                 }

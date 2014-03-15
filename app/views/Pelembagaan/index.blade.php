@@ -49,10 +49,15 @@
       @endif
 
       @else
-      <h2>Layanan Pelembagaan</h2>
+      <h2><span class="rulycon-books"></span>Layanan Pelembagaan</h2>
 
       <div class="stripe-accent"></div>
       <legend>Informasi dan Status</legend>
+
+      <script>
+        document.getElementById("menu-pelembagaan-informasi").setAttribute("class", "user-menu-active");
+        document.getElementById("collapse11").style.height = "auto";
+      </script>
       @endif
 
       <!-- Filter -->

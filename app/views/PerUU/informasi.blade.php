@@ -1,7 +1,7 @@
 @section('content')
 
-<h2>PERATURAN PERUNDANG-UNDANGAN</h2>
-<div class="stripe-accent"></div>
+<h2><span class="rulycon-office"></span>PERATURAN PERUNDANG-UNDANGAN</h2>
+
 <legend>Informasi dan Status Usulan</legend>
 
 @include('flash')
@@ -118,6 +118,11 @@ $("#menu-peraturan-perundangan").addClass("active");
 
 
 
+</script>
+
+<script>
+  $("#collapse10").css("height", "auto");
+  $("#menu-peruu-informasi").addClass("user-menu-active");
 </script>
 
 @stop

@@ -1,6 +1,6 @@
 @section('content')
 
-<h2>Ketatalaksanaan</h2>
+<h2><span class="rulycon-library"></span>Ketatalaksanaan</h2>
 <div class="stripe-accent"></div>
 <legend>Informasi & Status Usulan Analisis Jabatan</legend>
 
@@ -117,6 +117,11 @@
 
 
 
+</script>
+
+<script>
+  $("#collapse12").css("height", "auto");
+  $("#menu-ketatalaksanaan-informasi").addClass("user-menu-active");
 </script>
 
 @stop

@@ -221,7 +221,7 @@
                   <div id="collapse11" class="accordion-body collapse">
                     <div class="accordion-inner">
                       <ul>
-                          <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=2') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi</a></li>
+                          <li id="menu-pelembagaan-info"><a href="{{ URL::to('/layanan/detail?id=2') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi</a></li>
                         @if($user->role_id == 2)
                         <li id="menu-pelembagaan-usulan"><a href="{{URL::route('pelembagaan.create')}}"><span class="rulycon-envelop"></span>Lembar Usulan</a></li>
                         @endif
@@ -246,7 +246,7 @@
                     <div class="accordion-inner">
                       <ul>
                           <li id="menu-prosedur-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi Sistem dan Prosedur</a></li>
-                          <li id="menu-pelembagaan-informasi"><a href="{{URL::route('sp.index')}}"><span class="rulycon-checkbox-unchecked"></span>Status Usulan Sistem dan Prosedur</a></li>
+                          <li id="menu-pelembagaan-informasi2"><a href="{{URL::route('sp.index')}}"><span class="rulycon-checkbox-unchecked"></span>Status Usulan Sistem dan Prosedur</a></li>
 
 
                           @if($user->role_id == 2)
@@ -254,7 +254,7 @@
                           @endif
 
                           <li id="menu-analisa-info"><a href="{{ URL::to('/layanan/detail?id=5') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi Analisis Jabatan</a></li>
-                          <li id="menu-pelembagaan-informasi"><a href="{{URL::route('aj.index')}}"><span class="rulycon-checkbox-unchecked"></span>Status Usulan Analisis Jabatan</a></li>
+                          <li id="menu-ketatalaksanaan-informasi"><a href="{{URL::route('aj.index')}}"><span class="rulycon-checkbox-unchecked"></span>Status Usulan Analisis Jabatan</a></li>
                           @if($user->role_id == 2)
                           <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('aj.create')}}"><span class="rulycon-envelop"></span>Lembar Usulan Analisis Jabatan</a></li>
                           @endif

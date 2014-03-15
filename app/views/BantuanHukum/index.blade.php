@@ -1,7 +1,7 @@
 @section('content')
 
 
-<h2>BANTUAN HUKUM</h2>
+<h2><span class="rulycon-stack"></span>BANTUAN HUKUM</h2>
 <div class="stripe-accent"></div>
     <legend>Informasi dan Status Usulan Bantuan Hukum</legend>
 
@@ -154,5 +154,10 @@
 
             });
         </script>
+
+<script>
+  document.getElementById("menu-banhuk-informasi").setAttribute("class", "user-menu-active");
+  document.getElementById("collapse13").style.height = "auto";
+</script>
     @stop
 @stop

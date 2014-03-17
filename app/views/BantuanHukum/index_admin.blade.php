@@ -116,7 +116,7 @@
 
             <div class="footer">
                 <div class="footer-left">
-                    <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
+                    <span>&copy;2014 Biro Hukum dan Organisasi</span>
                 </div>
                 <div class="footer-right">
                     <span></span>
@@ -270,6 +270,14 @@
     jQuery("#print").click(function(){
 
     });
+</script>
+
+<script>
+  jQuery("#app_bahu > a").addClass("sub-menu-active");
+  jQuery("#app").css({
+    "display": "block",
+    "visibility": "visible"
+  });
 </script>
 @stop
 @stop

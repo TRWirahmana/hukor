@@ -289,8 +289,6 @@ class BeritaController extends BaseController {
      */
     public function update($id)
     {
-
-
         $input = Input::all();
 
         $img = Input::file('gambar');
@@ -298,7 +296,7 @@ class BeritaController extends BaseController {
 
         $berita = Berita::find($id);
 
-        if($img != null || $slider != null){
+        if($img != null && $slider != null){
             if($img->isValid() || $slider->isValid()){
                 $uqFolder = "berita";
 
@@ -310,22 +308,23 @@ class BeritaController extends BaseController {
                 $sliderupload = $slider->move($destinationPath, $slider_img);
 
                 if($uploadSuccess || $sliderupload){
+                    if($berita->gambar != null && $berita->gambar != "" || $berita->slider != null && $berita->slider != ""){
+                        $img_exists = $destinationPath . '/' . $berita->gambar;
+                        $slider_exists = $destinationPath . '/' . $berita->slider;
 
-                    $img_exists = $destinationPath . '/' . $berita->gambar;
-                    $slider_exists = $destinationPath . '/' . $berita->slider;
-
-                    //pengecekkan file image apakah ada atau tidak
-                    if(file_exists($img_exists) || file_exists($slider_exists))
-
-                        //delete file image di folder yang terdaftar di database
-                        unlink($img_exists);
-                        unlink($slider_exists);
+                        //pengecekkan file image apakah ada atau tidak
+                        if(file_exists($img_exists) || file_exists($slider_exists)){
+                            //delete file image di folder yang terdaftar di database
+                            unlink($img_exists);
+                            unlink($slider_exists);
+                        }
+                    }
 
                     /* update to table berita */
                     $berita->judul = $input['judul'];
                     $berita->berita = $input['berita'];
                     $berita->penulis = $input['penulis'];
-		    $berita->id_kategori = $input['kategori'];
+		            $berita->id_kategori = $input['kategori'];
                     $berita->gambar = $filename;
                     $berita->slider = $slider_img;
                     $berita->tgl_penulisan = new DateTime;
@@ -348,14 +347,97 @@ class BeritaController extends BaseController {
                 Session::flash('error', 'Gagal mengirim berkas.');
                 return Redirect::back();
             }
-        }else{
+        }
+        elseif($img != null && $slider == null){
+            if($img->isValid()){
+                $uqFolder = "berita";
+//            var_dump($uqFolder);exit;
+                $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
+                $filename = $img->getClientOriginalName();
+                $uploadSuccess = $img->move($destinationPath, $filename);
+
+                if($uploadSuccess){
+                    if($berita->gambar != null || $berita->gambar != ""){
+                        $img_exists = $destinationPath . '/' . $berita->gambar;
+
+                        //pengecekkan file image apakah ada atau tidak
+                        if(file_exists($img_exists)){
+                            //delete file image di folder yang terdaftar di database
+                            unlink($img_exists);
+                        }
+                    }
+
+                    /* update to table berita */
+                    $berita->judul = $input['judul'];
+                    $berita->berita = $input['berita'];
+                    $berita->penulis = $input['penulis'];
+                    $berita->id_kategori = $input['kategori'];
+                    $berita->gambar = $filename;
+                    $berita->tgl_penulisan = new DateTime;
+                    $berita->created_at = date('Y-m-d H:i:s');
+                    $berita->updated_at = date('Y-m-d H:i:s');
+
+                    $berita->save();
+
+                    if($berita->save()){
+                        Session::flash('success', 'Berita berhasil dirubah!');
+                        return Redirect::to('admin/berita');
+                    }else{
+                        Session::flash('error', 'Gagal mengirim data. Pastikan Berita sudah benar.');
+                        return Redirect::back();
+                    }
+                }
+            }
+        }
+        elseif($slider != null && $img == null){
+            if($slider->isValid()){
+                $uqFolder = "berita";
+//            var_dump($uqFolder);exit;
+                $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
+                $slider_img = $slider->getClientOriginalName();
+                $sliderupload = $slider->move($destinationPath, $slider_img);
+
+                if($sliderupload){
+                    if($berita->slider != null || $berita->slider != ""){
+                        $slider_exists = $destinationPath . '/' . $berita->slider;
+
+                        //pengecekkan file image apakah ada atau tidak
+                        if(file_exists($slider_exists)){
+                            //delete file image di folder yang terdaftar di database
+                            unlink($slider_exists);
+                        }
+                    }
+
+                    /* update to table berita */
+                    $berita->judul = $input['judul'];
+                    $berita->berita = $input['berita'];
+                    $berita->penulis = $input['penulis'];
+                    $berita->id_kategori = $input['kategori'];
+                    $berita->slider = $slider_img;
+                    $berita->tgl_penulisan = new DateTime;
+                    $berita->created_at = date('Y-m-d H:i:s');
+                    $berita->updated_at = date('Y-m-d H:i:s');
+
+                    $berita->save();
+
+                    if($berita->save()){
+                        Session::flash('success', 'Berita berhasil dirubah!');
+                        return Redirect::to('admin/berita');
+                    }else{
+                        Session::flash('error', 'Gagal mengirim data. Pastikan Berita sudah benar.');
+                        return Redirect::back();
+                    }
+                }
+            }
+        }
+        else{
             /* update to table berita */
             $berita->judul = $input['judul'];
             $berita->berita = $input['berita'];
             $berita->penulis = $input['penulis'];
-	    $berita->id_kategori = $input['kategori'];
-            $berita->gambar = $input['gambar'];;
-            $berita->slider = $input['slider'];;
+	        $berita->id_kategori = $input['kategori'];
+//            $berita->gambar = $input['gambar'];;
+//            $berita->slider = $input['slider'];;
             $berita->tgl_penulisan = new DateTime;
             $berita->created_at = date('Y-m-d H:i:s');
             $berita->updated_at = date('Y-m-d H:i:s');

@@ -9,17 +9,15 @@ class PeruuController extends BaseController
 	public function index()
 	{
 		$roleId = Auth::user()->role_id;
-        $all = Menu::all();
-        $all->toArray();
-
-		// handle dataTable request
+		$all = Menu::all();
+		$all->toArray(); // handle dataTable request 
 		if (Request::ajax())
 			return Datatables::of(DAL_PerUU::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null)))
 				->add_column("_role_id", $roleId)
 				->make(true);
 
 		if(Auth::user()->role_id == 2 || Auth::guest()) {
-            $this->layout = View::make('layouts.master', array('allmenu' => $all));
+			$this->layout = View::make('layouts.master', array('allmenu' => $all));
 			$this->layout->content = View::make('PerUU.informasi');    
 		} else {
 			$this->layout = View::make('layouts.admin');
@@ -79,7 +77,7 @@ class PeruuController extends BaseController
 					});
 
 			Session::flash('success', 'Data berhasil dikirim.');
-			return Redirect::to('site');
+			return Redirect::route('puu.index');
 		} else {
 			Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
 			return Redirect::back();

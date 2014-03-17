@@ -178,10 +178,10 @@ class HukorHelper {
 		$destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $dir;
 		$img_exists = $destinationPath . '/' . $file;
 
-		if(file_exists($img_exists))
+		if(file_exists($img_exists) && is_file($img_exists))
 		{
 			//delete file image di folder yang terdaftar di database
-			unlink($img_exists);
+			@unlink($img_exists);
 		}
 	}
 
@@ -406,15 +406,22 @@ class HukorHelper {
 
     public static function GetCounterVisitor()
     {
-        $dom = new DOMDocument("1.0");
+        if(file_exists(XML_COUNTER . 'counter.xml'))
+        {
+            $dom = new DOMDocument("1.0");
 
-        $dom->load(XML_COUNTER . "counter.xml");
+            $dom->load(XML_COUNTER . "counter.xml");
 
-        $root = $dom->documentElement;
+            $root = $dom->documentElement;
 
-        $counter = $root->getElementsByTagName('count')->item(0)->nodeValue;
+            $counter = $root->getElementsByTagName('count')->item(0)->nodeValue;
 
-        return $counter;
+            return $counter;
+        }
+        else
+        {
+            HukorHelper::XMLFile();
+        }
     }
 
 

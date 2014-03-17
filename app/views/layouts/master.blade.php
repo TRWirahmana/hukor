@@ -60,7 +60,7 @@
       <div class="span6 sidebar">
         <?php $user = Auth::user(); ?>
         <header>
-          <img src="{{asset('assets/images/logo-only.png')}}" alt="Kebudayaan Indonesia">
+          <a href="{{URL::to('/')}}"><img src="{{asset('assets/images/logo-only.png')}}" alt="Kebudayaan Indonesia"></a>
             <h4>
                 <span>Biro Hukum dan Organisasi</span>
                 <span>Kementerian Pendidikan dan Kebudayaan</span><br>
@@ -118,10 +118,16 @@
             <!-- <li>
               <a href="http://localhost/retane_blog/wp-login.php?log=<?php //echo $datses['us']; ?>&pwd=<?php echo $datses['pd']; ?>" target="_blank"><span class="rulycon-wordpress"></span> Blog</a>
             </li> -->
-
-            <li class="menu-header">Informasi</li>
               <li id="menu-beranda"><a href="{{URL::to('/')}}"><span class="rulycon-home-2"></span>Beranda</a></li>
               <li id="menu-produk-hukum"><a href="{{URL::to('produkhukum')}}"><span class="rulycon-book"></span>Produk Hukum</a></li>
+              @if (null != AppConfig::find('enable_forum') && AppConfig::find('enable_forum')->value == "true")
+              <li id="menu-forum"><a href="#"><span class="rulycon-bubbles"></span>Forum</a></li>
+              @endif
+              <li id="menu-call-center"><a href="{{ URL::to('callcenter') }}"><span class="rulycon-phone"></span>Kontak Kami</a></li>
+
+              <li class="menu-header">Layanan</li>
+<!--              <li id="menu-beranda"><a href="{{URL::to('/')}}"><span class="rulycon-home-2"></span>Beranda</a></li>-->
+<!--              <li id="menu-produk-hukum"><a href="{{URL::to('produkhukum')}}"><span class="rulycon-book"></span>Produk Hukum</a></li>-->
               <!-- Menu Layanan(Dinamisasi)-->
 
               <?php $no = 1; ?>
@@ -175,10 +181,7 @@
 
 <!--            <li id="menu-layanan-bantuan-hukum"><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>-->
 <!--            <li id="menu-layanan-peraturan-perundangan"><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>-->
-            @if (null != AppConfig::find('enable_forum') && AppConfig::find('enable_forum')->value == "true")
-              <li id="menu-forum"><a href="#"><span class="rulycon-bubbles"></span>Forum Diskusi</a></li>
-            @endif
-            <li id="menu-call-center"><a href="{{ URL::to('callcenter') }}"><span class="rulycon-phone"></span>Kontak Kami</a></li>
+
 
             <li class="menu-header">Aplikasi</li>
             <li id="menu-peraturan-perundangan"> <!-- <a href="{{ URL::route('pengajuan_per_uu') }}"><span class="rulycon-pilcrow"></span>Peraturan Perundang-undangan</a></li> -->
@@ -193,11 +196,11 @@
                   <div id="collapse10" class="accordion-body collapse">
                     <div class="accordion-inner">
                       <ul>
-                          <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=1') }}"><span class="rulycon-checkbox-unchecked"></span>Peraturan Perundang-Undangan</a></li>
+                          <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=1') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi</a></li>
                           @if($user->role_id == 2)
                           <li id="menu-peruu-usulan"><a href="{{ URL::route('puu.create')  }}"><span class="rulycon-envelop"></span>Lembar Usulan</a></li>
                           @endif
-                        <li id="menu-peruu-informasi"><a href="{{URL::route('puu.index')}}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan</a></li>
+                        <li id="menu-peruu-informasi"><a href="{{URL::route('puu.index')}}"><span class="rulycon-checkbox-unchecked"></span>Status Usulan</a></li>
                       </ul>
                     </div>
                   </div>
@@ -218,11 +221,11 @@
                   <div id="collapse11" class="accordion-body collapse">
                     <div class="accordion-inner">
                       <ul>
-                          <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=2') }}"><span class="rulycon-checkbox-unchecked"></span>Pelembagaan</a></li>
+                          <li id="menu-pelembagaan-info"><a href="{{ URL::to('/layanan/detail?id=2') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi</a></li>
                         @if($user->role_id == 2)
                         <li id="menu-pelembagaan-usulan"><a href="{{URL::route('pelembagaan.create')}}"><span class="rulycon-envelop"></span>Lembar Usulan</a></li>
                         @endif
-                          <li id="menu-pelembagaan-informasi"><a href="{{ URL::route('pelembagaan.index') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan</a></li>
+                          <li id="menu-pelembagaan-informasi"><a href="{{ URL::route('pelembagaan.index') }}"><span class="rulycon-checkbox-unchecked"></span>Status Usulan</a></li>
                       </ul>
                     </div>
                   </div>
@@ -242,16 +245,16 @@
                   <div id="collapse12" class="accordion-body collapse">
                     <div class="accordion-inner">
                       <ul>
-                          <li id="menu-prosedur-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span class="rulycon-checkbox-unchecked"></span>Sistem dan Prosedur</a></li>
-                          <li id="menu-pelembagaan-informasi"><a href="{{URL::route('sp.index')}}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan Sistem dan Prosedur</a></li>
+                          <li id="menu-prosedur-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi Sistem dan Prosedur</a></li>
+                          <li id="menu-pelembagaan-informasi2"><a href="{{URL::route('sp.index')}}"><span class="rulycon-checkbox-unchecked"></span>Status Usulan Sistem dan Prosedur</a></li>
 
 
                           @if($user->role_id == 2)
                             <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('sp.create')}}"><span class="rulycon-envelop"></span>Lembar Usulan Sistem dan Prosedur</a></li>
                           @endif
 
-                          <li id="menu-analisa-info"><a href="{{ URL::to('/layanan/detail?id=5') }}"><span class="rulycon-checkbox-unchecked"></span>Analisis Jabatan</a></li>
-                          <li id="menu-pelembagaan-informasi"><a href="{{URL::route('aj.index')}}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan Analisis Jabatan</a></li>
+                          <li id="menu-analisa-info"><a href="{{ URL::to('/layanan/detail?id=5') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi Analisis Jabatan</a></li>
+                          <li id="menu-ketatalaksanaan-informasi"><a href="{{URL::route('aj.index')}}"><span class="rulycon-checkbox-unchecked"></span>Status Usulan Analisis Jabatan</a></li>
                           @if($user->role_id == 2)
                           <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('aj.create')}}"><span class="rulycon-envelop"></span>Lembar Usulan Analisis Jabatan</a></li>
                           @endif
@@ -275,17 +278,40 @@
                           <div id="collapse13" class="accordion-body collapse">
                               <div class="accordion-inner">
                                   <ul>
-                                      <li id="menu-bantuan-hukum-info"><a href="{{ URL::to('/layanan/detail?id=3') }}"><span class="rulycon-checkbox-unchecked"></span>Bantuan Hukum</a></li>
+                                      <li id="menu-bantuan-hukum-info"><a href="{{ URL::to('/layanan/detail?id=3') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi</a></li>
                                       @if($user->role_id == 2)
                                       <li id="menu-bantuan-hukum"><a href="{{ URL::route('bantuan_hukum.create') }}"><span class="rulycon-envelop"></span>Lembar Usulan</a></li>
                                       @endif
-                                      <li id="menu-banhuk-informasi"><a href="{{ URL::to('BantuanHukum') }}"><span class="rulycon-checkbox-unchecked"></span>Informasi dan Status Usulan</a></li>
+                                      <li id="menu-banhuk-informasi"><a href="{{ URL::to('BantuanHukum') }}"><span class="rulycon-checkbox-unchecked"></span>Status Usulan</a></li>
                                   </ul>
                               </div>
                           </div>
                       </div>
                   </div>
               </li>
+<!--              <li id="menu-faq">-->
+<!--                  <div class="accordion" id="accordion7">-->
+<!--                      <div class="accordion-group">-->
+<!--                          <div class="accordion-heading">-->
+<!--                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapse14">-->
+<!--                                  <span class="rulycon-info"></span>FAQ-->
+<!--                                  <span class="rulycon-menu-2 pull-right"></span>-->
+<!--                              </a>-->
+<!--                          </div>-->
+<!--                          <div id="collapse14" class="accordion-body collapse">-->
+<!--                              <div class="accordion-inner">-->
+<!--                                  <ul>-->
+<!--                                      <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=1') }}"><span class="rulycon-checkbox-unchecked"></span>Peraturan Perundang-Undangan</a></li>-->
+<!--                                      <li id="menu-pelembagaan-info"><a href="{{ URL::to('/layanan/detail?id=2') }}"><span class="rulycon-checkbox-unchecked"></span>Pelembagaan</a></li>-->
+<!--                                      <li id="menu-sistem-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span class="rulycon-checkbox-unchecked"></span>Sistem dan Prosedur</a></li>-->
+<!--                                      <li id="menu-analisis-info"><a href="{{ URL::to('/layanan/detail?id=5') }}"><span class="rulycon-checkbox-unchecked"></span>Analisis Jabatan</a></li>-->
+<!--                                      <li id="menu-bantuan-hukum-info"><a href="{{ URL::to('/layanan/detail?id=3') }}"><span class="rulycon-checkbox-unchecked"></span>Bantuan Hukum</a></li>-->
+<!--                                  </ul>-->
+<!--                              </div>-->
+<!--                          </div>-->
+<!--                      </div>-->
+<!--                  </div>-->
+<!--              </li>-->
           </ul>
         </div>
         <h6 id="copyright">© 2014 Biro Hukum dan Organisasi</h6>

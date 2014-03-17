@@ -28,12 +28,12 @@
           </style>
 
             <!-- MAIN CONTENT -->
-            <div class="stripe-accent"></div>
+          <div class="row-fluid" style="margin-bottom: 12px;">
+            <a class="btn btn-mini btn-primary" href="{{ URL::to('/admin/account/create')}}">Tambah Akun Baru</a>
+          </div>
 
-            <form class="form-inline">
-                <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/account/create')}}">Tambah Akun Baru</a>
+            <form class="form-inline" style="margin-bottom: 8px;">
                 <fieldset>
-                    <legend></legend>
                     <label for="select_role" class="control-label">Tipe Pengguna</label>
                     <select id="select_role">
                         <option value="0">Semua User</option>
@@ -63,7 +63,7 @@
 
             <div class="footer">
                 <div class="footer-left">
-                    <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
+                    <span>&copy;2014 Biro Hukum dan Organisasi</span>
                 </div>
                 <div class="footer-right">
                     <span></span>
@@ -96,4 +96,12 @@
 <!--        background: #0866C6;-->
 <!--    }-->
 <!--</style>-->
+
+<script>
+  jQuery("#kelola > a").addClass("sub-menu-active");
+  jQuery("#manage").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
 @stop

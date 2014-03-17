@@ -108,8 +108,9 @@
           {{ Form::password('password', array('class'=>'password validate[required] text-input',
           'id'=>'password','placeholder'=>'Masukan password di sini...')) }}
           <button class="btn" id="btn-signin" type="submit">Masuk</button>
-          <a href="{{URL::to('forget')}}"> Lupa password? </a>
-          <a href="{{URL::to('registrasi')}}" class="pull-right">Belum memiliki akun?</a>
+          <a href="{{URL::to('forget')}}"> Lupa password </a>
+<!--          <a href="{{URL::to('registrasi')}}" class="pull-right">Belum memiliki akun?</a>-->
+        <a href="{{URL::to('registrasi')}}" class="pull-right">Daftar</a>
           {{ Form::close() }}
           @endif
         @endif

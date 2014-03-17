@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/admin.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/admin.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/berita.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/index.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/master.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,7 +52,7 @@
       <file leaf-file-name="master.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="56" selection-start="4932" selection-end="4932" vertical-scroll-proportion="0.29621848" vertical-offset="1729" max-vertical-offset="6171">
+            <state line="282" column="127" selection-start="15854" selection-end="15854" vertical-scroll-proportion="-0.63235295" vertical-offset="5095" max-vertical-offset="6171">
               <folding />
             </state>
           </provider>
@@ -676,7 +674,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="56" selection-start="4932" selection-end="4932" vertical-scroll-proportion="0.29621848" vertical-offset="1729" max-vertical-offset="6171">
+        <state line="282" column="127" selection-start="15854" selection-end="15854" vertical-scroll-proportion="-0.63235295" vertical-offset="5095" max-vertical-offset="6171">
           <folding />
         </state>
       </provider>

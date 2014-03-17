@@ -118,13 +118,14 @@
                                     <li id="app_pelembagaan"><a href="{{ URL::route('admin.pelembagaan.index') }}">
                                         <span class="iconfa-hand-up"></span> Pelembagaan</a>
                                     </li>
+                                    <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
                                     <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
                                         <ul>
                                             <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                             <li><a href="{{URL::route('admin.aj.index')}}">Analisis Jabatan</a></li>
                                         </ul>
                                     </li>
-                                    <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
+
 
                                 </ul>
                             </li>
@@ -137,6 +138,7 @@
                                     <li id="app_pelembagaan" ><a href="{{ URL::route('admin.pelembagaan.index') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a>
 
                                     </li>
+                                    <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
                                     <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
                                         <ul>
                                             <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
@@ -144,7 +146,7 @@
                                             <li><a href="{{URL::to('admin/document')}}">Dokumentasi</a></li>
                                         </ul>
                                     </li>
-                                    <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
+
 
                                     <li id="app_forum">
                                         <a href="#">

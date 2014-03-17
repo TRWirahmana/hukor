@@ -228,7 +228,7 @@
         $( ".datepicker" ).datepicker({
             dateFormat: 'yy-mm-dd',
             changeMonth: true,
-            yearRange: "1970:2020",
+            yearRange: "1950:2020",
             changeYear: true
         }).val();
     });

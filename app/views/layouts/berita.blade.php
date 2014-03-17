@@ -93,7 +93,7 @@
           </li>
           <li>
             <a href="{{URL::to('produkhukum')}}" id="produk_hukum">
-              <span class="rulycon-notebook"></span>
+              <span class="rulycon-books"></span>
               <span class="headmenu-label">Produk Hukum</span>
             </a>
           </li>
@@ -106,7 +106,7 @@
           <li class="odd">
             <a href="{{URL::to('site')}}">
               <span class="rulycon-user"></span>
-              <span class="headmenu-label" id="login">Sign in</span>
+              <span class="headmenu-label" id="login">Login</span>
             </a>
           </li>
         </ul>

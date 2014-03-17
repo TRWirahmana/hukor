@@ -62,7 +62,7 @@
                             <span class="rulycon-home-2"></span> Beranda</a>
                         </li>
                         <li id="aplikasi"><a href="#app">
-                            <span class="rulycon-wrench"></span> Aplikasi</a>
+                            <span class="rulycon-notebook"></span> Aplikasi</a>
                         </li>
                     @elseif(3 == $user->role_id)
                         <li id="beranda"><a href="{{URL::route('admin.index')}}">
@@ -72,13 +72,13 @@
                             <span class="rulycon-newspaper"></span> Berita</a>
                         </li>
                         <li id="aplikasi"><a href="#app">
-                            <span class="rulycon-wrench"></span> Aplikasi</a>
+                            <span class="rulycon-notebook"></span> Aplikasi</a>
                         </li>
                         <li id="managemen"><a href="#manage">
                             <span class="rulycon-user"></span> Akun</a>
                         </li>
                         <li id="menu"><a href="#manage-menu">
-                            <span class="rulycon-notebook"></span> Kelola</a>
+                            <span class="rulycon-settings"></span> Kelola</a>
                         </li>
                     @endif
                 </ul>
@@ -107,19 +107,19 @@
 
                 <div class="leftmenu">
                     <ul class="nav nav-tabs nav-stacked">
-                        <li class="nav-header">Navigation</li>
+                        <li class="nav-header">Submenu</li>
 
                         @if(in_array($user->role_id, array(1, 4, 5, 6, 7, 8 ,9)))
                             <li class="dropdown" >
                                 <ul id="app">
                                     <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}">
-                                        <span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
+                                        <span class="rulycon-notebook"></span> Peraturan Perundang-Undangan</a>
                                     </li>
                                     <li id="app_pelembagaan"><a href="{{ URL::route('admin.pelembagaan.index') }}">
-                                        <span class="iconfa-hand-up"></span> Pelembagaan</a>
+                                        <span class="rulycon-notebook"></span> Pelembagaan</a>
                                     </li>
-                                    <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
-                                    <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
+                                    <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-notebook"></span> Bantuan Hukum</a>
+                                    <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="rulycon-notebook"></span> Ketatalaksanaan</a>
                                         <ul>
                                             <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                             <li><a href="{{URL::route('admin.aj.index')}}">Analisis Jabatan</a></li>
@@ -132,14 +132,14 @@
                         @elseif(3 == $user->role_id)
                             <li class="dropdown" >
                                 <ul id="app">
-                                    <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}"><span class="iconfa-laptop"></span> Peraturan Perundang-Undangan</a>
+                                    <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}"><span class="rulycon-notebook"></span> Peraturan Perundang-Undangan</a>
 
                                     </li>
-                                    <li id="app_pelembagaan" ><a href="{{ URL::route('admin.pelembagaan.index') }}"><span class="iconfa-hand-up"></span> Pelembagaan</a>
+                                    <li id="app_pelembagaan" ><a href="{{ URL::route('admin.pelembagaan.index') }}"><span class="rulycon-notebook"></span> Pelembagaan</a>
 
                                     </li>
-                                    <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="iconfa-signal"></span> Bantuan Hukum</a>
-                                    <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="iconfa-time"></span> Ketatalaksanaan</a>
+                                    <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-notebook"></span> Bantuan Hukum</a>
+                                    <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="rulycon-notebook"></span> Ketatalaksanaan</a>
                                         <ul>
                                             <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                             <li><a href="{{URL::route('admin.aj.index')}}">Analisis Jabatan</a></li>
@@ -163,26 +163,26 @@
                             <!-- list manajemen user-->
                             <li class="dropdown">
                                 <ul id="manage">
-                                    <li id="kelola"><a href="{{URL::to('admin/account')}}"><span class="iconfa-laptop"></span> Kelola Akun</a></li>
+                                    <li id="kelola"><a href="{{URL::to('admin/account')}}"><span class="rulycon-user"></span> Kelola Akun</a></li>
                                 </ul>
                             </li>
 
                             <!-- list manajemen user-->
                             <li class="dropdown">
                                 <ul id="menu_berita">
-                                    <li><a href="{{URL::to('admin/berita')}}">Berita</a></li>
-                                    <li><a href="{{URL::route('admin.categories.index')}}">Kategori Berita</a></li>
+                                    <li><a href="{{URL::to('admin/berita')}}"><span class="rulycon-newspaper"></span> Berita</a></li>
+                                    <li><a href="{{URL::route('admin.categories.index')}}"><span class="rulycon-newspaper"></span> Kategori Berita</a></li>
                                 </ul>
                             </li>
 
                             <!-- list manajemen menu-->
                             <li class="dropdown">
                                 <ul id="manage-menu">
-                                    <li id="menu"><a href="{{URL::to('admin/index_menu')}}"><span class="iconfa-laptop"></span> Kelola Menu</a></li>
-                                    <li id="kelola_submenu"><a href="{{URL::to('admin/index_submenu')}}"><span class="iconfa-laptop"></span> Kelola Submenu</a></li>
-                                    <li id="layanan"><a href="{{URL::to('admin/layanan')}}"><span class="iconfa-laptop"></span> Kelola Konten Layanan</a></li>
-                                    <li id="layanan"><a href="{{URL::to('admin/editcallcenter')}}"><span class="iconfa-laptop"></span> Kelola Kontak Kami</a></li>
-                                    <li id="layanan"><a href="{{URL::to('admin/linked')}}"><span class="iconfa-laptop"></span> Kelola Link Dikbud</a></li>
+                                    <li id="menu"><a href="{{URL::to('admin/index_menu')}}"><span class="rulycon-settings"></span> Kelola Menu</a></li>
+                                    <li id="kelola_submenu"><a href="{{URL::to('admin/index_submenu')}}"><span class="rulycon-settings"></span> Kelola Submenu</a></li>
+                                    <li id="layanan"><a href="{{URL::to('admin/layanan')}}"><span class="rulycon-settings"></span> Kelola Konten Layanan</a></li>
+                                    <li id="layanan"><a href="{{URL::to('admin/editcallcenter')}}"><span class="rulycon-settings"></span> Kelola Kontak Kami</a></li>
+                                    <li id="layanan"><a href="{{URL::to('admin/linked')}}"><span class="rulycon-settings"></span> Kelola Link Dikbud</a></li>
                                 </ul>
                             </li>
                         @endif

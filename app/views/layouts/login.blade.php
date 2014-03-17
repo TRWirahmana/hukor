@@ -42,7 +42,7 @@
         </div>
         <footer>
             <div class="stripe-accent"></div>
-            <h6>© 2013 Direktorat Jenderal Kebudayaan Republik Indonesia</h6>
+            <h6>© 2013 Biro Hukum dan Organisasi</h6>
             <h6 id="site-links">
                 <a href="http://www.kemdiknas.go.id/kemdikbud/" target="_blank" >Kemdikbud</a> |
                 <a href="http://en.unesco.org/" target="_blank">UNESCO</a> |

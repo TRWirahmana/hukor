@@ -91,6 +91,16 @@ class MenuController extends BaseController {
      * @param  int  $id
      * @return Response
      */
+
+    public function datatable()
+    {
+        $input = Input::all();
+        $DAL = new DAL_Menu();
+        $data = $DAL->getDataTable($input);
+
+        return $data;
+    }
+
     public function update($id)
     {
         $input = Input::all();

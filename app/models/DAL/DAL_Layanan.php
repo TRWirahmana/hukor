@@ -52,7 +52,12 @@ class DAL_Layanan {
                 'layanan.id',
                 'menu.nama_menu'
             ,'sub_menu.nama_submenu'
-            ));
+            ))
+        ->where('layanan.id', '!=', 1)
+        ->where('layanan.id', '!=', 2)
+        ->where('layanan.id', '!=', 3)
+        ->where('layanan.id', '!=', 4)
+        ->where('layanan.id', '!=', 5);
 
         if(0 != $filter)
             $data = $data->where('layanan.id', '!=', 0);

@@ -1,7 +1,7 @@
 @section('content')
 
-<h2>PERATURAN PERUNDANG-UNDANGAN</h2>
-<div class="stripe-accent"></div>
+<h2><span class="rulycon-office"></span>PERATURAN PERUNDANG-UNDANGAN</h2>
+
 <legend>Informasi dan Status Usulan</legend>
 
 @include('flash')
@@ -95,9 +95,12 @@ $("#menu-peraturan-perundangan").addClass("active");
                     {
                         mData: 'id',
                         sWidth: "8%",
-                        mRender: function(data, type, all) {
-                            return "<a href='"+baseUrl+"/puu/download/" + data + "'><i class='icon-download'></i></a> ";
-                        }
+			mRender: function(data, type, all) {
+				if(all._role_id != null) {
+					return "<a href='"+baseUrl+"/puu/download/" + data + "'><i class='icon-download'></i></a> ";
+				}
+				return "";
+			}
                     }
                 ],
                 "fnDrawCallback": function ( oSettings ) {
@@ -118,6 +121,11 @@ $("#menu-peraturan-perundangan").addClass("active");
 
 
 
+</script>
+
+<script>
+  $("#collapse10").css("height", "auto");
+  $("#menu-peruu-informasi").addClass("user-menu-active");
 </script>
 
 @stop

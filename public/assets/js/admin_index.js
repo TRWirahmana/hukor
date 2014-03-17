@@ -6,16 +6,16 @@ jQuery(document).ready(function(e){
     };
     dom.$table_admin.dataTable({
         bServerSide: true,
-        bFilter:false,
+        bFilter:true,
         bProcessing: true,
         bPaginate: true,
         sAjaxSource: document.URL,
         aoColumns: [
             {
-                mData: "pengguna.nama_lengkap"
+                mData: "nama_lengkap"
             },
             {
-                mData: "pengguna.email"
+                mData: "email"
             }
             ,
             {

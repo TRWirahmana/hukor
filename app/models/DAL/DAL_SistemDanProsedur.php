@@ -14,6 +14,9 @@ class DAL_SistemDanProsedur {
 						'sistem_dan_prosedur.status',
 						'sistem_dan_prosedur.lampiran'
 				      ));
+		$user = Auth::user();
+		if(null != $user && $user->role_id == 2)
+			$data->where("sistem_dan_prosedur.id_pengguna", "=", $user->pengguna->id);
 		if(null != $filter)
 			$data->where("sistem_dan_prosedur.status", "=", $filter);
 		if(null != $firstDate)

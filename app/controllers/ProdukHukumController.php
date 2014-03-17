@@ -5,11 +5,10 @@ class ProdukHukumController extends BaseController
 //	protected $layout = 'layouts.master';
     public function index()
     {
-        if(Request::ajax())
-	          	return Datatables::of(DAL_ProdukHukum::getDataTable(Input::get("kategori", null), Input::get("masalah", null), Input::get("tahunFilter", null), Input::get("firstDate", null), Input::get("bidang", null)))->make(true);
-  
-      	$listThn = array("" => "Semua") + Document::select(array( DB::raw('DATE_FORMAT(tgl_pengesahan,"%Y") As pengesahan_year')))
-	        													->lists('pengesahan_year', 'pengesahan_year');
+        $DAL = new DAL_Document();
+
+        $listThn = $DAL->GetYearOfDocument();
+
         $all = Menu::all();
         $all->toArray();
 
@@ -17,24 +16,14 @@ class ProdukHukumController extends BaseController
         $this->layout->content = View::make('produkhukum.index', array('listThn' => $listThn));		
 	}
 
-	public function getData(){
-//		if(Request::ajax()){
-			$result = [];
+    public function datatable()
+    {
+        $input = Input::all();
+        $DAL = new DAL_Document();
+        $data = $DAL->GetAllData($input, false);
 
-			$data = DAL_ProdukHukum::getDataTable(Input::get("status", null), Input::get("firstDate", null), Input::get("lastDate", null));
-			
-			foreach ( $data as $row): 
-				$result[] = [
-					$row->id,
-					$row->perihal,
-					$row->kategori,
-					$row->masalah,
-					$row->tgl_pengesahan,
-					$row->status_publish
-				];
-			endforeach;
-			return json_encode(['aaData' => $result]);
-	}
+        return $data;
+    }
 
 	public function detail($id)
 	{
@@ -50,7 +39,7 @@ class ProdukHukumController extends BaseController
 //					'action' => '#',
 					'method' => 'post',
 					'class' => 'form-horizontal',
-		            'id' => 'pelembagaan-form',
+		            'id' => 'produkhukum-form',
 		            'files' => true
 				),
 				'data' => $data

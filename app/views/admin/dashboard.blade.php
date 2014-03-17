@@ -18,7 +18,7 @@
 
 <!-- MAIN CONTENT -->
 <div class="well well-success">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
+<!--  <button type="button" class="close" data-dismiss="alert">&times;</button>-->
   <h2>Laporan Usulan</h2>
   <hr>
   <div class="row-fluid dashboard-summary">

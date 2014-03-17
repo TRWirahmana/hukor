@@ -7,7 +7,7 @@
     <span class="rulycon-accessibility"></span><br/>
     Selamat datang di aplikasi Hukum &amp; Organisasi<br/>
     Kementerian Pendidikan &amp; Kebudayaan Republik Indonesia<br/>
-    <small>© 2014 DIREKTORAT JENDERAL KEBUDAYAAN REPUBLIK INDONESIA</small>
+    <small>© 2014 BIRO HUKUM DAN ORGANISASI</small>
   </p>
 </div>
 

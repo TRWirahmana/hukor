@@ -207,7 +207,7 @@
             <div class="controls">
               <select id="select-status" name="modul">
                 <option value="">Semua</option>
-                <option value="1">Peraturan Perundang Undangan</option>
+                <option value="1">Peraturan Perundang-Undangan</option>
                 <option value="2">Pelembagaan</option>
                 <option value="3">Bantuan Hukum</option>
                 <option value="4">Sistem dan Prosedur</option>

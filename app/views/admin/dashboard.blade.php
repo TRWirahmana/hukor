@@ -24,7 +24,7 @@
   <div class="row-fluid dashboard-summary">
     @if (in_array(Auth::user()->role_id, array(1, 3 ,4, 5, 6)))
     <div class="span4">
-      <h4>Per UU</h4>
+      <h4>Peraturan Perundang-Undangan</h4>
 
       <div class="row-fluid">
         <div class="span4">
@@ -274,7 +274,7 @@
     if ($chart.length > 0) {
       $chart.highcharts({
         title: {
-          text: 'Jumlah Usulan Per Bulan',
+          text: 'REKAPITULASI USULAN',
           x: -20 //center
         },
         xAxis: {
@@ -282,7 +282,7 @@
         },
         yAxis: {
           title: {
-            text: 'Jumlah Usulan'
+            text: 'JUMLAH USULAN'
           },
           plotLines: [
             {

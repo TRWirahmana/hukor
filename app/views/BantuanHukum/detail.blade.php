@@ -454,7 +454,7 @@
         {
           mData: "advokasi",
           mRender: function (id) {
-            var advokasi;
+            var advokasi = "";
             switch (parseInt(id)) {
               case 1:
                 advokasi = "Bankum I";

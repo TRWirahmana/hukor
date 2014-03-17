@@ -274,9 +274,10 @@
                 + "<i class='icon-trash'></i></a>";
             } else if (role_id == 0) {
 //                                          return "<a href='" + baseUrl + '/pelembagaan/download/'+data+ "'> <i class='icon-download'></i></a>";
-            } else {
-//                                          return "<a href='" + baseUrl + '/pelembagaan/download/' + data + "'> <i class='icon-download'></i></a>";
+            } else if(role_id == 2) {
+                                          return "<a href='" + baseUrl + '/pelembagaan/download/' + data + "'> <i class='icon-download'></i></a>";
             }
+	    return "";
           }
         }
       ],
@@ -307,7 +308,8 @@
       if (confirm('Apakah anda yakin ?')) {
         $.ajax({
           url: $(this).attr('href'),
-          type: 'DELETE',
+          type: 'post',
+	  data: {_method:"delete"},
           success: function (response) {
             $dataTable.fnReloadAjax();
           }

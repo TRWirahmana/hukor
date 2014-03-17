@@ -1,5 +1,5 @@
 @section('content')
-
+<input type="hidden" id="role_id" value="{{Auth::user()->role_id}}"/>
 
 <h2><span class="rulycon-stack"></span>BANTUAN HUKUM</h2>
 <div class="stripe-accent"></div>
@@ -119,10 +119,14 @@
                     {mData: "advokator"},
                     {
                         mData: "id",
-                        mRender: function(data, type, full){
-                            var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
-                            return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a>';
-                        }
+			       mRender: function(data, type, full){
+				       if($("#role_id").val() == 2) {
+
+					       var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
+					       return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a>';
+				       }
+				       return "";
+			       }
                     }
                 ],
                 fnServerParams: function(aoData) {

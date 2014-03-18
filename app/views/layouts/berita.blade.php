@@ -266,7 +266,7 @@
 
 <!-- dialog box -->
 <div id="dialog" title="Forum" style="display: none">
-    <p>Silakan klik SIGN IN terlebih dahulu untuk masuk ke dalam Forum. Jika belum mempunyai akun, silakan klik REGISTRASI.</p>
+    <p>Silakan klik LOGIN terlebih dahulu untuk masuk ke dalam Forum. Jika belum mempunyai akun, silakan klik DAFTAR.</p>
 </div>
 
 @section('scripts')
@@ -320,11 +320,11 @@
                 width: 480,
                 modal: true,
                 buttons: {
-                    "SIGN IN" : function(){
+                    "LOGIN" : function(){
                         window.location.replace("{{URL::to('site')}}");
                     },
 
-                    "REGISTRASI" : function(){
+                    "DAFTAR" : function(){
                         window.location.replace("{{URL::to('registrasi')}}");
                     },
 

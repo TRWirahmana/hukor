@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="" />
+    <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/berita.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php" afterPath="$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php" />
+    </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,25 +34,25 @@
       <file leaf-file-name="master.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="321" column="12" selection-start="18427" selection-end="18427" vertical-scroll-proportion="-9.038462" vertical-offset="5222" max-vertical-offset="6137">
+            <state line="322" column="12" selection-start="18284" selection-end="18284" vertical-scroll-proportion="0.0" vertical-offset="5239" max-vertical-offset="6171">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="berita.blade.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="berita.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="266" column="0" selection-start="10382" selection-end="10580" vertical-scroll-proportion="-3.1538463" vertical-offset="4440" max-vertical-offset="6222">
+            <state line="326" column="27" selection-start="12630" selection-end="12630" vertical-scroll-proportion="0.6654366" vertical-offset="5001" max-vertical-offset="6222">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="info_aplikasi.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="info_aplikasi.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="31" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.43542436" vertical-offset="751" max-vertical-offset="2227">
+            <state line="122" column="27" selection-start="3195" selection-end="3195" vertical-scroll-proportion="-18.846153" vertical-offset="1584" max-vertical-offset="2397">
               <folding />
             </state>
           </provider>
@@ -87,8 +90,8 @@
         <option value="$PROJECT_DIR$/app/views/PerUU/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/PerUU/informasi.blade.php" />
         <option value="$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
       </list>
     </option>
   </component>
@@ -334,23 +337,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/document/form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="31" selection-start="2418" selection-end="2418" vertical-scroll-proportion="-19.153847" vertical-offset="471" max-vertical-offset="2941">
-          <folding />
-        </state>
+        <state line="57" column="31" selection-start="2418" selection-end="2418" vertical-scroll-proportion="-19.153847" vertical-offset="471" max-vertical-offset="2941" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/document/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="24" selection-start="2315" selection-end="2315" vertical-scroll-proportion="0.6691267" vertical-offset="765" max-vertical-offset="3859">
-          <folding />
-        </state>
+        <state line="77" column="24" selection-start="2315" selection-end="2315" vertical-scroll-proportion="0.6691267" vertical-offset="765" max-vertical-offset="3859" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/produkhukum/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="26" selection-start="5435" selection-end="5440" vertical-scroll-proportion="0.2590799" vertical-offset="2404" max-vertical-offset="5423">
-          <folding />
-        </state>
+        <state line="154" column="26" selection-start="5435" selection-end="5440" vertical-scroll-proportion="0.2590799" vertical-offset="2404" max-vertical-offset="5423" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ProdukHukumController.php">
@@ -360,9 +357,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Document.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="0" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.6063961" vertical-offset="408" max-vertical-offset="2873">
-          <folding />
-        </state>
+        <state line="53" column="0" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.6063961" vertical-offset="408" max-vertical-offset="2873" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/PeruuController.php">
@@ -382,28 +377,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/PerUU/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="135" selection-start="8132" selection-end="8239" vertical-scroll-proportion="0.6691267" vertical-offset="2754" max-vertical-offset="4301">
-          <folding />
-        </state>
+        <state line="194" column="135" selection-start="8132" selection-end="8239" vertical-scroll-proportion="0.6691267" vertical-offset="2754" max-vertical-offset="4301" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="321" column="12" selection-start="18427" selection-end="18427" vertical-scroll-proportion="-9.038462" vertical-offset="5222" max-vertical-offset="6137">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="266" column="0" selection-start="10382" selection-end="10580" vertical-scroll-proportion="-3.1538463" vertical-offset="4440" max-vertical-offset="6222">
+        <state line="322" column="12" selection-start="18284" selection-end="18284" vertical-scroll-proportion="0.0" vertical-offset="5239" max-vertical-offset="6171">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="31" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.43542436" vertical-offset="751" max-vertical-offset="2227">
+        <state line="122" column="27" selection-start="3195" selection-end="3195" vertical-scroll-proportion="-18.846153" vertical-offset="1584" max-vertical-offset="2397">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="326" column="27" selection-start="12630" selection-end="12630" vertical-scroll-proportion="0.6654366" vertical-offset="5001" max-vertical-offset="6222">
           <folding />
         </state>
       </provider>

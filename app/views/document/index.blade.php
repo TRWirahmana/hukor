@@ -32,7 +32,7 @@
             <!-- MAIN CONTENT -->
             <div class="stripe-accent"></div>
             @if($user->role_id == 3)
-            <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('admin/adddoc')}}">Tambah Baru</a>
+            <a class="btn btn-mini btn-primary" href="{{ URL::to('admin/adddoc')}}" >Tambah Baru</a>
             @endif
             <legend></legend>
 
@@ -52,7 +52,7 @@
 
             <div class="footer">
                 <div class="footer-left">
-                    <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
+                    <span>&copy;2014 Biro Hukum dan Organisasi</span>
                 </div>
                 <div class="footer-right">
                     <span></span>
@@ -69,6 +69,13 @@
 
 @section('scripts')
 @parent
+<script>
+  jQuery("#app_ketatalaksanaan > ul > li:nth-child(3) > a").addClass("sub-menu-active");
+  jQuery(".leftmenu .dropdown > #app, #app_ketatalaksanaan > ul").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
 <script type="text/javascript">
     var $ = jQuery.noConflict();
     var tbl_data = $("#basictable").dataTable({
@@ -217,5 +224,14 @@
         }
     });
 </script>
+
+<script>
+  jQuery("#app_ketatalaksanaan > ul > li:last-child > a").addClass("sub-menu-active");
+  jQuery("#app, #app_ketatalaksanaan > ul").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
+
 @stop
 @stop

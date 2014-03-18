@@ -13,7 +13,10 @@ class DAL_AnalisisJabatan {
                     'analisis_jabatan.status',
                     'analisis_jabatan.lampiran'
         ));
-
+	
+	$user = Auth::user();
+	if(null != $user && $user->role_id == 2)
+		$data->where("analisis_jabatan.id_pengguna", "=", $user->pengguna->id);
         if(null != $filter)
             $data->where("analisis_jabatan.status", "=", $filter);
         if(null != $firstDate)

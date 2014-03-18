@@ -89,7 +89,7 @@
 
                 <div class="footer">
                     <div class="footer-left">
-                        <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
+                        <span>&copy;2014 Biro Hukum dan Organisasi</span>
                     </div>
                     <div class="footer-right">
                         <span></span>
@@ -135,7 +135,7 @@
                 // },
                 bServerSide: true,
                 sAjaxSource: document.location.href,
-                bFilter: false,
+                bFilter: true,
                 bLengthChange: false,
                 aoColumns: [
                     {
@@ -192,10 +192,10 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            var btns = new Array("<a href='"+baseUrl+"/puu/download/" + data + "'><i class='icon-download'></i></a> ");
+                            var btns = new Array("<a href='"+baseUrl+"/puu/download/" + data + "' title='Download'><i class='icon-download'></i></a> ");
                             if(all._role_id == 3 || all._role_id == 6) {
-                                btns.push("<a href='"+baseUrl+"/admin/puu/" + data + "/edit'><i class='icon-edit'></i></a> "); 
-                                btns.push("<a data-delete href='"+baseUrl+"/admin/puu/"+data+"'><i class='icon-trash'></i></a>");   
+                                btns.push("<a href='"+baseUrl+"/admin/puu/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a> ");
+                                btns.push("<a data-delete href='"+baseUrl+"/admin/puu/"+data+"' title='Hapus'><i class='icon-trash'></i></a>");
                             }
                             return  btns.join("&nbsp;");
                         }
@@ -241,6 +241,14 @@
 
 
 
+    </script>
+
+    <script>
+      jQuery("#app_puu > a").addClass("sub-menu-active");
+      jQuery("#app").css({
+        "display": "block",
+        "visibility": "visible"
+      });
     </script>
 </div>
 

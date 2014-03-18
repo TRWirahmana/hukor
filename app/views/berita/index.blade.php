@@ -30,8 +30,6 @@
         @endif
       </div>
 
-      <br/>
-
       <table id="table_news" class="table">
         <thead>
         <tr>
@@ -45,7 +43,7 @@
 
       <div class="footer">
         <div class="footer-left">
-          <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
+          <span>&copy;2014 Biro Hukum dan Organisasi</span>
         </div>
         <div class="footer-right">
           <span></span>
@@ -66,4 +64,11 @@
 @section('scripts')
 @parent
 <script src="{{asset('assets/js/berita_index.js')}}"></script>
+<script>
+  jQuery("#menu_berita > li:first-child > a").addClass("sub-menu-active");
+  jQuery("#menu_berita").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
 @stop

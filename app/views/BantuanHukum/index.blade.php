@@ -1,7 +1,7 @@
 @section('content')
+<input type="hidden" id="role_id" value="{{Auth::user()->role_id}}"/>
 
-
-<h2>BANTUAN HUKUM</h2>
+<h2><span class="rulycon-stack"></span>BANTUAN HUKUM</h2>
 <div class="stripe-accent"></div>
     <legend>Informasi dan Status Usulan Bantuan Hukum</legend>
 
@@ -119,10 +119,14 @@
                     {mData: "advokator"},
                     {
                         mData: "id",
-                        mRender: function(data, type, full){
-                            var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
-                            return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a>';
-                        }
+			       mRender: function(data, type, full){
+				       if($("#role_id").val() == 2) {
+
+					       var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
+					       return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a>';
+				       }
+				       return "";
+			       }
                     }
                 ],
                 fnServerParams: function(aoData) {
@@ -154,5 +158,10 @@
 
             });
         </script>
+
+<script>
+  document.getElementById("menu-banhuk-informasi").setAttribute("class", "user-menu-active");
+  document.getElementById("collapse13").style.height = "auto";
+</script>
     @stop
 @stop

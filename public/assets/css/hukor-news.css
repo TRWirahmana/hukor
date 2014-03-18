@@ -80,7 +80,7 @@ p {
 
 #social-links a:nth-child(2) {
   background: #feb312;
-  margin-right: 12px;
+  /*margin-right: 12px;*/
 }
 
 #social-links input, #social-links button {
@@ -163,7 +163,8 @@ p {
   background: transparent;
   padding: 32px 6px 18px;
   text-align: center;
-  /*box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);*/
+  /*box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);
+  max-width: 75px;*/
 }
 
 .headmenu > li > a > span[class *= "rulycon"] {
@@ -373,6 +374,91 @@ p {
 
 .carousel-indicators li:hover {
   cursor: pointer;
+}
+
+#main-carousel .carousel-caption {
+  display: inline-block;
+  /*width: 65%;*/
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#main-carousel .item {
+  /*position: relative;*/
+}
+
+#main-carousel .carousel-list-item {
+  width: 35%;
+  vertical-align: top;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#main-carousel .carousel-list-item li {
+  list-style: none;
+  margin-right: 0;
+}
+
+/*#main-carousel h2 {
+  position: relative;
+  display: block;
+  width: 100%;
+  background: #0A3E6E;
+  font-size: 20px;
+  padding: 12px 24px;
+  text-transform: uppercase;
+}
+
+#main-carousel h2:after {
+  font-family: Rulycons;
+  content: "\e004";
+  position: absolute;
+  right: 24px;
+  background: #FF7200;
+  color: #ffffff;
+  height: 100%;
+  top: 0;
+  line-height: 200%;
+  padding-left: 8px;
+  padding-right: 8px;
+}*/
+
+#main-carousel ul li {
+  margin-bottom: 1px;
+}
+
+/*#main-carousel ul li a:before {
+  font-family: Rulycons;
+  margin-right: 12px;
+  content: "\e005";
+  font-size: 12px;
+  color: #FF7200;
+  position: absolute;
+  margin-left: -24px;
+  border-radius: 50em;
+}*/
+
+#main-carousel ul a {
+  display: block;
+  width: 100%;
+  color: #333333;
+  font-size: 14px;
+  padding: 12px 24px 12px 24px;
+  background: rgba(255, 255, 255, .75);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#main-carousel ul a:hover {
+  background: #5CA8EE;
+  color: #ffffff;
+}
+
+#main-carousel ul a:hover:before {
+  color: #ffffff;
 }
 
 .latest-news {
@@ -888,6 +974,48 @@ p {
 
 #not-enough-message h5 {
   margin-bottom: 60px;
+}
+
+.ui-dialog {
+  background: url("../images/bg1.png") repeat;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .55);
+}
+
+.ui-draggable .ui-dialog-titlebar {
+  background: #0A3E6E;
+  border: none;
+  border-radius: 0;
+}
+
+.ui-dialog .ui-dialog-title {
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
+  padding: 4px 0;
+}
+
+.ui-dialog .ui-dialog-content {
+  padding: 12px 24px;
+  font-size: 13px;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+  background: transparent;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+  background: #0e5ba1;
+  color: #ffffff;
+  border: none;
+  padding: 4px 12px;
+}
+
+.ui-dialog .ui-dialog-buttonpane button:last-child {
+  background: #FF7200;
 }
 
 

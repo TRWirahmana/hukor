@@ -2,6 +2,9 @@
 <input type="hidden" id="role_id" value="{{Auth::user()->role_id}}"/>
 
 <!--BANTUAN HUKUM-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Bantuan hukum";
+</script>
 
     <legend>Informasi dan Status Usulan Bantuan Hukum</legend>
 

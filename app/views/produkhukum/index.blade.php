@@ -1,5 +1,7 @@
 @section('content')
-
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-books'></span> Produk hukum";
+</script>
 
 <div id="filterdiv" class="filterdiv">
   <div class="row-fluid">

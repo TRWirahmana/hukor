@@ -1,6 +1,9 @@
 @section('content')
 @if($info->id == 1)
 <!--PERATURAN PERUNDANG-UNDANGAN-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Peraturan perundang-undangan";
+</script>
 
 <legend>
     Informasi Peraturan Perundang-Undangan
@@ -14,6 +17,9 @@
 
 @if($info->id == 2)
 <!--PELEMBAGAAN-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Pelembagaan";
+</script>
 
 <legend>
     Informasi Pelembagaan
@@ -27,6 +33,9 @@
 
 @if($info->id == 3)
 <!--BANTUAN HUKUM-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Bantuan hukum";
+</script>
 
 <legend>
     Informasi Bantuan Hukum
@@ -40,6 +49,9 @@
 
 @if($info->id == 4)
 <!--KETATALAKSANAAN-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
+</script>
 
 <legend>
     Informasi Sistem dan Prosedur
@@ -48,6 +60,9 @@
 
 @if($info->id == 5)
 <!--KETATALAKSANAAN-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
+</script>
 
 <legend>
     Informasi Analisis Jabatan

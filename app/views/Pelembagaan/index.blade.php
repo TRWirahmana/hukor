@@ -50,8 +50,10 @@
 
       @else
 <!--      LAYANAN PELEMBAGAAN-->
+      <script>
+        document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Pelembagaan";
+      </script>
 
-      <div class="stripe-accent"></div>
       <legend>Informasi dan Status</legend>
 
       <script>

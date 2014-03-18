@@ -247,4 +247,12 @@
     </script>
 </div>
 
+<script>
+  jQuery("#app_ketatalaksanaan > ul > li:first-child > a").addClass("sub-menu-active");
+  jQuery("#app, #app_ketatalaksanaan > ul").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
+
 @stop

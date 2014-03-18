@@ -28,20 +28,17 @@
           </style>
 
             <!-- MAIN CONTENT -->
-            <div class="stripe-accent"></div>
+          <div class="row-fluid" style="margin-bottom: 12px;">
+            <a class="btn btn-mini btn-primary" href="{{ URL::to('/admin/account/create')}}">Tambah Akun Baru</a>
+          </div>
 
-            <form class="form-inline">
-                <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/account/create')}}">Tambah Akun Baru</a>
+            <form class="form-inline" style="margin-bottom: 8px;">
                 <fieldset>
-                    <legend></legend>
                     <label for="select_role" class="control-label">Tipe Pengguna</label>
                     <select id="select_role">
                         <option value="0">Semua User</option>
-                        <option value="1">Kepala Biro</option>
                         <option value="2">Pengguna</option>
                         <option value="3">Super Admin</option>
-                        <option value="4">Kepala Bagian</option>
-                        <option value="5">Kepala Sub Bagian</option>
                         <option value="6">Admin Peraturan Perundang-Undangan</option>
                         <option value="7">Admin Pelembagaan</option>
                         <option value="8">Admin Bantuan Hukum</option>
@@ -53,7 +50,7 @@
             <table id="table_admin" class="table">
                 <thead>
                 <tr>
-                    <th>Nama Lengkap</th>
+                    <th>Nama</th>
                     <th>Email</th>
                     <th>Role</th>
                     <th></th>
@@ -96,4 +93,12 @@
 <!--        background: #0866C6;-->
 <!--    }-->
 <!--</style>-->
+
+<script>
+  jQuery("#kelola > a").addClass("sub-menu-active");
+  jQuery("#manage").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
 @stop

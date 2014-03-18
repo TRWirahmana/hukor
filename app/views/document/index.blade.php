@@ -32,7 +32,7 @@
             <!-- MAIN CONTENT -->
             <div class="stripe-accent"></div>
             @if($user->role_id == 3)
-            <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('admin/adddoc')}}">Tambah Baru</a>
+            <a class="btn btn-mini btn-primary" href="{{ URL::to('admin/adddoc')}}" >Tambah Baru</a>
             @endif
             <legend></legend>
 
@@ -224,5 +224,14 @@
         }
     });
 </script>
+
+<script>
+  jQuery("#app_ketatalaksanaan > ul > li:last-child > a").addClass("sub-menu-active");
+  jQuery("#app, #app_ketatalaksanaan > ul").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
+
 @stop
 @stop

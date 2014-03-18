@@ -9,50 +9,55 @@ class DAL_BantuanHukun
 
     public function GetAllData($filter)
     {
-        //get all record
-        $data = BantuanHukum::with('pengguna');
+	    $user = Auth::user();
 
-        //count all record
-        $iTotalRecords = $data->count();
+	    //get all record
+	    $data = BantuanHukum::with('pengguna');
 
-        //filter jenis_perkara
-        if ($filter['jenis_perkara'] == 0) {
-            $data->where('jenis_perkara', '!=', "NULL");
-        } else {
-            $data->where('jenis_perkara', '=', intval($filter['jenis_perkara']));
-        }
+	    //count all record
+	    $iTotalRecords = $data->count();
 
-        //filter status_pemohon
-        if ($filter['status_pemohon'] == 0) {
-            $data->where('status_pemohon', '!=', "NULL");
-        } else {
-            $data->where('status_pemohon', '=', intval($filter['status_pemohon']));
-        }
+	    //filter jenis_perkara
+	    if ($filter['jenis_perkara'] == 0) {
+		    $data->where('jenis_perkara', '!=', "NULL");
+	    } else {
+		    $data->where('jenis_perkara', '=', intval($filter['jenis_perkara']));
+	    }
 
-        //filter status_pemohon
-        if ($filter['advokasi'] != 0) {
-            $data->where('advokasi', '=', intval($filter['advokasi']));
-        }
+	    if(null != $user && $user->role_id == 2)
+		    $data->where("pengguna_id", "=", $user->pengguna->id);
 
-        //search specific record
-        if (!empty($filter['sSearch'])) {
-//            $param = $filter['sSearch'];
-            $data->where('status_perkara', 'like', "%{$filter['sSearch']}%")
-                    ->orWhere('advokator', 'like', "%{$filter['sSearch']}%")
-            ;
-        }
+	    //filter status_pemohon
+	    if ($filter['status_pemohon'] == 0) {
+		    $data->where('status_pemohon', '!=', "NULL");
+	    } else {
+		    $data->where('status_pemohon', '=', intval($filter['status_pemohon']));
+	    }
 
-        //count record after filtering
-        $iTotalDisplayRecords = $data->count();
+	    //filter status_pemohon
+	    if ($filter['advokasi'] != 0) {
+		    $data->where('advokasi', '=', intval($filter['advokasi']));
+	    }
 
-        $data = $data->skip($filter['iDisplayStart'])->take($filter['iDisplayLength']);
+	    //search specific record
+	    if (!empty($filter['sSearch'])) {
+		    //            $param = $filter['sSearch'];
+		    $data->where('status_perkara', 'like', "%{$filter['sSearch']}%")
+			    ->orWhere('advokator', 'like', "%{$filter['sSearch']}%")
+			    ;
+	    }
 
-        return Response::json(array(
-                    "sEcho" => $filter['sEcho'],
-                    'aaData' => $data->get()->toArray(),
-                    'iTotalRecords' => $iTotalRecords,
-                    'iTotalDisplayRecords' => $iTotalDisplayRecords
-        ));
+	    //count record after filtering
+	    $iTotalDisplayRecords = $data->count();
+
+	    $data = $data->skip($filter['iDisplayStart'])->take($filter['iDisplayLength']);
+
+	    return Response::json(array(
+				    "sEcho" => $filter['sEcho'],
+				    'aaData' => $data->get()->toArray(),
+				    'iTotalRecords' => $iTotalRecords,
+				    'iTotalDisplayRecords' => $iTotalDisplayRecords
+				    ));
     }
 
     public static function getDataTable($firstDate = null, $lastDate = null) {

@@ -110,5 +110,13 @@
       height: "350px"
     });
   </script>
+
+  <script>
+    jQuery("#manage-menu > li:nth-child(4) > a").addClass("sub-menu-active");
+    jQuery("#manage-menu").css({
+      "display": "block",
+      "visibility": "visible"
+    });
+  </script>
   @stop
   @stop

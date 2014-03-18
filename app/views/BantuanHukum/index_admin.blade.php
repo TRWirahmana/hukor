@@ -103,6 +103,7 @@
             <table id="basictable" class="dataTable table">
                 <thead>
                 <tr>
+                    <th>#</th>
                     <th>Nama Pemohon</th>
                     <th>Jenis Perkara</th>
                     <th>Status Pemohon</th>
@@ -135,6 +136,7 @@
 @section('scripts')
 @parent
 <script type="text/javascript">
+    var $ = jQuery.noConflict();
     jQuery( ".datepicker" ).datepicker({
         dateFormat: 'yy-mm-dd',
         changeMonth: true,
@@ -143,12 +145,19 @@
 
     var tbl_data = jQuery("#basictable").dataTable({
         bServerSide: true,
-        bFilter:false,
-	bLengthChange: false,
+        bFilter:true,
+	    bLengthChange: false,
         bProcessing: true,
         bPaginate: true,
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Data",
+        },
         sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/datatable"); ?>',
         aoColumns: [
+            {
+                mData: "id",
+                sWidth: "1%"
+            },
             {mData: "pengguna.nama_lengkap"},
             {
                 mData: "jenis_perkara",
@@ -178,6 +187,7 @@
             },
             {
                 mData: "status_pemohon",
+                sClass: "center",
                 mRender: function(id){
                     var status_pemohon;
                     switch (parseInt(id)){
@@ -201,7 +211,7 @@
                     return status_pemohon;
                 }
             },
-            {mData: "status_perkara"},
+            {mData: "status_perkara", sClass: "center"},
             {
                 mData: "advokasi",
                 mRender: function(id){
@@ -224,7 +234,7 @@
                     return advokasi;
                 }
             },
-            {mData: "advokator"},
+            {mData: "advokator", sClass: "center"},
             {
                 mData: "id",
                 mRender: function(data, type, full){
@@ -246,6 +256,16 @@
             aoData.push({name: "jenis_perkara", value: jQuery("#jenis-perkara").val()});
             aoData.push({name: "status_pemohon", value: jQuery("#status-pemohon").val()});
             aoData.push({name: "advokasi", value: jQuery("#advokasi").val()});
+        },
+        "fnDrawCallback": function ( oSettings ) {
+            /* Need to redo the counters if filtered or sorted */
+            if ( oSettings.bSorted || oSettings.bFiltered )
+            {
+                for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+                {
+                    $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+                }
+            }
         },
         fnServerData: function(sSource, aoData, fnCallback) {
             jQuery.getJSON(sSource, aoData, function(json) {
@@ -270,6 +290,14 @@
     jQuery("#print").click(function(){
 
     });
+</script>
+
+<script>
+  jQuery("#app_bahu > a").addClass("sub-menu-active");
+  jQuery("#app").css({
+    "display": "block",
+    "visibility": "visible"
+  });
 </script>
 @stop
 @stop

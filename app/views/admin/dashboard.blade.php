@@ -18,13 +18,13 @@
 
 <!-- MAIN CONTENT -->
 <div class="well well-success">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
+<!--  <button type="button" class="close" data-dismiss="alert">&times;</button>-->
   <h2>Laporan Usulan</h2>
   <hr>
   <div class="row-fluid dashboard-summary">
     @if (in_array(Auth::user()->role_id, array(1, 3 ,4, 5, 6)))
     <div class="span4">
-      <h4>Per UU</h4>
+      <h4>Peraturan Perundang-Undangan</h4>
 
       <div class="row-fluid">
         <div class="span4">
@@ -207,7 +207,7 @@
             <div class="controls">
               <select id="select-status" name="modul">
                 <option value="">Semua</option>
-                <option value="1">Peraturan Perundang Undangan</option>
+                <option value="1">Peraturan Perundang-Undangan</option>
                 <option value="2">Pelembagaan</option>
                 <option value="3">Bantuan Hukum</option>
                 <option value="4">Sistem dan Prosedur</option>
@@ -274,7 +274,7 @@
     if ($chart.length > 0) {
       $chart.highcharts({
         title: {
-          text: 'Jumlah Usulan Per Bulan',
+          text: 'REKAPITULASI USULAN',
           x: -20 //center
         },
         xAxis: {
@@ -282,7 +282,7 @@
         },
         yAxis: {
           title: {
-            text: 'Jumlah Usulan'
+            text: 'JUMLAH USULAN'
           },
           plotLines: [
             {

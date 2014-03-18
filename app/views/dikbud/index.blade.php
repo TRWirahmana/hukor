@@ -132,5 +132,13 @@
     jQuery(this).parents('.control-group').remove();
   });
 </script>
+
+<script>
+  jQuery("#manage-menu > li:last-child > a").addClass("sub-menu-active");
+  jQuery("#manage-menu").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
 @stop
     

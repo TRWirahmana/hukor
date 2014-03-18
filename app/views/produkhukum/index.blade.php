@@ -1,5 +1,5 @@
 @section('content')
-<h2>Produk Hukum</h2>
+<h2><span class="rulycon-book"></span> PRODUK HUKUM</h2>
 
 <div id="filterdiv" class="filterdiv">
   <div class="row-fluid">
@@ -309,5 +309,9 @@
     });
 
   });
+</script>
+
+<script>
+  $("#menu-produk-hukum").addClass("active");
 </script>
 @stop

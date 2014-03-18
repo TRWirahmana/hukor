@@ -93,7 +93,7 @@
           </li>
           <li>
             <a href="{{URL::to('produkhukum')}}" id="produk_hukum">
-              <span class="rulycon-notebook"></span>
+              <span class="rulycon-books"></span>
               <span class="headmenu-label">Produk Hukum</span>
             </a>
           </li>
@@ -106,7 +106,7 @@
           <li class="odd">
             <a href="{{URL::to('site')}}">
               <span class="rulycon-user"></span>
-              <span class="headmenu-label" id="login">Sign in</span>
+              <span class="headmenu-label" id="login">Login</span>
             </a>
           </li>
         </ul>
@@ -265,8 +265,8 @@
 <!--mainwrapper-->
 
 <!-- dialog box -->
-<div id="dialog" title="Forum">
-    <p>Silahkan klik LOGIN terlebih dahulu untuk masuk ke dalam Forum. Jika belum mempunyai akun, silakan klik DAFTAR untuk registrasi.</p>
+<div id="dialog" title="Forum" style="display: none">
+    <p>Silakan klik LOGIN terlebih dahulu untuk masuk ke dalam Forum. Jika belum mempunyai akun, silakan klik DAFTAR.</p>
 </div>
 
 @section('scripts')
@@ -317,18 +317,18 @@
         else {
             $('#dialog').dialog({
                 height: 190,
-                width: 400,
+                width: 480,
                 modal: true,
                 buttons: {
-                    "Login" : function(){
+                    "LOGIN" : function(){
                         window.location.replace("{{URL::to('site')}}");
                     },
 
-                    "Registrasi" : function(){
+                    "DAFTAR" : function(){
                         window.location.replace("{{URL::to('registrasi')}}");
                     },
 
-                    Cancel : function() {
+                    "CANCEL" : function() {
                         $(this).dialog("close");
                     }
                 }

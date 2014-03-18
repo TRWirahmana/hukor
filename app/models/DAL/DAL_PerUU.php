@@ -13,6 +13,10 @@ class DAL_PerUU {
                     'per_uu.status',
                     'per_uu.lampiran'
         ));
+	
+	$user = Auth::user();
+	if(null != $user && 2 == $user->role_id)
+		$data->where("per_uu.id_pengguna", "=", $user->pengguna->id);	
 
 	if(null != $filter)
 		$data->where("per_uu.status", "=", $filter);

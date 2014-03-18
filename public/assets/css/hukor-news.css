@@ -693,6 +693,7 @@ p {
   float: left;
   margin: 0;
   margin-right: 48px;
+  margin-bottom: 24px;
 }
 
 .footer-menu > li {
@@ -706,6 +707,7 @@ p {
   color: #FF7200;
   font-size: 13px;
   line-height: 200%;
+  font-size: 15px;
 }
 
 .footer-menu > li > a {

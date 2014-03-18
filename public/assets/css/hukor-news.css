@@ -348,30 +348,52 @@ p {
   line-height: 160%;
 }
 
-.boxed .carousel-indicators {
-  top: 16px;
-  right: 16px;
-}
-
 .carousel-indicators {
-  right: 24px;
-  top: 24px;
+  width: 31.623931623931625%;
+  top: 0;
+  right: 0;
+  height: 328px;
+  background: rgba(255, 255, 255, .55);
 }
 
 .carousel-indicators li {
-  width: 24px;
-  height: 6px;
+  display: block;
+  width: 100%;
+  height: auto;
+  float: none;
+  text-indent: 0;
   border-radius: 0;
   margin-right: 0;
-  background: #0e5ba1;
+  margin-left: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 6px 12px;
+  font-size: 14px;
+  background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, .075);
 }
 
 .carousel-indicators .active {
-  background: #5CA8EE;
+  background: #0e5ba1;
+  color: #ffffff;
+}
+
+.carousel-indicators .active:before {
+  content: "";
+  position: absolute;
+  border-top: 10px solid transparent;
+  border-right: 10px solid #0e5ba1;
+  border-bottom: 10px solid transparent;
+  left: -10px;
 }
 
 .carousel-indicators li:hover {
   cursor: pointer;
+}
+
+#main-carousel {
+  overflow: hidden;
 }
 
 #main-carousel .carousel-caption {

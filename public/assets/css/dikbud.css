@@ -594,7 +594,7 @@ html, .main-layout, .admin,
 .sidebar #user-menu > li > a, .sidebar ul.welcome-message > li > a,
 .sidebar #user-menu .accordion-heading .accordion-toggle,
 .sidebar #user-menu .accordion-inner a {
-  font-family: "PT Sans Narrow", "pt_sans_narrowregular", sans-serif !important;
+  /*font-family: "PT Sans Narrow", "pt_sans_narrowregular", sans-serif !important;*/
   display: block;
   font-size: 14px;
   width: 100%;

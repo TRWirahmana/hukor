@@ -30,52 +30,35 @@
 <!-- News Feed -->
 <div class="row-fluid">
   <div class="container" style="box-shadow: 0 1px 2px rgba(0, 0, 0, .25); width: 960px;">
-    <div class="half">
-      <div id="main-carousel" class="carousel slide">
-        <!--<ol class="carousel-indicators">
-          <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
-          <li data-target="#main-carousel" data-slide-to="1" class=""></li>
-          <li data-target="#main-carousel" data-slide-to="2" class=""></li>
-          <li data-target="#main-carousel" data-slide-to="3" class=""></li>
-        </ol>-->
-        <div class="carousel-inner">
-          <?php $n = 0 ?>
-          @foreach($latest_news as $data)
-          @if($n++ < 5)
-          <div class="item" style="height:249px !important;">
-            @if($data->slider != null)
-            {{ HTML::image('assets/uploads/berita/' . $data->slider) }}
-            @else
-            {{ HTML::image('assets/img/noim.jpg') }}
-            @endif
-
-            <div class="carousel-caption">
-              <h3><a href="{{ URL::to('/news/detail?id='. $data->id .'') }}">{{$data->judul}}</a></h3>
-              <?php $berita = strip_tags($data->berita);
-              $highlight = substr($berita, 0, 150);
-
-              ?>
-              <p>{{$highlight}}</p>
-            </div>
-          </div>
-          @endif
-          <? $n++; ?>
-          @endforeach
+    <div id="main-carousel" class="carousel slide">
+      <div class="carousel-indicators">
+        <li data-target="#main-carousel" data-slide-to="0">Lorem ipsum dolor sit amet</li>
+        <li data-target="#main-carousel" data-slide-to="1">Consectetur adipisicing elit blanditiis enim exercitationem nam odio</li>
+        <li data-target="#main-carousel" data-slide-to="2">Aliquam deleniti deserunt earum impedit porro?</li>
+        <li data-target="#main-carousel" data-slide-to="3">Aliquid atque consectetur eaque ipsam laudantium</li>
+        <li data-target="#main-carousel" data-slide-to="4">Lorem ipsum dolor sit amet</li>
+        <li data-target="#main-carousel" data-slide-to="5">Consectetur adipisicing elit blanditiis enim exercitationem nam odio</li>
+      </div>
+      <div class="carousel-inner">
+        <div class="item">
+          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-01.jpg')}}" alt=""/>
+        </div>
+        <div class="item">
+          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-02.jpg')}}" alt=""/>
+        </div>
+        <div class="item">
+          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-03.jpg')}}" alt=""/>
+        </div>
+        <div class="item">
+          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-04.jpg')}}" alt=""/>
+        </div>
+        <div class="item">
+          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-01.jpg')}}" alt=""/>
+        </div>
+        <div class="item">
+          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-02.jpg')}}" alt=""/>
         </div>
       </div>
-    </div>
-    <div class="half">
-      <ul>
-        <?php $x = 0;
-        foreach ($latest_news as $data) {
-          if ($x < 5) {
-            echo "<li><a href=# data-target=#main-carousel data-slide-to= " . $x . ">" . $data->judul . "</a></li>";
-          }
-          $x++;
-        }
-        ?>
-
-      </ul>
     </div>
   </div>
 </div>

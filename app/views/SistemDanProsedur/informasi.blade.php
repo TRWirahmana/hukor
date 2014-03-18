@@ -100,7 +100,7 @@
                         sWidth: "8%",
 			mRender: function(data, type, all) {
 				if(all._role_id != null) 
-					return "<a href='"+baseUrl+"/sp/download/" + data + "'><i class='icon-download'></i></a> ";
+					return "<a href='"+baseUrl+"/sp/download/" + data + "' title='Unduh'><i class='icon-download'></i></a> ";
 				return "";
 			}
                     }

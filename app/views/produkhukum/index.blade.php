@@ -256,8 +256,8 @@
             sClass: "center",
             sWidth: '5%',
           mRender: function (data, type, full) {
-            return "<a href='produkhukum/" + data + "/detail'> <i class='icon-edit'></i></a>"
-              + "&nbsp;<a href='produkhukum/" + data + "/download'> <i class='icon-download'></i></a>";
+            return "<a href='produkhukum/" + data + "/detail' title='Detail'> <i class='icon-edit'></i></a>"
+              + "&nbsp;<a href='produkhukum/" + data + "/download' title='Unduh'> <i class='icon-download'></i></a>";
 
           }
         }

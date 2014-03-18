@@ -102,7 +102,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                         sWidth: "8%",
 			mRender: function(data, type, all) {
 				if(all._role_id != null) {
-					return "<a href='"+baseUrl+"/puu/download/" + data + "'><i class='icon-download'></i></a> ";
+					return "<a href='"+baseUrl+"/puu/download/" + data + "' title='Unduh'><i class='icon-download'></i></a> ";
 				}
 				return "";
 			}

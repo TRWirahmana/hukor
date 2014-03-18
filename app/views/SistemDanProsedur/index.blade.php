@@ -198,10 +198,10 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            var html = ["<a href='"+baseUrl+"/sp/download/" + data + "'><i class='icon-download'></i></a>"];
+                            var html = ["<a href='"+baseUrl+"/sp/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>"];
                             if(all._role_id == 3 || all._role_id == 9) {
-                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "/edit'><i class='icon-edit'></i></a>");
-                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "' data-delete><i class='icon-trash'></i></a>");
+                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a>");
+                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "' title='Hapus' data-delete><i class='icon-trash'></i></a>");
                             }
                             return html.join("&nbsp;");
                         }

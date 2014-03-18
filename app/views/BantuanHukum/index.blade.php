@@ -39,7 +39,7 @@
                 bServerSide: true,
                 bProcessing: true,
 //                sAjaxSource: baseUrl + "/lkpm/data",
-                sAjaxSource: baseUrl + '/bantuan_hukum/datatable',
+                sAjaxSource: '<?php echo URL::to("bantuan_hukum/datatable"); ?>',
                 aoColumns: [
                     {mData: "pengguna.nama_lengkap"},
                     {
@@ -123,7 +123,7 @@
 				       if($("#role_id").val() == 2) {
 
 					       var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
-					       return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a>';
+					       return '<a href="' + downloadUrl + '" title="Unduh"><i class="rulycon-arrow-down "></i></a>';
 				       }
 				       return "";
 			       }

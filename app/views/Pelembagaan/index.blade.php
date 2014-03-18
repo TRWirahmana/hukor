@@ -268,19 +268,19 @@
           sWidth: '10%',
           mRender: function (data, type, full) {
             if (role_id == 3) {
-              return "<a href='" + baseUrl + "/pelembagaan/download/" + data + "'> <i class='icon-download'></i></a>"
+              return "<a href='" + baseUrl + "/pelembagaan/download/" + data + "' title='Unduh'> <i class='icon-download'></i></a>"
                 + "&nbsp;<a href='pelembagaan/" + data + "/update' title='Detail'><i class='icon-edit'></i></a>"
                 + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/" + data + "'>"
                 + "<i class='icon-trash'></i></a>";
             } else if (role_id == 7) {
-              return "<a href='" + baseUrl + "/pelembagaan/download/" + data + "'> <i class='icon-download'></i></a>"
+              return "<a href='" + baseUrl + "/pelembagaan/download/" + data + "' title='Unduh'> <i class='icon-download'></i></a>"
                 + "&nbsp;<a href='pelembagaan/" + data + "/update' title='Detail'><i class='icon-edit'></i></a>"
                 + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/" + data + "'>"
                 + "<i class='icon-trash'></i></a>";
             } else if (role_id == 0) {
 //                                          return "<a href='" + baseUrl + '/pelembagaan/download/'+data+ "'> <i class='icon-download'></i></a>";
             } else if(role_id == 2) {
-                                          return "<a href='" + baseUrl + '/pelembagaan/download/' + data + "'> <i class='icon-download'></i></a>";
+                                          return "<a href='" + baseUrl + '/pelembagaan/download/' + data + "' title='Unduh'> <i class='icon-download'></i></a>";
             }
 	    return "";
           }

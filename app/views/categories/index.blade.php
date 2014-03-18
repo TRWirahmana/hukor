@@ -51,8 +51,8 @@
 					mData: "id",
 					mRender: function(data, type, obj) {
 						var btns = new Array(
-							"<a href='categories/" + data + "/edit'><i class='icon icon-edit'></i></a>",
-							"<a href='categories/" + data +"' class='delete'>"
+							"<a href='categories/" + data + "/edit' title='Ubah'><i class='icon icon-edit'></i></a>",
+							"<a href='categories/" + data +"' class='delete' title='Hapus'>"
 								+ "<i class='icon icon-trash'></i></a>"
 						);
 						return btns.join("&nbsp;");

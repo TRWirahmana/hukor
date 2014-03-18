@@ -46,7 +46,7 @@
   <link rel="shortcut icon" href="{{asset('assets/ico/favicon.png')}}">
 
   <script type="text/javascript">
-    var baseUrl = '{{ URL::to(' / ') }}';
+    var baseUrl = '{{ URL::to('/') }}';
 
     //      alert(baseUrl);
   </script>
@@ -67,6 +67,7 @@
     <span>Republik Indonesia</span>
   </h4>
 </header>
+
 
 @if($user != null)
 <p id="username" class="welcome-message user-not-null"><span>Selamat datang, <span

@@ -85,7 +85,7 @@
               <span class="headmenu-label">Informasi</span>
             </a>
           </li>
-          <li class="odd">
+          <li>
             <a class="dropdown-toggle" data-toggle="dropdown" id="aplikasi">
               <span class="rulycon-wrench"></span>
               <span class="headmenu-label">Aplikasi</span>
@@ -103,7 +103,7 @@
               <span class="headmenu-label">Forum</span>
             </a>
           </li>
-          <li class="odd">
+          <li>
             <a href="{{URL::to('site')}}">
               <span class="rulycon-user"></span>
               <span class="headmenu-label" id="login">Login</span>

@@ -25,7 +25,7 @@
             <!-- MAIN CONTENT -->
 
             <div class="content-non-title">
-                <form id="form-filter" class="form form-horizontal" action="{{ URL::route('admin.puu.printTable') }}">
+                <form id="form-filter" class="form form-horizontal" action="{{ URL::route('admin.puu.printTable') }}" style="margin-bottom: 48px;">
                     <fieldset>
                         <legend class="f_legend">Filter</legend>
                         <div class="row-fluid">
@@ -84,6 +84,13 @@
                     </thead>
                     <tbody></tbody>
                 </table>
+
+
+              <style>
+                table.dataTable tr td:nth-child(5) {
+                  text-align: center;
+                }
+              </style>
 
                 <!-- END OF MAIN CONTENT -->
 

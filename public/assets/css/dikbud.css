@@ -661,22 +661,6 @@ html, .main-layout, .admin,
 .sidebar #user-menu .accordion-inner a > span[class*=rulycon] {
   margin-right: 15px;
 }
-.sidebar #user-menu > li > a {
-  min-height: 35px;
-}
-.sidebar #user-menu > li > a > span:first-child,
-.sidebar #user-menu > li > a > span:nth-child(2) {
-  float: left;
-  position: relative;
-}
-.sidebar #user-menu > li > a > span:first-child {
-  width: 12%;
-  margin: 0;
-}
-.sidebar #user-menu > li > a > span:nth-child(2) {
-  float: none;
-  width: 88%;
-}
 .sidebar #copyright {
   padding: 20px;
   line-height: 120%;

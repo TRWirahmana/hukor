@@ -67,11 +67,12 @@ p {
 }
 
 #social-links a {
-  padding: 9px 12px;
+  padding: 9px;
 }
 
 #social-links a > span {
   color: #ffffff;
+  font-size: 15px;
 }
 
 #social-links a:first-child {

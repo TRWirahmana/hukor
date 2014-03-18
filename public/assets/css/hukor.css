@@ -41,7 +41,7 @@ input[type="search"], input[type="tel"], input[type="color"], .uneditable-input 
   margin: 0 !important;
 }
 .leftpanel {
-  background: url("../images/leftpanelbg.png") repeat 0 0;
+  background: #2c3e50;
 }
 
 /* HUKOR SIGN IN PAGE ONLY */
@@ -246,10 +246,10 @@ legend {
   line-height: 120%;
   display: block;
   width: 100%;
-  background: rgba(0, 0, 0, .1);
+  /*background: rgba(0, 0, 0, .1);
+  box-shadow: inset -4px 0 0 rgba(0, 0, 0, .25);*/
   padding: 16px 0;
   margin-bottom: 1px;
-  box-shadow: inset -4px 0 0 rgba(0, 0, 0, .25);
 }
 #main-menu > li > a:hover {
   text-decoration: none;
@@ -302,10 +302,13 @@ legend {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-#user-links > a:hover {
+#user-links > a {
   text-decoration: none;
   background: #2875A8;
   color: #ffffff;
+}
+#user-links > a:hover {
+  background: rgba(0, 0, 0, .075);
 }
 
 /* Calendar */
@@ -436,16 +439,33 @@ table.dataTable tbody tr.even td.sorting_1 {
   color: #ffffff;
 }
 .dataTables_wrapper .dataTables_paginate {
+  /*background: #2875A8;*/
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   position: relative;
-  display: block;
-  width: 100%;
-  text-align: center;
+  display: inline-block;
+  text-align: right;
   padding: 12px;
+  right: 0;
+  top: -44px;
+  float: right;
 }
 .dataTables_wrapper .dataTables_paginate a,
 .dataTables_wrapper .dataTables_paginate a {
   background: none;
   float: none;
+  color: #ffffff !important;
+}
+.paginate_disabled_next, .paginate_enabled_next,
+.paginate_disabled_previous, .paginate_enabled_previous {
+  padding: 0;
+}
+.paginate_disabled_next, .paginate_enabled_next:after {
+  content: " >";
+}
+.paginate_disabled_previous, .paginate_enabled_previous:before {
+  content: "< ";
 }
 
 .leftmenu .nav-tabs.nav-stacked > li.active > a,
@@ -465,6 +485,11 @@ table.dataTable tbody tr.even td.sorting_1 {
 .leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a:hover {
   color: #ffffff;
   background: #2875A8;
+}
+.leftmenu .nav.nav-tabs.nav-stacked .nav-header {
+  background: rgba(0, 0, 0, .075);
+  border: none;
+  margin-bottom: 1px;
 }
 .sub-menu-active {
   color: #ffffff !important;
@@ -490,17 +515,17 @@ div.DTTT_container {
     right: 0;
 }
 .rightpanel .breadcrumbs {
-  background: #2875A8;
+  background: url("../images/bg1.png") repeat;
   padding-left: 20px;
   padding-right: 20px;
   border-bottom: none;
 }
 .rightpanel .breadcrumbs li, .rightpanel .breadcrumbs li > a {
-  color: #ffffff;
+  color: #0A3E6E;
 }
 .rightpanel .pageheader {
   padding-bottom: 8px;
-  background: #5CA8EE;
+  background: #2875A8;
 }
 .rightpanel .pageicon {
   font-size: 24px;

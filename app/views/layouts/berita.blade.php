@@ -85,7 +85,7 @@
               <span class="headmenu-label">Informasi</span>
             </a>
           </li>
-          <li class="odd">
+          <li>
             <a class="dropdown-toggle" data-toggle="dropdown" id="aplikasi">
               <span class="rulycon-wrench"></span>
               <span class="headmenu-label">Aplikasi</span>
@@ -103,7 +103,7 @@
               <span class="headmenu-label">Forum</span>
             </a>
           </li>
-          <li class="odd">
+          <li>
             <a href="{{URL::to('site')}}">
               <span class="rulycon-user"></span>
               <span class="headmenu-label" id="login">Login</span>
@@ -194,7 +194,7 @@
 
     <div class="row-fluid">
       <?php $call = CallCenter::find(1); ?>
-      <div class="span9">
+      <div class="span8">
         <div id="footer-menu-informasi" style="display: none">
           @foreach($menu as $menus)
           <ul class="footer-menu">
@@ -241,11 +241,14 @@
           </ul>
         </div>
       </div>
-      <div class="span3">
-        <address>
+      <div class="span4">
+        <div id="footer-image">
           <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
-          <span>Kementerian Pendidikan Dan Kebudayaan Republik Indonesia</span>
-          <br/>
+          <span>Biro Hukum dan Organisasi</span>
+          <p><span>Kementerian Pendidikan Dan Kebudayaan</span>
+          <span>Republik Indonesia</span></p>
+        </div>
+        <address>
           {{ $call->alamat }} <br/>
           <span class="rulycon-phone"></span> {{ $call->telp }} &nbsp; | &nbsp; <span class="rulycon-print"></span> {{ $call->fax }}<br/>
           <!--                        Jawa Barat, Indonesia-->

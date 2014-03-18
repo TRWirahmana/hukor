@@ -302,10 +302,13 @@ legend {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-#user-links > a:hover {
+#user-links > a {
   text-decoration: none;
   background: #2875A8;
   color: #ffffff;
+}
+#user-links > a:hover {
+  background: rgba(0, 0, 0, .075);
 }
 
 /* Calendar */

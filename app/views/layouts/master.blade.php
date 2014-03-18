@@ -60,7 +60,7 @@
   @include('user-header')
 </header>
 <div class="span24" style="margin-left: 0;">
-<div class="span6 sidebar" style="padding-top: 160px;">
+<div class="span6 sidebar" style="padding-top: 120px;">
 <?php $user = Auth::user(); ?>
 
 
@@ -337,7 +337,7 @@ Form::text('username', '', array(
 <h6 id="copyright">© 2014 Biro Hukum dan Organisasi</h6>
 </footer>
 </div>
-<div class="span18 main-content" style="padding-top: 160px;">
+<div class="span18 main-content" style="padding-top: 120px;">
   @yield('content')
 </div>
 </div>

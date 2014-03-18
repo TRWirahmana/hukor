@@ -414,10 +414,14 @@ table.dataTable tbody tr.even td.sorting_1 {
 .dataTables_wrapper .dataTables_filter {
   position: absolute;
   top: -42px;
-  background: #2875A8;
-  padding: 4px 16px;
+  background: transparent;
+  color: #333333;
+  padding: 4px 0;
   right: 0;
   border-radius: 2px;
+}
+.dataTables_wrapper .dataTables_filter label {
+  font-weight: bold;
 }
 .dataTables_wrapper .dataTables_filter input {
   min-width: 180px;

@@ -12,7 +12,7 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon"><span class="rulycon-wrench"></span></div>
+        <div class="pageicon"><span class="rulycon-notebook"></span></div>
         <div class="pagetitle">
           <h1>PERATURAN PERUNDANG-UNDANGAN</h1>
         </div>

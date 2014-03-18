@@ -80,12 +80,15 @@
     var $ = jQuery.noConflict();
     var tbl_data = $("#basictable").dataTable({
         bFilter: true,
-        bInfo: false,
+        bInfo: true,
         bSort: false,
         bPaginate: true,
         bLengthChange: true,
         bServerSide: true,
         bProcessing: true,
+      oLanguage:{
+        "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Data",
+      },
 //                sAjaxSource: baseUrl + "/lkpm/data",
         sAjaxSource: '<?php echo URL::to("admin/tabledoc"); ?>',
         aoColumns: [

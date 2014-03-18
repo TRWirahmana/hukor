@@ -65,7 +65,6 @@
       </div>
     </div>
     <div class="half">
-      <h2>Berita terbaru</h2>
       <ul>
         <?php $x = 0;
         foreach ($latest_news as $data) {
@@ -85,7 +84,7 @@
     <div id="dashboard-left" class="span8">
 
       <div id="paging_container">
-        <!--<h3 class="section-title" id="news-feed">Berita</h3>-->
+        <h3 class="section-title" id="news-feed">Berita</h3>
         <ul class="content">
 
           <?php $s = 0; ?>

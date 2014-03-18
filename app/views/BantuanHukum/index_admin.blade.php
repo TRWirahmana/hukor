@@ -27,7 +27,7 @@
             <!-- MAIN CONTENT -->
             {{ Form::open(array('action' => 'BantuanHukumController@convertpdf', 'method' => 'post',
             'id' => 'pdf-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal')) }}
-	<fieldset>
+	<fieldset style="margin-bottom: 48px;">
 
             <div class="row-fluid">
             <div class="span6">

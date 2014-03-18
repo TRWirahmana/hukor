@@ -292,6 +292,13 @@
             }
           ]
         },
+	plotOptions: {
+		line: {
+			marker: {
+				enabled: false	
+			}		
+		}	
+	},
         legend: {
           layout: 'vertical',
           align: 'right',

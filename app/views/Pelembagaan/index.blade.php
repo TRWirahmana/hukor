@@ -130,6 +130,11 @@
           <tbody></tbody>
 
         </table>
+        <style>
+          table.dataTable tr td:nth-child(6) {
+            text-align: center;
+          }
+        </style>
 
         <!-- END OF MAIN CONTENT -->
         @if($user->role_id == 3 )

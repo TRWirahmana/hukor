@@ -229,6 +229,12 @@
   </div>
 </div>
 
+<style>
+  table.dataTable tr td:nth-child(2) {
+    text-align: center;
+  }
+</style>
+
 <hr/>
 
 <div class="row-fluid text-center">

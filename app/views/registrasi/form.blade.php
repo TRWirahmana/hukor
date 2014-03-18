@@ -134,7 +134,8 @@
               <div class="control-group {{$errors->has('jabatan')?'error':''}}">
                   {{ Form::label('jabatan', 'Jabatan', array('class' => 'control-label required')) }}
                   <div class="controls">
-                      {{ Form::select('jabatan', array('1' => 'Direktur', '2' => 'Kepala Divisi'), 'Pilih Pekerjaan') }}
+                      {{ Form::text('jabatan', '',
+                      array('placeholder' => 'Masukkan jabatan anda di sini...')) }}
 
                       @foreach($errors->get('jabatan') as $error)
                       <span class="help-block">{{$error}}</span>
@@ -142,17 +143,15 @@
                   </div>
               </div>
 
-              <div class="control-group {{$errors->has('pekerjaan')?'error':''}}">
-                  {{ Form::label('pekerjaan', 'Pekerjaan', array('class' => 'control-label required')) }}
-                  <div class="controls">
-                      {{ Form::text('pekerjaan', '',
-                      array('placeholder' => 'Masukkan Pekerjaan anda di sini...')) }}
-
-                      @foreach($errors->get('pekerjaan') as $error)
-                      <span class="help-block">{{$error}}</span>
-                      @endforeach
-                  </div>
-              </div>
+<!--              <div class="control-group {{$errors->has('pekerjaan')?'error':''}}">-->
+<!--                  {{ Form::label('pekerjaan', 'Pekerjaan', array('class' => 'control-label required')) }}-->
+<!--                  <div class="controls">-->
+<!--                      {{ Form::text('pekerjaan', '', array('placeholder' => 'Masukkan Pekerjaan anda di sini...')) }}-->
+<!--                      @foreach($errors->get('pekerjaan') as $error)-->
+<!--                      <span class="help-block">{{$error}}</span>-->
+<!--                      @endforeach-->
+<!--                  </div>-->
+<!--              </div>-->
 
               <div class="control-group {{$errors->has('alamat_kantor')?'error':''}}">
                   {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label required')) }}

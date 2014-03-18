@@ -120,7 +120,7 @@
                         window.location.replace("{{URL::to('site')}}");
                     },
 
-                    "Registrasi" : function(){
+                    "Daftar" : function(){
                         window.location.replace("{{URL::to('registrasi')}}");
                     },
 

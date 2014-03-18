@@ -1,6 +1,6 @@
 @section('content')
 @if($info->id == 1)
-<h2><span class="rulycon-office"></span>Peraturan Perundang-Undangan</h2>
+<!--PERATURAN PERUNDANG-UNDANGAN-->
 
 <legend>
     Informasi Peraturan Perundang-Undangan
@@ -13,7 +13,7 @@
 @endif
 
 @if($info->id == 2)
-<h2><span class="rulycon-books"></span>Pelembagaan</h2>
+<!--PELEMBAGAAN-->
 
 <legend>
     Informasi Pelembagaan
@@ -26,7 +26,7 @@
 @endif
 
 @if($info->id == 3)
-<h2><span class="rulycon-stack"></span>Bantuan Hukum</h2>
+<!--BANTUAN HUKUM-->
 
 <legend>
     Informasi Bantuan Hukum
@@ -39,7 +39,7 @@
 @endif
 
 @if($info->id == 4)
-<h2>Ketatalaksanaan</h2>
+<!--KETATALAKSANAAN-->
 
 <legend>
     Informasi Sistem dan Prosedur
@@ -47,7 +47,7 @@
 @endif
 
 @if($info->id == 5)
-<h2>Ketatalaksanaan</h2>
+<!--KETATALAKSANAAN-->
 
 <legend>
     Informasi Analisis Jabatan

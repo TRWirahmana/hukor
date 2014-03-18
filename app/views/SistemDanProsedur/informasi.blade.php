@@ -1,7 +1,7 @@
 @section('content')
 
-<h2><span class="rulycon-library"></span>Ketatalaksanaan</h2>
-<div class="stripe-accent"></div>
+<!--KETATALAKSANAAN-->
+
 <legend>Informasi & Status Usulan Sistem dan Prosedur</legend>
 
 @include('flash')

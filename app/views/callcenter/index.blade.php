@@ -1,5 +1,5 @@
 @section('content')
-<h2><span class="rulycon-phone"></span>CALL CENTER</h2>
+<!--CALL CENTER-->
 
 @include('flash')
 <div class="row-fluid">

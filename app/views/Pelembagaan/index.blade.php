@@ -49,7 +49,7 @@
       @endif
 
       @else
-      <h2><span class="rulycon-books"></span>Layanan Pelembagaan</h2>
+<!--      LAYANAN PELEMBAGAAN-->
 
       <div class="stripe-accent"></div>
       <legend>Informasi dan Status</legend>

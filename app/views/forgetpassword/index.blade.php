@@ -1,5 +1,5 @@
 @section('content')
-<h2><span class="rulycon-lock"></span>Reset Password</h2>
+<!--RESET PASSWORD-->
 
 @include('flash')
 <div class="content-non-title">

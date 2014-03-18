@@ -1,6 +1,6 @@
 
 @section('content')
-<h2><span class="rulycon-cog"></span> Pengaturan Akun</h2>
+<!--PENGATURAN AKUN-->
 @include('flash')
 	{{ Form::open($form_opts) }}
 

@@ -1,6 +1,6 @@
 @section('content')
 
-<h2><span class="rulycon-office"></span>PERATURAN PERUNDANG-UNDANGAN</h2>
+<!--PERATURAN PERUNDANG-UNDANGAN-->
 
 <legend>Informasi dan Status Usulan</legend>
 

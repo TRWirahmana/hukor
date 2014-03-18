@@ -1,8 +1,8 @@
 @section('content')
 <input type="hidden" id="role_id" value="{{Auth::user()->role_id}}"/>
 
-<h2><span class="rulycon-stack"></span>BANTUAN HUKUM</h2>
-<div class="stripe-accent"></div>
+<!--BANTUAN HUKUM-->
+
     <legend>Informasi dan Status Usulan Bantuan Hukum</legend>
 
     @include('flash')

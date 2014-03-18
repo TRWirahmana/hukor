@@ -85,6 +85,13 @@
                     <tbody></tbody>
                 </table>
 
+
+              <style>
+                table.dataTable tr td:nth-child(5) {
+                  text-align: center;
+                }
+              </style>
+
                 <!-- END OF MAIN CONTENT -->
 
                 <div class="footer">

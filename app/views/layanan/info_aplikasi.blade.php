@@ -68,8 +68,8 @@
 <!--    Load Image-->
 @endif
 
-<div class="span8 offset10" style="margin-bottom: 48px;">
-    <button class="btn btn-primary" id="btn-usulan" type="button">Usulan</button>
+<div class="span8" style="margin-bottom: 48px;">
+    <button class="btn btn-primary " id="btn-usulan" type="button">Buat Usulan</button>
 </div>
 
 <!-- dialog box -->

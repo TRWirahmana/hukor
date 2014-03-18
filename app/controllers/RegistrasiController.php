@@ -484,7 +484,7 @@ class RegistrasiController extends BaseController {
 //        $subbag = Input::get('sub_bagian');
         $jk = Input::get('jenis_kelamin');
         $tgl_lahir = Input::get('tgl_lahir');
-        $pekerjaan = Input::get('pekerjaan');
+//        $pekerjaan = Input::get('pekerjaan');
         $alamat_kantor = Input::get('alamat_kantor');
         $tlp_ktr = Input::get('tlp_kantor');
         $hp = Input::get('handphone');
@@ -533,7 +533,7 @@ class RegistrasiController extends BaseController {
 
             if ($data !== 0) {
                 $dal_user = new DAL_User();
-                $dal_user->SetPengguna($data, $email, $nama, $nip, $jabatan, $jk, $tgl_lahir, $pekerjaan, $alamat_kantor, $tlp_ktr, $hp, $uk, $tempat);
+                $dal_user->SetPengguna($data, $email, $nama, $nip, $jabatan, $jk, $tgl_lahir, $alamat_kantor, $tlp_ktr, $hp, $uk, $tempat);
                 $dal_user->SaveBiodata($data);
 
                 // register user to forum database!

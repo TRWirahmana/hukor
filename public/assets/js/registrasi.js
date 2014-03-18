@@ -94,8 +94,7 @@ var Registrasi = (function(REG) {
                     number: true
                 },
                 'jabatan': {
-                    required: true,
-                    number: true
+                    required: true
                 },
                 'bagian': {
                     required: true,

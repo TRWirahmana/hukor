@@ -33,6 +33,13 @@
 						</div>
 					</div>
 
+                    <div class="control-group">
+                        {{ Form::label('bidang', 'Bidang', array('class' => 'control-label'))}}
+                        <div class="controls">
+                            {{ $data->getBidang($data->bidang) }}
+                        </div>
+                    </div>
+
 					<div class="control-group">
 						{{ Form::label('tentang', 'Tentang', array('class' => 'control-label'))}}					
 						<div class="controls">

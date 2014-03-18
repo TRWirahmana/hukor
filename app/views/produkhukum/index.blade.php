@@ -1,5 +1,5 @@
 @section('content')
-<h2><span class="rulycon-books"></span> PRODUK HUKUM</h2>
+
 
 <div id="filterdiv" class="filterdiv">
   <div class="row-fluid">

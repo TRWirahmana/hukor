@@ -72,7 +72,7 @@
         <p id="username" class="welcome-message user-not-null"><span>Selamat datang, <span id="name"><?php echo $user->pengguna->nama_lengkap; ?></span></span></p>
 
         <ul class="welcome-message user-not-null-links">
-          <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span>Pengaturan Akun</a></li>
+          <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-cog"></span>Pengaturan Akun</a></li>
           <li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span class="rulycon-exit"></span>Keluar</a></li>
         </ul>
         @else

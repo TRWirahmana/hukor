@@ -1,6 +1,5 @@
 @section('content')
 
-<h2><span class="rulycon-home-2"></span> SELAMAT DATANG</h2>
 @include('flash')
 <div class="content-non-title">
   <p id="welcome-to-the-fucking-app">

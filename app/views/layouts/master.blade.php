@@ -56,17 +56,12 @@
 <?php $datses = Session::get('key'); ?>
 <div class="container-fluid">
 <div class="row-fluid">
-<div class="span24">
-<div class="span6 sidebar">
-<?php $user = Auth::user(); ?>
-<header>
-  <a href="{{URL::to('/')}}"><img src="{{asset('assets/images/logo-only.png')}}" alt="Kebudayaan Indonesia"></a>
-  <h4>
-    <span>Biro Hukum dan Organisasi</span>
-    <span>Kementerian Pendidikan dan Kebudayaan</span><br>
-    <span>Republik Indonesia</span>
-  </h4>
+<header id="user-header">
+  @include('user-header')
 </header>
+<div class="span24" style="margin-left: 0;">
+<div class="span6 sidebar" style="padding-top: 160px;">
+<?php $user = Auth::user(); ?>
 
 
 @if($user != null)
@@ -342,7 +337,7 @@ Form::text('username', '', array(
 <h6 id="copyright">© 2014 Biro Hukum dan Organisasi</h6>
 </footer>
 </div>
-<div class="span18 main-content">
+<div class="span18 main-content" style="padding-top: 160px;">
   @yield('content')
 </div>
 </div>

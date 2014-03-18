@@ -246,10 +246,10 @@ legend {
   line-height: 120%;
   display: block;
   width: 100%;
-  background: rgba(0, 0, 0, .1);
+  /*background: rgba(0, 0, 0, .1);
+  box-shadow: inset -4px 0 0 rgba(0, 0, 0, .25);*/
   padding: 16px 0;
   margin-bottom: 1px;
-  box-shadow: inset -4px 0 0 rgba(0, 0, 0, .25);
 }
 #main-menu > li > a:hover {
   text-decoration: none;
@@ -490,17 +490,17 @@ div.DTTT_container {
     right: 0;
 }
 .rightpanel .breadcrumbs {
-  background: #2875A8;
+  background: url("../images/bg1.png") repeat;
   padding-left: 20px;
   padding-right: 20px;
   border-bottom: none;
 }
 .rightpanel .breadcrumbs li, .rightpanel .breadcrumbs li > a {
-  color: #ffffff;
+  color: #0A3E6E;
 }
 .rightpanel .pageheader {
   padding-bottom: 8px;
-  background: #5CA8EE;
+  background: #2875A8;
 }
 .rightpanel .pageicon {
   font-size: 24px;

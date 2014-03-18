@@ -654,18 +654,33 @@ p {
 
 .footer address {
   margin-bottom: 12px;
-  text-align: center;
+  margin-top: 32px;
 }
 
-.footer address img {
-  display: block;
-  margin: auto;
-  margin-bottom: 12px;
+.footer #footer-image img {
+  display: inline-block;
+  float: left;
+  width: 20%;
+  margin-right: 2%;
 }
 
-.footer address img + span {
-  font-size: 15px;
+.footer #footer-image img + span {
+  font-size: 16px;
+  display: inline-block;
+  float: left;
+  width: 78%;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.footer #footer-image p {
+  text-transform: uppercase;
+}
+
+.footer #footer-image p > span {
   display: block;
+  font-size: 10px;
+  line-height: 140%;
 }
 
 .footer .social-links span[class *= "rulycon"] {

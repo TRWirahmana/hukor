@@ -41,7 +41,7 @@ input[type="search"], input[type="tel"], input[type="color"], .uneditable-input 
   margin: 0 !important;
 }
 .leftpanel {
-  background: url("../images/leftpanelbg.png") repeat 0 0;
+  background: #2c3e50;
 }
 
 /* HUKOR SIGN IN PAGE ONLY */
@@ -482,6 +482,11 @@ table.dataTable tbody tr.even td.sorting_1 {
 .leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a:hover {
   color: #ffffff;
   background: #2875A8;
+}
+.leftmenu .nav.nav-tabs.nav-stacked .nav-header {
+  background: rgba(0, 0, 0, .075);
+  border: none;
+  margin-bottom: 1px;
 }
 .sub-menu-active {
   color: #ffffff !important;

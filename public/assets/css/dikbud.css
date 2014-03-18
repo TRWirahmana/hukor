@@ -47,7 +47,7 @@ body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "PT Sans", "pt_sansregular", sans-serif;
-  background: #ecf0f1;
+  background: url("../images/bg1.png") repeat;
 }
 p {
   font-size: 13px;
@@ -705,10 +705,10 @@ html, .main-layout, .admin,
 }
 .main-content > h2 > span[class*="rulycon"] {
   font-size: 14px;
-  color: rgba(0, 0, 0, .25);
+  color: #ffffff;
   vertical-align: top;
   padding: 3px 7px 7px;
-  border: 3px solid rgba(0, 0, 0, .25);
+  border: 3px solid #ffffff;
   border-radius: 100em;
   margin-right: 10px;
 }

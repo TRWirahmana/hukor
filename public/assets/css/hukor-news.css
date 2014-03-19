@@ -319,6 +319,11 @@ p {
   margin-top: 32px;
 }
 
+.carousel-inner {
+  max-height: 360px;
+  overflow: hidden;
+}
+
 .carousel-inner > .item {
   min-height: 320px;
 }
@@ -594,10 +599,16 @@ p {
   margin-left: 4px;
 }
 
+.news-content .span4 {
+  max-height: 200px;
+  overflow: hidden;
+}
+
 .news-content .span4 > img {
   margin-top: 12px;
   border: 4px solid #ffffff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+  width: 100%;
 }
 
 .news-content .span8 {

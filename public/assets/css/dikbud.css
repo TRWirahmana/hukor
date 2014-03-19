@@ -666,7 +666,7 @@ html, .main-layout, .admin,
   list-style: none;
 }
 .sidebar #user-menu .accordion-inner a {
-  padding-left: 50px;
+  padding-left: 74px;
 }
 .sidebar #user-menu .accordion-inner a:hover {
   text-decoration: none;
@@ -675,6 +675,8 @@ html, .main-layout, .admin,
 }
 .sidebar #user-menu .accordion-inner a > span[class*=rulycon] {
   margin-right: 15px;
+  position: absolute;
+  left: 48px;
 }
 .sidebar #copyright {
   padding: 20px;

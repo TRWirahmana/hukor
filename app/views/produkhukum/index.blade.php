@@ -29,8 +29,8 @@
                     <option value="7">Keputusan Menteri</option>
                     <option value="8">Instruksi Menteri</option>
                     <option value="9">Surat Edaran Menteri</option>
-                    <option value="10">Nota Kesepakatan</option>
-                    <option value="11">Nota Kesepahaman</option>
+                    <option value="10">Nota Kesepahaman</option>
+                    <option value="11">Kesepakatan Bersama</option>
                     <option value="12">Peraturan Bersama</option>
                     <option value="13">Keputusan Bersama</option>
                     <option value="14">Surat Edaran Bersama</option>
@@ -151,12 +151,17 @@
 
     $dataTable = $("#tbl-produkhukum").dataTable({
       bFilter: true,
-      bInfo: false,
+      bInfo: true,
       bSort: false,
       bPaginate: true,
       bLengthChange: false,
       bServerSide: true,
       bProcessing: true,
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Peraturan",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan"
+        },
       sAjaxSource: '<?php echo URL::to("produkhukum/tableph"); ?>',
       aoColumns: [
 //        {

@@ -382,6 +382,8 @@ Form::text('username', '', array(
     }
 
   });
+
+
 </script>
 @show
 </body>

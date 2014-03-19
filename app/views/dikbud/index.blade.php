@@ -80,15 +80,15 @@
               </div>
             <?php } ?>
 
+          </fieldset>
+
             <hr/>
 
             <div class="control-group">
-              <div class="controls">
-                {{ Form::submit('Simpan perubahan', array('class' => 'btn btn-primary')) }}
-              </div>
+                <div class="controls">
+                    {{ Form::submit('Simpan perubahan', array('class' => 'btn btn-primary')) }}
+                </div>
             </div>
-
-          </fieldset>
         </div>
 
       </div>

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/DAL/DAL_Document.php" afterPath="$PROJECT_DIR$/app/models/DAL/DAL_Document.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/document/form.blade.php" afterPath="$PROJECT_DIR$/app/views/document/form.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/produkhukum/index.blade.php" afterPath="$PROJECT_DIR$/app/views/produkhukum/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/dikbud/index.blade.php" afterPath="$PROJECT_DIR$/app/views/dikbud/index.blade.php" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,37 +30,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="form.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/document/form.blade.php">
+      <file leaf-file-name="DikbudController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/DikbudController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="44" selection-start="1687" selection-end="1687" vertical-scroll-proportion="-3.9230769" vertical-offset="714" max-vertical-offset="2992">
+            <state line="22" column="42" selection-start="753" selection-end="753" vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="2057">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.blade.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/produkhukum/index.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/views/dikbud/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="160" column="77" selection-start="5703" selection-end="5703" vertical-scroll-proportion="0.6275168" vertical-offset="2346" max-vertical-offset="5610">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProdukHukumController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/ProdukHukumController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="5" selection-start="491" selection-end="491" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="1054">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DAL_Document.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Document.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="45" selection-start="3481" selection-end="3481" vertical-scroll-proportion="-12.153846" vertical-offset="1690" max-vertical-offset="2873">
+            <state line="84" column="17" selection-start="3132" selection-end="3132" vertical-scroll-proportion="0.7718121" vertical-offset="968" max-vertical-offset="2533">
               <folding />
             </state>
           </provider>
@@ -106,6 +86,7 @@
         <option value="$PROJECT_DIR$/app/views/document/form.blade.php" />
         <option value="$PROJECT_DIR$/app/models/DAL/DAL_Document.php" />
         <option value="$PROJECT_DIR$/app/views/produkhukum/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/dikbud/index.blade.php" />
       </list>
     </option>
   </component>
@@ -211,47 +192,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="produkhukum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="document" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="dikbud" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -581,23 +522,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Document.php">
+    <entry file="file://$PROJECT_DIR$/app/views/produkhukum/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="45" selection-start="3481" selection-end="3481" vertical-scroll-proportion="-12.153846" vertical-offset="1690" max-vertical-offset="2873">
+        <state line="160" column="77" selection-start="5703" selection-end="5703" vertical-scroll-proportion="0.6275168" vertical-offset="2346" max-vertical-offset="5610">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ProdukHukumController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="5" selection-start="491" selection-end="491" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="1054">
+        <state line="19" column="5" selection-start="491" selection-end="491" vertical-scroll-proportion="0.5419463" vertical-offset="0" max-vertical-offset="1054">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/produkhukum/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Document.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="77" selection-start="5703" selection-end="5703" vertical-scroll-proportion="0.6275168" vertical-offset="2346" max-vertical-offset="5610">
+        <state line="118" column="45" selection-start="3481" selection-end="3481" vertical-scroll-proportion="0.5302013" vertical-offset="1690" max-vertical-offset="2873">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/DikbudController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="42" selection-start="753" selection-end="753" vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="2057">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/dikbud/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="17" selection-start="3132" selection-end="3132" vertical-scroll-proportion="0.7718121" vertical-offset="968" max-vertical-offset="2533">
           <folding />
         </state>
       </provider>

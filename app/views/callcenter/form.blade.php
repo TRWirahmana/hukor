@@ -7,7 +7,7 @@
     <li>Call Center</li>
   </ul>
   <div class="pageheader">
-    <div class="pageicon"><span class="rulycon-notebook"></span></div>
+    <div class="pageicon"><span class="rulycon-settings"></span></div>
     <div class="pagetitle">
       <h1>Call Center</h1>
     </div>

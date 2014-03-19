@@ -9,5 +9,5 @@
   </div>
 
   <div id="content-title">
-<!--    <h2><span class="rulycon-home-2"></span> SELAMAT DATANG</h2>-->
+    <h2 id="content-title-heading"></h2>
   </div>

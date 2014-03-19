@@ -13,7 +13,7 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon"><span class="rulycon-notebook"></span></div>
+        <div class="pageicon"><span class="rulycon-settings"></span></div>
         <div class="pagetitle">
           <h1>Manage Layanan</h1>
         </div>

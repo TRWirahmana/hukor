@@ -1,6 +1,9 @@
 @section('content')
 
 <!--PERATURAN PERUNDANG-UNDANGAN-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Peraturan perundang-undangan";
+</script>
 
 <legend>Informasi dan Status Usulan</legend>
 

@@ -1,6 +1,9 @@
 @section('content')
 
 <!--Ketatalaksanaan-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
+</script>
 
 <legend>Informasi & Status Usulan Analisis Jabatan</legend>
 

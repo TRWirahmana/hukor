@@ -17,7 +17,7 @@
   <!--        <form action="results.html" method="post" class="searchbar">-->
   <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
   <!--        </form>-->
-  <div class="pageicon"><span class="rulycon-wrench"></span></div>
+  <div class="pageicon"><span class="rulycon-notebook"></span></div>
   <div class="pagetitle">
     <h1>PELEMBAGAAN</h1>
   </div>
@@ -50,8 +50,10 @@
 
       @else
 <!--      LAYANAN PELEMBAGAAN-->
+      <script>
+        document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Pelembagaan";
+      </script>
 
-      <div class="stripe-accent"></div>
       <legend>Informasi dan Status</legend>
 
       <script>

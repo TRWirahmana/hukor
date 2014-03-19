@@ -117,14 +117,14 @@ Form::text('username', '', array(
 <!-- <li>
               <a href="http://localhost/retane_blog/wp-login.php?log=<?php //echo $datses['us']; ?>&pwd=<?php echo $datses['pd']; ?>" target="_blank"><span class="rulycon-wordpress"></span> Blog</a>
             </li> -->
-<li id="menu-beranda"><a href="{{URL::to('/')}}"><span class="rulycon-home-2"></span><span>Beranda</span></a></li>
-<li id="menu-produk-hukum"><a href="{{URL::to('produkhukum')}}"><span class="rulycon-books"></span><span>Produk Hukum</span></a>
+<li id="menu-beranda"><a href="{{URL::to('/')}}"><span class="rulycon-home-2"></span>Beranda</a></li>
+<li id="menu-produk-hukum"><a href="{{URL::to('produkhukum')}}"><span class="rulycon-books"></span>Produk Hukum</a>
 </li>
 @if (null != AppConfig::find('enable_forum') && AppConfig::find('enable_forum')->value == "true")
-<li id="menu-forum"><a href="#"><span class="rulycon-bubbles"></span><span>Forum</span></a></li>
+<li id="menu-forum"><a href="#"><span class="rulycon-bubbles"></span>Forum</a></li>
 @endif
-<li id="menu-call-center"><a href="{{ URL::to('callcenter') }}"><span class="rulycon-address-book"></span><span>Kontak
-    Kami</span></a>
+<li id="menu-call-center"><a href="{{ URL::to('callcenter') }}"><span class="rulycon-address-book"></span>Kontak
+    Kami</a>
 </li>
 
 <li class="menu-header">Layanan</li>
@@ -142,13 +142,13 @@ Form::text('username', '', array(
         @if($as['0'] != null)
 
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion{{$no}}" href="#collapse{{$no}}">
-          <span class="rulycon-notebook"></span><span>{{$menus['nama_menu']}}</span>
+          <span class="rulycon-notebook"></span>{{$menus['nama_menu']}}
           <span class="rulycon-menu-2 pull-right"></span>
         </a>
         @else
         <?php $laysmen = Layanan::where('menu_id', '=', $menus['id'])->get(); ?>
         <a class="accordion-toggle" href="{{ URL::to('/layanan/detail?id='. $laysmen['0']['id'] .'') }}">
-          <span class="rulycon-notebook"></span><span>{{$menus['nama_menu']}}</span>
+          <span class="rulycon-notebook"></span>{{$menus['nama_menu']}}
           <span class="rulycon-menu-2 pull-right"></span>
         </a>
         @endif
@@ -164,10 +164,10 @@ Form::text('username', '', array(
             @if($layssubs != null)
             @foreach($layssubs as $layssub)
             <li><a href="{{ URL::to('/layanan/detail?id='. $layssub['id'] .'') }}"><span
-                  class="rulycon-list-2"></span> <span>{{ $submenus['nama_submenu'] }}</span></a></li>
+                  class="rulycon-list-2"></span> {{ $submenus['nama_submenu'] }}</a></li>
             @endforeach
             @else
-            <li><a href="#"><span class="rulycon-list-2"></span> <span>{{ $submenus['nama_submenu'] }}</span></a></li>
+            <li><a href="#"><span class="rulycon-list-2"></span> {{ $submenus['nama_submenu'] }}</a></li>
             @endif
             @endforeach
           </ul>
@@ -193,7 +193,7 @@ Form::text('username', '', array(
     <div class="accordion-group">
       <div class="accordion-heading">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapse10">
-          <span class="rulycon-drawer-3"></span><span>Peraturan Perundang-undangan</span>
+          <span class="rulycon-drawer-3"></span>Peraturan Perundang-undangan
           <span class="rulycon-menu-2 pull-right"></span>
         </a>
       </div>
@@ -201,13 +201,13 @@ Form::text('username', '', array(
         <div class="accordion-inner">
           <ul>
             <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=1') }}"><span
-                  class="rulycon-stack"></span><span>Informasi</span></a></li>
+                  class="rulycon-stack"></span>Informasi</a></li>
             @if($user->role_id == 2)
-            <li id="menu-peruu-usulan"><a href="{{ URL::route('puu.create')  }}"><span class="rulycon-stack"></span><span>Lembar
-                Usulan</span></a></li>
+            <li id="menu-peruu-usulan"><a href="{{ URL::route('puu.create')  }}"><span class="rulycon-stack"></span>Lembar
+                Usulan</a></li>
             @endif
-            <li id="menu-peruu-informasi"><a href="{{URL::route('puu.index')}}"><span class="rulycon-stack"></span><span>Status
-                Usulan</span></a></li>
+            <li id="menu-peruu-informasi"><a href="{{URL::route('puu.index')}}"><span class="rulycon-stack"></span>Status
+                Usulan</a></li>
           </ul>
         </div>
       </div>
@@ -221,7 +221,7 @@ Form::text('username', '', array(
     <div class="accordion-group">
       <div class="accordion-heading">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion5" href="#collapse11">
-          <span class="rulycon-drawer-3"></span><span>Pelembagaan</span>
+          <span class="rulycon-drawer-3"></span>Pelembagaan
           <span class="rulycon-menu-2 pull-right"></span>
         </a>
       </div>
@@ -229,13 +229,13 @@ Form::text('username', '', array(
         <div class="accordion-inner">
           <ul>
             <li id="menu-pelembagaan-info"><a href="{{ URL::to('/layanan/detail?id=2') }}"><span
-                  class="rulycon-stack"></span><span>Informasi</span></a></li>
+                  class="rulycon-stack"></span>Informasi</a></li>
             @if($user->role_id == 2)
             <li id="menu-pelembagaan-usulan"><a href="{{URL::route('pelembagaan.create')}}"><span
-                  class="rulycon-stack"></span><span>Lembar Usulan</span></a></li>
+                  class="rulycon-stack"></span>Lembar Usulan</a></li>
             @endif
             <li id="menu-pelembagaan-informasi"><a href="{{ URL::route('pelembagaan.index') }}"><span
-                  class="rulycon-stack"></span><span>Status Usulan</span></a></li>
+                  class="rulycon-stack"></span>Status Usulan</a></li>
           </ul>
         </div>
       </div>
@@ -248,7 +248,7 @@ Form::text('username', '', array(
     <div class="accordion-group">
       <div class="accordion-heading">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapse13">
-          <span class="rulycon-drawer-3"></span><span>Bantuan Hukum</span>
+          <span class="rulycon-drawer-3"></span>Bantuan Hukum
           <span class="rulycon-menu-2 pull-right"></span>
         </a>
       </div>
@@ -256,13 +256,13 @@ Form::text('username', '', array(
         <div class="accordion-inner">
           <ul>
             <li id="menu-bantuan-hukum-info"><a href="{{ URL::to('/layanan/detail?id=3') }}"><span
-                  class="rulycon-stack"></span><span>Informasi</span></a></li>
+                  class="rulycon-stack"></span>Informasi</a></li>
             @if($user->role_id == 2)
             <li id="menu-bantuan-hukum"><a href="{{ URL::route('bantuan_hukum.create') }}"><span
-                  class="rulycon-stack"></span><span>Lembar Usulan</span></a></li>
+                  class="rulycon-stack"></span>Lembar Usulan</a></li>
             @endif
-            <li id="menu-banhuk-informasi"><a href="{{ URL::to('BantuanHukum') }}"><span class="rulycon-stack"></span><span>Status
-                Usulan</span></a></li>
+            <li id="menu-banhuk-informasi"><a href="{{ URL::to('BantuanHukum') }}"><span class="rulycon-stack"></span>Status
+                Usulan</a></li>
           </ul>
         </div>
       </div>
@@ -275,7 +275,7 @@ Form::text('username', '', array(
     <div class="accordion-group">
       <div class="accordion-heading">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapse12">
-          <span class="rulycon-drawer-3"></span><span>Ketatalaksanaan</span>
+          <span class="rulycon-drawer-3"></span>Ketatalaksanaan
           <span class="rulycon-menu-2 pull-right"></span>
         </a>
       </div>
@@ -283,23 +283,23 @@ Form::text('username', '', array(
         <div class="accordion-inner">
           <ul>
             <li id="menu-prosedur-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span
-                  class="rulycon-stack"></span><span>Informasi Sistem dan Prosedur</span></a></li>
+                  class="rulycon-stack"></span>Informasi Sistem dan Prosedur</a></li>
             <li id="menu-pelembagaan-informasi2"><a href="{{URL::route('sp.index')}}"><span
-                  class="rulycon-stack"></span><span>Status Usulan Sistem dan Prosedur</span></a></li>
+                  class="rulycon-stack"></span>Status Usulan Sistem dan Prosedur</a></li>
 
 
             @if($user->role_id == 2)
             <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('sp.create')}}"><span
-                  class="rulycon-stack"></span><span>Lembar Usulan Sistem dan Prosedur</span></a></li>
+                  class="rulycon-stack"></span>Lembar Usulan Sistem dan Prosedur</a></li>
             @endif
 
             <li id="menu-analisa-info"><a href="{{ URL::to('/layanan/detail?id=5') }}"><span
-                  class="rulycon-stack"></span><span>Informasi Analisis Jabatan</span></a></li>
+                  class="rulycon-stack"></span>Informasi Analisis Jabatan</a></li>
             <li id="menu-ketatalaksanaan-informasi"><a href="{{URL::route('aj.index')}}"><span
-                  class="rulycon-stack"></span><span>Status Usulan Analisis Jabatan</span></a></li>
+                  class="rulycon-stack"></span>Status Usulan Analisis Jabatan</a></li>
             @if($user->role_id == 2)
             <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('aj.create')}}"><span
-                  class="rulycon-stack"></span><span>Lembar Usulan Analisis Jabatan</span></a></li>
+                  class="rulycon-stack"></span>Lembar Usulan Analisis Jabatan</a></li>
             @endif
           </ul>
         </div>

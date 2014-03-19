@@ -1,13 +1,14 @@
 @section('content')
 
-<h2>Pendaftaran</h2>
-<div class="stripe-accent"></div>
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-plus'></span> Pendaftaran";
+</script>
 @include('flash')
 
 {{-- form registrasi --}}
     {{ Form::open(array('action' => 'RegistrasiController@send', 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal' )) }}
 
-<div class="span24" style="margin-bottom: 20px;margin-top:0px;margin-left:50px">
+<div class="span24" style="margin-bottom: 20px;margin-top:0px;">
     <strong>Silahkan lengkapi formulir berikut untuk melakukan pendaftaran. Isian dengan tanda <span class="required"></span> wajib diisi.</strong>
 </div>
         <div class="row-fluid">
@@ -204,7 +205,7 @@
           </div>
         </div>
 
-        <div class="row-fluid">
+        <div class="row-fluid" style="margin-top: 24px; margin-bottom: 48px;">
           <div class="span24 text-center">
             <button class="btn btn-hukor" type="submit" id="submit">Register</button>
           </div>

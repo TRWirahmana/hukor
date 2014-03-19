@@ -1,5 +1,8 @@
 @section('content')
 <!--CALL CENTER-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-address-book'></span> Call center";
+</script>
 
 @include('flash')
 <div class="row-fluid">

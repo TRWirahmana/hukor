@@ -1,6 +1,9 @@
 
 @section('content')
 <!--PENGATURAN AKUN-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-settings'></span> Pengaturan akun";
+</script>
 @include('flash')
 	{{ Form::open($form_opts) }}
 

@@ -2,7 +2,6 @@
 
 
 <h2>BANTUAN HUKUM</h2>
-<div class="stripe-accent"></div>
 <legend>Bantuan Hukum</legend>
 
 @include('flash')

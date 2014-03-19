@@ -594,10 +594,11 @@ html, .main-layout, .admin,
 .sidebar #user-menu > li > a, .sidebar ul.welcome-message > li > a,
 .sidebar #user-menu .accordion-heading .accordion-toggle,
 .sidebar #user-menu .accordion-inner a {
+  /*font-family: "PT Sans Narrow", "pt_sans_narrowregular", sans-serif !important;*/
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   width: 100%;
-  color: rgba(255, 255, 255, .55);
+  color: rgba(255, 255, 255, 1);
   background: transparent;
   padding: 7.5px 20px;
   border-radius: 0;
@@ -621,7 +622,7 @@ html, .main-layout, .admin,
 .sidebar ul.welcome-message > li > a > span[class *= rulycon],
 .sidebar #user-menu .accordion-heading .accordion-toggle > span[class *= rulycon] {
   margin-right: 15px;
-  color: rgba(255, 255, 255, .55);
+  color: rgba(255, 255, 255, 1);
 }
 .sidebar #user-menu .accordion-heading .accordion-toggle > .rulycon-menu-2 {
   margin-right: 0 !important;
@@ -660,22 +661,6 @@ html, .main-layout, .admin,
 .sidebar #user-menu .accordion-inner a > span[class*=rulycon] {
   margin-right: 15px;
 }
-.sidebar #user-menu > li > a {
-  min-height: 35px;
-}
-.sidebar #user-menu > li > a > span:first-child,
-.sidebar #user-menu > li > a > span:nth-child(2) {
-  float: left;
-  position: relative;
-}
-.sidebar #user-menu > li > a > span:first-child {
-  width: 12%;
-  margin: 0;
-}
-.sidebar #user-menu > li > a > span:nth-child(2) {
-  float: none;
-  width: 88%;
-}
 .sidebar #copyright {
   padding: 20px;
   line-height: 120%;
@@ -684,14 +669,14 @@ html, .main-layout, .admin,
   text-align: center;
   background: #2875A8;
   margin-bottom: 0;
-  font-size: 9px;
+  font-size: 13px;
 }
 #welcome-to-the-fucking-app {
   font-size: 16px;
   text-align: center;
   line-height: 140%;
   font-family: "PT Sans", "pt_sansregular", sans-serif;
-  color: #95a5a6;
+  color: #2980b9;
   width: 65%;
   margin: 140px auto;
   padding: 40px 20px 60px;
@@ -869,7 +854,7 @@ table.dataTable {
   margin-bottom: 10px;
 }
 table.dataTable thead tr > th {
-  background: #95a5a6;
+  background: #2980b9;
   color: #ffffff;
   border: none;
   padding: 6px 10px 8px;

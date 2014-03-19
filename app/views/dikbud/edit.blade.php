@@ -4,8 +4,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li><a href="{{URL::previous()}}">Berita</a>  <span class="separator"></span></li>
-        <li>Pengaturan Link</li>
+        <li>Kelola Link</li>
     </ul>
     @include('adminflash')
     <div class="pageheader">
@@ -16,7 +15,7 @@
         <div class="pagetitle">
             <!--<h5>Events</h5>-->
 
-            <h1>Link</h1>
+            <h1>Kelola Link</h1>
         </div>
     </div>
     <!--pageheader-->

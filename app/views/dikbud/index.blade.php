@@ -4,8 +4,7 @@
 
   <ul class="breadcrumbs">
     <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-    <li><a href="{{URL::previous()}}">Berita</a> <span class="separator"></span></li>
-    <li>Pengaturan Link</li>
+    <li>Kelola Link</li>
   </ul>
   @include('adminflash')
   <div class="pageheader">
@@ -13,7 +12,7 @@
     <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
     <!--        </form>-->
     <div class="pageicon"><span class="rulycon-settings"></span></div>
-    <div class="pagetitle"><h1>Link</h1>
+    <div class="pagetitle"><h1>Kelola Link</h1>
     </div>
   </div>
   <!--pageheader-->

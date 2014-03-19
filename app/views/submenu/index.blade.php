@@ -3,7 +3,6 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li><a href="{{URL::previous()}}">Manage Menu</a> <span class="separator"></span></li>
         <li>Kelola Submenu</li>
     </ul>
     @include('adminflash')

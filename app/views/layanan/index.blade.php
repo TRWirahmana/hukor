@@ -4,7 +4,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li>Manage Layanan</li>
+        <li>Kelola Konten Layanan</li>
     </ul>
 
     @include('adminflash')
@@ -15,7 +15,7 @@
         <!--        </form>-->
         <div class="pageicon"><span class="rulycon-settings"></span></div>
         <div class="pagetitle">
-          <h1>Manage Layanan</h1>
+          <h1>Kelola Konten Layanan</h1>
         </div>
     </div>
     <!--pageheader-->

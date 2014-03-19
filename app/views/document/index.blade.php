@@ -86,9 +86,11 @@
         bLengthChange: true,
         bServerSide: true,
         bProcessing: true,
-      oLanguage:{
-        "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Data",
-      },
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Peraturan",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan"
+        },
 //                sAjaxSource: baseUrl + "/lkpm/data",
         sAjaxSource: '<?php echo URL::to("admin/tabledoc"); ?>',
         aoColumns: [

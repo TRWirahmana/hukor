@@ -147,11 +147,14 @@
     var tbl_data = jQuery("#basictable").dataTable({
         bServerSide: true,
         bFilter:true,
+        bInfo: true,
 	    bLengthChange: false,
         bProcessing: true,
         bPaginate: true,
         oLanguage:{
-            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Data",
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan"
         },
         sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/datatable"); ?>',
         aoColumns: [

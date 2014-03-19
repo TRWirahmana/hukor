@@ -140,8 +140,14 @@
                 // },
                 bServerSide: true,
                 sAjaxSource: document.location.href,
-                bFilter: false,
+                bFilter: true,
+                bInfo: true,
                 bLengthChange: false,
+                oLanguage:{
+                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Peraturan",
+                    "sEmptyTable": "Data Kosong",
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan"
+                },
                 aoColumns: [
                     {
                         mData: "id",

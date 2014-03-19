@@ -97,7 +97,7 @@
       <file leaf-file-name="detail.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layanan/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="24" selection-end="100" vertical-scroll-proportion="0.033797216" vertical-offset="0" max-vertical-offset="1088">
+            <state line="4" column="95" selection-start="208" selection-end="208" vertical-scroll-proportion="0.13518886" vertical-offset="0" max-vertical-offset="1088">
               <folding />
             </state>
           </provider>
@@ -583,7 +583,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layanan/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="24" selection-end="100" vertical-scroll-proportion="0.033797216" vertical-offset="0" max-vertical-offset="1088">
+        <state line="4" column="95" selection-start="208" selection-end="208" vertical-scroll-proportion="0.13518886" vertical-offset="0" max-vertical-offset="1088">
           <folding />
         </state>
       </provider>

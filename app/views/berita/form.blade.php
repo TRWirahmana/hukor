@@ -76,17 +76,18 @@
                 <span class="help-block">{{$error}}</span>
                 @endforeach
               </div>
+                <p class="span9 offset2" style="color: #616D79;font-size: 11px;">Rekomendasi ukuran gambar: lebar 200 pixel, tinggi 200 pixel</p>
             </div>
 
             <div class="control-group {{$errors->has('gambar')?'error':''}}">
               {{ Form::label('slider', 'Slider', array('class' => 'control-label')) }}
               <div class="controls">
                 {{ Form::file('slider')}}
-
                 @foreach($errors->get('slider') as $error)
                 <span class="help-block">{{$error}}</span>
                 @endforeach
               </div>
+                <p class="span9 offset2" style="color: #616D79;font-size: 11px;">Rekomendasi ukuran gambar: lebar 960 pixel, tinggi 328 pixel</p>
             </div>
 
             <hr/>

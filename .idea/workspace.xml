@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="" />
+    <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/admin.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/admin.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/berita.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/berita/form.blade.php" afterPath="$PROJECT_DIR$/app/views/berita/form.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/news/index.blade.php" afterPath="$PROJECT_DIR$/app/views/news/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/master.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user-header.blade.php" afterPath="$PROJECT_DIR$/app/views/user-header.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,108 +30,73 @@
     <groupTables value="false" />
     <sortChildren value="false" />
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/app/views/PerUU/index.blade.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="201" column="110" selection-start="8374" selection-end="8374" vertical-scroll-proportion="0.38931298" vertical-offset="3213" max-vertical-offset="4556">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="diknasrokum" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/produkhukum/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="8" selection-start="1" selection-end="8" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="5491">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/bantuanhukum/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="125" column="77" selection-start="4867" selection-end="4867" vertical-scroll-proportion="-1.3076923" vertical-offset="2091" max-vertical-offset="2941">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info_aplikasi.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="19" selection-start="19" selection-end="19" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2397">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="master.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="20" selection-start="2489" selection-end="2489" vertical-scroll-proportion="-6.6153846" vertical-offset="814" max-vertical-offset="6511">
+            <state line="69" column="0" selection-start="2851" selection-end="2851" vertical-scroll-proportion="-15.038462" vertical-offset="782" max-vertical-offset="6426">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/admin.blade.php">
+      <file leaf-file-name="index.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="30" selection-start="64" selection-end="64" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="4726">
-              <folding />
+            <state line="94" column="23" selection-start="3407" selection-end="3407" vertical-scroll-proportion="0.740458" vertical-offset="1210" max-vertical-offset="4556">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <marker date="1395200628150" expanded="true" signature="2186:2222" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="2331:2367" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="2476:2512" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="2621:2657" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="2766:2802" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="2911:2947" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3089:3579" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3137:3579" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3181:3579" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3181:3579" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3216:3579" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3306:3579" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3422:3579" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3422:3446" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3422:3446" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3461:3579" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3461:3579" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3499:3579" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3536:3579" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3756:3877" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="3792:3877" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="4108:4297" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="4225:4297" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="4311:4403" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="4311:4339" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="4311:4339" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="4746:4808" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="4767:4808" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="5956:6279" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="6053:6279" placeholder="..." />
+                <marker date="1395200628150" expanded="true" signature="6053:6279" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/index.blade.php">
+      <file leaf-file-name="form.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/berita/form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="31" selection-start="563" selection-end="563" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="1853">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="informasi.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/SistemDanProsedur/informasi.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="88" selection-start="3677" selection-end="3690" vertical-scroll-proportion="-7.8461537" vertical-offset="1530" max-vertical-offset="2295">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index_user.blade.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/AnalisisJabatan/index_user.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="21" selection-start="4286" selection-end="4286" vertical-scroll-proportion="0.7906977" vertical-offset="1581" max-vertical-offset="2380">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="informasi.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/PerUU/informasi.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="76" selection-start="3674" selection-end="3687" vertical-scroll-proportion="-9.153846" vertical-offset="1530" max-vertical-offset="2414">
-              <folding />
+            <state line="74" column="58" selection-start="2997" selection-end="2997" vertical-scroll-proportion="-9.038462" vertical-offset="1023" max-vertical-offset="2703">
+              <folding>
+                <element signature="n#style#0;n#p#0;n#div#3;n#fieldset#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#4;n#fieldset#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -146,11 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/registrasi/setting.blade.php" />
-        <option value="$PROJECT_DIR$/app/models/Document.php" />
-        <option value="$PROJECT_DIR$/app/views/produkhukum/detail.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/categories/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/PerUU/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/bantuanhukum/index_admin.blade.php" />
         <option value="$PROJECT_DIR$/app/views/SistemDanProsedur/index.blade.php" />
@@ -159,9 +127,14 @@
         <option value="$PROJECT_DIR$/app/views/produkhukum/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/PerUU/informasi.blade.php" />
         <option value="$PROJECT_DIR$/app/views/bantuanhukum/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/views/SistemDanProsedur/informasi.blade.php" />
         <option value="$PROJECT_DIR$/app/views/AnalisisJabatan/index_user.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/admin.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/user-header.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/berita/form.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/news/index.blade.php" />
       </list>
     </option>
   </component>
@@ -430,6 +403,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="news" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diknasrokum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="menu" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -474,135 +469,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layanan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="document" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="categories" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bantuanhukum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AnalisisJabatan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="berita" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -671,10 +538,9 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25466892" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32994923" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21636952" sideWeight="0.67005074" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21961102" sideWeight="0.67005074" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25466892" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -683,6 +549,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32994923" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -702,115 +569,129 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/bantuanhukum/index_admin.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="248" column="69" selection-start="9575" selection-end="9575" vertical-scroll-proportion="0.648855" vertical-offset="3876" max-vertical-offset="5270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/AnalisisJabatan/index_admin.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="202" column="111" selection-start="8654" selection-end="8654" vertical-scroll-proportion="-0.35687023" vertical-offset="3621" max-vertical-offset="4505">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/SistemDanProsedur/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="99" selection-start="8660" selection-end="8660" vertical-scroll-proportion="0.5515267" vertical-offset="3162" max-vertical-offset="4573">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="282" column="123" selection-start="9310" selection-end="9310" vertical-scroll-proportion="0.77862597" vertical-offset="4386" max-vertical-offset="6052">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/document/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="213" column="65" selection-start="7656" selection-end="7656" vertical-scroll-proportion="0.45076925" vertical-offset="3328" max-vertical-offset="4182">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="19" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2397">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/document/form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="24" selection-start="3296" selection-end="3342" vertical-scroll-proportion="-17.0" vertical-offset="1071" max-vertical-offset="2992">
-          <folding />
-        </state>
+        <state line="89" column="24" selection-start="3296" selection-end="3342" vertical-scroll-proportion="-17.0" vertical-offset="1071" max-vertical-offset="2992" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/PerUU/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="110" selection-start="8374" selection-end="8374" vertical-scroll-proportion="0.38931298" vertical-offset="3213" max-vertical-offset="4556">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/PerUU/informasi.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="76" selection-start="3674" selection-end="3687" vertical-scroll-proportion="-9.153846" vertical-offset="1530" max-vertical-offset="2414">
-          <folding />
-        </state>
+        <state line="201" column="110" selection-start="8374" selection-end="8374" vertical-scroll-proportion="0.38931298" vertical-offset="3213" max-vertical-offset="4556" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/bantuanhukum/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="77" selection-start="4867" selection-end="4867" vertical-scroll-proportion="-1.3076923" vertical-offset="2091" max-vertical-offset="2941">
-          <folding />
-        </state>
+        <state line="124" column="77" selection-start="4722" selection-end="4722" vertical-scroll-proportion="-1.3076923" vertical-offset="2074" max-vertical-offset="2941" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/produkhukum/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="8" selection-start="1" selection-end="8" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="5491">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="20" selection-start="2489" selection-end="2489" vertical-scroll-proportion="-6.6153846" vertical-offset="814" max-vertical-offset="6511">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/admin.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="30" selection-start="64" selection-end="64" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="4726">
-          <folding />
-        </state>
+        <state line="0" column="8" selection-start="1" selection-end="8" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="5491" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="31" selection-start="563" selection-end="563" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="1853">
-          <folding />
-        </state>
+        <state line="13" column="31" selection-start="563" selection-end="563" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="1853" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/SistemDanProsedur/informasi.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="88" selection-start="3677" selection-end="3690" vertical-scroll-proportion="-7.8461537" vertical-offset="1530" max-vertical-offset="2295">
-          <folding />
-        </state>
+        <state line="101" column="41" selection-start="3605" selection-end="3618" vertical-scroll-proportion="-7.8461537" vertical-offset="1513" max-vertical-offset="2295" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="22" selection-start="77" selection-end="77" vertical-scroll-proportion="0.13518886" vertical-offset="0" max-vertical-offset="6273" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/admin.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="28" selection-start="93" selection-end="93" vertical-scroll-proportion="0.129771" vertical-offset="0" max-vertical-offset="4726" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="19" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2397" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/AnalisisJabatan/index_user.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="21" selection-start="4286" selection-end="4286" vertical-scroll-proportion="0.7906977" vertical-offset="1581" max-vertical-offset="2380">
+        <state line="116" column="21" selection-start="4188" selection-end="4188" vertical-scroll-proportion="0.75977653" vertical-offset="1564" max-vertical-offset="2380" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/PerUU/informasi.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="76" selection-start="3636" selection-end="3649" vertical-scroll-proportion="0.45419848" vertical-offset="1530" max-vertical-offset="2414" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="0" selection-start="2851" selection-end="2851" vertical-scroll-proportion="-15.038462" vertical-offset="782" max-vertical-offset="6426">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/Birohukum/backup/140313/app/views/news/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="52" selection-start="4525" selection-end="4558" vertical-scroll-proportion="0.5753846" vertical-offset="1428" max-vertical-offset="4488" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user-header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="9" selection-start="296" selection-end="296" vertical-scroll-proportion="0.22160149" vertical-offset="0" max-vertical-offset="537">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/berita/form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="58" selection-start="2997" selection-end="2997" vertical-scroll-proportion="-9.038462" vertical-offset="1023" max-vertical-offset="2703">
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#3;n#fieldset#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#4;n#fieldset#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="23" selection-start="3407" selection-end="3407" vertical-scroll-proportion="0.740458" vertical-offset="1210" max-vertical-offset="4556">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1395200628150" expanded="true" signature="2186:2222" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="2331:2367" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="2476:2512" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="2621:2657" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="2766:2802" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="2911:2947" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3089:3579" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3137:3579" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3181:3579" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3181:3579" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3216:3579" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3306:3579" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3422:3579" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3422:3446" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3422:3446" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3461:3579" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3461:3579" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3499:3579" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3536:3579" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3756:3877" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="3792:3877" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="4108:4297" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="4225:4297" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="4311:4403" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="4311:4339" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="4311:4339" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="4746:4808" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="4767:4808" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="5956:6279" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="6053:6279" placeholder="..." />
+            <marker date="1395200628150" expanded="true" signature="6053:6279" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

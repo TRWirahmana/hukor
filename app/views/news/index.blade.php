@@ -32,32 +32,52 @@
   <div class="container" style="box-shadow: 0 1px 2px rgba(0, 0, 0, .25); width: 960px;">
     <div id="main-carousel" class="carousel slide">
       <div class="carousel-indicators">
-        <li data-target="#main-carousel" data-slide-to="0">Lorem ipsum dolor sit amet</li>
-        <li data-target="#main-carousel" data-slide-to="1">Consectetur adipisicing elit blanditiis enim exercitationem nam odio</li>
-        <li data-target="#main-carousel" data-slide-to="2">Aliquam deleniti deserunt earum impedit porro?</li>
-        <li data-target="#main-carousel" data-slide-to="3">Aliquid atque consectetur eaque ipsam laudantium</li>
-        <li data-target="#main-carousel" data-slide-to="4">Lorem ipsum dolor sit amet</li>
-        <li data-target="#main-carousel" data-slide-to="5">Consectetur adipisicing elit blanditiis enim exercitationem nam odio</li>
+          <?php $x = 0;
+          foreach ($latest_news as $data) {
+              if ($x < 6) {
+                  echo "<li data-target=#main-carousel data-slide-to= " . $x . ">" . $data->judul . "</li>";
+              }
+              $x++;
+          }
+          ?>
+
       </div>
       <div class="carousel-inner">
-        <div class="item">
-          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-01.jpg')}}" alt=""/>
-        </div>
-        <div class="item">
-          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-02.jpg')}}" alt=""/>
-        </div>
-        <div class="item">
-          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-03.jpg')}}" alt=""/>
-        </div>
-        <div class="item">
-          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-04.jpg')}}" alt=""/>
-        </div>
-        <div class="item">
-          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-01.jpg')}}" alt=""/>
-        </div>
-        <div class="item">
-          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-02.jpg')}}" alt=""/>
-        </div>
+          <?php $s = 0;
+          ?>
+
+          @foreach($latest_news as $data)
+            @if($s < 6)
+              @if($data->slider != null)
+                  <div class="item">
+                      {{ HTML::image('assets/uploads/berita/' . $data->slider) }}
+                  </div>
+              @else
+                  <div class="item">
+                      {{ HTML::image('assets/img/noim.jpg') }}
+                  </div>
+              @endif
+            @endif
+          @endforeach
+
+<!--        <div class="item">-->
+<!--          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-01.jpg')}}" alt=""/>-->
+<!--        </div>-->
+<!--        <div class="item">-->
+<!--          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-02.jpg')}}" alt=""/>-->
+<!--        </div>-->
+<!--        <div class="item">-->
+<!--          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-03.jpg')}}" alt=""/>-->
+<!--        </div>-->
+<!--        <div class="item">-->
+<!--          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-04.jpg')}}" alt=""/>-->
+<!--        </div>-->
+<!--        <div class="item">-->
+<!--          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-01.jpg')}}" alt=""/>-->
+<!--        </div>-->
+<!--        <div class="item">-->
+<!--          <img src="{{asset('assets/img/bootstrap-mdo-sfmoma-02.jpg')}}" alt=""/>-->
+<!--        </div>-->
       </div>
     </div>
   </div>
@@ -72,7 +92,7 @@
 
           <?php $s = 0; ?>
           @foreach($latest_news as $news_feeds)
-          @if($s++ >= 5)
+          @if($s++ >= 6)
           <li>
             <div class="news-content">
               <div class="row-fluid">

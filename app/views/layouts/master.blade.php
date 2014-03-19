@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Layanan Hukum dan Organisasi</title>
+  <title>Layanan Biro Hukum dan Organisasi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Registrasi Online Penyuluh Nasional">
   <meta name="author" content="Sangkuriang Internasional">
@@ -69,7 +69,7 @@
       id="name"><?php echo $user->pengguna->nama_lengkap; ?></span></span></p>
 
 <ul class="welcome-message user-not-null-links">
-  <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-settings"></span>Pengaturan
+  <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-cog"></span>Pengaturan
       Akun</a></li>
   <li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span
         class="rulycon-exit"></span>Keluar</a></li>

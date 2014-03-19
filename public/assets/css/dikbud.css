@@ -602,6 +602,7 @@ html, .main-layout, .admin,
   background: transparent;
   padding: 7.5px 20px;
   border-radius: 0;
+  position: relative;
 }
 .sidebar #user-menu > li > a:hover, .sidebar #user-menu > .active > a,
 .sidebar ul.welcome-message > li > a:hover,
@@ -633,6 +634,20 @@ html, .main-layout, .admin,
 .sidebar ul.welcome-message > .active > a > span[class *= rulycon],
 .sidebar #user-menu .accordion-heading .accordion-toggle:hover > span[class *= rulycon] {
   color: #ffffff;
+}
+.sidebar #user-menu > li > a > span[class *= rulycon]:first-child,
+.sidebar #user-menu .accordion-heading .accordion-toggle > span[class *= rulycon]:first-child {
+  position: absolute;
+  left: 20px;
+}
+.sidebar #user-menu > li > a,
+.sidebar #user-menu .accordion-heading .accordion-toggle {
+  padding-left: 48px;
+}
+.sidebar #user-menu .accordion-heading .accordion-toggle > span[class *= rulycon]:last-child {
+  position: absolute;
+  right: 20px;
+  top: 8px;
 }
 .sidebar #user-menu .accordion {
   margin-bottom: 0;

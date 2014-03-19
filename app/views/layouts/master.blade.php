@@ -135,7 +135,7 @@ Form::text('username', '', array(
 <?php $no = 1; ?>
 @foreach($allmenu as $menus)
 <li id="menu-{{ $menus['id'] }}">
-  <div class="accordion{{$no}}" id="accordion{{$no}}">
+  <div class="accordion" id="accordion{{$no}}">
     <div class="accordion-group">
       <div class="accordion-heading">
         <?php $as = Submenu::where('menu_id', '=', $menus['id'])->get(); ?>
@@ -366,6 +366,8 @@ Form::text('username', '', array(
     }
 
   });
+
+
 </script>
 @show
 </body>

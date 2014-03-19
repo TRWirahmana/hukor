@@ -868,7 +868,7 @@ html, .main-layout, .admin,
 }
 table.dataTable {
   width: 100% !important;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 table.dataTable thead tr > th {
   background: #2980b9;
@@ -896,6 +896,21 @@ table.dataTable tr.odd > td {
 }
 table.dataTable td.dataTables_empty {
   color: #c0392b;
+}
+.dataTables_info {
+  display: block;
+  width: 100%;
+  background: #2980b9;
+  color: #ffffff;
+  float: none;
+  padding: 6px 12px;
+}
+.dataTables_paginate {
+  margin-top: -28px;
+  margin-right: 12px;
+}
+.dataTables_paginate > a {
+  color: #ffffff !important;
 }
 .user-menu-active {
   background: rgba(0, 0, 0, .15);

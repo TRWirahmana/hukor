@@ -279,7 +279,7 @@ legend {
   text-transform: uppercase;
   font-family: "robotocondensed", sans-serif;
   line-height: 100%;
-  color: #999999;
+  color: #ececec;
 }
 #welcome-message #user-name {
   display: block;
@@ -483,7 +483,7 @@ table.dataTable tbody tr.even td.sorting_1 {
   border: none;
 }
 .leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a {
-  color: #999999;
+  color: #ececec;
   border: none !important;
 }
 .leftmenu .nav.nav-tabs.nav-stacked > li.dropdown ul a:hover {

@@ -1,6 +1,9 @@
 @section('content')
-<h2>{{$info->menu->nama_menu}}</h2>
-<div class="stripe-accent"></div>
+<!--<h2>{{$info->menu->nama_menu}}</h2>-->
+<!--<div class="stripe-accent"></div>-->
+<script>
+    document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-notebook'></span> {{$info->menu->nama_menu}}";
+</script>
 
 <legend>
     @if($info->submenu != null)

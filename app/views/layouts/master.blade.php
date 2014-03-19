@@ -133,12 +133,18 @@ Form::text('username', '', array(
 <!-- Menu Layanan(Dinamisasi)-->
 
 <?php $no = 1; ?>
+
 @foreach($allmenu as $menus)
+<?php $as = Submenu::leftJoin('menu', 'sub_menu.menu_id', '=', 'menu.id')
+    ->where('menu.id', '=', $menus['id'])
+    ->select('menu.id AS id', 'menu.nama_menu AS menu', 'sub_menu.id AS sub_id')
+    ->get(); ?>
+
 <li id="menu-{{ $menus['id'] }}">
-  <div class="accordion{{$no}}" id="accordion{{$no}}">
+  <div class="accordion" id="accordion{{$no}}">
     <div class="accordion-group">
       <div class="accordion-heading">
-        <?php $as = Submenu::where('menu_id', '=', $menus['id'])->get(); ?>
+
         @if($as['0'] != null)
 
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion{{$no}}" href="#collapse{{$no}}">
@@ -147,28 +153,38 @@ Form::text('username', '', array(
         </a>
         @else
         <?php $laysmen = Layanan::where('menu_id', '=', $menus['id'])->get(); ?>
-        <a class="accordion-toggle" href="{{ URL::to('/layanan/detail?id='. $laysmen['0']['id'] .'') }}">
-          <span class="rulycon-notebook"></span>{{$menus['nama_menu']}}
-          <span class="rulycon-menu-2 pull-right"></span>
-        </a>
+          @if($laysmen['0']['id'] != null)
+            <a class="accordion-toggle" href="{{ URL::to('/layanan/detail?id='. $laysmen['0']['id'] .'') }}">
+              <span class="rulycon-notebook"></span>{{$menus['nama_menu']}}
+              <span class="rulycon-menu-2 pull-right"></span>
+            </a>
+          @else
+              <a class="accordion-toggle" href="#">
+                  <span class="rulycon-notebook"></span>{{$menus['nama_menu']}}
+                  <span class="rulycon-menu-2 pull-right"></span>
+              </a>
+          @endif
         @endif
       </div>
-      <?php $subs = Submenu::where('menu_id', '=', $menus['id'])->get(); ?>
+      <?php $subs = Submenu::leftJoin('layanan', 'sub_menu.id', '=', 'layanan.submenu_id')
+          ->where('sub_menu.menu_id', '=', $menus['id'])
+          ->select('layanan.id AS id', 'sub_menu.nama_submenu AS sub')
+          ->get();
+
+      $subs->toArray();?>
       @if($subs != null)
 
       <div id="collapse{{$no}}" class="accordion-body collapse">
         <div class="accordion-inner">
           <ul>
             @foreach($subs as $submenus)
-            <?php $layssubs = Layanan::where('menu_id', '=', $menus['id'])->where('submenu_id', '=', $submenus['id'])->get(); ?>
-            @if($layssubs != null)
-            @foreach($layssubs as $layssub)
-            <li><a href="{{ URL::to('/layanan/detail?id='. $layssub['id'] .'') }}"><span
-                  class="rulycon-list-2"></span> {{ $submenus['nama_submenu'] }}</a></li>
-            @endforeach
-            @else
-            <li><a href="#"><span class="rulycon-list-2"></span> {{ $submenus['nama_submenu'] }}</a></li>
-            @endif
+                @if($submenus['id'] != null)
+                    <li><a href="{{ URL::to('/layanan/detail?id='. $submenus['id'] .'') }}"><span
+                  class="rulycon-list-2"></span> {{ $submenus['sub'] }}</a></li>
+                @else
+                  <li><a href="#"><span class="rulycon-list-2"></span> {{ $submenus['sub'] }}</a></li>
+                @endif
+
             @endforeach
           </ul>
         </div>

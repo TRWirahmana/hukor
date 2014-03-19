@@ -25,86 +25,89 @@
       <!-- MAIN CONTENT -->
       {{ Form::open($form_opts) }}
 
-      <div>
-        <fieldset>
-          <p class="text-info">{{$detail}}</p>
-          <legend class="f_legend">{{$title}}</legend>
-          <div class="control-group">
-            {{ Form::label('judul', 'Judul Berita', array('class' => 'control-label')); }}
-            <div class="controls">
-              @if(!is_object($berita->judul))
-              {{ Form::text('judul', $berita->judul, array('placeholder' => 'Isi Judul Berita')) }}
-              @else
-              {{ Form::text('judul', $berita->judul, array('placeholder' => 'Isi Judul Berita.')) }}
-              @endif
+      <div class="row-fluid">
+        <div class="span8 offset2">
+          <fieldset>
+            <p class="text-info">{{$detail}}</p>
+            <legend class="f_legend">{{$title}}</legend>
+            <div class="control-group">
+              {{ Form::label('judul', 'Judul Berita', array('class' => 'control-label')); }}
+              <div class="controls">
+                @if(!is_object($berita->judul))
+                {{ Form::text('judul', $berita->judul, array('placeholder' => 'Isi Judul Berita')) }}
+                @else
+                {{ Form::text('judul', $berita->judul, array('placeholder' => 'Isi Judul Berita.')) }}
+                @endif
+              </div>
             </div>
-          </div>
 
-          <div class="control-group">
-            {{Form::label("Kategori", null, array("class" => "control-label"))}}
-            <div class="controls">
-              {{Form::select("kategori", Category::lists('nama_kategori', 'id'))}}
+            <div class="control-group">
+              {{Form::label("Kategori", null, array("class" => "control-label"))}}
+              <div class="controls">
+                {{ Form::select('kategori', $kategori, $berita->kategori->id, array("id" => "kategori_id")) }}
+              </div>
             </div>
-          </div>
 
-          <div class="control-group {{$errors->has('berita')? 'error':''}}">
-            {{ Form::label('berita', 'Isi Berita', array('class' => 'control-label')) }}
-            <div class="controls">
-              @if(!is_object($berita->berita))
-              {{ Form::textarea('berita', $berita->berita,
-              array('placeholder' => 'Isi Berita disini...', 'id' => 'berita'))
-              }}
-              @else
-              {{ Form::textarea('berita', $berita->berita,
-              array('placeholder' => 'Isi Berita disini...', 'id' => 'berita'))
-              }}
-              @endif
+            <div class="control-group {{$errors->has('berita')? 'error':''}}">
+              {{ Form::label('berita', 'Isi Berita', array('class' => 'control-label')) }}
+              <div class="controls">
+                @if(!is_object($berita->berita))
+                {{ Form::textarea('berita', $berita->berita,
+                array('placeholder' => 'Isi Berita disini...', 'id' => 'berita'))
+                }}
+                @else
+                {{ Form::textarea('berita', $berita->berita,
+                array('placeholder' => 'Isi Berita disini...', 'id' => 'berita'))
+                }}
+                @endif
 
-              @foreach($errors->get('berita') as $error)
-              <span class="help-block">{{ $error }}</span>
-              @endforeach
+                @foreach($errors->get('berita') as $error)
+                <span class="help-block">{{ $error }}</span>
+                @endforeach
+              </div>
             </div>
-          </div>
 
-          <div class="control-group {{$errors->has('gambar')?'error':''}}">
-            {{ Form::label('gambar', 'Gambar Thumbnail', array('class' => 'control-label')) }}
-            <div class="controls">
-              {{ Form::file('gambar')}}
+            <div class="control-group {{$errors->has('gambar')?'error':''}}">
+              {{ Form::label('gambar', 'Thumbnail', array('class' => 'control-label')) }}
+              <div class="controls">
+                {{ Form::file('gambar')}}
 
-              @foreach($errors->get('gambar') as $error)
-              <span class="help-block">{{$error}}</span>
-              @endforeach
+                @foreach($errors->get('gambar') as $error)
+                <span class="help-block">{{$error}}</span>
+                @endforeach
+              </div>
+                <p class="span9 offset2" style="color: #616D79;font-size: 11px;">Rekomendasi ukuran gambar: lebar 200 pixel, tinggi 200 pixel</p>
             </div>
-          </div>
 
-          <div class="control-group {{$errors->has('gambar')?'error':''}}">
-            {{ Form::label('slider', 'Gambar Slider', array('class' => 'control-label')) }}
-            <div class="controls">
-              {{ Form::file('slider')}}
-
-              @foreach($errors->get('slider') as $error)
-              <span class="help-block">{{$error}}</span>
-              @endforeach
+            <div class="control-group {{$errors->has('gambar')?'error':''}}">
+              {{ Form::label('slider', 'Slider', array('class' => 'control-label')) }}
+              <div class="controls">
+                {{ Form::file('slider')}}
+                @foreach($errors->get('slider') as $error)
+                <span class="help-block">{{$error}}</span>
+                @endforeach
+              </div>
+                <p class="span9 offset2" style="color: #616D79;font-size: 11px;">Rekomendasi ukuran gambar: lebar 960 pixel, tinggi 328 pixel</p>
             </div>
-          </div>
 
-          <hr/>
+            <hr/>
 
-          <div class="control-group">
-            <div class="controls">
+            <div class="control-group">
+              <div class="controls">
                 {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
+              </div>
+
             </div>
 
-          </div>
-
-        </fieldset>
+          </fieldset>
+        </div>
 
       </div>
       {{ Form::close() }}
 
       <div class="footer">
         <div class="footer-left">
-          <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
+          <span>&copy;2014 Biro Hukum dan Organisasi</span>
         </div>
         <div class="footer-right">
           <span></span>

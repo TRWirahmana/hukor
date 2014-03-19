@@ -11,7 +11,10 @@
 @if($info != null)
 <!--    <h1>--><?php //echo $info->judul_berita; ?><!--</h1>-->
 <br>
-<p><?php echo $info->berita; ?></p>
+<div id="beritaaas">
+    <p><?php echo $info->berita; ?></p>
+</div>
+
 
 <p>Unit Penanggung Jawab: <?php echo $info->penanggung_jawab; ?></p>
 <br>

@@ -11,7 +11,7 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon"><span class="rulycon-notebook"></span></div>
+        <div class="pageicon"><span class="rulycon-settings"></span></div>
         <div class="pagetitle"><h1>Kelola Submenu</h1>
         </div>
     </div>
@@ -52,7 +52,7 @@
 
             <div class="footer">
                 <div class="footer-left">
-                    <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
+                    <span>&copy;2014 Biro Hukum dan Organisasi</span>
                 </div>
                 <div class="footer-right">
                     <span></span>
@@ -81,4 +81,12 @@
 <!--        display: none !important;-->
 <!--    }-->
 <!--</style>-->
+
+<script>
+  jQuery("#manage-menu > #kelola_submenu > a").addClass("sub-menu-active");
+  jQuery("#manage-menu").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
 @stop

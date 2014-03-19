@@ -1,8 +1,11 @@
 @section('content')
+<input type="hidden" id="role_id" value="{{Auth::user()->role_id}}"/>
 
+<!--BANTUAN HUKUM-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Bantuan hukum";
+</script>
 
-<h2>BANTUAN HUKUM</h2>
-<div class="stripe-accent"></div>
     <legend>Informasi dan Status Usulan Bantuan Hukum</legend>
 
     @include('flash')
@@ -39,7 +42,7 @@
                 bServerSide: true,
                 bProcessing: true,
 //                sAjaxSource: baseUrl + "/lkpm/data",
-                sAjaxSource: baseUrl + '/bantuan_hukum/datatable',
+                sAjaxSource: '<?php echo URL::to("bantuan_hukum/datatable"); ?>',
                 aoColumns: [
                     {mData: "pengguna.nama_lengkap"},
                     {
@@ -119,10 +122,14 @@
                     {mData: "advokator"},
                     {
                         mData: "id",
-                        mRender: function(data, type, full){
-                            var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
-                            return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a>';
-                        }
+			       mRender: function(data, type, full){
+				       if($("#role_id").val() == 2) {
+
+					       var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
+					       return '<a href="' + downloadUrl + '" title="Unduh"><i class="rulycon-arrow-down "></i></a>';
+				       }
+				       return "";
+			       }
                     }
                 ],
                 fnServerParams: function(aoData) {
@@ -154,5 +161,10 @@
 
             });
         </script>
+
+<script>
+  document.getElementById("menu-banhuk-informasi").setAttribute("class", "user-menu-active");
+  document.getElementById("collapse13").style.height = "auto";
+</script>
     @stop
 @stop

@@ -58,4 +58,30 @@ class Document extends Eloquent {
         }
     }
 
+    public function getBidang($i){
+        switch ($i) {
+            case '1':
+                return 'Pendidikan Dasar';
+                break;
+            case '2':
+                return 'Pendidikan Menengah';
+                break;
+            case '3':
+                return 'Pendidikan Tinggi';
+                break;
+            case '4':
+                return 'Kebudayaan';
+                break;
+            case '5':
+                return 'Pendidikan Anak Usia Dini, Nonformal, Informal';
+                break;
+            case '6':
+                return 'Lainnya';
+                break;
+            default:
+                return '';
+                break;
+        }
+    }
+
 }

@@ -1,7 +1,9 @@
-@section('styles');
-	@parent
-@stop
+
 @section('content')
+<!--PENGATURAN AKUN-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-settings'></span> Pengaturan akun";
+</script>
 @include('flash')
 	{{ Form::open($form_opts) }}
 
@@ -12,7 +14,7 @@
           <p class="text-info">{{$detail}}</p>
 
           <div class="control-group {{$errors->has('username')?'error':''}}">
-            {{ Form::label('username', 'Username', array('class' => 'control-label')) }}
+            {{ Form::label('username', 'Ubah Email', array('class' => 'control-label')) }}
             <div class="controls">
               {{ Form::text('username', $user->username,
               array('placeholder' => 'Minimal 6 karakter, tidak memakai spasi.')) }}
@@ -24,7 +26,7 @@
           </div>
 
           <div class="control-group {{$errors->has('password')?'error':''}}">
-            {{ Form::label('password', 'Password', array('class' => 'control-label')) }}
+            {{ Form::label('password', 'Ubah Password', array('class' => 'control-label')) }}
             <div class="controls">
               {{ Form::password('password') }}
             </div>
@@ -44,7 +46,7 @@
         </fieldset>
 
         <div class="control-group">
-          <div class="controls">
+          <div class="controls span4 offset6">
             {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
           </div>
         </div>

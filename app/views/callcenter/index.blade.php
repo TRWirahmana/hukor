@@ -1,5 +1,8 @@
 @section('content')
-<h2>CALL CENTER</h2>
+<!--CALL CENTER-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-address-book'></span> Call center";
+</script>
 
 @include('flash')
 <div class="row-fluid">
@@ -17,5 +20,9 @@
       @endif
     </div>
   </div>
+  <script>
+    document.getElementById("menu-call-center").setAttribute("class", "active");
+  </script>
 </div>
 @endsection
+

@@ -7,7 +7,7 @@
     <li>Call Center</li>
   </ul>
   <div class="pageheader">
-    <div class="pageicon"><span class="rulycon-notebook"></span></div>
+    <div class="pageicon"><span class="rulycon-settings"></span></div>
     <div class="pagetitle">
       <h1>Call Center</h1>
     </div>
@@ -77,7 +77,7 @@
 
       <div class="footer">
         <div class="footer-left">
-          <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
+          <span>&copy;2014 Biro Hukum dan Organisasi</span>
         </div>
         <div class="footer-right">
           <span></span>
@@ -108,6 +108,14 @@
         + "undo,redo,cleanup,code,separator,sub,sup,charmap",
       theme_advanced_buttons3: "",
       height: "350px"
+    });
+  </script>
+
+  <script>
+    jQuery("#manage-menu > li:nth-child(4) > a").addClass("sub-menu-active");
+    jQuery("#manage-menu").css({
+      "display": "block",
+      "visibility": "visible"
     });
   </script>
   @stop

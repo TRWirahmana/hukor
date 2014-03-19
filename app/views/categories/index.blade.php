@@ -19,8 +19,6 @@
           <a class="btn btn-primary" href="{{ URL::route('admin.categories.create') }}">Tambah Kategori Baru</a>
         </div>
 
-        <br/>
-
 				<div class="content-non-title">
 					<table id="tbl-categories" class="table">
 						<thead>
@@ -53,8 +51,8 @@
 					mData: "id",
 					mRender: function(data, type, obj) {
 						var btns = new Array(
-							"<a href='categories/" + data + "/edit'><i class='icon icon-edit'></i></a>",
-							"<a href='categories/" + data +"' class='delete'>"
+							"<a href='categories/" + data + "/edit' title='Ubah'><i class='icon icon-edit'></i></a>",
+							"<a href='categories/" + data +"' class='delete' title='Hapus'>"
 								+ "<i class='icon icon-trash'></i></a>"
 						);
 						return btns.join("&nbsp;");
@@ -81,5 +79,13 @@
 		});
 
 	});
+</script>
+
+<script>
+  jQuery("#menu_berita > li:last-child > a").addClass("sub-menu-active");
+  jQuery("#menu_berita").css({
+    "display": "block",
+    "visibility": "visible"
+  });
 </script>
 @stop

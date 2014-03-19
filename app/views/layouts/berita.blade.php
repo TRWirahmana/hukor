@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Layanan Hukum & Organisasi | Berita</title>
+  <title>Layanan Biro Hukum dan Organisasi | Berita</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Registrasi Online Penyuluh Nasional">
   <meta name="author" content="Sangkuriang Internasional">
@@ -13,6 +13,7 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/simplePagination.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive-tables-news.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.bxslider.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycon.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycons.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/hukor-news.css')}}">
@@ -50,21 +51,31 @@
 <body>
 <div class="mainwrapper">
 <div id="top-bar">
+  <div id="social-links">
+    <div class="container" >
+      <p class="pull-right">
+        <a href="#"><span class="rulycon-twitter"></span></a>
+        <a href="#"><span class="rulycon-feed-3"></span></a>
+        <input type="text" placeholder="search..."/>
+        <button class="btn btn-primary"><span class="rulycon-search"></span></button>
+      </p>
+    </div>
+  </div>
   <div class="header">
     <div class="container">
       <div class="logo">
         <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
         <h4>
-            <span>Biro Hukum dan Organisasi</span>
-            <span>Kementerian Pendidikan dan Kebudayaan</span><br>
-            <span>Republik Indonesia</span>
+          <span>Biro Hukum dan Organisasi</span>
+          <span>Kementerian Pendidikan dan Kebudayaan</span>
+          <span>Republik Indonesia</span>
         </h4>
       </div>
       <div class="headerinner">
         <ul class="headmenu pull-right">
           <li class="odd">
             <a href="{{URL::to('/')}}">
-              <span class="rulycon-home"></span>
+              <span class="rulycon-home-2"></span>
               <span class="headmenu-label" id="berita">Berita</span>
             </a>
           </li>
@@ -74,25 +85,25 @@
               <span class="headmenu-label">Informasi</span>
             </a>
           </li>
-          <li class="odd">
+          <li>
             <a class="dropdown-toggle" data-toggle="dropdown" id="aplikasi">
-              <span class="rulycon-wrench"></span>
+              <span class="rulycon-notebook"></span>
               <span class="headmenu-label">Aplikasi</span>
             </a>
           </li>
           <li>
             <a href="{{URL::to('produkhukum')}}" id="produk_hukum">
-              <span class="rulycon-notebook"></span>
+              <span class="rulycon-books"></span>
               <span class="headmenu-label">Produk Hukum</span>
             </a>
           </li>
           <li>
             <a href="#" id="forum_diskusi">
-              <span class="rulycon-notebook"></span>
+              <span class="rulycon-bubbles-2"></span>
               <span class="headmenu-label">Forum</span>
             </a>
           </li>
-          <li class="odd">
+          <li>
             <a href="{{URL::to('site')}}">
               <span class="rulycon-user"></span>
               <span class="headmenu-label" id="login">Login</span>
@@ -178,27 +189,12 @@
 </div>
 <!--content-wrapper-->
 
-    <div class="footer">
-        <div class="container">
-            <div class="rowsy">
-                <ul>
-                    <?php
-                    $DAL = new DAL_Dikbud();
-                    $link_dikbud = $DAL->GetAllLink();
-                    ?>
-                    @foreach($link_dikbud as $dikbud)
-                    <?php $link = "http://" . $dikbud->link; ?>
-                    <?php $assets = asset('assets/uploads/link/'.$dikbud->gambar); ?>
-                        <li> <a href="{{ $link }}"><img src="{{ $assets }}"></a> </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-        <div class="container">
+<div class="footer">
+  <div class="container" style="width: 960px;">
 
     <div class="row-fluid">
       <?php $call = CallCenter::find(1); ?>
-      <div class="span9">
+      <div class="span8">
         <div id="footer-menu-informasi" style="display: none">
           @foreach($menu as $menus)
           <ul class="footer-menu">
@@ -245,13 +241,16 @@
           </ul>
         </div>
       </div>
-      <div class="span3">
+      <div class="span4">
+        <div id="footer-image">
+          <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
+          <span>Biro Hukum dan Organisasi</span>
+          <p><span>Kementerian Pendidikan Dan Kebudayaan</span>
+          <span>Republik Indonesia</span></p>
+        </div>
         <address>
-          <span>Kementerian Pendidikan Dan Kebudayaan Republik Indonesia</span><br/>
-          <br/>
           {{ $call->alamat }} <br/>
-          <span class="rulycon-phone"></span> {{ $call->telp }}<br/>
-          <span class="rulycon-print"></span> {{ $call->fax }}<br/>
+          <span class="rulycon-phone"></span> {{ $call->telp }} &nbsp; | &nbsp; <span class="rulycon-print"></span> {{ $call->fax }}<br/>
           <!--                        Jawa Barat, Indonesia-->
         </address>
       </div>
@@ -268,6 +267,11 @@
 </div>
 <!--mainwrapper-->
 
+<!-- dialog box -->
+<div id="dialog" title="Forum" style="display: none">
+    <p>Silakan klik LOGIN terlebih dahulu untuk masuk ke dalam Forum. Jika belum mempunyai akun, silakan klik DAFTAR.</p>
+</div>
+
 @section('scripts')
 <script src="{{asset('assets/js/jquery-1.10.1.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery-ui-1.9.2.min.js')}}"></script>
@@ -283,6 +287,7 @@
 
 <script src="{{asset('assets/js/jquery.ui.datepicker.js')}}"></script>
 <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.bxslider.min.js')}}"></script>
 <script>
   var $ = jQuery.noConflict();
   $(document).ready(function () {
@@ -306,20 +311,33 @@
     $("#sub-aplikasi").show();
   });
 
-  $('#forum_diskusi').click(function () {
-    var user = '<?php echo Auth::user(); ?>';
+    $('#forum_diskusi').click(function () {
+        var user = '<?php echo Auth::user(); ?>';
 
-    if (user) {
-      window.location.replace("{{ URL::to('forumdiskusi') }}");
-    }
-    else {
-      var r = confirm("Anda Belum Login. Harap Login Terlebih Dahulu. Klik OK Untuk Registrasi Jika Anda Belum Memiliki Akun.");
-      if (r == true) {
-        window.location.replace("{{URL::to('registrasi')}}");
-      }
-    }
+        if (user) {
+          window.location.replace("{{ URL::to('forumdiskusi') }}");
+        }
+        else {
+            $('#dialog').dialog({
+                height: 190,
+                width: 480,
+                modal: true,
+                buttons: {
+                    "LOGIN" : function(){
+                        window.location.replace("{{URL::to('site')}}");
+                    },
 
-  });
+                    "DAFTAR" : function(){
+                        window.location.replace("{{URL::to('registrasi')}}");
+                    },
+
+                    "CANCEL" : function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        }
+    });
 </script>
 <script>
   !function (d, s, id) {
@@ -339,6 +357,7 @@
   };
   CustomizeTwitterWidget(twitterWidgetOptions);
 </script>
+<script src="{{asset('assets/js/jquery.cycle2.js')}}"></script>
 @show
 </body>
 </html>

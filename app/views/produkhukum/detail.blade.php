@@ -33,6 +33,13 @@
 						</div>
 					</div>
 
+                    <div class="control-group">
+                        {{ Form::label('bidang', 'Bidang', array('class' => 'control-label'))}}
+                        <div class="controls">
+                            {{ $data->getBidang($data->bidang) }}
+                        </div>
+                    </div>
+
 					<div class="control-group">
 						{{ Form::label('tentang', 'Tentang', array('class' => 'control-label'))}}					
 						<div class="controls">
@@ -50,31 +57,16 @@
                     <div class="control-group">
                     {{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
                         <div class="controls">
-                            <a href= {{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen ); }} > {{ $data->file_dokumen}} </a>
+                            <a href= {{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen ); }} > Unduh </a>
                     </div>
 
 				</fieldset>
 
 				<div class="form-actions">	
-					 <input class='btn btn-primary' Type="button" value="Back" onClick="history.go(-1);return true;">
+					 <input class='btn btn-primary' Type="button" value="Kembali" onClick="history.go(-1);return true;">
 				</div>
 			</div>
 
 
 	{{ Form::close() }}
-@stop
-
-
-@section('scripts')
-@parent
-
-<script src="{{ asset('assets/lib/tinymce/tinymce.min.js') }}"></script>
-<script src="{{asset('assets/js/jquery.validate.js')}}"></script>
-<script src="{{asset('assets/js/additional-methods.js')}}"></script>
-
-<script src="{{asset('assets/js/pelembagaan.js')}}"></script>
-
-<script type="text/javascript">
-    Pelembagaan.Form();
-</script>
 @stop

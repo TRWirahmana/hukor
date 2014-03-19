@@ -1,7 +1,10 @@
 @section('content')
 
-<h2>PERATURAN PERUNDANG-UNDANGAN</h2>
-<div class="stripe-accent"></div>
+<!--PERATURAN PERUNDANG-UNDANGAN-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Peraturan perundang-undangan";
+</script>
+
 <legend>Informasi dan Status Usulan</legend>
 
 @include('flash')
@@ -20,6 +23,11 @@
                     </thead>
                     <tbody></tbody>
                 </table>
+  <style>
+    table.dataTable tr td:nth-child(6) {
+      text-align: center;
+    }
+  </style>
 </div>
 @stop
 
@@ -95,9 +103,12 @@ $("#menu-peraturan-perundangan").addClass("active");
                     {
                         mData: 'id',
                         sWidth: "8%",
-                        mRender: function(data, type, all) {
-                            return "<a href='"+baseUrl+"/puu/download/" + data + "'><i class='icon-download'></i></a> ";
-                        }
+			mRender: function(data, type, all) {
+				if(all._role_id != null) {
+					return "<a href='"+baseUrl+"/puu/download/" + data + "' title='Unduh'><i class='icon-download'></i></a> ";
+				}
+				return "";
+			}
                     }
                 ],
                 "fnDrawCallback": function ( oSettings ) {
@@ -118,6 +129,11 @@ $("#menu-peraturan-perundangan").addClass("active");
 
 
 
+</script>
+
+<script>
+  $("#collapse10").css("height", "auto");
+  $("#menu-peruu-informasi").addClass("user-menu-active");
 </script>
 
 @stop

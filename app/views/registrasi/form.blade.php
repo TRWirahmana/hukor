@@ -1,13 +1,14 @@
 @section('content')
 
-<h2>Pendaftaran</h2>
-<div class="stripe-accent"></div>
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-plus'></span> Pendaftaran";
+</script>
 @include('flash')
 
 {{-- form registrasi --}}
     {{ Form::open(array('action' => 'RegistrasiController@send', 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal' )) }}
 
-<div class="span24" style="margin-bottom: 20px;margin-top:0px;margin-left:50px">
+<div class="span24" style="margin-bottom: 20px;margin-top:0px;">
     <strong>Silahkan lengkapi formulir berikut untuk melakukan pendaftaran. Isian dengan tanda <span class="required"></span> wajib diisi.</strong>
 </div>
         <div class="row-fluid">
@@ -134,7 +135,8 @@
               <div class="control-group {{$errors->has('jabatan')?'error':''}}">
                   {{ Form::label('jabatan', 'Jabatan', array('class' => 'control-label required')) }}
                   <div class="controls">
-                      {{ Form::select('jabatan', array('1' => 'Direktur', '2' => 'Kepala Divisi'), 'Pilih Pekerjaan') }}
+                      {{ Form::text('jabatan', '',
+                      array('placeholder' => 'Masukkan jabatan anda di sini...')) }}
 
                       @foreach($errors->get('jabatan') as $error)
                       <span class="help-block">{{$error}}</span>
@@ -142,17 +144,15 @@
                   </div>
               </div>
 
-              <div class="control-group {{$errors->has('pekerjaan')?'error':''}}">
-                  {{ Form::label('pekerjaan', 'Pekerjaan', array('class' => 'control-label required')) }}
-                  <div class="controls">
-                      {{ Form::text('pekerjaan', '',
-                      array('placeholder' => 'Masukkan Pekerjaan anda di sini...')) }}
-
-                      @foreach($errors->get('pekerjaan') as $error)
-                      <span class="help-block">{{$error}}</span>
-                      @endforeach
-                  </div>
-              </div>
+<!--              <div class="control-group {{$errors->has('pekerjaan')?'error':''}}">-->
+<!--                  {{ Form::label('pekerjaan', 'Pekerjaan', array('class' => 'control-label required')) }}-->
+<!--                  <div class="controls">-->
+<!--                      {{ Form::text('pekerjaan', '', array('placeholder' => 'Masukkan Pekerjaan anda di sini...')) }}-->
+<!--                      @foreach($errors->get('pekerjaan') as $error)-->
+<!--                      <span class="help-block">{{$error}}</span>-->
+<!--                      @endforeach-->
+<!--                  </div>-->
+<!--              </div>-->
 
               <div class="control-group {{$errors->has('alamat_kantor')?'error':''}}">
                   {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label required')) }}
@@ -205,7 +205,7 @@
           </div>
         </div>
 
-        <div class="row-fluid">
+        <div class="row-fluid" style="margin-top: 24px; margin-bottom: 48px;">
           <div class="span24 text-center">
             <button class="btn btn-hukor" type="submit" id="submit">Register</button>
           </div>
@@ -228,7 +228,7 @@
         $( ".datepicker" ).datepicker({
             dateFormat: 'yy-mm-dd',
             changeMonth: true,
-            yearRange: "1970:2020",
+            yearRange: "1950:2020",
             changeYear: true
         }).val();
     });

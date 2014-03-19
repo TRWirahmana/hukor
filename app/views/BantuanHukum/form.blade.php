@@ -2,7 +2,6 @@
 
 
 <h2>BANTUAN HUKUM</h2>
-<div class="stripe-accent"></div>
 <legend>Bantuan Hukum</legend>
 
 @include('flash')
@@ -147,7 +146,7 @@
 
 
                 <div class="control-group">
-                    {{ Form::label('catatan', 'Deskripsi', array('class' => 'control-label')) }}
+                    {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
                     <div class="controls">
                         {{ Form::textarea('catatan', '', array('id' => 'catatan', 'placeholder' => "Masukkan Deskripsi...")) }}
                     </div>

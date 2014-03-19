@@ -2,28 +2,31 @@
 use Carbon\Carbon;
 
 class DAL_Pelembagaan {
-    public static function getDataTable($filter = null, $firstDate = null, $lastDate = null) {
-	   $data = Pelembagaan::join('penanggung_jawab_pelembagaan','pelembagaan.id', '=', 'penanggung_jawab_pelembagaan.pelembagaan_id')
-                        ->
-                        select(array(
-                            'pelembagaan.id',
-                            'pelembagaan.tgl_usulan',
-                            'penanggung_jawab_pelembagaan.unit_kerja',
-                            'pelembagaan.perihal',
-                            'pelembagaan.status',
-                            'pelembagaan.lampiran',
-                            'pelembagaan.jenis_usulan'
-                )); 
-                        
-        if(null != $filter)
-            $data->where('pelembagaan.status', '=', $filter);
-        if(null != $firstDate)
-            $data->where(DB::raw("DATE(pelembagaan.tgl_usulan)"), ">=", DateTime::createFromFormat("d/m/Y", $firstDate)->format('Y-m-d'));
-        if(null != $lastDate)
-            $data->where(DB::raw("DATE(pelembagaan.tgl_usulan)"), "<=", DateTime::createFromFormat("d/m/Y", $lastDate)->format('Y-m-d'));
+	public static function getDataTable($filter = null, $firstDate = null, $lastDate = null) {
+		$data = Pelembagaan::join('penanggung_jawab_pelembagaan','pelembagaan.id', '=', 'penanggung_jawab_pelembagaan.pelembagaan_id')
+			->
+			select(array(
+						'pelembagaan.id',
+						'pelembagaan.tgl_usulan',
+						'penanggung_jawab_pelembagaan.unit_kerja',
+						'pelembagaan.perihal',
+						'pelembagaan.status',
+						'pelembagaan.lampiran',
+						'pelembagaan.jenis_usulan'
+				    )); 
 
-        return $data;
-    }  
+		$user = Auth::user();
+		if(null != $user && 2 == $user->role_id)
+			$data->where("pelembagaan.id_pengguna", "=", $user->pengguna->id); 
+		if(null != $filter)
+			$data->where('pelembagaan.status', '=', $filter);
+		if(null != $firstDate)
+			$data->where(DB::raw("DATE(pelembagaan.tgl_usulan)"), ">=", DateTime::createFromFormat("d/m/Y", $firstDate)->format('Y-m-d'));
+		if(null != $lastDate)
+			$data->where(DB::raw("DATE(pelembagaan.tgl_usulan)"), "<=", DateTime::createFromFormat("d/m/Y", $lastDate)->format('Y-m-d'));
+
+		return $data;
+	}  
 
     public function savePelembagaan($input, array $filenames ) 
     {
@@ -95,6 +98,7 @@ class DAL_Pelembagaan {
         $penanggungJawab->jabatan = $penanggungJawabPelembagaan[0]->jabatan;
         $penanggungJawab->NIP = $penanggungJawabPelembagaan[0]->nip;
         $penanggungJawab->unit_kerja = $penanggungJawabPelembagaan[0]->unit_kerja;
+
         $penanggungJawab->alamat_kantor = $penanggungJawabPelembagaan[0]->alamat_kantor;
         $penanggungJawab->telepon_kantor = $penanggungJawabPelembagaan[0]->telp_kantor;
         $penanggungJawab->no_handphone = $penanggungJawabPelembagaan[0]->hp;
@@ -107,17 +111,19 @@ class DAL_Pelembagaan {
         $pelembagaan = Pelembagaan::find($id);
 
         $log_pelembagaan = new LogPelembagaan();
-        $log_pelembagaan->status = $input['status'];
-        $log_pelembagaan->catatan = $input['catatan'];
+        $log_pelembagaan->status = $pelembagaan->status;
+        $log_pelembagaan->catatan = $pelembagaan->catatan;
         $log_pelembagaan->keterangan = $input['keterangan'];
-	$log_pelembagaan->lampiran = serialize($filenames);
-       // $log_pelembagaan->lampiran = $file->getClientOriginalName();
-        $log_pelembagaan->pelembagaan_id = $id;
+	$log_pelembagaan->lampiran = $pelembagaan->lampiran;       // $log_pelembagaan->lampiran = $file->getClientOriginalName();
+        $log_pelembagaan->pelembagaan_id = $pelembagaan->id;
         $log_pelembagaan->tgl_proses = Carbon::now();
         $log_pelembagaan->save();
 
         // change status pelembagaan
         $pelembagaan->status = $input['status'];
+	$pelembagaan->catatan = $input['catatan'];
+	$pelembagaan->lampiran = serialize($filenames);
+
         $pelembagaan->save();
 
         return $log_pelembagaan->status;

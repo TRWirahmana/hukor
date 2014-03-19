@@ -12,7 +12,7 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-      <div class="pageicon"><span class="rulycon-wrench"></span></div>
+      <div class="pageicon"><span class="rulycon-notebook"></span></div>
       <div class="pagetitle">
         <h1>Sistem dan Prosedur</h1>
       </div>
@@ -85,12 +85,17 @@
                     </thead>
                     <tbody></tbody>
                 </table>
+              <style>
+                table.dataTable tr td:nth-child(6) {
+                  text-align: center;
+                }
+              </style>
 
                 <!-- END OF MAIN CONTENT -->
 
                 <div class="footer">
                     <div class="footer-left">
-                        <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
+                        <span>&copy;2014 Biro Hukum dan Organisasi</span>
                     </div>
                     <div class="footer-right">
                         <span></span>
@@ -193,10 +198,10 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            var html = ["<a href='"+baseUrl+"/sp/download/" + data + "'><i class='icon-download'></i></a>"];
+                            var html = ["<a href='"+baseUrl+"/sp/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>"];
                             if(all._role_id == 3 || all._role_id == 9) {
-                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "/edit'><i class='icon-edit'></i></a>");
-                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "' data-delete><i class='icon-trash'></i></a>");
+                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a>");
+                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "' title='Hapus' data-delete><i class='icon-trash'></i></a>");
                             }
                             return html.join("&nbsp;");
                         }
@@ -246,5 +251,13 @@
 
     </script>
 </div>
+
+<script>
+  jQuery("#app_ketatalaksanaan > ul > li:first-child > a").addClass("sub-menu-active");
+  jQuery("#app, #app_ketatalaksanaan > ul").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
 
 @stop

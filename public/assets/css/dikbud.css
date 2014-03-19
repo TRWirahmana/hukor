@@ -47,7 +47,7 @@ body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "PT Sans", "pt_sansregular", sans-serif;
-  background: #ecf0f1;
+  background: url("../images/bg1.png") repeat;
 }
 p {
   font-size: 13px;
@@ -424,11 +424,24 @@ html, .main-layout, .admin,
   padding-top: 15px;
   padding-bottom: 20px;
 }
-.sidebar > header > img {
+#user-header {
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+.sidebar > header > img, #user-header #logo img {
   width: 52px;
   display: inline-block;
 }
-.sidebar > header > h4 {
+#user-header #logo img {
+  width: 68px;
+}
+#user-header #content-title {
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.sidebar > header > h4, #user-header #logo h4 {
   font-family: "pt_sans_narrowregular", sans-serif;
   display: inline-block;
   text-align: left;
@@ -440,10 +453,11 @@ html, .main-layout, .admin,
   vertical-align: top;
   font-weight: normal;
 }
-.sidebar > header > h4 span {
+.sidebar > header > h4 span, #user-header #logo h4 span {
   font-family: "pt_sans_narrowregular", sans-serif;
 }
-.sidebar > header >  h4 span:first-child {
+.sidebar > header >  h4 span:first-child,
+#user-header #logo h4 span:first-child {
   font-size: 18px;
   display: block;
 }
@@ -580,13 +594,15 @@ html, .main-layout, .admin,
 .sidebar #user-menu > li > a, .sidebar ul.welcome-message > li > a,
 .sidebar #user-menu .accordion-heading .accordion-toggle,
 .sidebar #user-menu .accordion-inner a {
+  /*font-family: "PT Sans Narrow", "pt_sans_narrowregular", sans-serif !important;*/
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   width: 100%;
-  color: rgba(255, 255, 255, .55);
+  color: rgba(255, 255, 255, 1);
   background: transparent;
   padding: 7.5px 20px;
   border-radius: 0;
+  position: relative;
 }
 .sidebar #user-menu > li > a:hover, .sidebar #user-menu > .active > a,
 .sidebar ul.welcome-message > li > a:hover,
@@ -607,7 +623,7 @@ html, .main-layout, .admin,
 .sidebar ul.welcome-message > li > a > span[class *= rulycon],
 .sidebar #user-menu .accordion-heading .accordion-toggle > span[class *= rulycon] {
   margin-right: 15px;
-  color: rgba(255, 255, 255, .55);
+  color: rgba(255, 255, 255, 1);
 }
 .sidebar #user-menu .accordion-heading .accordion-toggle > .rulycon-menu-2 {
   margin-right: 0 !important;
@@ -618,6 +634,20 @@ html, .main-layout, .admin,
 .sidebar ul.welcome-message > .active > a > span[class *= rulycon],
 .sidebar #user-menu .accordion-heading .accordion-toggle:hover > span[class *= rulycon] {
   color: #ffffff;
+}
+.sidebar #user-menu > li > a > span[class *= rulycon]:first-child,
+.sidebar #user-menu .accordion-heading .accordion-toggle > span[class *= rulycon]:first-child {
+  position: absolute;
+  left: 20px;
+}
+.sidebar #user-menu > li > a,
+.sidebar #user-menu .accordion-heading .accordion-toggle {
+  padding-left: 48px;
+}
+.sidebar #user-menu .accordion-heading .accordion-toggle > span[class *= rulycon]:last-child {
+  position: absolute;
+  right: 20px;
+  top: 8px;
 }
 .sidebar #user-menu .accordion {
   margin-bottom: 0;
@@ -636,7 +666,7 @@ html, .main-layout, .admin,
   list-style: none;
 }
 .sidebar #user-menu .accordion-inner a {
-  padding-left: 50px;
+  padding-left: 74px;
 }
 .sidebar #user-menu .accordion-inner a:hover {
   text-decoration: none;
@@ -645,6 +675,8 @@ html, .main-layout, .admin,
 }
 .sidebar #user-menu .accordion-inner a > span[class*=rulycon] {
   margin-right: 15px;
+  position: absolute;
+  left: 48px;
 }
 .sidebar #copyright {
   padding: 20px;
@@ -654,14 +686,14 @@ html, .main-layout, .admin,
   text-align: center;
   background: #2875A8;
   margin-bottom: 0;
-  font-size: 9px;
+  font-size: 13px;
 }
 #welcome-to-the-fucking-app {
   font-size: 16px;
   text-align: center;
   line-height: 140%;
   font-family: "PT Sans", "pt_sansregular", sans-serif;
-  color: #95a5a6;
+  color: #2980b9;
   width: 65%;
   margin: 140px auto;
   padding: 40px 20px 60px;
@@ -703,14 +735,30 @@ html, .main-layout, .admin,
   margin: 0 0 24px;
   padding: 20px 20px 26px;
 }
+#user-header #content-title > h2 {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-family: "PT Sans Narrow", "pt_sans_narrowregular", sans-serif;
+  font-weight: normal;
+}
 .main-content > h2 > span[class*="rulycon"] {
   font-size: 14px;
-  color: rgba(0, 0, 0, .25);
+  color: #ffffff;
   vertical-align: top;
   padding: 3px 7px 7px;
-  border: 3px solid rgba(0, 0, 0, .25);
+  border: 3px solid #ffffff;
   border-radius: 100em;
   margin-right: 10px;
+}
+#user-header #content-title > h2 > span[class*="rulycon"] {
+  font-size: 14px;
+  color: #ffffff;
+  vertical-align: top;
+  padding: 3px 7px 7px;
+  border: 3px solid #ffffff;
+  border-radius: 100em;
+  margin-right: 6px;
 }
 .main-content .content-non-title {
   margin-top: 20px;
@@ -820,10 +868,10 @@ html, .main-layout, .admin,
 }
 table.dataTable {
   width: 100% !important;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 table.dataTable thead tr > th {
-  background: #95a5a6;
+  background: #2980b9;
   color: #ffffff;
   border: none;
   padding: 6px 10px 8px;
@@ -848,6 +896,47 @@ table.dataTable tr.odd > td {
 }
 table.dataTable td.dataTables_empty {
   color: #c0392b;
+}
+.dataTables_info {
+  display: block;
+  width: 100%;
+  background: #2980b9;
+  color: #ffffff;
+  float: none;
+  padding: 6px 12px;
+}
+.dataTables_paginate {
+  margin-top: -28px;
+  margin-right: 12px;
+}
+.dataTables_paginate > a {
+  color: #ffffff !important;
+}
+.user-menu-active {
+  background: rgba(0, 0, 0, .15);
+  color: #ffffff;
+  background: #2980b9;
+}
+#user-header {
+  position: fixed;
+  top: 0;
+  display: block;
+  width: 100%;
+  background: #2980b9;
+  z-index: 25;
+}
+#user-header * {
+  color: #ffffff;
+}
+#user-header #logo, #user-header #content-title {
+  display: inline-block;
+  float: left;
+}
+#user-header #logo {
+  width: 24.050632911392405%;
+}
+#user-header #content-title {
+  width: 75.9493670886076067%;
 }
 
 /* MEDIA QUERIES */

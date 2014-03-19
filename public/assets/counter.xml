@@ -1,2 +1,6 @@
 <?xml version="1.0"?>
-<counter><count>5</count></counter>
+<<<<<<< HEAD
+<counter><count>6</count></counter>
+=======
+<counter><count>7</count></counter>
+>>>>>>> b3d6f9f8ea70ce932700033fce396463182ccd97

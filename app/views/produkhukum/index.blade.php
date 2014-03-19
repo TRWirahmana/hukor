@@ -1,5 +1,7 @@
 @section('content')
-<h2>Produk Hukum</h2>
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-books'></span> Produk hukum";
+</script>
 
 <div id="filterdiv" class="filterdiv">
   <div class="row-fluid">
@@ -17,13 +19,21 @@
               <label for="select-kategori" class="control-label">Kategori</label>
               <div class="controls">
                 <select id="select-kategori" name="kategori">
-                  <option value="">Semua Kategori</option>
-                  <option value="1">Keputusan Mentri</option>
-                  <option value="2">Peraturan Mentri</option>
-                  <option value="3">Peraturan Bersama</option>
-                  <option value="4">Keputusan Bersama</option>
-                  <option value="5">Intruksi Mentri</option>
-                  <option value="6">Surat Edaran</option>
+                    <option value="">Semua Kategori</option>
+                    <option value="1">Undang-undang Dasar</option>
+                    <option value="2">Peraturan Pemerintah</option>
+                    <option value="3">Peraturan Presiden</option>
+                    <option value="4">Keputusan Presiden</option>
+                    <option value="5">Instruksi Presiden</option>
+                    <option value="6">Peraturan Menteri</option>
+                    <option value="7">Keputusan Menteri</option>
+                    <option value="8">Instruksi Menteri</option>
+                    <option value="9">Surat Edaran Menteri</option>
+                    <option value="10">Nota Kesepakatan</option>
+                    <option value="11">Nota Kesepahaman</option>
+                    <option value="12">Peraturan Bersama</option>
+                    <option value="13">Keputusan Bersama</option>
+                    <option value="14">Surat Edaran Bersama</option>
                 </select>
               </div>
             </div>
@@ -69,8 +79,8 @@
       <table id="tbl-produkhukum" class="dataTable table">
         <thead>
         <tr>
-          <th>No</th>
-          <th>No. Usulan</th>
+<!--          <th>No</th>-->
+          <th>Nomor</th>
           <th>Tentang</th>
           <th>Kategori</th>
           <th>Masalah</th>
@@ -147,45 +157,84 @@
       bLengthChange: false,
       bServerSide: true,
       bProcessing: true,
-      sAjaxSource: document.location.href,
+      sAjaxSource: '<?php echo URL::to("produkhukum/tableph"); ?>',
       aoColumns: [
+//        {
+//            mData: "id",
+//            sClass: "center",
+//            sWidth: '5%'
+//        },
+
         {
-          mData: "id",
-          sWidth: '3%'
+            mData: "nomor",
+            sClass: "center",
+            sWidth: '15%'
         },
 
         {
-          mData: "nomor",
-          sWidth: '10%'
-        },
-
-        {
-          mData: "deskripsi",
-          sWidth: '15%'
+          mData: "perihal",
+          sWidth: '55%'
         },
         {
-          mData: "kategori",
-          sWidth: '14%',
-          mRender: function (data, type, full) {
-            if (data === 1) {
-              return 'Keputusan Mentri';
-            } else if (data === 2) {
-              return 'Peraturan Mentri';
-            } else if (data === 3) {
-              return 'Peraturan Bersama';
-            } else if (data === 4) {
-              return 'Keputusan Bersama';
-            } else if (data === 5) {
-              return 'Instruksi Mentri';
-            } else if (data === 6) {
-              return 'Surat Edaran';
-            }
+            mData: "kategori",
+            sClass: "center",
+            sWidth: '15%',
+	    mRender: function (data, type, full) {
+		  var kategori = "";
+		  switch (parseInt(data))
+		  {
+			  case 1 :
+				  kategori = 'Undang-undang Dasar';
+				  break;
+			  case 2 :
+				  kategori = 'Peraturan Pemerintah';
+				  break;
+			  case 3 :
+				  kategori = 'Peraturan Presiden';
+				  break;
+			  case 4 :
+				  kategori = 'Keputusan Presiden';
+				  break;
+			  case 5 :
+				  kategori = 'Instruksi Presiden';
+				  break;
+			  case 6 :
+				  kategori = 'Peraturan Menteri';
+				  break;
+			  case 7 :
+				  kategori = 'Keputusan Menteri';
+				  break;
+			  case 8 :
+				  kategori = 'Instruksi Menteri';
+				  break;
+			  case 9 :
+				  kategori = 'Surat Edaran Menteri';
+				  break;
+			  case 10 :
+				  kategori = 'Nota Kesepakatan';
+				  break;
+			  case 11 :
+				  kategori = 'Nota Kesepahaman';
+				  break;
+			  case 12 :
+				  kategori = 'Peraturan Bersama';
+				  break;
+			  case 13 :
+				  kategori = 'Keputusan Bersama';
+				  break;
+			  case 14 :
+				  kategori = 'Surat Edaran Bersama';
+				  break;
+		  }
+		  return kategori;
           }
         },
         {
-          mData: "masalah",
-          sWidth: '14%',
+            mData: "masalah",
+            sClass: "center",
+            sWidth: '15%',
           mRender: function (data, type, full) {
+		data = parseInt(data);
             if (data === 1) {
               return 'Kepegawaian';
             } else if (data === 2) {
@@ -198,16 +247,19 @@
               return 'Perlengkapan';
             } else if (data === 6) {
               return 'Lainnya';
+            } else {
+                return '';
             }
           }
 
         },
         {
-          mData: "id",
-          sWidth: '5%',
+            mData: "id",
+            sClass: "center",
+            sWidth: '5%',
           mRender: function (data, type, full) {
-            return "<a href='produkhukum/" + data + "/detail'> <i class='icon-edit'></i></a>"
-              + "&nbsp;<a href='produkhukum/" + data + "/download'> <i class='icon-download'></i></a>";
+            return "<a href='produkhukum/" + data + "/detail' title='Detail'> <i class='icon-edit'></i></a>"
+              + "&nbsp;<a href='produkhukum/" + data + "/download' title='Unduh'> <i class='icon-download'></i></a>";
 
           }
         }
@@ -220,11 +272,11 @@
         aoData.push({name: "bidang", value: $("#select-bidang").val()});
       },
       fnDrawCallback: function (oSettings) {
-        if (oSettings.bSorted || oSettings.bFiltered) {
-          for (var i = 0, iLen = oSettings.aiDisplay.length; i < iLen; i++) {
-            $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr).html(i + 1);
-          }
-        }
+//        if (oSettings.bSorted || oSettings.bFiltered) {
+//          for (var i = 0, iLen = oSettings.aiDisplay.length; i < iLen; i++) {
+//            $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr).html(i + 1);
+//          }
+//        }
       },
 
       aoColumnDefs: [
@@ -259,5 +311,9 @@
     });
 
   });
+</script>
+
+<script>
+  $("#menu-produk-hukum").addClass("active");
 </script>
 @stop

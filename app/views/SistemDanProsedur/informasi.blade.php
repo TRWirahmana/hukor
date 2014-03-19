@@ -1,7 +1,10 @@
 @section('content')
 
-<h2>Ketatalaksanaan</h2>
-<div class="stripe-accent"></div>
+<!--KETATALAKSANAAN-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
+</script>
+
 <legend>Informasi & Status Usulan Sistem dan Prosedur</legend>
 
 @include('flash')
@@ -20,6 +23,11 @@
                     </thead>
                     <tbody></tbody>
                 </table>
+  <style>
+    table.dataTable tr td:nth-child(6) {
+      text-align: center;
+    }
+  </style>
 </div>
 @stop
 
@@ -93,9 +101,11 @@
                     {
                         mData: 'id',
                         sWidth: "8%",
-                        mRender: function(data, type, all) {
-                            return "<a href='"+baseUrl+"/sp/download/" + data + "'><i class='icon-download'></i></a> ";
-                        }
+			mRender: function(data, type, all) {
+				if(all._role_id != null) 
+					return "<a href='"+baseUrl+"/sp/download/" + data + "' title='Unduh'><i class='icon-download'></i></a> ";
+				return "";
+			}
                     }
                 ],
                 "fnDrawCallback": function ( oSettings ) {
@@ -112,6 +122,11 @@
 
 });
 
+</script>
+
+<script>
+  $("#collapse12").css("height", "auto");
+  $("#menu-pelembagaan-informasi2").addClass("user-menu-active");
 </script>
 
 @stop

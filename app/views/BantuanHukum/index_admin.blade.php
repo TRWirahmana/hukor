@@ -15,7 +15,7 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon"><span class="rulycon-wrench"></span></div>
+        <div class="pageicon"><span class="rulycon-notebook"></span></div>
         <div class="pagetitle"><h1>Bantuan Hukum</h1>
         </div>
     </div>
@@ -27,7 +27,7 @@
             <!-- MAIN CONTENT -->
             {{ Form::open(array('action' => 'BantuanHukumController@convertpdf', 'method' => 'post',
             'id' => 'pdf-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal')) }}
-	<fieldset>
+	<fieldset style="margin-bottom: 48px;">
 
             <div class="row-fluid">
             <div class="span6">
@@ -84,8 +84,9 @@
             	   	</div>
             </div>
 	   <div class="control-group">
-			<div class="controls">	
-                 		 <button class="btn btn-hukor btn-primary" type="submit">Cetak</button>
+			<div class="controls">
+                <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
+                <button class="btn btn-hukor btn-primary" type="submit">Cetak</button>
 			</div>
            </div>
 	</div>
@@ -103,6 +104,7 @@
             <table id="basictable" class="dataTable table">
                 <thead>
                 <tr>
+                    <th>#</th>
                     <th>Nama Pemohon</th>
                     <th>Jenis Perkara</th>
                     <th>Status Pemohon</th>
@@ -116,7 +118,7 @@
 
             <div class="footer">
                 <div class="footer-left">
-                    <span>&copy;2014 Direktorat Jenderal Kebudayaan Republik Indonesia</span>
+                    <span>&copy;2014 Biro Hukum dan Organisasi</span>
                 </div>
                 <div class="footer-right">
                     <span></span>
@@ -135,6 +137,7 @@
 @section('scripts')
 @parent
 <script type="text/javascript">
+    var $ = jQuery.noConflict();
     jQuery( ".datepicker" ).datepicker({
         dateFormat: 'yy-mm-dd',
         changeMonth: true,
@@ -143,12 +146,19 @@
 
     var tbl_data = jQuery("#basictable").dataTable({
         bServerSide: true,
-        bFilter:false,
-	bLengthChange: false,
+        bFilter:true,
+	    bLengthChange: false,
         bProcessing: true,
         bPaginate: true,
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Data",
+        },
         sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/datatable"); ?>',
         aoColumns: [
+            {
+                mData: "id",
+                sWidth: "1%"
+            },
             {mData: "pengguna.nama_lengkap"},
             {
                 mData: "jenis_perkara",
@@ -178,6 +188,7 @@
             },
             {
                 mData: "status_pemohon",
+                sClass: "center",
                 mRender: function(id){
                     var status_pemohon;
                     switch (parseInt(id)){
@@ -201,7 +212,7 @@
                     return status_pemohon;
                 }
             },
-            {mData: "status_perkara"},
+            {mData: "status_perkara", sClass: "center"},
             {
                 mData: "advokasi",
                 mRender: function(id){
@@ -224,7 +235,7 @@
                     return advokasi;
                 }
             },
-            {mData: "advokator"},
+            {mData: "advokator", sClass: "center"},
             {
                 mData: "id",
                 mRender: function(data, type, full){
@@ -233,9 +244,9 @@
                     var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
 
                     if(role == 3 || role == 8){
-                        return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a> &nbsp;' +
+                        return '<a href="' + downloadUrl + '" title="Unduh"><i class="rulycon-arrow-down "></i></a> &nbsp;' +
                             '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
-                            '<a href="' + deleteUrl + '" title="Delete" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
+                            '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
                     }else{
                         return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a> &nbsp;';
                     }
@@ -246,6 +257,16 @@
             aoData.push({name: "jenis_perkara", value: jQuery("#jenis-perkara").val()});
             aoData.push({name: "status_pemohon", value: jQuery("#status-pemohon").val()});
             aoData.push({name: "advokasi", value: jQuery("#advokasi").val()});
+        },
+        "fnDrawCallback": function ( oSettings ) {
+            /* Need to redo the counters if filtered or sorted */
+            if ( oSettings.bSorted || oSettings.bFiltered )
+            {
+                for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+                {
+                    $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+                }
+            }
         },
         fnServerData: function(sSource, aoData, fnCallback) {
             jQuery.getJSON(sSource, aoData, function(json) {
@@ -270,6 +291,14 @@
     jQuery("#print").click(function(){
 
     });
+</script>
+
+<script>
+  jQuery("#app_bahu > a").addClass("sub-menu-active");
+  jQuery("#app").css({
+    "display": "block",
+    "visibility": "visible"
+  });
 </script>
 @stop
 @stop

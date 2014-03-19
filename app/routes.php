@@ -46,6 +46,7 @@ Route::group(array('before' => 'guest'), function() {
         Route::get('/', 'ProdukHukumController@index');
         Route::get('{id}/detail', array('as' => 'detail_produkhukum', 'uses' => 'ProdukHukumController@detail'));
         Route::get('{id}/download', 'ProdukHukumController@downloadLampiran');
+        Route::get('tableph', 'ProdukHukumController@datatable');
     });
 
     //news
@@ -100,6 +101,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::get('create_menu', 'MenuController@create');
     Route::get('index_menu', 'MenuController@index');
     Route::get('setting_menu', 'MenuController@setting');
+    Route::get('table_menu', 'MenuController@datatable');
     // Route::put('setting/save', 'MenuController@save');
 
     //Managemen Submenu

@@ -5,6 +5,7 @@
   <ul class="breadcrumbs">
     <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
     <li><a href="{{URL::previous()}}">Manage Menu</a> <span class="separator"></span></li>
+      <li><a href="{{URL::previous()}}">Tambah Menu</a></li>
   </ul>
   @include('adminflash')
   <div class="pageheader">

@@ -128,6 +128,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::post('savedoc','DocumentController@save');
     Route::put('updatedoc/{key}','DocumentController@update');
     Route::get('tabledoc', 'DocumentController@datatable');
+
+    //Managemen Profile
+    Route::resource('profile', 'ProfileController');
+    Route::post('saveprofile', 'ProfileController@save');
+    Route::post('updateprofile', 'ProfileController@update');
 });
 
 

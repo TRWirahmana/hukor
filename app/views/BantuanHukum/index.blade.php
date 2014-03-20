@@ -6,7 +6,7 @@
   document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Bantuan hukum";
 </script>
 
-    <legend>Informasi dan Status Usulan Bantuan Hukum</legend>
+    <legend>Status Usulan</legend>
 
     @include('flash')
 <br>

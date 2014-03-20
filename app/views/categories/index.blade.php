@@ -16,7 +16,7 @@
 		<div class="maincontent">
 			<div class="maincontentinner">
         <div class="row-fluid">
-          <a class="btn btn-primary" href="{{ URL::route('admin.categories.create') }}">Tambah Kategori Baru</a>
+          <a class="btn btn-hukor" href="{{ URL::route('admin.categories.create') }}">Tambah Kategori Baru</a>
         </div>
 
 				<div class="content-non-title">

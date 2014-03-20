@@ -55,9 +55,9 @@
                     @endforeach
 
                     <?php if (count($data) != $counter++) { ?>
-                      {{ Form::button('Hapus', array('class' => 'btn btn-primary hapus')) }}
+                      {{ Form::button('Hapus', array('class' => 'btn btn-hukor hapus')) }}
                     <?php } else { ?>
-                      {{ Form::button('Tambah', array('class' => 'btn btn-primary tambah')) }}
+                      {{ Form::button('Tambah', array('class' => 'btn btn-hukor tambah')) }}
                     <?php } ?>
                   </div>
                 </div>
@@ -74,7 +74,7 @@
                   <span class="help-block">{{$error}}</span>
                   @endforeach
 
-                  {{ Form::button('Tambah', array('class' => 'btn btn-primary tambah')) }}
+                  {{ Form::button('Tambah', array('class' => 'btn btn-hukor tambah')) }}
                 </div>
               </div>
             <?php } ?>
@@ -85,7 +85,7 @@
 
             <div class="control-group">
                 <div class="controls">
-                    {{ Form::submit('Simpan perubahan', array('class' => 'btn btn-primary')) }}
+                    {{ Form::submit('Simpan perubahan', array('class' => 'btn btn-hukor')) }}
                 </div>
             </div>
         </div>

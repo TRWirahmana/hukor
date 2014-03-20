@@ -81,14 +81,14 @@ var Registrasi = (function(REG) {
                     email: true
                 },
                 'unit_kerja': 'required',
-                'tlp_kantor': {
-                    required: true,
-                    number: true
-                },
-                'handphone': {
-                    required: true,
-                    number: true
-                },
+//                'tlp_kantor': {
+//                    required: true,
+//                    number: true
+//                },
+//                'handphone': {
+//                    required: true,
+//                    number: true
+//                },
                 'nip': {
                     required: true,
                     number: true
@@ -105,7 +105,8 @@ var Registrasi = (function(REG) {
                     number: true
                 },
                 'tgl_lahir': {
-                    required: true
+                    required: true,
+                    date: true
                 },
                 'pekerjaan': {
                     required: true
@@ -147,12 +148,14 @@ var Registrasi = (function(REG) {
                 },
                 'alamat_kantor': "Alamat kantor wajib diisi.",
                 'unit_kerja': 'Unit Kerja wajib diisi',
-                'tlp_kantor': {
-                    required: 'Nomor telepon wajib diisi.'
-                },
-                'handphone': {
-                    required: 'Nomor handphone wajib diisi.'
-                },
+//                'tlp_kantor': {
+//                    required: 'Nomor telepon wajib diisi.',
+//                    number: 'Format Telepon harus angka'
+//                },
+//                'handphone': {
+//                    required: 'Nomor handphone wajib diisi.',
+//                    number: 'Format No Handphone harus angka'
+//                },
                 'pekerjaan': {
                     required: 'Pekerjaan wajib diisi.'
                 },

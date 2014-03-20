@@ -170,7 +170,7 @@
                   {{ Form::label('tlp_kantor', 'Telepon Kantor', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('tlp_kantor', '',
-                      array('placeholder' => 'ketikkan Telepon Kantor anda di sini...')) }}
+                      array('placeholder' => 'ketikkan Telepon Kantor anda di sini...', 'id' => 'tlp_kantor')) }}
 
                       @foreach($errors->get('tlp_kantor') as $error)
                       <span class="help-block">{{$error}}</span>
@@ -182,7 +182,7 @@
                   {{ Form::label('handphone', 'No Handphone', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('handphone', '',
-                      array('placeholder' => 'Masukkan nomor handphone anda di sini...')) }}
+                      array('placeholder' => 'Masukkan nomor handphone anda di sini...', 'id' => 'hp')) }}
 
                       @foreach($errors->get('handphone') as $error)
                       <span class="help-block">{{$error}}</span>
@@ -222,6 +222,7 @@
 <script src="{{asset('assets/js/additional-methods.js')}}"></script>
 
 <script src="{{asset('assets/js/registrasi.js')}}"></script>
+<script src="{{asset('assets/js/jquery.mask.js')}}"></script>
 
 <script type="text/javascript">
     $(function() {
@@ -231,6 +232,10 @@
             yearRange: "1950:2020",
             changeYear: true
         }).val();
+
+        $("#tlp_kantor").mask("(999) 999-9999");
+        $("#hp").mask("999-999-999-999");
+
     });
     Registrasi.Form();
 </script>

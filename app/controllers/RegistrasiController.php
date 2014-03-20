@@ -552,6 +552,8 @@ class RegistrasiController extends BaseController {
 //                return Redirect::to('site');
 
                 $this->signin($email, $password);
+                Session::flash('success', 'Registrasi Berhasil, Selamat datang ' . $nama . ' !');
+                return Redirect::to('site');
             } else {
                 Session::flash('error', 'Registrasi gagal! Harap ulangi dan Pastikan alamat email anda valid!');
                 return Redirect::to('registrasi');

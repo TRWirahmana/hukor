@@ -85,7 +85,7 @@
 
 <div class="row-fluid">
   <div class="span24" style="margin-bottom: 48px;">
-      <button class="btn btn-hukor " id="btn-usulan" type="button">Buat Usulan</button>
+      <button class="btn btn-primary " id="btn-usulan" type="button">Buat Usulan</button>
   </div>
 </div>
 

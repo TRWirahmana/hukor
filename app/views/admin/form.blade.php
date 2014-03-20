@@ -121,7 +121,7 @@
 
             <div class="control-group">
               <div class="controls">
-                {{ Form::submit('Submit', array('class' => 'btn btn-hukor')) }}
+                {{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
               </div>
             </div>
 

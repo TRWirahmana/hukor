@@ -173,7 +173,7 @@
 
         <div class="row-fluid">
             <div class="span24 text-center">
-                <button class="btn btn-hukor" type="submit">Simpan</button>
+                <button class="btn btn-primary" type="submit">Simpan</button>
             </div>
         </div>
 {{ Form::close() }}

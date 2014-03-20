@@ -65,7 +65,6 @@
       @endif
 
       <!-- Filter -->
-      @if(!empty(Auth::user()))
       @if($user->role_id == 3 )
       <form id="form-filter" class="form form-horizontal" action="{{URL::route('admin.pelembagaan.printTable')}}" style="margin-bottom: 24px;">
         @else
@@ -108,15 +107,14 @@
 
                 <div class="control-group">
                   <div class="controls">
-                    <input type="reset" value="Reset" class="btn btn-hukor" id="btn-reset">
-                    <input type="submit" value="Cetak" class="btn btn-hukor">
+                    <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
+                    <input type="submit" value="Cetak" class="btn btn-primary">
                   </div>
                 </div>
               </div>
             </div>
           </fieldset>
         </form>
-          @endif
 
 
         <br/>

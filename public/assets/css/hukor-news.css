@@ -332,7 +332,7 @@ p {
 }
 
 .carousel-inner > .item > img {
-  width: 100%;
+  width: 68.376068376068375%;
 }
 
 .carousel-caption {
@@ -1098,6 +1098,13 @@ p {
 
 .ui-dialog-titlebar-close {
   display: none;
+}
+
+.btn.btn-hukor {
+  background: #c0392b;
+}
+.btn.btn-hukor-blue {
+  background: #2980b9;
 }
 
 

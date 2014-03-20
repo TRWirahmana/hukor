@@ -220,8 +220,8 @@
 	    </div>
 
 	    <div class="form-actions">
-		<a href="{{ URL::route('admin.sp.index') }}" class="btn btn-hukor">Batal</a>
-		{{ Form::submit('Simpan', array('class' => "btn btn-hukor")) }}
+		<a href="{{ URL::route('admin.sp.index') }}" class="btn btn-primary">Batal</a>
+		{{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
 	    </div>
 	    {{ Form::close() }}
 

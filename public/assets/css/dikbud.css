@@ -610,7 +610,7 @@ html, .main-layout, .admin,
   width: 100%;
   color: rgba(255, 255, 255, 1);
   background: transparent;
-  padding: 7.5px 20px;
+  padding: 8px 20px;
   border-radius: 0;
   position: relative;
 }
@@ -938,6 +938,7 @@ table.dataTable td.dataTables_empty {
   width: 100%;
   background: #2980b9;
   z-index: 25;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .35);
 }
 #user-header * {
   color: #ffffff;

@@ -57,7 +57,7 @@
         <a href="#"><span class="rulycon-twitter"></span></a>
         <a href="#"><span class="rulycon-feed-3"></span></a>
         <input type="text" placeholder="search..."/>
-        <button class="btn btn-hukor"><span class="rulycon-search"></span></button>
+        <button class="btn btn-primary"><span class="rulycon-search"></span></button>
       </p>
     </div>
   </div>

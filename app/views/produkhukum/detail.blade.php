@@ -57,13 +57,13 @@
       <div class="control-group">
         {{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
         <div class="controls">
-          <a class="btn btn-hukor-blue" href={{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen ); }} > <span class="rulycon-download"></span> Unduh </a>
+          <a class="btn btn-primary-blue" href={{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen ); }} > <span class="rulycon-download"></span> Unduh </a>
         </div>
       </div>
 
       <div class="control-group">
         <div class="controls">
-          <input class='btn btn-hukor' Type="button" value="Kembali" onClick="history.go(-1);return true;">
+          <input class='btn btn-primary' Type="button" value="Kembali" onClick="history.go(-1);return true;">
         </div>
       </div>
 

@@ -243,7 +243,7 @@
 
 <div class="form-actions">
   <a href="{{ URL::route('admin.aj.index') }}" class="btn">Batal</a>
-  {{ Form::submit('Simpan', array('class' => "btn btn-hukor")) }}
+  {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
 </div>
 {{ Form::close() }}
 

@@ -83,8 +83,10 @@
 <!--    Load Image-->
 @endif
 
-<div class="span8" style="margin-bottom: 48px;">
-    <button class="btn btn-primary " id="btn-usulan" type="button">Buat Usulan</button>
+<div class="row-fluid">
+  <div class="span24" style="margin-bottom: 48px;">
+      <button class="btn btn-primary " id="btn-usulan" type="button">Buat Usulan</button>
+  </div>
 </div>
 
 <!-- dialog box -->
@@ -96,13 +98,13 @@
 
 @section('scripts')
 <script src="{{asset('assets/js/jquery-1.10.1.min.js')}}"></script>
-<script src="{{asset('assets/js/dusk.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery-ui.js')}}"></script>
 <script type="text/javascript">
     var $ = jQuery.noConflict();
     var info_id = '<?php echo $info->id; ?>';
 
     $('#btn-usulan').click(function () {
+//        alert('exit');exit;
         var user = '<?php echo Auth::user(); ?>';
 
         if (user) {
@@ -127,8 +129,7 @@
         }
         else {
             $('#dialog').dialog({
-                height: 190,
-                width: 400,
+                width: 500,
                 modal: true,
                 buttons: {
                     "Login" : function(){

@@ -86,7 +86,7 @@
 	   <div class="control-group">
 			<div class="controls">
                 <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
-                <button class="btn btn-hukor btn-primary" type="submit">Cetak</button>
+                <button class="btn btn-primary btn-primary" type="submit">Cetak</button>
 			</div>
            </div>
 	</div>

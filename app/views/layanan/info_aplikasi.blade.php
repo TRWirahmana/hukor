@@ -83,8 +83,10 @@
 <!--    Load Image-->
 @endif
 
-<div class="span8" style="margin-bottom: 48px;">
-    <button class="btn btn-primary " id="btn-usulan" type="button">Buat Usulan</button>
+<div class="row-fluid">
+  <div class="span24" style="margin-bottom: 48px;">
+      <button class="btn btn-hukor " id="btn-usulan" type="button">Buat Usulan</button>
+  </div>
 </div>
 
 <!-- dialog box -->
@@ -127,8 +129,7 @@
         }
         else {
             $('#dialog').dialog({
-                height: 190,
-                width: 400,
+                width: 500,
                 modal: true,
                 buttons: {
                     "Login" : function(){

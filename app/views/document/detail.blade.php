@@ -130,7 +130,7 @@
 
             <div class="control-group">
               <div class="controls">
-                <a href="{{URL::previous()}}" style="background: transparent">{{ Form::button('Kembali', array('class' => 'btn btn-primary')) }}</a>
+                <a href="{{URL::previous()}}" style="background: transparent">{{ Form::button('Kembali', array('class' => 'btn btn-hukor')) }}</a>
               </div>
             </div>
 

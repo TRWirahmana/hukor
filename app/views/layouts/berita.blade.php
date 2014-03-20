@@ -41,7 +41,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72"
         href="{{asset('assets/ico/apple-touch-icon-72-precomposed.png')}}">
   <link rel="apple-touch-icon-precomposed" href="{{asset('assets/ico/apple-touch-icon-57-precomposed.png')}}">
-  <link rel="shortcut icon" href="{{asset('assets/ico/favicon.png')}}">
+  <link rel="shortcut icon" href="{{asset('assets/ico/favicon.ico')}}">
 
   <script type="text/javascript">
     var baseUrl = '{{URL::to(' / ')}}';
@@ -57,7 +57,7 @@
         <a href="#"><span class="rulycon-twitter"></span></a>
         <a href="#"><span class="rulycon-feed-3"></span></a>
         <input type="text" placeholder="search..."/>
-        <button class="btn btn-primary"><span class="rulycon-search"></span></button>
+        <button class="btn btn-hukor"><span class="rulycon-search"></span></button>
       </p>
     </div>
   </div>
@@ -319,8 +319,7 @@
         }
         else {
             $('#dialog').dialog({
-                height: 190,
-                width: 480,
+                width: 500,
                 modal: true,
                 buttons: {
                     "LOGIN" : function(){

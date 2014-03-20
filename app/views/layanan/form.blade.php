@@ -107,7 +107,7 @@
 
                     <div class="row-fluid">
                         <div class="span24 text-center">
-                            {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
+                            {{ Form::submit('Simpan', array('class' => 'btn btn-hukor')) }}
                         </div>
                     </div>
 

@@ -63,7 +63,7 @@
 				</fieldset>
 
 				<div class="form-actions">	
-					 <input class='btn btn-primary' Type="button" value="Kembali" onClick="history.go(-1);return true;">
+					 <input class='btn btn-hukor' Type="button" value="Kembali" onClick="history.go(-1);return true;">
 				</div>
 			</div>
 

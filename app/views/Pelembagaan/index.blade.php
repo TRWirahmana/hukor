@@ -108,8 +108,8 @@
 
                 <div class="control-group">
                   <div class="controls">
-                    <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
-                    <input type="submit" value="Cetak" class="btn btn-primary">
+                    <input type="reset" value="Reset" class="btn btn-hukor" id="btn-reset">
+                    <input type="submit" value="Cetak" class="btn btn-hukor">
                   </div>
                 </div>
               </div>

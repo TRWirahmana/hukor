@@ -123,8 +123,8 @@
 
             <div class="control-group">
               <div class="controls">
-                {{Form::submit("Draft", array("class" => "btn btn-primary", "name" => "status"))}}
-                {{Form::submit("Publish", array("class" => "btn btn-primary", "name" => "status"))}}
+                {{Form::submit("Draft", array("class" => "btn btn-hukor", "name" => "status"))}}
+                {{Form::submit("Publish", array("class" => "btn btn-hukor", "name" => "status"))}}
               </div>
             </div>
 

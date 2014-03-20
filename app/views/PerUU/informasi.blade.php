@@ -48,11 +48,18 @@ $("#menu-peraturan-perundangan").addClass("active");
                 bServerSide: true,
                 sAjaxSource: document.location.href,
                 bFilter: true,
-                bLengthChange: false,
+                bLengthChange: true,
                 oLanguage:{
                     "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                     "sEmptyTable": "Data Kosong",
-                    "sZeroRecords" : "Pencarian Tidak Ditemukan"
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                    "sSearch":       "Cari:",
+                    "sLengthMenu": 'Tampilkan <select>'+
+                        '<option value="10">10</option>'+
+                        '<option value="25">25</option>'+
+                        '<option value="50">50</option>'+
+                        '<option value="100">100</option>'+
+                        '</select> Usulan'
                 },
                 aoColumns: [
                     {

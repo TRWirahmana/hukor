@@ -127,8 +127,7 @@
         }
         else {
             $('#dialog').dialog({
-                height: 190,
-                width: 400,
+                width: 500,
                 modal: true,
                 buttons: {
                     "Login" : function(){

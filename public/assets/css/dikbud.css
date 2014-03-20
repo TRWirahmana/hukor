@@ -987,6 +987,16 @@ table.dataTable td.dataTables_empty {
   display: none;
 }
 
+.ui-dialog .ui-button-text-only .ui-button-text {
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.ui-dialog .ui-button {
+  border-radius: 0;
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 960px) {
   body {

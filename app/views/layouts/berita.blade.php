@@ -319,8 +319,7 @@
         }
         else {
             $('#dialog').dialog({
-                height: 190,
-                width: 480,
+                width: 500,
                 modal: true,
                 buttons: {
                     "LOGIN" : function(){

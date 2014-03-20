@@ -296,6 +296,7 @@ legend {
 }
 .form-actions {
   text-align: center;
+  background: transparent;
 }
 .form-inline {
   /*margin-bottom: 20px;*/

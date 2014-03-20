@@ -1,7 +1,7 @@
 @section('content')
-
-<h2>PRODUK HUKUM</h2>
-<div class="stripe-accent"></div>
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Produk hukum";
+</script>
 <!-- <legend>Pengajuan Usulan</legend>
  -->
 

@@ -148,21 +148,30 @@
 
       <ul class="sub-menu" id="sub-aplikasi" style="display: none">
         <li class="has-child">
-          <a href="#"><span class="rulycon-notebook"> &nbsp; Peraturan Perundang-undangan </span></a>
+          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Peraturan Perundang-undangan </span></a>
           <ul>
             <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Peraturan Perundang-undangan</a></li>
             <li><a href="{{URL::route('puu.index')}}">Informasi dan Status Usulan</a></li>
           </ul>
         </li>
         <li class="has-child">
-          <a href="#"><span class="rulycon-file-3"> &nbsp; Pelembagaan</span></a>
+          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Pelembagaan</span></a>
           <ul>
             <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Pelembagaan</a></li>
             <li><a href="{{ URL::route('pelembagaan.index') }}">Informasi dan Status Usulan</a></li>
           </ul>
         </li>
+
+          <li class="has-child">
+              <a href="#"><span class="rulycon-drawer-3"> &nbsp; Bantuan Hukum</span></a>
+              <ul>
+                  <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>
+                  <li><a href="{{ URL::route('bantuan_hukum.index') }}">Informasi dan Status Usulan</a></li>
+              </ul>
+          </li>
+
         <li class="has-child">
-          <a href="#"><span class="rulycon-file-4"> &nbsp; Ketatalaksanaan</span></a>
+          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Ketatalaksanaan</span></a>
           <ul>
             <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>
             <li><a href="{{URL::route('sp.index')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
@@ -171,13 +180,7 @@
             <li><a href="{{URL::route('aj.index')}}">Informasi dan Status Usulan</a></li>
           </ul>
         </li>
-        <li class="has-child">
-          <a href="#"><span class="rulycon-stack"> &nbsp; Bantuan Hukum</span></a>
-          <ul>
-            <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>
-            <li><a href="{{ URL::route('bantuan_hukum.index') }}">Informasi dan Status Usulan</a></li>
-          </ul>
-        </li>
+
       </ul>
     </div>
   </div>

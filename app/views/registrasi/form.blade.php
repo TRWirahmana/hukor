@@ -226,11 +226,14 @@
 
 <script type="text/javascript">
     $(function() {
-        $( ".datepicker" ).datepicker({
+        $(".datepicker").datepicker({
             dateFormat: 'yy-mm-dd',
             changeMonth: true,
             yearRange: "1950:2020",
-            changeYear: true
+            changeYear: true,
+            onClose: function() {
+                $('.datepicker').trigger('blur');
+            }
         }).val();
 
         $("#tlp_kantor").mask("(999) 999-9999");

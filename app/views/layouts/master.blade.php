@@ -132,7 +132,8 @@ Form::text('username', '', array(
 <!--              <li id="menu-produk-hukum"><a href="{{URL::to('produkhukum')}}"><span class="rulycon-book"></span>Produk Hukum</a></li>-->
 <!-- Menu Layanan(Dinamisasi)-->
 
-<?php $no = 1; ?>
+<?php $no = 1;
+$allmenu = Menu::all();?>
 
 @foreach($allmenu as $menus)
 <?php $as = Submenu::leftJoin('menu', 'sub_menu.menu_id', '=', 'menu.id')

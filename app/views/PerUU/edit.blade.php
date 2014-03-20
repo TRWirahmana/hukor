@@ -238,8 +238,8 @@
 <hr/>
 
 <div class="row-fluid text-center">
-  <a href="{{ URL::route('admin.puu.index') }}" class="btn btn-hukor" style="width: 200px;">Batal</a>
-  {{ Form::submit('Simpan', array('class' => "btn btn-hukor", 'style' => "width: 240px;")) }}
+  <a href="{{ URL::route('admin.puu.index') }}" class="btn btn-primary" style="width: 200px;">Batal</a>
+  {{ Form::submit('Simpan', array('class' => "btn btn-primary", 'style' => "width: 240px;")) }}
 </div>
 {{ Form::close() }}
 

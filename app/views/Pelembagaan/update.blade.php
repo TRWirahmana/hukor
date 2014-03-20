@@ -95,9 +95,9 @@
             </div>
             <div class="control-group">
               <div class="controls">
-                {{ Form::submit('Kirim', array('id' => 'kirim_btn', 'class' => 'btn btn-hukor', 'style'=>'float: left'))
+                {{ Form::submit('Kirim', array('id' => 'kirim_btn', 'class' => 'btn btn-primary', 'style'=>'float: left'))
                 }}
-                <input class='btn btn-hukor' style='float: left; margin: 0 0 0 8px;' Type="button" value="Batal"
+                <input class='btn btn-primary' style='float: left; margin: 0 0 0 8px;' Type="button" value="Batal"
                        onClick="history.go(-1);return true;">
               </div>
             </div>

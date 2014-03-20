@@ -35,6 +35,7 @@
                     <option value="12">Peraturan Bersama</option>
                     <option value="13">Keputusan Bersama</option>
                     <option value="14">Surat Edaran Bersama</option>
+                    <option value="15">Peraturan Lain</option>
                 </select>
               </div>
             </div>

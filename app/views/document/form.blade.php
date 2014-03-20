@@ -58,6 +58,7 @@
                 '12' => 'Peraturan Bersama',
                 '13' => 'Keputusan Bersama',
                 '14' => 'Surat Edaran Bersama',
+                  '15' => 'Peraturan Lain',
                 ), $data->kategori) }}
               </div>
             </div>

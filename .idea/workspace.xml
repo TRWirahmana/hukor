@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/DAL/DAL_Layanan.php" afterPath="$PROJECT_DIR$/app/models/DAL/DAL_Layanan.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/layanan_index.js" afterPath="$PROJECT_DIR$/public/assets/js/layanan_index.js" />
     </list>
     <ignored path="diknasrokum.iws" />
@@ -61,7 +60,7 @@
       <file leaf-file-name="layanan_index.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/js/layanan_index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="30" selection-start="1472" selection-end="1472" vertical-scroll-proportion="0.13464697" vertical-offset="666" max-vertical-offset="1785">
+            <state line="71" column="32" selection-start="2977" selection-end="2977" vertical-scroll-proportion="0.9441708" vertical-offset="632" max-vertical-offset="1785">
               <folding />
             </state>
           </provider>
@@ -721,7 +720,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/layanan_index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="30" selection-start="1472" selection-end="1472" vertical-scroll-proportion="0.13464697" vertical-offset="666" max-vertical-offset="1785">
+        <state line="71" column="32" selection-start="2977" selection-end="2977" vertical-scroll-proportion="0.9441708" vertical-offset="632" max-vertical-offset="1785">
           <folding />
         </state>
       </provider>

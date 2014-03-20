@@ -15,19 +15,19 @@ jQuery(document).ready(function(e){
                 mRender: function(data, type, row){
                     switch (row['id'])
                     {
-                        case 1:
+                        case '1':
                             return "Informasi Perundang-undangan";
                             break;
-                        case 2:
+                        case '2':
                             return "Informasi Pelembagaan";
                             break;
-                        case 3:
+                        case '3':
                             return "Informasi Bantuan Hukum";
                             break;
-                        case 4:
+                        case '4':
                             return "Informasi Sistem dan Prosedur";
                             break;
-                        case 5:
+                        case '5':
                             return "Informasi Analisis Jabatan";
                             break;
                         default:
@@ -44,19 +44,19 @@ jQuery(document).ready(function(e){
                 mRender: function(id) {
                     switch (id)
                     {
-                        case 1:
+                        case '1':
                             return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
                             break;
-                        case 2:
+                        case '2':
                             return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
                             break;
-                        case 3:
+                        case '3':
                             return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
                             break;
-                        case 4:
+                        case '4':
                             return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
                             break;
-                        case 5:
+                        case '5':
                             return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
                             break;
                         default:

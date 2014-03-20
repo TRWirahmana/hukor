@@ -96,12 +96,6 @@
           <li>
             <div class="news-content">
               <div class="row-fluid">
-                <div class="span12">
-                  <h4><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a>
-                  </h4>
-                </div>
-              </div>
-              <div class="row-fluid">
                 <div class="span4">
                   @if($news_feeds->gambar != null)
                   {{ HTML::image('assets/uploads/berita/' . $news_feeds->gambar) }}
@@ -110,6 +104,8 @@
                   @endif
                 </div>
                 <div class="span8">
+                  <h4><a href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">{{$news_feeds->judul}}</a>
+                  </h4>
                   <?php $date = new DateTime($news_feeds->tgl_penulisan); ?>
                   <p class="date-time"><span class="rulycon-clock"></span>
                     {{$date->format('d')}}  <span

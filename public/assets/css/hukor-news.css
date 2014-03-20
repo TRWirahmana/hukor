@@ -1100,6 +1100,13 @@ p {
   display: none;
 }
 
+.btn.btn-hukor {
+  background: #c0392b;
+}
+.btn.btn-hukor-blue {
+  background: #2980b9;
+}
+
 
 
 

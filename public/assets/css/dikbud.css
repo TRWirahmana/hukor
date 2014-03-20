@@ -270,6 +270,9 @@ button:hover, .btn:hover {
 .btn.btn-hukor {
   background: #c0392b;
 }
+.btn.btn-hukor:focus {
+  color: #ffffff;
+}
 li.dropdown {
   list-style: none;
 }
@@ -937,6 +940,51 @@ table.dataTable td.dataTables_empty {
 }
 #user-header #content-title {
   width: 75.9493670886076067%;
+}
+.ui-dialog {
+  background: url("../images/bg1.png") repeat;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .55);
+}
+
+.ui-draggable .ui-dialog-titlebar {
+  background: #0A3E6E;
+  border: none;
+  border-radius: 0;
+}
+
+.ui-dialog .ui-dialog-title {
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
+  padding: 4px 0;
+}
+
+.ui-dialog .ui-dialog-content {
+  padding: 12px 24px;
+  font-size: 13px;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+  background: transparent;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+  background: #0e5ba1;
+  color: #ffffff;
+  border: none;
+  padding: 4px 12px;
+}
+
+.ui-dialog .ui-dialog-buttonpane button:last-child {
+  background: #FF7200;
+}
+
+.ui-dialog-titlebar-close {
+  display: none;
 }
 
 /* MEDIA QUERIES */

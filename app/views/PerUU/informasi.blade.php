@@ -49,6 +49,11 @@ $("#menu-peraturan-perundangan").addClass("active");
                 sAjaxSource: document.location.href,
                 bFilter: false,
                 bLengthChange: false,
+                oLanguage:{
+                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+                    "sEmptyTable": "Data Kosong",
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan"
+                },
                 aoColumns: [
                     {
                         mData: "id",

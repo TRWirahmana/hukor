@@ -548,8 +548,10 @@ class RegistrasiController extends BaseController {
                 $forumUser->save();
 
 //            $this->sendMail($username, $password, $email);
-                Session::flash('success', 'Registrasi berhasil. Silahkan login.');
-                return Redirect::to('site');
+//                Session::flash('success', 'Registrasi berhasil. Silahkan login.');
+//                return Redirect::to('site');
+
+                $this->signin($email, $password);
             } else {
                 Session::flash('error', 'Registrasi gagal! Harap ulangi dan Pastikan alamat email anda valid!');
                 return Redirect::to('registrasi');
@@ -640,6 +642,59 @@ class RegistrasiController extends BaseController {
                     $message->from('admin@site.com', 'Site Admin');
                     $message->to($user['email'], $user['name'])->subject('Sistem Registrasi Online Laboratorium Kepemimpinan Nasional');
                 });
+    }
+
+    private function signin($username, $password) {
+
+        $user = User::where('username', '=', $username)->first();
+
+
+        if (null !== $user) {
+            $user = $user->toArray();
+
+            if (Hash::check($password, $user['password'])) {
+
+                // set ulang untuk auth karena untuk auth password tidak boleh di encrypt terlebih dahulu
+                $credential = array(
+                    'id' => $user['id'],
+                    'username' => $user['username'],
+                    'password' => $password
+                );
+
+                Session::put('key', array('us' => $username, 'pd' => MyCrypt::encrypt($password)));
+
+                if (Auth::attempt($credential)) {
+                    $user = Auth::user();
+
+                    // Remove this user's guest entry from the online list
+                    ForumOnline::where("ident", "=", mysql_real_escape_string(get_remote_address()))->delete();
+
+                    // log the user in to the forum
+                    pun_setcookie($user->id, pun_hash($password), time() + 1209600);
+
+                    // Reset tracked topics
+                    set_tracked_topics(null);
+                    //validation estimasi pendaftaran for role
+
+                    if ($user->role_id == 2) {
+                        Session::flash('success', 'Selamat datang ' . $user->pengguna->nama_lengkap . ' !');
+                        return Redirect::to('site');
+                    } else {
+                        Auth::logout();
+                        Session::forget('key');
+                        Session::flash('error', 'Silahkan Login Sebagai User!');
+                        return Redirect::to('site');
+                    }
+                }
+                //
+            } else {
+                Session::flash('error', 'Password yang anda masukan salah!');
+                return Redirect::to('site');
+            }
+        } else {
+            Session::flash('error', 'User tidak terdaftar!');
+            return Redirect::to('site');
+        }
     }
 
 }

@@ -24,6 +24,8 @@
 </div>
 <!--pageheader-->
 
+
+
 <div class="maincontent">
   <div class="maincontentinner">
     <!-- MAIN CONTENT -->
@@ -63,6 +65,7 @@
       @endif
 
       <!-- Filter -->
+      @if(!empty(Auth::user()))
       @if($user->role_id == 3 )
       <form id="form-filter" class="form form-horizontal" action="{{URL::route('admin.pelembagaan.printTable')}}" style="margin-bottom: 24px;">
         @else
@@ -113,6 +116,7 @@
             </div>
           </fieldset>
         </form>
+          @endif
 
 
         <br/>
@@ -185,12 +189,18 @@
 
     $dataTable = $("#tbl-pelembagaan").dataTable({
       bFilter: true,
+        bInfo: true,
       //     bInfo: false,
       bSort: false,
       bPaginate: true,
       //   bLengthChange: false,
       bServerSide: true,
       bProcessing: true,
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+        },
       sAjaxSource: document.location.href,
       aoColumns: [
         {

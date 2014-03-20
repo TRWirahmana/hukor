@@ -65,7 +65,6 @@
       @endif
 
       <!-- Filter -->
-      @if(!empty(Auth::user()))
       @if($user->role_id == 3 )
       <form id="form-filter" class="form form-horizontal" action="{{URL::route('admin.pelembagaan.printTable')}}" style="margin-bottom: 24px;">
         @else
@@ -116,7 +115,6 @@
             </div>
           </fieldset>
         </form>
-          @endif
 
 
         <br/>

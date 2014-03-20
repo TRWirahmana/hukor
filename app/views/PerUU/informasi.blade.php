@@ -47,7 +47,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                 // },
                 bServerSide: true,
                 sAjaxSource: document.location.href,
-                bFilter: false,
+                bFilter: true,
                 bLengthChange: false,
                 oLanguage:{
                     "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",

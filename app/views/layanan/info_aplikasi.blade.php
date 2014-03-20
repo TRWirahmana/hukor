@@ -1,4 +1,5 @@
 @section('content')
+<?php $title = ""; ?>
 @if($info->id == 1)
 <!--PERATURAN PERUNDANG-UNDANGAN-->
 <script>
@@ -13,6 +14,7 @@
   document.getElementById("menu-peruu-info").setAttribute("class", "user-menu-active");
   document.getElementById("collapse10").style.height = "auto";
 </script>
+<?php $title = "Perundang-Undangan"; ?>
 @endif
 
 @if($info->id == 2)
@@ -29,6 +31,7 @@
   document.getElementById("menu-pelembagaan-info").setAttribute("class", "user-menu-active");
   document.getElementById("collapse11").style.height = "auto";
 </script>
+<?php $title = "Pelembagaan"; ?>
 @endif
 
 @if($info->id == 3)
@@ -45,6 +48,7 @@
   document.getElementById("collapse13").style.height = "auto";
   document.getElementById("menu-bantuan-hukum-info").setAttribute("class", "user-menu-active");
 </script>
+<?php $title = "Bantuan Hukum"; ?>
 @endif
 
 @if($info->id == 4)
@@ -56,6 +60,7 @@
 <legend>
     Informasi Sistem dan Prosedur
 </legend>
+<?php $title = "Sistem dan Prosedur"; ?>
 @endif
 
 @if($info->id == 5)
@@ -67,6 +72,7 @@
 <legend>
     Informasi Analisis Jabatan
 </legend>
+<?php $title = "Analisis Jabatan"; ?>
 @endif
 
 @include('flash')
@@ -90,7 +96,7 @@
 </div>
 
 <!-- dialog box -->
-<div id="dialog" title="Forum" style="display: none;">
+<div id="dialog" title="<?php echo $title; ?>" style="display: none;">
     <p>Silahkan klik LOGIN terlebih dahulu untuk membuat usulan. Jika belum mempunyai akun, silakan klik DAFTAR untuk registrasi.</p>
 </div>
 

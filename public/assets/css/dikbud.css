@@ -270,6 +270,9 @@ button:hover, .btn:hover {
 .btn.btn-hukor {
   background: #c0392b;
 }
+.btn.btn-hukor-blue {
+  background: #2980b9;
+}
 .btn.btn-hukor:focus {
   color: #ffffff;
 }
@@ -347,6 +350,9 @@ legend {
 .form-horizontal .controls textarea {
   display: block;
   width: 100%;
+}
+.form-horizontal .controls .btn, .form-horizontal .controls button {
+  width: auto;
 }
 .nav-tabs {
   text-align: center;
@@ -789,8 +795,8 @@ html, .main-layout, .admin,
   top: 8px;
 }
 .main-content .span12 {
-  padding-left: 15px;
-  padding-right: 15px;
+  /*padding-left: 15px;
+  padding-right: 15px;*/
 }
 .main-content .span12 > p {
   padding-left: 15px;

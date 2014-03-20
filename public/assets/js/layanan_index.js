@@ -11,7 +11,30 @@ jQuery(document).ready(function(e){
         sAjaxSource: document.URL,
         aoColumns: [
             {
-                mData: "nama_menu"
+                mData: "nama_menu",
+                mRender: function(data, type, row){
+                    switch (row['id'])
+                    {
+                        case 1:
+                            return "Informasi Perundang-undangan";
+                            break;
+                        case 2:
+                            return "Informasi Pelembagaan";
+                            break;
+                        case 3:
+                            return "Informasi Bantuan Hukum";
+                            break;
+                        case 4:
+                            return "Informasi Sistem dan Prosedur";
+                            break;
+                        case 5:
+                            return "Informasi Analisis Jabatan";
+                            break;
+                        default:
+                            return row['nama_menu'];
+                            break;
+                    }
+                }
             },
             {
                 mData: "nama_submenu"
@@ -19,9 +42,30 @@ jQuery(document).ready(function(e){
             {
                 mData: "id",
                 mRender: function(id) {
-                    return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
-                        + "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/admin/layanan/"+id+"'>"
-                        + "<i class='icon-trash'></i></a>";
+                    switch (id)
+                    {
+                        case 1:
+                            return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
+                            break;
+                        case 2:
+                            return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
+                            break;
+                        case 3:
+                            return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
+                            break;
+                        case 4:
+                            return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
+                            break;
+                        case 5:
+                            return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
+                            break;
+                        default:
+                            return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
+                                + "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/admin/layanan/"+id+"'>"
+                                + "<i class='icon-trash'></i></a>";
+                            break;
+                    }
+
                 }
             }
         ],

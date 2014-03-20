@@ -31,7 +31,7 @@
               </div>
               <div class="control-group">
                 <div class="controls">
-                  {{Form::submit("Simpan", array("class" => "btn btn-hukor"))}}
+                  {{Form::submit("Simpan", array("class" => "btn btn-primary"))}}
                 </div>
               </div>
               {{ Form::close() }}

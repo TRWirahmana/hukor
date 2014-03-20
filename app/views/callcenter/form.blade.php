@@ -64,7 +64,7 @@
             </div>
             <div class="control-group">
               <div class="controls">
-                {{ Form::submit('Simpan', array('class' => 'btn btn-hukor btn-block')) }}
+                {{ Form::submit('Simpan', array('class' => 'btn btn-primary btn-block')) }}
               </div>
             </div>
           </fieldset>

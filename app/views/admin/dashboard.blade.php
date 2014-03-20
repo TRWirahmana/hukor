@@ -219,8 +219,8 @@
             <label class="control-label" for=""></label>
 
             <div class="controls">
-              <input type="reset" value="Reset" class="btn btn-hukor" id="btn-reset">
-              <input type="submit" value="Cetak" class="btn btn-hukor">
+              <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
+              <input type="submit" value="Cetak" class="btn btn-primary">
             </div>
           </div>
         </div>

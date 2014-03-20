@@ -97,11 +97,14 @@
 @stop
 
 @section('scripts')
+<script src="{{asset('assets/js/jquery-1.10.1.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery-ui.js')}}"></script>
 <script type="text/javascript">
     var $ = jQuery.noConflict();
     var info_id = '<?php echo $info->id; ?>';
 
     $('#btn-usulan').click(function () {
+//        alert('exit');exit;
         var user = '<?php echo Auth::user(); ?>';
 
         if (user) {

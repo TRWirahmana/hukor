@@ -72,4 +72,8 @@
 
 
   {{ Form::close() }}
+
+  <script>
+    document.getElementById("menu-produk-hukum").setAttribute("class", "active");
+  </script>
   @stop

@@ -47,7 +47,7 @@
 @parent
 <script>
   jQuery(document).on("ready", function() {
-    document.title = "Layanan Biro Hukum dan Organisasi | Edit Kategori Berita"
+    document.title = "Layanan Biro Hukum dan Organisasi | Ubah Kategori Berita"
   });
 </script>
 @stop

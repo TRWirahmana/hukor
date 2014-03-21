@@ -175,4 +175,10 @@
 <!--            display: none !important;-->
 <!--        }-->
 <!--    </style>-->
+
+  <script>
+    jQuery(document).on("ready", function() {
+      document.title = "Layanan Biro Hukum dan Organisasi | Tambah Layanan"
+    });
+  </script>
     @stop

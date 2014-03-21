@@ -180,7 +180,7 @@
                             <!-- list manajemen menu-->
                             <li class="dropdown">
                                 <ul id="manage-menu">
-                                    <li id="menu"><a href="{{URL::to('admin/profile')}}"><span class="rulycon-settings"></span> Kelola Profile</a></li>
+                                    <li id="menu-profile"><a href="{{URL::to('admin/profile')}}"><span class="rulycon-settings"></span> Kelola Profile</a></li>
                                     <li id="menu"><a href="{{URL::to('admin/index_menu')}}"><span class="rulycon-settings"></span> Kelola Menu</a></li>
                                     <li id="kelola_submenu"><a href="{{URL::to('admin/index_submenu')}}"><span class="rulycon-settings"></span> Kelola Submenu</a></li>
                                     <li id="layanan"><a href="{{URL::to('admin/layanan')}}"><span class="rulycon-settings"></span> Kelola Konten Layanan</a></li>

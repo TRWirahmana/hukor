@@ -50,13 +50,8 @@
 
   <script type="text/javascript">
     var baseUrl = '{{URL::to(' / ')}}';
-    var role = {
-    {
-      Auth::
-      user() - > role_id
-    }
-    }
-    ;</script>
+    var role = {{ Auth::user()->role_id }};
+  </script>
 </head>
 <body class="main-layout">
 <?php $user = Auth::user(); ?>
@@ -212,8 +207,10 @@
       <!-- list produk hukum-->
       <li class="dropdown">
         <ul id="produk-hukum">
-          <li id="pro"><a href="{{URL::to('admin/document')}}"><span class="rulycon-settings"></span> Semua Peraturan</a></li>
-          <li id="pro"><a href="{{ URL::to('admin/adddoc')}}"><span class="rulycon-settings"></span> Tambah Peraturan</a></li>
+          <li id="pro"><a href="{{URL::to('admin/document')}}"><span class="rulycon-settings"></span> Semua
+              Peraturan</a></li>
+          <li id="pro"><a href="{{ URL::to('admin/adddoc')}}"><span class="rulycon-settings"></span> Tambah
+              Peraturan</a></li>
         </ul>
       </li>
       @endif
@@ -300,9 +297,9 @@
       $("#info").hide();
       $("#app").hide();
       $("#manage").hide();
-      $("#produk-hukum").show();
-      $("#manage_menu").hide();
+      $("#manage-menu").hide();
       $("#menu_berita").hide();
+      $("#produk-hukum").show();
     });
     $("#cbox-forum").change(function (e) {
       $.post(baseUrl + "/admin/enableForum", {value: $(this).is(":checked")}, function (resp) {

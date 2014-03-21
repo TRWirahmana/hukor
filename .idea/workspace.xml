@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/document/index.blade.php" afterPath="$PROJECT_DIR$/app/views/document/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +33,7 @@
       <file leaf-file-name="index.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/document/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="221" column="21" selection-start="8137" selection-end="8137" vertical-scroll-proportion="0.6792453" vertical-offset="3361" max-vertical-offset="4454">
+            <state line="228" column="57" selection-start="8682" selection-end="8682" vertical-scroll-proportion="0.86409396" vertical-offset="3361" max-vertical-offset="4454">
               <folding />
             </state>
           </provider>
@@ -632,7 +631,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/document/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="221" column="21" selection-start="8137" selection-end="8137" vertical-scroll-proportion="0.6792453" vertical-offset="3361" max-vertical-offset="4454">
+        <state line="228" column="57" selection-start="8682" selection-end="8682" vertical-scroll-proportion="0.86409396" vertical-offset="3361" max-vertical-offset="4454">
           <folding />
         </state>
       </provider>

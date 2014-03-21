@@ -124,7 +124,7 @@
             <div class="control-group">
               {{ Form::label('', 'File Dokumen', array('class' => 'control-label')) }}
               <div class="controls">
-                <input type="text" disabled value="{{ $data->file_dokumen }}"/>
+                  <a class="btn btn-primary-blue" href={{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen ); }} > <span class="rulycon-download"></span> Unduh </a>
               </div>
             </div>
 

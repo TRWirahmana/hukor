@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/document/detail.blade.php" afterPath="$PROJECT_DIR$/app/views/document/detail.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/document/index.blade.php" afterPath="$PROJECT_DIR$/app/views/document/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +34,7 @@
       <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/document/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="228" column="68" selection-start="8693" selection-end="8693" vertical-scroll-proportion="-16.384615" vertical-offset="3450" max-vertical-offset="4454">
+            <state line="16" column="68" selection-start="626" selection-end="664" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="4454">
               <folding />
             </state>
           </provider>
@@ -43,7 +43,7 @@
       <file leaf-file-name="detail.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/document/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="174" selection-start="4397" selection-end="4397" vertical-scroll-proportion="0.6123499" vertical-offset="1785" max-vertical-offset="2822">
+            <state line="25" column="0" selection-start="834" selection-end="834" vertical-scroll-proportion="0.728988" vertical-offset="0" max-vertical-offset="2822">
               <folding />
             </state>
           </provider>
@@ -604,13 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/document/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="68" selection-start="8693" selection-end="8693" vertical-scroll-proportion="-16.384615" vertical-offset="3450" max-vertical-offset="4454">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/produkhukum/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="166" selection-start="2095" selection-end="2251" vertical-scroll-proportion="-9.346154" vertical-offset="760" max-vertical-offset="1445">
@@ -618,9 +611,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/document/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="68" selection-start="626" selection-end="664" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="4454">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/document/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="174" selection-start="4397" selection-end="4397" vertical-scroll-proportion="0.6123499" vertical-offset="1785" max-vertical-offset="2822">
+        <state line="25" column="0" selection-start="834" selection-end="834" vertical-scroll-proportion="0.728988" vertical-offset="0" max-vertical-offset="2822">
           <folding />
         </state>
       </provider>

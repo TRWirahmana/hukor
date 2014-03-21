@@ -80,6 +80,12 @@
             </a>
           </li>
           <li>
+            <a href="#" id="profile">
+              <span class="rulycon-profile"></span>
+              <span class="headmenu-label">Profil</span>
+            </a>
+          </li>
+          <li>
             <a class="dropdown-toggle" data-toggle="dropdown" id="informasi">
               <span class="rulycon-newspaper"></span>
               <span class="headmenu-label">Informasi</span>

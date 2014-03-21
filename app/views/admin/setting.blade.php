@@ -99,4 +99,10 @@
 <script>
   jQuery("#user-links > a:first-child").addClass("sub-menu-active");
 </script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Pengaturan Akun"
+  });
+</script>
 @stop

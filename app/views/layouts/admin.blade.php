@@ -71,8 +71,8 @@
                         <li id="news"><a href="#menu_berita">
                             <span class="rulycon-newspaper"></span> Berita</a>
                         </li>
-                        <li id="produk_hukum"><a href="#produk-hukum">
-                                <span class="rulycon-notebook"></span> Produk Hukum</a>
+                        <li id="produk_hukum"><a href="#produk_hukum_submenu">
+                                <span class="rulycon-books"></span> Produk Hukum</a>
                         </li>
                         <li id="aplikasi"><a href="#app">
                             <span class="rulycon-notebook"></span> Aplikasi</a>
@@ -114,15 +114,15 @@
 
                         @if(in_array($user->role_id, array(1, 4, 5, 6, 7, 8 ,9)))
                             <li class="dropdown" >
-                                <ul id="app">
+                                <ul id="produk_hukum_submenu">
                                     <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}">
-                                        <span class="rulycon-notebook"></span> Peraturan Perundang-Undangan</a>
+                                        <span class="rulycon-books"></span> Peraturan Perundang-Undangan</a>
                                     </li>
                                     <li id="app_pelembagaan"><a href="{{ URL::route('admin.pelembagaan.index') }}">
-                                        <span class="rulycon-notebook"></span> Pelembagaan</a>
+                                        <span class="rulycon-books"></span> Pelembagaan</a>
                                     </li>
-                                    <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-notebook"></span> Bantuan Hukum</a>
-                                    <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="rulycon-notebook"></span> Ketatalaksanaan</a>
+                                    <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-books"></span> Bantuan Hukum</a>
+                                    <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="rulycon-books"></span> Ketatalaksanaan</a>
                                         <ul>
                                             <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                             <li><a href="{{URL::route('admin.aj.index')}}">Analisis Jabatan</a></li>
@@ -134,15 +134,15 @@
                             </li>
                         @elseif(3 == $user->role_id)
                             <li class="dropdown" >
-                                <ul id="app">
-                                    <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}"><span class="rulycon-notebook"></span> Peraturan Perundang-Undangan</a>
+                                <ul id="produk_hukum_submenu">
+                                    <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}"><span class="rulycon-books"></span> Peraturan Perundang-Undangan</a>
 
                                     </li>
-                                    <li id="app_pelembagaan" ><a href="{{ URL::route('admin.pelembagaan.index') }}"><span class="rulycon-notebook"></span> Pelembagaan</a>
+                                    <li id="app_pelembagaan" ><a href="{{ URL::route('admin.pelembagaan.index') }}"><span class="rulycon-books"></span> Pelembagaan</a>
 
                                     </li>
-                                    <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-notebook"></span> Bantuan Hukum</a>
-                                    <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="rulycon-notebook"></span> Ketatalaksanaan</a>
+                                    <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-books"></span> Bantuan Hukum</a>
+                                    <li id="app_ketatalaksanaan" class="dropdown"><a href=""><span class="rulycon-books"></span> Ketatalaksanaan</a>
                                         <ul>
                                             <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                             <li><a href="{{URL::route('admin.aj.index')}}">Analisis Jabatan</a></li>
@@ -188,14 +188,6 @@
                                     <li id="layanan"><a href="{{URL::to('admin/linked')}}"><span class="rulycon-settings"></span> Kelola Link Dikbud</a></li>
                                 </ul>
                             </li>
-
-                            <!-- list produk hukum-->
-                            <li class="dropdown">
-                                <ul id="produk-hukum">
-                                    <li id="pro"><a href="{{URL::to('admin/document')}}"><span class="rulycon-settings"></span> Semua Peraturan</a></li>
-                                    <li id="pro"><a href="{{ URL::to('admin/adddoc')}}"><span class="rulycon-settings"></span> Tambah Peraturan</a></li>
-                                </ul>
-                            </li>
                         @endif
 
                     </ul>
@@ -225,70 +217,70 @@
             <script type="text/javascript">
                     jQuery(function ($) {
 
-                            $("#news").click(function(){
-                                $("#info").hide();
-                                $("#app").hide();
-                                $("#manage").hide();
-                                $("#manage-menu").hide();
-                                $("#menu_berita").show();
-                                $("#produk-hukum").hide();
-                            });
+                    $("#news").click(function(){
+                    $("#info").hide();
+                            $("#app").hide();
+                            $("#manage").hide();
+                            $("#manage-menu").hide();
+                      $("#produk_hukum_submenu").hide();
+                            $("#menu_berita").show();
+                    });
                             $("#beranda").click(function(){
-                                $("#info").hide();
-                                $("#app").hide();
-                                $("#manage").hide();
-                                $("#manage-menu").hide();
-                                $("#menu_berita").hide();
-                                $("#produk-hukum").hide();
-                            });
+                    $("#info").hide();
+                            $("#app").hide();
+                            $("#manage").hide();
+                            $("#manage-menu").hide();
+                              $("#produk_hukum_submenu").hide();
+                            $("#menu_berita").hide();
+                    });
                             $("#informasi").click(function(){
-                                $("#info").show();
-                                $("#app").hide();
-                                $("#manage").hide();
-                                $("#manage-menu").hide();
-                                $("#menu_berita").hide();
-                                $("#produk-hukum").hide();
-                            });
+                    $("#info").show();
+                            $("#app").hide();
+                            $("#manage").hide();
+                            $("#manage-menu").hide();
+                              $("#produk_hukum_submenu").hide();
+                            $("#menu_berita").hide();
+                    });
                             $("#ketatalaksanaan").click(function(){
-                                window.location.href = baseURL + "/admin/layananketatalaksanaan/edit_ketatalaksanaan";
-                            });
+                    window.location.href = baseURL + "/admin/layananketatalaksanaan/edit_ketatalaksanaan";
+                    });
                             $("#aplikasi").click(function(){
-                                $("#info").hide();
-                                $("#app").show();
-                                $("#manage").hide();
-                                $("#menu_berita").hide();
-                                $("#manage-menu").hide();
-                                $("#produk-hukum").hide();
-                            });
+                    $("#info").hide();
+                            $("#app").show();
+                            $("#manage").hide();
+                            $("#menu_berita").hide();
+                              $("#produk_hukum_submenu").hide();
+                            $("#manage-menu").hide();
+                    });
                             $("#managemen").click(function(){
-                                $("#info").hide();
-                                $("#app").hide();
-                                $("#manage-menu").hide();
-                                $("#manage").show();
-                                $("#menu_berita").hide();
-                                $("#produk-hukum").hide();
-                            });
+                    $("#info").hide();
+                            $("#app").hide();
+                            $("#manage-menu").hide();
+                            $("#manage").show();
+                              $("#produk_hukum_submenu").hide();
+                            $("#menu_berita").hide();
+                    });
                             $("#menu").click(function(){
-                                $("#info").hide();
-                                $("#app").hide();
-                                $("#manage").hide();
-                                $("#manage-menu").show();
-                                $("#menu_berita").hide();
-                                $("#produk-hukum").hide();
-                            });
-                            $("#produk_hukum").click(function(){
-                                $("#info").hide();
-                                $("#app").hide();
-                                $("#manage").hide();
-                                $("#manage-menu").hide();
-                                $("#menu_berita").hide();
-                                $("#produk-hukum").show();
-                            });
-                                    $("#cbox-forum").change(function(e){
-                            $.post(baseUrl + "/admin/enableForum", {value: $(this).is(":checked")}, function(resp){
-                                console.log(resp);
-                            });
-                        });
+                    $("#info").hide();
+                            $("#app").hide();
+                            $("#manage").hide();
+                            $("#manage-menu").show();
+                              $("#produk_hukum_submenu").hide();
+                            $("#menu_berita").hide();
+                    });
+                      $("#produk_hukum").click(function(){
+                        $("#info").hide();
+                        $("#app").hide();
+                        $("#manage").hide();
+                        $("#produk_hukum_submenu").show();
+                        $("#manage_menu").hide();
+                        $("#menu_berita").hide();
+                      });
+                            $("#cbox-forum").change(function(e){
+                    $.post(baseUrl + "/admin/enableForum", {value: $(this).is(":checked")}, function(resp){
+                    console.log(resp);
+                    });
+                    });
                     });
             </script>
 

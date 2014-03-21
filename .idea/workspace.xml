@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/admin.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/admin.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/produkhukum/detail.blade.php" afterPath="$PROJECT_DIR$/app/views/produkhukum/detail.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,91 +31,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/document/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="54" selection-start="1190" selection-end="1218" vertical-scroll-proportion="-8.038462" vertical-offset="386" max-vertical-offset="4386">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="admin.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/admin.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="278" column="39" selection-start="16026" selection-end="16026" vertical-scroll-proportion="0.4252669" vertical-offset="4487" max-vertical-offset="5151">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/produkhukum/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="188" column="27" selection-start="6580" selection-end="6580" vertical-scroll-proportion="-5.769231" vertical-offset="3046" max-vertical-offset="5814">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/document/form.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="43" selection-start="1897" selection-end="1897" vertical-scroll-proportion="12.423077" vertical-offset="1207" max-vertical-offset="3026">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DocumentController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/DocumentController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="34" selection-start="2805" selection-end="2805" vertical-scroll-proportion="-17.0" vertical-offset="1394" max-vertical-offset="2397">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DAL_Document.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Document.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="35" selection-start="3046" selection-end="3046" vertical-scroll-proportion="-3.9230769" vertical-offset="1683" max-vertical-offset="2873">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="detail.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/produkhukum/detail.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="14" selection-start="2540" selection-end="2540" vertical-scroll-proportion="-18.307692" vertical-offset="663" max-vertical-offset="1462">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProdukHukumController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/ProdukHukumController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="21" selection-start="684" selection-end="684" vertical-scroll-proportion="-9.153846" vertical-offset="255" max-vertical-offset="1054">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Document.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Document.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="20" selection-start="1455" selection-end="1455" vertical-scroll-proportion="17.115385" vertical-offset="1329" max-vertical-offset="1972">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="detail.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/document/detail.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="26" selection-start="597" selection-end="635" vertical-scroll-proportion="46.423077" vertical-offset="1445" max-vertical-offset="2822">
+            <state line="191" column="50" selection-start="11522" selection-end="11522" vertical-scroll-proportion="0.5917667" vertical-offset="2902" max-vertical-offset="5270">
               <folding />
             </state>
           </provider>
@@ -292,24 +211,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diknasrokum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hukor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -620,51 +521,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/DocumentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="34" selection-start="2805" selection-end="2805" vertical-scroll-proportion="-17.0" vertical-offset="1394" max-vertical-offset="2397">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Document.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="105" column="35" selection-start="3046" selection-end="3046" vertical-scroll-proportion="-3.9230769" vertical-offset="1683" max-vertical-offset="2873">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ProdukHukumController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="21" selection-start="684" selection-end="684" vertical-scroll-proportion="-9.153846" vertical-offset="255" max-vertical-offset="1054">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/produkhukum/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="188" column="27" selection-start="6580" selection-end="6580" vertical-scroll-proportion="-5.769231" vertical-offset="3046" max-vertical-offset="5814">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Document.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="20" selection-start="1455" selection-end="1455" vertical-scroll-proportion="17.115385" vertical-offset="1329" max-vertical-offset="1972">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/document/form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="43" selection-start="1897" selection-end="1897" vertical-scroll-proportion="12.423077" vertical-offset="1207" max-vertical-offset="3026">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/document/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="26" selection-start="597" selection-end="635" vertical-scroll-proportion="46.423077" vertical-offset="1445" max-vertical-offset="2822">
           <folding />
         </state>
       </provider>
@@ -676,13 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/produkhukum/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="14" selection-start="2540" selection-end="2540" vertical-scroll-proportion="-18.307692" vertical-offset="663" max-vertical-offset="1462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/document/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="54" selection-start="1190" selection-end="1218" vertical-scroll-proportion="-8.038462" vertical-offset="386" max-vertical-offset="4386">
@@ -690,9 +542,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/produkhukum/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="188" column="27" selection-start="6580" selection-end="6580" vertical-scroll-proportion="0.26086956" vertical-offset="3046" max-vertical-offset="5814">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/document/form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="43" selection-start="1897" selection-end="1897" vertical-scroll-proportion="-0.5540309" vertical-offset="1207" max-vertical-offset="3026">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/DocumentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="34" selection-start="2805" selection-end="2805" vertical-scroll-proportion="0.74161077" vertical-offset="1394" max-vertical-offset="2397">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/produkhukum/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="14" selection-start="2540" selection-end="2540" vertical-scroll-proportion="0.81646657" vertical-offset="663" max-vertical-offset="1462">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ProdukHukumController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="21" selection-start="684" selection-end="684" vertical-scroll-proportion="0.39932886" vertical-offset="255" max-vertical-offset="1054">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Document.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="20" selection-start="1455" selection-end="1455" vertical-scroll-proportion="-0.7466443" vertical-offset="1329" max-vertical-offset="1972">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/document/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="26" selection-start="597" selection-end="635" vertical-scroll-proportion="-2.0703259" vertical-offset="1445" max-vertical-offset="2822">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/admin.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="278" column="39" selection-start="16026" selection-end="16026" vertical-scroll-proportion="0.4252669" vertical-offset="4487" max-vertical-offset="5151">
+        <state line="191" column="50" selection-start="11522" selection-end="11522" vertical-scroll-proportion="0.5917667" vertical-offset="2902" max-vertical-offset="5270">
           <folding />
         </state>
       </provider>

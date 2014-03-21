@@ -189,7 +189,7 @@
                                 </ul>
                             </li>
 
-                            <!-- list manajemen menu-->
+                            <!-- list produk hukum-->
                             <li class="dropdown">
                                 <ul id="produk-hukum">
                                     <li id="pro"><a href="{{URL::to('admin/document')}}"><span class="rulycon-settings"></span> Semua Peraturan</a></li>

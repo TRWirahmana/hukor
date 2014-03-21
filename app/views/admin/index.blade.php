@@ -12,7 +12,7 @@
 <!--        </form>-->
         <div class="pageicon"><span class="rulycon-user"></span></div>
         <div class="pagetitle">
-          <h1>Kelola Akun</h1>
+          <h1>Akun</h1>
         </div>
     </div>
     <!--pageheader-->

@@ -22,7 +22,7 @@ p {
   margin-bottom: 12px;
 }
 
-::-webkit-scrollbar {
+/*::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
@@ -33,7 +33,7 @@ p {
 
 ::-webkit-scrollbar-thumb {
   background: #333333;
-}
+}*/
 
 /* HUKOR NEWS CUSTOM LAYOUT */
 .container {

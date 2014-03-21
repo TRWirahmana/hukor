@@ -10,7 +10,7 @@
   transition: all .2s ease-out;
 }
 
-::-webkit-scrollbar {
+/*::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
@@ -19,7 +19,7 @@
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, .25);
-}
+}*/
 ::selection {
   background: #16a085;
   color: #ffffff;

@@ -110,7 +110,7 @@
 
                 <div class="leftmenu">
                     <ul class="nav nav-tabs nav-stacked">
-                        <li class="nav-header">Submenu</li>
+                        <!--<li class="nav-header">Submenu</li>-->
 
                         @if(in_array($user->role_id, array(1, 4, 5, 6, 7, 8 ,9)))
                             <li class="dropdown" >

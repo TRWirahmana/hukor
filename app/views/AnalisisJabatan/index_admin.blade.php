@@ -230,11 +230,11 @@
             });
 
             $dataTable.on('click', 'a[data-delete]', function(e) {
-                if (!confirm('Apakah anda yakin?'))
-                    return;
-                $.post($(this).attr('href'), {_method: 'delete'}, function(r) {
-                    $dataTable.fnReloadAjax();
-                });
+			    if (confirm('Apakah anda yakin?')) {
+			    $.post($(this).attr('href'), {_method: 'delete'}, function(r) {
+				    $dataTable.fnReloadAjax();
+				    });
+			    }
                 e.preventDefault();
             });
 

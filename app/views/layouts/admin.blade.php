@@ -71,7 +71,7 @@
                         <li id="news"><a href="#menu_berita">
                             <span class="rulycon-newspaper"></span> Berita</a>
                         </li>
-                        <li id="produk_hukum"><a href="{{URL::to('admin/document')}}">
+                        <li id="produk_hukum"><a href="#produk-hukum">
                                 <span class="rulycon-notebook"></span> Produk Hukum</a>
                         </li>
                         <li id="aplikasi"><a href="#app">
@@ -188,6 +188,14 @@
                                     <li id="layanan"><a href="{{URL::to('admin/linked')}}"><span class="rulycon-settings"></span> Kelola Link Dikbud</a></li>
                                 </ul>
                             </li>
+
+                            <!-- list manajemen menu-->
+                            <li class="dropdown">
+                                <ul id="produk-hukum">
+                                    <li id="pro"><a href="{{URL::to('admin/document')}}"><span class="rulycon-settings"></span> Semua Peraturan</a></li>
+                                    <li id="pro"><a href="{{ URL::to('admin/adddoc')}}"><span class="rulycon-settings"></span> Tambah Peraturan</a></li>
+                                </ul>
+                            </li>
                         @endif
 
                     </ul>
@@ -217,56 +225,70 @@
             <script type="text/javascript">
                     jQuery(function ($) {
 
-                    $("#news").click(function(){
-                    $("#info").hide();
-                            $("#app").hide();
-                            $("#manage").hide();
-                            $("#manage-menu").hide();
-                            $("#menu_berita").show();
-                    });
+                            $("#news").click(function(){
+                                $("#info").hide();
+                                $("#app").hide();
+                                $("#manage").hide();
+                                $("#manage-menu").hide();
+                                $("#menu_berita").show();
+                                $("#produk-hukum").hide();
+                            });
                             $("#beranda").click(function(){
-                    $("#info").hide();
-                            $("#app").hide();
-                            $("#manage").hide();
-                            $("#manage-menu").hide();
-                            $("#menu_berita").hide();
-                    });
+                                $("#info").hide();
+                                $("#app").hide();
+                                $("#manage").hide();
+                                $("#manage-menu").hide();
+                                $("#menu_berita").hide();
+                                $("#produk-hukum").hide();
+                            });
                             $("#informasi").click(function(){
-                    $("#info").show();
-                            $("#app").hide();
-                            $("#manage").hide();
-                            $("#manage-menu").hide();
-                            $("#menu_berita").hide();
-                    });
+                                $("#info").show();
+                                $("#app").hide();
+                                $("#manage").hide();
+                                $("#manage-menu").hide();
+                                $("#menu_berita").hide();
+                                $("#produk-hukum").hide();
+                            });
                             $("#ketatalaksanaan").click(function(){
-                    window.location.href = baseURL + "/admin/layananketatalaksanaan/edit_ketatalaksanaan";
-                    });
+                                window.location.href = baseURL + "/admin/layananketatalaksanaan/edit_ketatalaksanaan";
+                            });
                             $("#aplikasi").click(function(){
-                    $("#info").hide();
-                            $("#app").show();
-                            $("#manage").hide();
-                            $("#menu_berita").hide();
-                            $("#manage-menu").hide();
-                    });
+                                $("#info").hide();
+                                $("#app").show();
+                                $("#manage").hide();
+                                $("#menu_berita").hide();
+                                $("#manage-menu").hide();
+                                $("#produk-hukum").hide();
+                            });
                             $("#managemen").click(function(){
-                    $("#info").hide();
-                            $("#app").hide();
-                            $("#manage-menu").hide();
-                            $("#manage").show();
-                            $("#menu_berita").hide();
-                    });
+                                $("#info").hide();
+                                $("#app").hide();
+                                $("#manage-menu").hide();
+                                $("#manage").show();
+                                $("#menu_berita").hide();
+                                $("#produk-hukum").hide();
+                            });
                             $("#menu").click(function(){
-                    $("#info").hide();
-                            $("#app").hide();
-                            $("#manage").hide();
-                            $("#manage-menu").show();
-                            $("#menu_berita").hide();
-                    });
-                            $("#cbox-forum").change(function(e){
-                    $.post(baseUrl + "/admin/enableForum", {value: $(this).is(":checked")}, function(resp){
-                    console.log(resp);
-                    });
-                    });
+                                $("#info").hide();
+                                $("#app").hide();
+                                $("#manage").hide();
+                                $("#manage-menu").show();
+                                $("#menu_berita").hide();
+                                $("#produk-hukum").hide();
+                            });
+                            $("#produk_hukum").click(function(){
+                                $("#info").hide();
+                                $("#app").hide();
+                                $("#manage").hide();
+                                $("#manage-menu").hide();
+                                $("#menu_berita").hide();
+                                $("#produk-hukum").show();
+                            });
+                                    $("#cbox-forum").change(function(e){
+                            $.post(baseUrl + "/admin/enableForum", {value: $(this).is(":checked")}, function(resp){
+                                console.log(resp);
+                            });
+                        });
                     });
             </script>
             @show

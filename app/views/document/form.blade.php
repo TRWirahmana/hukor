@@ -169,4 +169,12 @@
     }).val();
   });
 </script>
+
+<script>
+  jQuery("#produk-hukum > li:last-child").addClass("sub-menu-active");
+  jQuery("#produk-hukum").css({
+    "display": "block",
+    "visibility": "visible"
+  });
+</script>
 @stop

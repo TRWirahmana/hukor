@@ -70,13 +70,6 @@
 
 @section('scripts')
 @parent
-<script>
-  jQuery("#app_ketatalaksanaan > ul > li:nth-child(3) > a").addClass("sub-menu-active");
-  jQuery(".leftmenu .dropdown > #app, #app_ketatalaksanaan > ul").css({
-    "display": "block",
-    "visibility": "visible"
-  });
-</script>
 <script type="text/javascript">
     var $ = jQuery.noConflict();
     var tbl_data = $("#basictable").dataTable({
@@ -241,8 +234,8 @@
 </script>
 
 <script>
-  jQuery("#app_ketatalaksanaan > ul > li:last-child > a").addClass("sub-menu-active");
-  jQuery("#app, #app_ketatalaksanaan > ul").css({
+  jQuery("#produk-hukum > li:first-child").addClass("sub-menu-active");
+  jQuery("#produk-hukum").css({
     "display": "block",
     "visibility": "visible"
   });

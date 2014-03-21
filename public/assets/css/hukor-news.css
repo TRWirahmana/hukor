@@ -678,6 +678,14 @@ p {
   color: rgba(0, 0, 0, .55);
 }
 
+#detail-news .section-title#news-feed {
+  padding: 12px 72px 12px 24px;
+}
+#detail-news .news-content-detail > * {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 .pagination {
   margin-top: 24px;
   margin-bottom: 24px;

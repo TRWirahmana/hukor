@@ -291,6 +291,13 @@
                         });
                     });
             </script>
+
+
+            <script>
+              jQuery(document).on("ready", function() {
+                document.title = "Selamat datang di laman Layanan Biro Hukum dan Organisasi"
+              });
+            </script>
             @show
 
     </body>

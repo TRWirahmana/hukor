@@ -156,7 +156,7 @@ p {
 .headmenu > li, .headmenu > li.odd {
   background: transparent;
   border: none;
-  margin-left: 6px;
+  margin-left: 3px;
 }
 
 .headmenu > li > a {

@@ -118,6 +118,7 @@ Form::text('username', '', array(
               <a href="http://localhost/retane_blog/wp-login.php?log=<?php //echo $datses['us']; ?>&pwd=<?php echo $datses['pd']; ?>" target="_blank"><span class="rulycon-wordpress"></span> Blog</a>
             </li> -->
 <li id="menu-beranda"><a href="{{URL::to('/')}}"><span class="rulycon-home-2"></span>Beranda</a></li>
+<li id="menu-profile"><a href="{{URL::to('/')}}"><span class="rulycon-profile"></span>Profil</a></li>
 <li id="menu-produk-hukum"><a href="{{URL::to('produkhukum')}}"><span class="rulycon-books"></span>Produk Hukum</a>
 </li>
 @if (null != AppConfig::find('enable_forum') && AppConfig::find('enable_forum')->value == "true")

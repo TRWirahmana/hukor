@@ -367,4 +367,10 @@
     "visibility": "visible"
   });
 </script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Pelembagaan"
+  });
+</script>
 @stop

@@ -262,4 +262,10 @@
   });
 </script>
 
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Analisis Jabatan"
+  });
+</script>
+
 @stop

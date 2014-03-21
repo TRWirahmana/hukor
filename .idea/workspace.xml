@@ -87,7 +87,7 @@
       <file leaf-file-name="detail.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/produkhukum/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="31" selection-start="1596" selection-end="1596" vertical-scroll-proportion="0.18149467" vertical-offset="663" max-vertical-offset="1445">
+            <state line="45" column="30" selection-start="1595" selection-end="1595" vertical-scroll-proportion="0.18149467" vertical-offset="663" max-vertical-offset="1462">
               <folding />
             </state>
           </provider>
@@ -713,7 +713,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/produkhukum/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="31" selection-start="1596" selection-end="1596" vertical-scroll-proportion="0.18149467" vertical-offset="663" max-vertical-offset="1445">
+        <state line="45" column="30" selection-start="1595" selection-end="1595" vertical-scroll-proportion="0.18149467" vertical-offset="663" max-vertical-offset="1462">
           <folding />
         </state>
       </provider>

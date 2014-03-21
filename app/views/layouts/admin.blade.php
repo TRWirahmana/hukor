@@ -71,7 +71,7 @@
                         <li id="news"><a href="#menu_berita">
                             <span class="rulycon-newspaper"></span> Berita</a>
                         </li>
-                        <li id="produk_hukum"><a href="{{URL::to('admin/document')}}">
+                        <li id="produk_hukum"><a href="#produk_hukum_submenu">
                                 <span class="rulycon-books"></span> Produk Hukum</a>
                         </li>
                         <li id="aplikasi"><a href="#app">
@@ -114,7 +114,7 @@
 
                         @if(in_array($user->role_id, array(1, 4, 5, 6, 7, 8 ,9)))
                             <li class="dropdown" >
-                                <ul id="app">
+                                <ul id="produk_hukum_submenu">
                                     <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}">
                                         <span class="rulycon-books"></span> Peraturan Perundang-Undangan</a>
                                     </li>
@@ -134,7 +134,7 @@
                             </li>
                         @elseif(3 == $user->role_id)
                             <li class="dropdown" >
-                                <ul id="app">
+                                <ul id="produk_hukum_submenu">
                                     <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}"><span class="rulycon-books"></span> Peraturan Perundang-Undangan</a>
 
                                     </li>
@@ -222,6 +222,7 @@
                             $("#app").hide();
                             $("#manage").hide();
                             $("#manage-menu").hide();
+                      $("#produk_hukum_submenu").hide();
                             $("#menu_berita").show();
                     });
                             $("#beranda").click(function(){
@@ -229,6 +230,7 @@
                             $("#app").hide();
                             $("#manage").hide();
                             $("#manage-menu").hide();
+                              $("#produk_hukum_submenu").hide();
                             $("#menu_berita").hide();
                     });
                             $("#informasi").click(function(){
@@ -236,6 +238,7 @@
                             $("#app").hide();
                             $("#manage").hide();
                             $("#manage-menu").hide();
+                              $("#produk_hukum_submenu").hide();
                             $("#menu_berita").hide();
                     });
                             $("#ketatalaksanaan").click(function(){
@@ -246,6 +249,7 @@
                             $("#app").show();
                             $("#manage").hide();
                             $("#menu_berita").hide();
+                              $("#produk_hukum_submenu").hide();
                             $("#manage-menu").hide();
                     });
                             $("#managemen").click(function(){
@@ -253,6 +257,7 @@
                             $("#app").hide();
                             $("#manage-menu").hide();
                             $("#manage").show();
+                              $("#produk_hukum_submenu").hide();
                             $("#menu_berita").hide();
                     });
                             $("#menu").click(function(){
@@ -260,8 +265,17 @@
                             $("#app").hide();
                             $("#manage").hide();
                             $("#manage-menu").show();
+                              $("#produk_hukum_submenu").hide();
                             $("#menu_berita").hide();
                     });
+                      $("#produk_hukum").click(function(){
+                        $("#info").hide();
+                        $("#app").hide();
+                        $("#manage").hide();
+                        $("#produk_hukum_submenu").show();
+                        $("#manage_menu").hide();
+                        $("#menu_berita").hide();
+                      });
                             $("#cbox-forum").change(function(e){
                     $.post(baseUrl + "/admin/enableForum", {value: $(this).is(":checked")}, function(resp){
                     console.log(resp);

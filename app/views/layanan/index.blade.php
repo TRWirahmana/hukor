@@ -74,10 +74,16 @@
 <script src="{{asset('assets/js/layanan_index.js')}}"></script>
 
 <script>
-  jQuery("#manage-menu > li:nth-child(3) > a").addClass("sub-menu-active");
+  jQuery("#manage-menu > li:nth-child(4) > a").addClass("sub-menu-active");
   jQuery("#manage-menu").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Kelola Konten Layanan"
   });
 </script>
 @stop

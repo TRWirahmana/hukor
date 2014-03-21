@@ -71,6 +71,9 @@
                         <li id="news"><a href="#menu_berita">
                             <span class="rulycon-newspaper"></span> Berita</a>
                         </li>
+                        <li id="produk_hukum"><a href="{{URL::to('admin/document')}}">
+                                <span class="rulycon-notebook"></span> Produk Hukum</a>
+                        </li>
                         <li id="aplikasi"><a href="#app">
                             <span class="rulycon-notebook"></span> Aplikasi</a>
                         </li>
@@ -143,7 +146,6 @@
                                         <ul>
                                             <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>
                                             <li><a href="{{URL::route('admin.aj.index')}}">Analisis Jabatan</a></li>
-                                            <li><a href="{{URL::to('admin/document')}}">Dokumentasi</a></li>
                                         </ul>
                                     </li>
 

@@ -205,16 +205,29 @@
                 mData: "id",
                 sClass: "center",
                 sWidth: '15%',
-                mRender: function(data){
-                    var detailUrl = "<?php echo URL::to('admin/detaildoc'); ?>" + "/" + data;
-                    var updateUrl = "<?php echo URL::to('admin/editdoc'); ?>" + "/" + data;
-                    var publishUrl = "<?php echo URL::to('admin/publishdoc'); ?>" + "/" + data;
-                    var deleteUrl = "<?php echo URL::to('admin/deletedoc'); ?>" + "/" + data;
+                mRender: function(data, type, row){
+                    if(row[8] != null || row[8] != "")
+                    {
+                        var detailUrl = "<?php echo URL::to('admin/detaildoc'); ?>" + "/" + data;
+                        var updateUrl = "<?php echo URL::to('admin/editdoc'); ?>" + "/" + data;
+                        var publishUrl = "<?php echo URL::to('admin/publishdoc'); ?>" + "/" + data;
+                        var deleteUrl = "<?php echo URL::to('admin/deletedoc'); ?>" + "/" + data;
 
-                    return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
-                        '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +
-                        '<a href="' + updateUrl + '" title="Update"><i class="rulycon-pencil"></i></a> &nbsp;' +
-                        '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
+                        return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
+                            '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +
+                            '<a href="' + updateUrl + '" title="Update"><i class="rulycon-pencil"></i></a> &nbsp;' +
+                            '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
+                    }
+                    else
+                    {
+                        var detailUrl = "<?php echo URL::to('admin/detaildoc'); ?>" + "/" + data;
+                        var updateUrl = "<?php echo URL::to('admin/editdoc'); ?>" + "/" + data;
+                        var publishUrl = "<?php echo URL::to('admin/publishdoc'); ?>" + "/" + data;
+
+                        return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
+                            '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +
+                            '<a href="' + updateUrl + '" title="Update"><i class="rulycon-pencil"></i></a> &nbsp;';
+                    }
                 }
             }
         ],

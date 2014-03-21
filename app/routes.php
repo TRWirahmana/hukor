@@ -42,6 +42,8 @@ Route::group(array('before' => 'guest'), function() {
      
     Route::get('callcenter', 'CallCenterController@index');
 
+    Route::get('detailprofile', 'ProfileController@show');
+
     Route::group(array("prefix" => "produkhukum"), function(){
         Route::get('/', 'ProdukHukumController@index');
         Route::get('{id}/detail', array('as' => 'detail_produkhukum', 'uses' => 'ProdukHukumController@detail'));

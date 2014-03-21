@@ -90,4 +90,16 @@ class ProfileController extends BaseController
         return Redirect::to('admin/profile')->with('success', 'Profile Berhasil Di Ubah.');
     }
 
+    public function show()
+    {
+        $DAL = new DAL_Profile();
+
+        $data = $DAL->GetProfile();
+
+        $this->layout = View::make('layouts.master');
+
+        $this->layout->content = View::make('profile.detail',
+            array('data' => $data));
+    }
+
 }

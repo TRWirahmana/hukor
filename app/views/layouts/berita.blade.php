@@ -80,7 +80,7 @@
             </a>
           </li>
           <li>
-            <a href="#" id="profile">
+            <a href="{{URL::to('detailprofile')}}" id="profile">
               <span class="rulycon-profile"></span>
               <span class="headmenu-label">Profil</span>
             </a>

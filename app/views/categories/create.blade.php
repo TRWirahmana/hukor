@@ -45,9 +45,9 @@
 
 @section('scripts')
 @parent
-<script type="text/javascript">
-	jQuery(function($){
-		
-	});
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Tambah Kategori Berita"
+  });
 </script>
 @stop

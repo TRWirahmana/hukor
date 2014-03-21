@@ -150,5 +150,11 @@
 
   Berita.Form();
 </script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Tambah Berita"
+  });
+</script>
 @stop
     

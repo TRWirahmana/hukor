@@ -52,14 +52,18 @@ class DAL_Document {
         $data = $data->skip($filter['iDisplayStart'])->take($filter['iDisplayLength']);
         $data = $data->get()->toArray();
 
-        $result = array();
+//        $result = array();
+//
+//        foreach($data as $dat)
+//        {
+//            $result[] = $dat['nomor'];
+//        }
+//
+//        array_multisort($result, SORT_ASC, $data);
 
-        foreach($data as $dat)
-        {
-            $result[] = $dat['nomor'];
-        }
-
-        array_multisort($result, SORT_ASC, $data);
+        usort($data, function ($a, $b) {
+            return strcmp($a['nomor'], $b['nomor']);
+        });
 
         return Response::json(array(
             "sEcho" => $filter['sEcho'],

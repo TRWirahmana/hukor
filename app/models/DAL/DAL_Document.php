@@ -61,16 +61,27 @@ class DAL_Document {
 //
 //        array_multisort($result, SORT_ASC, $data);
 
-        usort($data, function ($a, $b) {
-            return strcmp($a['nomor'], $b['nomor']);
-        });
+//        usort($data, function ($a, $b) {
+//            return strcmp($a['nomor'], $b['nomor']);
+//        });
 
         return Response::json(array(
             "sEcho" => $filter['sEcho'],
-            'aaData' => $data,
+            'aaData' => $this->subval_sort($data,'nomor'),
             'iTotalRecords' => $iTotalRecords,
             'iTotalDisplayRecords' => $iTotalDisplayRecords
         ));
+    }
+
+    public function subval_sort($a,$subkey) {
+        foreach($a as $k=>$v) {
+            $b[$k] = strtolower($v[$subkey]);
+        }
+        asort($b);
+        foreach($b as $key=>$val) {
+            $c[] = $a[$key];
+        }
+        return $c;
     }
 
     /*

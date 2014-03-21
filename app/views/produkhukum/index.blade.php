@@ -239,6 +239,9 @@
 			  case 14 :
 				  kategori = 'Surat Edaran Bersama';
 				  break;
+              case 15 :
+                  kategori = 'Peraturan Lain';
+                  break;
 		  }
 		  return kategori;
           }

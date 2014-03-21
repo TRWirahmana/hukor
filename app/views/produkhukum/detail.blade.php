@@ -43,7 +43,7 @@
       <div class="control-group">
         {{ Form::label('tentang', 'Tentang', array('class' => 'control-label'))}}
         <div class="controls">
-          <input type="text" value="{{ $data->deskripsi }}" disabled/>
+          <input type="text" value="{{ $data->perihal }}" disabled/>
         </div>
       </div>
 

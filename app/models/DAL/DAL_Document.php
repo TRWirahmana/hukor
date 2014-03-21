@@ -122,7 +122,7 @@ class DAL_Document {
         $data->deskripsi = $input['deskripsi'];
         $data->tgl_pengesahan = $input['tanggal'];
         $data->file_dokumen = (!empty($input['file_dokumen'])) ? $input['file_dokumen']->getClientOriginalName() : $data->file_dokumen;
-        $data->status_publish = $input['publish'];
+        $data->status_publish = $input['status'] == "Publish" ? 1: 0;
         $data->bidang = $input['bidang'];
 
         $data->save();

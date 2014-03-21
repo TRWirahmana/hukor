@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/DAL/DAL_Document.php" afterPath="$PROJECT_DIR$/app/models/DAL/DAL_Document.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/document/index.blade.php" afterPath="$PROJECT_DIR$/app/views/document/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,37 +32,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ProfileController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/ProfileController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="8" selection-start="2130" selection-end="2491" vertical-scroll-proportion="-11.115385" vertical-offset="1020" max-vertical-offset="1683">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/document/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="228" column="57" selection-start="8682" selection-end="8682" vertical-scroll-proportion="0.86409396" vertical-offset="3361" max-vertical-offset="4454">
+            <state line="228" column="10" selection-start="8492" selection-end="8492" vertical-scroll-proportion="-16.538462" vertical-offset="3446" max-vertical-offset="4386">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/document/detail.blade.php">
+      <file leaf-file-name="DocumentController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/DocumentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="26" selection-start="597" selection-end="635" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="2822">
+            <state line="108" column="34" selection-start="2805" selection-end="2805" vertical-scroll-proportion="-17.0" vertical-offset="1394" max-vertical-offset="2397">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/produkhukum/detail.blade.php">
+      <file leaf-file-name="DAL_Document.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Document.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="10" selection-start="2351" selection-end="2450" vertical-scroll-proportion="-13.269231" vertical-offset="760" max-vertical-offset="1445">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/document/form.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="44" selection-end="44" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="3026">
+            <state line="124" column="69" selection-start="3874" selection-end="3874" vertical-scroll-proportion="0.71308726" vertical-offset="1683" max-vertical-offset="2873">
               <folding />
             </state>
           </provider>
@@ -99,7 +101,6 @@
         <option value="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/admin_login.blade.php" />
-        <option value="$PROJECT_DIR$/app/models/DAL/DAL_Document.php" />
         <option value="$PROJECT_DIR$/app/views/dikbud/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/BantuanHukum/index_admin.blade.php" />
         <option value="$PROJECT_DIR$/app/views/AnalisisJabatan/index_admin.blade.php" />
@@ -129,6 +130,8 @@
         <option value="$PROJECT_DIR$/app/views/produkhukum/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/views/document/form.blade.php" />
         <option value="$PROJECT_DIR$/app/views/document/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/controllers/DocumentController.php" />
+        <option value="$PROJECT_DIR$/app/models/DAL/DAL_Document.php" />
       </list>
     </option>
   </component>
@@ -260,6 +263,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diknasrokum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -343,11 +364,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/layanan/form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="42" selection-start="2186" selection-end="2556" vertical-scroll-proportion="0.52487135" vertical-offset="612" max-vertical-offset="3060" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="4" selection-start="1168" selection-end="1266" vertical-scroll-proportion="-0.02852349" vertical-offset="1020" max-vertical-offset="1989" />
@@ -381,11 +397,6 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/ProdukHukumController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="5" selection-start="491" selection-end="491" vertical-scroll-proportion="0.5419463" vertical-offset="0" max-vertical-offset="1054" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Document.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="45" selection-start="3481" selection-end="3481" vertical-scroll-proportion="0.5302013" vertical-offset="1690" max-vertical-offset="2873" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/index_admin.blade.php">
@@ -552,13 +563,6 @@
         <state line="97" column="21" selection-start="3093" selection-end="3093" vertical-scroll-proportion="0.4010067" vertical-offset="1410" max-vertical-offset="2057" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ProfileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="9" selection-start="2293" selection-end="2293" vertical-scroll-proportion="0.5989933" vertical-offset="1020" max-vertical-offset="1683">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="134" column="30" selection-start="5858" selection-end="5858" vertical-scroll-proportion="0.0" vertical-offset="2278" max-vertical-offset="6035">
@@ -631,7 +635,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/document/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="57" selection-start="8682" selection-end="8682" vertical-scroll-proportion="0.86409396" vertical-offset="3361" max-vertical-offset="4454">
+        <state line="228" column="10" selection-start="8492" selection-end="8492" vertical-scroll-proportion="-16.538462" vertical-offset="3446" max-vertical-offset="4386">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="8" selection-start="2130" selection-end="2491" vertical-scroll-proportion="-11.115385" vertical-offset="1020" max-vertical-offset="1683">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/DocumentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="34" selection-start="2805" selection-end="2805" vertical-scroll-proportion="-17.0" vertical-offset="1394" max-vertical-offset="2397">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Document.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="69" selection-start="3874" selection-end="3874" vertical-scroll-proportion="0.71308726" vertical-offset="1683" max-vertical-offset="2873">
           <folding />
         </state>
       </provider>

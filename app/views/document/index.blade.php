@@ -206,13 +206,13 @@
                 sClass: "center",
                 sWidth: '15%',
                 mRender: function(data, type, row){
+                    var detailUrl = "<?php echo URL::to('admin/detaildoc'); ?>" + "/" + data;
+                    var updateUrl = "<?php echo URL::to('admin/editdoc'); ?>" + "/" + data;
+                    var publishUrl = "<?php echo URL::to('admin/publishdoc'); ?>" + "/" + data;
+                    var deleteUrl = "<?php echo URL::to('admin/deletedoc'); ?>" + "/" + data;
+
                     if(row[8] != null || row[8] != "")
                     {
-                        var detailUrl = "<?php echo URL::to('admin/detaildoc'); ?>" + "/" + data;
-                        var updateUrl = "<?php echo URL::to('admin/editdoc'); ?>" + "/" + data;
-                        var publishUrl = "<?php echo URL::to('admin/publishdoc'); ?>" + "/" + data;
-                        var deleteUrl = "<?php echo URL::to('admin/deletedoc'); ?>" + "/" + data;
-
                         return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
                             '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +
                             '<a href="' + updateUrl + '" title="Ubah"><i class="rulycon-pencil"></i></a> &nbsp;' +
@@ -220,10 +220,6 @@
                     }
                     else
                     {
-                        var detailUrl = "<?php echo URL::to('admin/detaildoc'); ?>" + "/" + data;
-                        var updateUrl = "<?php echo URL::to('admin/editdoc'); ?>" + "/" + data;
-                        var publishUrl = "<?php echo URL::to('admin/publishdoc'); ?>" + "/" + data;
-
                         return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
                             '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +
                             '<a href="' + updateUrl + '" title="Ubah"><i class="rulycon-pencil"></i></a> &nbsp;';

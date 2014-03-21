@@ -12,7 +12,7 @@
     <!--        <form action="results.html" method="post" class="searchbar">-->
     <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
     <!--        </form>-->
-    <div class="pageicon">&nbsp;</div>
+    <div class="pageicon"><span class="rulycon-notebook"></span></div>
     <div class="pagetitle">
       <!--<h5>Events</h5>-->
 
@@ -127,7 +127,6 @@
                 {{Form::submit("Draft", array("class" => "btn btn-primary", "name" => "status"))}}
                 {{Form::submit("Publish", array("class" => "btn btn-primary", "name" => "status"))}}
                 {{Form::button("Kembali", array("class" => "btn btn-primary", "name" => "kembali", "onClick" => "history.go(-1);return true;"))}}
-<!--                  <input class='btn btn-primary' Type="button" value="Kembali" onClick="history.go(-1);return true;">-->
               </div>
             </div>
 

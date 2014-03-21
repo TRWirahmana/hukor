@@ -207,9 +207,9 @@
       <!-- list produk hukum-->
       <li class="dropdown">
         <ul id="produk-hukum">
-          <li id="pro"><a href="{{URL::to('admin/document')}}"><span class="rulycon-settings"></span> Semua
+          <li id="pro"><a href="{{URL::to('admin/document')}}"><span class="rulycon-books"></span> Semua
               Peraturan</a></li>
-          <li id="pro"><a href="{{ URL::to('admin/adddoc')}}"><span class="rulycon-settings"></span> Tambah
+          <li id="pro"><a href="{{ URL::to('admin/adddoc')}}"><span class="rulycon-books"></span> Tambah
               Peraturan</a></li>
         </ul>
       </li>

@@ -44,6 +44,18 @@
 		$dTblCategories = $tblCategories.dataTable({
 			sAjaxSource: document.location.href,
 			bProcessing: true,
+            oLanguage:{
+                "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Kategori Berita",
+                "sEmptyTable": "Data Kosong",
+                "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                "sSearch":       "Cari:",
+                "sLengthMenu": 'Tampilkan <select>'+
+                    '<option value="10">10</option>'+
+                    '<option value="25">25</option>'+
+                    '<option value="50">50</option>'+
+                    '<option value="100">100</option>'+
+                    '</select> Kategori Berita'
+            },
 			aoColumns: [
 				{mData: "nama_kategori"},
 				{mData: "created_at"},

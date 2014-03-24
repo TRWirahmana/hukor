@@ -176,6 +176,7 @@
                       <span class="help-block">{{$error}}</span>
                       @endforeach
                   </div>
+                  <p class="span9" style="color: #616D79;font-size: 11px;">Format: (999) 999-9999</p>
               </div>
 
               <div class="control-group {{$errors->has('handphone')?'error':''}}">
@@ -188,6 +189,7 @@
                       <span class="help-block">{{$error}}</span>
                       @endforeach
                   </div>
+                  <p class="span9" style="color: #616D79;font-size: 11px;">Format: 999-999-999-999</p>
               </div>
 
               <div class="span15">

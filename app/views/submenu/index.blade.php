@@ -25,7 +25,7 @@
             $count = count($set_menu);?>
             <form class="form-inline">
                 @if($count != 0)
-                <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/create_submenu')}}">Tambah Submenu Baru</a>
+                <a class="btn btn-mini btn-primary pull-left" href="{{ URL::to('/admin/create_submenu')}}">Tambah Submenu Baru</a>
                 <fieldset>
 
                     <legend></legend>

@@ -121,7 +121,7 @@
 
             <div class="control-group">
               <div class="controls">
-                {{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
+                {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
               </div>
             </div>
 
@@ -160,6 +160,12 @@
 
 <script src="{{asset('assets/js/registrasi_admin.js')}}"></script>
 <script>
+    jQuery("#kelola > a").addClass("sub-menu-active");
+    jQuery("#manage").css({
+        "display": "block",
+        "visibility": "visible"
+    });
+
   Admin.Form();
 
 </script>

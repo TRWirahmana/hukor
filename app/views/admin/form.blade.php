@@ -163,4 +163,9 @@
   Admin.Form();
 
 </script>
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Ubah/Tambah Akun"
+  });
+</script>
 @stop

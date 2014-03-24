@@ -70,13 +70,6 @@
 
 @section('scripts')
 @parent
-<script>
-  jQuery("#app_ketatalaksanaan > ul > li:nth-child(3) > a").addClass("sub-menu-active");
-  jQuery(".leftmenu .dropdown > #app, #app_ketatalaksanaan > ul").css({
-    "display": "block",
-    "visibility": "visible"
-  });
-</script>
 <script type="text/javascript">
     var $ = jQuery.noConflict();
     var tbl_data = $("#basictable").dataTable({
@@ -205,16 +198,25 @@
                 mData: "id",
                 sClass: "center",
                 sWidth: '15%',
-                mRender: function(data){
+                mRender: function(data, type, row){
                     var detailUrl = "<?php echo URL::to('admin/detaildoc'); ?>" + "/" + data;
                     var updateUrl = "<?php echo URL::to('admin/editdoc'); ?>" + "/" + data;
                     var publishUrl = "<?php echo URL::to('admin/publishdoc'); ?>" + "/" + data;
                     var deleteUrl = "<?php echo URL::to('admin/deletedoc'); ?>" + "/" + data;
 
-                    return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
-                        '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +
-                        '<a href="' + updateUrl + '" title="Update"><i class="rulycon-pencil"></i></a> &nbsp;' +
-                        '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
+                    if(row[8] != null || row[8] != "")
+                    {
+                        return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
+                            '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +
+                            '<a href="' + updateUrl + '" title="Ubah"><i class="rulycon-pencil"></i></a> &nbsp;' +
+                            '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
+                    }
+                    else
+                    {
+                        return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
+                            '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +
+                            '<a href="' + updateUrl + '" title="Ubah"><i class="rulycon-pencil"></i></a> &nbsp;';
+                    }
                 }
             }
         ],
@@ -232,8 +234,8 @@
 </script>
 
 <script>
-  jQuery("#app_ketatalaksanaan > ul > li:last-child > a").addClass("sub-menu-active");
-  jQuery("#app, #app_ketatalaksanaan > ul").css({
+  jQuery("#produk-hukum > li:first-child").addClass("sub-menu-active");
+  jQuery("#produk-hukum").css({
     "display": "block",
     "visibility": "visible"
   });

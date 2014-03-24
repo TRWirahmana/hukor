@@ -52,21 +52,36 @@ class DAL_Document {
         $data = $data->skip($filter['iDisplayStart'])->take($filter['iDisplayLength']);
         $data = $data->get()->toArray();
 
-        $result = array();
+//        $result = array();
+//
+//        foreach($data as $dat)
+//        {
+//            $result[] = $dat['nomor'];
+//        }
+//
+//        array_multisort($result, SORT_ASC, $data);
 
-        foreach($data as $dat)
-        {
-            $result[] = $dat['nomor'];
-        }
-
-        array_multisort($result, SORT_ASC, $data);
+//        usort($data, function ($a, $b) {
+//            return strcmp($a['nomor'], $b['nomor']);
+//        });
 
         return Response::json(array(
             "sEcho" => $filter['sEcho'],
-            'aaData' => $data,
+            'aaData' => $this->subval_sort($data,'nomor'),
             'iTotalRecords' => $iTotalRecords,
             'iTotalDisplayRecords' => $iTotalDisplayRecords
         ));
+    }
+
+    public function subval_sort($a,$subkey) {
+        foreach($a as $k=>$v) {
+            $b[$k] = strtolower($v[$subkey]);
+        }
+        asort($b);
+        foreach($b as $key=>$val) {
+            $c[] = $a[$key];
+        }
+        return $c;
     }
 
     /*
@@ -122,7 +137,7 @@ class DAL_Document {
         $data->deskripsi = $input['deskripsi'];
         $data->tgl_pengesahan = $input['tanggal'];
         $data->file_dokumen = (!empty($input['file_dokumen'])) ? $input['file_dokumen']->getClientOriginalName() : $data->file_dokumen;
-        $data->status_publish = $input['publish'];
+        $data->status_publish = $input['status'] == "Publish" ? 1: 0;
         $data->bidang = $input['bidang'];
 
         $data->save();

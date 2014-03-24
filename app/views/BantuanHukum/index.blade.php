@@ -38,13 +38,20 @@
                 bInfo: true,
                 bSort: false,
                 bPaginate: true,
-                bLengthChange: false,
+                bLengthChange: true,
                 bServerSide: true,
                 bProcessing: true,
                 oLanguage:{
                     "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                     "sEmptyTable": "Data Kosong",
-                    "sZeroRecords" : "Pencarian Tidak Ditemukan"
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                    "sSearch":       "Cari:",
+                    "sLengthMenu": 'Tampilkan <select>'+
+                        '<option value="10">10</option>'+
+                        '<option value="25">25</option>'+
+                        '<option value="50">50</option>'+
+                        '<option value="100">100</option>'+
+                        '</select> Usulan'
                 },
 //                sAjaxSource: baseUrl + "/lkpm/data",
                 sAjaxSource: '<?php echo URL::to("bantuan_hukum/datatable"); ?>',

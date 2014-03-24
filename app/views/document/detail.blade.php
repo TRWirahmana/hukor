@@ -12,7 +12,7 @@
     <!--        <form action="results.html" method="post" class="searchbar">-->
     <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
     <!--        </form>-->
-    <div class="pageicon">&nbsp;</div>
+    <div class="pageicon"><span class="rulycon-notebook"></span></div>
     <div class="pagetitle">
       <!--<h5>Events</h5>-->
 
@@ -124,7 +124,7 @@
             <div class="control-group">
               {{ Form::label('', 'File Dokumen', array('class' => 'control-label')) }}
               <div class="controls">
-                <input type="text" disabled value="{{ $data->file_dokumen }}"/>
+                  <a class="btn btn-primary-blue" href={{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen ); }} > <span class="rulycon-download"></span> Unduh </a>
               </div>
             </div>
 

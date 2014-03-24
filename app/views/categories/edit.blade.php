@@ -10,7 +10,7 @@
 		<div class="pageheader">
 			<div class="pageicon">&nbsp;</div>
 			<div class="pagetitle">
-				<h1>Tambah Kategori Berita</h1>
+				<h1>Ubah Kategori Berita</h1>
 			</div>
 		</div>
 
@@ -45,9 +45,9 @@
 
 @section('scripts')
 @parent
-<script type="text/javascript">
-	jQuery(function($){
-		
-	});
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Ubah Kategori Berita"
+  });
 </script>
 @stop

@@ -120,6 +120,11 @@
 <script type="text/javascript">
   Menu.Form();
 </script>
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Tambah Menu"
+  });
+</script>
 <!--<style>-->
 <!--    .leftmenu .nav-tabs.nav-stacked > li.dropdown ul {-->
 <!--        display: block !important;-->

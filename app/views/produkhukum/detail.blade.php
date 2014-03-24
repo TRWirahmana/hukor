@@ -43,7 +43,8 @@
       <div class="control-group">
         {{ Form::label('tentang', 'Tentang', array('class' => 'control-label'))}}
         <div class="controls">
-          <input type="text" value="{{ $data->deskripsi }}" disabled/>
+            <textarea cols="10" disabled>{{ $data->perihal }}</textarea>
+          <input type="textarea" value="{{ $data->perihal }}" disabled/>
         </div>
       </div>
 
@@ -57,7 +58,7 @@
       <div class="control-group">
         {{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
         <div class="controls">
-          <a class="btn btn-primary-blue" href={{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen ); }} > <span class="rulycon-download"></span> Unduh </a>
+          <a class="btn btn-primary" href={{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen ); }} > <span class="rulycon-download"></span> Unduh </a>
         </div>
       </div>
 

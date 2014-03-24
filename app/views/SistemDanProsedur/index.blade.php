@@ -141,12 +141,19 @@
                 // },
                 bServerSide: true,
                 sAjaxSource: document.location.href,
-                bFilter: false,
-                bLengthChange: false,
+                bFilter: true,
+                bLengthChange: true,
                 oLanguage:{
                     "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                     "sEmptyTable": "Data Kosong",
-                    "sZeroRecords" : "Pencarian Tidak Ditemukan"
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                    "sSearch":       "Cari:",
+                    "sLengthMenu": 'Tampilkan <select>'+
+                        '<option value="10">10</option>'+
+                        '<option value="25">25</option>'+
+                        '<option value="50">50</option>'+
+                        '<option value="100">100</option>'+
+                        '</select> Usulan'
                 },
                 aoColumns: [
                     {
@@ -230,12 +237,11 @@
             });
 
             $dataTable.on('click', 'a[data-delete]', function(e) {
-                if (!confirm('Apakah anda yakin?'))
-                    return;
-
-                $.post($(this).attr('href'),{_method: "delete"}, function(r){
-                    $dataTable.fnReloadAjax();
-                });
+			    if (confirm('Apakah anda yakin?')) {
+			    $.post($(this).attr('href'),{_method: "delete"}, function(r){
+				    $dataTable.fnReloadAjax();
+				    });
+			    }
 
                 e.preventDefault();
             });
@@ -262,6 +268,12 @@
   jQuery("#app, #app_ketatalaksanaan > ul").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Sistem dan Prosedur"
   });
 </script>
 

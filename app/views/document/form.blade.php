@@ -12,7 +12,7 @@
     <!--        <form action="results.html" method="post" class="searchbar">-->
     <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
     <!--        </form>-->
-    <div class="pageicon">&nbsp;</div>
+    <div class="pageicon"><span class="rulycon-notebook"></span></div>
     <div class="pagetitle">
       <!--<h5>Events</h5>-->
 
@@ -126,6 +126,7 @@
               <div class="controls">
                 {{Form::submit("Draft", array("class" => "btn btn-primary", "name" => "status"))}}
                 {{Form::submit("Publish", array("class" => "btn btn-primary", "name" => "status"))}}
+                {{Form::button("Kembali", array("class" => "btn btn-primary", "name" => "kembali", "onClick" => "history.go(-1);return true;"))}}
               </div>
             </div>
 
@@ -166,6 +167,14 @@
       yearRange: "1970:2020",
       changeYear: true
     }).val();
+  });
+</script>
+
+<script>
+  jQuery("#produk-hukum > li:last-child").addClass("sub-menu-active");
+  jQuery("#produk-hukum").css({
+    "display": "block",
+    "visibility": "visible"
   });
 </script>
 @stop

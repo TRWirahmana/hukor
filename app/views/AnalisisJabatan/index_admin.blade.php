@@ -230,11 +230,11 @@
             });
 
             $dataTable.on('click', 'a[data-delete]', function(e) {
-                if (!confirm('Apakah anda yakin?'))
-                    return;
-                $.post($(this).attr('href'), {_method: 'delete'}, function(r) {
-                    $dataTable.fnReloadAjax();
-                });
+			    if (confirm('Apakah anda yakin?')) {
+			    $.post($(this).attr('href'), {_method: 'delete'}, function(r) {
+				    $dataTable.fnReloadAjax();
+				    });
+			    }
                 e.preventDefault();
             });
 
@@ -259,6 +259,12 @@
   jQuery("#app, #app_ketatalaksanaan > ul").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Analisis Jabatan"
   });
 </script>
 

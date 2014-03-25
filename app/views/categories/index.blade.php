@@ -47,6 +47,10 @@
             oLanguage:{
                 "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Kategori Berita",
                 "sEmptyTable": "Data Kosong",
+//                "oPaginate": {
+//                    "sNext": "Selanjutnya",
+//                    "sPrevious": "Sebelumnya"
+//                },
                 "sZeroRecords" : "Pencarian Tidak Ditemukan",
                 "sSearch":       "Cari:",
                 "sLengthMenu": 'Tampilkan <select>'+

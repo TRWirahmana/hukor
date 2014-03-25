@@ -6,8 +6,8 @@
 </script>
 
 <script>
-    document.getElementById("menu-peruu-info").setAttribute("class", "user-menu-active");
-    document.getElementById("collapse10").style.height = "auto";
+    document.getElementById("menu-profile").setAttribute("class", "active");
+//    document.getElementById("collapse10").style.height = "auto";
 </script>
 <?php $title = "Profile"; ?>
 

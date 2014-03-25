@@ -58,7 +58,7 @@
 </script>
 
 <legend>
-    Informasi
+    Informasi Ketatalaksanaan
 </legend>
 <script>
     document.getElementById("collapse12").style.height = "auto";

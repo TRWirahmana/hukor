@@ -9,18 +9,24 @@
 @include('flash')
 <div class="content-non-title">
 
-    <label for="jenis_usulan" class="control-label">Jenis Usulan</label>
-    <select id="jenis_usulan">
-<!--        <option value="0">Pilih Usulan</option>-->
-        <option value="1">Sistem dan Prosedur</option>
-        <option value="2">Analisa Jabatan</option>
-    </select>
+
 
     {{ Form::open(array('route' => 'sp.store', 'files' => true, 'class' => 'form form-horizontal', 'id' => 'form-perUU'))}}
     <div class="row-fluid">
         <div class="span12">
             <fieldset>
                 <legend>Penanggung Jawab</legend>
+                <div class="control-group">
+                    <label for="jenis_usulan" class="control-label">Jenis Usulan</label>
+
+                    <div class="controls">
+                        <select id="jenis_usulan">
+                            <!--        <option value="0">Pilih Usulan</option>-->
+                            <option value="1">Sistem dan Prosedur</option>
+                            <option value="2">Analisa Jabatan</option>
+                        </select>
+                    </div>
+                </div>
 
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[nama]', 'Nama', array('class' => 'control-label'))}}
@@ -143,16 +149,15 @@
 <script src="{{asset('assets/js/jquery.validate.js')}}"></script>
 <script type="text/javascript">
     $( "#jenis_usulan" ).change(function() {
-
         var jenis_usul = $("#jenis_usulan").val();
 
 //        alert(jenis_usul);
         if(jenis_usul == 1){
 //            alert('sisprod');
-            $("#form-perUU").attr('action', "+base+");
+            $("#form-perUU").attr('action', baseUrl + '/sp');
         }
         if(jenis_usul == 2){
-            $("#form-perUU").attr('action', baseURL '/aj');
+            $("#form-perUU").attr('action',  baseUrl + '/aj');
         }
     });
 
@@ -221,6 +226,11 @@ $("#form-perUU").validate({
     }
 });
 
+</script>
+
+<script>
+    document.getElementById("collapse12").style.height = "auto";
+    document.getElementById("menu-ketatalaksanaan-usulan").setAttribute("class", "user-menu-active");
 </script>
 
 @stop

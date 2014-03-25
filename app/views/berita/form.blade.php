@@ -87,7 +87,7 @@
                 <span class="help-block">{{$error}}</span>
                 @endforeach
               </div>
-                <p class="span9 offset2" style="color: #616D79;font-size: 11px;">Rekomendasi ukuran gambar: lebar 960 pixel, tinggi 328 pixel</p>
+                <p class="span9 offset2" style="color: #616D79;font-size: 11px;">Rekomendasi ukuran gambar: lebar 656 pixel, tinggi 492 pixel</p>
             </div>
 
             <hr/>
@@ -146,6 +146,12 @@
       + "undo,redo,cleanup,code,separator,sub,sup,charmap",
     theme_advanced_buttons3: "",
     height: "350px"
+  });
+
+  jQuery("#menu_berita > li:first-child > a").addClass("sub-menu-active");
+  jQuery("#menu_berita").css({
+      "display": "block",
+      "visibility": "visible"
   });
 
   Berita.Form();

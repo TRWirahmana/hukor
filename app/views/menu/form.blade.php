@@ -118,6 +118,12 @@
 
 <script src="{{asset('assets/js/menus.js')}}"></script>
 <script type="text/javascript">
+    jQuery("#manage-menu > #menu > a").addClass("sub-menu-active");
+    jQuery("#manage-menu").css({
+        "display": "block",
+        "visibility": "visible"
+    });
+
   Menu.Form();
 </script>
 <script>

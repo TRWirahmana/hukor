@@ -46,6 +46,12 @@
 @section('scripts')
 @parent
 <script>
+    jQuery("#menu_berita > li:last-child > a").addClass("sub-menu-active");
+    jQuery("#menu_berita").css({
+        "display": "block",
+        "visibility": "visible"
+    });
+
   jQuery(document).on("ready", function() {
     document.title = "Layanan Biro Hukum dan Organisasi | Tambah Kategori Berita"
   });

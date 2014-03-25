@@ -5,7 +5,7 @@
   document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
 </script>
 
-<legend>Status Usulan</legend>
+<legend>Status Usulan Sistem Prosedur</legend>
 
 @include('flash')
 <div class="content-non-title">

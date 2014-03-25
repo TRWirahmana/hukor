@@ -37,10 +37,7 @@ jQuery(document).ready(function(e){
                             return "Informasi Bantuan Hukum";
                             break;
                         case '4':
-                            return "Informasi Sistem dan Prosedur";
-                            break;
-                        case '5':
-                            return "Informasi Analisis Jabatan";
+                            return "Informasi Ketatalaksanaan";
                             break;
                         default:
                             return row['nama_menu'];
@@ -66,9 +63,6 @@ jQuery(document).ready(function(e){
                             return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
                             break;
                         case '4':
-                            return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
-                            break;
-                        case '5':
                             return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
                             break;
                         default:

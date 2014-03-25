@@ -58,22 +58,26 @@
 </script>
 
 <legend>
-    Informasi Sistem dan Prosedur
+    Informasi
 </legend>
-<?php $title = "Sistem dan Prosedur"; ?>
-@endif
-
-@if($info->id == 5)
-<!--KETATALAKSANAAN-->
 <script>
-  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
+    document.getElementById("collapse12").style.height = "auto";
+    document.getElementById("menu-prosedur-info").setAttribute("class", "user-menu-active");
 </script>
-
-<legend>
-    Informasi Analisis Jabatan
-</legend>
-<?php $title = "Analisis Jabatan"; ?>
+<?php $title = "Ketatalaksanaan"; ?>
 @endif
+
+<!--@if($info->id == 5)-->
+<!--<!--KETATALAKSANAAN-->-->
+<!--<script>-->
+<!--  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";-->
+<!--</script>-->
+<!---->
+<!--<legend>-->
+<!--    Informasi Analisis Jabatan-->
+<!--</legend>-->
+<?php //$title = "Analisis Jabatan"; ?>
+<!--@endif-->
 
 @include('flash')
 
@@ -91,7 +95,7 @@
 
 <div class="row-fluid">
   <div class="span24" style="margin-bottom: 48px;">
-      <button class="btn btn-primary " id="btn-usulan" type="button">Buat Usulan</button>
+      <button class="btn btn-primary" id="btn-usulans" type="button">Buat Usulan</button>
   </div>
 </div>
 
@@ -105,30 +109,31 @@
 @section('scripts')
 <script src="{{asset('assets/js/jquery-1.10.1.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery-ui.js')}}"></script>
+
 <script type="text/javascript">
     var $ = jQuery.noConflict();
-    var info_id = '<?php echo $info->id; ?>';
+    var info_id = '<?php echo $ids; ?>';
 
-    $('#btn-usulan').click(function () {
-//        alert('exit');exit;
+    $('#btn-usulans').click(function () {
+//        alert(info_id);exit;
         var user = '<?php echo Auth::user(); ?>';
 
         if (user) {
-            switch (info_id)
+            switch(info_id)
             {
-                case 1:
+                case '1':
                     window.location.replace("{{ URL::route('puu.create') }}");
                     break;
-                case 2:
-                    window.location.replace("URL::route('pelembagaan.create')}}");
+                case '2':
+                    window.location.replace("{{ URL::route('pelembagaan.create')}}");
                     break;
-                case 3:
+                case '3':
                     window.location.replace("{{ URL::route('bantuan_hukum.create') }}");
                     break;
-                case 4:
+                case '4':
                     window.location.replace("{{ URL::route('sp.create') }}");
                     break;
-                case 5:
+                case '5':
                     window.location.replace("{{ URL::route('aj.create') }}");
                     break;
             }

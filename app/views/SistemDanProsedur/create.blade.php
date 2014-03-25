@@ -4,13 +4,19 @@
     document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
 </script>
 <div class="stripe-accent"></div>
-<legend>Pengajuan Usulan Sistem & Prosedur</legend>
+<legend>Pengajuan Usulan</legend>
 
 @include('flash')
 <div class="content-non-title">
 
-    {{ Form::open(array('route' => 'sp.store', 'files' => true, 'class' => 'form form-horizontal', 'id' => 'form-perUU'))}}
+    <label for="jenis_usulan" class="control-label">Jenis Usulan</label>
+    <select id="jenis_usulan">
+<!--        <option value="0">Pilih Usulan</option>-->
+        <option value="1">Sistem dan Prosedur</option>
+        <option value="2">Analisa Jabatan</option>
+    </select>
 
+    {{ Form::open(array('route' => 'sp.store', 'files' => true, 'class' => 'form form-horizontal', 'id' => 'form-perUU'))}}
     <div class="row-fluid">
         <div class="span12">
             <fieldset>
@@ -136,6 +142,20 @@
 @parent
 <script src="{{asset('assets/js/jquery.validate.js')}}"></script>
 <script type="text/javascript">
+    $( "#jenis_usulan" ).change(function() {
+
+        var jenis_usul = $("#jenis_usulan").val();
+
+//        alert(jenis_usul);
+        if(jenis_usul == 1){
+//            alert('sisprod');
+            $("#form-perUU").attr('action', "+base+");
+        }
+        if(jenis_usul == 2){
+            $("#form-perUU").attr('action', baseURL '/aj');
+        }
+    });
+
 $("#menu-peraturan-perundangan").addClass("active");
 
 

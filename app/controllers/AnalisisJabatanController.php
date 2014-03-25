@@ -37,10 +37,10 @@ class AnalisisJabatanController extends BaseController {
 	}
 
 	public function store() {
-		$input = Input::get('analisisJabatan');
+		$input = Input::get('sistem_dan_prosedur');
 		$input2 = Input::get('penanggungJawab');
 
-		$lampiran = Input::file('analisisJabatan.lampiran');
+		$lampiran = Input::file('sistem_dan_prosedur.lampiran');
 		$filenames = HukorHelper::MultipleUploadFile($this->uploadFolder, $lampiran);
 
 		$analisisJabatan = new AnalisisJabatan;

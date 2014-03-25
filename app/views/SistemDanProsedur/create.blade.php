@@ -23,7 +23,7 @@
                         <select id="jenis_usulan">
                             <!--        <option value="0">Pilih Usulan</option>-->
                             <option value="1">Sistem dan Prosedur</option>
-                            <option value="2">Analisa Jabatan</option>
+                            <option value="2">Analisis Jabatan</option>
                         </select>
                     </div>
                 </div>

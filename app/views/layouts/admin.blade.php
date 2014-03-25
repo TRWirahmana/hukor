@@ -49,7 +49,7 @@
   <link rel="shortcut icon" href="{{asset('assets/ico/favicon.ico')}}">
 
   <script type="text/javascript">
-    var baseUrl = '{{URL::to(' / ')}}';
+    var baseUrl = '{{URL::to('/')}}';
     var role = {{ Auth::user()->role_id }};
   </script>
 </head>

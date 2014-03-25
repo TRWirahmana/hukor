@@ -154,7 +154,7 @@
     $dataTable = $("#tbl-produkhukum").dataTable({
       bFilter: true,
       bInfo: true,
-      bSort: false,
+      bSort: true,
       bPaginate: true,
       bLengthChange: true,
       bServerSide: true,

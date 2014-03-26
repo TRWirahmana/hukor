@@ -113,7 +113,7 @@
     <!--rightpanel-->
 
     <!-- dialog box -->
-    <div id="dialog" title="Konfirmasi Hapus P-UU" style="display: none;">
+    <div id="dialog" title="Hapus Perundang-Undangan" style="display: none;">
         <p>Apakah Anda Yakin?</p>
     </div>
 

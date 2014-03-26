@@ -134,7 +134,7 @@
 </div>
 <!--rightpanel-->
 <!-- dialog box -->
-<div id="dialog" title="Konfirmasi Hapus Pelembagaan" style="display: none;">
+<div id="dialog" title="Hapus Bantuan Hukum" style="display: none;">
     <p>Apakah Anda Yakin?</p>
 </div>
 

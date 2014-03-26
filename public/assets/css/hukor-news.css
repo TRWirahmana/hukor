@@ -1175,6 +1175,10 @@ p {
   .carousel-inner > .item > img {
     width: 100%;
   }
+  .news-content {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+  }
   .news-content > .row-fluid > .span4, .news-content > .row-fluid > .span8 {
     display: inline-block;
     vertical-align: top;
@@ -1184,6 +1188,10 @@ p {
   }
   .news-content > .row-fluid > .span8 {
     width: 69%;
+  }
+  .pagination {
+    text-align: center;
+    margin-top: 0;
   }
 }
 

@@ -1150,6 +1150,24 @@ p {
     margin: 0 !important;
     text-align: center;
   }
+  .headerinner .headmenu > li {
+    display: inline-block;
+    width: 14.285714285714285714285714285714%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header .logo img {
+    width: 42px;
+  }
+  .header .logo h4 {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .header .logo h4 span:first-child {
+    font-size: 18px;
+  }
 }
 
 

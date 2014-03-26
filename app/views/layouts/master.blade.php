@@ -63,10 +63,13 @@
 <div class="span6 sidebar">
 <?php $user = Auth::user(); ?>
 
-
 @if($user != null)
 <p id="username" class="welcome-message user-not-null"><span>Selamat datang, <span
       id="name"><?php echo $user->pengguna->nama_lengkap; ?></span></span></p>
+
+<div class="select-on-mobile">
+
+</div>
 
 <ul class="welcome-message user-not-null-links">
   <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-cog"></span>Pengaturan
@@ -377,6 +380,66 @@ $allmenu = Menu::all();?>
 
 
 </script>
+<!--<script>
+  $(document).ready(function() {
+    $("<select />", {
+      "id": "select-menu-helper"
+    }).appendTo(".select-on-mobile");
+
+    $("<option />", {
+      "selected": "selected",
+      "value": "",
+      "text": "~ Please select menu ~"
+    }).appendTo("#select-menu-helper");
+
+    $("<optgroup />", {
+      "id": "optgroup-label-user-menu",
+      "label": "Menu user"
+    }).appendTo("#select-menu-helper");
+
+    $(".welcome-message.user-not-null-links a").each(function() {
+      var userMenuLinks = $(this);
+      $("<option />", {
+        "value": userMenuLinks.attr("href"),
+        "text": userMenuLinks.text()
+      }).appendTo("#optgroup-label-user-menu");
+    });
+
+    $("<optgroup />", {
+      "id": "optgroup-label-app-menu",
+      "label": "Menu aplikasi"
+    }).appendTo("#select-menu-helper");
+
+    $("#menu-beranda a, #menu-profile a, #menu-produk-hukum a, #menu-call-center a").each(function() {
+      var appMenuLinks = $(this);
+      $("<option />", {
+        "value": appMenuLinks.attr("href"),
+        "text": appMenuLinks.text()
+      }).appendTo("#optgroup-label-app-menu");
+    });
+
+    $(".select-on-mobile > #select-menu-helper").change(function() {
+      window.location = $(this).find("option:selected").val();
+    });
+
+    // THE MOST COMPLICATED THINGS IN THIS PAGE BEGINS HERE
+    $(".accordion-toggle").each(function() {
+      var listOfOptGroup = $(this);
+      $("<optgroup />", {
+        "label": listOfOptGroup.text()
+      }).appendTo("#select-menu-helper");
+    });
+  });
+</script>-->
+<!--<script>
+  $(document).ready(function() {
+    var fuckThemAll = [];
+    $(".accordion-toggle").each(function() {
+      fuckThemAll.push($(this).text());
+    });
+    alert(fuckThemAll);
+  });
+</script>-->
 @show
 </body>
 </html>

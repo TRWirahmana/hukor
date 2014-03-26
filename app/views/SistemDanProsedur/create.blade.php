@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="control-group">
-                    {{ Form::label("sistem_dan_prosedur[catatan]", "Deskripsi", array('class' => 'control-label')) }}
+                    {{ Form::label("sistem_dan_prosedur[catatan]", "Catatan", array('class' => 'control-label')) }}
                     <div class="controls">{{ Form::textarea("sistem_dan_prosedur[catatan]", null, array('placeholder' => 'Masukan keterangan usulan...')) }}</div>
                 </div>
 

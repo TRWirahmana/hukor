@@ -426,6 +426,7 @@ html, .main-layout, .admin,
   position: relative;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
   overflow: auto;
+  padding-top: 120px;
 }
 .sidebar > header {
   position: relative;
@@ -465,6 +466,9 @@ html, .main-layout, .admin,
 }
 .sidebar > header > h4 span, #user-header #logo h4 span {
   font-family: "pt_sans_narrowregular", sans-serif;
+}
+#user-header #logo h4 span {
+  display: block;
 }
 .sidebar > header >  h4 span:first-child,
 #user-header #logo h4 span:first-child {
@@ -1080,7 +1084,12 @@ table.dataTable td.dataTables_empty {
   background: transparent !important;
 }
 
-/* MEDIA QUERIES */
+
+
+/* =================================== */
+/* -----===== MEDIA QUERIES =====----- */
+/* =================================== */
+
 @media (max-width: 960px) {
   body {
     padding: 0 !important;
@@ -1139,6 +1148,66 @@ table.dataTable td.dataTables_empty {
     color: white;
     font-weight: bold;
     font-size: 15px;
+  }
+}
+
+@media (max-width: 1200px) {
+  #user-header #logo, #user-header #content-title {
+    width: 50%;
+  }
+  #user-header #logo {
+    text-align: left;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  #user-header #logo img {
+    width: 42px;
+  }
+  #user-header #logo h4 {
+    line-height: 140%;
+  }
+  #user-header #content-title {
+    text-align: right;
+    padding-right: 12px;
+  }
+  #user-header #content-title > h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  #user-header #content-title > h2 > span[class*="rulycon"] {
+    font-size: 18px;
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+  #user-header #logo h4 span:nth-child(2), #user-header #logo h4 span:last-child {
+    display: inline-block;
+  }
+  #user-header #logo h4 span:last-child:before {
+    content: "- ";
+  }
+  .main-layout .sidebar, .main-layout .main-content {
+    float: left;
+  }
+  .main-layout .sidebar {
+    padding-top: 90px;
+  }
+  .main-layout .main-content {
+    width: 75.789473684210527% !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .sidebar ul.welcome-message > li {
+    display: inline-block;
+    width: 50%;
+  }
+  .sidebar #user-menu > li {
+    float: left;
+    display: inline-block;
+    width: 25%;
+  }
+  .sidebar #user-menu > li > a {
+    display: block;
   }
 }
 

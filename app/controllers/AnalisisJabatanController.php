@@ -75,7 +75,7 @@ class AnalisisJabatanController extends BaseController {
 					});
 
 			Session::flash('success', 'Data berhasil dikirim.');
-			return Redirect::route('aj.index');
+			return Redirect::route('sp.index');
 		} else {
 			Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
 			return Redirect::back();

@@ -24,10 +24,10 @@ jQuery(document).ready(function(e){
         sAjaxSource: document.URL,
         aoColumns: [
             {
-                mData: "nama_lengkap"
+                mData: "pengguna.nama_lengkap"
             },
             {
-                mData: "email"
+                mData: "pengguna.email"
             }
             ,
             {

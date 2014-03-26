@@ -1203,6 +1203,20 @@ p {
     display: block;
     width: 100%;
   }
+  .footer #footer-image, .footer address,
+  .footer > .container .row-fluid:last-child p {
+    width: 360px;
+    margin: auto;
+  }
+  .footer #footer-image img {
+    width: auto;
+  }
+  .footer address {
+    margin-top: 24px;
+  }
+  .footer > .container .row-fluid:last-child > p {
+
+  }
 }
 
 @media screen and (max-width: 768px) {

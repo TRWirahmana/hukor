@@ -1166,9 +1166,6 @@ p {
   #social-links .container > p {
     text-align: right;
   }
-}
-
-@media screen and (max-width: 768px) {
   #main-carousel .carousel-indicators {
     min-height: 360px;
   }
@@ -1182,6 +1179,7 @@ p {
   .news-content > .row-fluid > .span4, .news-content > .row-fluid > .span8 {
     display: inline-block;
     vertical-align: top;
+    margin: 0;
   }
   .news-content > .row-fluid > .span4 {
     width: 30%;
@@ -1193,6 +1191,10 @@ p {
     text-align: center;
     margin-top: 0;
   }
+}
+
+@media screen and (max-width: 768px) {
+
 }
 
 @media screen and (max-width: 640px) {

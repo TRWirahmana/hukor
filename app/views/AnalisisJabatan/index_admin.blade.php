@@ -109,6 +109,9 @@
 
     </div>
     <!--rightpanel-->
+    <div id="dialog" title="Hapus Bantuan Hukum" style="display: none;">
+        <p>Apakah Anda Yakin?</p>
+    </div>
 
     @stop
 

@@ -461,7 +461,7 @@ html, .main-layout, .admin,
   color: #ffffff;
   font-size: 12px;
   width: auto;
-  vertical-align: top;
+  vertical-align: middle;
   font-weight: normal;
 }
 .sidebar > header > h4 span, #user-header #logo h4 span {
@@ -755,6 +755,7 @@ html, .main-layout, .admin,
   font-size: 30px;
   font-family: "PT Sans Narrow", "pt_sans_narrowregular", sans-serif;
   font-weight: normal;
+  line-height: 100%;
 }
 .main-content > h2 > span[class*="rulycon"] {
   font-size: 24px;
@@ -1083,6 +1084,9 @@ table.dataTable td.dataTables_empty {
 #beritaaaa > * {
   background: transparent !important;
 }
+#select-menu-helper {
+  display: none;
+}
 
 
 
@@ -1152,8 +1156,11 @@ table.dataTable td.dataTables_empty {
 }
 
 @media (max-width: 1200px) {
-  #user-header #logo, #user-header #content-title {
-    width: 50%;
+  #user-header #logo {
+    width: 60%;
+  }
+  #user-header #content-title {
+    width: 40%;
   }
   #user-header #logo {
     text-align: left;
@@ -1169,6 +1176,7 @@ table.dataTable td.dataTables_empty {
   #user-header #content-title {
     text-align: right;
     padding-right: 12px;
+    margin-top: 12px;
   }
   #user-header #content-title > h2 {
     margin: 0;
@@ -1179,12 +1187,12 @@ table.dataTable td.dataTables_empty {
     padding-left: 9px;
     padding-right: 9px;
   }
-  #user-header #logo h4 span:nth-child(2), #user-header #logo h4 span:last-child {
+  /*#user-header #logo h4 span:nth-child(2), #user-header #logo h4 span:last-child {
     display: inline-block;
   }
   #user-header #logo h4 span:last-child:before {
     content: "- ";
-  }
+  }*/
   .main-layout .sidebar, .main-layout .main-content {
     float: left;
   }
@@ -1197,17 +1205,48 @@ table.dataTable td.dataTables_empty {
 }
 
 @media (max-width: 960px) {
-  .sidebar ul.welcome-message > li {
+  /*.sidebar ul.welcome-message > li {
     display: inline-block;
     width: 50%;
-  }
-  .sidebar #user-menu > li {
-    float: left;
-    display: inline-block;
-    width: 25%;
-  }
-  .sidebar #user-menu > li > a {
+  }*/
+  .main-layout .sidebar, .main-layout .main-content {
+    padding-left: 0;
+    padding-right: 0;
     display: block;
+  }
+  .main-layout .sidebar {
+    width: 24.210526315789473% !important;
+  }
+  .main-layout .main-content {
+    width: 75.789473684210527% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #user-header #logo {
+    width: 80%;
+  }
+  #user-header #content-title {
+    width: 20%;
+    margin-top: 0;
+  }
+  #user-header #logo, #user-header #content-title {
+    /*display: inline-block;*/
+  }
+  .main-layout .sidebar, .main-layout .main-content {
+    display: block;
+    width: 100% !important;
+  }
+  .main-layout .main-content {
+    padding-top: 48px !important;
+  }
+  #user-header #content-title > h2 {
+    font-size: 16px;
+    margin-top: 0;
+    line-height: 120%;
+  }
+  #user-header #content-title span[class*="rulycon"] {
+    display: none;
   }
 }
 

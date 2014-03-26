@@ -163,6 +163,11 @@
 <!--rightpanel-->
 @endif
 
+<!-- dialog box -->
+<div id="dialog" title="Konfirmasi Hapus Pelembagaan" style="display: none;">
+    <p>Apakah Anda Yakin?</p>
+</div>
+
 @stop
 
 
@@ -330,18 +335,40 @@
     });
 
     $("#tbl-pelembagaan").on('click', '.btn_delete', function (e) {
-      if (confirm('Apakah anda yakin ?')) {
-        $.ajax({
-          url: $(this).attr('href'),
-          type: 'post',
-	  data: {_method:"delete"},
-          success: function (response) {
-            $dataTable.fnReloadAjax();
-          }
+        var delkodel = $(this);
+        $('#dialog').dialog({
+            width: 500,
+            modal: true,
+            buttons: {
+                "Hapus" : function(){
+                    $.ajax({
+                        url: delkodel.attr('href'),
+                        type: 'post',
+                        data: {_method:"delete"},
+                        success: function (response) {
+                            $dataTable.fnReloadAjax();
+                        }
+                    });
+                    $(this).dialog("close");
+                },
+                "Batal" : function() {
+                    $(this).dialog("close");
+                }
+            }
         });
-      }
-      e.preventDefault();
-      return false;
+        e.preventDefault();
+//      if (confirm('Apakah anda yakin ?')) {
+//        $.ajax({
+//          url: $(this).attr('href'),
+//          type: 'post',
+//	  data: {_method:"delete"},
+//          success: function (response) {
+//            $dataTable.fnReloadAjax();
+//          }
+//        });
+//      }
+//      e.preventDefault();
+//      return false;
     });
 
     // $("#filter_unit").keyup( function() { fnFilterUnit ( 3 ); } );

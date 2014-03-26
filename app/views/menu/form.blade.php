@@ -5,6 +5,7 @@
   <ul class="breadcrumbs">
     <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
     <li><a href="{{URL::previous()}}">Manage Menu</a> <span class="separator"></span></li>
+      <li><a href="{{URL::previous()}}">Tambah Menu</a></li>
   </ul>
   @include('adminflash')
   <div class="pageheader">
@@ -117,7 +118,18 @@
 
 <script src="{{asset('assets/js/menus.js')}}"></script>
 <script type="text/javascript">
+    jQuery("#manage-menu > #menu > a").addClass("sub-menu-active");
+    jQuery("#manage-menu").css({
+        "display": "block",
+        "visibility": "visible"
+    });
+
   Menu.Form();
+</script>
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Tambah Menu"
+  });
 </script>
 <!--<style>-->
 <!--    .leftmenu .nav-tabs.nav-stacked > li.dropdown ul {-->

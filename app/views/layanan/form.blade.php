@@ -4,19 +4,18 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
-        <li>Layanan</li>
+        <li><a href="{{URL::previous()}}">Kelola</a> <span class="separator"></span></li>
+        <li><a href="{{URL::previous()}}">Kelola Konten Layanan</a> <span class="separator"></span></li>
+        <li>Tambah Konten Layanan</li>
     </ul>
     @include('adminflash')
     <div class="pageheader">
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon">&nbsp;</div>
+        <div class="pageicon"><span class="rulycon-settings"></span></div>
         <div class="pagetitle">
-            <!--<h5>Events</h5>-->
-
-            <h1></h1>
+            <h1>Tambah Konten Layanan</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -163,6 +162,12 @@
                 height:"350px"
             });
 
+            jQuery("#manage-menu > li:nth-child(4) > a").addClass("sub-menu-active");
+            jQuery("#manage-menu").css({
+                "display": "block",
+                "visibility": "visible"
+            });
+
             Layanan.Form();
         });
 
@@ -175,4 +180,10 @@
 <!--            display: none !important;-->
 <!--        }-->
 <!--    </style>-->
+
+  <script>
+    jQuery(document).on("ready", function() {
+      document.title = "Layanan Biro Hukum dan Organisasi | Tambah Layanan"
+    });
+  </script>
     @stop

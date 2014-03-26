@@ -1,6 +1,5 @@
 @section('content')
     <h2>Layanan Ketatalaksanaan</h2>
-<div class="stripe-accent"></div>
         @if($id == 2)
            <legend>Informasi Layanan Sistem dan Prosedur Kerja</legend>
         @elseif($id == 3)

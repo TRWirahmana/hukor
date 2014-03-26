@@ -1,6 +1,10 @@
 @section('content')
+<?php $title = ""; ?>
 @if($info->id == 1)
-<h2><span class="rulycon-office"></span>Peraturan Perundang-Undangan</h2>
+<!--PERATURAN PERUNDANG-UNDANGAN-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Peraturan perundang-undangan";
+</script>
 
 <legend>
     Informasi Peraturan Perundang-Undangan
@@ -10,10 +14,14 @@
   document.getElementById("menu-peruu-info").setAttribute("class", "user-menu-active");
   document.getElementById("collapse10").style.height = "auto";
 </script>
+<?php $title = "Perundang-Undangan"; ?>
 @endif
 
 @if($info->id == 2)
-<h2><span class="rulycon-books"></span>Pelembagaan</h2>
+<!--PELEMBAGAAN-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Pelembagaan";
+</script>
 
 <legend>
     Informasi Pelembagaan
@@ -23,10 +31,14 @@
   document.getElementById("menu-pelembagaan-info").setAttribute("class", "user-menu-active");
   document.getElementById("collapse11").style.height = "auto";
 </script>
+<?php $title = "Pelembagaan"; ?>
 @endif
 
 @if($info->id == 3)
-<h2><span class="rulycon-stack"></span>Bantuan Hukum</h2>
+<!--BANTUAN HUKUM-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Bantuan hukum";
+</script>
 
 <legend>
     Informasi Bantuan Hukum
@@ -36,23 +48,36 @@
   document.getElementById("collapse13").style.height = "auto";
   document.getElementById("menu-bantuan-hukum-info").setAttribute("class", "user-menu-active");
 </script>
+<?php $title = "Bantuan Hukum"; ?>
 @endif
 
 @if($info->id == 4)
-<h2>Ketatalaksanaan</h2>
+<!--KETATALAKSANAAN-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
+</script>
 
 <legend>
-    Informasi Sistem dan Prosedur
+    Informasi Ketatalaksanaan
 </legend>
+<script>
+    document.getElementById("collapse12").style.height = "auto";
+    document.getElementById("menu-prosedur-info").setAttribute("class", "user-menu-active");
+</script>
+<?php $title = "Ketatalaksanaan"; ?>
 @endif
 
-@if($info->id == 5)
-<h2>Ketatalaksanaan</h2>
-
-<legend>
-    Informasi Analisis Jabatan
-</legend>
-@endif
+<!--@if($info->id == 5)-->
+<!--<!--KETATALAKSANAAN-->-->
+<!--<script>-->
+<!--  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";-->
+<!--</script>-->
+<!---->
+<!--<legend>-->
+<!--    Informasi Analisis Jabatan-->
+<!--</legend>-->
+<?php //$title = "Analisis Jabatan"; ?>
+<!--@endif-->
 
 @include('flash')
 
@@ -68,12 +93,14 @@
 <!--    Load Image-->
 @endif
 
-<div class="span8 offset10" style="margin-bottom: 48px;">
-    <button class="btn btn-primary" id="btn-usulan" type="button">Usulan</button>
+<div class="row-fluid">
+  <div class="span24" style="margin-bottom: 48px;">
+      <button class="btn btn-primary" id="btn-usulans" type="button">Buat Usulan</button>
+  </div>
 </div>
 
 <!-- dialog box -->
-<div id="dialog" title="Forum" style="display: none;">
+<div id="dialog" title="<?php echo $title; ?>" style="display: none;">
     <p>Silahkan klik LOGIN terlebih dahulu untuk membuat usulan. Jika belum mempunyai akun, silakan klik DAFTAR untuk registrasi.</p>
 </div>
 
@@ -81,46 +108,46 @@
 
 @section('scripts')
 <script src="{{asset('assets/js/jquery-1.10.1.min.js')}}"></script>
-<script src="{{asset('assets/js/dusk.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery-ui.js')}}"></script>
+
 <script type="text/javascript">
     var $ = jQuery.noConflict();
-    var info_id = '<?php echo $info->id; ?>';
+    var info_id = '<?php echo $ids; ?>';
 
-    $('#btn-usulan').click(function () {
+    $('#btn-usulans').click(function () {
+//        alert(info_id);exit;
         var user = '<?php echo Auth::user(); ?>';
 
         if (user) {
-            switch (info_id)
+            switch(info_id)
             {
-                case 1:
+                case '1':
                     window.location.replace("{{ URL::route('puu.create') }}");
                     break;
-                case 2:
-                    window.location.replace("URL::route('pelembagaan.create')}}");
+                case '2':
+                    window.location.replace("{{ URL::route('pelembagaan.create')}}");
                     break;
-                case 3:
+                case '3':
                     window.location.replace("{{ URL::route('bantuan_hukum.create') }}");
                     break;
-                case 4:
+                case '4':
                     window.location.replace("{{ URL::route('sp.create') }}");
                     break;
-                case 5:
+                case '5':
                     window.location.replace("{{ URL::route('aj.create') }}");
                     break;
             }
         }
         else {
             $('#dialog').dialog({
-                height: 190,
-                width: 400,
+                width: 500,
                 modal: true,
                 buttons: {
                     "Login" : function(){
                         window.location.replace("{{URL::to('site')}}");
                     },
 
-                    "Registrasi" : function(){
+                    "Daftar" : function(){
                         window.location.replace("{{URL::to('registrasi')}}");
                     },
 

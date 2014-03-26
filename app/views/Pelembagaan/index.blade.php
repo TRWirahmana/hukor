@@ -17,12 +17,14 @@
   <!--        <form action="results.html" method="post" class="searchbar">-->
   <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
   <!--        </form>-->
-  <div class="pageicon"><span class="rulycon-wrench"></span></div>
+  <div class="pageicon"><span class="rulycon-notebook"></span></div>
   <div class="pagetitle">
     <h1>PELEMBAGAAN</h1>
   </div>
 </div>
 <!--pageheader-->
+
+
 
 <div class="maincontent">
   <div class="maincontentinner">
@@ -49,9 +51,11 @@
       @endif
 
       @else
-      <h2><span class="rulycon-books"></span>Layanan Pelembagaan</h2>
+<!--      LAYANAN PELEMBAGAAN-->
+      <script>
+        document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Pelembagaan";
+      </script>
 
-      <div class="stripe-accent"></div>
       <legend>Informasi dan Status</legend>
 
       <script>
@@ -61,6 +65,7 @@
       @endif
 
       <!-- Filter -->
+      @if(!empty($user))
       @if($user->role_id == 3 )
       <form id="form-filter" class="form form-horizontal" action="{{URL::route('admin.pelembagaan.printTable')}}" style="margin-bottom: 24px;">
         @else
@@ -103,7 +108,7 @@
 
                 <div class="control-group">
                   <div class="controls">
-                    <!--input type="reset" value="Reset" class="btn btn-primary" id="btn-reset"-->
+                    <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
                     <input type="submit" value="Cetak" class="btn btn-primary">
                   </div>
                 </div>
@@ -111,6 +116,7 @@
             </div>
           </fieldset>
         </form>
+          @endif
 
 
         <br/>
@@ -130,6 +136,11 @@
           <tbody></tbody>
 
         </table>
+        <style>
+          table.dataTable tr td:nth-child(6) {
+            text-align: center;
+          }
+        </style>
 
         <!-- END OF MAIN CONTENT -->
         @if($user->role_id == 3 )
@@ -178,12 +189,26 @@
 
     $dataTable = $("#tbl-pelembagaan").dataTable({
       bFilter: true,
+        bInfo: true,
       //     bInfo: false,
       bSort: false,
       bPaginate: true,
       //   bLengthChange: false,
       bServerSide: true,
       bProcessing: true,
+        bLengthChange: true,
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sSearch":       "Cari:",
+            "sLengthMenu": 'Tampilkan <select>'+
+                '<option value="10">10</option>'+
+                '<option value="25">25</option>'+
+                '<option value="50">50</option>'+
+                '<option value="100">100</option>'+
+                '</select> Usulan'
+        },
       sAjaxSource: document.location.href,
       aoColumns: [
         {
@@ -263,19 +288,19 @@
           sWidth: '10%',
           mRender: function (data, type, full) {
             if (role_id == 3) {
-              return "<a href='" + baseUrl + "/pelembagaan/download/" + data + "'> <i class='icon-download'></i></a>"
+              return "<a href='" + baseUrl + "/pelembagaan/download/" + data + "' title='Unduh'> <i class='icon-download'></i></a>"
                 + "&nbsp;<a href='pelembagaan/" + data + "/update' title='Detail'><i class='icon-edit'></i></a>"
                 + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/" + data + "'>"
                 + "<i class='icon-trash'></i></a>";
             } else if (role_id == 7) {
-              return "<a href='" + baseUrl + "/pelembagaan/download/" + data + "'> <i class='icon-download'></i></a>"
+              return "<a href='" + baseUrl + "/pelembagaan/download/" + data + "' title='Unduh'> <i class='icon-download'></i></a>"
                 + "&nbsp;<a href='pelembagaan/" + data + "/update' title='Detail'><i class='icon-edit'></i></a>"
                 + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/" + data + "'>"
                 + "<i class='icon-trash'></i></a>";
             } else if (role_id == 0) {
 //                                          return "<a href='" + baseUrl + '/pelembagaan/download/'+data+ "'> <i class='icon-download'></i></a>";
             } else if(role_id == 2) {
-                                          return "<a href='" + baseUrl + '/pelembagaan/download/' + data + "'> <i class='icon-download'></i></a>";
+                                          return "<a href='" + baseUrl + '/pelembagaan/download/' + data + "' title='Unduh'> <i class='icon-download'></i></a>";
             }
 	    return "";
           }
@@ -340,6 +365,12 @@
   jQuery("#app").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Pelembagaan"
   });
 </script>
 @stop

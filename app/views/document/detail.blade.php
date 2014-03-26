@@ -4,19 +4,19 @@
 
   <ul class="breadcrumbs">
     <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-    <li><a href="{{URL::previous()}}">Dokumentasi</a> <span class="separator"></span></li>
-    <li>Detail Dokument</li>
+    <li><a href="{{URL::previous()}}">Peraturan</a> <span class="separator"></span></li>
+    <li>Detail Peraturan</li>
   </ul>
   @include('adminflash')
   <div class="pageheader">
     <!--        <form action="results.html" method="post" class="searchbar">-->
     <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
     <!--        </form>-->
-    <div class="pageicon">&nbsp;</div>
+    <div class="pageicon"><span class="rulycon-notebook"></span></div>
     <div class="pagetitle">
       <!--<h5>Events</h5>-->
 
-      <h1>Detail Dokumen</h1>
+      <h1>Detail Peraturan</h1>
     </div>
   </div>
   <!--pageheader-->
@@ -100,9 +100,17 @@
               </div>
             </div>
 
+              <div class="control-group">
+                  {{ Form::label('bidang', 'Bidang', array('class' => 'control-label'))}}
+                  <div class="controls">
+                      <input type="text" value="{{ $data->getBidang($data->bidang) }}" disabled/>
+                  </div>
+              </div>
+
             <div class="control-group">
               {{ Form::label('', 'Tentang', array('class' => 'control-label')) }}
               <div class="controls">
+                  <textarea cols="10" disabled>{{ $data->perihal }}</textarea>
                 <input type="text" disabled value="{{ $data->perihal }}"/>
               </div>
             </div>
@@ -124,7 +132,7 @@
             <div class="control-group">
               {{ Form::label('', 'File Dokumen', array('class' => 'control-label')) }}
               <div class="controls">
-                <input type="text" disabled value="{{ $data->file_dokumen }}"/>
+                  <a class="btn btn-primary-blue" href={{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen ); }} > <span class="rulycon-download"></span> Unduh </a>
               </div>
             </div>
 

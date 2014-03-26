@@ -1,8 +1,11 @@
 @section('content')
 
-<h2><span class="rulycon-library"></span>Ketatalaksanaan</h2>
-<div class="stripe-accent"></div>
-<legend>Informasi & Status Usulan Sistem dan Prosedur</legend>
+<!--KETATALAKSANAAN-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
+</script>
+
+<legend>Status Usulan Sistem Prosedur</legend>
 
 @include('flash')
 <div class="content-non-title">
@@ -20,6 +23,11 @@
                     </thead>
                     <tbody></tbody>
                 </table>
+  <style>
+    table.dataTable tr td:nth-child(6) {
+      text-align: center;
+    }
+  </style>
 </div>
 @stop
 
@@ -37,8 +45,20 @@
                 // },
                 bServerSide: true,
                 sAjaxSource: document.location.href,
-                bFilter: false,
-                bLengthChange: false,
+                bFilter: true,
+                bLengthChange: true,
+                oLanguage:{
+                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+                    "sEmptyTable": "Data Kosong",
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                    "sSearch":       "Cari:",
+                    "sLengthMenu": 'Tampilkan <select>'+
+                        '<option value="10">10</option>'+
+                        '<option value="25">25</option>'+
+                        '<option value="50">50</option>'+
+                        '<option value="100">100</option>'+
+                        '</select> Usulan'
+                },
                 aoColumns: [
                     {
                         mData: "id",
@@ -95,7 +115,7 @@
                         sWidth: "8%",
 			mRender: function(data, type, all) {
 				if(all._role_id != null) 
-					return "<a href='"+baseUrl+"/sp/download/" + data + "'><i class='icon-download'></i></a> ";
+					return "<a href='"+baseUrl+"/sp/download/" + data + "' title='Unduh'><i class='icon-download'></i></a> ";
 				return "";
 			}
                     }

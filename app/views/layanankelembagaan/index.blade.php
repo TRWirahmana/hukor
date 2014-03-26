@@ -1,6 +1,5 @@
 @section('content')
     <h2>Layanan Kelembagaan</h2>
-<div class="stripe-accent"></div>
 
 <legend>
     Informasi Layanan Kelembagaan

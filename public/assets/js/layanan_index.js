@@ -8,10 +8,42 @@ jQuery(document).ready(function(e){
         bFilter:false,
         bProcessing: true,
         bPaginate: true,
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Konten Layanan",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sSearch":       "Cari:",
+            "sLengthMenu": 'Tampilkan <select>'+
+                '<option value="10">10</option>'+
+                '<option value="25">25</option>'+
+                '<option value="50">50</option>'+
+                '<option value="100">100</option>'+
+                '</select> Konten Layanan'
+        },
         sAjaxSource: document.URL,
         aoColumns: [
             {
-                mData: "nama_menu"
+                mData: "nama_menu",
+                mRender: function(data, type, row){
+                    switch (row['id'])
+                    {
+                        case '1':
+                            return "Informasi Perundang-undangan";
+                            break;
+                        case '2':
+                            return "Informasi Pelembagaan";
+                            break;
+                        case '3':
+                            return "Informasi Bantuan Hukum";
+                            break;
+                        case '4':
+                            return "Informasi Ketatalaksanaan";
+                            break;
+                        default:
+                            return row['nama_menu'];
+                            break;
+                    }
+                }
             },
             {
                 mData: "nama_submenu"
@@ -19,9 +51,27 @@ jQuery(document).ready(function(e){
             {
                 mData: "id",
                 mRender: function(id) {
-                    return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
-                        + "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/admin/layanan/"+id+"'>"
-                        + "<i class='icon-trash'></i></a>";
+                    switch (id)
+                    {
+                        case '1':
+                            return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
+                            break;
+                        case '2':
+                            return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
+                            break;
+                        case '3':
+                            return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
+                            break;
+                        case '4':
+                            return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>";
+                            break;
+                        default:
+                            return "<a href='"+baseUrl+"/admin/layanan/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
+                                + "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/admin/layanan/"+id+"'>"
+                                + "<i class='icon-trash'></i></a>";
+                            break;
+                    }
+
                 }
             }
         ],

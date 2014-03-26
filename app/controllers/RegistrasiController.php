@@ -484,7 +484,7 @@ class RegistrasiController extends BaseController {
 //        $subbag = Input::get('sub_bagian');
         $jk = Input::get('jenis_kelamin');
         $tgl_lahir = Input::get('tgl_lahir');
-        $pekerjaan = Input::get('pekerjaan');
+//        $pekerjaan = Input::get('pekerjaan');
         $alamat_kantor = Input::get('alamat_kantor');
         $tlp_ktr = Input::get('tlp_kantor');
         $hp = Input::get('handphone');
@@ -533,7 +533,7 @@ class RegistrasiController extends BaseController {
 
             if ($data !== 0) {
                 $dal_user = new DAL_User();
-                $dal_user->SetPengguna($data, $email, $nama, $nip, $jabatan, $jk, $tgl_lahir, $pekerjaan, $alamat_kantor, $tlp_ktr, $hp, $uk, $tempat);
+                $dal_user->SetPengguna($data, $email, $nama, $nip, $jabatan, $jk, $tgl_lahir, $alamat_kantor, $tlp_ktr, $hp, $uk, $tempat);
                 $dal_user->SaveBiodata($data);
 
                 // register user to forum database!
@@ -548,7 +548,11 @@ class RegistrasiController extends BaseController {
                 $forumUser->save();
 
 //            $this->sendMail($username, $password, $email);
-                Session::flash('success', 'Registrasi berhasil. Silahkan login.');
+//                Session::flash('success', 'Registrasi berhasil. Silahkan login.');
+//                return Redirect::to('site');
+
+                $this->signin($email, $password);
+                Session::flash('success', 'Registrasi Berhasil, Selamat datang ' . $nama . ' !');
                 return Redirect::to('site');
             } else {
                 Session::flash('error', 'Registrasi gagal! Harap ulangi dan Pastikan alamat email anda valid!');
@@ -561,55 +565,6 @@ class RegistrasiController extends BaseController {
 //            echo "SALAH";exit;
             Session::flash('error', 'Registrasi gagal! Captcha tidak valid!');
             return Redirect::to('registrasi');
-        }
-//
-        if (Request::getMethod() == 'POST'){
-//            $rules['captcha'] = 'required|captcha';
-            $rulesa =  array('code' => array('required', 'captcha'));
-            $validator = Validator::make(Input::all(), $rulesa);
-            if ($validator->fails())
-            {
-                Session::flash('error', 'Registrasi gagal! Captcha tidak valid!');
-                return Redirect::to('registrasi');
-            }
-            else
-            {
-                // Save
-                $DAL = new DAL_Registrasi();
-                $DAL->SetData(array(
-                    'username' => $email,
-                    'password' => Hash::make($password), // Hashing A Password Using Bcrypt\
-                    'role_id' => 2, // Aktif
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
-                ));
-
-                $data = $DAL->Save();
-
-                if ($data !== 0) {
-                    $dal_user = new DAL_User();
-                    $dal_user->SetPengguna($data, $email, $nama, $nip, $jabatan, $jk, $tgl_lahir, $pekerjaan, $alamat_kantor, $tlp_ktr, $hp, $uk);
-                    $dal_user->SaveBiodata($data);
-
-                    // register user to forum database!
-                    $now = new DateTime('now');
-                    $forumUser = new ForumUser();
-                    $forumUser->id = $data;
-                    $forumUser->username = $email;
-                    $forumUser->password = pun_hash($password);
-                    $forumUser->email = $email;
-                    $forumUser->last_visit = $now->getTimestamp();
-                    $forumUser->registered = $now->getTimestamp();
-                    $forumUser->save();
-
-//            $this->sendMail($username, $password, $email);
-                    Session::flash('success', 'Registrasi berhasil. Silahkan login kedalam sistem!');
-                    return Redirect::to('site');
-                } else {
-                    Session::flash('error', 'Registrasi gagal! Harap ulangi dan Pastikan alamat email anda valid!');
-                    return Redirect::to('registrasi');
-                }
-            }
         }
 
 
@@ -640,6 +595,59 @@ class RegistrasiController extends BaseController {
                     $message->from('admin@site.com', 'Site Admin');
                     $message->to($user['email'], $user['name'])->subject('Sistem Registrasi Online Laboratorium Kepemimpinan Nasional');
                 });
+    }
+
+    private function signin($username, $password) {
+
+        $user = User::where('username', '=', $username)->first();
+
+
+        if (null !== $user) {
+            $user = $user->toArray();
+
+            if (Hash::check($password, $user['password'])) {
+
+                // set ulang untuk auth karena untuk auth password tidak boleh di encrypt terlebih dahulu
+                $credential = array(
+                    'id' => $user['id'],
+                    'username' => $user['username'],
+                    'password' => $password
+                );
+
+                Session::put('key', array('us' => $username, 'pd' => MyCrypt::encrypt($password)));
+
+                if (Auth::attempt($credential)) {
+                    $user = Auth::user();
+
+                    // Remove this user's guest entry from the online list
+                    ForumOnline::where("ident", "=", mysql_real_escape_string(get_remote_address()))->delete();
+
+                    // log the user in to the forum
+                    pun_setcookie($user->id, pun_hash($password), time() + 1209600);
+
+                    // Reset tracked topics
+                    set_tracked_topics(null);
+                    //validation estimasi pendaftaran for role
+
+                    if ($user->role_id == 2) {
+                        Session::flash('success', 'Selamat datang ' . $user->pengguna->nama_lengkap . ' !');
+                        return Redirect::to('site');
+                    } else {
+                        Auth::logout();
+                        Session::forget('key');
+                        Session::flash('error', 'Silahkan Login Sebagai User!');
+                        return Redirect::to('site');
+                    }
+                }
+                //
+            } else {
+                Session::flash('error', 'Password yang anda masukan salah!');
+                return Redirect::to('site');
+            }
+        } else {
+            Session::flash('error', 'User tidak terdaftar!');
+            return Redirect::to('site');
+        }
     }
 
 }

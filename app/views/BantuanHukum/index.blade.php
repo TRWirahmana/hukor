@@ -1,9 +1,12 @@
 @section('content')
 <input type="hidden" id="role_id" value="{{Auth::user()->role_id}}"/>
 
-<h2><span class="rulycon-stack"></span>BANTUAN HUKUM</h2>
-<div class="stripe-accent"></div>
-    <legend>Informasi dan Status Usulan Bantuan Hukum</legend>
+<!--BANTUAN HUKUM-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Bantuan hukum";
+</script>
+
+    <legend>Status Usulan</legend>
 
     @include('flash')
 <br>
@@ -31,15 +34,27 @@
             }).val();
 
             var tbl_data = $("#basictable").dataTable({
-                bFilter: false,
-                bInfo: false,
+                bFilter: true,
+                bInfo: true,
                 bSort: false,
                 bPaginate: true,
-                bLengthChange: false,
+                bLengthChange: true,
                 bServerSide: true,
                 bProcessing: true,
+                oLanguage:{
+                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+                    "sEmptyTable": "Data Kosong",
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                    "sSearch":       "Cari:",
+                    "sLengthMenu": 'Tampilkan <select>'+
+                        '<option value="10">10</option>'+
+                        '<option value="25">25</option>'+
+                        '<option value="50">50</option>'+
+                        '<option value="100">100</option>'+
+                        '</select> Usulan'
+                },
 //                sAjaxSource: baseUrl + "/lkpm/data",
-                sAjaxSource: baseUrl + '/bantuan_hukum/datatable',
+                sAjaxSource: '<?php echo URL::to("bantuan_hukum/datatable"); ?>',
                 aoColumns: [
                     {mData: "pengguna.nama_lengkap"},
                     {
@@ -123,7 +138,7 @@
 				       if($("#role_id").val() == 2) {
 
 					       var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
-					       return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a>';
+					       return '<a href="' + downloadUrl + '" title="Unduh"><i class="rulycon-arrow-down "></i></a>';
 				       }
 				       return "";
 			       }

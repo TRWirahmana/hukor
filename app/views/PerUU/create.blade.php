@@ -1,7 +1,10 @@
 @section('content')
 
-<h2>PERATURAN PERUNDANG-UNDANGAN</h2>
-<div class="stripe-accent"></div>
+<script>
+    document.getElementById("menu-peruu-usulan").setAttribute("class", "user-menu-active");
+    document.getElementById("collapse10").style.height = "auto";
+    document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Peraturan perundang-undangan";
+</script>
 <legend>Pengajuan Usulan</legend>
 
 @include('flash')

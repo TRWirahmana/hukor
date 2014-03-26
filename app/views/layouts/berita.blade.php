@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Layanan Hukum dan Organisasi | Berita</title>
+  <title>Layanan Biro Hukum dan Organisasi | Berita</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Registrasi Online Penyuluh Nasional">
   <meta name="author" content="Sangkuriang Internasional">
@@ -41,7 +41,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72"
         href="{{asset('assets/ico/apple-touch-icon-72-precomposed.png')}}">
   <link rel="apple-touch-icon-precomposed" href="{{asset('assets/ico/apple-touch-icon-57-precomposed.png')}}">
-  <link rel="shortcut icon" href="{{asset('assets/ico/favicon.png')}}">
+  <link rel="shortcut icon" href="{{asset('assets/ico/favicon.ico')}}">
 
   <script type="text/javascript">
     var baseUrl = '{{URL::to(' / ')}}';
@@ -75,8 +75,14 @@
         <ul class="headmenu pull-right">
           <li class="odd">
             <a href="{{URL::to('/')}}">
-              <span class="rulycon-home"></span>
+              <span class="rulycon-home-2"></span>
               <span class="headmenu-label" id="berita">Berita</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{URL::to('detailprofile')}}" id="profile">
+              <span class="rulycon-profile"></span>
+              <span class="headmenu-label">Profil</span>
             </a>
           </li>
           <li>
@@ -85,28 +91,28 @@
               <span class="headmenu-label">Informasi</span>
             </a>
           </li>
-          <li class="odd">
+          <li>
             <a class="dropdown-toggle" data-toggle="dropdown" id="aplikasi">
-              <span class="rulycon-wrench"></span>
+              <span class="rulycon-notebook"></span>
               <span class="headmenu-label">Aplikasi</span>
             </a>
           </li>
           <li>
             <a href="{{URL::to('produkhukum')}}" id="produk_hukum">
-              <span class="rulycon-notebook"></span>
+              <span class="rulycon-books"></span>
               <span class="headmenu-label">Produk Hukum</span>
             </a>
           </li>
           <li>
             <a href="#" id="forum_diskusi">
-              <span class="rulycon-flip"></span>
+              <span class="rulycon-bubbles-2"></span>
               <span class="headmenu-label">Forum</span>
             </a>
           </li>
-          <li class="odd">
+          <li>
             <a href="{{URL::to('site')}}">
               <span class="rulycon-user"></span>
-              <span class="headmenu-label" id="login">Sign in</span>
+              <span class="headmenu-label" id="login">Login</span>
             </a>
           </li>
         </ul>
@@ -148,21 +154,30 @@
 
       <ul class="sub-menu" id="sub-aplikasi" style="display: none">
         <li class="has-child">
-          <a href="#"><span class="rulycon-notebook"> &nbsp; Peraturan Perundang-undangan </span></a>
+          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Peraturan Perundang-undangan </span></a>
           <ul>
             <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Peraturan Perundang-undangan</a></li>
             <li><a href="{{URL::route('puu.index')}}">Informasi dan Status Usulan</a></li>
           </ul>
         </li>
         <li class="has-child">
-          <a href="#"><span class="rulycon-file-3"> &nbsp; Pelembagaan</span></a>
+          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Pelembagaan</span></a>
           <ul>
             <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Pelembagaan</a></li>
             <li><a href="{{ URL::route('pelembagaan.index') }}">Informasi dan Status Usulan</a></li>
           </ul>
         </li>
+
+          <li class="has-child">
+              <a href="#"><span class="rulycon-drawer-3"> &nbsp; Bantuan Hukum</span></a>
+              <ul>
+                  <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>
+                  <li><a href="{{ URL::route('bantuan_hukum.index') }}">Informasi dan Status Usulan</a></li>
+              </ul>
+          </li>
+
         <li class="has-child">
-          <a href="#"><span class="rulycon-file-4"> &nbsp; Ketatalaksanaan</span></a>
+          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Ketatalaksanaan</span></a>
           <ul>
             <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>
             <li><a href="{{URL::route('sp.index')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
@@ -171,13 +186,7 @@
             <li><a href="{{URL::route('aj.index')}}">Informasi dan Status Usulan</a></li>
           </ul>
         </li>
-        <li class="has-child">
-          <a href="#"><span class="rulycon-stack"> &nbsp; Bantuan Hukum</span></a>
-          <ul>
-            <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>
-            <li><a href="{{ URL::route('bantuan_hukum.index') }}">Informasi dan Status Usulan</a></li>
-          </ul>
-        </li>
+
       </ul>
     </div>
   </div>
@@ -194,7 +203,7 @@
 
     <div class="row-fluid">
       <?php $call = CallCenter::find(1); ?>
-      <div class="span9">
+      <div class="span8">
         <div id="footer-menu-informasi" style="display: none">
           @foreach($menu as $menus)
           <ul class="footer-menu">
@@ -241,11 +250,14 @@
           </ul>
         </div>
       </div>
-      <div class="span3">
-        <address>
+      <div class="span4">
+        <div id="footer-image">
           <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
-          <span>Kementerian Pendidikan Dan Kebudayaan Republik Indonesia</span>
-          <br/>
+          <span>Biro Hukum dan Organisasi</span>
+          <p><span>Kementerian Pendidikan Dan Kebudayaan</span>
+          <span>Republik Indonesia</span></p>
+        </div>
+        <address>
           {{ $call->alamat }} <br/>
           <span class="rulycon-phone"></span> {{ $call->telp }} &nbsp; | &nbsp; <span class="rulycon-print"></span> {{ $call->fax }}<br/>
           <!--                        Jawa Barat, Indonesia-->
@@ -266,7 +278,7 @@
 
 <!-- dialog box -->
 <div id="dialog" title="Forum" style="display: none">
-    <p>Silakan klik SIGN IN terlebih dahulu untuk masuk ke dalam Forum. Jika belum mempunyai akun, silakan klik REGISTRASI.</p>
+    <p>Silakan klik LOGIN terlebih dahulu untuk masuk ke dalam Forum. Jika belum mempunyai akun, silakan klik DAFTAR.</p>
 </div>
 
 @section('scripts')
@@ -316,15 +328,14 @@
         }
         else {
             $('#dialog').dialog({
-                height: 190,
-                width: 480,
+                width: 500,
                 modal: true,
                 buttons: {
-                    "SIGN IN" : function(){
+                    "LOGIN" : function(){
                         window.location.replace("{{URL::to('site')}}");
                     },
 
-                    "REGISTRASI" : function(){
+                    "DAFTAR" : function(){
                         window.location.replace("{{URL::to('registrasi')}}");
                     },
 

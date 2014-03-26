@@ -4,7 +4,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
+        <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
         <li>Sistem dan Prosedur</li>
     </ul>
     @include('adminflash')
@@ -12,7 +12,7 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-      <div class="pageicon"><span class="rulycon-wrench"></span></div>
+      <div class="pageicon"><span class="rulycon-notebook"></span></div>
       <div class="pagetitle">
         <h1>Sistem dan Prosedur</h1>
       </div>
@@ -85,6 +85,11 @@
                     </thead>
                     <tbody></tbody>
                 </table>
+              <style>
+                table.dataTable tr td:nth-child(6) {
+                  text-align: center;
+                }
+              </style>
 
                 <!-- END OF MAIN CONTENT -->
 
@@ -136,8 +141,20 @@
                 // },
                 bServerSide: true,
                 sAjaxSource: document.location.href,
-                bFilter: false,
-                bLengthChange: false,
+                bFilter: true,
+                bLengthChange: true,
+                oLanguage:{
+                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+                    "sEmptyTable": "Data Kosong",
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                    "sSearch":       "Cari:",
+                    "sLengthMenu": 'Tampilkan <select>'+
+                        '<option value="10">10</option>'+
+                        '<option value="25">25</option>'+
+                        '<option value="50">50</option>'+
+                        '<option value="100">100</option>'+
+                        '</select> Usulan'
+                },
                 aoColumns: [
                     {
                         mData: "id",
@@ -193,10 +210,10 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            var html = ["<a href='"+baseUrl+"/sp/download/" + data + "'><i class='icon-download'></i></a>"];
+                            var html = ["<a href='"+baseUrl+"/sp/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>"];
                             if(all._role_id == 3 || all._role_id == 9) {
-                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "/edit'><i class='icon-edit'></i></a>");
-                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "' data-delete><i class='icon-trash'></i></a>");
+                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a>");
+                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "' title='Hapus' data-delete><i class='icon-trash'></i></a>");
                             }
                             return html.join("&nbsp;");
                         }
@@ -220,12 +237,11 @@
             });
 
             $dataTable.on('click', 'a[data-delete]', function(e) {
-                if (!confirm('Apakah anda yakin?'))
-                    return;
-
-                $.post($(this).attr('href'),{_method: "delete"}, function(r){
-                    $dataTable.fnReloadAjax();
-                });
+			    if (confirm('Apakah anda yakin?')) {
+			    $.post($(this).attr('href'),{_method: "delete"}, function(r){
+				    $dataTable.fnReloadAjax();
+				    });
+			    }
 
                 e.preventDefault();
             });
@@ -252,6 +268,12 @@
   jQuery("#app, #app_ketatalaksanaan > ul").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Sistem dan Prosedur"
   });
 </script>
 

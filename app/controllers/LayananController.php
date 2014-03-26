@@ -28,7 +28,8 @@ class LayananController extends BaseController {
             $this->layout->content = View::make('layanan.info_aplikasi',
                 array(
                     'info' => $info,
-                    'allmenu' => $all
+                    'allmenu' => $all,
+                    'ids' =>  $id
                 ));
         }else{
             $info = Layanan::find($id);

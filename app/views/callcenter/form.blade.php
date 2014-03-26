@@ -3,13 +3,12 @@
 <div class="rightpanel">
   <ul class="breadcrumbs">
     <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-    <li><a href="{{URL::previous()}}">Berita</a> <span class="separator"></span></li>
-    <li>Call Center</li>
+    <li>Kelola Kontak Kami</li>
   </ul>
   <div class="pageheader">
-    <div class="pageicon"><span class="rulycon-notebook"></span></div>
+    <div class="pageicon"><span class="rulycon-settings"></span></div>
     <div class="pagetitle">
-      <h1>Call Center</h1>
+      <h1>Kelola Kontak Kami</h1>
     </div>
   </div>
   <!--pageheader-->
@@ -112,10 +111,16 @@
   </script>
 
   <script>
-    jQuery("#manage-menu > li:nth-child(4) > a").addClass("sub-menu-active");
+    jQuery("#manage-menu > li:nth-child(5) > a").addClass("sub-menu-active");
     jQuery("#manage-menu").css({
       "display": "block",
       "visibility": "visible"
+    });
+  </script>
+
+  <script>
+    jQuery(document).on("ready", function() {
+      document.title = "Layanan Biro Hukum dan Organisasi | Kelola Kontak Kami"
     });
   </script>
   @stop

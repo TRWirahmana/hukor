@@ -30,7 +30,7 @@
               <p class="text-info">{{$detail}}</p>
               <legend class="f_legend">{{$title}}</legend>
               <div class="control-group {{$errors->has('username')?'error':''}}">
-                {{ Form::label('username', 'Username', array('class' => 'control-label')) }}
+                {{ Form::label('username', 'Ubah Email', array('class' => 'control-label')) }}
                 <div class="controls">
                   {{ Form::text('username', $user->username,
                   array('placeholder' => 'Minimal 6 karakter, tidak memakai spasi.')) }}
@@ -42,7 +42,7 @@
               </div>
 
               <div class="control-group {{$errors->has('password')?'error':''}}">
-                {{ Form::label('password', 'Password', array('class' => 'control-label')) }}
+                {{ Form::label('password', 'Ubah Password', array('class' => 'control-label')) }}
                 <div class="controls">
                   {{ Form::password('password') }}
                 </div>
@@ -98,5 +98,11 @@
 @parent
 <script>
   jQuery("#user-links > a:first-child").addClass("sub-menu-active");
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Pengaturan Akun"
+  });
 </script>
 @stop

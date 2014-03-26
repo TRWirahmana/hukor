@@ -10,7 +10,7 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon"><span class="rulycon-notebook"></span></div>
+        <div class="pageicon"><span class="rulycon-settings"></span></div>
         <div class="pagetitle"><h1>Kelola Menu</h1>
         </div>
     </div>
@@ -23,7 +23,7 @@
             <div class="stripe-accent"></div>
 
             <form class="form-inline">
-                <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/create_menu')}}">Tambah Menu Baru</a>
+                <a class="btn btn-mini btn-primary pull-left" href="{{ URL::to('/admin/create_menu')}}">Tambah Menu Baru</a>
                 <fieldset>
                     <legend></legend>
 <!--                    <label for="select_role" class="control-label">Tipe Pengguna</label>-->
@@ -74,6 +74,12 @@
   jQuery("#manage-menu").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Kelola Menu"
   });
 </script>
 @stop

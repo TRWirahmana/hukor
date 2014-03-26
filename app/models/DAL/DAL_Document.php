@@ -52,14 +52,18 @@ class DAL_Document {
         $data = $data->skip($filter['iDisplayStart'])->take($filter['iDisplayLength']);
         $data = $data->get()->toArray();
 
-        $result = array();
+//        $result = array();
+//
+//        foreach($data as $dat)
+//        {
+//            $result[] = $dat['nomor'];
+//        }
+//
+//        array_multisort($result, SORT_ASC, $data);
 
-        foreach($data as $dat)
-        {
-            $result[] = $dat['nomor'];
-        }
-
-        array_multisort($result, SORT_ASC, $data);
+        usort($data, function ($a, $b) {
+            return strcmp($a['nomor'], $b['nomor']);
+        });
 
         return Response::json(array(
             "sEcho" => $filter['sEcho'],
@@ -122,7 +126,7 @@ class DAL_Document {
         $data->deskripsi = $input['deskripsi'];
         $data->tgl_pengesahan = $input['tanggal'];
         $data->file_dokumen = (!empty($input['file_dokumen'])) ? $input['file_dokumen']->getClientOriginalName() : $data->file_dokumen;
-        $data->status_publish = $input['publish'];
+        $data->status_publish = $input['status'] == "Publish" ? 1: 0;
         $data->bidang = $input['bidang'];
 
         $data->save();
@@ -156,7 +160,7 @@ class DAL_Document {
 
     public function GetYearOfDocument()
     {
-        $data = array("" => "Semua") + Document::select(array( DB::raw('DATE_FORMAT(tgl_pengesahan,"%Y") As pengesahan_year')))
+        $data = array("" => "Semua Tahun") + Document::select(array( DB::raw('DATE_FORMAT(tgl_pengesahan,"%Y") As pengesahan_year')))
                 ->lists('pengesahan_year', 'pengesahan_year');
 
         return $data;

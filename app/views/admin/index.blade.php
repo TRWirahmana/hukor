@@ -12,7 +12,7 @@
 <!--        </form>-->
         <div class="pageicon"><span class="rulycon-user"></span></div>
         <div class="pagetitle">
-          <h1>Kelola Akun</h1>
+          <h1>Akun</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -37,11 +37,8 @@
                     <label for="select_role" class="control-label">Tipe Pengguna</label>
                     <select id="select_role">
                         <option value="0">Semua User</option>
-                        <option value="1">Kepala Biro</option>
                         <option value="2">Pengguna</option>
                         <option value="3">Super Admin</option>
-                        <option value="4">Kepala Bagian</option>
-                        <option value="5">Kepala Sub Bagian</option>
                         <option value="6">Admin Peraturan Perundang-Undangan</option>
                         <option value="7">Admin Pelembagaan</option>
                         <option value="8">Admin Bantuan Hukum</option>
@@ -53,7 +50,7 @@
             <table id="table_admin" class="table">
                 <thead>
                 <tr>
-                    <th>Nama Lengkap</th>
+                    <th>Nama</th>
                     <th>Email</th>
                     <th>Role</th>
                     <th></th>
@@ -102,6 +99,12 @@
   jQuery("#manage").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Akun"
   });
 </script>
 @stop

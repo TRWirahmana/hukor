@@ -1,8 +1,11 @@
 @section('content')
 
-<h2><span class="rulycon-office"></span>PERATURAN PERUNDANG-UNDANGAN</h2>
+<!--PERATURAN PERUNDANG-UNDANGAN-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Peraturan perundang-undangan";
+</script>
 
-<legend>Informasi dan Status Usulan</legend>
+<legend>Status Usulan</legend>
 
 @include('flash')
 <div class="content-non-title">
@@ -20,6 +23,11 @@
                     </thead>
                     <tbody></tbody>
                 </table>
+  <style>
+    table.dataTable tr td:nth-child(6) {
+      text-align: center;
+    }
+  </style>
 </div>
 @stop
 
@@ -39,8 +47,20 @@ $("#menu-peraturan-perundangan").addClass("active");
                 // },
                 bServerSide: true,
                 sAjaxSource: document.location.href,
-                bFilter: false,
-                bLengthChange: false,
+                bFilter: true,
+                bLengthChange: true,
+                oLanguage:{
+                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+                    "sEmptyTable": "Data Kosong",
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                    "sSearch":       "Cari:",
+                    "sLengthMenu": 'Tampilkan <select>'+
+                        '<option value="10">10</option>'+
+                        '<option value="25">25</option>'+
+                        '<option value="50">50</option>'+
+                        '<option value="100">100</option>'+
+                        '</select> Usulan'
+                },
                 aoColumns: [
                     {
                         mData: "id",
@@ -97,7 +117,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                         sWidth: "8%",
 			mRender: function(data, type, all) {
 				if(all._role_id != null) {
-					return "<a href='"+baseUrl+"/puu/download/" + data + "'><i class='icon-download'></i></a> ";
+					return "<a href='"+baseUrl+"/puu/download/" + data + "' title='Unduh'><i class='icon-download'></i></a> ";
 				}
 				return "";
 			}

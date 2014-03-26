@@ -1,8 +1,9 @@
 @section('content')
 
 
-<h2>BANTUAN HUKUM</h2>
-<div class="stripe-accent"></div>
+<script>
+    document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Bantuan Hukum";
+</script>
 <legend>Bantuan Hukum</legend>
 
 @include('flash')

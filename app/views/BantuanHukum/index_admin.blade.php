@@ -15,7 +15,7 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon"><span class="rulycon-wrench"></span></div>
+        <div class="pageicon"><span class="rulycon-notebook"></span></div>
         <div class="pagetitle"><h1>Bantuan Hukum</h1>
         </div>
     </div>
@@ -27,7 +27,7 @@
             <!-- MAIN CONTENT -->
             {{ Form::open(array('action' => 'BantuanHukumController@convertpdf', 'method' => 'post',
             'id' => 'pdf-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal')) }}
-	<fieldset>
+	<fieldset style="margin-bottom: 48px;">
 
             <div class="row-fluid">
             <div class="span6">
@@ -84,8 +84,9 @@
             	   	</div>
             </div>
 	   <div class="control-group">
-			<div class="controls">	
-                 		 <button class="btn btn-hukor btn-primary" type="submit">Cetak</button>
+			<div class="controls">
+                <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
+                <button class="btn btn-primary btn-primary" type="submit">Cetak</button>
 			</div>
            </div>
 	</div>
@@ -146,11 +147,14 @@
     var tbl_data = jQuery("#basictable").dataTable({
         bServerSide: true,
         bFilter:true,
+        bInfo: true,
 	    bLengthChange: false,
         bProcessing: true,
         bPaginate: true,
         oLanguage:{
-            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Data",
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan"
         },
         sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/datatable"); ?>',
         aoColumns: [
@@ -243,9 +247,9 @@
                     var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
 
                     if(role == 3 || role == 8){
-                        return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a> &nbsp;' +
+                        return '<a href="' + downloadUrl + '" title="Unduh"><i class="rulycon-arrow-down "></i></a> &nbsp;' +
                             '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
-                            '<a href="' + deleteUrl + '" title="Delete" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
+                            '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
                     }else{
                         return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a> &nbsp;';
                     }
@@ -297,6 +301,12 @@
   jQuery("#app").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Bantuan Hukum"
   });
 </script>
 @stop

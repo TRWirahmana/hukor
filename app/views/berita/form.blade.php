@@ -76,17 +76,18 @@
                 <span class="help-block">{{$error}}</span>
                 @endforeach
               </div>
+                <p class="span9 offset2" style="color: #616D79;font-size: 11px;">Rekomendasi ukuran gambar: lebar 200 pixel, tinggi 200 pixel</p>
             </div>
 
             <div class="control-group {{$errors->has('gambar')?'error':''}}">
               {{ Form::label('slider', 'Slider', array('class' => 'control-label')) }}
               <div class="controls">
                 {{ Form::file('slider')}}
-
                 @foreach($errors->get('slider') as $error)
                 <span class="help-block">{{$error}}</span>
                 @endforeach
               </div>
+                <p class="span9 offset2" style="color: #616D79;font-size: 11px;">Rekomendasi ukuran gambar: lebar 656 pixel, tinggi 492 pixel</p>
             </div>
 
             <hr/>
@@ -147,7 +148,19 @@
     height: "350px"
   });
 
+  jQuery("#menu_berita > li:first-child > a").addClass("sub-menu-active");
+  jQuery("#menu_berita").css({
+      "display": "block",
+      "visibility": "visible"
+  });
+
   Berita.Form();
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Tambah Berita"
+  });
 </script>
 @stop
     

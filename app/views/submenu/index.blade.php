@@ -3,7 +3,6 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li><a href="{{URL::previous()}}">Manage Menu</a> <span class="separator"></span></li>
         <li>Kelola Submenu</li>
     </ul>
     @include('adminflash')
@@ -11,7 +10,7 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon"><span class="rulycon-notebook"></span></div>
+        <div class="pageicon"><span class="rulycon-settings"></span></div>
         <div class="pagetitle"><h1>Kelola Submenu</h1>
         </div>
     </div>
@@ -26,7 +25,7 @@
             $count = count($set_menu);?>
             <form class="form-inline">
                 @if($count != 0)
-                <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/create_submenu')}}">Tambah Submenu Baru</a>
+                <a class="btn btn-mini btn-primary pull-left" href="{{ URL::to('/admin/create_submenu')}}">Tambah Submenu Baru</a>
                 <fieldset>
 
                     <legend></legend>
@@ -87,6 +86,12 @@
   jQuery("#manage-menu").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Kelola Submenu"
   });
 </script>
 @stop

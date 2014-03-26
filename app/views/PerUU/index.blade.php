@@ -112,6 +112,11 @@
     </div>
     <!--rightpanel-->
 
+    <!-- dialog box -->
+    <div id="dialog" title="Hapus Perundang-Undangan" style="display: none;">
+        <p>Apakah Anda Yakin?</p>
+    </div>
+
     @stop
 
     @section('scripts')
@@ -232,11 +237,22 @@
             });
 
             $dataTable.on('click', 'a[data-delete]', function(e) {
-			    if (confirm('Apakah anda yakin?')) {
-			    $.post($(this).attr('href'), {_method: 'delete'}, function(r) {
-				    $dataTable.fnReloadAjax();
-				    });
-			    }
+                var delkodel = $(this);
+                $('#dialog').dialog({
+                    width: 500,
+                    modal: true,
+                    buttons: {
+                        "Hapus" : function(){
+                            $.post(delkodel.attr('href'), {_method: 'delete'}, function(r) {
+                                $dataTable.fnReloadAjax();
+                            });
+                            $(this).dialog("close");
+                        },
+                        "Batal" : function() {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
                 e.preventDefault();
             });
 

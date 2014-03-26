@@ -34,6 +34,11 @@
 			</div>
 		</div>
 	</div>
+
+<!-- dialog box -->
+<div id="dialog" title="Hapus Perundang-Undangan" style="display: none;">
+    <p>Apakah Anda Yakin?</p>
+</div>
 @stop
 
 @section('scripts')
@@ -79,19 +84,28 @@
 
 		// delete button handler
 		$dTblCategories.on("click", "a.delete", function(e){
-			e.preventDefault();
-
-			if(!confirm("Apakah anda yakin menghapus kategori berita?"))
-				return false;
-
-			$.ajax({
-				url: $(this).attr("href"),
-				type: "post",
-				data: {'_method': 'delete'},
-				success: function(result) {
-					$dTblCategories.fnReloadAjax();
-				}
-			});
+            var delkodel = $(this);
+            $('#dialog').dialog({
+                width: 500,
+                modal: true,
+                buttons: {
+                    "Hapus" : function(){
+                        $.ajax({
+                            url: delkodel.attr("href"),
+                            type: "post",
+                            data: {'_method': 'delete'},
+                            success: function(result) {
+                                $dTblCategories.fnReloadAjax();
+                            }
+                        });
+                        $(this).dialog("close");
+                    },
+                    "Batal" : function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            e.preventDefault();
 		});
 
 	});

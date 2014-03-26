@@ -60,7 +60,7 @@
   @include('user-header')
 </header>
 <div class="span24" style="margin-left: 0;">
-<div class="span6 sidebar" style="padding-top: 120px;">
+<div class="span6 sidebar">
 <?php $user = Auth::user(); ?>
 
 
@@ -70,8 +70,7 @@
 
 <ul class="welcome-message user-not-null-links">
   <li><a href="{{URL::to('setting')}}" role="menuitem" tab-index="-1"><span class="rulycon-cog"></span>Pengaturan
-      Akun</a></li>
-  <li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span
+      Akun</a></li><li><a role="menuitem" tab-index="-1" href="{{URL::action('LoginController@signout')}}"><span
         class="rulycon-exit"></span>Keluar</a></li>
 </ul>
 @else

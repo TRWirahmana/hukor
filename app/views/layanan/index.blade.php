@@ -67,6 +67,11 @@
 </div>
 <!--rightpanel-->
 
+<!-- dialog box -->
+<div id="dialog" title="Hapus Menu" style="display: none;">
+    <p>Apakah Anda Yakin?</p>
+</div>
+
 @stop
 
 @section('scripts')

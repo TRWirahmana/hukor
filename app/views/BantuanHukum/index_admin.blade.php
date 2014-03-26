@@ -133,6 +133,10 @@
 
 </div>
 <!--rightpanel-->
+<!-- dialog box -->
+<div id="dialog" title="Hapus Bantuan Hukum" style="display: none;">
+    <p>Apakah Anda Yakin?</p>
+</div>
 
 @section('scripts')
 @parent
@@ -277,6 +281,24 @@
                 fnCallback(json);
             });
         }
+    });
+
+    $("#basictable").on('click', '.btn_delete', function (e) {
+        var delkodel = $(this);
+        $('#dialog').dialog({
+            width: 500,
+            modal: true,
+            buttons: {
+                "Hapus" : function(){
+                    window.location.replace(delkodel.attr('href'));
+                    $(this).dialog("close");
+                },
+                "Batal" : function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
+        e.preventDefault();
     });
 
     jQuery("#jenis-perkara").change(function(){

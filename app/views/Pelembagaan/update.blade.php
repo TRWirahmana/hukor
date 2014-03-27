@@ -94,19 +94,19 @@
                 <!--   <a href= {{ URL::asset('assets/uploads/pelembagaan/' . $pelembagaan->lampiran ); }} > {{ $pelembagaan->lampiran}} </a>  -->
               </div>
             </div>
-            <div class="control-group">
-              <div class="controls">
-                {{ Form::submit('Kirim', array('id' => 'kirim_btn', 'class' => 'btn btn-primary', 'style'=>'float: left'))
-                }}
-                <input class='btn btn-primary' style='float: left; margin: 0 0 0 8px;' Type="button" value="Batal"
-                       onClick="history.go(-1);return true;">
+              <div class="control-group">
+                  <input class='btn btn-primary'  style="margin-left: 10px;" Type="button" value="Batal"
+                         onClick="history.go(-1);return true;">
+                  {{ Form::submit('Simpan', array('id' => 'kirim_btn', 'class' => 'btn btn-primary'))
+                  }}
               </div>
-            </div>
+
           </fieldset>
 
           <br/>
           <br/>
         </div>
+
 
         <div class="span6">
           <fieldset>

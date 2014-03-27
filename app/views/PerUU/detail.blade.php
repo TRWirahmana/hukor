@@ -153,31 +153,93 @@
 
 
 
-<!--    <div class="row-fluid">-->
-<!--    <div class="span24">-->
-<!--        <table id="tbl-log">-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--                <th>Tgl Proses</th>-->
-<!--                <th>Status</th>-->
-<!--                <th>Catatan</th>-->
-<!--                <th>Lampiran</th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tbody></tbody>-->
-<!--        </table>-->
-<!--    </div>-->
-<!--</div>-->
-<!---->
-<!--<style>-->
-<!--    table.dataTable tr td:nth-child(2) {-->
-<!--        text-align: center;-->
-<!--    }-->
-<!--</style>-->
+    <div class="row-fluid">
+    <div class="span24">
+        <table id="tbl-log">
+            <thead>
+            <tr>
+                <th>Tgl Proses</th>
+                <th>Status</th>
+                <th>Catatan</th>
+                <th>Lampiran</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    table.dataTable tr td:nth-child(2) {
+        text-align: center;
+    }
+</style>
 
 <hr/>
 
+
+    @stop
+    @section('scripts')
+    @parent
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $tblLog = $("#tbl-log").dataTable({
+                bServerSide: true,
+                sAjaxSource: document.location.href,
+                bFilter: false,
+                bInfo: false,
+                bSort: false,
+                bLengthChange: false,
+                iDisplayLength: 5,
+                aoColumns: [
+                    {
+                        mData: "tgl_proses",
+                        mRender: function (data) {
+                            return $.datepicker.formatDate("dd M yy", new Date(Date.parse(data)));
+                        }
+                    },
+                    {
+                        mData: "status",
+                        mRender: function (data) {
+                            switch (parseInt(data)) {
+                                case 1:
+
+                                    return "Diproses";
+                                    break;
+                                case 2:
+                                    return "Ditunda";
+                                    break;
+                                case 3:
+                                    return "Ditolak";
+                                    break;
+                                case 4:
+                                    return "Buat salinan";
+                                    break;
+                                case 5:
+                                    return "Penetapan";
+                                    break;
+                                default:
+                                    return " ";
+                                    break;
+                            }
+                            ;
+                        }
+                    },
+                    {mData: "catatan"},
+                    {
+                        mData: "lampiran",
+                        mRender: function (data, type, full) {
+                            return '<a href="' + baseUrl + '/admin/puu/log/download/' + full.id + '">Unduh</a>';
+                        }
+                    }
+// {mData: "id"}
+                ]
+            });
+        });
+    </script>
     <script>
-        document.getElementById("menu-produk-hukum").setAttribute("class", "active");
+
+        $("#collapse10").css("height", "auto");
+        $("#menu-peruu-informasi").addClass("user-menu-active");
     </script>
     @stop

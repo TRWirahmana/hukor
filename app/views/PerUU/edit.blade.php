@@ -219,7 +219,7 @@
 
   </div>
 </div>
-
+<br>
 <div class="row-fluid">
   <div class="span24">
     <table id="tbl-log">
@@ -277,10 +277,15 @@
     $tblLog = $("#tbl-log").dataTable({
       bServerSide: true,
       sAjaxSource: document.location.href,
-      bFilter: false,
+      bFilter: true,
       bInfo: false,
       bSort: false,
       bLengthChange: false,
+        oLanguage:{
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sSearch":       "Cari:"
+        },
       iDisplayLength: 5,
       aoColumns: [
         {

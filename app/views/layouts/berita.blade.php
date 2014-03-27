@@ -75,13 +75,13 @@
       </div>
       <div class="headerinner">
         <ul class="headmenu pull-right">
+<!--          <li class="odd">
+            <a href="{{URL::to('/')}}">
+              <span class="rulycon-home-2"></span>
+              <span class="headmenu-label" id="berita">Berita</span>
+            </a>
+          </li>-->
           <li class="odd">
-<!--            <a href="{{URL::to('/')}}">-->
-<!--              <span class="rulycon-home-2"></span>-->
-<!--              <span class="headmenu-label" id="berita">Berita</span>-->
-<!--            </a>-->
-          </li>
-          <li>
             <a href="{{URL::to('detailprofile')}}" id="profile">
               <span class="rulycon-profile"></span>
               <span class="headmenu-label">Profil</span>

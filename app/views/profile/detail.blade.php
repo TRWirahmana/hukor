@@ -14,19 +14,8 @@
 @include('flash')
 
 @if($data != null)
-<div id="visi">
-    <legend>
-        Visi
-    </legend>
-    <p><?php echo $data->Visi; ?></p>
-</div>
-<br>
-
-<div id="misi">
-    <legend>
-        Misi
-    </legend>
-    <p><?php echo $data->Misi; ?></p>
+<div id="isi">
+    <p><?php echo $data->isi; ?></p>
 </div>
 <br>
 @if($data->gambar != null)

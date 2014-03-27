@@ -117,7 +117,7 @@
       <li class="dropdown">
         <ul id="app">
           <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}">
-              <span class="rulycon-books"></span> Peraturan Perundang-Undangan</a>
+              <span class="rulycon-notebook"></span> Peraturan Perundang-Undangan</a>
           </li>
           <li id="app_pelembagaan"><a href="{{ URL::route('admin.pelembagaan.index') }}">
               <span class="rulycon-books"></span> Pelembagaan</a>
@@ -138,17 +138,17 @@
       @elseif(3 == $user->role_id)
       <li class="dropdown">
         <ul id="app">
-          <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}"><span class="rulycon-books"></span> Peraturan
+          <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}"><span class="rulycon-notebook"></span> Peraturan
               Perundang-Undangan</a>
 
           </li>
           <li id="app_pelembagaan"><a href="{{ URL::route('admin.pelembagaan.index') }}"><span
-                class="rulycon-books"></span> Pelembagaan</a>
+                class="rulycon-notebook"></span> Pelembagaan</a>
 
           </li>
-          <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-books"></span>
+          <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-notebook"></span>
               Bantuan Hukum</a>
-          <li id="app_ketatalaksanaan"><a href="{{URL::route('admin.sp.index')}}"><span class="rulycon-books"></span>
+          <li id="app_ketatalaksanaan"><a href="{{URL::route('admin.sp.index')}}"><span class="rulycon-notebook"></span>
               Ketatalaksanaan</a>
 <!--            <ul>-->
 <!--              <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>-->
@@ -241,8 +241,7 @@
 <script src="{{asset('assets/js/custom.js')}}"></script>
 <script type="text/javascript">
   jQuery(function ($) {
-
-    $("#news").click(function () {
+    $("#news > a").click(function () {
       $("#info").hide();
       $("#app").hide();
       $("#manage").hide();
@@ -250,7 +249,7 @@
       $("#produk-hukum").hide();
       $("#menu_berita").show();
     });
-    $("#beranda").click(function () {
+    $("#beranda > a").click(function () {
       $("#info").hide();
       $("#app").hide();
       $("#manage").hide();
@@ -258,42 +257,42 @@
       $("#produk-hukum").hide();
       $("#menu_berita").hide();
     });
-    $("#informasi").click(function () {
-      $("#info").show();
+    $("#informasi > a").click(function () {
       $("#app").hide();
       $("#manage").hide();
       $("#manage-menu").hide();
       $("#produk-hukum").hide();
       $("#menu_berita").hide();
+      $("#info").show();
     });
-    $("#ketatalaksanaan").click(function () {
+    $("#ketatalaksanaan > a").click(function () {
       window.location.href = baseURL + "/admin/layananketatalaksanaan/edit_ketatalaksanaan";
     });
-    $("#aplikasi").click(function () {
+    $("#aplikasi > a").click(function () {
       $("#info").hide();
+      $("#manage").hide();
+      $("#menu_berita").hide();
+      $("#produk-hukum").hide();
+      $("#manage-menu").hide();
       $("#app").show();
-      $("#manage").hide();
-      $("#menu_berita").hide();
-      $("#produk-hukum").hide();
-      $("#manage-menu").hide();
     });
-    $("#managemen").click(function () {
+    $("#managemen > a").click(function () {
       $("#info").hide();
       $("#app").hide();
       $("#manage-menu").hide();
+      $("#produk-hukum").hide();
+      $("#menu_berita").hide();
       $("#manage").show();
-      $("#produk-hukum").hide();
-      $("#menu_berita").hide();
     });
-    $("#menu").click(function () {
+    $("#menu > a").click(function () {
       $("#info").hide();
       $("#app").hide();
       $("#manage").hide();
-      $("#manage-menu").show();
       $("#produk-hukum").hide();
       $("#menu_berita").hide();
+      $("#manage-menu").show();
     });
-    $("#produk_hukum").click(function () {
+    $("#produk_hukum > a").click(function () {
       $("#info").hide();
       $("#app").hide();
       $("#manage").hide();

@@ -380,7 +380,7 @@ $allmenu = Menu::all();?>
 
 
 </script>
-<!--<script>
+<script>
   $(document).ready(function() {
     $("<select />", {
       "id": "select-menu-helper"
@@ -423,23 +423,23 @@ $allmenu = Menu::all();?>
     });
 
     // THE MOST COMPLICATED THINGS IN THIS PAGE BEGINS HERE
-    $(".accordion-toggle").each(function() {
+    /*$(".accordion-toggle").each(function() {
       var listOfOptGroup = $(this);
       $("<optgroup />", {
         "label": listOfOptGroup.text()
       }).appendTo("#select-menu-helper");
-    });
+
+      $(".accordion-inner a").each(function() {
+        var listOfLinks = $(this);
+        $("<option />", {
+          "value": listOfLinks.attr("href"),
+          "text": listOfLinks.text()
+        }).appendTo("#select-menu-helper");
+      });
+
+    });*/
   });
-</script>-->
-<!--<script>
-  $(document).ready(function() {
-    var fuckThemAll = [];
-    $(".accordion-toggle").each(function() {
-      fuckThemAll.push($(this).text());
-    });
-    alert(fuckThemAll);
-  });
-</script>-->
+</script>
 @show
 </body>
 </html>

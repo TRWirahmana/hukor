@@ -106,25 +106,25 @@
                     {
                         mData: "advokasi",
                         sClass: "center",
-                        mRender: function(id){
-                            var advokasi;
-                            switch (id){
-                                case 1:
-                                    advokasi = "Bankum I";
-                                    break;
-                                case 2:
-                                    advokasi = "Bankum II";
-                                    break;
-                                case 3:
-                                    advokasi = "Bankum III";
-                                    break;
-                                default:
-                                    advokasi = "";
-                                    break;
-                            }
-
-                            return advokasi;
-                        }
+//                        mRender: function(id){
+//                            var advokasi;
+//                            switch (id){
+//                                case 1:
+//                                    advokasi = "Bankum I";
+//                                    break;
+//                                case 2:
+//                                    advokasi = "Bankum II";
+//                                    break;
+//                                case 3:
+//                                    advokasi = "Bankum III";
+//                                    break;
+//                                default:
+//                                    advokasi = "";
+//                                    break;
+//                            }
+//
+//                            return advokasi;
+//                        }
                     },
 //                    {mData: "advokator"},
                     {

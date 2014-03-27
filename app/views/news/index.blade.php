@@ -29,7 +29,7 @@
 <?php $f = 4; ?>
 <!-- News Feed -->
 <div class="row-fluid">
-  <div class="container" style="box-shadow: 0 1px 2px rgba(0, 0, 0, .25); width: 960px;">
+  <div class="container" id="carousel-wrapper" style="box-shadow: 0 1px 2px rgba(0, 0, 0, .25); width: 960px;">
     <div id="main-carousel" class="carousel slide">
       <div class="carousel-indicators">
           <?php $x = 0;

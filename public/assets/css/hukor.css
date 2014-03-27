@@ -284,6 +284,7 @@ legend {
 }
 #logo-wrapper h4 > span:first-child {
   font-size: 16px;
+  display: block;
 }
 #welcome-message {
   padding: 20px 20px 10px;
@@ -560,4 +561,125 @@ select option{
     border-bottom: solid #DDDDDD;
 }
 
+.ui-dialog {
+  background: url("../images/bg1.png") repeat;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .55);
+}
 
+.ui-draggable .ui-dialog-titlebar {
+  background: #0A3E6E;
+  border: none;
+  border-radius: 0;
+}
+
+.ui-dialog .ui-dialog-title {
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
+  padding: 4px 0;
+}
+
+.ui-dialog .ui-dialog-content {
+  padding: 12px 24px;
+  font-size: 13px;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+  background: transparent;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+  background: #0e5ba1;
+  color: #ffffff;
+  border: none;
+  padding: 4px 12px;
+}
+
+.ui-dialog .ui-dialog-buttonpane button:last-child {
+  background: #FF7200;
+}
+
+.ui-dialog-titlebar-close {
+  display: none;
+}
+
+body.main-layout {
+  background: none;
+}
+
+
+
+
+/* =================================== */
+/* -----===== MEDIA QUERIES =====----- */
+/* =================================== */
+
+@media screen and (max-width: 1180px) {
+  .mainwrapper .leftpanel #user-links > a {
+    width: 100%;
+    margin-bottom: 2px;
+    padding: 4px 12px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .main-layout .topbar {
+    display: none;
+  }
+  .mainwrapper .header {
+    position: fixed;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 64px;
+    z-index: 1988;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .35);
+  }
+  .mainwrapper .header #main-menu {
+    margin: 0;
+  }
+  .mainwrapper .header #main-menu > li {
+    display: inline-block;
+    float: left;
+    width: 16.666666666666666666666666666667%;
+  }
+  #main-menu > li > a {
+    padding: 10px 4px 12px;
+  }
+  .leftpanel #logo-wrapper > img, .rightpanel > .breadcrumbs {
+    margin-top: 64px !important;
+  }
+  .mainwrapper .leftpanel {
+    width: 30%;
+  }
+  .mainwrapper .rightpanel {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  #logo-wrapper > img {
+    width: 48px;
+  }
+  #logo-wrapper h4 > span {
+    font-size: 11px;
+  }
+  #logo-wrapper h4 > span:first-child {
+    font-size: 14px;
+  }
+  .rightpanel .pagetitle > h1 {
+    font-size: 24px;
+  }
+  .rightpanel .pageheader {
+    min-height: inherit;
+    padding: 6px 20px 12px;
+  }
+  .rightpanel .pageicon {
+    font-size: 18px;
+    padding: 6px 0;
+  }
+}

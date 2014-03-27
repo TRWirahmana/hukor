@@ -10,6 +10,17 @@
   transition: all .2s ease-out !important;
 }
 
+::selection {
+  background: #2875A8;
+  color: #ffffff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+}
+::-moz-selection {
+  background: #2875A8;
+  color: #ffffff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+}
+
 /* RESETTER TEMPLATE - DON'T YOU DARE TO TOUCH THESE BLOCK */
 html, body, .mainwrapper, .mainwrapper .header,
 .mainwrapper .leftpanel, .mainwrapper .rightpanel {
@@ -419,6 +430,9 @@ table.dataTable tbody tr.odd td.sorting_1,
 table.dataTable tbody tr.even td.sorting_1 {
   background: rgba(40, 117, 168, .15);
 }
+table.dataTable tbody tr td:last-child {
+  text-align: center;
+}
 .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter {
   float: none;
   text-align: left;
@@ -683,3 +697,20 @@ body.main-layout {
     padding: 6px 0;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .dataTables_wrapper {
+    margin-top: 42px;
+  }
+  .dataTables_filter {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 604px) {
+  .dataTables_wrapper .dataTables_filter {
+    top: 8px;
+  }
+}
+

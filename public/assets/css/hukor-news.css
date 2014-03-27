@@ -35,6 +35,17 @@ p {
   background: #333333;
 }*/
 
+::selection {
+  background: #2875A8;
+  color: #ffffff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+}
+::-moz-selection {
+  background: #2875A8;
+  color: #ffffff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+}
+
 /* HUKOR NEWS CUSTOM LAYOUT */
 .container {
   -moz-box-sizing: border-box;
@@ -1152,7 +1163,8 @@ p {
   }
   .headerinner .headmenu > li {
     display: inline-block;
-    width: 14.285714285714285714285714285714%;
+    /*width: 14.285714285714285714285714285714%;*/
+    width: 16.6%;
   }
   .headmenu > li > a, .headmenu > li.odd > a {
     padding: 18px 6px;

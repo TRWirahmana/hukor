@@ -18,7 +18,7 @@ class PeruuController extends BaseController
 
 		if(Auth::user()->role_id == 2 || Auth::guest()) {
 			$this->layout = View::make('layouts.master', array('allmenu' => $all));
-			$this->layout->content = View::make('PerUU.informasi');    
+			$this->layout->content = View::make('PerUU.informasi', array('role_id' => $roleId));
 		} else {
 			$this->layout = View::make('layouts.admin');
 			$this->layout->content = View::make('PerUU.index');    

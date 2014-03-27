@@ -14,7 +14,7 @@
         <!--        </form>-->
       <div class="pageicon"><span class="rulycon-notebook"></span></div>
       <div class="pagetitle">
-        <h1>Sistem dan Prosedur</h1>
+        <h1 class="titlez">Sistem dan Prosedur</h1>
       </div>
     </div>
     <!--pageheader-->
@@ -27,7 +27,7 @@
             <div class="content-non-title">
                 <form id="form-filter" class="form form-horizontal" 
                     action="{{URL::route('admin.sp.printTable')}}">
-                    <fieldset>
+                    <fieldset style="margin-bottom: 48px;">
                         <legend class="f_legend">Filter</legend>
                         <div class="row-fluid">
                             <div class="span6">
@@ -367,6 +367,7 @@
                             }
                         }
                     });
+                    $(".titlez").html("Sistem dan Prosedur");
                 }else if(jenis_usul == 2){
 // datatable
                     $dataTable = $("#tbl-per-uu").dataTable({
@@ -471,6 +472,7 @@
                             }
                         }
                     });
+                    $(".titlez").html("Analisis Jabatan");
                 }
 //
 
@@ -515,7 +517,7 @@
 </div>
 
 <script>
-  jQuery("#app_ketatalaksanaan > ul > li:first-child > a").addClass("sub-menu-active");
+  jQuery("#app_ketatalaksanaan > a").addClass("sub-menu-active");
   jQuery("#app, #app_ketatalaksanaan > ul").css({
     "display": "block",
     "visibility": "visible"

@@ -201,7 +201,7 @@
                                     return "Penetapan";
                                     break;
                                 default:
-                                    return " ";
+                                    return "Belum Diproses ";
                                     break;
                             }
                             ;

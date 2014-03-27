@@ -113,7 +113,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                                         return "Penetapan";
                                         break;
                                     default:
-                                        return " ";
+                                        return "Belum Diproses";
                                         break;
                                 }
                                 ;

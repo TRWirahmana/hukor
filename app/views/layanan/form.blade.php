@@ -152,6 +152,8 @@
                 theme : "modern",
                 mode: "exact",
                 elements : "berita",
+                plugins: "link",
+
                 theme_advanced_toolbar_location : "top",
                 theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,"
                     + "justifyleft,justifycenter,justifyright,justifyfull,formatselect,"

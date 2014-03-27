@@ -17,7 +17,7 @@ class AnalisisJabatanController extends BaseController {
 
 		if(Auth::user()->role_id == 2 || Auth::guest()) {
             $this->layout = View::make('layouts.master', array('allmenu' => $all));
-			$this->layout->content = View::make('AnalisisJabatan.index_user');    
+			$this->layout->content = View::make('AnalisisJabatan.index_user', array('role_id' => $roleId));
 		} else {
 			$this->layout = View::make('layouts.admin');
 			$this->layout->content = View::make('AnalisisJabatan.index_admin');    

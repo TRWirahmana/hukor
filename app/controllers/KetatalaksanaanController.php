@@ -7,7 +7,15 @@ class KetatalaksanaanController extends BaseController
 
     public function index()
     {
-        $this->layout->content = View::make('ketatalaksanaan.index');
+        $user = Auth::user()->role_id;
+
+        if($user == 2 || $user == null){
+            $this->layout = View::make('layouts.master');
+            $this->layout->content = View::make('ketatalaksanaan.index_user');
+        }else{
+            $this->layout = View::make('layouts.admin');
+            $this->layout->content = View::make('ketatalaksanaan.index');
+        }
     }
 
     public function datatable()
@@ -125,7 +133,13 @@ class KetatalaksanaanController extends BaseController
             return Response::download($path, explode('/', $document->file)[1]);
         }
 
-        return Redirect::to('admin/ketatalaksanaan')->with('error', 'File Tidak Tersedia.');
+        $user = Auth::user()->role_id;
+
+        if($user == 2 || $user == null){
+            return Redirect::to('ketatalaksanaan')->with('error', 'File Tidak Tersedia.');
+        }else{
+            return Redirect::to('admin/ketatalaksanaan')->with('error', 'File Tidak Tersedia.');
+        }
     }
 
 

@@ -14,6 +14,8 @@
 // Login / Logout
 Route::group(array('before' => 'guest'), function() {
     Route::get('BantuanHukum', 'BantuanHukumController@index');
+    Route::get('ketatalaksanaan', 'KetatalaksanaanController@index');
+    Route::get('userketatalaksanaan', 'KetatalaksanaanController@datatable');
     Route::post('Masuk', 'LoginController@signin'); // signin user
     Route::post('SignIn', 'LoginController@signin_admin'); // Registrasi
     Route::post('Reset', 'ForgetPasswordController@reset'); // Reset Password
@@ -29,6 +31,7 @@ Route::group(array('before' => 'guest'), function() {
     Route::get('download_banhuk', 'BantuanHukumController@download');
     Route::get('news/detail', 'NewsController@detail');
     Route::get('download_banhuk', 'BantuanHukumController@download');
+    Route::get('download_ketatalaksanaan/{key}', 'KetatalaksanaanController@downloadLampiran');
 
 
     Route::resource('user', 'UserController');

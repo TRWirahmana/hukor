@@ -294,27 +294,27 @@ $allmenu = Menu::all();?>
   <div class="accordion" id="accordion4">
     <div class="accordion-group">
       <div class="accordion-heading">
-        <a class="accordion-toggle" data-parent="#accordion4" href="{{ URL::to('/layanan/detail?id=4') }}">
+        <a class="accordion-toggle" data-parent="#accordion4" href="{{ URL::to('/ketatalaksanaan') }}">
           <span class="rulycon-drawer-3"></span>Ketatalaksanaan
           <span class="rulycon-menu-2 pull-right"></span>
         </a>
       </div>
-      <div id="collapse12" class="accordion-body collapse">
-        <div class="accordion-inner">
-          <ul>
-            <li id="menu-prosedur-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span
-                  class="rulycon-stack"></span>Informasi</a>
-            </li>
-              @if($user->role_id == 2)
-              <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('sp.create')}}"><span
-                          class="rulycon-stack"></span>Lembar Usulan</a></li>
-              @endif
-            <li id="menu-pelembagaan-informasi2"><a href="{{URL::route('sp.index')}}"><span
-                  class="rulycon-stack"></span>Status Usulan</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+<!--      <div id="collapse12" class="accordion-body collapse">-->
+<!--        <div class="accordion-inner">-->
+<!--          <ul>-->
+<!--            <li id="menu-prosedur-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span-->
+<!--                  class="rulycon-stack"></span>Informasi</a>-->
+<!--            </li>-->
+<!--              @if($user->role_id == 2)-->
+<!--              <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('sp.create')}}"><span-->
+<!--                          class="rulycon-stack"></span>Lembar Usulan</a></li>-->
+<!--              @endif-->
+<!--            <li id="menu-pelembagaan-informasi2"><a href="{{URL::route('sp.index')}}"><span-->
+<!--                  class="rulycon-stack"></span>Status Usulan</a>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
   </div>
 </li>

@@ -683,3 +683,20 @@ body.main-layout {
     padding: 6px 0;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .dataTables_wrapper {
+    margin-top: 42px;
+  }
+  .dataTables_filter {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 604px) {
+  .dataTables_wrapper .dataTables_filter {
+    top: 8px;
+  }
+}
+

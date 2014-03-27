@@ -27,7 +27,7 @@
             <div class="content-non-title">
                 <form id="form-filter" class="form form-horizontal" 
                     action="{{URL::route('admin.sp.printTable')}}">
-                    <fieldset>
+                    <fieldset style="margin-bottom: 48px;">
                         <legend class="f_legend">Filter</legend>
                         <div class="row-fluid">
                             <div class="span6">
@@ -515,7 +515,7 @@
 </div>
 
 <script>
-  jQuery("#app_ketatalaksanaan > ul > li:first-child > a").addClass("sub-menu-active");
+  jQuery("#app_ketatalaksanaan > a").addClass("sub-menu-active");
   jQuery("#app, #app_ketatalaksanaan > ul").css({
     "display": "block",
     "visibility": "visible"

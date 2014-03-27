@@ -65,58 +65,58 @@
       @endif
 
       <!-- Filter -->
-      @if(!empty($user))
-      @if($user->role_id == 3 )
-      <form id="form-filter" class="form form-horizontal" action="{{URL::route('admin.pelembagaan.printTable')}}" style="margin-bottom: 24px;">
-        @else
-        <form id="form-filter" class="form form-horizontal" action="{{URL::route('pelembagaan.printTable')}}" style="margin-bottom: 24px;">
-          @endif
-          <fieldset>
-            <legend class="f_legend"></legend>
-
-            <div class="row-fluid">
-              <div class="span6">
-                <div class="control-group">
-                  <label for="" class="control-label">Tanggal Awal</label>
-
-                  <div class="controls">
-                    <input type="text" id="first-date" name="firstDate">
-                  </div>
-                </div>
-
-                <div class="control-group">
-                  <label for="toDate" class="control-label">Tanggal Akhir</label>
-
-                  <div class="controls">
-                    <input type="text" id="last-date" name="lastDate">
-                  </div>
-                </div>
-              </div>
-              <div class="span6">
-                <div class="control-group">
-                  <label for="select-status" class="control-label">Status</label>
-
-                  <div class="controls">
-                    <select id="select-status" name="status">
-                      <option value="">Semua Status</option>
-                      <option value="0">Belum diproses</option>
-                      <option value="1">Diproses</option>
-                      <option value="2">Dikirim Ke bagian PerUU</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="control-group">
-                  <div class="controls">
-                    <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
-                    <input type="submit" value="Cetak" class="btn btn-primary">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </fieldset>
-        </form>
-          @endif
+<!--      @if(!empty($user))-->
+<!--      @if($user->role_id == 3 )-->
+<!--      <form id="form-filter" class="form form-horizontal" action="{{URL::route('admin.pelembagaan.printTable')}}" style="margin-bottom: 24px;">-->
+<!--        @else-->
+<!--        <form id="form-filter" class="form form-horizontal" action="{{URL::route('pelembagaan.printTable')}}" style="margin-bottom: 24px;">-->
+<!--          @endif-->
+<!--          <fieldset>-->
+<!--            <legend class="f_legend"></legend>-->
+<!---->
+<!--            <div class="row-fluid">-->
+<!--              <div class="span6">-->
+<!--                <div class="control-group">-->
+<!--                  <label for="" class="control-label">Tanggal Awal</label>-->
+<!---->
+<!--                  <div class="controls">-->
+<!--                    <input type="text" id="first-date" name="firstDate">-->
+<!--                  </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="control-group">-->
+<!--                  <label for="toDate" class="control-label">Tanggal Akhir</label>-->
+<!---->
+<!--                  <div class="controls">-->
+<!--                    <input type="text" id="last-date" name="lastDate">-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="span6">-->
+<!--                <div class="control-group">-->
+<!--                  <label for="select-status" class="control-label">Status</label>-->
+<!---->
+<!--                  <div class="controls">-->
+<!--                    <select id="select-status" name="status">-->
+<!--                      <option value="">Semua Status</option>-->
+<!--                      <option value="0">Belum diproses</option>-->
+<!--                      <option value="1">Diproses</option>-->
+<!--                      <option value="2">Dikirim Ke bagian PerUU</option>-->
+<!--                    </select>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="control-group">-->
+<!--                  <div class="controls">-->
+<!--                    <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">-->
+<!--                    <input type="submit" value="Cetak" class="btn btn-primary">-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </fieldset>-->
+<!--        </form>-->
+<!--          @endif-->
 
 
         <br/>

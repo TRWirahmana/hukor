@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php" afterPath="$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php" afterPath="$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php" afterPath="$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/BantuanHukum/index_admin.blade.php" afterPath="$PROJECT_DIR$/app/views/BantuanHukum/index_admin.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,7 +37,7 @@
       <file leaf-file-name="index_admin.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/index_admin.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="169" column="43" selection-start="6451" selection-end="6451" vertical-scroll-proportion="-14.384615" vertical-offset="2499" max-vertical-offset="5814">
+            <state line="170" column="13" selection-start="6474" selection-end="6474" vertical-scroll-proportion="-14.384615" vertical-offset="2516" max-vertical-offset="5814">
               <folding />
             </state>
           </provider>
@@ -42,7 +46,7 @@
       <file leaf-file-name="index.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="60" selection-start="3674" selection-end="3674" vertical-scroll-proportion="0.64285713" vertical-offset="1377" max-vertical-offset="9095">
+            <state line="67" column="9" selection-start="2319" selection-end="4773" vertical-scroll-proportion="0.35714287" vertical-offset="969" max-vertical-offset="9095">
               <folding />
             </state>
           </provider>
@@ -51,7 +55,7 @@
       <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="24" selection-start="2164" selection-end="2181" vertical-scroll-proportion="-6.5384617" vertical-offset="867" max-vertical-offset="3230">
+            <state line="54" column="24" selection-start="1827" selection-end="1844" vertical-scroll-proportion="-6.5384617" vertical-offset="748" max-vertical-offset="3111">
               <folding />
             </state>
           </provider>
@@ -576,7 +580,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/index_admin.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="43" selection-start="6451" selection-end="6451" vertical-scroll-proportion="-14.384615" vertical-offset="2499" max-vertical-offset="5814">
+        <state line="170" column="13" selection-start="6474" selection-end="6474" vertical-scroll-proportion="-14.384615" vertical-offset="2516" max-vertical-offset="5814">
           <folding />
         </state>
       </provider>
@@ -590,14 +594,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="24" selection-start="2164" selection-end="2181" vertical-scroll-proportion="-6.5384617" vertical-offset="867" max-vertical-offset="3230">
+        <state line="54" column="24" selection-start="1827" selection-end="1844" vertical-scroll-proportion="-6.5384617" vertical-offset="748" max-vertical-offset="3111">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="60" selection-start="3674" selection-end="3674" vertical-scroll-proportion="0.64285713" vertical-offset="1377" max-vertical-offset="9095">
+        <state line="67" column="9" selection-start="2319" selection-end="4773" vertical-scroll-proportion="0.35714287" vertical-offset="969" max-vertical-offset="9095">
           <folding />
         </state>
       </provider>

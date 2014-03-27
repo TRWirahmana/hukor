@@ -110,7 +110,7 @@
                     <th>Status Pemohon</th>
                     <th>Status Perkara</th>
                     <th>Advokasi</th>
-                    <th>Advokator</th>
+<!--                    <th>Advokator</th>-->
                     <th></th>
                 </tr>
                 </thead>
@@ -243,7 +243,7 @@
                     return advokasi;
                 }
             },
-            {mData: "advokator", sClass: "center"},
+//            {mData: "advokator", sClass: "center"},
             {
                 mData: "id",
                 mRender: function(data, type, full){

@@ -76,6 +76,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                         {
                             mData: "tgl_usulan",
                             sWidth: "10%",
+                            sClass: "center",
                             mRender: function(data) {
                                 return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
                             }
@@ -95,6 +96,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                         {
                             mData: "status",
                             sWidth: "10%",
+                            sClass: "center",
                             mRender: function(data) {
                                 switch (parseInt(data)) {
                                     case 1:
@@ -161,6 +163,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                         {
                             mData: "tgl_usulan",
                             sWidth: "10%",
+                            sClass: "center",
                             mRender: function(data) {
                                 return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
                             }
@@ -180,6 +183,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                         {
                             mData: "status",
                             sWidth: "10%",
+                            sClass: "center",
                             mRender: function(data) {
                                 switch (parseInt(data)) {
                                     case 1:

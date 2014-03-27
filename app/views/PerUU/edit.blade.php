@@ -296,6 +296,7 @@
         },
         {
           mData: "status",
+            sClass: "center",
           mRender: function (data) {
             switch (parseInt(data)) {
               case 1:
@@ -315,7 +316,7 @@
                 return "Penetapan";
                 break;
               default:
-                return "Belum Diproses ";
+                return "Belum Diproses";
                 break;
             }
             ;

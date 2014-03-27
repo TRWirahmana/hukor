@@ -142,12 +142,13 @@
               Perundang-Undangan</a>
 
           </li>
+            <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-notebook"></span>
+                    Bantuan Hukum</a>
           <li id="app_pelembagaan"><a href="{{ URL::route('admin.pelembagaan.index') }}"><span
                 class="rulycon-notebook"></span> Pelembagaan</a>
 
           </li>
-          <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-notebook"></span>
-              Bantuan Hukum</a>
+
           <li id="app_ketatalaksanaan"><a href="{{URL::route('admin.ketatalaksanaan.index')}}"><span class="rulycon-notebook"></span>
               Ketatalaksanaan</a>
 <!--            <ul>-->

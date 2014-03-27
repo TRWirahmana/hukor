@@ -258,6 +258,7 @@
              */
             {
               mData: "jenis_usulan",
+                sClass: "center",
               mRender: function (data, type, full) {
                 if (null != data && "" != data) {
                   if (data === '1') {
@@ -283,7 +284,7 @@
                   if (data === '1') {
                     return 'proses';
                   } else if (data === '2') {
-                    return 'DiKirim Ke Bag PerUU';
+                    return 'Dikirim ke Bagian PerUU';
                   }
                 }
                 return 'Belum Diproses';
@@ -376,6 +377,7 @@
                    */
                   {
                       mData: "jenis_usulan",
+                      sClass: "center",
                       mRender: function (data, type, full) {
                           if (null != data && "" != data) {
                               if (data == '1') {

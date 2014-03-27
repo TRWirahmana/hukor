@@ -153,6 +153,7 @@
                 oLanguage:{
                     "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                     "sEmptyTable": "Data Kosong",
+                    "sSearch":       "Cari:",
                     "sZeroRecords" : "Pencarian Tidak Ditemukan"
                 },
                 aoColumns: [

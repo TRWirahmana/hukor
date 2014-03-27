@@ -97,9 +97,10 @@
 			</div>
 		</div>
 
-	<div class="form-actions">	
+	<div class="form-actions">
+        <input class='btn btn-primary' Type="button" value="Batal" onClick="history.go(-1);return true;">
 		{{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
-		 <input class='btn btn-primary' Type="button" value="Batal" onClick="history.go(-1);return true;">
+
 	</div>
 
 

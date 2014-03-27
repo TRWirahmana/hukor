@@ -4,15 +4,16 @@
 
 <ul class="breadcrumbs">
   <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-  <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
-  <li>BANTUAN HUKUM</li>
+  <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
+    <li><a href="{{URL::previous()}}">Bantuan Hukum</a> <span class="separator"></span></li>
+  <li>Detail Bantuan Hukum</li>
 </ul>
 @include('adminflash')
 <div class="pageheader">
   <!--        <form action="results.html" method="post" class="searchbar">-->
   <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
   <!--        </form>-->
-  <div class="pageicon">&nbsp;</div>
+    <div class="pageicon"><span class="rulycon-notebook"></span></div>
   <div class="pagetitle">
     <!--<h5>Events</h5>-->
 
@@ -493,5 +494,18 @@
       }
     });
   })
+</script>
+<script>
+    jQuery("#app_bahu > a").addClass("sub-menu-active");
+    jQuery("#app").css({
+        "display": "block",
+        "visibility": "visible"
+    });
+</script>
+
+<script>
+    jQuery(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | Bantuan Hukum"
+    });
 </script>
 @stop

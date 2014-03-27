@@ -14,7 +14,7 @@
 	<div class="row-fluid">
 		<div class="span12">
 			<fieldset>
-	              <legend>Informasi Pengusul</legend>		
+	              <legend>Informasi Penanggung Jawab</legend>
 				<div class="control-group">		
 						{{ Form::label('jenis_usulan', 'Jenis Usulan', array('class' => 'control-label'))}}
 						<div class="controls">
@@ -59,7 +59,7 @@
 					</div>
 
                     <div class="control-group">
-                        {{ Form::label('hp', 'Handphone', array('class' => 'control-label'))}}
+                        {{ Form::label('hp', 'Nomor Handphone', array('class' => 'control-label'))}}
                         <div class="controls">
                             {{ Form::text('hp', null, array('placeholder' => "Masukkan Nomor Handphone...")) }}
                         </div>

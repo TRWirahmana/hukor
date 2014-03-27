@@ -268,8 +268,6 @@
                     return 'Statuta';
                   } else if (data === 4) {
                     return 'Penutupan';
-                  } else {
-                    return 'lain-lain';
                   }
                 }
               }
@@ -288,7 +286,7 @@
                     return 'DiKirim Ke Bag PerUU';
                   }
                 }
-                return 'Belum Di Proses';
+                return 'Belum Diproses';
               }
 
             }
@@ -388,8 +386,6 @@
                                   return 'Statuta';
                               } else if (data === 4) {
                                   return 'Penutupan';
-                              } else {
-                                  return 'lain-lain';
                               }
                           }
                       }
@@ -408,7 +404,7 @@
                                   return 'DiKirim Ke Bag PerUU';
                               }
                           }
-                          return 'Belum Di Proses';
+                          return 'Belum Diproses';
                       }
 
                   },

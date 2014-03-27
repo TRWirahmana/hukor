@@ -260,13 +260,13 @@
               mData: "jenis_usulan",
               mRender: function (data, type, full) {
                 if (null != data && "" != data) {
-                  if (data === 1) {
+                  if (data === '1') {
                     return 'Pendirian';
-                  } else if (data === 2) {
+                  } else if (data === '2') {
                     return 'Perubahan';
-                  } else if (data === 3) {
+                  } else if (data === '3') {
                     return 'Statuta';
-                  } else if (data === 4) {
+                  } else if (data === '4') {
                     return 'Penutupan';
                   }
                 }
@@ -378,13 +378,13 @@
                       mData: "jenis_usulan",
                       mRender: function (data, type, full) {
                           if (null != data && "" != data) {
-                              if (data === 1) {
+                              if (data == '1') {
                                   return 'Pendirian';
-                              } else if (data === 2) {
+                              } else if (data == '2') {
                                   return 'Perubahan';
-                              } else if (data === 3) {
+                              } else if (data == '3') {
                                   return 'Statuta';
-                              } else if (data === 4) {
+                              } else if (data == '4') {
                                   return 'Penutupan';
                               }
                           }

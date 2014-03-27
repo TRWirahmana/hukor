@@ -17,7 +17,7 @@
   <div class="pagetitle">
     <!--<h5>Events</h5>-->
 
-    <h1>PERATURAN PERUNDANG-UNDANGAN</h1>
+    <h1>Detail Usulan</h1>
   </div>
 </div>
 <!--pageheader-->
@@ -290,6 +290,7 @@
       aoColumns: [
         {
           mData: "tgl_proses",
+            sClass: "center",
           mRender: function (data) {
             return $.datepicker.formatDate("dd M yy", new Date(Date.parse(data)));
           }

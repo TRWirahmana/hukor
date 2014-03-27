@@ -408,18 +408,24 @@
 <script type="text/javascript">
   jQuery(function ($) {
     var tbl_data = $("#basictable").dataTable({
-      bFilter: false,
-      bInfo: true,
-      bSort: false,
-      bPaginate: true,
-      bLengthChange: false,
-      bServerSide: true,
-      bProcessing: true,
+        bFilter: true,
+        bInfo: true,
+        bSort: false,
+        bPaginate: true,
+        bLengthChange: true,
+        bServerSide: true,
+        bProcessing: true,
         oLanguage:{
-            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Peraturan",
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
             "sEmptyTable": "Data Kosong",
             "sZeroRecords" : "Pencarian Tidak Ditemukan",
-            "sSearch":       "Cari:"
+            "sSearch":       "Cari:",
+            "sLengthMenu": 'Tampilkan <select>'+
+                '<option value="10">10</option>'+
+                '<option value="25">25</option>'+
+                '<option value="50">50</option>'+
+                '<option value="100">100</option>'+
+                '</select> Usulan'
         },
 //                sAjaxSource: baseUrl + "/lkpm/data",
       sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/tablelog"); ?>',

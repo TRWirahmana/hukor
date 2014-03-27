@@ -27,7 +27,7 @@
             <div class="content-non-title">
                 <form id="form-filter" class="form form-horizontal" action="{{ URL::route('admin.puu.printTable') }}" style="margin-bottom: 48px;">
                     <fieldset>
-                        <legend class="f_legend">Filter</legend>
+                        <legend class="f_legend"></legend>
                         <div class="row-fluid">
                             <div class="span6">
                                 <div class="control-group">
@@ -164,6 +164,7 @@
                     {
                         mData: "tgl_usulan",
                         sWidth: "10%",
+                        sClass: "center",
                         mRender: function(data) {
                             return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
                         }

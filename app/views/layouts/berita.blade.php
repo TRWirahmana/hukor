@@ -75,36 +75,40 @@
       </div>
       <div class="headerinner">
         <ul class="headmenu pull-right">
-<!--          <li class="odd">
-            <a href="{{URL::to('/')}}">
-              <span class="rulycon-home-2"></span>
-              <span class="headmenu-label" id="berita">Berita</span>
-            </a>
-          </li>-->
+         <li class="odd">
+<!--            <a href="{{URL::to('/')}}">-->
+<!--              <span class="rulycon-home-2"></span>-->
+<!--              <span class="headmenu-label" id="berita">Berita</span>-->
+<!--            </a>-->
+          </li>
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" id="aplikasi">
+                    <span class="rulycon-drawer-3"></span>
+                    <span class="headmenu-label">Aplikasi</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" id="informasi">
+                    <span class="rulycon-notebook"></span>
+                    <span class="headmenu-label">Informasi</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{URL::to('produkhukum')}}" id="produk_hukum">
+                    <span class="rulycon-books"></span>
+                    <span class="headmenu-label">Peraturan</span>
+                </a>
+            </li>
+
           <li class="odd">
             <a href="{{URL::to('detailprofile')}}" id="profile">
               <span class="rulycon-profile"></span>
               <span class="headmenu-label">Profil</span>
             </a>
           </li>
-          <li>
-            <a class="dropdown-toggle" data-toggle="dropdown" id="informasi">
-              <span class="rulycon-notebook"></span>
-              <span class="headmenu-label">Informasi</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-toggle" data-toggle="dropdown" id="aplikasi">
-              <span class="rulycon-drawer-3"></span>
-              <span class="headmenu-label">Aplikasi</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{URL::to('produkhukum')}}" id="produk_hukum">
-              <span class="rulycon-books"></span>
-              <span class="headmenu-label">Peraturan</span>
-            </a>
-          </li>
+
           <li>
             <a href="#" id="forum_diskusi">
               <span class="rulycon-bubbles-2"></span>

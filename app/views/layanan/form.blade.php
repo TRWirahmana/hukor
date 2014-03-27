@@ -39,7 +39,7 @@
                             <div class="control-group">
                                 {{ Form::label('menu', 'Pilih Menu', array('class' => 'control-label')) }}
                                 <div class="controls">
-                                    {{ Form::select('layanan[menu]', $listMenu, $menu->submenu->menu->id , array("id" => "menu")) }}
+                                    {{ Form::select('layanan[menu]', $listMenu, $menu->menu->id , array("id" => "menu")) }}
                                 </div>
                             </div>
 

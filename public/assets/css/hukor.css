@@ -430,6 +430,9 @@ table.dataTable tbody tr.odd td.sorting_1,
 table.dataTable tbody tr.even td.sorting_1 {
   background: rgba(40, 117, 168, .15);
 }
+table.dataTable tbody tr td:last-child {
+  text-align: center;
+}
 .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter {
   float: none;
   text-align: left;

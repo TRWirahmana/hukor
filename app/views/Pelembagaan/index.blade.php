@@ -286,7 +286,7 @@
                     return 'DiKirim Ke Bag PerUU';
                   }
                 }
-                return 'Belum Di Proses';
+                return 'Belum Diproses';
               }
 
             }
@@ -404,7 +404,7 @@
                                   return 'DiKirim Ke Bag PerUU';
                               }
                           }
-                          return 'Belum Di Proses';
+                          return 'Belum Diproses';
                       }
 
                   },

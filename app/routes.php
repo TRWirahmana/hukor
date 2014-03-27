@@ -135,6 +135,16 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::resource('profile', 'ProfileController');
     Route::post('saveprofile', 'ProfileController@save');
     Route::post('updateprofile', 'ProfileController@update');
+
+    //Managemen Ketatalaksanaan
+    Route::resource('ketatalaksanaan', 'KetatalaksanaanController');
+    Route::post('saveketatalaksanaan', 'KetatalaksanaanController@store');
+    Route::post('updateprofile', 'KetatalaksanaanController@update');
+    Route::get('tableketatalaksanaan', 'KetatalaksanaanController@datatable');
+    Route::get('addketatalaksanaan', 'KetatalaksanaanController@create');
+    Route::get('editketatalaksanaan/{key}', 'KetatalaksanaanController@edit');
+    Route::get('deleteketatalaksanaan/{key}', 'KetatalaksanaanController@delete');
+    Route::get('downloadketatalaksanaan/{key}', 'KetatalaksanaanController@downloadLampiran');
 });
 
 

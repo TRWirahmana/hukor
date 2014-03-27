@@ -124,7 +124,7 @@
           </li>
           <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-books"></span>
               Bantuan Hukum</a>
-          <li id="app_ketatalaksanaan"><a href="{{URL::route('admin.sp.index')}}"><span class="rulycon-books"></span>
+          <li id="app_ketatalaksanaan"><a href="{{URL::route('admin.ketatalaksanaan.index')}}"><span class="rulycon-books"></span>
               Ketatalaksanaan</a>
 <!--            <ul>-->
 <!--              <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>-->
@@ -148,7 +148,7 @@
           </li>
           <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-notebook"></span>
               Bantuan Hukum</a>
-          <li id="app_ketatalaksanaan"><a href="{{URL::route('admin.sp.index')}}"><span class="rulycon-notebook"></span>
+          <li id="app_ketatalaksanaan"><a href="{{URL::route('admin.ketatalaksanaan.index')}}"><span class="rulycon-notebook"></span>
               Ketatalaksanaan</a>
 <!--            <ul>-->
 <!--              <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>-->

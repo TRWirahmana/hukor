@@ -14,13 +14,16 @@
 @include('flash')
 
 @if($data != null)
+@if($data->gambar != null)
+<div style="text-align: center;">
+    {{ HTML::image('assets/uploads/profile/' . $data->gambar) }}
+</div>
+<br>
+@endif
+
 <div id="isi">
     <p><?php echo $data->isi; ?></p>
 </div>
-<br>
-@if($data->gambar != null)
-{{ HTML::image('assets/uploads/profile/' . $data->gambar) }}
-@endif
 
 <!--    Load Image-->
 @endif

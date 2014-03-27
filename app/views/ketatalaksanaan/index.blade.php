@@ -102,6 +102,7 @@
             },
             {
                 mData: "produk",
+                sWidth: "29%",
                 mRender: function(data, type, full){
                     switch (data)
                     {
@@ -128,10 +129,11 @@
             },
             {
                 mData: "unit",
-                sClass: "center"
+                sWidth: "60%"
             },
             {
                 mData: "id",
+                sWidth: "10%",
                 mRender: function(data, type, full){
                     var updateUrl = "<?php echo URL::to('admin/editketatalaksanaan'); ?>" + "/" + data;
                     var downloadUrl = "<?php echo URL::to('admin/downloadketatalaksanaan'); ?>" + "/" + data;

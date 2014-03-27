@@ -14,7 +14,7 @@
         <!--        </form>-->
       <div class="pageicon"><span class="rulycon-notebook"></span></div>
       <div class="pagetitle">
-        <h1>Sistem dan Prosedur</h1>
+        <h1 class="titlez">Sistem dan Prosedur</h1>
       </div>
     </div>
     <!--pageheader-->
@@ -367,6 +367,7 @@
                             }
                         }
                     });
+                    $(".titlez").html("Sistem dan Prosedur");
                 }else if(jenis_usul == 2){
 // datatable
                     $dataTable = $("#tbl-per-uu").dataTable({
@@ -471,6 +472,7 @@
                             }
                         }
                     });
+                    $(".titlez").html("Analisis Jabatan");
                 }
 //
 

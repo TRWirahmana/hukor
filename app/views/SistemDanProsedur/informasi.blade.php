@@ -253,7 +253,7 @@
                      }
                  });
 
-                 $(".stats").html("Status Usulan Sistem Prosedur");
+                 $(".stats").html("Status Usulan Sistem dan Prosedur");
              }
              if(jenis_usul == 2){
                  $dataTable = $("#tbl-sistem-dan-prosedur").dataTable({

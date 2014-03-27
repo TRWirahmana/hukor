@@ -230,7 +230,7 @@
         <div id="footer-menu-aplikasi" style="display: none">
           <ul class="footer-menu">
             <li>Peraturan Perundang-undangan</li>
-            <li><a href="{{ URL::to('/layanan/detail?id=1') }}"></a>Peraturan Perundang-undangan</li>
+            <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Peraturan Perundang-undangan</a></li>
             <li><a href="{{URL::route('per_uu.informasi')}}">Informasi dan Status Usulan</a></li>
           </ul>
           <ul class="footer-menu">

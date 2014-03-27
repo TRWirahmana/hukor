@@ -205,7 +205,7 @@
 </script>
 
 <script>
-    jQuery("#app_bahu > a").addClass("sub-menu-active");
+    jQuery("#app_ketatalaksanaan > a").addClass("sub-menu-active");
     jQuery("#app").css({
         "display": "block",
         "visibility": "visible"
@@ -214,7 +214,7 @@
 
 <script>
     jQuery(document).on("ready", function() {
-        document.title = "Layanan Biro Hukum dan Organisasi | Bantuan Hukum"
+        document.title = "Layanan Biro Hukum dan Organisasi | Ketatalaksanaan"
     });
 </script>
 @stop

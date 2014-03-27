@@ -115,8 +115,8 @@
 </script>
 
 <script>
-    jQuery("#produk-hukum > li:last-child").addClass("sub-menu-active");
-    jQuery("#produk-hukum").css({
+    jQuery("#app_ketatalaksanaan > a").addClass("sub-menu-active");
+    jQuery("#app").css({
         "display": "block",
         "visibility": "visible"
     });

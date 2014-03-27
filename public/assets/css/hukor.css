@@ -652,12 +652,34 @@ body.main-layout {
   }
   .leftpanel #logo-wrapper > img, .rightpanel > .breadcrumbs {
     margin-top: 64px !important;
-    top: 64px;
   }
   .mainwrapper .leftpanel {
     width: 30%;
   }
   .mainwrapper .rightpanel {
     width: 70%;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  #logo-wrapper > img {
+    width: 48px;
+  }
+  #logo-wrapper h4 > span {
+    font-size: 11px;
+  }
+  #logo-wrapper h4 > span:first-child {
+    font-size: 14px;
+  }
+  .rightpanel .pagetitle > h1 {
+    font-size: 24px;
+  }
+  .rightpanel .pageheader {
+    min-height: inherit;
+    padding: 6px 20px 12px;
+  }
+  .rightpanel .pageicon {
+    font-size: 18px;
+    padding: 6px 0;
   }
 }

@@ -38,7 +38,7 @@ class DAL_Ketatalaksanaan {
         $data->tanggal = ($input['tanggal']) ? $input['tanggal'] : "";
         $data->produk = ($input['produk']) ? $input['produk'] : "";
         $data->unit = ($input['unit']) ? $input['unit'] : "";
-        $data->file = ($input['file_dokumen']) ? $input['file_dokumen']->getClientOriginalName() : "";
+        $data->file = (!empty($input['file_dokumen'])) ? $input['file_dokumen']->getClientOriginalName() : "";
 
         $data->save();
     }
@@ -50,7 +50,7 @@ class DAL_Ketatalaksanaan {
         $data->tanggal = $input['tanggal'];
         $data->produk = $input['produk'];
         $data->unit = $input['unit'];
-        $data->file = ($input['file_dokumen']) ? $input['file_dokumen']->getClientOriginalName() : "";
+        $data->file = (!empty($input['file_dokumen'])) ? $input['file_dokumen']->getClientOriginalName() : "";
 
         $data->save();
     }

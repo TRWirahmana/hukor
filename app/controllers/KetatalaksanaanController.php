@@ -42,15 +42,22 @@ class KetatalaksanaanController extends BaseController
         $helper = new HukorHelper();
 
         //updaload file
-        $filenames = $helper->UploadFile('ketatalaksanaan', $input['file_dokumen']);
-
-        if($filenames)
+        if(!empty($input['file_dokumen']))
         {
-            $DAL->SaveKetatalaksanaan($input); //save ketatalaksanaan
+            $filenames = $helper->UploadFile('ketatalaksanaan', $input['file_dokumen']);
+
+            if($filenames)
+            {
+                $DAL->SaveKetatalaksanaan($input); //save ketatalaksanaan
+            }
+            else
+            {
+                return Redirect::to('admin/ketatalaksanaan')->with('error', 'Lampiran Gagal Disimpan.');
+            }
         }
         else
         {
-            return Redirect::to('admin/ketatalaksanaan')->with('error', 'Lampiran Gagal Disimpan.');
+            $DAL->SaveKetatalaksanaan($input); //save ketatalaksanaan
         }
 
         return Redirect::to('admin/ketatalaksanaan')->with('success', 'Data Berhasil Di Simpan.');
@@ -111,8 +118,14 @@ class KetatalaksanaanController extends BaseController
     public function downloadLampiran($id)
     {
         $document = Ketatalaksanaan::find($id) or App::abort(404);
-        $path = UPLOAD_PATH . DS . 'ketatalaksanaan/' . $document->file;
-        return Response::download($path, explode('/', $document->file)[1]);
+
+        if($document->file != "" || !empty($document->file))
+        {
+            $path = UPLOAD_PATH . DS . 'ketatalaksanaan/' . $document->file;
+            return Response::download($path, explode('/', $document->file)[1]);
+        }
+
+        return Redirect::to('admin/ketatalaksanaan')->with('error', 'File Tidak Tersedia.');
     }
 
 

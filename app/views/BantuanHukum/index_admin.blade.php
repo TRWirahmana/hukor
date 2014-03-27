@@ -236,7 +236,7 @@
                             advokasi = "Bankum III";
                             break;
                         default:
-                            advokasi = "";
+                            advokasi = "Belum Diadvokasi";
                             break;
                     }
 

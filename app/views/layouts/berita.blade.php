@@ -255,7 +255,7 @@
       <div class="span4">
         <div id="footer-image">
           <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
-          <span>Biro Hukum dan Organisasi</span>
+          <span style="margin-top: 7px;">Biro Hukum dan Organisasi</span>
           <p><span>Kementerian Pendidikan Dan Kebudayaan</span>
           <span>Republik Indonesia</span></p>
         </div>

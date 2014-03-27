@@ -110,7 +110,7 @@
       <legend>INFORMASI PENGUSUL</legend>
 
       <div class="control-group">
-        {{ Form::label('nama', 'Nama Penanggung Jawab', array('class' => 'control-label')) }}
+        {{ Form::label('nama', 'Nama Pengusul', array('class' => 'control-label')) }}
         <div class="controls">
           <input type="text" disabled value="{{ $banhuk->pengguna->nama_lengkap }}"/>
         </div>
@@ -305,12 +305,12 @@
         </div>
       </div>
 
-      <div class="control-group">
-        {{ Form::label('advokator', 'Advokator', array('class' => 'control-label')) }}
-        <div class="controls">
-          {{ Form::text('advokator', $banhuk->advokator, array('id' => 'advokator')) }}
-        </div>
-      </div>
+<!--      <div class="control-group">-->
+<!--        {{ Form::label('advokator', 'Advokator', array('class' => 'control-label')) }}-->
+<!--        <div class="controls">-->
+<!--          {{ Form::text('advokator', $banhuk->advokator, array('id' => 'advokator')) }}-->
+<!--        </div>-->
+<!--      </div>-->
 
       <div class="control-group">
         {{ Form::label('status_pemohon', 'Status Pemohon', array('class' => 'control-label')) }}
@@ -375,7 +375,7 @@
     <th>Catatan</th>
     <th>Lampiran</th>
     <th>Advokasi</th>
-    <th>Advokator</th>
+<!--    <th>Advokator</th>-->
     <th></th>
   </tr>
   </thead>
@@ -409,13 +409,19 @@
 <script type="text/javascript">
   jQuery(function ($) {
     var tbl_data = $("#basictable").dataTable({
-      bFilter: false,
-      bInfo: false,
-      bSort: false,
-      bPaginate: true,
-      bLengthChange: false,
-      bServerSide: true,
-      bProcessing: true,
+        bFilter: true,
+        bInfo: true,
+        bSort: false,
+        bPaginate: true,
+        bLengthChange: false,
+        bServerSide: true,
+        bProcessing: true,
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sSearch":       "Cari:"
+        },
 //                sAjaxSource: baseUrl + "/lkpm/data",
       sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/tablelog"); ?>',
       aoColumns: [
@@ -472,7 +478,7 @@
             return advokasi;
           }
         },
-        {mData: "advokator"},
+//        {mData: "advokator"},
         {
           mData: "id",
           mRender: function (data) {

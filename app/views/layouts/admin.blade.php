@@ -117,7 +117,7 @@
       <li class="dropdown">
         <ul id="app">
           <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}">
-              <span class="rulycon-books"></span> Peraturan Perundang-Undangan</a>
+              <span class="rulycon-notebook"></span> Peraturan Perundang-Undangan</a>
           </li>
           <li id="app_pelembagaan"><a href="{{ URL::route('admin.pelembagaan.index') }}">
               <span class="rulycon-books"></span> Pelembagaan</a>
@@ -138,17 +138,17 @@
       @elseif(3 == $user->role_id)
       <li class="dropdown">
         <ul id="app">
-          <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}"><span class="rulycon-books"></span> Peraturan
+          <li id="app_puu"><a href="{{ URL::route('admin.puu.index') }}"><span class="rulycon-notebook"></span> Peraturan
               Perundang-Undangan</a>
 
           </li>
           <li id="app_pelembagaan"><a href="{{ URL::route('admin.pelembagaan.index') }}"><span
-                class="rulycon-books"></span> Pelembagaan</a>
+                class="rulycon-notebook"></span> Pelembagaan</a>
 
           </li>
-          <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-books"></span>
+          <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-notebook"></span>
               Bantuan Hukum</a>
-          <li id="app_ketatalaksanaan"><a href="{{URL::route('admin.sp.index')}}"><span class="rulycon-books"></span>
+          <li id="app_ketatalaksanaan"><a href="{{URL::route('admin.sp.index')}}"><span class="rulycon-notebook"></span>
               Ketatalaksanaan</a>
 <!--            <ul>-->
 <!--              <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>-->

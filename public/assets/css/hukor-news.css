@@ -1239,6 +1239,9 @@ p {
     border-top: none;
     box-shadow: none;
   }
+  .footer .container {
+    padding: 16px 0;
+  }
 }
 
 @media screen and (max-width: 480px) {

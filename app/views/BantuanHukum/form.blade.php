@@ -173,6 +173,7 @@
 
         <div class="row-fluid">
             <div class="span24 text-center">
+                <a href="{{ URL::to('BantuanHukum') }}" class="btn btn-primary">Batal</a>
                 <button class="btn btn-primary" type="submit">Simpan</button>
             </div>
         </div>

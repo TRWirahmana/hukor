@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/PerUU/create.blade.php" afterPath="$PROJECT_DIR$/app/views/PerUU/create.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php" afterPath="$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,15 +32,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="form.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layanan/form.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="3332">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="detail.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -60,6 +53,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="create.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/PerUU/create.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="127" column="32" selection-start="6099" selection-end="6099" vertical-scroll-proportion="-7.8461537" vertical-offset="1955" max-vertical-offset="3621">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -72,7 +74,7 @@
       <file leaf-file-name="form.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="64" selection-start="4104" selection-end="4104" vertical-scroll-proportion="0.61077845" vertical-offset="1122" max-vertical-offset="3468">
+            <state line="175" column="49" selection-start="8403" selection-end="8403" vertical-scroll-proportion="0.33932135" vertical-offset="2805" max-vertical-offset="3485">
               <folding />
             </state>
           </provider>
@@ -117,7 +119,7 @@
       <file leaf-file-name="informasi.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/PerUU/informasi.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="185" column="45" selection-start="7680" selection-end="7680" vertical-scroll-proportion="-3.0769231" vertical-offset="3065" max-vertical-offset="4369">
+            <state line="185" column="45" selection-start="7680" selection-end="7680" vertical-scroll-proportion="6.730769" vertical-offset="3320" max-vertical-offset="4369">
               <folding />
             </state>
           </provider>
@@ -143,7 +145,6 @@
       <list>
         <option value="$PROJECT_DIR$/app/views/ketatalaksanaan/index_user.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/KetatalaksanaanController.php" />
-        <option value="$PROJECT_DIR$/app/views/PerUU/create.blade.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/PeruuController.php" />
         <option value="$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php" />
@@ -156,6 +157,7 @@
         <option value="$PROJECT_DIR$/app/views/PerUU/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/admin.blade.php" />
         <option value="$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/PerUU/create.blade.php" />
         <option value="$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php" />
       </list>
     </option>
@@ -520,13 +522,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/PerUU/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="16" selection-start="692" selection-end="1040" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="3621">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="99" column="52" selection-start="3673" selection-end="3673" vertical-scroll-proportion="-0.20498085" vertical-offset="1790" max-vertical-offset="9044">
@@ -548,13 +543,6 @@
             <element signature="n#style#0;n#textarea#0;n#div#0;n#div#3;n#fieldset#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#fieldset#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/PerUU/informasi.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="45" selection-start="7680" selection-end="7680" vertical-scroll-proportion="-3.0769231" vertical-offset="3065" max-vertical-offset="4369">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -607,9 +595,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/PerUU/informasi.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="185" column="45" selection-start="7680" selection-end="7680" vertical-scroll-proportion="6.730769" vertical-offset="3320" max-vertical-offset="4369">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/PerUU/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="127" column="32" selection-start="6099" selection-end="6099" vertical-scroll-proportion="-7.8461537" vertical-offset="1955" max-vertical-offset="3621">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="64" selection-start="4104" selection-end="4104" vertical-scroll-proportion="0.61077845" vertical-offset="1122" max-vertical-offset="3468">
+        <state line="175" column="49" selection-start="8403" selection-end="8403" vertical-scroll-proportion="0.33932135" vertical-offset="2805" max-vertical-offset="3485">
           <folding />
         </state>
       </provider>

@@ -150,7 +150,7 @@
                 <div class="control-group">
                     {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::textarea('catatan', '', array('id' => 'catatan', 'placeholder' => "Masukkan Deskripsi...")) }}
+                        {{ Form::textarea('catatan', '', array('id' => 'catatan', 'placeholder' => "Masukkan Catatan...")) }}
                     </div>
                 </div>
 

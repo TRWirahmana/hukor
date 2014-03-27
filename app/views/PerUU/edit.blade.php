@@ -132,7 +132,7 @@
       <div class="control-group">
         <label for="" class="control-label">Perihal</label>
 
-        <div class="controls"><input type="text" disabled="" value="{{ $perUU->perihal }}"></div>
+        <div class="controls"><textarea disabled="">{{ $perUU->perihal }}</textarea></div>
       </div>
       <div class="control-group">
         <label for="" class="control-label">Lampiran</label>
@@ -165,6 +165,11 @@
           @endif
         </div>
       </div>
+        <div class="control-group">
+            <a href="{{ URL::route('admin.puu.index') }}" class="btn btn-primary">Batal</a>
+            {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
+
+        </div>
     </fieldset>
   </div>
   <div class="span6">
@@ -185,10 +190,10 @@
         </div>
       </div>
       <div class="control-group">
-        {{ Form::label('catatan', 'Deskripsi', array('class' => 'control-label')) }}
+        {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
         <div class="controls">
           {{
-          Form::textarea('catatan', null, array('rows' => 2, 'placeholder' => 'Masukan deskripsi usulan...'))
+          Form::textarea('catatan', null, array('rows' => 2, 'placeholder' => 'Masukan Catatan...'))
           }}
         </div>
       </div>
@@ -208,6 +213,7 @@
           }}
         </div>
       </div>
+
 
     </fieldset>
 
@@ -238,10 +244,7 @@
 
 <hr/>
 
-<div class="row-fluid text-center">
-  <a href="{{ URL::route('admin.puu.index') }}" class="btn btn-primary" style="width: 200px;">Batal</a>
-  {{ Form::submit('Simpan', array('class' => "btn btn-primary", 'style' => "width: 240px;")) }}
-</div>
+
 {{ Form::close() }}
 
 

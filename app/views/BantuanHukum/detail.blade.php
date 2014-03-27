@@ -251,7 +251,7 @@
         {{ Form::label('uraian', 'Uraian Singkat Mengenai Pokok Persoalan yang Dimohonkan Bantuan Hukum', array('class'
         => 'control-label')) }}
         <div class="controls">
-          <input type="text" disabled value="{{ $banhuk->uraian_singkat }}"/>
+          <textarea disabled style="height: 100px !important;">{{ $banhuk->uraian_singkat }} </textarea>
         </div>
       </div>
     </fieldset>

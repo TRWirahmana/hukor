@@ -85,8 +85,8 @@
                 </div>
 
                 <div class="control-group">
-                    {{ Form::label("per_uu[catatan]", "Deskripsi", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::textarea("per_uu[catatan]", null, array('placeholder' => 'Masukan deskripsi usulan...')) }}</div>
+                    {{ Form::label("per_uu[catatan]", "Catatan", array('class' => 'control-label')) }}
+                    <div class="controls">{{ Form::textarea("per_uu[catatan]", null, array('placeholder' => 'Masukan Catatan...')) }}</div>
                 </div>
 		
 		<div class="control-group">

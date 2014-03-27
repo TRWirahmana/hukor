@@ -18,7 +18,7 @@
             <th>Status Pemohon</th>
 <!--            <th>Status Perkara</th>-->
             <th>Advokasi</th>
-            <th>Advokator</th>
+<!--            <th>Advokator</th>-->
             <th></th>
         </tr>
         </thead>
@@ -85,6 +85,7 @@
                     },
                     {
                         mData: "status_pemohon",
+                        sClass: "center",
                         mRender: function(id){
                             var status_pemohon;
                             switch (parseInt(id)){
@@ -111,6 +112,7 @@
 //                    {mData: "status_perkara"},
                     {
                         mData: "advokasi",
+                        sClass: "center",
                         mRender: function(id){
                             var advokasi;
                             switch (id){
@@ -131,7 +133,7 @@
                             return advokasi;
                         }
                     },
-                    {mData: "advokator"},
+//                    {mData: "advokator"},
                     {
                         mData: "id",
 			       mRender: function(data, type, full){

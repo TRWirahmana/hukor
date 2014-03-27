@@ -72,7 +72,7 @@
         <form id="form-filter" class="form form-horizontal" action="{{URL::route('pelembagaan.printTable')}}" style="margin-bottom: 24px;">
           @endif
           <fieldset>
-            <legend class="f_legend">Filter</legend>
+            <legend class="f_legend"></legend>
 
             <div class="row-fluid">
               <div class="span6">

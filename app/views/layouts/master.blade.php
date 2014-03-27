@@ -250,7 +250,7 @@ $allmenu = Menu::all();?>
                         <li id="menu-bantuan-hukum-info"><a href="{{ URL::to('/layanan/detail?id=3') }}"><span
                                     class="rulycon-stack"></span>Informasi</a></li>
                         @if($user->role_id == 2)
-                        <li id="menu-bantuan-hukum"><a href="{{ URL::route('bantuan_hukum.create') }}"><span
+                        <li id="menu-bantuan-hukum-usul"><a href="{{ URL::route('bantuan_hukum.create') }}"><span
                                     class="rulycon-stack"></span>Lembar Usulan</a></li>
                         @endif
                         <li id="menu-banhuk-informasi"><a href="{{ URL::to('BantuanHukum') }}"><span class="rulycon-stack"></span>Status

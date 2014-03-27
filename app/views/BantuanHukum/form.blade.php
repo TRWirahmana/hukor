@@ -191,4 +191,8 @@
         }).val();
     });
 </script>
+<script>
+    document.getElementById("menu-bantuan-hukum-usul").setAttribute("class", "user-menu-active");
+    document.getElementById("collapse13").style.height = "auto";
+</script>
 @stop

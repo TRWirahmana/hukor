@@ -91,6 +91,7 @@
         oLanguage:{
             "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
             "sEmptyTable": "Data Kosong",
+            "sSearch":       "Cari:",
             "sZeroRecords" : "Pencarian Tidak Ditemukan"
         },
         sAjaxSource: '<?php echo URL::to("admin/tableketatalaksanaan"); ?>',
@@ -137,11 +138,11 @@
                     var deleteUrl = "<?php echo URL::to('admin/deleteketatalaksanaan'); ?>" + "/" + data;
 
                     if(role == 3){
-                        return '<a href="' + downloadUrl + '" title="Unduh"><i class="rulycon-arrow-down "></i></a> &nbsp;' +
-                            '<a href="' + updateUrl + '" title="Ubah"><i class="rulycon-file"></i></a> &nbsp;' +
-                            '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
+                        return '<a href="' + downloadUrl + '" title="Unduh"><i class="icon-download "></i></a> &nbsp;' +
+                            '<a href="' + updateUrl + '" title="Ubah"><i class="icon-file"></i></a> &nbsp;' +
+                            '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="icon-trash"></i></a>';
                     }else{
-                        return '<a href="' + downloadUrl + '" title="Unduh"><i class="rulycon-arrow-down "></i></a> &nbsp;';
+                        return '<a href="' + downloadUrl + '" title="Unduh"><i class="icon-download "></i></a> &nbsp;';
                     }
                 }
             }

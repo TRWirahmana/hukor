@@ -97,9 +97,10 @@
 			</div>
 		</div>
 
-	<div class="form-actions">	
+	<div class="form-actions">
+        <input class='btn btn-primary' Type="button" value="Batal" onClick="history.go(-1);return true;">
 		{{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
-		 <input class='btn btn-primary' Type="button" value="Batal" onClick="history.go(-1);return true;">
+
 	</div>
 
 
@@ -119,5 +120,9 @@
 
 <script type="text/javascript">
     Pelembagaan.Form();
+</script>
+<script>
+    document.getElementById("menu-pelembagaan-usulan").setAttribute("class", "user-menu-active");
+    document.getElementById("collapse11").style.height = "auto";
 </script>
 @stop

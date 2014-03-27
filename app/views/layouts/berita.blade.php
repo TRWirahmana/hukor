@@ -100,7 +100,7 @@
           <li>
             <a href="{{URL::to('produkhukum')}}" id="produk_hukum">
               <span class="rulycon-books"></span>
-              <span class="headmenu-label">Produk Hukum</span>
+              <span class="headmenu-label">Peraturan</span>
             </a>
           </li>
           <li>

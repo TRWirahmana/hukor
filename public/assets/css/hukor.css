@@ -607,6 +607,10 @@ select option{
   display: none;
 }
 
+body.main-layout {
+  background: none;
+}
+
 
 
 
@@ -646,7 +650,7 @@ select option{
   #main-menu > li > a {
     padding: 10px 4px 12px;
   }
-  .mainwrapper .leftpanel, .mainwrapper .rightpanel {
+  .leftpanel #logo-wrapper > img, .rightpanel > .breadcrumbs {
     margin-top: 64px !important;
     top: 64px;
   }

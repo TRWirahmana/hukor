@@ -241,12 +241,7 @@
 <script src="{{asset('assets/js/custom.js')}}"></script>
 <script type="text/javascript">
   jQuery(function ($) {
-
-    $("#news, #informasi, #ketatalaksanaan, #aplikasi, #managemen, #menu, #produk-hukum").click(function() {
-      $(".mainwrapper .leftpanel").css("padding-top", "64px");
-    });
-
-    $("#news").click(function () {
+    $("#news > a").click(function () {
       $("#info").hide();
       $("#app").hide();
       $("#manage").hide();
@@ -254,7 +249,7 @@
       $("#produk-hukum").hide();
       $("#menu_berita").show();
     });
-    $("#beranda").click(function () {
+    $("#beranda > a").click(function () {
       $("#info").hide();
       $("#app").hide();
       $("#manage").hide();
@@ -262,7 +257,7 @@
       $("#produk-hukum").hide();
       $("#menu_berita").hide();
     });
-    $("#informasi").click(function () {
+    $("#informasi > a").click(function () {
       $("#app").hide();
       $("#manage").hide();
       $("#manage-menu").hide();
@@ -270,10 +265,10 @@
       $("#menu_berita").hide();
       $("#info").show();
     });
-    $("#ketatalaksanaan").click(function () {
+    $("#ketatalaksanaan > a").click(function () {
       window.location.href = baseURL + "/admin/layananketatalaksanaan/edit_ketatalaksanaan";
     });
-    $("#aplikasi").click(function () {
+    $("#aplikasi > a").click(function () {
       $("#info").hide();
       $("#manage").hide();
       $("#menu_berita").hide();
@@ -281,7 +276,7 @@
       $("#manage-menu").hide();
       $("#app").show();
     });
-    $("#managemen").click(function () {
+    $("#managemen > a").click(function () {
       $("#info").hide();
       $("#app").hide();
       $("#manage-menu").hide();
@@ -289,7 +284,7 @@
       $("#menu_berita").hide();
       $("#manage").show();
     });
-    $("#menu").click(function () {
+    $("#menu > a").click(function () {
       $("#info").hide();
       $("#app").hide();
       $("#manage").hide();
@@ -297,7 +292,7 @@
       $("#menu_berita").hide();
       $("#manage-menu").show();
     });
-    $("#produk_hukum").click(function () {
+    $("#produk_hukum > a").click(function () {
       $("#info").hide();
       $("#app").hide();
       $("#manage").hide();

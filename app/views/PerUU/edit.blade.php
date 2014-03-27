@@ -193,7 +193,7 @@
         {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
         <div class="controls">
           {{
-          Form::textarea('catatan', null, array('rows' => 2, 'placeholder' => 'Masukan deskripsi usulan...'))
+          Form::textarea('catatan', null, array('rows' => 2, 'placeholder' => 'Masukan Catatan...'))
           }}
         </div>
       </div>

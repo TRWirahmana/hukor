@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/SistemDanProsedur/index.blade.php" afterPath="$PROJECT_DIR$/app/views/SistemDanProsedur/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/SistemDanProsedur/informasi.blade.php" afterPath="$PROJECT_DIR$/app/views/SistemDanProsedur/informasi.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/callcenter/index.blade.php" afterPath="$PROJECT_DIR$/app/views/callcenter/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,7 +52,7 @@
       <file leaf-file-name="index.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/callcenter/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="10" selection-start="315" selection-end="326" vertical-scroll-proportion="0.3307393" vertical-offset="0" max-vertical-offset="578">
+            <state line="3" column="118" selection-start="166" selection-end="166" vertical-scroll-proportion="0.09922179" vertical-offset="0" max-vertical-offset="578">
               <folding />
             </state>
           </provider>
@@ -70,7 +70,7 @@
       <file leaf-file-name="berita.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="257" column="39" selection-start="10131" selection-end="10131" vertical-scroll-proportion="-6.4615383" vertical-offset="4201" max-vertical-offset="6443">
+            <state line="257" column="39" selection-start="10122" selection-end="10122" vertical-scroll-proportion="-6.4615383" vertical-offset="4201" max-vertical-offset="6443">
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -667,7 +667,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="257" column="39" selection-start="10131" selection-end="10131" vertical-scroll-proportion="-6.4615383" vertical-offset="4201" max-vertical-offset="6443">
+        <state line="257" column="39" selection-start="10122" selection-end="10122" vertical-scroll-proportion="-6.4615383" vertical-offset="4201" max-vertical-offset="6443">
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -697,7 +697,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/callcenter/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="10" selection-start="315" selection-end="326" vertical-scroll-proportion="0.3307393" vertical-offset="0" max-vertical-offset="578">
+        <state line="3" column="118" selection-start="166" selection-end="166" vertical-scroll-proportion="0.09922179" vertical-offset="0" max-vertical-offset="578">
           <folding />
         </state>
       </provider>

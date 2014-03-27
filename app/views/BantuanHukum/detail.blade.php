@@ -305,12 +305,12 @@
         </div>
       </div>
 
-      <div class="control-group">
-        {{ Form::label('advokator', 'Advokator', array('class' => 'control-label')) }}
-        <div class="controls">
-          {{ Form::text('advokator', $banhuk->advokator, array('id' => 'advokator')) }}
-        </div>
-      </div>
+<!--      <div class="control-group">-->
+<!--        {{ Form::label('advokator', 'Advokator', array('class' => 'control-label')) }}-->
+<!--        <div class="controls">-->
+<!--          {{ Form::text('advokator', $banhuk->advokator, array('id' => 'advokator')) }}-->
+<!--        </div>-->
+<!--      </div>-->
 
       <div class="control-group">
         {{ Form::label('status_pemohon', 'Status Pemohon', array('class' => 'control-label')) }}
@@ -374,7 +374,7 @@
     <th>Catatan</th>
     <th>Lampiran</th>
     <th>Advokasi</th>
-    <th>Advokator</th>
+<!--    <th>Advokator</th>-->
     <th></th>
   </tr>
   </thead>
@@ -409,12 +409,18 @@
   jQuery(function ($) {
     var tbl_data = $("#basictable").dataTable({
       bFilter: false,
-      bInfo: false,
+      bInfo: true,
       bSort: false,
       bPaginate: true,
       bLengthChange: false,
       bServerSide: true,
       bProcessing: true,
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Peraturan",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sSearch":       "Cari:"
+        },
 //                sAjaxSource: baseUrl + "/lkpm/data",
       sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/tablelog"); ?>',
       aoColumns: [
@@ -471,7 +477,7 @@
             return advokasi;
           }
         },
-        {mData: "advokator"},
+//        {mData: "advokator"},
         {
           mData: "id",
           mRender: function (data) {

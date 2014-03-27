@@ -623,4 +623,10 @@ select option{
     display: block;
     width: 100%;
   }
+  .mainwrapper .leftpanel {
+
+  }
+  .mainwrapper .rightpanel {
+
+  }
 }

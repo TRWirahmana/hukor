@@ -1224,8 +1224,12 @@ p {
 }
 
 @media screen and (max-width: 640px) {
-  #carousel-wrapper {
+  /*#carousel-wrapper {
     display: none;
+  }*/
+  #main-carousel .carousel-indicators {
+    display: block;
+    width: 100%;
   }
   #dashboard-left {
     margin-top: 0;

@@ -13,10 +13,10 @@
     <table id="basictable" class="dataTable">
         <thead>
         <tr>
-            <th>Nama Pemohon</th>
+<!--            <th>Nama Pemohon</th>-->
             <th>Jenis Perkara</th>
             <th>Status Pemohon</th>
-            <th>Status Perkara</th>
+<!--            <th>Status Perkara</th>-->
             <th>Advokasi</th>
             <th>Advokator</th>
             <th></th>
@@ -56,7 +56,7 @@
 //                sAjaxSource: baseUrl + "/lkpm/data",
                 sAjaxSource: '<?php echo URL::to("bantuan_hukum/datatable"); ?>',
                 aoColumns: [
-                    {mData: "pengguna.nama_lengkap"},
+//                    {mData: "pengguna.nama_lengkap"},
                     {
                         mData: "jenis_perkara",
                         sClass: "center",
@@ -108,7 +108,7 @@
                             return status_pemohon;
                         }
                     },
-                    {mData: "status_perkara"},
+//                    {mData: "status_perkara"},
                     {
                         mData: "advokasi",
                         mRender: function(id){

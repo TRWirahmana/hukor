@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php" afterPath="$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/berita.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/hukor-news.css" afterPath="$PROJECT_DIR$/public/assets/css/hukor-news.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
@@ -31,6 +32,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="berita.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="35" selection-start="2733" selection-end="2733" vertical-scroll-proportion="-11.884615" vertical-offset="847" max-vertical-offset="6511">
+              <folding>
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="edit.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/PerUU/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -40,10 +52,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="detail.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="433" column="27" selection-start="14113" selection-end="14113" vertical-scroll-proportion="0.1906542" vertical-offset="7259" max-vertical-offset="8976">
+            <state line="433" column="27" selection-start="14113" selection-end="14113" vertical-scroll-proportion="-3.9230769" vertical-offset="7259" max-vertical-offset="8976">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hukor-news.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/hukor-news.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="570" column="8" selection-start="10203" selection-end="10210" vertical-scroll-proportion="0.33208954" vertical-offset="9512" max-vertical-offset="21760">
               <folding />
             </state>
           </provider>
@@ -76,8 +97,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/routes.php" />
-        <option value="$PROJECT_DIR$/app/controllers/PeruuController.php" />
         <option value="$PROJECT_DIR$/app/views/ketatalaksanaan/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/PerUU/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/views/PerUU/informasi.blade.php" />
@@ -92,6 +111,8 @@
         <option value="$PROJECT_DIR$/app/views/PerUU/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php" />
         <option value="$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/hukor-news.css" />
       </list>
     </option>
   </component>
@@ -143,6 +164,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diknasrokum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diknasrokum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diknasrokum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -416,16 +491,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/LayananController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="227" column="26" selection-start="7824" selection-end="7824" vertical-scroll-proportion="1.3093386" vertical-offset="3186" max-vertical-offset="4692" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layanan/form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3332" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/PerUU/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="49" selection-start="1176" selection-end="1176" vertical-scroll-proportion="-7.46507" vertical-offset="4233" max-vertical-offset="5066" />
@@ -515,7 +580,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="433" column="27" selection-start="14113" selection-end="14113" vertical-scroll-proportion="0.1906542" vertical-offset="7259" max-vertical-offset="8976">
+        <state line="433" column="27" selection-start="14113" selection-end="14113" vertical-scroll-proportion="-3.9230769" vertical-offset="7259" max-vertical-offset="8976">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="35" selection-start="2733" selection-end="2733" vertical-scroll-proportion="-11.884615" vertical-offset="847" max-vertical-offset="6511">
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/hukor-news.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="570" column="8" selection-start="10203" selection-end="10210" vertical-scroll-proportion="0.33208954" vertical-offset="9512" max-vertical-offset="21760">
           <folding />
         </state>
       </provider>

@@ -66,7 +66,7 @@
       <div class="logo">
        <a href="{{URL::to('/')}}">
            <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
-           <h4>
+           <h4 style="margin-top: 5px;">
                <span>Biro Hukum dan Organisasi</span>
                <span>Kementerian Pendidikan dan Kebudayaan</span>
                <span>Republik Indonesia</span>
@@ -259,7 +259,7 @@
       <div class="span4">
         <div id="footer-image">
           <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
-          <span style="margin-top: 7px;">Biro Hukum dan Organisasi</span>
+          <span style="margin-top: 6px;">Biro Hukum dan Organisasi</span>
           <p><span>Kementerian Pendidikan Dan Kebudayaan</span>
           <span>Republik Indonesia</span></p>
         </div>

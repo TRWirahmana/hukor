@@ -38,13 +38,13 @@
 //                sAjaxSource: document.location.href,
                 bFilter: true,
                 bInfo: true,
-                bLengthChange: false,
+                bLengthChange: true,
                 oLanguage:{
                     "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                     "sEmptyTable": "Data Kosong",
                     "sSearch":       "Cari:",
                     "sZeroRecords" : "Pencarian Tidak Ditemukan",
-                    "sInfoFiltered": false
+                    "sInfoFiltered": ""
                 },
 //                sAjaxSource: baseUrl + "/lkpm/data",
                 sAjaxSource: '<?php echo URL::to("bantuan_hukum/datatable"); ?>',

@@ -33,7 +33,7 @@
       <file leaf-file-name="index.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="42" selection-start="1495" selection-end="1495" vertical-scroll-proportion="0.4264214" vertical-offset="527" max-vertical-offset="3111">
+            <state line="40" column="35" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.25585285" vertical-offset="527" max-vertical-offset="3111">
               <folding />
             </state>
           </provider>
@@ -595,7 +595,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="42" selection-start="1495" selection-end="1495" vertical-scroll-proportion="0.4264214" vertical-offset="527" max-vertical-offset="3111">
+        <state line="40" column="35" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.25585285" vertical-offset="527" max-vertical-offset="3111">
           <folding />
         </state>
       </provider>

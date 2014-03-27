@@ -78,7 +78,7 @@ class KetatalaksanaanController extends BaseController
 
         // show form with empty model
         $this->layout->content = View::make('ketatalaksanaan.form', array(
-            'title' => 'Pengaturan Link',
+            'title' => 'Ketatalaksanaan',
             'detail' => '',
             'form_opts' => array(
                 'route' => array('admin.ketatalaksanaan.update', $data->id),

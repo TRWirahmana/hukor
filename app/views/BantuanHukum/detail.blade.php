@@ -431,29 +431,29 @@
         {mData: "tanggal",sClass: "center"},
         {
           mData: "status_pemohon",
-          sClass: "center"
-// mRender: function(id){
-//     var status_pemohon;
-//     switch (parseInt(id)){
-//         case 1:
-//             status_pemohon = "Tergugat";
-//             break;
-//         case 2:
-//             status_pemohon = "Penggugat";
-//             break;
-//         case 3:
-//             status_pemohon = "Interfent";
-//             break;
-//         case 4:
-//             status_pemohon = "Saksi";
-//             break;
-//         case 5:
-//             status_pemohon = "Pemohon";
-//             break;
-//     }
+          sClass: "center",
+mRender: function(id){
+     var status_pemohon;
+     switch (parseInt(id)){
+         case 1:
+             status_pemohon = "Tergugat";
+             break;
+         case 2:
+             status_pemohon = "Penggugat";
+             break;
+         case 3:
+             status_pemohon = "Interfent";
+             break;
+         case 4:
+             status_pemohon = "Saksi";
+             break;
+         case 5:
+             status_pemohon = "Pemohon";
+             break;
+     }
 
-//     return status_pemohon;
-// }
+     return status_pemohon;
+}
         },
         {mData: "catatan"},
         {

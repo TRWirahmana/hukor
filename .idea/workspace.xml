@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php" afterPath="$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/PerUU/edit.blade.php" afterPath="$PROJECT_DIR$/app/views/PerUU/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php" afterPath="$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,19 +40,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.blade.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="detail.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="460" column="29" selection-start="14771" selection-end="14771" vertical-scroll-proportion="-7.8461537" vertical-offset="7616" max-vertical-offset="8976">
+            <state line="433" column="27" selection-start="14113" selection-end="14113" vertical-scroll-proportion="0.1906542" vertical-offset="7259" max-vertical-offset="8976">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="update.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="23" selection-start="798" selection-end="798" vertical-scroll-proportion="0.5536398" vertical-offset="0" max-vertical-offset="6171">
+            <state line="17" column="23" selection-start="798" selection-end="798" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="6171">
               <folding />
             </state>
           </provider>
@@ -91,8 +90,8 @@
         <option value="$PROJECT_DIR$/app/views/BantuanHukum/index_admin.blade.php" />
         <option value="$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/PerUU/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php" />
       </list>
     </option>
   </component>
@@ -507,16 +506,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="460" column="29" selection-start="14771" selection-end="14771" vertical-scroll-proportion="-7.8461537" vertical-offset="7616" max-vertical-offset="8976">
+        <state line="17" column="23" selection-start="798" selection-end="798" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="6171">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="23" selection-start="798" selection-end="798" vertical-scroll-proportion="0.5536398" vertical-offset="0" max-vertical-offset="6171">
+        <state line="433" column="27" selection-start="14113" selection-end="14113" vertical-scroll-proportion="0.1906542" vertical-offset="7259" max-vertical-offset="8976">
           <folding />
         </state>
       </provider>

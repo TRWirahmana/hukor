@@ -110,7 +110,7 @@
       <legend>INFORMASI PENGUSUL</legend>
 
       <div class="control-group">
-        {{ Form::label('nama', 'Nama Penanggung Jawab', array('class' => 'control-label')) }}
+        {{ Form::label('nama', 'Nama Pengusul', array('class' => 'control-label')) }}
         <div class="controls">
           <input type="text" disabled value="{{ $banhuk->pengguna->nama_lengkap }}"/>
         </div>
@@ -412,20 +412,14 @@
         bInfo: true,
         bSort: false,
         bPaginate: true,
-        bLengthChange: true,
+        bLengthChange: false,
         bServerSide: true,
         bProcessing: true,
         oLanguage:{
             "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
             "sEmptyTable": "Data Kosong",
             "sZeroRecords" : "Pencarian Tidak Ditemukan",
-            "sSearch":       "Cari:",
-            "sLengthMenu": 'Tampilkan <select>'+
-                '<option value="10">10</option>'+
-                '<option value="25">25</option>'+
-                '<option value="50">50</option>'+
-                '<option value="100">100</option>'+
-                '</select> Usulan'
+            "sSearch":       "Cari:"
         },
 //                sAjaxSource: baseUrl + "/lkpm/data",
       sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/tablelog"); ?>',

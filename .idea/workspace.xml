@@ -33,7 +33,7 @@
       <file leaf-file-name="detail.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="428" column="10" selection-start="14116" selection-end="14116" vertical-scroll-proportion="0.8862876" vertical-offset="6746" max-vertical-offset="8993">
+            <state line="112" column="45" selection-start="4108" selection-end="4108" vertical-scroll-proportion="0.42132866" vertical-offset="1663" max-vertical-offset="8891">
               <folding />
             </state>
           </provider>
@@ -351,7 +351,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/ketatalaksanaan/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="0" selection-start="4466" selection-end="4470" vertical-scroll-proportion="-88.26923" vertical-offset="51" max-vertical-offset="3876" />
+        <state line="138" column="0" selection-start="4466" selection-end="4470" vertical-scroll-proportion="-88.26923" vertical-offset="51" max-vertical-offset="3876">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/ketatalaksanaan/form.blade.php">
@@ -439,7 +441,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="428" column="10" selection-start="14116" selection-end="14116" vertical-scroll-proportion="0.8862876" vertical-offset="6746" max-vertical-offset="8993">
+        <state line="112" column="45" selection-start="4108" selection-end="4108" vertical-scroll-proportion="0.42132866" vertical-offset="1663" max-vertical-offset="8891">
           <folding />
         </state>
       </provider>

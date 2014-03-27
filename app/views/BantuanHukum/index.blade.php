@@ -34,24 +34,16 @@
             }).val();
 
             var tbl_data = $("#basictable").dataTable({
+                bServerSide: true,
+//                sAjaxSource: document.location.href,
                 bFilter: true,
                 bInfo: true,
-                bSort: false,
-                bPaginate: true,
-                bLengthChange: true,
-                bServerSide: true,
-                bProcessing: true,
+                bLengthChange: false,
                 oLanguage:{
                     "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                     "sEmptyTable": "Data Kosong",
-                    "sZeroRecords" : "Pencarian Tidak Ditemukan",
                     "sSearch":       "Cari:",
-                    "sLengthMenu": 'Tampilkan <select>'+
-                        '<option value="10">10</option>'+
-                        '<option value="25">25</option>'+
-                        '<option value="50">50</option>'+
-                        '<option value="100">100</option>'+
-                        '</select> Usulan'
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan"
                 },
 //                sAjaxSource: baseUrl + "/lkpm/data",
                 sAjaxSource: '<?php echo URL::to("bantuan_hukum/datatable"); ?>',

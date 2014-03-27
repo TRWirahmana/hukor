@@ -1152,7 +1152,8 @@ p {
   }
   .headerinner .headmenu > li {
     display: inline-block;
-    width: 14.285714285714285714285714285714%;
+    /*width: 14.285714285714285714285714285714%;*/
+    width: 16.6%;
   }
   .headmenu > li > a, .headmenu > li.odd > a {
     padding: 18px 6px;

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/berita.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/berita.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,7 +61,7 @@
       <file leaf-file-name="berita.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="43" selection-start="3902" selection-end="3902" vertical-scroll-proportion="-0.35823753" vertical-offset="1887" max-vertical-offset="6409">
+            <state line="72" column="16" selection-start="2897" selection-end="2897" vertical-scroll-proportion="0.74904215" vertical-offset="833" max-vertical-offset="6443">
               <folding />
             </state>
           </provider>
@@ -723,7 +724,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/berita.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="43" selection-start="3902" selection-end="3902" vertical-scroll-proportion="-0.35823753" vertical-offset="1887" max-vertical-offset="6409">
+        <state line="72" column="16" selection-start="2897" selection-end="2897" vertical-scroll-proportion="0.74904215" vertical-offset="833" max-vertical-offset="6443">
           <folding />
         </state>
       </provider>

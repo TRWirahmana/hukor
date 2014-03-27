@@ -64,20 +64,22 @@
   <div class="header">
     <div class="container">
       <div class="logo">
-        <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
-        <h4>
-          <span>Biro Hukum dan Organisasi</span>
-          <span>Kementerian Pendidikan dan Kebudayaan</span>
-          <span>Republik Indonesia</span>
-        </h4>
+       <a href="{{URL::to('/')}}">
+           <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
+           <h4>
+               <span>Biro Hukum dan Organisasi</span>
+               <span>Kementerian Pendidikan dan Kebudayaan</span>
+               <span>Republik Indonesia</span>
+           </h4>
+       </a>
       </div>
       <div class="headerinner">
         <ul class="headmenu pull-right">
           <li class="odd">
-            <a href="{{URL::to('/')}}">
-              <span class="rulycon-home-2"></span>
-              <span class="headmenu-label" id="berita">Berita</span>
-            </a>
+<!--            <a href="{{URL::to('/')}}">-->
+<!--              <span class="rulycon-home-2"></span>-->
+<!--              <span class="headmenu-label" id="berita">Berita</span>-->
+<!--            </a>-->
           </li>
           <li>
             <a href="{{URL::to('detailprofile')}}" id="profile">

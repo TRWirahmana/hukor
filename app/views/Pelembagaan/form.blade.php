@@ -121,4 +121,8 @@
 <script type="text/javascript">
     Pelembagaan.Form();
 </script>
+<script>
+    document.getElementById("menu-pelembagaan-usulan").setAttribute("class", "user-menu-active");
+    document.getElementById("collapse11").style.height = "auto";
+</script>
 @stop

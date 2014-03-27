@@ -242,6 +242,10 @@
 <script type="text/javascript">
   jQuery(function ($) {
 
+    $("#news, #informasi, #ketatalaksanaan, #aplikasi, #managemen, #menu, #produk-hukum").click(function() {
+      $(".mainwrapper .leftpanel").css("padding-top", "64px");
+    });
+
     $("#news").click(function () {
       $("#info").hide();
       $("#app").hide();
@@ -259,39 +263,39 @@
       $("#menu_berita").hide();
     });
     $("#informasi").click(function () {
-      $("#info").show();
       $("#app").hide();
       $("#manage").hide();
       $("#manage-menu").hide();
       $("#produk-hukum").hide();
       $("#menu_berita").hide();
+      $("#info").show();
     });
     $("#ketatalaksanaan").click(function () {
       window.location.href = baseURL + "/admin/layananketatalaksanaan/edit_ketatalaksanaan";
     });
     $("#aplikasi").click(function () {
       $("#info").hide();
-      $("#app").show();
       $("#manage").hide();
       $("#menu_berita").hide();
       $("#produk-hukum").hide();
       $("#manage-menu").hide();
+      $("#app").show();
     });
     $("#managemen").click(function () {
       $("#info").hide();
       $("#app").hide();
       $("#manage-menu").hide();
-      $("#manage").show();
       $("#produk-hukum").hide();
       $("#menu_berita").hide();
+      $("#manage").show();
     });
     $("#menu").click(function () {
       $("#info").hide();
       $("#app").hide();
       $("#manage").hide();
-      $("#manage-menu").show();
       $("#produk-hukum").hide();
       $("#menu_berita").hide();
+      $("#manage-menu").show();
     });
     $("#produk_hukum").click(function () {
       $("#info").hide();

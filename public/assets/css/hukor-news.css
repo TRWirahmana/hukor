@@ -1157,6 +1157,9 @@ p {
   .headmenu > li > a, .headmenu > li.odd > a {
     padding: 18px 6px;
   }
+  .footer .container {
+    padding: 16px 8px;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -1220,7 +1223,6 @@ p {
 }
 
 @media screen and (max-width: 768px) {
-
 }
 
 @media screen and (max-width: 640px) {
@@ -1238,9 +1240,6 @@ p {
     padding-top: 0;
     border-top: none;
     box-shadow: none;
-  }
-  .footer .container {
-    padding: 16px 0;
   }
 }
 

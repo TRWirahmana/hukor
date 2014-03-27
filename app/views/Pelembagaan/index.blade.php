@@ -56,7 +56,7 @@
         document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Pelembagaan";
       </script>
 
-      <legend>Informasi dan Status</legend>
+      <legend>Status Usulan</legend>
 
       <script>
         document.getElementById("menu-pelembagaan-informasi").setAttribute("class", "user-menu-active");
@@ -228,8 +228,9 @@
 
             {
               mData: "tgl_usulan",
-              sClass: 'center-ac',
+
               sWidth: '14%',
+                sClass: "center",
               mRender: function (data) {
                 return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
               }
@@ -278,6 +279,7 @@
             {
 
               mData: "status",
+                sClass: "center",
               mRender: function (data, type, full) {
                 if (null != data && "" != data) {
                   if (data === '1') {
@@ -347,7 +349,7 @@
 
                   {
                       mData: "tgl_usulan",
-                      sClass: 'center-ac',
+                      sClass: 'center',
                       sWidth: '14%',
                       mRender: function (data) {
                           return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
@@ -397,6 +399,7 @@
                   {
 
                       mData: "status",
+                      sClass: "center",
                       mRender: function (data, type, full) {
                           if (null != data && "" != data) {
                               if (data === '1') {

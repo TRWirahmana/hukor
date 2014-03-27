@@ -3,6 +3,8 @@
 @stop
 @section('admin')
 
+@include('flash')
+
 <div class="rightpanel">
 
     <ul class="breadcrumbs">
@@ -102,22 +104,22 @@
                 mRender: function(data, type, full){
                     switch (data)
                     {
-                        case 1:
+                        case '1':
                             return "Uraian Jabatan";
                             break;
-                        case 2:
+                        case '2':
                             return "Daftar Jabatan";
                             break;
-                        case 3:
+                        case '3':
                             return "Kamus Jabatan";
                             break;
-                        case 4:
+                        case '4':
                             return "Indeks Kepuasan Masyarakat";
                             break;
-                        case 5:
+                        case '5':
                             return "Prosedur Operasional Standard";
                             break;
-                        case 6:
+                        case '6':
                             return "Standard Layanan";
                             break;
                     }

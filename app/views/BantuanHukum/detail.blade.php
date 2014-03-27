@@ -6,7 +6,7 @@
   <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
   <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
     <li><a href="{{URL::previous()}}">Bantuan Hukum</a> <span class="separator"></span></li>
-  <li>Detail Bantuan Hukum</li>
+  <li>Detail Usulan</li>
 </ul>
 @include('adminflash')
 <div class="pageheader">
@@ -17,7 +17,7 @@
   <div class="pagetitle">
     <!--<h5>Events</h5>-->
 
-    <h1>Detail Bantuan Hukum</h1>
+    <h1>Detail Usulan</h1>
   </div>
 </div>
 <!--pageheader-->

@@ -54,6 +54,10 @@ Route::group(array('before' => 'guest'), function() {
         Route::get('tableph', 'ProdukHukumController@datatable');
     });
 
+    Route::group(array("prefix" => "puu"), function(){
+        Route::resource('puu', 'PeruuController');
+    });
+
     //news
     Route::get('news', 'NewsController@index');
     //pelembagaan

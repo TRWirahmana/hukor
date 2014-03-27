@@ -91,9 +91,17 @@ class PeruuController extends BaseController
 
 		$user = Auth::user();
 		$perUU = PerUU::with('Pengguna')->find($id);
-		$this->layout = View::make('layouts.admin');
-		$this->layout->content = View::make('PerUU.edit')
-			->with('perUU', $perUU);
+
+        if($user->role_id == 3){
+            $this->layout = View::make('layouts.admin');
+            $this->layout->content = View::make('PerUU.edit')
+                ->with('perUU', $perUU);
+        }else{
+            $this->layout = View::make('layouts.master');
+            $this->layout->content = View::make('PerUU.detail')
+                ->with('perUU', $perUU);
+        }
+
 	}
 
 	public function update($id)

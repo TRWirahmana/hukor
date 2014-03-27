@@ -253,7 +253,7 @@
 
                     if(role == 3 || role == 8){
                         return '<a href="' + downloadUrl + '" title="Unduh"><i class="icon-download "></i></a> &nbsp;' +
-                            '<a href="' + detailUrl + '" title="Detail"><i class="icon-file"></i></a> &nbsp;' +
+                            '<a href="' + detailUrl + '" title="Detail"><i class="icon-edit"></i></a> &nbsp;' +
                             '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="icon-trash"></i></a>';
                     }else{
                         return '<a href="' + downloadUrl + '" title="Unduh"><i class="icon-download "></i></a> &nbsp;';

@@ -76,6 +76,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                         {
                             mData: "tgl_usulan",
                             sWidth: "10%",
+                            sClass: "center",
                             mRender: function(data) {
                                 return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
                             }
@@ -95,6 +96,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                         {
                             mData: "status",
                             sWidth: "10%",
+                            sClass: "center",
                             mRender: function(data) {
                                 switch (parseInt(data)) {
                                     case 1:
@@ -113,7 +115,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                                         return "Penetapan";
                                         break;
                                     default:
-                                        return " ";
+                                        return "Belum Diproses";
                                         break;
                                 }
                                 ;
@@ -161,6 +163,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                         {
                             mData: "tgl_usulan",
                             sWidth: "10%",
+                            sClass: "center",
                             mRender: function(data) {
                                 return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
                             }
@@ -180,6 +183,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                         {
                             mData: "status",
                             sWidth: "10%",
+                            sClass: "center",
                             mRender: function(data) {
                                 switch (parseInt(data)) {
                                     case 1:
@@ -198,7 +202,7 @@ $("#menu-peraturan-perundangan").addClass("active");
                                         return "Penetapan";
                                         break;
                                     default:
-                                        return " ";
+                                        return "Belum Diproses ";
                                         break;
                                 }
                                 ;
@@ -209,7 +213,8 @@ $("#menu-peraturan-perundangan").addClass("active");
                             sWidth: "8%",
                             mRender: function(data, type, all) {
                                 if(all._role_id != null) {
-                                    return "<a href='"+baseUrl+"/puu/download/" + data + "' title='Unduh'><i class='icon-download'></i></a> ";
+                                    return "<a href='"+baseUrl+"/puu/download/" + data + "' title='Unduh'><i class='icon-download'></i></a> "+
+                                        "<a href='"+baseUrl+"/puu/puu/" + data + "/edit'  title='Ubah'><i class='icon-edit'></i></a>";
                                 }
                                 return "";
                             }

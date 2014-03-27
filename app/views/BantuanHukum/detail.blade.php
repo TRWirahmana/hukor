@@ -355,15 +355,19 @@
         </div>
       </div>
     </fieldset>
-  </div>
-</div>
 
-<div class="row-fluid">
-  <div class="span24 text-center">
-    <button class="btn btn-primary" type="submit">Simpan</button>
-    <a class="btn btn-primary" type="button" href="{{URL::to('admin/bantuan_hukum')}}">Batal</a>
   </div>
+    <div class="row-fluid">
+        <div class="span24">
+            <a class="btn btn-primary" type="button" href="{{URL::to('admin/bantuan_hukum')}}">Batal</a>
+            <button class="btn btn-primary" type="submit">Simpan</button>
+
+        </div>
+    </div>
 </div>
+<br>
+<br>
+
 {{ Form::close() }}
 
 <table id="basictable" class="dataTable">

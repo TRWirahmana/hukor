@@ -428,7 +428,7 @@
 //                sAjaxSource: baseUrl + "/lkpm/data",
       sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/tablelog"); ?>',
       aoColumns: [
-        {mData: "tanggal"},
+        {mData: "tanggal",sClass: "center"},
         {
           mData: "status_pemohon",
           sClass: "center"
@@ -458,6 +458,7 @@
         {mData: "catatan"},
         {
           mData: "lampiran",
+            sClass: "center",
           mRender: function (data, type, full) {
             return '<a href="' + baseUrl + '/admin/bantuan_hukum/log/download/' + full.id + '">Unduh</a>';
           }

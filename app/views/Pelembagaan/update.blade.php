@@ -15,7 +15,7 @@
       <div class="pageicon"><span class="rulycon-notebook"></span></div>
     <div class="pagetitle">
       <!--<h5>Events</h5>-->
-      <h1>PELEMBAGAAN</h1>
+      <h1>Detail Usulan</h1>
     </div>
   </div>
   <!--pageheader-->
@@ -222,7 +222,7 @@
               "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
               "sEmptyTable": "Data Kosong",
               "sZeroRecords" : "Pencarian Tidak Ditemukan",
-              "sSearch":       "Cari:",
+              "sSearch":       "Cari:"
 //              "sLengthMenu": 'Tampilkan <select>'+
 //                  '<option value="10">10</option>'+
 //                  '<option value="25">25</option>'+
@@ -234,7 +234,7 @@
         aoColumns: [
           {
             mData: "tgl_proses",
-            sClass: 'center-ac',
+            sClass: 'center',
             sWidth: '20%'
           },
           {
@@ -249,20 +249,20 @@
 
                 }
               }
-              return 'Belum Di Proses';
+              return 'Belum Diproses';
             }
           },
           {
             mData: "catatan",
             sClass: 'center-ac',
-            sWidth: '35%',
+            sWidth: '35%'
           },
           {
 
             //  URL::asset('assets/uploads/
 
             mData: "lampiran",
-            sClass: 'center-ac',
+            sClass: 'center',
             sWidth: '14%',
             mRender: function (data, type, full) {
               // var downloadUrl = baseUrl + '/assets/uploads/pelembagaan/' + data;

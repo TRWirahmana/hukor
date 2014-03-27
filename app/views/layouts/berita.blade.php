@@ -89,13 +89,13 @@
           </li>
           <li>
             <a class="dropdown-toggle" data-toggle="dropdown" id="informasi">
-              <span class="rulycon-newspaper"></span>
+              <span class="rulycon-notebook"></span>
               <span class="headmenu-label">Informasi</span>
             </a>
           </li>
           <li>
             <a class="dropdown-toggle" data-toggle="dropdown" id="aplikasi">
-              <span class="rulycon-notebook"></span>
+              <span class="rulycon-drawer-3"></span>
               <span class="headmenu-label">Aplikasi</span>
             </a>
           </li>
@@ -130,9 +130,9 @@
         $s = 1; ?>
         @foreach($menu as $menus)
         @if($menus->submenu == null)
-        <span class="rulycon-file-3">&nbsp;</span><a href="#">{{$menus->nama_menu}}</a></li>
+        <span class="rulycon-notebook">&nbsp;</span><a href="#">{{$menus->nama_menu}}</a></li>
         @else
-        <li class="has-child"><span class="rulycon-file-3">&nbsp;</span>
+        <li class="has-child"><span class="rulycon-notebook">&nbsp;</span>
           @if($menus->submenu != null && $menus->layanan == null)
           <a href="#">{{$menus->nama_menu}}</a>
           @else

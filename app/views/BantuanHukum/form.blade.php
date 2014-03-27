@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="control-group">
-                    {{ Form::label('handphone', 'Telepon Genggam', array('class' => 'control-label')) }}
+                    {{ Form::label('handphone', 'Nomor Handphone', array('class' => 'control-label')) }}
                     <div class="controls">
                         {{ Form::text('handphone', '', array('id'=>'handphone' , 'placeholder' => "Masukkan Nomor Handphone...")) }}
                     </div>
@@ -107,8 +107,8 @@
                                 '1' => 'Tata Usaha Negara',
                                 '2' => 'Perdata',
                                 '3' => 'Pidana',
-                                '4' => 'Uji Materil MK',
-                                '5' => 'Uji Materil MA'
+                                '4' => 'Uji Materil Mahkamah Konstitusi',
+                                '5' => 'Uji Materil Mahkamah Agung'
                         ), 'Pilih Perkara') }}
                     </div>
                 </div>

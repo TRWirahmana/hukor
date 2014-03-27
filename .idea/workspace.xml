@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php" afterPath="$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php" afterPath="$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,10 +60,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="41" selection-start="4493" selection-end="4493" vertical-scroll-proportion="2.5797665" vertical-offset="612" max-vertical-offset="3230">
+            <state line="114" column="41" selection-start="4493" selection-end="4493" vertical-scroll-proportion="-51.0" vertical-offset="612" max-vertical-offset="3230">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="84" column="64" selection-start="4104" selection-end="4104" vertical-scroll-proportion="0.61077845" vertical-offset="1122" max-vertical-offset="3468">
               <folding />
             </state>
           </provider>
@@ -135,7 +144,6 @@
         <option value="$PROJECT_DIR$/app/views/ketatalaksanaan/index_user.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/KetatalaksanaanController.php" />
         <option value="$PROJECT_DIR$/app/views/PerUU/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/PeruuController.php" />
         <option value="$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php" />
@@ -148,6 +156,7 @@
         <option value="$PROJECT_DIR$/app/views/PerUU/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/admin.blade.php" />
         <option value="$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php" />
       </list>
     </option>
   </component>
@@ -490,13 +499,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/produkhukum/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="14" selection-start="0" selection-end="2718" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="1462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/PeruuController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="100" column="61" selection-start="3211" selection-end="3211" vertical-scroll-proportion="50.03846" vertical-offset="3001" max-vertical-offset="3502">
@@ -600,7 +602,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="41" selection-start="4493" selection-end="4493" vertical-scroll-proportion="2.5797665" vertical-offset="612" max-vertical-offset="3230">
+        <state line="114" column="41" selection-start="4493" selection-end="4493" vertical-scroll-proportion="-51.0" vertical-offset="612" max-vertical-offset="3230">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="64" selection-start="4104" selection-end="4104" vertical-scroll-proportion="0.61077845" vertical-offset="1122" max-vertical-offset="3468">
           <folding />
         </state>
       </provider>

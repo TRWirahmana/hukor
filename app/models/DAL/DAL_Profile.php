@@ -21,7 +21,7 @@ class DAL_Profile {
     {
         $data = $this->GetProfile();
 
-        $data->visi = ($input['isi']) ? $input['isi'] : "";
+        $data->isi = ($input['isi']) ? $input['isi'] : "";
         $data->gambar = (is_string($input['gambar'])) ? $input['gambar'] : $input['gambar']->getClientOriginalName();
 
         $data->save();

@@ -310,7 +310,7 @@ Route::group(array("prefix" => "admin", "before" => "auth|super_admin"), functio
 
 Route::resource("sp", 'SistemDanProsedurController', array("only" => array("index")));    
 Route::resource("aj", "AnalisisJabatanController", array("only" => array("index")));
-Route::resource("puu", "PeruuController", array("only" => array("index")));
+Route::resource("puu", "PeruuController", array("only" => array("index", "update")));
 Route::resource("pelembagaan", "PelembagaanController", array("only" => array("index", "printTable"))); 
 Route::resource('bantuan_hukum', 'BantuanHukumController', array("only" => array("index")));
 Route::group(array('before' => 'auth'), function(){

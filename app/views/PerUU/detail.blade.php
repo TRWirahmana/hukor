@@ -5,12 +5,17 @@
 <!-- <legend>Pengajuan Usulan</legend>
  -->
 
+{{ Form::open(array('route' => array('puu.update', $perUU->id), 'files' => true, 'class' => 'form form-horizontal', 'id' => 'form-perUU'))}}
+
 @include('flash')
 <div class="content-non-title">
     <div class="row-fluid">
         <div class="span12">
             <fieldset>
-                <legend>PENANGGUNG JAWAB</legend>
+<!--                <legend>PENANGGUNG JAWAB</legend>-->
+                <div class="nav nav-tabs">
+                    <h4>PENANGGUNG JAWAB</h4>
+                </div>
 
                 <div class="control-group">
                     <label for="dasdasd" class="control-label">Unit Kerja</label>
@@ -53,7 +58,10 @@
 
         <div class="span12">
             <fieldset>
-                <legend>INFORMASI PENGUSUL</legend>
+<!--                <legend>INFORMASI PENGUSUL</legend>-->
+                <div class="nav nav-tabs">
+                    <h4>INFORMASI PENGUSUL</h4>
+                </div>
                 <div class="control-group">
                     <label for="" class="control-label">Unit Kerja</label>
 
@@ -98,7 +106,10 @@
         <div class="span12">
 
             <fieldset>
-                <legend>INFORMASI PERIHAL & LAMPIRAN</legend>
+<!--                <legend>INFORMASI PERIHAL & LAMPIRAN</legend>-->
+                <div class="nav nav-tabs">
+                    <h4>INFORMASI PERIHAL & LAMPIRAN</h4>
+                </div>
                 <div class="control-group">
                     <label for="" class="control-label">Tgl Usulan</label>
 
@@ -142,15 +153,64 @@
                         @endif
                     </div>
                 </div>
-                <!--            <div class="control-group">-->
-                <!--                <a href="{{ URL::route('admin.puu.index') }}" class="btn btn-primary">Batal</a>-->
-                <!--                {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}-->
-                <!---->
-                <!--            </div>-->
+                <div class="control-group">
+                    <a href="{{ URL::route('puu.index') }}" class="btn btn-primary">Batal</a>
+                    {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
+
+                </div>
             </fieldset>
         </div>
-</div>
+        <div class="span12">
+            <fieldset>
+<!--                <legend>UPDATE STATUS</legend>-->
+                <div class="nav nav-tabs">
+                    <h4>UPDATE STATUS</h4>
+                </div>
+                <div class="control-group">
+                    {{ Form::label('status', 'Status', array('class' => 'control-label'))}}
+                    <div class="controls">
+                        {{
+                        Form::select('status', array(
+                        1 => "Diproses",
+                        2 => "Ditunda",
+                        3 => "Ditolak",
+                        4 => "Buat Salinan",
+                        5 => "Penetapan"
+                        ), 0, array())
+                        }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
+                    <div class="controls">
+                        {{
+                        Form::textarea('catatan', null, array('rows' => 2, 'placeholder' => 'Masukan Catatan...'))
+                        }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    {{ Form::label('ket_lampiran', 'Ket. Lampiran', array('class' => 'control-label')) }}
+                    <div class="controls">
+                        {{
+                        Form::text('ket_lampiran', null, array('placeholder' => 'Masukan keterangan lampiran...'))
+                        }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
+                    <div class="controls">
+                        {{
+                        Form::file('lampiran[]', array('multiple' => true));
+                        }}
+                    </div>
+                </div>
 
+
+            </fieldset>
+
+        </div>
+</div>
+    {{ Form::close() }}
 
 
     <div class="row-fluid">
@@ -194,12 +254,17 @@
                 aoColumns: [
                     {
                         mData: "tgl_proses",
+                        sWidth: '15%',
                         mRender: function (data) {
-                            return $.datepicker.formatDate("dd M yy", new Date(Date.parse(data)));
+                            var timestampArr = data.split(" ");
+                            var dateArr = timestampArr[0].split("-");
+                            var month = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+                            return dateArr[2] + " " + month[parseInt(dateArr[1])] + " " + dateArr[0];
                         }
                     },
                     {
                         mData: "status",
+                        sWidth: '15%',
                         mRender: function (data) {
                             switch (parseInt(data)) {
                                 case 1:
@@ -225,9 +290,11 @@
                             ;
                         }
                     },
-                    {mData: "catatan"},
+                    {mData: "catatan", sWidth: '50%'},
                     {
                         mData: "lampiran",
+                        sWidth: '20%',
+                        sClass: "center",
                         mRender: function (data, type, full) {
                             return '<a href="' + baseUrl + '/admin/puu/log/download/' + full.id + '">Unduh</a>';
                         }

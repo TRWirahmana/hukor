@@ -106,6 +106,7 @@ class PeruuController extends BaseController
 
 	public function update($id)
 	{
+        echo $id;exit;
 		$status = Input::get('status', 0);
 		$catatan = Input::get('catatan', '');
 		$ketLampiran = Input::get('ket_lampiran', '');

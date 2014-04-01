@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/SistemDanProsedur/informasi.blade.php" afterPath="$PROJECT_DIR$/app/views/SistemDanProsedur/informasi.blade.php" />
-    </list>
+    <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="" />
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />

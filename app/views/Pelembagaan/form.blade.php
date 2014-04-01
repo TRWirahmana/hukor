@@ -14,7 +14,7 @@
 	<div class="row-fluid">
 		<div class="span12">
 			<fieldset>
-	              <legend>Informasi Pengusul</legend>		
+	              <legend>Informasi Penanggung Jawab</legend>
 				<div class="control-group">		
 						{{ Form::label('jenis_usulan', 'Jenis Usulan', array('class' => 'control-label'))}}
 						<div class="controls">
@@ -59,7 +59,7 @@
 					</div>
 
                     <div class="control-group">
-                        {{ Form::label('hp', 'Handphone', array('class' => 'control-label'))}}
+                        {{ Form::label('hp', 'Nomor Handphone', array('class' => 'control-label'))}}
                         <div class="controls">
                             {{ Form::text('hp', null, array('placeholder' => "Masukkan Nomor Handphone...")) }}
                         </div>
@@ -97,9 +97,10 @@
 			</div>
 		</div>
 
-	<div class="form-actions">	
+	<div class="form-actions">
+        <input class='btn btn-primary' Type="button" value="Batal" onClick="history.go(-1);return true;">
 		{{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
-		 <input class='btn btn-primary' Type="button" value="Batal" onClick="history.go(-1);return true;">
+
 	</div>
 
 
@@ -119,5 +120,9 @@
 
 <script type="text/javascript">
     Pelembagaan.Form();
+</script>
+<script>
+    document.getElementById("menu-pelembagaan-usulan").setAttribute("class", "user-menu-active");
+    document.getElementById("collapse11").style.height = "auto";
 </script>
 @stop

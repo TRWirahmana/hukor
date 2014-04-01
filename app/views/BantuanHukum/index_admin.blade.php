@@ -110,7 +110,7 @@
                     <th>Status Pemohon</th>
                     <th>Status Perkara</th>
                     <th>Advokasi</th>
-                    <th>Advokator</th>
+<!--                    <th>Advokator</th>-->
                     <th></th>
                 </tr>
                 </thead>
@@ -133,6 +133,10 @@
 
 </div>
 <!--rightpanel-->
+<!-- dialog box -->
+<div id="dialog" title="Hapus Bantuan Hukum" style="display: none;">
+    <p>Apakah Anda Yakin?</p>
+</div>
 
 @section('scripts')
 @parent
@@ -154,6 +158,7 @@
         oLanguage:{
             "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
             "sEmptyTable": "Data Kosong",
+            "sSearch":       "Cari:",
             "sZeroRecords" : "Pencarian Tidak Ditemukan"
         },
         sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/datatable"); ?>',
@@ -231,14 +236,14 @@
                             advokasi = "Bankum III";
                             break;
                         default:
-                            advokasi = "";
+                            advokasi = "Belum Diadvokasi";
                             break;
                     }
 
                     return advokasi;
                 }
             },
-            {mData: "advokator", sClass: "center"},
+//            {mData: "advokator", sClass: "center"},
             {
                 mData: "id",
                 mRender: function(data, type, full){
@@ -247,11 +252,11 @@
                     var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
 
                     if(role == 3 || role == 8){
-                        return '<a href="' + downloadUrl + '" title="Unduh"><i class="rulycon-arrow-down "></i></a> &nbsp;' +
-                            '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
-                            '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
+                        return '<a href="' + downloadUrl + '" title="Unduh"><i class="icon-download "></i></a> &nbsp;' +
+                            '<a href="' + detailUrl + '" title="Detail"><i class="icon-edit"></i></a> &nbsp;' +
+                            '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="icon-trash"></i></a>';
                     }else{
-                        return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a> &nbsp;';
+                        return '<a href="' + downloadUrl + '" title="Unduh"><i class="icon-download "></i></a> &nbsp;';
                     }
                 }
             }
@@ -277,6 +282,24 @@
                 fnCallback(json);
             });
         }
+    });
+
+    $("#basictable").on('click', '.btn_delete', function (e) {
+        var delkodel = $(this);
+        $('#dialog').dialog({
+            width: 500,
+            modal: true,
+            buttons: {
+                "Hapus" : function(){
+                    window.location.replace(delkodel.attr('href'));
+                    $(this).dialog("close");
+                },
+                "Batal" : function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
+        e.preventDefault();
     });
 
     jQuery("#jenis-perkara").change(function(){

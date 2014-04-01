@@ -8,4 +8,9 @@ class LogPerUU extends Eloquent {
 	public function perUU() {
 		return $this->belongsTo('PerUU', 'id_per_uu');
 	}
+
+    public function pengguna()
+    {
+        return $this->belongsTo('Pengguna', 'id_pengguna');
+    }
 }

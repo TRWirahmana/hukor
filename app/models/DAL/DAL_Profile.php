@@ -5,8 +5,7 @@ class DAL_Profile {
 
         $data = new Profile();
 
-        $data->visi = ($input['visi']) ? $input['visi'] : "";
-        $data->misi = ($input['misi']) ? $input['misi'] : "";
+        $data->isi = ($input['isi']) ? $input['isi'] : "";
         $data->gambar = ($input['gambar']) ? $input['gambar']->getClientOriginalName() : "";
 
         $data->save();
@@ -22,8 +21,7 @@ class DAL_Profile {
     {
         $data = $this->GetProfile();
 
-        $data->visi = ($input['visi']) ? $input['visi'] : "";
-        $data->misi = ($input['misi']) ? $input['misi'] : "";
+        $data->isi = ($input['isi']) ? $input['isi'] : "";
         $data->gambar = (is_string($input['gambar'])) ? $input['gambar'] : $input['gambar']->getClientOriginalName();
 
         $data->save();

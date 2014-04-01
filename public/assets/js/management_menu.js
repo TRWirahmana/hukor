@@ -44,17 +44,27 @@ jQuery(document).ready(function(e){
     });
 
     dom.$table_news.on('click', '.btn_delete', function(e){
-        if (confirm('Apakah anda yakin?')) {
-            jQuery.ajax({
-                url: jQuery(this).attr('href'),
-                type: 'DELETE',
-                success: function(response) {
-                    dom.$table_news.fnReloadAjax();
+        var delkodel = jQuery(this);
+        jQuery('#dialog').dialog({
+            width: 500,
+            modal: true,
+            buttons: {
+                "Hapus" : function(){
+                    jQuery.ajax({
+                        url: delkodel.attr('href'),
+                        type: 'DELETE',
+                        success: function(response) {
+                            dom.$table_news.fnReloadAjax();
+                        }
+                    });
+                    jQuery(this).dialog("close");
+                },
+                "Batal" : function() {
+                    jQuery(this).dialog("close");
                 }
-            });
-        }
+            }
+        });
         e.preventDefault();
-        return false;
     });
 
 

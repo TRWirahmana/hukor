@@ -27,7 +27,7 @@
             <div class="content-non-title">
                 <form id="form-filter" class="form form-horizontal" action="{{ URL::route('admin.puu.printTable') }}" style="margin-bottom: 48px;">
                     <fieldset>
-                        <legend class="f_legend">Filter</legend>
+                        <legend class="f_legend"></legend>
                         <div class="row-fluid">
                             <div class="span6">
                                 <div class="control-group">
@@ -112,6 +112,11 @@
     </div>
     <!--rightpanel-->
 
+    <!-- dialog box -->
+    <div id="dialog" title="Hapus Perundang-Undangan" style="display: none;">
+        <p>Apakah Anda Yakin?</p>
+    </div>
+
     @stop
 
     @section('scripts')
@@ -148,6 +153,7 @@
                 oLanguage:{
                     "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                     "sEmptyTable": "Data Kosong",
+                    "sSearch":       "Cari:",
                     "sZeroRecords" : "Pencarian Tidak Ditemukan"
                 },
                 aoColumns: [
@@ -158,6 +164,7 @@
                     {
                         mData: "tgl_usulan",
                         sWidth: "10%",
+                        sClass: "center",
                         mRender: function(data) {
                             return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
                         }
@@ -195,7 +202,7 @@
                                     return "Penetapan";
                                     break;
                                 default:
-                                    return " ";
+                                    return "Belum Diproses ";
                                     break;
                             }
                             ;
@@ -232,11 +239,22 @@
             });
 
             $dataTable.on('click', 'a[data-delete]', function(e) {
-			    if (confirm('Apakah anda yakin?')) {
-			    $.post($(this).attr('href'), {_method: 'delete'}, function(r) {
-				    $dataTable.fnReloadAjax();
-				    });
-			    }
+                var delkodel = $(this);
+                $('#dialog').dialog({
+                    width: 500,
+                    modal: true,
+                    buttons: {
+                        "Hapus" : function(){
+                            $.post(delkodel.attr('href'), {_method: 'delete'}, function(r) {
+                                $dataTable.fnReloadAjax();
+                            });
+                            $(this).dialog("close");
+                        },
+                        "Batal" : function() {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
                 e.preventDefault();
             });
 

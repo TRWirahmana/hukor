@@ -28,20 +28,13 @@
                 <div class="span8 offset2">
                     <fieldset>
                         <p class="text-info">{{$detail}}</p>
-                        <legend class="f_legend">{{$title}}</legend>
-                        <div class="control-group">
-                            {{ Form::label('visi', 'Visi', array('class' => 'control-label')); }}
-                            <div class="controls">
-                                {{ Form::textarea('visi', $data->Visi,
-                                array('placeholder' => 'Isi Visi disini...', 'id' => 'visi')) }}
-                            </div>
-                        </div>
+<!--                        <legend class="f_legend">{{$title}}</legend>-->
 
                         <div class="control-group">
-                            {{ Form::label('misi', 'Misi', array('class' => 'control-label')); }}
+                            {{ Form::label('isi', 'Isi', array('class' => 'control-label')); }}
                             <div class="controls">
-                                {{ Form::textarea('misi', $data->Misi,
-                                array('placeholder' => 'Isi Misi disini...', 'id' => 'misi')) }}
+                                {{ Form::textarea('isi', $data->isi,
+                                array('placeholder' => 'Masukan Profile disini...', 'id' => 'misi')) }}
                             </div>
                         </div>
 

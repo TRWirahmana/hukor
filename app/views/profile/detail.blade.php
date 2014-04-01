@@ -14,24 +14,16 @@
 @include('flash')
 
 @if($data != null)
-<div id="visi">
-    <legend>
-        Visi
-    </legend>
-    <p><?php echo $data->Visi; ?></p>
-</div>
-<br>
-
-<div id="misi">
-    <legend>
-        Misi
-    </legend>
-    <p><?php echo $data->Misi; ?></p>
-</div>
-<br>
 @if($data->gambar != null)
-{{ HTML::image('assets/uploads/profile/' . $data->gambar) }}
+<div style="text-align: center;">
+    {{ HTML::image('assets/uploads/profile/' . $data->gambar) }}
+</div>
+<br>
 @endif
+
+<div id="isi">
+    <p><?php echo $data->isi; ?></p>
+</div>
 
 <!--    Load Image-->
 @endif

@@ -85,8 +85,8 @@
                 </div>
 
                 <div class="control-group">
-                    {{ Form::label("per_uu[catatan]", "Deskripsi", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::textarea("per_uu[catatan]", null, array('placeholder' => 'Masukan deskripsi usulan...')) }}</div>
+                    {{ Form::label("per_uu[catatan]", "Catatan", array('class' => 'control-label')) }}
+                    <div class="controls">{{ Form::textarea("per_uu[catatan]", null, array('placeholder' => 'Masukan Catatan...')) }}</div>
                 </div>
 		
 		<div class="control-group">
@@ -125,7 +125,7 @@
         </div>	-->
 
     <div class="form-actions">
-        <a href="{{ URL::to('site') }}" class="btn btn-primary">Batal</a>
+        <a href="{{ URL::to('puu') }}" class="btn btn-primary">Batal</a>
         {{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
     </div>
 

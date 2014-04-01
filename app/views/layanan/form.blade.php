@@ -39,7 +39,7 @@
                             <div class="control-group">
                                 {{ Form::label('menu', 'Pilih Menu', array('class' => 'control-label')) }}
                                 <div class="controls">
-                                    {{ Form::select('layanan[menu]', $listMenu, $menu->submenu->menu->id , array("id" => "menu")) }}
+                                    {{ Form::select('layanan[menu]', $listMenu, $menu->menu->id , array("id" => "menu")) }}
                                 </div>
                             </div>
 
@@ -152,6 +152,8 @@
                 theme : "modern",
                 mode: "exact",
                 elements : "berita",
+                plugins: "link",
+
                 theme_advanced_toolbar_location : "top",
                 theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,"
                     + "justifyleft,justifycenter,justifyright,justifyfull,formatselect,"

@@ -66,11 +66,11 @@ class BantuanHukumController extends BaseController{
 	    $DAL->SaveBantuanHukum($input, $filenames); //save bantuan hukum
 	    $DAL->SendEmailToAllAdminBankum(); // send email
 
-	    return Redirect::route('bantuan_hukum.create')->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
+	    return Redirect::route('bantuan_hukum.index')->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
 	}
 	else
 	{
-	    return Redirect::route('bantuan_hukum.create')->with('error', 'Lampiran Gagal Disimpan.');
+	    return Redirect::route('bantuan_hukum.index')->with('error', 'Lampiran Gagal Disimpan.');
 	}
     }
 

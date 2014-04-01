@@ -21,12 +21,12 @@
   background: rgba(0, 0, 0, .25);
 }*/
 ::selection {
-  background: #16a085;
+  background: #2875A8;
   color: #ffffff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
 }
 ::-moz-selection {
-  background: #16a085;
+  background: #2875A8;
   color: #ffffff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
 }
@@ -296,6 +296,7 @@ textarea {
 }
 legend {
   border-bottom: 1px dashed rgba(0, 0, 0, .075);
+    margin-bottom: 0px;
 }
 .form-actions {
   text-align: center;
@@ -405,7 +406,7 @@ legend {
   text-align: center;
 }
 .well {
-  background: #4fb4c0;
+  background: #2980B9;
   color: #ffffff;
   padding-bottom: 38px;
   box-shadow: none;
@@ -426,6 +427,7 @@ html, .main-layout, .admin,
   position: relative;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
   overflow: auto;
+  padding-top: 120px;
 }
 .sidebar > header {
   position: relative;
@@ -460,11 +462,14 @@ html, .main-layout, .admin,
   color: #ffffff;
   font-size: 12px;
   width: auto;
-  vertical-align: top;
+  vertical-align: middle;
   font-weight: normal;
 }
 .sidebar > header > h4 span, #user-header #logo h4 span {
   font-family: "pt_sans_narrowregular", sans-serif;
+}
+#user-header #logo h4 span {
+  display: block;
 }
 .sidebar > header >  h4 span:first-child,
 #user-header #logo h4 span:first-child {
@@ -751,6 +756,7 @@ html, .main-layout, .admin,
   font-size: 30px;
   font-family: "PT Sans Narrow", "pt_sans_narrowregular", sans-serif;
   font-weight: normal;
+  line-height: 100%;
 }
 .main-content > h2 > span[class*="rulycon"] {
   font-size: 24px;
@@ -1079,8 +1085,16 @@ table.dataTable td.dataTables_empty {
 #beritaaaa > * {
   background: transparent !important;
 }
+#select-menu-helper {
+  display: none;
+}
 
-/* MEDIA QUERIES */
+
+
+/* =================================== */
+/* -----===== MEDIA QUERIES =====----- */
+/* =================================== */
+
 @media (max-width: 960px) {
   body {
     padding: 0 !important;
@@ -1139,6 +1153,101 @@ table.dataTable td.dataTables_empty {
     color: white;
     font-weight: bold;
     font-size: 15px;
+  }
+}
+
+@media (max-width: 1200px) {
+  #user-header #logo {
+    width: 60%;
+  }
+  #user-header #content-title {
+    width: 40%;
+  }
+  #user-header #logo {
+    text-align: left;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  #user-header #logo img {
+    width: 42px;
+  }
+  #user-header #logo h4 {
+    line-height: 140%;
+  }
+  #user-header #content-title {
+    text-align: right;
+    padding-right: 12px;
+    margin-top: 12px;
+  }
+  #user-header #content-title > h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  #user-header #content-title > h2 > span[class*="rulycon"] {
+    font-size: 18px;
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+  /*#user-header #logo h4 span:nth-child(2), #user-header #logo h4 span:last-child {
+    display: inline-block;
+  }
+  #user-header #logo h4 span:last-child:before {
+    content: "- ";
+  }*/
+  .main-layout .sidebar, .main-layout .main-content {
+    float: left;
+  }
+  .main-layout .sidebar {
+    padding-top: 90px;
+  }
+  .main-layout .main-content {
+    width: 75.789473684210527% !important;
+  }
+}
+
+@media (max-width: 960px) {
+  /*.sidebar ul.welcome-message > li {
+    display: inline-block;
+    width: 50%;
+  }*/
+  .main-layout .sidebar, .main-layout .main-content {
+    padding-left: 0;
+    padding-right: 0;
+    display: block;
+  }
+  .main-layout .sidebar {
+    width: 24.210526315789473% !important;
+  }
+  .main-layout .main-content {
+    width: 75.789473684210527% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #user-header #logo {
+    width: 80%;
+  }
+  #user-header #content-title {
+    width: 20%;
+    margin-top: 0;
+  }
+  #user-header #logo, #user-header #content-title {
+    /*display: inline-block;*/
+  }
+  .main-layout .sidebar, .main-layout .main-content {
+    display: block;
+    width: 100% !important;
+  }
+  .main-layout .main-content {
+    padding-top: 48px !important;
+  }
+  #user-header #content-title > h2 {
+    font-size: 16px;
+    margin-top: 0;
+    line-height: 120%;
+  }
+  #user-header #content-title span[class*="rulycon"] {
+    display: none;
   }
 }
 

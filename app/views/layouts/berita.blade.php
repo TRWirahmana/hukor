@@ -64,45 +64,51 @@
   <div class="header">
     <div class="container">
       <div class="logo">
-        <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
-        <h4>
-          <span>Biro Hukum dan Organisasi</span>
-          <span>Kementerian Pendidikan dan Kebudayaan</span>
-          <span>Republik Indonesia</span>
-        </h4>
+       <a href="{{URL::to('/')}}">
+           <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
+           <h4 style="margin-top: 5px;">
+               <span>Biro Hukum dan Organisasi</span>
+               <span>Kementerian Pendidikan dan Kebudayaan</span>
+               <span>Republik Indonesia</span>
+           </h4>
+       </a>
       </div>
       <div class="headerinner">
         <ul class="headmenu pull-right">
-          <li class="odd">
-            <a href="{{URL::to('/')}}">
-              <span class="rulycon-home-2"></span>
-              <span class="headmenu-label" id="berita">Berita</span>
-            </a>
+         <li class="odd">
+<!--            <a href="{{URL::to('/')}}">-->
+<!--              <span class="rulycon-home-2"></span>-->
+<!--              <span class="headmenu-label" id="berita">Berita</span>-->
+<!--            </a>-->
           </li>
-          <li>
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" id="aplikasi">
+                    <span class="rulycon-drawer-3"></span>
+                    <span class="headmenu-label">Aplikasi</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" id="informasi">
+                    <span class="rulycon-notebook"></span>
+                    <span class="headmenu-label">Informasi</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{URL::to('produkhukum')}}" id="produk_hukum">
+                    <span class="rulycon-books"></span>
+                    <span class="headmenu-label">Peraturan</span>
+                </a>
+            </li>
+
+          <li class="odd">
             <a href="{{URL::to('detailprofile')}}" id="profile">
               <span class="rulycon-profile"></span>
               <span class="headmenu-label">Profil</span>
             </a>
           </li>
-          <li>
-            <a class="dropdown-toggle" data-toggle="dropdown" id="informasi">
-              <span class="rulycon-newspaper"></span>
-              <span class="headmenu-label">Informasi</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-toggle" data-toggle="dropdown" id="aplikasi">
-              <span class="rulycon-notebook"></span>
-              <span class="headmenu-label">Aplikasi</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{URL::to('produkhukum')}}" id="produk_hukum">
-              <span class="rulycon-books"></span>
-              <span class="headmenu-label">Produk Hukum</span>
-            </a>
-          </li>
+
           <li>
             <a href="#" id="forum_diskusi">
               <span class="rulycon-bubbles-2"></span>
@@ -128,9 +134,9 @@
         $s = 1; ?>
         @foreach($menu as $menus)
         @if($menus->submenu == null)
-        <span class="rulycon-file-3">&nbsp;</span><a href="#">{{$menus->nama_menu}}</a></li>
+        <span class="rulycon-notebook">&nbsp;</span><a href="#">{{$menus->nama_menu}}</a></li>
         @else
-        <li class="has-child"><span class="rulycon-file-3">&nbsp;</span>
+        <li class="has-child"><span class="rulycon-notebook">&nbsp;</span>
           @if($menus->submenu != null && $menus->layanan == null)
           <a href="#">{{$menus->nama_menu}}</a>
           @else
@@ -228,7 +234,7 @@
         <div id="footer-menu-aplikasi" style="display: none">
           <ul class="footer-menu">
             <li>Peraturan Perundang-undangan</li>
-            <li><a href="{{ URL::to('/layanan/detail?id=1') }}"></a>Peraturan Perundang-undangan</li>
+            <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Peraturan Perundang-undangan</a></li>
             <li><a href="{{URL::route('per_uu.informasi')}}">Informasi dan Status Usulan</a></li>
           </ul>
           <ul class="footer-menu">
@@ -253,7 +259,7 @@
       <div class="span4">
         <div id="footer-image">
           <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
-          <span>Biro Hukum dan Organisasi</span>
+          <span style="margin-top: 6px;">Biro Hukum dan Organisasi</span>
           <p><span>Kementerian Pendidikan Dan Kebudayaan</span>
           <span>Republik Indonesia</span></p>
         </div>

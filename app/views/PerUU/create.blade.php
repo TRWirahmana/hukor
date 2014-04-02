@@ -1,7 +1,10 @@
 @section('content')
 
-<h2>PERATURAN PERUNDANG-UNDANGAN</h2>
-<div class="stripe-accent"></div>
+<script>
+    document.getElementById("menu-peruu-usulan").setAttribute("class", "user-menu-active");
+    document.getElementById("collapse10").style.height = "auto";
+    document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Peraturan perundang-undangan";
+</script>
 <legend>Pengajuan Usulan</legend>
 
 @include('flash')
@@ -82,8 +85,8 @@
                 </div>
 
                 <div class="control-group">
-                    {{ Form::label("per_uu[catatan]", "Deskripsi", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::textarea("per_uu[catatan]", null, array('placeholder' => 'Masukan deskripsi usulan...')) }}</div>
+                    {{ Form::label("per_uu[catatan]", "Catatan", array('class' => 'control-label')) }}
+                    <div class="controls">{{ Form::textarea("per_uu[catatan]", null, array('placeholder' => 'Masukan Catatan...')) }}</div>
                 </div>
 		
 		<div class="control-group">
@@ -122,7 +125,7 @@
         </div>	-->
 
     <div class="form-actions">
-        <a href="{{ URL::to('site') }}" class="btn btn-primary">Batal</a>
+        <a href="{{ URL::to('puu') }}" class="btn btn-primary">Batal</a>
         {{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
     </div>
 

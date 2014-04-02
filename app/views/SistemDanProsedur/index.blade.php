@@ -4,7 +4,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
+        <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
         <li>Sistem dan Prosedur</li>
     </ul>
     @include('adminflash')
@@ -12,9 +12,9 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-      <div class="pageicon"><span class="rulycon-wrench"></span></div>
+      <div class="pageicon"><span class="rulycon-notebook"></span></div>
       <div class="pagetitle">
-        <h1>Sistem dan Prosedur</h1>
+        <h1 class="titlez">Sistem dan Prosedur</h1>
       </div>
     </div>
     <!--pageheader-->
@@ -27,7 +27,7 @@
             <div class="content-non-title">
                 <form id="form-filter" class="form form-horizontal" 
                     action="{{URL::route('admin.sp.printTable')}}">
-                    <fieldset>
+                    <fieldset style="margin-bottom: 48px;">
                         <legend class="f_legend">Filter</legend>
                         <div class="row-fluid">
                             <div class="span6">
@@ -57,6 +57,18 @@
                                             <option value="4">Buat Salinan</option>
                                             <option value="5">Penetapan</option>
                                         </select>        
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="jenis_usulan" class="control-label">Jenis Usulan</label>
+
+                                    <div class="controls">
+                                        <select id="jenis_usulan">
+                                            <!--        <option value="0">Pilih Usulan</option>-->
+                                            <option value="1">Sistem dan Prosedur</option>
+                                            <option value="2">Analisis Jabatan</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -111,6 +123,11 @@
     </div>
     <!--rightpanel-->
 
+    <!-- dialog box -->
+    <div id="dialog" title="Hapus Perundang-Undangan" style="display: none;">
+        <p>Apakah Anda Yakin?</p>
+    </div>
+
     @stop
 
     @section('scripts')
@@ -120,29 +137,29 @@
     <script type="text/javascript">
         jQuery(function($) {
             $("#menu-peraturan-perundangan").addClass("active");
-
-            $("#first-date").datepicker({
-                dateFormat: "dd/mm/yy",
-                onClose: function( selectedDate ) {
-                    $("#last-date").datepicker( "option", "minDate", selectedDate );
-                }
-            });
-            $("#last-date").datepicker({
-                dateFormat: "dd/mm/yy",
-                onClose: function( selectedDate ) {
-                    $("#first-date").datepicker("option", "maxDate", selectedDate);
-                }                    
-            });
-
+            // datatable
             $dataTable = $("#tbl-per-uu").dataTable({
                 // sDom: 'Trtip',
                 // oTableTools: {
                 //     sSwfPath: "/assets/TableTools-2.2.0/swf/copy_csv_xls_pdf.swf"
                 // },
                 bServerSide: true,
-                sAjaxSource: document.location.href,
-                bFilter: false,
-                bLengthChange: false,
+                sAjaxSource: '<?php echo URL::to("sp"); ?>',
+                bFilter: true,
+                bLengthChange: true,
+                bDestroy: true,
+                oLanguage:{
+                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+                    "sEmptyTable": "Data Kosong",
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                    "sSearch":       "Cari:",
+                    "sLengthMenu": 'Tampilkan <select>'+
+                        '<option value="10">10</option>'+
+                        '<option value="25">25</option>'+
+                        '<option value="50">50</option>'+
+                        '<option value="100">100</option>'+
+                        '</select> Usulan'
+                },
                 aoColumns: [
                     {
                         mData: "id",
@@ -198,10 +215,10 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            var html = ["<a href='"+baseUrl+"/sp/download/" + data + "'><i class='icon-download'></i></a>"];
+                            var html = ["<a href='"+baseUrl+"/sp/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>"];
                             if(all._role_id == 3 || all._role_id == 9) {
-                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "/edit'><i class='icon-edit'></i></a>");
-                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "' data-delete><i class='icon-trash'></i></a>");
+                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a>");
+                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "' title='Hapus' data-delete><i class='icon-trash'></i></a>");
                             }
                             return html.join("&nbsp;");
                         }
@@ -224,14 +241,261 @@
                 }
             });
 
+            $("#first-date").datepicker({
+                dateFormat: "dd/mm/yy",
+                onClose: function( selectedDate ) {
+                    $("#last-date").datepicker( "option", "minDate", selectedDate );
+                }
+            });
+            $("#last-date").datepicker({
+                dateFormat: "dd/mm/yy",
+                onClose: function( selectedDate ) {
+                    $("#first-date").datepicker("option", "maxDate", selectedDate);
+                }                    
+            });
+
+            //filter jenis usulan
+            $( "#jenis_usulan" ).change(function() {
+                var jenis_usul = $("#jenis_usulan").val();
+
+                $('#dialog').prop('title', (jenis_usul == 2)? 'Hapus Analisis Jabatan' : 'Hapus Sistem dan Prosedur' );
+
+//        alert(jenis_usul);
+
+
+                if(jenis_usul == 1){
+                    // datatable
+                    $dataTable = $("#tbl-per-uu").dataTable({
+                        // sDom: 'Trtip',
+                        // oTableTools: {
+                        //     sSwfPath: "/assets/TableTools-2.2.0/swf/copy_csv_xls_pdf.swf"
+                        // },
+                        bServerSide: true,
+                        sAjaxSource: '<?php echo URL::to("sp"); ?>',
+                        bFilter: true,
+                        bLengthChange: true,
+                        bDestroy: true,
+                        oLanguage:{
+                            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+                            "sEmptyTable": "Data Kosong",
+                            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                            "sSearch":       "Cari:",
+                            "sLengthMenu": 'Tampilkan <select>'+
+                                '<option value="10">10</option>'+
+                                '<option value="25">25</option>'+
+                                '<option value="50">50</option>'+
+                                '<option value="100">100</option>'+
+                                '</select> Usulan'
+                        },
+                        aoColumns: [
+                            {
+                                mData: "id",
+                                sWidth: "1%"
+                            },
+                            {
+                                mData: "tgl_usulan",
+                                sWidth: "10%",
+                                mRender: function(data) {
+                                    return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
+                                }
+                            },
+                            {
+                                mData: "unit_kerja",
+                                sWidth: "10%"
+                            },
+                            {
+                                mData: "nama_jabatan",
+                                sWidth: "10%"
+                            },
+                            {
+                                mData: "perihal",
+                                sWidth: "30%"
+                            },
+                            {
+                                mData: "status",
+                                sWidth: "10%",
+                                mRender: function(data) {
+                                    switch (parseInt(data)) {
+                                        case 1:
+                                            return "Diproses";
+                                            break;
+                                        case 2:
+                                            return "Ditunda";
+                                            break;
+                                        case 3:
+                                            return "Ditolak";
+                                            break;
+                                        case 4:
+                                            return "Buat salinan";
+                                            break;
+                                        case 5:
+                                            return "Penetapan";
+                                            break;
+                                        default:
+                                            return " ";
+                                            break;
+                                    }
+                                    ;
+                                }
+                            },
+                            {
+                                mData: 'id',
+                                sWidth: "8%",
+                                mRender: function(data, type, all) {
+                                    var html = ["<a href='"+baseUrl+"/sp/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>"];
+                                    if(all._role_id == 3 || all._role_id == 9) {
+                                        html.push("<a href='"+baseUrl+"/admin/sp/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a>");
+                                        html.push("<a href='"+baseUrl+"/admin/sp/" + data + "' title='Hapus' data-delete><i class='icon-trash'></i></a>");
+                                    }
+                                    return html.join("&nbsp;");
+                                }
+                            }
+                        ],
+                        fnServerParams: function(aoData) {
+                            aoData.push({name: "status", value: $("#select-status").val()});
+                            aoData.push({name: "firstDate", value: $("#first-date").val()});
+                            aoData.push({name: "lastDate", value: $("#last-date").val()});
+                        },
+                        "fnDrawCallback": function ( oSettings ) {
+                            /* Need to redo the counters if filtered or sorted */
+                            if ( oSettings.bSorted || oSettings.bFiltered )
+                            {
+                                for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+                                {
+                                    $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+                                }
+                            }
+                        }
+                    });
+                    $(".titlez").html("Sistem dan Prosedur");
+                }else if(jenis_usul == 2){
+// datatable
+                    $dataTable = $("#tbl-per-uu").dataTable({
+                        // sDom: 'Trtip',
+                        // oTableTools: {
+                        //     sSwfPath: "/assets/TableTools-2.2.0/swf/copy_csv_xls_pdf.swf"
+                        // },
+                        bServerSide: true,
+                        sAjaxSource: '<?php echo URL::to("aj"); ?>',
+                        bFilter: true,
+                        bLengthChange: true,
+                        bDestroy: true,
+                        oLanguage:{
+                            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+                            "sEmptyTable": "Data Kosong",
+                            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                            "sSearch":       "Cari:",
+                            "sLengthMenu": 'Tampilkan <select>'+
+                                '<option value="10">10</option>'+
+                                '<option value="25">25</option>'+
+                                '<option value="50">50</option>'+
+                                '<option value="100">100</option>'+
+                                '</select> Usulan'
+                        },
+                        aoColumns: [
+                            {
+                                mData: "id",
+                                sWidth: "1%"
+                            },
+                            {
+                                mData: "tgl_usulan",
+                                sWidth: "10%",
+                                mRender: function(data) {
+                                    return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
+                                }
+                            },
+                            {
+                                mData: "unit_kerja",
+                                sWidth: "10%"
+                            },
+                            {
+                                mData: "nama_jabatan",
+                                sWidth: "10%"
+                            },
+                            {
+                                mData: "perihal",
+                                sWidth: "30%"
+                            },
+                            {
+                                mData: "status",
+                                sWidth: "10%",
+                                mRender: function(data) {
+                                    switch (parseInt(data)) {
+                                        case 1:
+                                            return "Diproses";
+                                            break;
+                                        case 2:
+                                            return "Ditunda";
+                                            break;
+                                        case 3:
+                                            return "Ditolak";
+                                            break;
+                                        case 4:
+                                            return "Buat salinan";
+                                            break;
+                                        case 5:
+                                            return "Penetapan";
+                                            break;
+                                        default:
+                                            return " ";
+                                            break;
+                                    }
+                                    ;
+                                }
+                            },
+                            {
+                                mData: 'id',
+                                sWidth: "8%",
+                                mRender: function(data, type, all) {
+                                    var html = ["<a href='"+baseUrl+"/aj/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>"];
+                                    if(all._role_id == 3 || all._role_id == 9) {
+                                        html.push("<a href='"+baseUrl+"/admin/aj/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a>");
+                                        html.push("<a href='"+baseUrl+"/admin/aj/" + data + "' title='Hapus' data-delete><i class='icon-trash'></i></a>");
+                                    }
+                                    return html.join("&nbsp;");
+                                }
+                            }
+                        ],
+                        fnServerParams: function(aoData) {
+                            aoData.push({name: "status", value: $("#select-status").val()});
+                            aoData.push({name: "firstDate", value: $("#first-date").val()});
+                            aoData.push({name: "lastDate", value: $("#last-date").val()});
+                        },
+                        "fnDrawCallback": function ( oSettings ) {
+                            /* Need to redo the counters if filtered or sorted */
+                            if ( oSettings.bSorted || oSettings.bFiltered )
+                            {
+                                for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+                                {
+                                    $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+                                }
+                            }
+                        }
+                    });
+                    $(".titlez").html("Analisis Jabatan");
+                }
+//
+
+            });
+
+
             $dataTable.on('click', 'a[data-delete]', function(e) {
-                if (!confirm('Apakah anda yakin?'))
-                    return;
-
-                $.post($(this).attr('href'),{_method: "delete"}, function(r){
-                    $dataTable.fnReloadAjax();
+                var delkodel = $(this);
+                $('#dialog').dialog({
+                    width: 500,
+                    modal: true,
+                    buttons: {
+                        "Hapus" : function(){
+                            $.post(delkodel.attr('href'), {_method: 'delete'}, function(r) {
+                                $dataTable.fnReloadAjax();
+                            });
+                            $(this).dialog("close");
+                        },
+                        "Batal" : function() {
+                            $(this).dialog("close");
+                        }
+                    }
                 });
-
                 e.preventDefault();
             });
 
@@ -253,10 +517,16 @@
 </div>
 
 <script>
-  jQuery("#app_ketatalaksanaan > ul > li:first-child > a").addClass("sub-menu-active");
+  jQuery("#app_ketatalaksanaan > a").addClass("sub-menu-active");
   jQuery("#app, #app_ketatalaksanaan > ul").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Sistem dan Prosedur"
   });
 </script>
 

@@ -4,6 +4,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
+        <li><a href="#">Aplikasi</a> <span class="separator"></span></li>
         <li>Dokumentasi</li>
     </ul>
 
@@ -13,7 +14,7 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon"><span class="rulycon-wrench"></span></div>
+        <div class="pageicon"><span class="rulycon-notebook"></span></div>
         <div class="pagetitle">
           <h1>Dokumentasi</h1>
         </div>
@@ -67,15 +68,13 @@
 
 </div>
 
+<!-- dialog box -->
+<div id="dialog" title="Hapus Perundang-Undangan" style="display: none;">
+    <p>Apakah Anda Yakin?</p>
+</div>
+
 @section('scripts')
 @parent
-<script>
-  jQuery("#app_ketatalaksanaan > ul > li:nth-child(3) > a").addClass("sub-menu-active");
-  jQuery(".leftmenu .dropdown > #app, #app_ketatalaksanaan > ul").css({
-    "display": "block",
-    "visibility": "visible"
-  });
-</script>
 <script type="text/javascript">
     var $ = jQuery.noConflict();
     var tbl_data = $("#basictable").dataTable({
@@ -86,9 +85,18 @@
         bLengthChange: true,
         bServerSide: true,
         bProcessing: true,
-      oLanguage:{
-        "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Data",
-      },
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Peraturan",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sLengthMenu": 'Tampilkan <select>'+
+                '<option value="10">10</option>'+
+                '<option value="25">25</option>'+
+                '<option value="50">50</option>'+
+                '<option value="100">100</option>'+
+                '</select> Peraturan'
+
+        },
 //                sAjaxSource: baseUrl + "/lkpm/data",
         sAjaxSource: '<?php echo URL::to("admin/tabledoc"); ?>',
         aoColumns: [
@@ -202,16 +210,25 @@
                 mData: "id",
                 sClass: "center",
                 sWidth: '15%',
-                mRender: function(data){
+                mRender: function(data, type, row){
                     var detailUrl = "<?php echo URL::to('admin/detaildoc'); ?>" + "/" + data;
                     var updateUrl = "<?php echo URL::to('admin/editdoc'); ?>" + "/" + data;
                     var publishUrl = "<?php echo URL::to('admin/publishdoc'); ?>" + "/" + data;
                     var deleteUrl = "<?php echo URL::to('admin/deletedoc'); ?>" + "/" + data;
 
-                    return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
-                        '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +
-                        '<a href="' + updateUrl + '" title="Update"><i class="rulycon-pencil"></i></a> &nbsp;' +
-                        '<a href="' + deleteUrl + '" title="Delete" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
+                    if(row[8] != null || row[8] != "")
+                    {
+                        return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
+                            '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +
+                            '<a href="' + updateUrl + '" title="Ubah"><i class="rulycon-pencil"></i></a> &nbsp;' +
+                            '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
+                    }
+                    else
+                    {
+                        return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
+                            '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +
+                            '<a href="' + updateUrl + '" title="Ubah"><i class="rulycon-pencil"></i></a> &nbsp;';
+                    }
                 }
             }
         ],
@@ -226,11 +243,29 @@
             });
         }
     });
+
+    $("#basictable").on('click', '.btn_delete', function (e) {
+        var delkodel = $(this);
+        $('#dialog').dialog({
+            width: 500,
+            modal: true,
+            buttons: {
+                "Hapus" : function(){
+                    window.location.replace(delkodel.attr('href'));
+                    $(this).dialog("close");
+                },
+                "Batal" : function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
+        e.preventDefault();
+    });
 </script>
 
 <script>
-  jQuery("#app_ketatalaksanaan > ul > li:last-child > a").addClass("sub-menu-active");
-  jQuery("#app, #app_ketatalaksanaan > ul").css({
+  jQuery("#produk-hukum > li:first-child").addClass("sub-menu-active");
+  jQuery("#produk-hukum").css({
     "display": "block",
     "visibility": "visible"
   });

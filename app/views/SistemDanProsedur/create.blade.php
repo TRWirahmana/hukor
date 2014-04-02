@@ -1,18 +1,32 @@
 @section('content')
 
-<h2>Ketatalaksanaan</h2>
+<script>
+    document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
+</script>
 <div class="stripe-accent"></div>
-<legend>Pengajuan Usulan Sistem & Prosedur</legend>
+<legend>Pengajuan Usulan</legend>
 
 @include('flash')
 <div class="content-non-title">
 
-    {{ Form::open(array('route' => 'sp.store', 'files' => true, 'class' => 'form form-horizontal', 'id' => 'form-perUU'))}}
 
+
+    {{ Form::open(array('route' => 'sp.store', 'files' => true, 'class' => 'form form-horizontal', 'id' => 'form-perUU'))}}
     <div class="row-fluid">
         <div class="span12">
             <fieldset>
                 <legend>Penanggung Jawab</legend>
+                <div class="control-group">
+                    <label for="jenis_usulan" class="control-label">Jenis Usulan</label>
+
+                    <div class="controls">
+                        <select id="jenis_usulan">
+                            <!--        <option value="0">Pilih Usulan</option>-->
+                            <option value="1">Sistem dan Prosedur</option>
+                            <option value="2">Analisis Jabatan</option>
+                        </select>
+                    </div>
+                </div>
 
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[nama]', 'Nama', array('class' => 'control-label'))}}
@@ -82,7 +96,7 @@
                 </div>
 
                 <div class="control-group">
-                    {{ Form::label("sistem_dan_prosedur[catatan]", "Deskripsi", array('class' => 'control-label')) }}
+                    {{ Form::label("sistem_dan_prosedur[catatan]", "Catatan", array('class' => 'control-label')) }}
                     <div class="controls">{{ Form::textarea("sistem_dan_prosedur[catatan]", null, array('placeholder' => 'Masukan keterangan usulan...')) }}</div>
                 </div>
 
@@ -134,6 +148,19 @@
 @parent
 <script src="{{asset('assets/js/jquery.validate.js')}}"></script>
 <script type="text/javascript">
+    $( "#jenis_usulan" ).change(function() {
+        var jenis_usul = $("#jenis_usulan").val();
+
+//        alert(jenis_usul);
+        if(jenis_usul == 1){
+//            alert('sisprod');
+            $("#form-perUU").attr('action', baseUrl + '/sp');
+        }
+        if(jenis_usul == 2){
+            $("#form-perUU").attr('action',  baseUrl + '/aj');
+        }
+    });
+
 $("#menu-peraturan-perundangan").addClass("active");
 
 
@@ -199,6 +226,11 @@ $("#form-perUU").validate({
     }
 });
 
+</script>
+
+<script>
+    document.getElementById("collapse12").style.height = "auto";
+    document.getElementById("menu-ketatalaksanaan-usulan").setAttribute("class", "user-menu-active");
 </script>
 
 @stop

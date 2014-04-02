@@ -4,16 +4,15 @@
 
   <ul class="breadcrumbs">
     <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-    <li><a href="{{URL::previous()}}">Berita</a> <span class="separator"></span></li>
-    <li>Pengaturan Link</li>
+    <li>Kelola Link</li>
   </ul>
   @include('adminflash')
   <div class="pageheader">
     <!--        <form action="results.html" method="post" class="searchbar">-->
     <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
     <!--        </form>-->
-    <div class="pageicon"><span class="rulycon-notebook"></span></div>
-    <div class="pagetitle"><h1>Link</h1>
+    <div class="pageicon"><span class="rulycon-settings"></span></div>
+    <div class="pagetitle"><h1>Kelola Link</h1>
     </div>
   </div>
   <!--pageheader-->
@@ -80,15 +79,15 @@
               </div>
             <?php } ?>
 
+          </fieldset>
+
             <hr/>
 
             <div class="control-group">
-              <div class="controls">
-                {{ Form::submit('Simpan perubahan', array('class' => 'btn btn-primary')) }}
-              </div>
+                <div class="controls">
+                    {{ Form::submit('Simpan perubahan', array('class' => 'btn btn-primary')) }}
+                </div>
             </div>
-
-          </fieldset>
         </div>
 
       </div>
@@ -138,6 +137,12 @@
   jQuery("#manage-menu").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Kelola Link"
   });
 </script>
 @stop

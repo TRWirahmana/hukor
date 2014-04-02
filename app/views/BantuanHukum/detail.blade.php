@@ -4,19 +4,20 @@
 
 <ul class="breadcrumbs">
   <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-  <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
-  <li>BANTUAN HUKUM</li>
+  <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
+    <li><a href="{{URL::previous()}}">Bantuan Hukum</a> <span class="separator"></span></li>
+  <li>Detail Usulan</li>
 </ul>
 @include('adminflash')
 <div class="pageheader">
   <!--        <form action="results.html" method="post" class="searchbar">-->
   <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
   <!--        </form>-->
-  <div class="pageicon">&nbsp;</div>
+    <div class="pageicon"><span class="rulycon-notebook"></span></div>
   <div class="pagetitle">
     <!--<h5>Events</h5>-->
 
-    <h1>Detail Bantuan Hukum</h1>
+    <h1>Detail Usulan</h1>
   </div>
 </div>
 <!--pageheader-->
@@ -109,7 +110,7 @@
       <legend>INFORMASI PENGUSUL</legend>
 
       <div class="control-group">
-        {{ Form::label('nama', 'Nama Penanggung Jawab', array('class' => 'control-label')) }}
+        {{ Form::label('nama', 'Nama Pengusul', array('class' => 'control-label')) }}
         <div class="controls">
           <input type="text" disabled value="{{ $banhuk->pengguna->nama_lengkap }}"/>
         </div>
@@ -250,7 +251,7 @@
         {{ Form::label('uraian', 'Uraian Singkat Mengenai Pokok Persoalan yang Dimohonkan Bantuan Hukum', array('class'
         => 'control-label')) }}
         <div class="controls">
-          <input type="text" disabled value="{{ $banhuk->uraian_singkat }}"/>
+          <textarea disabled style="height: 100px !important;">{{ $banhuk->uraian_singkat }} </textarea>
         </div>
       </div>
     </fieldset>
@@ -304,12 +305,12 @@
         </div>
       </div>
 
-      <div class="control-group">
-        {{ Form::label('advokator', 'Advokator', array('class' => 'control-label')) }}
-        <div class="controls">
-          {{ Form::text('advokator', $banhuk->advokator, array('id' => 'advokator')) }}
-        </div>
-      </div>
+<!--      <div class="control-group">-->
+<!--        {{ Form::label('advokator', 'Advokator', array('class' => 'control-label')) }}-->
+<!--        <div class="controls">-->
+<!--          {{ Form::text('advokator', $banhuk->advokator, array('id' => 'advokator')) }}-->
+<!--        </div>-->
+<!--      </div>-->
 
       <div class="control-group">
         {{ Form::label('status_pemohon', 'Status Pemohon', array('class' => 'control-label')) }}
@@ -354,15 +355,19 @@
         </div>
       </div>
     </fieldset>
-  </div>
-</div>
 
-<div class="row-fluid">
-  <div class="span24 text-center">
-    <button class="btn btn-primary" type="submit">Simpan</button>
-    <a class="btn btn-primary" type="button" href="{{URL::to('admin/bantuan_hukum')}}">Batal</a>
   </div>
+    <div class="row-fluid">
+        <div class="span24">
+            <a class="btn btn-primary" type="button" href="{{URL::to('admin/bantuan_hukum')}}">Batal</a>
+            <button class="btn btn-primary" type="submit">Simpan</button>
+
+        </div>
+    </div>
 </div>
+<br>
+<br>
+
 {{ Form::close() }}
 
 <table id="basictable" class="dataTable">
@@ -373,7 +378,7 @@
     <th>Catatan</th>
     <th>Lampiran</th>
     <th>Advokasi</th>
-    <th>Advokator</th>
+<!--    <th>Advokator</th>-->
     <th></th>
   </tr>
   </thead>
@@ -407,46 +412,53 @@
 <script type="text/javascript">
   jQuery(function ($) {
     var tbl_data = $("#basictable").dataTable({
-      bFilter: false,
-      bInfo: false,
-      bSort: false,
-      bPaginate: true,
-      bLengthChange: false,
-      bServerSide: true,
-      bProcessing: true,
+        bFilter: true,
+        bInfo: true,
+        bSort: false,
+        bPaginate: true,
+        bLengthChange: false,
+        bServerSide: true,
+        bProcessing: true,
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sSearch":       "Cari:"
+        },
 //                sAjaxSource: baseUrl + "/lkpm/data",
       sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/tablelog"); ?>',
       aoColumns: [
-        {mData: "tanggal"},
+        {mData: "tanggal",sClass: "center"},
         {
           mData: "status_pemohon",
-          sClass: "center"
-// mRender: function(id){
-//     var status_pemohon;
-//     switch (parseInt(id)){
-//         case 1:
-//             status_pemohon = "Tergugat";
-//             break;
-//         case 2:
-//             status_pemohon = "Penggugat";
-//             break;
-//         case 3:
-//             status_pemohon = "Interfent";
-//             break;
-//         case 4:
-//             status_pemohon = "Saksi";
-//             break;
-//         case 5:
-//             status_pemohon = "Pemohon";
-//             break;
-//     }
+          sClass: "center",
+mRender: function(id){
+     var status_pemohon;
+     switch (parseInt(id)){
+         case 1:
+             status_pemohon = "Tergugat";
+             break;
+         case 2:
+             status_pemohon = "Penggugat";
+             break;
+         case 3:
+             status_pemohon = "Interfent";
+             break;
+         case 4:
+             status_pemohon = "Saksi";
+             break;
+         case 5:
+             status_pemohon = "Pemohon";
+             break;
+     }
 
-//     return status_pemohon;
-// }
+     return status_pemohon;
+}
         },
         {mData: "catatan"},
         {
           mData: "lampiran",
+            sClass: "center",
           mRender: function (data, type, full) {
             return '<a href="' + baseUrl + '/admin/bantuan_hukum/log/download/' + full.id + '">Unduh</a>';
           }
@@ -470,7 +482,7 @@
             return advokasi;
           }
         },
-        {mData: "advokator"},
+//        {mData: "advokator"},
         {
           mData: "id",
           mRender: function (data) {
@@ -493,5 +505,18 @@
       }
     });
   })
+</script>
+<script>
+    jQuery("#app_bahu > a").addClass("sub-menu-active");
+    jQuery("#app").css({
+        "display": "block",
+        "visibility": "visible"
+    });
+</script>
+
+<script>
+    jQuery(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | Bantuan Hukum"
+    });
 </script>
 @stop

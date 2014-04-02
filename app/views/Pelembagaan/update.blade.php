@@ -3,18 +3,19 @@
 <div class="rightpanel">
   <ul class="breadcrumbs">
     <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-    <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
-    <li>Pelembagaan</li>
+    <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
+      <li><a href="{{URL::previous()}}">Pelembagaan</a> <span class="separator"></span></li>
+    <li>Detail Pelembagaan</li>
   </ul>
   @include('adminflash')
   <div class="pageheader">
     <!--        <form action="results.html" method="post" class="searchbar">-->
     <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
     <!--        </form>-->
-    <div class="pageicon">&nbsp;</div>
+      <div class="pageicon"><span class="rulycon-notebook"></span></div>
     <div class="pagetitle">
       <!--<h5>Events</h5>-->
-      <h1>PELEMBAGAAN</h1>
+      <h1>Detail Usulan</h1>
     </div>
   </div>
   <!--pageheader-->
@@ -93,19 +94,19 @@
                 <!--   <a href= {{ URL::asset('assets/uploads/pelembagaan/' . $pelembagaan->lampiran ); }} > {{ $pelembagaan->lampiran}} </a>  -->
               </div>
             </div>
-            <div class="control-group">
-              <div class="controls">
-                {{ Form::submit('Kirim', array('id' => 'kirim_btn', 'class' => 'btn btn-primary', 'style'=>'float: left'))
-                }}
-                <input class='btn btn-primary' style='float: left; margin: 0 0 0 8px;' Type="button" value="Batal"
-                       onClick="history.go(-1);return true;">
+              <div class="control-group">
+                  <input class='btn btn-primary'  style="margin-left: 10px;" Type="button" value="Batal"
+                         onClick="history.go(-1);return true;">
+                  {{ Form::submit('Simpan', array('id' => 'kirim_btn', 'class' => 'btn btn-primary'))
+                  }}
               </div>
-            </div>
+
           </fieldset>
 
           <br/>
           <br/>
         </div>
+
 
         <div class="span6">
           <fieldset>
@@ -210,13 +211,30 @@
 
     $(document).ready(function () {
       oTable = $("#tbl-log_pelembagaan").dataTable({
-        iDisplayLength: 5,
-        bServerSide: true,
+          bFilter: true,
+          bInfo: true,
+          bSort: false,
+          bPaginate: true,
+          bLengthChange: false,
+          bServerSide: true,
+          bProcessing: true,
+          oLanguage:{
+              "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+              "sEmptyTable": "Data Kosong",
+              "sZeroRecords" : "Pencarian Tidak Ditemukan",
+              "sSearch":       "Cari:"
+//              "sLengthMenu": 'Tampilkan <select>'+
+//                  '<option value="10">10</option>'+
+//                  '<option value="25">25</option>'+
+//                  '<option value="50">50</option>'+
+//                  '<option value="100">100</option>'+
+//                  '</select> Usulan'
+          },
         sAjaxSource: document.location.href,
         aoColumns: [
           {
             mData: "tgl_proses",
-            sClass: 'center-ac',
+            sClass: 'center',
             sWidth: '20%'
           },
           {
@@ -231,20 +249,20 @@
 
                 }
               }
-              return 'Belum Di Proses';
+              return 'Belum Diproses';
             }
           },
           {
             mData: "catatan",
             sClass: 'center-ac',
-            sWidth: '35%',
+            sWidth: '35%'
           },
           {
 
             //  URL::asset('assets/uploads/
 
             mData: "lampiran",
-            sClass: 'center-ac',
+            sClass: 'center',
             sWidth: '14%',
             mRender: function (data, type, full) {
               // var downloadUrl = baseUrl + '/assets/uploads/pelembagaan/' + data;
@@ -323,5 +341,17 @@
 <script type="text/javascript">
   Pelembagaan.Update();
 </script>
+<script>
+    jQuery("#app_pelembagaan > a").addClass("sub-menu-active");
+    jQuery("#app").css({
+        "display": "block",
+        "visibility": "visible"
+    });
+</script>
 
+<script>
+    jQuery(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | Pelembagaan"
+    });
+</script>
 @stop

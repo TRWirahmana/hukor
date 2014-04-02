@@ -1,11 +1,14 @@
 @section('content')
-<h2><span class="rulycon-phone"></span>CALL CENTER</h2>
+<!--CALL CENTER-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-address-book'></span> Kontak Kami";
+</script>
 
 @include('flash')
 <div class="row-fluid">
   <div class="span12 offset6">
     <div class="well text-center" id="call-center">
-      <h4>Call Center Biro Hukum & Organisasi</h4>
+      <h4>Kontak Kami Biro Hukum & Organisasi</h4>
       @if($call->email && $call->email != "")
       <p><span class="rulycon-mail-4"></span> {{ $call->email }}</p>
       @endif

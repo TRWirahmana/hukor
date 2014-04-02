@@ -28,7 +28,8 @@ class LayananController extends BaseController {
             $this->layout->content = View::make('layanan.info_aplikasi',
                 array(
                     'info' => $info,
-                    'allmenu' => $all
+                    'allmenu' => $all,
+                    'ids' =>  $id
                 ));
         }else{
             $info = Layanan::find($id);
@@ -96,6 +97,10 @@ class LayananController extends BaseController {
 
         $listPJ = array("" => "-- Pilih Bagian --") + Bagian::lists('nama_bagian', 'id');
         $layanan = Layanan::find($id);
+
+//        $bags = DB::table('bagian')
+//            ->select('nama')
+//            ->where('id', '=', $layanan->penanggung_jawab);
 
         if(!is_null($layanan))
             $this->layout->content = View::make('layanan.form', array(

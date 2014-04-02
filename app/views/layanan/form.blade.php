@@ -4,19 +4,18 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
-        <li>Layanan</li>
+        <li><a href="{{URL::previous()}}">Kelola</a> <span class="separator"></span></li>
+        <li><a href="{{URL::previous()}}">Kelola Konten Layanan</a> <span class="separator"></span></li>
+        <li>Tambah Konten Layanan</li>
     </ul>
     @include('adminflash')
     <div class="pageheader">
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon">&nbsp;</div>
+        <div class="pageicon"><span class="rulycon-settings"></span></div>
         <div class="pagetitle">
-            <!--<h5>Events</h5>-->
-
-            <h1></h1>
+            <h1>Tambah Konten Layanan</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -40,7 +39,7 @@
                             <div class="control-group">
                                 {{ Form::label('menu', 'Pilih Menu', array('class' => 'control-label')) }}
                                 <div class="controls">
-                                    {{ Form::select('layanan[menu]', $listMenu, $menu->submenu->menu->id , array("id" => "menu")) }}
+                                    {{ Form::select('layanan[menu]', $listMenu, $menu->menu->id , array("id" => "menu")) }}
                                 </div>
                             </div>
 
@@ -153,6 +152,8 @@
                 theme : "modern",
                 mode: "exact",
                 elements : "berita",
+                plugins: "link",
+
                 theme_advanced_toolbar_location : "top",
                 theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,"
                     + "justifyleft,justifycenter,justifyright,justifyfull,formatselect,"
@@ -161,6 +162,12 @@
                     +"undo,redo,cleanup,code,separator,sub,sup,charmap",
                 theme_advanced_buttons3 : "",
                 height:"350px"
+            });
+
+            jQuery("#manage-menu > li:nth-child(4) > a").addClass("sub-menu-active");
+            jQuery("#manage-menu").css({
+                "display": "block",
+                "visibility": "visible"
             });
 
             Layanan.Form();
@@ -175,4 +182,10 @@
 <!--            display: none !important;-->
 <!--        }-->
 <!--    </style>-->
+
+  <script>
+    jQuery(document).on("ready", function() {
+      document.title = "Layanan Biro Hukum dan Organisasi | Tambah Layanan"
+    });
+  </script>
     @stop

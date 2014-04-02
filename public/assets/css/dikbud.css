@@ -10,7 +10,7 @@
   transition: all .2s ease-out;
 }
 
-::-webkit-scrollbar {
+/*::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
@@ -19,14 +19,14 @@
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, .25);
-}
+}*/
 ::selection {
-  background: #16a085;
+  background: #2875A8;
   color: #ffffff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
 }
 ::-moz-selection {
-  background: #16a085;
+  background: #2875A8;
   color: #ffffff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
 }
@@ -270,6 +270,12 @@ button:hover, .btn:hover {
 .btn.btn-hukor {
   background: #c0392b;
 }
+.btn.btn-hukor-blue {
+  background: #2980b9;
+}
+.btn.btn-hukor:focus {
+  color: #ffffff;
+}
 li.dropdown {
   list-style: none;
 }
@@ -290,9 +296,11 @@ textarea {
 }
 legend {
   border-bottom: 1px dashed rgba(0, 0, 0, .075);
+    margin-bottom: 0px;
 }
 .form-actions {
   text-align: center;
+  background: transparent;
 }
 .form-inline {
   /*margin-bottom: 20px;*/
@@ -343,6 +351,9 @@ legend {
 .form-horizontal .controls textarea {
   display: block;
   width: 100%;
+}
+.form-horizontal .controls .btn, .form-horizontal .controls button {
+  width: auto;
 }
 .nav-tabs {
   text-align: center;
@@ -395,7 +406,7 @@ legend {
   text-align: center;
 }
 .well {
-  background: #4fb4c0;
+  background: #2980B9;
   color: #ffffff;
   padding-bottom: 38px;
   box-shadow: none;
@@ -416,6 +427,7 @@ html, .main-layout, .admin,
   position: relative;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
   overflow: auto;
+  padding-top: 120px;
 }
 .sidebar > header {
   position: relative;
@@ -424,11 +436,24 @@ html, .main-layout, .admin,
   padding-top: 15px;
   padding-bottom: 20px;
 }
-.sidebar > header > img {
+#user-header {
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+.sidebar > header > img, #user-header #logo img {
   width: 52px;
   display: inline-block;
 }
-.sidebar > header > h4 {
+#user-header #logo img {
+  width: 68px;
+}
+#user-header #content-title {
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.sidebar > header > h4, #user-header #logo h4 {
   font-family: "pt_sans_narrowregular", sans-serif;
   display: inline-block;
   text-align: left;
@@ -437,13 +462,17 @@ html, .main-layout, .admin,
   color: #ffffff;
   font-size: 12px;
   width: auto;
-  vertical-align: top;
+  vertical-align: middle;
   font-weight: normal;
 }
-.sidebar > header > h4 span {
+.sidebar > header > h4 span, #user-header #logo h4 span {
   font-family: "pt_sans_narrowregular", sans-serif;
 }
-.sidebar > header >  h4 span:first-child {
+#user-header #logo h4 span {
+  display: block;
+}
+.sidebar > header >  h4 span:first-child,
+#user-header #logo h4 span:first-child {
   font-size: 18px;
   display: block;
 }
@@ -580,13 +609,15 @@ html, .main-layout, .admin,
 .sidebar #user-menu > li > a, .sidebar ul.welcome-message > li > a,
 .sidebar #user-menu .accordion-heading .accordion-toggle,
 .sidebar #user-menu .accordion-inner a {
+  /*font-family: "PT Sans Narrow", "pt_sans_narrowregular", sans-serif !important;*/
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   width: 100%;
-  color: rgba(255, 255, 255, .55);
+  color: rgba(255, 255, 255, 1);
   background: transparent;
-  padding: 7.5px 20px;
+  padding: 8px 20px;
   border-radius: 0;
+  position: relative;
 }
 .sidebar #user-menu > li > a:hover, .sidebar #user-menu > .active > a,
 .sidebar ul.welcome-message > li > a:hover,
@@ -607,7 +638,7 @@ html, .main-layout, .admin,
 .sidebar ul.welcome-message > li > a > span[class *= rulycon],
 .sidebar #user-menu .accordion-heading .accordion-toggle > span[class *= rulycon] {
   margin-right: 15px;
-  color: rgba(255, 255, 255, .55);
+  color: rgba(255, 255, 255, 1);
 }
 .sidebar #user-menu .accordion-heading .accordion-toggle > .rulycon-menu-2 {
   margin-right: 0 !important;
@@ -618,6 +649,20 @@ html, .main-layout, .admin,
 .sidebar ul.welcome-message > .active > a > span[class *= rulycon],
 .sidebar #user-menu .accordion-heading .accordion-toggle:hover > span[class *= rulycon] {
   color: #ffffff;
+}
+.sidebar #user-menu > li > a > span[class *= rulycon]:first-child,
+.sidebar #user-menu .accordion-heading .accordion-toggle > span[class *= rulycon]:first-child {
+  position: absolute;
+  left: 20px;
+}
+.sidebar #user-menu > li > a,
+.sidebar #user-menu .accordion-heading .accordion-toggle {
+  padding-left: 48px;
+}
+.sidebar #user-menu .accordion-heading .accordion-toggle > span[class *= rulycon]:last-child {
+  position: absolute;
+  right: 20px;
+  top: 8px;
 }
 .sidebar #user-menu .accordion {
   margin-bottom: 0;
@@ -636,7 +681,7 @@ html, .main-layout, .admin,
   list-style: none;
 }
 .sidebar #user-menu .accordion-inner a {
-  padding-left: 50px;
+  padding-left: 74px;
 }
 .sidebar #user-menu .accordion-inner a:hover {
   text-decoration: none;
@@ -645,22 +690,8 @@ html, .main-layout, .admin,
 }
 .sidebar #user-menu .accordion-inner a > span[class*=rulycon] {
   margin-right: 15px;
-}
-.sidebar #user-menu > li > a {
-  min-height: 35px;
-}
-.sidebar #user-menu > li > a > span:first-child,
-.sidebar #user-menu > li > a > span:nth-child(2) {
-  float: left;
-  position: relative;
-}
-.sidebar #user-menu > li > a > span:first-child {
-  width: 12%;
-  margin: 0;
-}
-.sidebar #user-menu > li > a > span:nth-child(2) {
-  float: none;
-  width: 88%;
+  position: absolute;
+  left: 48px;
 }
 .sidebar #copyright {
   padding: 20px;
@@ -670,14 +701,14 @@ html, .main-layout, .admin,
   text-align: center;
   background: #2875A8;
   margin-bottom: 0;
-  font-size: 9px;
+  font-size: 13px;
 }
 #welcome-to-the-fucking-app {
   font-size: 16px;
   text-align: center;
   line-height: 140%;
   font-family: "PT Sans", "pt_sansregular", sans-serif;
-  color: #95a5a6;
+  color: #2980b9;
   width: 65%;
   margin: 140px auto;
   padding: 40px 20px 60px;
@@ -719,14 +750,31 @@ html, .main-layout, .admin,
   margin: 0 0 24px;
   padding: 20px 20px 26px;
 }
+#user-header #content-title > h2 {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-family: "PT Sans Narrow", "pt_sans_narrowregular", sans-serif;
+  font-weight: normal;
+  line-height: 100%;
+}
 .main-content > h2 > span[class*="rulycon"] {
-  font-size: 14px;
+  font-size: 24px;
   color: #ffffff;
   vertical-align: top;
-  padding: 3px 7px 7px;
+  padding: 3px 8px 7px;
   border: 3px solid #ffffff;
   border-radius: 100em;
   margin-right: 10px;
+}
+#user-header #content-title > h2 > span[class*="rulycon"] {
+  font-size: 24px;
+  color: #ffffff;
+  vertical-align: top;
+  padding: 6px 10px 7px;
+  border: 3px solid #ffffff;
+  border-radius: 100em;
+  margin-right: 6px;
 }
 .main-content .content-non-title {
   margin-top: 20px;
@@ -753,8 +801,8 @@ html, .main-layout, .admin,
   top: 8px;
 }
 .main-content .span12 {
-  padding-left: 15px;
-  padding-right: 15px;
+  /*padding-left: 15px;
+  padding-right: 15px;*/
 }
 .main-content .span12 > p {
   padding-left: 15px;
@@ -836,10 +884,10 @@ html, .main-layout, .admin,
 }
 table.dataTable {
   width: 100% !important;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 table.dataTable thead tr > th {
-  background: #95a5a6;
+  background: #2980b9;
   color: #ffffff;
   border: none;
   padding: 6px 10px 8px;
@@ -848,10 +896,14 @@ table.dataTable thead tr > th {
 }
 table.dataTable tr.odd {
   background: rgba(255, 255, 255, .25);
-  border-bottom: 1px solid rgba(0, 0, 0, .075);
+  border-bottom: 1px solid rgba(0, 0, 0, .025);
 }
-table.dataTable tr.odd > td {
-  /*padding: 30px 20px 40px;*/
+table.dataTable tr.even {
+  background: rgba(255, 255, 255, .55);
+  border-bottom: 1px solid rgba(0, 0, 0, .025);
+}
+table.dataTable tr > td {
+  padding: 8px 12px;
 }
 .paginate_disabled_previous, .paginate_disabled_next {
   background: none;
@@ -865,12 +917,184 @@ table.dataTable tr.odd > td {
 table.dataTable td.dataTables_empty {
   color: #c0392b;
 }
+.dataTables_info {
+  display: block;
+  width: 100%;
+  background: #2980b9;
+  color: #ffffff;
+  float: none;
+  padding: 6px 12px;
+}
+.dataTables_paginate {
+  margin-top: -28px;
+  margin-right: 12px;
+}
+.dataTables_paginate > a {
+  color: #ffffff !important;
+}
 .user-menu-active {
   background: rgba(0, 0, 0, .15);
   color: #ffffff;
+  background: #2980b9;
+}
+#user-header {
+  position: fixed;
+  top: 0;
+  display: block;
+  width: 100%;
+  background: #2980b9;
+  z-index: 25;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .35);
+}
+#user-header * {
+  color: #ffffff;
+}
+#user-header #logo, #user-header #content-title {
+  display: inline-block;
+  float: left;
+}
+#user-header #logo {
+  width: 24.050632911392405%;
+}
+#user-header #content-title {
+  width: 75.9493670886076067%;
+}
+.ui-dialog {
+  background: url("../images/bg1.png") repeat;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .55);
 }
 
-/* MEDIA QUERIES */
+.ui-draggable .ui-dialog-titlebar {
+  background: #0A3E6E;
+  border: none;
+  border-radius: 0;
+}
+
+.ui-dialog .ui-dialog-title {
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
+  padding: 4px 0;
+}
+
+.ui-dialog .ui-dialog-content {
+  padding: 12px 24px;
+  font-size: 13px;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+  background: transparent;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+  background: #0e5ba1;
+  color: #ffffff;
+  border: none;
+  padding: 4px 12px;
+}
+
+.ui-dialog .ui-dialog-buttonpane button:last-child {
+  background: #FF7200;
+}
+
+.ui-dialog-titlebar-close {
+  display: none;
+}
+
+.ui-dialog .ui-button-text-only .ui-button-text {
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.ui-dialog .ui-button {
+  border-radius: 0;
+}
+
+/* Calendar */
+.ui-datepicker.ui-widget {
+  padding: 0 !important;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 0;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
+}
+.ui-datepicker.ui-widget td {
+  padding: 0;
+  border: none;
+}
+.ui-datepicker .ui-datepicker-header {
+  background: #2875A8;
+  border: 1px solid #2875A8;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25);
+  border-radius: 0;
+}
+.ui-datepicker .ui-datepicker-title {
+  color: #ffffff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+  font-weight: normal;
+}
+.ui-datepicker .ui-datepicker-calendar {
+  background: #f5f5f5;
+}
+.ui-datepicker .ui-datepicker-calendar .ui-state-default {
+  color: #5B6C78;
+  border: none;
+}
+.ui-datepicker .ui-datepicker-calendar .ui-state-highlight {
+  font-weight: bold;
+  text-shadow: none;
+  background: #2875A8;
+  color: #ffffff;
+}
+.ui-datepicker .ui-datepicker-calendar th {
+  text-transform: uppercase;
+}
+.ui-datepicker .ui-datepicker-calendar td {
+  border: none;
+}
+.ui-datepicker .ui-datepicker-calendar td a {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65);
+}
+.ui-datepicker .ui-datepicker-prev-hover {
+  left: 2px;
+  top: 2px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .25);
+}
+.ui-datepicker .ui-datepicker-next-hover {
+  right: 2px;
+  top: 2px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .25);
+}
+.ui-datepicker-title .ui-datepicker-month, .ui-datepicker-title .ui-datepicker-year {
+  padding: 0;
+  border-radius: 2px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  height: 100%;
+}
+.ui-datepicker-title .ui-datepicker-month {
+  margin-right: 2px !important;
+}
+
+#beritaaaa > * {
+  background: transparent !important;
+}
+#select-menu-helper {
+  display: none;
+}
+
+
+
+/* =================================== */
+/* -----===== MEDIA QUERIES =====----- */
+/* =================================== */
+
 @media (max-width: 960px) {
   body {
     padding: 0 !important;
@@ -929,6 +1153,101 @@ table.dataTable td.dataTables_empty {
     color: white;
     font-weight: bold;
     font-size: 15px;
+  }
+}
+
+@media (max-width: 1200px) {
+  #user-header #logo {
+    width: 60%;
+  }
+  #user-header #content-title {
+    width: 40%;
+  }
+  #user-header #logo {
+    text-align: left;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  #user-header #logo img {
+    width: 42px;
+  }
+  #user-header #logo h4 {
+    line-height: 140%;
+  }
+  #user-header #content-title {
+    text-align: right;
+    padding-right: 12px;
+    margin-top: 12px;
+  }
+  #user-header #content-title > h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  #user-header #content-title > h2 > span[class*="rulycon"] {
+    font-size: 18px;
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+  /*#user-header #logo h4 span:nth-child(2), #user-header #logo h4 span:last-child {
+    display: inline-block;
+  }
+  #user-header #logo h4 span:last-child:before {
+    content: "- ";
+  }*/
+  .main-layout .sidebar, .main-layout .main-content {
+    float: left;
+  }
+  .main-layout .sidebar {
+    padding-top: 90px;
+  }
+  .main-layout .main-content {
+    width: 75.789473684210527% !important;
+  }
+}
+
+@media (max-width: 960px) {
+  /*.sidebar ul.welcome-message > li {
+    display: inline-block;
+    width: 50%;
+  }*/
+  .main-layout .sidebar, .main-layout .main-content {
+    padding-left: 0;
+    padding-right: 0;
+    display: block;
+  }
+  .main-layout .sidebar {
+    width: 24.210526315789473% !important;
+  }
+  .main-layout .main-content {
+    width: 75.789473684210527% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #user-header #logo {
+    width: 80%;
+  }
+  #user-header #content-title {
+    width: 20%;
+    margin-top: 0;
+  }
+  #user-header #logo, #user-header #content-title {
+    /*display: inline-block;*/
+  }
+  .main-layout .sidebar, .main-layout .main-content {
+    display: block;
+    width: 100% !important;
+  }
+  .main-layout .main-content {
+    padding-top: 48px !important;
+  }
+  #user-header #content-title > h2 {
+    font-size: 16px;
+    margin-top: 0;
+    line-height: 120%;
+  }
+  #user-header #content-title span[class*="rulycon"] {
+    display: none;
   }
 }
 

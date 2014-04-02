@@ -18,7 +18,7 @@ class PeruuController extends BaseController
 
 		if(Auth::user()->role_id == 2 || Auth::guest()) {
 			$this->layout = View::make('layouts.master', array('allmenu' => $all));
-			$this->layout->content = View::make('PerUU.informasi');    
+			$this->layout->content = View::make('PerUU.informasi', array('role_id' => $roleId));
 		} else {
 			$this->layout = View::make('layouts.admin');
 			$this->layout->content = View::make('PerUU.index');    
@@ -91,13 +91,22 @@ class PeruuController extends BaseController
 
 		$user = Auth::user();
 		$perUU = PerUU::with('Pengguna')->find($id);
-		$this->layout = View::make('layouts.admin');
-		$this->layout->content = View::make('PerUU.edit')
-			->with('perUU', $perUU);
+
+        if($user->role_id == 3){
+            $this->layout = View::make('layouts.admin');
+            $this->layout->content = View::make('PerUU.edit')
+                ->with('perUU', $perUU);
+        }else{
+            $this->layout = View::make('layouts.master');
+            $this->layout->content = View::make('PerUU.detail')
+                ->with('perUU', $perUU);
+        }
+
 	}
 
 	public function update($id)
 	{
+        echo $id;exit;
 		$status = Input::get('status', 0);
 		$catatan = Input::get('catatan', '');
 		$ketLampiran = Input::get('ket_lampiran', '');

@@ -12,7 +12,7 @@
 <!--        </form>-->
         <div class="pageicon"><span class="rulycon-user"></span></div>
         <div class="pagetitle">
-          <h1>Kelola Akun</h1>
+          <h1>Akun</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -76,6 +76,11 @@
 </div>
 <!--rightpanel-->
 
+<!-- dialog box -->
+<div id="dialog" title="Hapus Akun" style="display: none;">
+    <p>Apakah Anda Yakin?</p>
+</div>
+
 @stop
 
 @section('scripts')
@@ -99,6 +104,12 @@
   jQuery("#manage").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Akun"
   });
 </script>
 @stop

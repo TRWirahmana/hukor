@@ -59,6 +59,11 @@
 </div>
 <!--rightpanel-->
 
+<!-- dialog box -->
+<div id="dialog" title="Hapus Perundang-Undangan" style="display: none;">
+    <p>Apakah Anda Yakin?</p>
+</div>
+
 @stop
 
 @section('scripts')
@@ -69,6 +74,11 @@
   jQuery("#menu_berita").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Berita"
   });
 </script>
 @stop

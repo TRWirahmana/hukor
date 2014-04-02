@@ -1,21 +1,24 @@
 @section('content')
 <input type="hidden" id="role_id" value="{{Auth::user()->role_id}}"/>
 
-<h2><span class="rulycon-stack"></span>BANTUAN HUKUM</h2>
-<div class="stripe-accent"></div>
-    <legend>Informasi dan Status Usulan Bantuan Hukum</legend>
+<!--BANTUAN HUKUM-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Bantuan hukum";
+</script>
+
+    <legend>Status Usulan</legend>
 
     @include('flash')
 <br>
     <table id="basictable" class="dataTable">
         <thead>
         <tr>
-            <th>Nama Pemohon</th>
+<!--            <th>Nama Pemohon</th>-->
             <th>Jenis Perkara</th>
             <th>Status Pemohon</th>
-            <th>Status Perkara</th>
+<!--            <th>Status Perkara</th>-->
             <th>Advokasi</th>
-            <th>Advokator</th>
+<!--            <th>Advokator</th>-->
             <th></th>
         </tr>
         </thead>
@@ -31,17 +34,22 @@
             }).val();
 
             var tbl_data = $("#basictable").dataTable({
-                bFilter: false,
-                bInfo: false,
-                bSort: false,
-                bPaginate: true,
-                bLengthChange: false,
                 bServerSide: true,
-                bProcessing: true,
+//                sAjaxSource: document.location.href,
+                bFilter: true,
+                bInfo: true,
+                bLengthChange: true,
+                oLanguage:{
+                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+                    "sEmptyTable": "Data Kosong",
+                    "sSearch":       "Cari:",
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                    "sInfoFiltered": ""
+                },
 //                sAjaxSource: baseUrl + "/lkpm/data",
-                sAjaxSource: baseUrl + '/bantuan_hukum/datatable',
+                sAjaxSource: '<?php echo URL::to("bantuan_hukum/datatable"); ?>',
                 aoColumns: [
-                    {mData: "pengguna.nama_lengkap"},
+//                    {mData: "pengguna.nama_lengkap"},
                     {
                         mData: "jenis_perkara",
                         sClass: "center",
@@ -58,10 +66,10 @@
                                     jenis_perkara = 'Pidana';
                                     break;
                                 case 4:
-                                    jenis_perkara = 'Uji Materil MK';
+                                    jenis_perkara = 'Uji Materil Mahkamah Konstitusi';
                                     break;
                                 case 5:
-                                    jenis_perkara = 'Uji Materil MA';
+                                    jenis_perkara = 'Uji Materil Mahkamah Agung';
                                     break;
                             }
 
@@ -70,6 +78,7 @@
                     },
                     {
                         mData: "status_pemohon",
+                        sClass: "center",
                         mRender: function(id){
                             var status_pemohon;
                             switch (parseInt(id)){
@@ -93,37 +102,35 @@
                             return status_pemohon;
                         }
                     },
-                    {mData: "status_perkara"},
+//                    {mData: "status_perkara"},
                     {
                         mData: "advokasi",
-                        mRender: function(id){
-                            var advokasi;
-                            switch (id){
-                                case 1:
-                                    advokasi = "Bankum I";
+                        sClass: "center",
+                        mRender: function(advokasi){
+                            switch (advokasi){
+                                case '1':
+                                    return "Bankum I";
                                     break;
-                                case 2:
-                                    advokasi = "Bankum II";
+                                case '2':
+                                    return "Bankum II";
                                     break;
-                                case 3:
-                                    advokasi = "Bankum III";
+                                case '3':
+                                    return "Bankum III";
                                     break;
                                 default:
-                                    advokasi = "";
+                                    return "Belum Diadvokasi";
                                     break;
                             }
-
-                            return advokasi;
                         }
                     },
-                    {mData: "advokator"},
+//                    {mData: "advokator"},
                     {
                         mData: "id",
 			       mRender: function(data, type, full){
 				       if($("#role_id").val() == 2) {
 
 					       var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
-					       return '<a href="' + downloadUrl + '" title="Download"><i class="rulycon-arrow-down "></i></a>';
+					       return '<a href="' + downloadUrl + '" title="Unduh"><i class="rulycon-arrow-down "></i></a>';
 				       }
 				       return "";
 			       }

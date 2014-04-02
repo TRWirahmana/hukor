@@ -4,19 +4,20 @@
 
 <ul class="breadcrumbs">
   <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-  <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
-  <li>Peraturan Perundang-Undangan</li>
+  <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
+    <li><a href="{{URL::previous()}}">Peraturan Perundang-Undangan</a> <span class="separator"></span></li>
+  <li>Detail Peraturan Perundang-Undangan</li>
 </ul>
 @include('adminflash')
 <div class="pageheader">
   <!--        <form action="results.html" method="post" class="searchbar">-->
   <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
   <!--        </form>-->
-  <div class="pageicon">&nbsp;</div>
+    <div class="pageicon"><span class="rulycon-notebook"></span></div>
   <div class="pagetitle">
     <!--<h5>Events</h5>-->
 
-    <h1>PERATURAN PERUNDANG-UNDANGAN</h1>
+    <h1>Detail Usulan</h1>
   </div>
 </div>
 <!--pageheader-->
@@ -131,7 +132,7 @@
       <div class="control-group">
         <label for="" class="control-label">Perihal</label>
 
-        <div class="controls"><input type="text" disabled="" value="{{ $perUU->perihal }}"></div>
+        <div class="controls"><textarea disabled="">{{ $perUU->perihal }}</textarea></div>
       </div>
       <div class="control-group">
         <label for="" class="control-label">Lampiran</label>
@@ -164,6 +165,11 @@
           @endif
         </div>
       </div>
+        <div class="control-group">
+            <a href="{{ URL::route('admin.puu.index') }}" class="btn btn-primary">Batal</a>
+            {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
+
+        </div>
     </fieldset>
   </div>
   <div class="span6">
@@ -184,10 +190,10 @@
         </div>
       </div>
       <div class="control-group">
-        {{ Form::label('catatan', 'Deskripsi', array('class' => 'control-label')) }}
+        {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
         <div class="controls">
           {{
-          Form::textarea('catatan', null, array('rows' => 2, 'placeholder' => 'Masukan deskripsi usulan...'))
+          Form::textarea('catatan', null, array('rows' => 2, 'placeholder' => 'Masukan Catatan...'))
           }}
         </div>
       </div>
@@ -208,11 +214,12 @@
         </div>
       </div>
 
+
     </fieldset>
 
   </div>
 </div>
-
+<br>
 <div class="row-fluid">
   <div class="span24">
     <table id="tbl-log">
@@ -237,10 +244,7 @@
 
 <hr/>
 
-<div class="row-fluid text-center">
-  <a href="{{ URL::route('admin.puu.index') }}" class="btn btn-primary" style="width: 200px;">Batal</a>
-  {{ Form::submit('Simpan', array('class' => "btn btn-primary", 'style' => "width: 240px;")) }}
-</div>
+
 {{ Form::close() }}
 
 
@@ -273,20 +277,27 @@
     $tblLog = $("#tbl-log").dataTable({
       bServerSide: true,
       sAjaxSource: document.location.href,
-      bFilter: false,
+      bFilter: true,
       bInfo: false,
       bSort: false,
       bLengthChange: false,
+        oLanguage:{
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sSearch":       "Cari:"
+        },
       iDisplayLength: 5,
       aoColumns: [
         {
           mData: "tgl_proses",
+            sClass: "center",
           mRender: function (data) {
             return $.datepicker.formatDate("dd M yy", new Date(Date.parse(data)));
           }
         },
         {
           mData: "status",
+            sClass: "center",
           mRender: function (data) {
             switch (parseInt(data)) {
               case 1:
@@ -306,7 +317,7 @@
                 return "Penetapan";
                 break;
               default:
-                return " ";
+                return "Belum Diproses";
                 break;
             }
             ;
@@ -323,5 +334,18 @@
       ]
     });
   });
+</script>
+<script>
+    jQuery("#app_puu > a").addClass("sub-menu-active");
+    jQuery("#app").css({
+        "display": "block",
+        "visibility": "visible"
+    });
+</script>
+
+<script>
+    jQuery(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | Peraturan Perundang-undangan"
+    });
 </script>
 @stop

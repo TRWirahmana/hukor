@@ -34,6 +34,11 @@
 			</div>
 		</div>
 	</div>
+
+<!-- dialog box -->
+<div id="dialog" title="Hapus Perundang-Undangan" style="display: none;">
+    <p>Apakah Anda Yakin?</p>
+</div>
 @stop
 
 @section('scripts')
@@ -44,6 +49,22 @@
 		$dTblCategories = $tblCategories.dataTable({
 			sAjaxSource: document.location.href,
 			bProcessing: true,
+            oLanguage:{
+                "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Kategori Berita",
+                "sEmptyTable": "Data Kosong",
+//                "oPaginate": {
+//                    "sNext": "Selanjutnya",
+//                    "sPrevious": "Sebelumnya"
+//                },
+                "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                "sSearch":       "Cari:",
+                "sLengthMenu": 'Tampilkan <select>'+
+                    '<option value="10">10</option>'+
+                    '<option value="25">25</option>'+
+                    '<option value="50">50</option>'+
+                    '<option value="100">100</option>'+
+                    '</select> Kategori Berita'
+            },
 			aoColumns: [
 				{mData: "nama_kategori"},
 				{mData: "created_at"},
@@ -51,8 +72,8 @@
 					mData: "id",
 					mRender: function(data, type, obj) {
 						var btns = new Array(
-							"<a href='categories/" + data + "/edit'><i class='icon icon-edit'></i></a>",
-							"<a href='categories/" + data +"' class='delete'>"
+							"<a href='categories/" + data + "/edit' title='Ubah'><i class='icon icon-edit'></i></a>",
+							"<a href='categories/" + data +"' class='delete' title='Hapus'>"
 								+ "<i class='icon icon-trash'></i></a>"
 						);
 						return btns.join("&nbsp;");
@@ -63,19 +84,28 @@
 
 		// delete button handler
 		$dTblCategories.on("click", "a.delete", function(e){
-			e.preventDefault();
-
-			if(!confirm("Apakah anda yakin menghapus kategori berita?"))
-				return false;
-
-			$.ajax({
-				url: $(this).attr("href"),
-				type: "post",
-				data: {'_method': 'delete'},
-				success: function(result) {
-					$dTblCategories.fnReloadAjax();
-				}
-			});
+            var delkodel = $(this);
+            $('#dialog').dialog({
+                width: 500,
+                modal: true,
+                buttons: {
+                    "Hapus" : function(){
+                        $.ajax({
+                            url: delkodel.attr("href"),
+                            type: "post",
+                            data: {'_method': 'delete'},
+                            success: function(result) {
+                                $dTblCategories.fnReloadAjax();
+                            }
+                        });
+                        $(this).dialog("close");
+                    },
+                    "Batal" : function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            e.preventDefault();
 		});
 
 	});
@@ -86,6 +116,12 @@
   jQuery("#menu_berita").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Kategori Berita"
   });
 </script>
 @stop

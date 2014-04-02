@@ -1,10 +1,13 @@
 @section('content')
-
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-books'></span> Produk hukum";
+</script>
 
 <div id="filterdiv" class="filterdiv">
   <div class="row-fluid">
     <div class="span24">
       <form id="form-filter" class="form-horizontal" action="#">
+        <legend>Filter</legend>
         <div class="row-fluid">
           <div class="span12">
             <div class="control-group">
@@ -27,11 +30,12 @@
                     <option value="7">Keputusan Menteri</option>
                     <option value="8">Instruksi Menteri</option>
                     <option value="9">Surat Edaran Menteri</option>
-                    <option value="10">Nota Kesepakatan</option>
-                    <option value="11">Nota Kesepahaman</option>
+                    <option value="10">Nota Kesepahaman</option>
+                    <option value="11">Kesepakatan Bersama</option>
                     <option value="12">Peraturan Bersama</option>
                     <option value="13">Keputusan Bersama</option>
                     <option value="14">Surat Edaran Bersama</option>
+                    <option value="15">Peraturan Lain</option>
                 </select>
               </div>
             </div>
@@ -149,12 +153,24 @@
 
     $dataTable = $("#tbl-produkhukum").dataTable({
       bFilter: true,
-      bInfo: false,
-      bSort: false,
+      bInfo: true,
+      bSort: true,
       bPaginate: true,
-      bLengthChange: false,
+      bLengthChange: true,
       bServerSide: true,
       bProcessing: true,
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Peraturan",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sSearch":       "Cari:",
+            "sLengthMenu": 'Tampilkan <select>'+
+                '<option value="10">10</option>'+
+                '<option value="25">25</option>'+
+                '<option value="50">50</option>'+
+                '<option value="100">100</option>'+
+                '</select> Peraturan'
+        },
       sAjaxSource: '<?php echo URL::to("produkhukum/tableph"); ?>',
       aoColumns: [
 //        {
@@ -223,6 +239,9 @@
 			  case 14 :
 				  kategori = 'Surat Edaran Bersama';
 				  break;
+              case 15 :
+                  kategori = 'Peraturan Lain';
+                  break;
 		  }
 		  return kategori;
           }
@@ -256,8 +275,8 @@
             sClass: "center",
             sWidth: '5%',
           mRender: function (data, type, full) {
-            return "<a href='produkhukum/" + data + "/detail'> <i class='icon-edit'></i></a>"
-              + "&nbsp;<a href='produkhukum/" + data + "/download'> <i class='icon-download'></i></a>";
+            return "<a href='produkhukum/" + data + "/detail' title='Detail'> <i class='icon-edit'></i></a>"
+              + "&nbsp;<a href='produkhukum/" + data + "/download' title='Unduh'> <i class='icon-download'></i></a>";
 
           }
         }

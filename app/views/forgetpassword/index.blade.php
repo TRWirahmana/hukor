@@ -1,5 +1,8 @@
 @section('content')
-<h2><span class="rulycon-lock"></span>Reset Password</h2>
+<!--RESET PASSWORD-->
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-lock'></span> Reset password";
+</script>
 
 @include('flash')
 <div class="content-non-title">
@@ -18,7 +21,7 @@
       'style'=>'margin-bottom: 0; min-width: 360px;'
       ))
       }}
-      <button class="btn btn-hukor" type="submit">KIRIM</button>
+      <button class="btn btn-primary" type="submit">KIRIM</button>
     </div>
 
     {{ Form::close() }}

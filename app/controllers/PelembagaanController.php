@@ -8,6 +8,7 @@ class PelembagaanController extends BaseController {
 	{
 		$user = Auth::user();
 
+
         $all = Menu::all();
         $all->toArray();
 		

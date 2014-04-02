@@ -1,13 +1,14 @@
 @section('content')
 
-<h2>Pendaftaran</h2>
-<div class="stripe-accent"></div>
+<script>
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-plus'></span> Pendaftaran";
+</script>
 @include('flash')
 
 {{-- form registrasi --}}
     {{ Form::open(array('action' => 'RegistrasiController@send', 'method' => 'post', 'id'=>'user-register-form', 'class' =>'front-form form-horizontal' )) }}
 
-<div class="span24" style="margin-bottom: 20px;margin-top:0px;margin-left:50px">
+<div class="span24" style="margin-bottom: 20px;margin-top:0px;">
     <strong>Silahkan lengkapi formulir berikut untuk melakukan pendaftaran. Isian dengan tanda <span class="required"></span> wajib diisi.</strong>
 </div>
         <div class="row-fluid">
@@ -169,24 +170,26 @@
                   {{ Form::label('tlp_kantor', 'Telepon Kantor', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('tlp_kantor', '',
-                      array('placeholder' => 'ketikkan Telepon Kantor anda di sini...')) }}
+                      array('placeholder' => 'ketikkan Telepon Kantor anda di sini...', 'id' => 'tlp_kantor')) }}
 
                       @foreach($errors->get('tlp_kantor') as $error)
                       <span class="help-block">{{$error}}</span>
                       @endforeach
                   </div>
+                  <p class="span9" style="color: #616D79;font-size: 11px;">Format: (999) 999-9999</p>
               </div>
 
               <div class="control-group {{$errors->has('handphone')?'error':''}}">
                   {{ Form::label('handphone', 'No Handphone', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('handphone', '',
-                      array('placeholder' => 'Masukkan nomor handphone anda di sini...')) }}
+                      array('placeholder' => 'Masukkan nomor handphone anda di sini...', 'id' => 'hp')) }}
 
                       @foreach($errors->get('handphone') as $error)
                       <span class="help-block">{{$error}}</span>
                       @endforeach
                   </div>
+                  <p class="span9" style="color: #616D79;font-size: 11px;">Format: 999-999-999-999</p>
               </div>
 
               <div class="span15">
@@ -204,9 +207,9 @@
           </div>
         </div>
 
-        <div class="row-fluid">
+        <div class="row-fluid" style="margin-top: 24px; margin-bottom: 48px;">
           <div class="span24 text-center">
-            <button class="btn btn-hukor" type="submit" id="submit">Register</button>
+            <button class="btn btn-primary" type="submit" id="submit">Daftar</button>
           </div>
         </div>
 
@@ -221,15 +224,23 @@
 <script src="{{asset('assets/js/additional-methods.js')}}"></script>
 
 <script src="{{asset('assets/js/registrasi.js')}}"></script>
+<script src="{{asset('assets/js/jquery.mask.js')}}"></script>
 
 <script type="text/javascript">
     $(function() {
-        $( ".datepicker" ).datepicker({
+        $(".datepicker").datepicker({
             dateFormat: 'yy-mm-dd',
             changeMonth: true,
             yearRange: "1950:2020",
-            changeYear: true
+            changeYear: true,
+            onClose: function() {
+                $('.datepicker').trigger('blur');
+            }
         }).val();
+
+        $("#tlp_kantor").mask("(999) 999-9999");
+        $("#hp").mask("999-999-999-999");
+
     });
     Registrasi.Form();
 </script>

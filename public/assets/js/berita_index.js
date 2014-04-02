@@ -7,6 +7,18 @@ jQuery(document).ready(function(e){
         bServerSide: true,
         bProcessing: true,
         bPaginate: true,
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Berita",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sSearch":       "Cari:",
+            "sLengthMenu": 'Tampilkan <select>'+
+                '<option value="10">10</option>'+
+                '<option value="25">25</option>'+
+                '<option value="50">50</option>'+
+                '<option value="100">100</option>'+
+                '</select> Berita'
+        },
         sAjaxSource: document.URL,
         aoColumns: [
             {
@@ -42,13 +54,23 @@ jQuery(document).ready(function(e){
     });
 
     dom.$table_news.on('click', '.btn_delete', function(e){
-        if (confirm('Apakah anda yakin menghapus berita?')) {
-            jQuery.post(jQuery(this).attr('href'), {_method: 'delete'}, function(r){
-                dom.$table_news.fnReloadAjax();
-            });
-        }
+        var delkodel = jQuery(this);
+        jQuery('#dialog').dialog({
+            width: 500,
+            modal: true,
+            buttons: {
+                "Hapus" : function(){
+                    jQuery.post(delkodel.attr('href'), {_method: 'delete'}, function(r) {
+                        dom.$table_news.fnReloadAjax();
+                    });
+                    jQuery(this).dialog("close");
+                },
+                "Batal" : function() {
+                    jQuery(this).dialog("close");
+                }
+            }
+        });
         e.preventDefault();
-        return false;
     });
 
 

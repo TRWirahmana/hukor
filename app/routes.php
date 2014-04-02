@@ -14,6 +14,8 @@
 // Login / Logout
 Route::group(array('before' => 'guest'), function() {
     Route::get('BantuanHukum', 'BantuanHukumController@index');
+    Route::get('ketatalaksanaan', 'KetatalaksanaanController@index');
+    Route::get('userketatalaksanaan', 'KetatalaksanaanController@datatable');
     Route::post('Masuk', 'LoginController@signin'); // signin user
     Route::post('SignIn', 'LoginController@signin_admin'); // Registrasi
     Route::post('Reset', 'ForgetPasswordController@reset'); // Reset Password
@@ -29,6 +31,7 @@ Route::group(array('before' => 'guest'), function() {
     Route::get('download_banhuk', 'BantuanHukumController@download');
     Route::get('news/detail', 'NewsController@detail');
     Route::get('download_banhuk', 'BantuanHukumController@download');
+    Route::get('download_ketatalaksanaan/{key}', 'KetatalaksanaanController@downloadLampiran');
 
 
     Route::resource('user', 'UserController');
@@ -42,11 +45,17 @@ Route::group(array('before' => 'guest'), function() {
      
     Route::get('callcenter', 'CallCenterController@index');
 
+    Route::get('detailprofile', 'ProfileController@show');
+
     Route::group(array("prefix" => "produkhukum"), function(){
         Route::get('/', 'ProdukHukumController@index');
         Route::get('{id}/detail', array('as' => 'detail_produkhukum', 'uses' => 'ProdukHukumController@detail'));
         Route::get('{id}/download', 'ProdukHukumController@downloadLampiran');
         Route::get('tableph', 'ProdukHukumController@datatable');
+    });
+
+    Route::group(array("prefix" => "puu"), function(){
+        Route::resource('puu', 'PeruuController');
     });
 
     //news
@@ -128,6 +137,21 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::post('savedoc','DocumentController@save');
     Route::put('updatedoc/{key}','DocumentController@update');
     Route::get('tabledoc', 'DocumentController@datatable');
+
+    //Managemen Profile
+    Route::resource('profile', 'ProfileController');
+    Route::post('saveprofile', 'ProfileController@save');
+    Route::post('updateprofile', 'ProfileController@update');
+
+    //Managemen Ketatalaksanaan
+    Route::resource('ketatalaksanaan', 'KetatalaksanaanController');
+    Route::post('saveketatalaksanaan', 'KetatalaksanaanController@store');
+    Route::post('updateprofile', 'KetatalaksanaanController@update');
+    Route::get('tableketatalaksanaan', 'KetatalaksanaanController@datatable');
+    Route::get('addketatalaksanaan', 'KetatalaksanaanController@create');
+    Route::get('editketatalaksanaan/{key}', 'KetatalaksanaanController@edit');
+    Route::get('deleteketatalaksanaan/{key}', 'KetatalaksanaanController@delete');
+    Route::get('downloadketatalaksanaan/{key}', 'KetatalaksanaanController@downloadLampiran');
 });
 
 
@@ -286,7 +310,7 @@ Route::group(array("prefix" => "admin", "before" => "auth|super_admin"), functio
 
 Route::resource("sp", 'SistemDanProsedurController', array("only" => array("index")));    
 Route::resource("aj", "AnalisisJabatanController", array("only" => array("index")));
-Route::resource("puu", "PeruuController", array("only" => array("index")));
+Route::resource("puu", "PeruuController", array("only" => array("index", "update")));
 Route::resource("pelembagaan", "PelembagaanController", array("only" => array("index", "printTable"))); 
 Route::resource('bantuan_hukum', 'BantuanHukumController', array("only" => array("index")));
 Route::group(array('before' => 'auth'), function(){

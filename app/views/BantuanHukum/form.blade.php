@@ -1,8 +1,9 @@
 @section('content')
 
 
-<h2>BANTUAN HUKUM</h2>
-<div class="stripe-accent"></div>
+<script>
+    document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Bantuan Hukum";
+</script>
 <legend>Bantuan Hukum</legend>
 
 @include('flash')
@@ -81,7 +82,7 @@
                 </div>
 
                 <div class="control-group">
-                    {{ Form::label('handphone', 'Telepon Genggam', array('class' => 'control-label')) }}
+                    {{ Form::label('handphone', 'Nomor Handphone', array('class' => 'control-label')) }}
                     <div class="controls">
                         {{ Form::text('handphone', '', array('id'=>'handphone' , 'placeholder' => "Masukkan Nomor Handphone...")) }}
                     </div>
@@ -106,8 +107,8 @@
                                 '1' => 'Tata Usaha Negara',
                                 '2' => 'Perdata',
                                 '3' => 'Pidana',
-                                '4' => 'Uji Materil MK',
-                                '5' => 'Uji Materil MA'
+                                '4' => 'Uji Materil Mahkamah Konstitusi',
+                                '5' => 'Uji Materil Mahkamah Agung'
                         ), 'Pilih Perkara') }}
                     </div>
                 </div>
@@ -149,7 +150,7 @@
                 <div class="control-group">
                     {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::textarea('catatan', '', array('id' => 'catatan', 'placeholder' => "Masukkan Deskripsi...")) }}
+                        {{ Form::textarea('catatan', '', array('id' => 'catatan', 'placeholder' => "Masukkan Catatan...")) }}
                     </div>
                 </div>
 
@@ -172,6 +173,7 @@
 
         <div class="row-fluid">
             <div class="span24 text-center">
+                <a href="{{ URL::to('BantuanHukum') }}" class="btn btn-primary">Batal</a>
                 <button class="btn btn-primary" type="submit">Simpan</button>
             </div>
         </div>
@@ -189,5 +191,9 @@
             changeYear: true
         }).val();
     });
+</script>
+<script>
+    document.getElementById("menu-bantuan-hukum-usul").setAttribute("class", "user-menu-active");
+    document.getElementById("collapse13").style.height = "auto";
 </script>
 @stop

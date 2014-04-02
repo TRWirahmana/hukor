@@ -4,7 +4,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li>Manage Layanan</li>
+        <li>Kelola Konten Layanan</li>
     </ul>
 
     @include('adminflash')
@@ -13,9 +13,9 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon"><span class="rulycon-notebook"></span></div>
+        <div class="pageicon"><span class="rulycon-settings"></span></div>
         <div class="pagetitle">
-          <h1>Manage Layanan</h1>
+          <h1>Kelola Konten Layanan</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -27,7 +27,7 @@
             <div class="stripe-accent"></div>
 
             <form class="form-inline">
-                <a class="btn btn-mini btn-primary pull-right" href="{{ URL::to('/admin/layanan/create')}}">Tambah Info Layanan Baru</a>
+                <a class="btn btn-mini btn-primary pull-left" href="{{ URL::to('/admin/layanan/create')}}">Tambah Konten Layanan Baru</a>
                 <fieldset>
                     <legend></legend>
                     <!--                    <label for="select_role" class="control-label">Tipe Pengguna</label>-->
@@ -67,6 +67,11 @@
 </div>
 <!--rightpanel-->
 
+<!-- dialog box -->
+<div id="dialog" title="Hapus Menu" style="display: none;">
+    <p>Apakah Anda Yakin?</p>
+</div>
+
 @stop
 
 @section('scripts')
@@ -74,10 +79,16 @@
 <script src="{{asset('assets/js/layanan_index.js')}}"></script>
 
 <script>
-  jQuery("#manage-menu > li:nth-child(3) > a").addClass("sub-menu-active");
+  jQuery("#manage-menu > li:nth-child(4) > a").addClass("sub-menu-active");
   jQuery("#manage-menu").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Kelola Konten Layanan"
   });
 </script>
 @stop

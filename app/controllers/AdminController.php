@@ -106,31 +106,31 @@ class AdminController extends BaseController {
         if(Request::ajax()) {
             if(Input::get('role_id') == 0)
             {
-//                $admins = User::where('user.role_id', '!=', '')->where('user.id', '!=', 1)->with('pengguna');
-                $admins = User::leftJoin('pengguna', 'user.id', '=', 'pengguna.user_id')
-                    ->select(array(
-                        'user.id',
-                        'pengguna.nama_lengkap',
-                        'pengguna.email',
-                        'user.username',
-                        'user.role_id'
-                    ))
-                    ->where('user.role_id', '!=', '')
-                    ->where('user.id', '!=', 1);
+                $admins = User::where('user.role_id', '!=', '')->where('user.id', '!=', 1)->with('pengguna');
+//                $admins = User::leftJoin('pengguna', 'user.id', '=', 'pengguna.user_id')
+//                    ->select(array(
+//                        'user.id',
+//                        'pengguna.nama_lengkap',
+//                        'pengguna.email',
+//                        'user.username',
+//                        'user.role_id'
+//                    ))
+//                    ->where('user.role_id', '!=', '')
+//                    ->where('user.id', '!=', 1);
 
             }else
             {
-//                $admins = User::where('user.role_id', '=', Input::get('role_id'))->where('user.id', '!=', 0)->with('pengguna');
-                $admins = User::leftJoin('pengguna', 'user.id', '=', 'pengguna.user_id')
-                    ->select(array(
-                        'user.id',
-                        'pengguna.nama_lengkap',
-                        'pengguna.email',
-                        'user.username',
-                        'user.role_id'
-                    ))
-                ->where('user.role_id', '=', Input::get('role_id'))
-                    ->where('user.id', '!=', 0);
+                $admins = User::where('user.role_id', '=', Input::get('role_id'))->where('user.id', '!=', 0)->with('pengguna');
+//                $admins = User::leftJoin('pengguna', 'user.id', '=', 'pengguna.user_id')
+//                    ->select(array(
+//                        'user.id',
+//                        'pengguna.nama_lengkap',
+//                        'pengguna.email',
+//                        'user.username',
+//                        'user.role_id'
+//                    ))
+//                ->where('user.role_id', '=', Input::get('role_id'))
+//                    ->where('user.id', '!=', 0);
             }
 
             $totalRecords = $admins->count();

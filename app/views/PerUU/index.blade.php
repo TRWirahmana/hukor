@@ -4,7 +4,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
+        <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
         <li>Peraturan Perundang-Undangan</li>
     </ul>
     @include('adminflash')
@@ -12,7 +12,7 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon"><span class="rulycon-wrench"></span></div>
+        <div class="pageicon"><span class="rulycon-notebook"></span></div>
         <div class="pagetitle">
           <h1>PERATURAN PERUNDANG-UNDANGAN</h1>
         </div>
@@ -27,7 +27,7 @@
             <div class="content-non-title">
                 <form id="form-filter" class="form form-horizontal" action="{{ URL::route('admin.puu.printTable') }}" style="margin-bottom: 48px;">
                     <fieldset>
-                        <legend class="f_legend">Filter</legend>
+                        <legend class="f_legend"></legend>
                         <div class="row-fluid">
                             <div class="span6">
                                 <div class="control-group">
@@ -112,6 +112,11 @@
     </div>
     <!--rightpanel-->
 
+    <!-- dialog box -->
+    <div id="dialog" title="Hapus Perundang-Undangan" style="display: none;">
+        <p>Apakah Anda Yakin?</p>
+    </div>
+
     @stop
 
     @section('scripts')
@@ -143,7 +148,14 @@
                 bServerSide: true,
                 sAjaxSource: document.location.href,
                 bFilter: true,
+                bInfo: true,
                 bLengthChange: false,
+                oLanguage:{
+                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+                    "sEmptyTable": "Data Kosong",
+                    "sSearch":       "Cari:",
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan"
+                },
                 aoColumns: [
                     {
                         mData: "id",
@@ -152,6 +164,7 @@
                     {
                         mData: "tgl_usulan",
                         sWidth: "10%",
+                        sClass: "center",
                         mRender: function(data) {
                             return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
                         }
@@ -189,7 +202,7 @@
                                     return "Penetapan";
                                     break;
                                 default:
-                                    return " ";
+                                    return "Belum Diproses ";
                                     break;
                             }
                             ;
@@ -199,7 +212,7 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            var btns = new Array("<a href='"+baseUrl+"/puu/download/" + data + "' title='Download'><i class='icon-download'></i></a> ");
+                            var btns = new Array("<a href='"+baseUrl+"/puu/download/" + data + "' title='Unduh'><i class='icon-download'></i></a> ");
                             if(all._role_id == 3 || all._role_id == 6) {
                                 btns.push("<a href='"+baseUrl+"/admin/puu/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a> ");
                                 btns.push("<a data-delete href='"+baseUrl+"/admin/puu/"+data+"' title='Hapus'><i class='icon-trash'></i></a>");
@@ -226,10 +239,21 @@
             });
 
             $dataTable.on('click', 'a[data-delete]', function(e) {
-                if (!confirm('Apakah anda yakin?'))
-                    return;
-                $.post($(this).attr('href'), {_method: 'delete'}, function(r) {
-                    $dataTable.fnReloadAjax();
+                var delkodel = $(this);
+                $('#dialog').dialog({
+                    width: 500,
+                    modal: true,
+                    buttons: {
+                        "Hapus" : function(){
+                            $.post(delkodel.attr('href'), {_method: 'delete'}, function(r) {
+                                $dataTable.fnReloadAjax();
+                            });
+                            $(this).dialog("close");
+                        },
+                        "Batal" : function() {
+                            $(this).dialog("close");
+                        }
+                    }
                 });
                 e.preventDefault();
             });
@@ -255,6 +279,12 @@
       jQuery("#app").css({
         "display": "block",
         "visibility": "visible"
+      });
+    </script>
+
+    <script>
+      jQuery(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | Peraturan Perundang-undangan"
       });
     </script>
 </div>

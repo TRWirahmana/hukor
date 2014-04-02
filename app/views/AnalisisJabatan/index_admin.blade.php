@@ -4,7 +4,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
+        <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
         <li>Analisis Jabatan</li>
     </ul>
     @include('adminflash')
@@ -12,7 +12,7 @@
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
         <!--        </form>-->
-        <div class="pageicon"><span class="rulycon-wrench"></span></div>
+        <div class="pageicon"><span class="rulycon-notebook"></span></div>
         <div class="pagetitle">
           <h1>ANALISIS JABATAN</h1>
         </div>
@@ -109,6 +109,9 @@
 
     </div>
     <!--rightpanel-->
+    <div id="dialog" title="Hapus Bantuan Hukum" style="display: none;">
+        <p>Apakah Anda Yakin?</p>
+    </div>
 
     @stop
 
@@ -140,8 +143,14 @@
                 // },
                 bServerSide: true,
                 sAjaxSource: document.location.href,
-                bFilter: false,
+                bFilter: true,
+                bInfo: true,
                 bLengthChange: false,
+                oLanguage:{
+                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Peraturan",
+                    "sEmptyTable": "Data Kosong",
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan"
+                },
                 aoColumns: [
                     {
                         mData: "id",
@@ -197,10 +206,10 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            var html = ["<a href='"+baseUrl+"/aj/download/" + data + "'><i class='icon-download'></i></a>"];
+                            var html = ["<a href='"+baseUrl+"/aj/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>"];
                             if(all._role_id == 3 || all._role_id == 9) {
-                                html.push("<a href='"+baseUrl+"/admin/aj/" + data + "/edit'><i class='icon-edit'></i></a> ");
-                                html.push("<a data-delete href='"+baseUrl+"/admin/aj/" + data + "'><i class='icon-trash'></i></a>")
+                                html.push("<a href='"+baseUrl+"/admin/aj/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a> ");
+                                html.push("<a data-delete href='"+baseUrl+"/admin/aj/" + data + "' title='Hapus'><i class='icon-trash'></i></a>")
                             }
                             return html.join("&nbsp;");
                         }
@@ -224,11 +233,11 @@
             });
 
             $dataTable.on('click', 'a[data-delete]', function(e) {
-                if (!confirm('Apakah anda yakin?'))
-                    return;
-                $.post($(this).attr('href'), {_method: 'delete'}, function(r) {
-                    $dataTable.fnReloadAjax();
-                });
+			    if (confirm('Apakah anda yakin?')) {
+			    $.post($(this).attr('href'), {_method: 'delete'}, function(r) {
+				    $dataTable.fnReloadAjax();
+				    });
+			    }
                 e.preventDefault();
             });
 
@@ -253,6 +262,12 @@
   jQuery("#app, #app_ketatalaksanaan > ul").css({
     "display": "block",
     "visibility": "visible"
+  });
+</script>
+
+<script>
+  jQuery(document).on("ready", function() {
+    document.title = "Layanan Biro Hukum dan Organisasi | Analisis Jabatan"
   });
 </script>
 

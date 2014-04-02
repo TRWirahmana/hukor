@@ -9,13 +9,25 @@ jQuery(document).ready(function(e){
         bFilter:true,
         bProcessing: true,
         bPaginate: true,
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Akun",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sSearch":       "Cari:",
+            "sLengthMenu": 'Tampilkan <select>'+
+                '<option value="10">10</option>'+
+                '<option value="25">25</option>'+
+                '<option value="50">50</option>'+
+                '<option value="100">100</option>'+
+                '</select> Akun'
+        },
         sAjaxSource: document.URL,
         aoColumns: [
             {
-                mData: "nama_lengkap"
+                mData: "pengguna.nama_lengkap"
             },
             {
-                mData: "email"
+                mData: "pengguna.email"
             }
             ,
             {
@@ -72,13 +84,23 @@ jQuery(document).ready(function(e){
     });
 
     dom.$table_admin.on('click', '.btn_delete', function(e){
-        if (confirm('Apakah anda yakin?')) {
-            jQuery.post(jQuery(this).attr('href'), {_method: 'delete'}, function(r){
-                dom.$table_admin.fnReloadAjax();
-            });
-        }
+        var delkodel = jQuery(this);
+        jQuery('#dialog').dialog({
+            width: 500,
+            modal: true,
+            buttons: {
+                "Hapus" : function(){
+                    jQuery.post(delkodel.attr('href'), {_method: 'delete'}, function(r){
+                        dom.$table_admin.fnReloadAjax();
+                    });
+                    jQuery(this).dialog("close");
+                },
+                "Batal" : function() {
+                    jQuery(this).dialog("close");
+                }
+            }
+        });
         e.preventDefault();
-        return false;
     });
 
 

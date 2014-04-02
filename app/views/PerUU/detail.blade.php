@@ -5,7 +5,9 @@
 <!-- <legend>Pengajuan Usulan</legend>
  -->
 
-{{ Form::open(array('route' => array('puu.update', $perUU->id), 'files' => true, 'class' => 'form form-horizontal', 'id' => 'form-perUU'))}}
+{{ Form::open(array('route' => array('puu.puu.update', $perUU->id), 'files' => true, 'method' => 'put', 'class' => 'form form-horizontal', 'id' => 'form-perUU'))}}
+
+{{ Form::hidden('updated_by', 'User') }}
 
 @include('flash')
 <div class="content-non-title">
@@ -221,6 +223,7 @@
                 <th>Tgl Proses</th>
                 <th>Status</th>
                 <th>Catatan</th>
+                <th>Diupdate Oleh</th>
                 <th>Lampiran</th>
             </tr>
             </thead>
@@ -254,6 +257,7 @@
                 aoColumns: [
                     {
                         mData: "tgl_proses",
+                        sClass: "center",
                         sWidth: '15%',
                         mRender: function (data) {
                             var timestampArr = data.split(" ");
@@ -264,6 +268,7 @@
                     },
                     {
                         mData: "status",
+                        sClass: "center",
                         sWidth: '15%',
                         mRender: function (data) {
                             switch (parseInt(data)) {
@@ -290,10 +295,11 @@
                             ;
                         }
                     },
-                    {mData: "catatan", sWidth: '50%'},
+                    {mData: "catatan", sWidth: '40%'},
+                    {mData: "updated_by", sWidth: '15%', sClass: "center"},
                     {
                         mData: "lampiran",
-                        sWidth: '20%',
+                        sWidth: '15%',
                         sClass: "center",
                         mRender: function (data, type, full) {
                             return '<a href="' + baseUrl + '/admin/puu/log/download/' + full.id + '">Unduh</a>';

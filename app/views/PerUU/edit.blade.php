@@ -33,6 +33,9 @@
 
 {{ Form::open(array('route' => array('admin.puu.update', $perUU->id), 'method' => 'put', 'files' => true, 'class' =>
 'form form-horizontal')) }}
+
+{{ Form::hidden('updated_by', 'Admin') }}
+
 <div class="row-fluid">
   <div class="span6">
     <fieldset>
@@ -228,6 +231,7 @@
         <th>Tgl Proses</th>
         <th>Status</th>
         <th>Catatan</th>
+        <th>Diupdate Oleh</th>
         <th>Lampiran</th>
       </tr>
       </thead>
@@ -291,6 +295,7 @@
         {
           mData: "tgl_proses",
             sClass: "center",
+            sWidth: '15%',
           mRender: function (data) {
             return $.datepicker.formatDate("dd M yy", new Date(Date.parse(data)));
           }
@@ -298,6 +303,7 @@
         {
           mData: "status",
             sClass: "center",
+            sWidth: '15%',
           mRender: function (data) {
             switch (parseInt(data)) {
               case 1:
@@ -323,9 +329,11 @@
             ;
           }
         },
-        {mData: "catatan"},
+        {mData: "catatan", sWidth: '40%'},
+        {mData: "updated_by", sWidth: '15%', sClass: "center"},
         {
           mData: "lampiran",
+            sWidth: '15%',
           mRender: function (data, type, full) {
             return '<a href="' + baseUrl + '/admin/puu/log/download/' + full.id + '">Unduh</a>';
           }

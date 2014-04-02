@@ -12,4 +12,8 @@ class Layanan extends Eloquent {
     public function menu() {
         return $this->belongsTo('Menu');
     }
+
+    public function bagian() {
+        return $this->belongsTo('Bagian', 'id');
+    }
 }

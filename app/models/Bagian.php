@@ -8,4 +8,8 @@ class Bagian extends Eloquent {
     public function pengguna() {
         return $this->belongsToMany('Pengguna');
     }
+
+    public function layanan() {
+        return $this->hasOne('Layanan', 'penanggung_jawab');
+    }
 }

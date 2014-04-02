@@ -64,7 +64,7 @@ class LayananController extends BaseController {
         $this->layout = View::make('layouts.admin');
 
         $this->layout->content = View::make('layanan.form', array(
-            'title' => 'Tambah Submenu',
+            'title' => 'Tambah Konten Layanan',
             'detail' => 'Lengkapi data dibawah ini untuk menambahkan konten layanan baru.',
             'form_opts' => array(
                 'route' => 'admin.layanan.store',
@@ -98,13 +98,16 @@ class LayananController extends BaseController {
         $listPJ = array("" => "-- Pilih Bagian --") + Bagian::lists('nama_bagian', 'id');
         $layanan = Layanan::find($id);
 
+        $s = array("" => "-- Pilih Bagian --") + Bagian::where('id', '=', $layanan->penanggung_jawab)->lists('nama_bagian', 'id');
+//        var_dump($s);exit;
+
 //        $bags = DB::table('bagian')
 //            ->select('nama')
 //            ->where('id', '=', $layanan->penanggung_jawab);
 
         if(!is_null($layanan))
             $this->layout->content = View::make('layanan.form', array(
-                'title' => 'Ubah Info Layanan #' . $layanan->id,
+                'title' => 'Ubah Info Layanan',
                 'detail' => '',
                 'form_opts' => array(
                     'route' => array('admin.layanan.update', $layanan->id),
@@ -116,6 +119,7 @@ class LayananController extends BaseController {
                 'listMenu' => $listMenu,
                 'listSubmenu' => $listSubmenu,
                 'listPJ' => $listPJ,
+                'pj' => $s,
             ));
     }
 

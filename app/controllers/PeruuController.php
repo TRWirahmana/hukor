@@ -106,9 +106,9 @@ class PeruuController extends BaseController
 
 	public function update($id)
 	{
-        echo $id;exit;
 		$status = Input::get('status', 0);
 		$catatan = Input::get('catatan', '');
+        $updated = Input::get('updated_by');
 		$ketLampiran = Input::get('ket_lampiran', '');
 
 		$perUU = PerUU::find($id);
@@ -119,6 +119,7 @@ class PeruuController extends BaseController
 		$logPerUU->lampiran = $perUU->lampiran;
 		$logPerUU->status = $perUU->status;
 		$logPerUU->tgl_proses = new DateTime('now');
+        $logPerUU->updated_by = $updated;
 
 		$perUU->status = $status;
 		$perUU->catatan = $catatan;

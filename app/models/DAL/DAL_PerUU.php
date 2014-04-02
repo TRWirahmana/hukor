@@ -51,7 +51,8 @@ class DAL_PerUU {
             "catatan", 
             "lampiran",
             "tgl_proses", 
-            "status"))
+            "status",
+            "updated_by"))
         ->where("id_per_uu", "=", $id)
         ->orderBy('tgl_proses', 'desc ');
         return $data;

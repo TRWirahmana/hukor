@@ -151,7 +151,7 @@
           </fieldset>
 
           <fieldset>
-            <p>( <a href="#">klik disini untuk merubah informasi registrasi</a> )</p>
+<!--            <p>( <a href="#">klik disini untuk merubah informasi registrasi</a> )</p>-->
           </fieldset>
         </div>
       </div>

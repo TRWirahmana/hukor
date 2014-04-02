@@ -118,7 +118,7 @@
                   <p>{{$highlight_feed}} ...</p>
 
                   <p><a class="read-more"
-                        href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">Read more
+                        href="{{ URL::to('/news/detail?id='. $news_feeds->id .'') }}">Selengkapnya
                       <span class="rulycon-arrow-right-3"></span></a></p>
                   @else
                   <p>{{$berita_feed}}</p>

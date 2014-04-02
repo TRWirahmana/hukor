@@ -52,8 +52,8 @@
                                 <option value="1">Tata Usaha Negara</option>
                                 <option value="2">Perdata</option>
                                 <option value="3">Pidana</option>
-                                <option value="4">Uji Materil MK</option>
-                                <option value="5">Uji Materil MA</option>
+                                <option value="4">Uji Materil Mahkamah Konstitusi</option>
+                                <option value="5">Uji Materil Mahkamah Agung</option>
                             </select>
                         </div>
                </div>
@@ -184,10 +184,10 @@
                             jenis_perkara = 'Pidana';
                             break;
                         case 4:
-                            jenis_perkara = 'Uji Materil MK';
+                            jenis_perkara = 'Uji Materil Mahkamah Konstitusi';
                             break;
                         case 5:
-                            jenis_perkara = 'Uji Materil MA';
+                            jenis_perkara = 'Uji Materil Mahkamah Agung';
                             break;
                     }
 

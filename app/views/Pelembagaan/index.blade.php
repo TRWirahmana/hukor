@@ -428,7 +428,8 @@
                           } else if (role_id == 0) {
 //                                          return "<a href='" + baseUrl + '/pelembagaan/download/'+data+ "'> <i class='icon-download'></i></a>";
                           } else if(role_id == 2) {
-                              return "<a href='" + baseUrl + '/pelembagaan/download/' + data + "' title='Unduh'> <i class='icon-download'></i></a>";
+                              return "<a href='" + baseUrl + '/pelembagaan/download/' + data + "' title='Unduh'> <i class='icon-download'></i></a>" +
+                                  "<a href='pelembagaan/" + data + "/update' title='Detail'> <i class='icon-edit'></i></a>";
                           }
                           return "";
                       }

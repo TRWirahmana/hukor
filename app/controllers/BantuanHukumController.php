@@ -89,8 +89,15 @@ class BantuanHukumController extends BaseController{
 	$banhuk = BantuanHukum::find($id);
 
 	// show form with empty model
-	$this->layout = View::make('layouts.admin');
-	$this->layout->content = View::make('BantuanHukum.detail', array('banhuk'=> $banhuk));
+    if(Auth::user()->role_id == 2){
+        $this->layout = View::make('layouts.master');
+        $this->layout->content = View::make('BantuanHukum.detail_usulan', array('banhuk'=> $banhuk));
+    }else{
+        $this->layout = View::make('layouts.admin');
+        $this->layout->content = View::make('BantuanHukum.detail', array('banhuk'=> $banhuk));
+    }
+
+
     }
 
     public function update($id)

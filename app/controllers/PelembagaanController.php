@@ -86,7 +86,18 @@ class PelembagaanController extends BaseController {
 				'id' => $id,
                 'penanggungJawab' => $penanggungJawab,
 			));
-		}
+		}else if($user->role_id == 2) {
+            $this->layout = View::make('layouts.master');
+
+            $this->layout->content = View::make('Pelembagaan.detail_usulan', array(
+                'title' => 'Detail Pelembagaan #' . $pelembagaan->id,
+                'detail' => '',
+                'form_opts' => array('route' => 'proses_update_pelembagaan','method' => 'post','class' => 'form-horizontal','id' => 'pelembagaan-update','files' => true),
+                'pelembagaan' => $pelembagaan,
+                'id' => $id,
+                'penanggungJawab' => $penanggungJawab,
+            ));
+        }
 	}
 
 	public function update() //$id)
@@ -122,6 +133,8 @@ class PelembagaanController extends BaseController {
 			return Redirect::to('admin/pelembagaan')->with('success', 'Data berhasil diubah.');
 		else if($user->role_id == 7)
 			return Redirect::to('admin/pelembagaan')->with('success', 'Data berhasil diubah.');
+        else if($user->role_id == 2)
+            return Redirect::to('pelembagaan')->with('success', 'Data berhasil diubah.');
 	}  
 
 	public function store()

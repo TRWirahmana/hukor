@@ -5,7 +5,7 @@
   <ul class="breadcrumbs">
     <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
     <li><a href="{{URL::previous()}}">Dokumentasi</a> <span class="separator"></span></li>
-    <li>Tambah Dokumen</li>
+    <li>{{ $title }}</li>
   </ul>
   @include('adminflash')
   <div class="pageheader">
@@ -126,7 +126,7 @@
               <div class="controls">
                 {{Form::submit("Draft", array("class" => "btn btn-primary", "name" => "status"))}}
                 {{Form::submit("Publish", array("class" => "btn btn-primary", "name" => "status"))}}
-                {{Form::button("Kembali", array("class" => "btn btn-primary", "name" => "kembali", "onClick" => "history.go(-1);return true;"))}}
+                <input class="btn btn-primary" type="button" value="Kembali" onclick="history.go(-1);return true;" name="kembali">
               </div>
             </div>
 

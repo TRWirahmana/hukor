@@ -6,8 +6,8 @@
 <div id="filterdiv" class="filterdiv">
   <div class="row-fluid">
     <div class="span24">
-      <form id="form-filter" class="form-horizontal" action="#">
-        <legend>Filter</legend>
+      <form id="form-filter" style="margin-top: 20px" class="form-horizontal" action="#">
+<!--        <legend>Filter</legend>-->
         <div class="row-fluid">
           <div class="span12">
             <div class="control-group">

@@ -4,8 +4,8 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li><a href="#">Aplikasi</a> <span class="separator"></span></li>
-        <li>Dokumentasi</li>
+        <li><a href="#">Produk Hukum</a> <span class="separator"></span></li>
+        <li>Semua Peraturan</li>
     </ul>
 
     @include('adminflash')
@@ -16,7 +16,7 @@
         <!--        </form>-->
         <div class="pageicon"><span class="rulycon-notebook"></span></div>
         <div class="pagetitle">
-          <h1>Dokumentasi</h1>
+          <h1>Peraturan</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -69,8 +69,8 @@
 </div>
 
 <!-- dialog box -->
-<div id="dialog" title="Hapus Perundang-Undangan" style="display: none;">
-    <p>Apakah Anda Yakin?</p>
+<div id="dialog" title="Hapus Peraturan" style="display: none;">
+    <p>Apakah anda yakin untuk menghapus peraturan ini?</p>
 </div>
 
 @section('scripts')
@@ -197,7 +197,7 @@
                     var publish;
                     if(status == 0)
                     {
-                        publish = '-';
+                        publish = 'Tidak';
                     }
                     else
                     {

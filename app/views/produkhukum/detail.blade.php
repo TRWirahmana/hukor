@@ -43,10 +43,16 @@
       <div class="control-group">
         {{ Form::label('tentang', 'Tentang', array('class' => 'control-label'))}}
         <div class="controls">
-            <textarea cols="10" disabled>{{ $data->perihal }}</textarea>
-          <input type="textarea" value="{{ $data->perihal }}" disabled/>
+          <textarea cols="10" disabled>{{ $data->perihal }}</textarea>
         </div>
       </div>
+
+        <div class="control-group">
+            {{ Form::label('catatan', 'Catatan', array('class' => 'control-label'))}}
+            <div class="controls">
+                <textarea cols="10" disabled>{{ $data->deskripsi }}</textarea>
+            </div>
+        </div>
 
       <div class="control-group">
         {{ Form::label('tgl_pengesahan', 'Tanggal Pengesahan', array('class' => 'control-label'))}}

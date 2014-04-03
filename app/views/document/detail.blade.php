@@ -111,14 +111,14 @@
               {{ Form::label('', 'Tentang', array('class' => 'control-label')) }}
               <div class="controls">
                   <textarea cols="10" disabled>{{ $data->perihal }}</textarea>
-                <input type="text" disabled value="{{ $data->perihal }}"/>
+<!--                <input type="text" disabled value="{{ $data->perihal }}"/>-->
               </div>
             </div>
 
             <div class="control-group">
-              {{ Form::label('', 'Deskripsi', array('class' => 'control-label')) }}
+              {{ Form::label('', 'Catatan', array('class' => 'control-label')) }}
               <div class="controls">
-                <input type="text" disabled value="{{ $data->deskripsi }}"/>
+                  <textarea cols="10" disabled>{{ $data->deskripsi }}</textarea>
               </div>
             </div>
 
@@ -165,4 +165,15 @@
 
 </div>
 <!--rightpanel-->
+@stop
+
+@section('scripts')
+@parent
+<script>
+    jQuery("#produk-hukum > li:first-child").addClass("sub-menu-active");
+    jQuery("#produk-hukum").css({
+        "display": "block",
+        "visibility": "visible"
+    });
+</script>
 @stop

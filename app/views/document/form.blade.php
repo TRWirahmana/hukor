@@ -171,10 +171,28 @@
 </script>
 
 <script>
-  jQuery("#produk-hukum > li:last-child").addClass("sub-menu-active");
-  jQuery("#produk-hukum").css({
-    "display": "block",
-    "visibility": "visible"
-  });
+    var titlez = '<?php echo $title; ?> ';
+
+    var t = $.trim(titlez);
+//    alert(t);
+
+    if(t == "Tambah Peraturan"){
+//        alert('b');
+        jQuery("#produk-hukum > li:last-child").addClass("sub-menu-active");
+        jQuery("#produk-hukum").css({
+            "display": "block",
+            "visibility": "visible"
+        });
+    }
+
+    if(t == "Ubah Informasi Peraturan"){
+//        alert('a');
+        jQuery("#produk-hukum > li:first-child").addClass("sub-menu-active");
+        jQuery("#produk-hukum").css({
+            "display": "block",
+            "visibility": "visible"
+        });
+    }
+
 </script>
 @stop

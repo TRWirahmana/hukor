@@ -169,7 +169,7 @@
         </div>
       </div>
         <div class="control-group">
-            <a href="{{ URL::route('admin.puu.index') }}" class="btn btn-primary">Batal</a>
+            <input class="btn btn-primary" type="button" value="Batal" onclick="history.go(-1);return true;" name="batal">
             {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
 
         </div>

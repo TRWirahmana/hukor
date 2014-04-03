@@ -154,11 +154,11 @@ class PelembagaanController extends BaseController {
         	$DAL->savePelembagaan($input, $filenames);         	// save pelembagaan
 	       	$DAL->sendEmailToAllAdminPelembagaan();        						// send Email to admin
 
-			Session::flash('success', 'Data berhasil dikirim.');
+            return Redirect::route('pelembagaan.index')->with('success', 'Data berhasil dikirim.');
 		} else {
-			Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
+            return Redirect::route('pelembagaan.index')->with('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
 		}				
-		return Redirect::route('pelembagaan.index');
+
 	}
 
 	public function destroy($id)
@@ -192,11 +192,13 @@ class PelembagaanController extends BaseController {
 
 	public function downloadLampiranLog($id)
 	{
+        $log = LogPelembagaan::find($id);
 
-		if($log = LogPelembagaan::find($id)) {
-			$attachments = unserialize($log->lampiran);
-			return HukorHelper::downloadAttachment($attachments);
-		}
+        var_dump($log->lampiran);exit;
+
+		if($log = LogPelembagaan::find($id))
+            return HukorHelper::downloadAsZIP(unserialize($log->lampiran));
+
 		return App::abort(404);
 	}
 

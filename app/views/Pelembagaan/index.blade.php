@@ -12,7 +12,12 @@
   <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
   <li>Pelembagaan</li>
 </ul>
+@if($user->role_id == 2)
+@include('flash')
+@else
 @include('adminflash')
+@endif
+
 <div class="pageheader">
   <!--        <form action="results.html" method="post" class="searchbar">-->
   <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
@@ -284,7 +289,7 @@
                   if (data === '1') {
                     return 'proses';
                   } else if (data === '2') {
-                    return 'Dikirim ke Bagian PerUU';
+                    return 'Dikirim ke Bagian Per-UU';
                   }
                 }
                 return 'Belum Diproses';
@@ -403,7 +408,7 @@
                               if (data === '1') {
                                   return 'proses';
                               } else if (data === '2') {
-                                  return 'DiKirim Ke Bag PerUU';
+                                  return 'Dikirim Ke Bagian Per-UU';
                               }
                           }
                           return 'Belum Diproses';

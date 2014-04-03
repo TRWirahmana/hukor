@@ -4,7 +4,7 @@
 
   <ul class="breadcrumbs">
     <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-    <li><a href="{{URL::previous()}}">Peraturan</a> <span class="separator"></span></li>
+    <li><a href="{{URL::previous()}}">Produk Hukum</a> <span class="separator"></span></li>
     <li>Detail Peraturan</li>
   </ul>
   @include('adminflash')

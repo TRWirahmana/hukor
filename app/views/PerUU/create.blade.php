@@ -43,8 +43,9 @@
                     {{ Form::label('penanggungJawab[no_handphone]', "No Handphone", array('class' => 'control-label'))}}
                     <div class="controls">
                         {{ Form::text('penanggungJawab[no_handphone]', null, array('placeholder' => 'Masukan no handphone', 'id' => 'hp')) }}
+                        <p class="span9" style="color: #616D79;font-size: 11px;">Format: 999-999-999-999</p>
                     </div>
-                    <p class="span9" style="color: #616D79;font-size: 11px;">Format: 999-999-999-999</p>
+
                 </div>
 
                 <div class="control-group">
@@ -65,8 +66,9 @@
                     {{ Form::label('penanggungJawab[telp_kantor]', 'Telepon Kantor', array('class' => 'control-label'))}}
                     <div class="controls">
                         {{ Form::text('penanggungJawab[telp_kantor]', null, array('placeholder' => 'Masukan nomor telepon kantor...', 'id' => 'telp_kantor')) }}
+                        <p class="span9" style="color: #616D79;font-size: 11px;">Format: (9999) 999-9999</p>
                     </div>
-                    <p class="span9" style="color: #616D79;font-size: 11px;">Format: (9999) 999-9999</p>
+
                 </div>
 
                 <div class="control-group">

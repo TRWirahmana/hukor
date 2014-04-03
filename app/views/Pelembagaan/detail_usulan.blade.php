@@ -229,17 +229,11 @@
                         sWidth: '35%'
                     },
                     {
-
-                        //  URL::asset('assets/uploads/
-
                         mData: "lampiran",
                         sClass: 'center',
                         sWidth: '14%',
                         mRender: function (data, type, full) {
-                            // var downloadUrl = baseUrl + '/assets/uploads/pelembagaan/' + data;
-                            // return "<a href=" + downloadUrl + "> Unduh </>";
                             return '<a href="' + baseUrl + '/pelembagaan/log/download/' + full.id + '">Unduh</a>';
-//                            return  "<a href='"+location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/" + "assets/uploads/pelembagaan/"+lampiran+"' >Unduh</a>"
                         }
                     },
                     {

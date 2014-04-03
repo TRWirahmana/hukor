@@ -10,6 +10,8 @@
 {{ Form::open(array('route' => array('bantuan_hukum.update', $banhuk->id), 'method' => 'put',
 'id' => 'user-registrasi-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal',
 'enctype' => "multipart/form-data")) }}
+
+
 <div class="content-non-title">
 <div class="row-fluid">
     <div class="span12">

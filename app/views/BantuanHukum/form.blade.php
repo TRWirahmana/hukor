@@ -78,16 +78,18 @@
                     {{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label')) }}
                     <div class="controls">
                         {{ Form::text('telp_kantor', '', array('id'=>'telp_kantor', 'placeholder' => "Masukkan Nomor Telepon Kantor...", 'id' => 'telp_kantor')) }}
+                        <p class="span9" style="color: #616D79;font-size: 11px;">Format: (9999) 999-9999</p>
                     </div>
-                    <p class="span9" style="color: #616D79;font-size: 11px;">Format: (9999) 999-9999</p>
+
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('handphone', 'Nomor Handphone', array('class' => 'control-label')) }}
                     <div class="controls">
                         {{ Form::text('handphone', '', array('id'=>'handphone' , 'placeholder' => "Masukkan Nomor Handphone...", 'id' => 'hp')) }}
+                        <p class="span9" style="color: #616D79;font-size: 11px;">Format: 999-999-999-999</p>
                     </div>
-                    <p class="span9" style="color: #616D79;font-size: 11px;">Format: 999-999-999-999</p>
+
                 </div>
 
                 <div class="control-group">

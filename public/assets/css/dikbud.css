@@ -622,7 +622,7 @@ html, .main-layout, .admin,
 .sidebar #user-menu > li > a:hover, .sidebar #user-menu > .active > a,
 .sidebar ul.welcome-message > li > a:hover,
 .sidebar #user-menu .accordion-heading .accordion-toggle:hover {
-  text-decoration: none;
+  /*text-decoration: none;*/
   background: rgba(0, 0, 0, .15);
   color: #ffffff;
   box-shadow: inset 5px 0 0 #2980b9;
@@ -684,7 +684,7 @@ html, .main-layout, .admin,
   padding-left: 74px;
 }
 .sidebar #user-menu .accordion-inner a:hover {
-  text-decoration: none;
+  /*text-decoration: none;*/
   background: rgba(0, 0, 0, .15);
   color: #ffffff;
 }

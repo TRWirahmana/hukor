@@ -59,19 +59,30 @@ class BantuanHukumController extends BaseController{
 	$filenames = $helper->MultipleUploadFile('bantuanhukum', Input::file('lampiran'));
 	//     $uploadSuccess = $helper->UploadFile('bantuanhukum', Input::file('lampiran'));
 
-	// if($uploadSuccess)
-	if($filenames)
-	{
-	    //$DAL->SaveBantuanHukum($input, Input::file('lampiran')); //save bantuan hukum
-	    $DAL->SaveBantuanHukum($input, $filenames); //save bantuan hukum
-	    $DAL->SendEmailToAllAdminBankum(); // send email
+//        echo $filenames['0'];exit;
+        if($filenames['0'] != null){
+            // if($uploadSuccess)
+            if($filenames)
+            {
+                //$DAL->SaveBantuanHukum($input, Input::file('lampiran')); //save bantuan hukum
+                $DAL->SaveBantuanHukum($input, $filenames); //save bantuan hukum
+                $DAL->SendEmailToAllAdminBankum(); // send email
 
-	    return Redirect::route('bantuan_hukum.index')->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
-	}
-	else
-	{
-	    return Redirect::route('bantuan_hukum.index')->with('error', 'Lampiran Gagal Disimpan.');
-	}
+                return Redirect::route('bantuan_hukum.index')->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
+            }
+            else
+            {
+                return Redirect::route('bantuan_hukum.index')->with('error', 'Lampiran Gagal Disimpan.');
+            }
+        }else{
+
+                $DAL->SaveBantuanHukum1($input); //save bantuan hukum
+                $DAL->SendEmailToAllAdminBankum(); // send email
+
+                return Redirect::route('bantuan_hukum.index')->with('success', 'Data Bantuan Hukum Berhasil Di Simpan.');
+            }
+
+
     }
 
     public function datatable()

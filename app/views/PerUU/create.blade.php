@@ -133,7 +133,7 @@
         </div>	-->
 
     <div class="form-actions">
-        <a href="{{ URL::to('puu') }}" class="btn btn-primary">Batal</a>
+        <input class="btn btn-primary" type="button" value="Batal" onclick="history.go(-1);return true;" name="batal">
         {{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
     </div>
 

@@ -243,8 +243,13 @@
                                 if($("#role_id").val() == 2) {
 
                                     var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
-                                    return '<a href="' + downloadUrl + '" title="Unduh"><i class="icon-download "></i></a>&nbsp;'+
-                                        "&nbsp;<a href='"+baseUrl+"/bantuan_hukum/detail/" + data + "'  title='Ubah'><i class='icon-edit'></i></a>";
+                                    if(full.lampiran == null || full.lampiran == 'a:0:{}'){
+                                        return "&nbsp;<a href='"+baseUrl+"/bantuan_hukum/detail/" + data + "'  title='Ubah'><i class='icon-edit'></i></a>";
+                                    }else{
+                                        return '<a href="' + downloadUrl + '" title="Unduh"><i class="icon-download "></i></a>&nbsp;'+
+                                            "&nbsp;<a href='"+baseUrl+"/bantuan_hukum/detail/" + data + "'  title='Ubah'><i class='icon-edit'></i></a>";
+                                    }
+
                                 }
                                 return "";
                             }

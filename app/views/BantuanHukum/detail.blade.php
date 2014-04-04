@@ -269,13 +269,19 @@
         {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
         <div class="controls">
           <ul style="background: transparent;list-style: none;">
+
+            @if($banhuk->lampiran != "a:0:{}")
             @foreach(unserialize($banhuk->lampiran) as $index => $lampiran)
+
             <li>
               <a href="{{url::route('bantuan_hukum.download', array('id' => $banhuk->id, 'index' => $index )) }}">
                 {{explode(DS, $lampiran)[count(explode(DS, $lampiran)) - 1 ] }}
               </a>
             </li>
             @endforeach
+              @else
+              <p>Tidak ada lampiran</p>
+              @endif
           </ul>
         </div>
       </div>
@@ -460,7 +466,13 @@ mRender: function(id){
           mData: "lampiran",
             sClass: "center",
           mRender: function (data, type, full) {
-            return '<a href="' + baseUrl + '/admin/bantuan_hukum/log/download/' + full.id + '">Unduh</a>';
+              if(data == 'a:0:{}' || data == null){
+                  return '<p>Tidak ada lampiran</p>';
+              }else{
+                  return '<a href="' + baseUrl + '/admin/bantuan_hukum/log/download/' + full.id + '">Unduh</a>';
+
+              }
+
           }
         },
         {

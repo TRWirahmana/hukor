@@ -94,7 +94,7 @@
                 sClass: "center",
                 mRender: function(data, type, full){
                     var downloadUrl = "<?php echo URL::to('download_ketatalaksanaan'); ?>" + "/" + data;
-                    return '<a href="' + downloadUrl + '" title="Unduh"><i class="rulycon-arrow-down "></i></a> &nbsp;';
+                    return '<a href="' + downloadUrl + '" title="Unduh"><i class="icon-download "></i></a> &nbsp;';
                 }
             }
         ],

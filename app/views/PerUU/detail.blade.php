@@ -156,7 +156,7 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <a href="{{ URL::route('puu.index') }}" class="btn btn-primary">Batal</a>
+                           onClick="history.go(-1);return true;">
                     {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
 
                 </div>
@@ -253,6 +253,11 @@
                 bInfo: false,
                 bSort: false,
                 bLengthChange: false,
+                oLanguage:{
+                    "sEmptyTable": "Data Kosong",
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                    "sSearch":       "Cari:"
+                },
                 iDisplayLength: 5,
                 aoColumns: [
                     {

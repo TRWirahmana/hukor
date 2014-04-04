@@ -11,7 +11,7 @@
 'id' => 'user-registrasi-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal',
 'enctype' => "multipart/form-data")) }}
 
-
+{{ Form::hidden('id', $banhuk->id, array('id' => 'id')) }}
 <div class="content-non-title">
 <div class="row-fluid">
     <div class="span12">
@@ -256,6 +256,10 @@
                 {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
                 <div class="controls">
                     <ul style="background: transparent; list-style: none;">
+
+                        @if($banhuk->lampiran == null || $banhuk->lampiran == "a:0:{}")
+                        <p>Tidak ada lampiran</p>
+                        @else
                         @foreach(unserialize($banhuk->lampiran) as $index => $lampiran)
                         <li>
                             <a href="{{ URL::route('bantuan_hukum.download', array('id' => $banhuk->id, 'index' => $index )) }}">
@@ -263,6 +267,7 @@
                             </a>
                         </li>
                         @endforeach
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -437,7 +442,12 @@
                     mData: "lampiran",
                     sClass: "center",
                     mRender: function (data, type, full) {
-                        return '<a href="' + baseUrl + '/bantuan_hukum/log/download/' + full.id + '">Unduh</a>';
+                        if(data == 'a:0:{}' || data == null){
+                            return '<p>Tidak ada lampiran</p>';
+
+                        }else{
+                            return '<a href="' + baseUrl + '/bantuan_hukum/log/download/' + full.id + '">Unduh</a>';
+                        }
                     }
                 },
                 {

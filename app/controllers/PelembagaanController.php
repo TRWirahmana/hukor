@@ -192,9 +192,6 @@ class PelembagaanController extends BaseController {
 
 	public function downloadLampiranLog($id)
 	{
-        $log = LogPelembagaan::find($id);
-
-        var_dump($log->lampiran);exit;
 
 		if($log = LogPelembagaan::find($id))
             return HukorHelper::downloadAsZIP(unserialize($log->lampiran));
@@ -210,10 +207,10 @@ class PelembagaanController extends BaseController {
 		if(!empty($attachments) && null !== $index && isset($attachments[$index]) )
 		{
 			$filename = $attachments[$index];	
-			$originalName = explode('/', $filenam)[1];
+			$originalName = explode('/', $filename)[1];
 			$path = UPLOAD_PATH . DS . $filename;
 			if(file_exists($path))
-				return Response::download($path, $originalname);
+				return Response::download($path, $originalName);
 		} else {
 			return HukorHelper::downloadAsZIP($attachments);
 		}

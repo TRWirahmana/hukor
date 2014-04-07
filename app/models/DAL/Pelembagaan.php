@@ -45,6 +45,23 @@ class DAL_Pelembagaan {
         $this->insertPenanggungJawab($pelembagaan->id, $input);
     }
 
+    public function savePelembagaan1($input)
+    {
+        $pelembagaan = new Pelembagaan;
+
+        $pelembagaan->id_pengguna = $input['id'];
+        $pelembagaan->jenis_usulan = $input['jenis_usulan'];
+        $pelembagaan->perihal = $input['perihal'];
+        $pelembagaan->catatan = $input['catatan'];
+        // $pelembagaan->lampiran = $file->getClientOriginalName();
+//        $pelembagaan->lampiran = serialize($filenames);
+        $pelembagaan->status = 0;   // status default = 0 (belum di proses)
+        $pelembagaan->tgl_usulan = Carbon::now();
+        $pelembagaan->save();
+
+        $this->insertPenanggungJawab($pelembagaan->id, $input);
+    }
+
     public function insertPenanggungJawab($idPelembagaan, $input)
     {
         $penanggungJawab = new PenanggungJawabPelembagaan();

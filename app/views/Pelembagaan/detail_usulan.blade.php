@@ -76,12 +76,20 @@
                 {{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
                 <div class="controls">
                     <ul style="list-style:none">
+                        @if($pelembagaan->lampiran == null || $pelembagaan->lampiran == 'a:0:{}')
+                        <p>Tidak ada lampiran</p>
+                        @else
                         @foreach(unserialize($pelembagaan->lampiran) as $index => $lampiran )
                         <li><a
-                                href="{{ URL::route('pelembagaan.download', array('id' => $pelembagaan->id, 'index' => $index)) }}">{{
-                                explode('/',$lampiran)[2] }}</a></li>
+                                href="{{ URL::route('pelembagaan.download', array('id' => $pelembagaan->id, 'index' => $index)) }}">
+                                {{explode(DS, $lampiran)[count(explode(DS, $lampiran)) - 1 ] }}
+                            </a>
+                        </li>
                         @endforeach
+                        @endif
                     </ul>
+
+
 
 
                     <!--   <a href= {{ URL::asset('assets/uploads/pelembagaan/' . $pelembagaan->lampiran ); }} > {{ $pelembagaan->lampiran}} </a>  -->
@@ -233,7 +241,12 @@
                         sClass: 'center',
                         sWidth: '14%',
                         mRender: function (data, type, full) {
-                            return '<a href="' + baseUrl + '/pelembagaan/log/download/' + full.id + '">Unduh</a>';
+                            if(data == null || data == 'a:0:{}'){
+                                return '<p>Tidak ada lampiran</p>';
+                            }else{
+                                return '<a href="' + baseUrl + '/pelembagaan/log/download/' + full.id + '">Unduh</a>';
+                            }
+
                         }
                     },
                     {
@@ -247,9 +260,9 @@
                         sWidth: '10%',
                         mRender: function (data, type, full) {
                             var deleteUrl = baseUrl + '/pelembagaan/deletelog/' + data;
-
-                            return "<a class='btn_delete' title='Hapus' href='" + deleteUrl + "'>"
-                                + "<i class='icon-trash'></i></a>";
+                            return '&nbsp;';
+//                            return "<a class='btn_delete' title='Hapus' href='" + deleteUrl + "'>"
+//                                + "<i class='icon-trash'></i></a>";
                         }
                     }
                 ]

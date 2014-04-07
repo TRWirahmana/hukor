@@ -83,11 +83,17 @@
               {{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
               <div class="controls">
                 <ul style="list-style:none">
-                  @foreach(unserialize($pelembagaan->lampiran) as $index => $lampiran )
-                  <li><a
-                      href="{{ URL::route('pelembagaan.download', array('id' => $pelembagaan->id, 'index' => $index)) }}">{{
-                      explode('/',$lampiran)[2] }}</a></li>
-                  @endforeach
+                    @if($pelembagaan->lampiran == null || $pelembagaan->lampiran == 'a:0:{}')
+                    <p>Tidak ada lampiran</p>
+                    @else
+                    @foreach(unserialize($pelembagaan->lampiran) as $index => $lampiran )
+                    <li><a
+                            href="{{ URL::route('pelembagaan.download', array('id' => $pelembagaan->id, 'index' => $index)) }}">
+                            {{explode(DS, $lampiran)[count(explode(DS, $lampiran)) - 1 ] }}
+                        </a>
+                    </li>
+                    @endforeach
+                    @endif
                 </ul>
 
 
@@ -267,7 +273,12 @@
             mRender: function (data, type, full) {
               // var downloadUrl = baseUrl + '/assets/uploads/pelembagaan/' + data;
               // return "<a href=" + downloadUrl + "> Unduh </>";
-              return '<a href="' + baseUrl + '/admin/pelembagaan/log/download/' + full.id + '">Unduh</a>';
+                if(data == null || data == 'a:0:{}'){
+                    return '<p>Tidak ada lampiran</p>';
+                }else{
+                    return '<a href="' + baseUrl + '/admin/pelembagaan/log/download/' + full.id + '">Unduh</a>';
+                }
+
 //                            return  "<a href='"+location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/" + "assets/uploads/pelembagaan/"+lampiran+"' >Unduh</a>"
             }
           },

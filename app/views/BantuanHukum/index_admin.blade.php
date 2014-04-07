@@ -10,7 +10,7 @@
         <li><a href="{{URL::previous()}}">Aplikasi</a>  <span class="separator"></span></li>
         <li>Bantuan Hukum</li>
     </ul>
-
+    @include('adminflash')
     <div class="pageheader">
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->

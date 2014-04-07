@@ -212,12 +212,22 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            var btns = new Array("<a href='"+baseUrl+"/puu/download/" + data + "' title='Unduh'><i class='icon-download'></i></a> ");
-                            if(all._role_id == 3 || all._role_id == 6) {
-                                btns.push("<a href='"+baseUrl+"/admin/puu/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a> ");
-                                btns.push("<a data-delete href='"+baseUrl+"/admin/puu/"+data+"' title='Hapus'><i class='icon-trash'></i></a>");
+                            if(all.lampiran == null || all.lampiran == "a:0:{}"){
+                                var btns = new Array();
+                                if(all._role_id == 3 || all._role_id == 6) {
+                                    btns.push("<a href='"+baseUrl+"/admin/puu/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a> ");
+                                    btns.push("<a data-delete href='"+baseUrl+"/admin/puu/"+data+"' title='Hapus'><i class='icon-trash'></i></a>");
+                                }
+                                return  btns.join("&nbsp;");
+                            }else{
+                                var btns = new Array("<a href='"+baseUrl+"/puu/download/" + data + "' title='Unduh'><i class='icon-download'></i></a> ");
+                                if(all._role_id == 3 || all._role_id == 6) {
+                                    btns.push("<a href='"+baseUrl+"/admin/puu/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a> ");
+                                    btns.push("<a data-delete href='"+baseUrl+"/admin/puu/"+data+"' title='Hapus'><i class='icon-trash'></i></a>");
+                                }
+                                return  btns.join("&nbsp;");
                             }
-                            return  btns.join("&nbsp;");
+
                         }
                     }
                 ],

@@ -161,7 +161,7 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <input class='btn btn-primary'  style="margin-left: 10px;" Type="button" value="Batal"
+                    <input class='btn btn-primary' Type="button" value="Batal"
                            onClick="history.go(-1);return true;">
                     {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
 

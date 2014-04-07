@@ -64,7 +64,12 @@
       <div class="control-group">
         {{ Form::label('lampiran', "Lampiran", array('class' => 'control-label')) }}
         <div class="controls">
-          <a class="btn btn-primary" href={{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen ); }} > <span class="rulycon-download"></span> Unduh </a>
+            @if($data->file_dokumen == null)
+            <p>Tidak ada lampiran</p>
+            @else
+            <a class="btn btn-primary" href="{{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen )}} "> <span class="rulycon-download"></span> Unduh </a>
+            @endif
+
         </div>
       </div>
 

@@ -6,8 +6,8 @@
 <div id="filterdiv" class="filterdiv">
   <div class="row-fluid">
     <div class="span24">
-      <form id="form-filter" class="form-horizontal" action="#">
-        <legend>Filter</legend>
+      <form id="form-filter" style="margin-top: 20px" class="form-horizontal" action="#">
+<!--        <legend>Filter</legend>-->
         <div class="row-fluid">
           <div class="span12">
             <div class="control-group">
@@ -275,8 +275,14 @@
             sClass: "center",
             sWidth: '5%',
           mRender: function (data, type, full) {
-            return "<a href='produkhukum/" + data + "/detail' title='Detail'> <i class='icon-edit'></i></a>"
-              + "&nbsp;<a href='produkhukum/" + data + "/download' title='Unduh'> <i class='icon-download'></i></a>";
+              if(full.file_dokumen == null){
+                  return "<a href='produkhukum/" + data + "/detail' title='Detail'> <i class='icon-edit'></i></a>";
+
+              }else{
+                  return "<a href='produkhukum/" + data + "/detail' title='Detail'> <i class='icon-edit'></i></a>"
+                      + "&nbsp;<a href='produkhukum/" + data + "/download' title='Unduh'> <i class='icon-download'></i></a>";
+
+              }
 
           }
         }

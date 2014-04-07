@@ -15,7 +15,9 @@
     <div class="row-fluid">
         <div class="span12">
             <fieldset>
-                <legend>Penanggung Jawab</legend>
+                <div class="nav nav-tabs">
+                    <h4>PENANGGUNG JAWAB</h4>
+                </div>
 
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[nama]', 'Nama', array('class' => 'control-label'))}}
@@ -40,8 +42,10 @@
 		<div class="control-group">
                     {{ Form::label('penanggungJawab[no_handphone]', "No Handphone", array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[no_handphone]', null, array('placeholder' => 'Masukan no handphone')) }}
+                        {{ Form::text('penanggungJawab[no_handphone]', null, array('placeholder' => 'Masukan no handphone', 'id' => 'hp')) }}
+                        <p class="span9" style="color: #616D79;font-size: 11px;">Format: 999-999-999-999</p>
                     </div>
+
                 </div>
 
                 <div class="control-group">
@@ -61,8 +65,10 @@
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[telp_kantor]', 'Telepon Kantor', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[telp_kantor]', null, array('placeholder' => 'Masukan nomor telepon kantor...')) }}
+                        {{ Form::text('penanggungJawab[telp_kantor]', null, array('placeholder' => 'Masukan nomor telepon kantor...', 'id' => 'telp_kantor')) }}
+                        <p class="span9" style="color: #616D79;font-size: 11px;">Format: (9999) 999-9999</p>
                     </div>
+
                 </div>
 
                 <div class="control-group">
@@ -77,7 +83,9 @@
 
         <div class="span12">
             <fieldset>
-                <legend>Informasi Usulan</legend>
+                <div class="nav nav-tabs">
+                    <h4>INFORMASI USULAN</h4>
+                </div>
 
                 <div class="control-group">
                     {{ Form::label("per_uu[perihal]", "Perihal", array('class' => 'control-label')) }}
@@ -125,7 +133,7 @@
         </div>	-->
 
     <div class="form-actions">
-        <a href="{{ URL::to('puu') }}" class="btn btn-primary">Batal</a>
+        <input class="btn btn-primary" type="button" value="Batal" onclick="history.go(-1);return true;" name="batal">
         {{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
     </div>
 
@@ -136,9 +144,12 @@
 @section('scripts')
 @parent
 <script src="{{asset('assets/js/jquery.validate.js')}}"></script>
+<script src="{{asset('assets/js/jquery.mask.js')}}"></script>
 <script type="text/javascript">
 $("#menu-peraturan-perundangan").addClass("active");
 
+$("#telp_kantor").mask("(9999) 999-9999");
+$("#hp").mask("999-999-999-999");
 
 $("#form-perUU").validate({
     ignore: [],
@@ -200,6 +211,8 @@ $("#form-perUU").validate({
         else
             $controlGroup.addClass('error');
     }
+
+
 });
 
 </script>

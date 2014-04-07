@@ -14,7 +14,10 @@
 	<div class="row-fluid">
 		<div class="span12">
 			<fieldset>
-	              <legend>Informasi Penanggung Jawab</legend>
+                <div class="nav nav-tabs">
+                    <h4>PENANGGUNG JAWAB</h4>
+                </div>
+
 				<div class="control-group">		
 						{{ Form::label('jenis_usulan', 'Jenis Usulan', array('class' => 'control-label'))}}
 						<div class="controls">
@@ -40,7 +43,7 @@
 					<div class="control-group">
 						{{ Form::label('nama_pemohon', "Nama Pemohon", array('class' => 'control-label'))}}					
 						<div class="controls">
-							{{ Form::text('nama_pemohon', $user->pengguna->nama_lengkap, array('placeholder' => "Masukkan Nama Lengkap...") ) }}
+							{{ Form::text('nama_pemohon', '', array('placeholder' => "Masukkan Nama Lengkap...") ) }}
 						</div>
 					</div>	
 
@@ -54,22 +57,26 @@
 					<div class="control-group">
 						{{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label'))}}
 						<div class="controls">
-							{{ Form::text('telp_kantor', null, array('placeholder' => "Masukkan Nomor Telepon Kantor...")) }}
-						</div>
+							{{ Form::text('telp_kantor', null, array('placeholder' => "Masukkan Nomor Telepon Kantor...", 'id' => 'telp_kantor')) }}
+                            <p class="span9" style="color: #616D79;font-size: 11px;">Format: (9999) 999-9999</p>
+                        </div>
+
 					</div>
 
                     <div class="control-group">
                         {{ Form::label('hp', 'Nomor Handphone', array('class' => 'control-label'))}}
                         <div class="controls">
-                            {{ Form::text('hp', null, array('placeholder' => "Masukkan Nomor Handphone...")) }}
+                            {{ Form::text('hp', null, array('placeholder' => "Masukkan Nomor Handphone...", 'id' => 'hp')) }}
+                            <p class="span9" style="color: #616D79;font-size: 11px;">Format: 999-999-999-999</p>
                         </div>
+
                     </div>
 
 
 			<div class="control-group">
 			{{ Form::label('pos_el', 'Email', array('class' => 'control-label'))}}
 			<div class="controls">
-				{{ Form::text('email', $user->pengguna->email) }}
+				{{ Form::text('email', '') }}
 			</div>
 			</div>	
 				</fieldset>
@@ -78,8 +85,10 @@
 
 			<div class="span12">
 				<fieldset>
-		              <legend> Informasi Usulan
-		              </legend>
+                    <div class="nav nav-tabs">
+                        <h4>INFORMASI USULAN</h4>
+                    </div>
+
 					<div class="control-group">
 					{{ Form::label("perihal", "Perihal", array('class' => 'control-label')) }}
 						<div class="controls">{{ Form::text('perihal', $pelembagaan->perihal, array('placeholder' => "Masukkan Perihal...")) }}</div>
@@ -115,10 +124,13 @@
 <script src="{{ asset('assets/lib/tinymce/tinymce.min.js') }}"></script>
 <script src="{{asset('assets/js/jquery.validate.js')}}"></script>
 <script src="{{asset('assets/js/additional-methods.js')}}"></script>
-
+<script src="{{asset('assets/js/jquery.mask.js')}}"></script>
 <script src="{{asset('assets/js/pelembagaan.js')}}"></script>
 
 <script type="text/javascript">
+    $("#telp_kantor").mask("(9999) 999-9999");
+    $("#hp").mask("999-999-999-999");
+
     Pelembagaan.Form();
 </script>
 <script>

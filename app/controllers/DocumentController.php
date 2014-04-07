@@ -17,7 +17,7 @@ class DocumentController extends BaseController{
     public function add()
     {
         $this->layout->content = View::make('document.form', array(
-		'title' => 'Tambah Dokumen',
+		'title' => 'Tambah Peraturan',
             'data' => new Document(),
             'form_opts' => array(
                 'action' => 'DocumentController@save',
@@ -45,11 +45,11 @@ class DocumentController extends BaseController{
 
         if($saved)
         {
-            return Redirect::to('admin/document')->with('success', 'Dokumen Berhasil Di Simpan.');
+            return Redirect::to('admin/document')->with('success', 'Peraturan Berhasil Di Simpan.');
         }
         else
         {
-            return Redirect::to('admin/document')->with('error', 'Dokumen Gagal Di Simpan.');
+            return Redirect::to('admin/document')->with('error', 'Peraturan Gagal Di Simpan.');
         }
     }
 
@@ -90,7 +90,7 @@ class DocumentController extends BaseController{
         $data = $DAL->GetSingleDocument($id);
 
         $this->layout->content = View::make('document.form', array(
-		'title' => 'Ubah Informasi Dokumen',
+		'title' => 'Ubah Informasi Peraturan',
             'data' => $data,
             'form_opts' => array(
                 'action' => array('DocumentController@update', $data->id),
@@ -109,7 +109,7 @@ class DocumentController extends BaseController{
         $DAL = new DAL_Document();
         $data = $DAL->UpdateDocument($input, $id);
 
-        return Redirect::to('admin/document')->with('success', 'Dokumen Berhasil Di Ubah.');
+        return Redirect::to('admin/document')->with('success', 'Peraturan Berhasil Di Ubah.');
     }
 
     public function delete($id)
@@ -119,7 +119,7 @@ class DocumentController extends BaseController{
 
         $DAL->DeleteDocument($id);
 
-        return Redirect::to('admin/document')->with('success', 'Dokumen Berhasil Di Hapus.');
+        return Redirect::to('admin/document')->with('success', 'Peraturan Berhasil Di Hapus.');
     }
 
     public function publish($id)
@@ -129,7 +129,7 @@ class DocumentController extends BaseController{
 
         $DAL->PublishDocument($id);
 
-        return Redirect::to('admin/document')->with('success', 'Dokumen Berhasil Di Publish.');
+        return Redirect::to('admin/document')->with('success', 'Peraturan Berhasil Di Publish.');
     }
 }
 

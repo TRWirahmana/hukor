@@ -121,6 +121,32 @@ class DAL_BantuanHukun
     }
 
     /*
+     * fungsi untuk insert data ke table bantuan_hukum
+     */
+
+    public function SaveBantuanHukum1($input)
+    {
+
+//	var_dump($filenames);
+//	exit;
+        $bantuanHukum = new BantuanHukum;
+
+        //pasrse input data to fields
+        $bantuanHukum->pengguna_id = $input['id'];
+        $bantuanHukum->jenis_perkara = $input['jns_perkara'];
+        $bantuanHukum->status_perkara = $input['status_perkara'];
+        $bantuanHukum->status_pemohon = $input['status_pemohon'];
+        $bantuanHukum->uraian_singkat = $input['uraian'];
+        $bantuanHukum->catatan = $input['catatan'];
+        //$bantuanHukum->lampiran = $file->getClientOriginalName();
+//        $bantuanHukum->lampiran = serialize($filenames);
+        $bantuanHukum->ket_lampiran = $input['ket_lampiran'];
+        $bantuanHukum->save();
+
+        $this->InsertPenanggungJawab($bantuanHukum->id, $input);
+    }
+
+    /*
      * fungsi untuk mengambil 1 row dari table bantuan hukum.
      */
 

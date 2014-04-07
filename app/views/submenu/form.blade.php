@@ -4,15 +4,15 @@
 
   <ul class="breadcrumbs">
     <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-    <li><a href="{{URL::previous()}}">Manage Menu</a> <span class="separator"></span></li>
-    <li><a href="{{URL::previous()}}">Manage Submenu</a></li>
+    <li><a href="{{URL::previous()}}">Kelola</a> <span class="separator"></span></li>
+    <li>Kelola Submenu</li>
   </ul>
   @include('adminflash')
   <div class="pageheader">
     <!--        <form action="results.html" method="post" class="searchbar">-->
     <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
     <!--        </form>-->
-    <div class="pageicon">&nbsp;</div>
+    <div class="pageicon"><span class="rulycon-settings"></span></div>
     <div class="pagetitle">
       <!--<h5>Events</h5>-->
 
@@ -53,7 +53,8 @@
 
             <div class="control-group">
               <div class="controls">
-                {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
+                  <input class="btn btn-primary" type="button" value="Batal" onclick="history.go(-1);return true;" name="batal">
+                  {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
               </div>
             </div>
 

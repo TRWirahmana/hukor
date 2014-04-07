@@ -12,7 +12,7 @@
     <!--        <form action="results.html" method="post" class="searchbar">-->
     <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
     <!--        </form>-->
-    <div class="pageicon">&nbsp;</div>
+    <div class="pageicon"><span class="rulycon-settings"></span></div>
     <div class="pagetitle">
       <!--<h5>Events</h5>-->
 
@@ -82,6 +82,7 @@
 
             <div class="control-group">
               <div class="controls">
+                  <input class="btn btn-primary" type="button" value="Batal" onclick="history.go(-1);return true;" name="batal">
                 {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
               </div>
             </div>

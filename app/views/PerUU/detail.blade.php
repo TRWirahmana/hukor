@@ -127,6 +127,9 @@
 
                     <div class="controls">
                         <ul style="list-style:none">
+                            @if($perUU->lampiran == null || $perUU->lampiran == 'a:0:{}')
+                            <p>Tidak Ada Lampiran</p>
+                            @else
                             @foreach(unserialize($perUU->lampiran) as $index => $lampiran)
                             <li>
                                 <a href="{{ URL::route('puu.download', array('id' => $perUU->id, 'index' => $index)) }}">
@@ -134,6 +137,8 @@
                                 </a>
                             </li>
                             @endforeach
+                            @endif
+
                         </ul>
                     </div>
                 </div>
@@ -156,7 +161,8 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <a href="{{ URL::route('puu.index') }}" class="btn btn-primary">Batal</a>
+                    <input class='btn btn-primary' Type="button" value="Batal"
+                           onClick="history.go(-1);return true;">
                     {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
 
                 </div>
@@ -253,6 +259,11 @@
                 bInfo: false,
                 bSort: false,
                 bLengthChange: false,
+                oLanguage:{
+                    "sEmptyTable": "Data Kosong",
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                    "sSearch":       "Cari:"
+                },
                 iDisplayLength: 5,
                 aoColumns: [
                     {
@@ -302,7 +313,12 @@
                         sWidth: '15%',
                         sClass: "center",
                         mRender: function (data, type, full) {
-                            return '<a href="' + baseUrl + '/admin/puu/log/download/' + full.id + '">Unduh</a>';
+                            if(data == null || data == 'a:0:{}'){
+                                return '<p>Tidak Ada Lampiran</p>';
+                            }else{
+                                return '<a href="' + baseUrl + '/admin/puu/log/download/' + full.id + '">Unduh</a>';
+                            }
+
                         }
                     }
 // {mData: "id"}

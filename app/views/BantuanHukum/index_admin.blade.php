@@ -52,8 +52,8 @@
                                 <option value="1">Tata Usaha Negara</option>
                                 <option value="2">Perdata</option>
                                 <option value="3">Pidana</option>
-                                <option value="4">Uji Materil MK</option>
-                                <option value="5">Uji Materil MA</option>
+                                <option value="4">Uji Materil Mahkamah Konstitusi</option>
+                                <option value="5">Uji Materil Mahkamah Agung</option>
                             </select>
                         </div>
                </div>
@@ -86,7 +86,7 @@
 	   <div class="control-group">
 			<div class="controls">
                 <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
-                <button class="btn btn-primary btn-primary" type="submit">Cetak</button>
+                <input class="btn btn-primary btn-primary" type="submit" value="Cetak">
 			</div>
            </div>
 	</div>
@@ -184,10 +184,10 @@
                             jenis_perkara = 'Pidana';
                             break;
                         case 4:
-                            jenis_perkara = 'Uji Materil MK';
+                            jenis_perkara = 'Uji Materil Mahkamah Konstitusi';
                             break;
                         case 5:
-                            jenis_perkara = 'Uji Materil MA';
+                            jenis_perkara = 'Uji Materil Mahkamah Agung';
                             break;
                     }
 
@@ -252,11 +252,15 @@
                     var downloadUrl = baseUrl + '/bantuan_hukum/download/' + data;
 
                     if(role == 3 || role == 8){
-                        return '<a href="' + downloadUrl + '" title="Unduh"><i class="icon-download "></i></a> &nbsp;' +
-                            '<a href="' + detailUrl + '" title="Detail"><i class="icon-edit"></i></a> &nbsp;' +
-                            '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="icon-trash"></i></a>';
-                    }else{
-                        return '<a href="' + downloadUrl + '" title="Unduh"><i class="icon-download "></i></a> &nbsp;';
+                        if(full.lampiran == null || full.lampiran == 'a:0:{}'){
+                            return '<a href="' + detailUrl + '" title="Detail"><i class="icon-edit"></i></a> &nbsp;' +
+                                '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="icon-trash"></i></a>';
+                        }else{
+                            return '<a href="' + downloadUrl + '" title="Unduh"><i class="icon-download "></i></a> &nbsp;' +
+                                '<a href="' + detailUrl + '" title="Detail"><i class="icon-edit"></i></a> &nbsp;' +
+                                '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="icon-trash"></i></a>';
+                        }
+
                     }
                 }
             }

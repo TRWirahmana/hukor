@@ -4,7 +4,7 @@
 
   <ul class="breadcrumbs">
     <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-    <li><a href="{{URL::previous()}}">Peraturan</a> <span class="separator"></span></li>
+    <li><a href="{{URL::previous()}}">Produk Hukum</a> <span class="separator"></span></li>
     <li>Detail Peraturan</li>
   </ul>
   @include('adminflash')
@@ -111,14 +111,14 @@
               {{ Form::label('', 'Tentang', array('class' => 'control-label')) }}
               <div class="controls">
                   <textarea cols="10" disabled>{{ $data->perihal }}</textarea>
-                <input type="text" disabled value="{{ $data->perihal }}"/>
+<!--                <input type="text" disabled value="{{ $data->perihal }}"/>-->
               </div>
             </div>
 
             <div class="control-group">
-              {{ Form::label('', 'Deskripsi', array('class' => 'control-label')) }}
+              {{ Form::label('', 'Catatan', array('class' => 'control-label')) }}
               <div class="controls">
-                <input type="text" disabled value="{{ $data->deskripsi }}"/>
+                  <textarea cols="10" disabled>{{ $data->deskripsi }}</textarea>
               </div>
             </div>
 
@@ -132,7 +132,11 @@
             <div class="control-group">
               {{ Form::label('', 'File Dokumen', array('class' => 'control-label')) }}
               <div class="controls">
-                  <a class="btn btn-primary-blue" href={{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen ); }} > <span class="rulycon-download"></span> Unduh </a>
+                  @if($data->file_dokumen == null)
+                  <p>Tidak ada lampiran</p>
+                  @else
+                    <a class="btn btn-primary-blue" href="{{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen )}} "> <span class="rulycon-download"></span> Unduh </a>
+                    @endif
               </div>
             </div>
 
@@ -165,4 +169,15 @@
 
 </div>
 <!--rightpanel-->
+@stop
+
+@section('scripts')
+@parent
+<script>
+    jQuery("#produk-hukum > li:first-child").addClass("sub-menu-active");
+    jQuery("#produk-hukum").css({
+        "display": "block",
+        "visibility": "visible"
+    });
+</script>
 @stop

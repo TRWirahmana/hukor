@@ -64,6 +64,7 @@
             </div>
             <div class="control-group">
               <div class="controls">
+                  <input class="btn btn-primary" type="button" value="Batal" onclick="window.location='{{ URL::to(admin) }}'" name="batal">
                 {{ Form::submit('Simpan', array('class' => 'btn btn-primary btn-block')) }}
               </div>
             </div>

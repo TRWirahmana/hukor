@@ -31,6 +31,7 @@
               </div>
               <div class="control-group">
                 <div class="controls">
+                    <input class="btn btn-primary" type="button" value="Batal" onclick="history.go(-1);return true;" name="batal">
                   {{Form::submit("Simpan", array("class" => "btn btn-primary"))}}
                 </div>
               </div>

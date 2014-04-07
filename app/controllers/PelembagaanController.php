@@ -86,7 +86,18 @@ class PelembagaanController extends BaseController {
 				'id' => $id,
                 'penanggungJawab' => $penanggungJawab,
 			));
-		}
+		}else if($user->role_id == 2) {
+            $this->layout = View::make('layouts.master');
+
+            $this->layout->content = View::make('Pelembagaan.detail_usulan', array(
+                'title' => 'Detail Pelembagaan #' . $pelembagaan->id,
+                'detail' => '',
+                'form_opts' => array('route' => 'proses_update_pelembagaan','method' => 'post','class' => 'form-horizontal','id' => 'pelembagaan-update','files' => true),
+                'pelembagaan' => $pelembagaan,
+                'id' => $id,
+                'penanggungJawab' => $penanggungJawab,
+            ));
+        }
 	}
 
 	public function update() //$id)
@@ -122,6 +133,8 @@ class PelembagaanController extends BaseController {
 			return Redirect::to('admin/pelembagaan')->with('success', 'Data berhasil diubah.');
 		else if($user->role_id == 7)
 			return Redirect::to('admin/pelembagaan')->with('success', 'Data berhasil diubah.');
+        else if($user->role_id == 2)
+            return Redirect::to('pelembagaan')->with('success', 'Data berhasil diubah.');
 	}  
 
 	public function store()
@@ -141,11 +154,11 @@ class PelembagaanController extends BaseController {
         	$DAL->savePelembagaan($input, $filenames);         	// save pelembagaan
 	       	$DAL->sendEmailToAllAdminPelembagaan();        						// send Email to admin
 
-			Session::flash('success', 'Data berhasil dikirim.');
+            return Redirect::route('pelembagaan.index')->with('success', 'Data berhasil dikirim.');
 		} else {
-			Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
+            return Redirect::route('pelembagaan.index')->with('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
 		}				
-		return Redirect::route('pelembagaan.index');
+
 	}
 
 	public function destroy($id)
@@ -180,10 +193,9 @@ class PelembagaanController extends BaseController {
 	public function downloadLampiranLog($id)
 	{
 
-		if($log = LogPelembagaan::find($id)) {
-			$attachments = unserialize($log->lampiran);
-			return HukorHelper::downloadAttachment($attachments);
-		}
+		if($log = LogPelembagaan::find($id))
+            return HukorHelper::downloadAsZIP(unserialize($log->lampiran));
+
 		return App::abort(404);
 	}
 
@@ -195,10 +207,10 @@ class PelembagaanController extends BaseController {
 		if(!empty($attachments) && null !== $index && isset($attachments[$index]) )
 		{
 			$filename = $attachments[$index];	
-			$originalName = explode('/', $filenam)[1];
+			$originalName = explode('/', $filename)[1];
 			$path = UPLOAD_PATH . DS . $filename;
 			if(file_exists($path))
-				return Response::download($path, $originalname);
+				return Response::download($path, $originalName);
 		} else {
 			return HukorHelper::downloadAsZIP($attachments);
 		}

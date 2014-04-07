@@ -6,7 +6,7 @@
   <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
   <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
     <li><a href="{{URL::previous()}}">Peraturan Perundang-Undangan</a> <span class="separator"></span></li>
-  <li>Detail Peraturan Perundang-Undangan</li>
+  <li>Detail Usulan</li>
 </ul>
 @include('adminflash')
 <div class="pageheader">
@@ -142,13 +142,18 @@
 
         <div class="controls">
           <ul style="list-style:none">
-            @foreach(unserialize($perUU->lampiran) as $index => $lampiran)
-            <li>
-              <a href="{{ URL::route('puu.download', array('id' => $perUU->id, 'index' => $index)) }}">
-                {{ explode(DS,$lampiran)[count(explode(DS, $lampiran)) - 1] }}
-              </a>
-            </li>
-            @endforeach
+              @if($perUU->lampiran == null || $perUU->lampiran == 'a:0:{}')
+              <p>Tidak Ada Lampiran</p>
+              @else
+              @foreach(unserialize($perUU->lampiran) as $index => $lampiran)
+              <li>
+                  <a href="{{ URL::route('puu.download', array('id' => $perUU->id, 'index' => $index)) }}">
+                      {{ explode(DS,$lampiran)[count(explode(DS, $lampiran)) - 1] }}
+                  </a>
+              </li>
+              @endforeach
+              @endif
+
           </ul>
         </div>
       </div>
@@ -169,7 +174,7 @@
         </div>
       </div>
         <div class="control-group">
-            <a href="{{ URL::route('admin.puu.index') }}" class="btn btn-primary">Batal</a>
+            <input class="btn btn-primary" type="button" value="Batal" onclick="history.go(-1);return true;" name="batal">
             {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
 
         </div>
@@ -282,10 +287,11 @@
       bServerSide: true,
       sAjaxSource: document.location.href,
       bFilter: true,
-      bInfo: false,
+      bInfo: true,
       bSort: false,
       bLengthChange: false,
         oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
             "sEmptyTable": "Data Kosong",
             "sZeroRecords" : "Pencarian Tidak Ditemukan",
             "sSearch":       "Cari:"
@@ -335,7 +341,12 @@
           mData: "lampiran",
             sWidth: '15%',
           mRender: function (data, type, full) {
-            return '<a href="' + baseUrl + '/admin/puu/log/download/' + full.id + '">Unduh</a>';
+              if(data == null || data == 'a:0:{}'){
+                  return '<p>Tidak Ada Lampiran</p>';
+              }else{
+                  return '<a href="' + baseUrl + '/admin/puu/log/download/' + full.id + '">Unduh</a>';
+              }
+
           }
         }
 // {mData: "id"}

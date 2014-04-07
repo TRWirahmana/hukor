@@ -366,3 +366,18 @@ Route::get('pelembagaan/printTable', array("as" => "pelembagaan.printTable", "us
 Route::get('bantuan_hukum/download/{id}', array('as' => 'bantuan_hukum.download', 'uses' => 'BantuanHukumController@download'));
 Route::get('bantuan_hukum/datatable','BantuanHukumController@datatable');
 Route::get('pelembagaan/printTable', array("as" => "pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));
+Route::get('bantuan_hukum/detail/{id}', 'BantuanHukumController@detail');
+Route::get('bantuan_hukum/tablelog', 'BantuanHukumController@tablelog');
+Route::get('bantuan_hukum/delete/{id}', 'BantuanHukumController@delete');
+Route::get('bantuan_hukum/delete_log/{id}', 'BantuanHukumController@deletelog');
+Route::post('bantuan_hukum/convertpdf', 'BantuanHukumController@convertpdf');
+Route::get('bantuan_hukum/log/download/{id}', 'BantuanHukumController@downloadLampiranLog');
+Route::resource('bantuan_hukum', 'BantuanHukumController');
+
+Route::get('pelembagaan/printTable', array("as" => "admin.pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));
+
+Route::get('pelembagaan/log/download/{id}', 'PelembagaanController@downloadLampiranLog');
+Route::get('pelembagaan/{id}/update', 'PelembagaanController@edit');
+Route::get('pelembagaan/deletelog/{id}', 'PelembagaanController@deleteLog');
+Route::post('pelembagaan_update', array('as' => 'proses_update_pelembagaan', 'uses' =>  'PelembagaanController@update'));
+Route::resource('pelembagaan', 'PelembagaanController', array("create", "store", "update", "edit", "index"));

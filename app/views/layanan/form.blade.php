@@ -6,7 +6,7 @@
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
         <li><a href="{{URL::previous()}}">Kelola</a> <span class="separator"></span></li>
         <li><a href="{{URL::previous()}}">Kelola Konten Layanan</a> <span class="separator"></span></li>
-        <li>Tambah Konten Layanan</li>
+        <li>{{$title}}</li>
     </ul>
     @include('adminflash')
     <div class="pageheader">
@@ -15,7 +15,7 @@
         <!--        </form>-->
         <div class="pageicon"><span class="rulycon-settings"></span></div>
         <div class="pagetitle">
-            <h1>Tambah Konten Layanan</h1>
+            <h1>{{$title}}</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -80,9 +80,9 @@
                                 {{ Form::label('penanggung_jawab', 'Unit Penanggung Jawab', array('class' => 'control-label')) }}
                                 <div class="controls">
                                     @if(!is_null($menu))
-                                    {{ Form::select('layanan[penanggung_jawab]', $listPJ, $user->pengguna->bagian, array("id" => "PJ")) }}
+                                    {{ Form::select('layanan[penanggung_jawab]', $listPJ, $pj, array("id" => "PJ")) }}
                                     @else
-                                    {{ Form::select('layanan[penanggung_jawab]', $listPJ, $user->pengguna->bagian, array("id" => "PJ")) }}
+                                    {{ Form::select('layanan[penanggung_jawab]', $listPJ, '', array("id" => "PJ")) }}
                                     @endif
 
                                     @foreach($errors->get('penanggung_jawab') as $error)
@@ -101,14 +101,17 @@
                                     @endforeach
                                 </div>
                             </div>
+
+                            <div class="control-group">
+                                <div class="controls">
+                                    <input class="btn btn-primary" type="button" value="Batal" onclick="history.go(-1);return true;" name="batal">
+                                    {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="row-fluid">
-                        <div class="span24 text-center">
-                            {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
-                        </div>
-                    </div>
+
 
                     {{ Form::close() }}
             </div>

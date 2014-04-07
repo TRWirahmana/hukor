@@ -20,9 +20,16 @@
       @endif
     </div>
   </div>
-  <script>
+
+    <script type="text/javascript">
+//    var $ = jQuery.noConflict();
+
     document.getElementById("menu-call-center").setAttribute("class", "active");
+    document.title = "Layanan Biro Hukum dan Organisasi | Kontak Kami";
   </script>
+
 </div>
+
+
 @endsection
 

@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/Pelembagaan/index_user.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/DAL/Pelembagaan.php" afterPath="$PROJECT_DIR$/app/models/DAL/Pelembagaan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/PelembagaanController.php" afterPath="$PROJECT_DIR$/app/controllers/PelembagaanController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Pelembagaan/detail_usulan.blade.php" afterPath="$PROJECT_DIR$/app/views/Pelembagaan/detail_usulan.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php" afterPath="$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/PerUU/create.blade.php" afterPath="$PROJECT_DIR$/app/views/PerUU/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/profile/detail.blade.php" afterPath="$PROJECT_DIR$/app/views/profile/detail.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Pelembagaan/form.blade.php" afterPath="$PROJECT_DIR$/app/views/Pelembagaan/form.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/forum.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/forum.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/callcenter/index.blade.php" afterPath="$PROJECT_DIR$/app/views/callcenter/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/produkhukum/index.blade.php" afterPath="$PROJECT_DIR$/app/views/produkhukum/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/bantuanhukum/index_admin.blade.php" afterPath="$PROJECT_DIR$/app/views/bantuanhukum/index_admin.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php" afterPath="$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Pelembagaan/index_user.blade.php" afterPath="$PROJECT_DIR$/app/views/Pelembagaan/index_user.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ketatalaksanaan/index_user.blade.php" afterPath="$PROJECT_DIR$/app/views/ketatalaksanaan/index_user.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php" afterPath="$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/PerUU/informasi.blade.php" afterPath="$PROJECT_DIR$/app/views/PerUU/informasi.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/registrasi/setting.blade.php" afterPath="$PROJECT_DIR$/app/views/registrasi/setting.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
@@ -32,102 +36,43 @@
     <groupTables value="false" />
     <sortChildren value="false" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="BantuanHukumController.php" pinned="false" current="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/app/controllers/BantuanHukumController.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="154" column="48" selection-start="4370" selection-end="4370" vertical-scroll-proportion="2.6415384" vertical-offset="901" max-vertical-offset="3961">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="index_admin.blade.php" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/app/views/bantuanhukum/index_admin.blade.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="12" column="26" selection-start="361" selection-end="361" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="5882">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="detail_usulan.blade.php" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/detail_usulan.blade.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="262" column="44" selection-start="10204" selection-end="10204" vertical-scroll-proportion="-28.115385" vertical-offset="3723" max-vertical-offset="5406">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="diknasrokum" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="update.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php">
+      <file leaf-file-name="create.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/PerUU/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="276" column="28" selection-start="10030" selection-end="10055" vertical-scroll-proportion="-9.884615" vertical-offset="4435" max-vertical-offset="6358">
+            <state line="3" column="78" selection-start="108" selection-end="108" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="3859">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="master.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="17" selection-start="1396" selection-end="1396" vertical-scroll-proportion="29.423077" vertical-offset="1173" max-vertical-offset="7667">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index_user.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/index_user.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/views/ketatalaksanaan/index_user.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="286" column="76" selection-start="10084" selection-end="10095" vertical-scroll-proportion="-7.1923075" vertical-offset="4675" max-vertical-offset="6528">
+            <state line="4" column="65" selection-start="116" selection-end="116" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="2601">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PelembagaanController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/PelembagaanController.php">
+      <file leaf-file-name="setting.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/registrasi/setting.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="220" column="57" selection-start="7653" selection-end="7653" vertical-scroll-proportion="0.37166324" vertical-offset="3559" max-vertical-offset="4760">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HukorHelper.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/services/HukorHelper.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="330" column="27" selection-start="7256" selection-end="7256" vertical-scroll-proportion="3.2307692" vertical-offset="5694" max-vertical-offset="7378">
-              <folding>
-                <marker date="1394608932830" expanded="true" signature="5720:5797" placeholder="..." />
-                <marker date="1394608932830" expanded="false" signature="5739:5788" placeholder="..." />
-                <marker date="1394608932830" expanded="true" signature="5789:5797" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="363" column="89" selection-start="18428" selection-end="18428" vertical-scroll-proportion="-3.0384614" vertical-offset="5939" max-vertical-offset="6494">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="detail_usulan.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/bantuanhukum/detail_usulan.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="449" column="18" selection-start="17821" selection-end="17821" vertical-scroll-proportion="-1.2307693" vertical-offset="7601" max-vertical-offset="8585">
+            <state line="4" column="73" selection-start="126" selection-end="126" vertical-scroll-proportion="0.13385826" vertical-offset="0" max-vertical-offset="1190">
               <folding />
             </state>
           </provider>
@@ -151,22 +96,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/bantuanhukum/detail.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/bantuanhukum/detail_usulan.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/bantuanhukum/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/PerUU/detail.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/produkhukum/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/produkhukum/detail.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/document/detail.blade.php" />
-        <option value="$PROJECT_DIR$/app/models/DAL/Pelembagaan.php" />
-        <option value="$PROJECT_DIR$/app/views/bantuanhukum/index_admin.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/Pelembagaan/detail_usulan.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/Pelembagaan/index_user.blade.php" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
-        <option value="$PROJECT_DIR$/app/controllers/BantuanHukumController.php" />
         <option value="$PROJECT_DIR$/app/controllers/PelembagaanController.php" />
+        <option value="$PROJECT_DIR$/app/views/bantuanhukum/index_admin.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/master.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/profile/detail.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/produkhukum/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/layouts/forum.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/callcenter/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/PerUU/informasi.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/PerUU/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/bantuanhukum/form.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/bantuanhukum/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/Pelembagaan/form.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/Pelembagaan/index_user.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/ketatalaksanaan/index_user.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/registrasi/setting.blade.php" />
       </list>
     </option>
   </component>
@@ -328,6 +273,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="profile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diknasrokum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="produkhukum" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -416,6 +383,50 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diknasrokum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layanan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diknasrokum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="ketatalaksanaan" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -482,7 +493,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bantuanhukum" />
+              <option name="myItemId" value="callcenter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -500,7 +511,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bantuanhukum" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -599,122 +614,114 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/produkhukum/detail.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/views/produkhukum/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="112" selection-start="2501" selection-end="2569" vertical-scroll-proportion="-17.653847" vertical-offset="714" max-vertical-offset="1649">
+        <state line="345" column="74" selection-start="10872" selection-end="10872" vertical-scroll-proportion="0.86614174" vertical-offset="5425" max-vertical-offset="6035">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/document/detail.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/forum.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="31" selection-start="4659" selection-end="4659" vertical-scroll-proportion="-10.461538" vertical-offset="1989" max-vertical-offset="3213">
+        <state line="20" column="67" selection-start="620" selection-end="620" vertical-scroll-proportion="0.6692913" vertical-offset="0" max-vertical-offset="510">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ProdukHukumController.php">
+    <entry file="file://$PROJECT_DIR$/app/views/callcenter/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="129" selection-end="453" vertical-scroll-proportion="-0.032629557" vertical-offset="306" max-vertical-offset="1054">
+        <state line="27" column="69" selection-start="973" selection-end="973" vertical-scroll-proportion="0.8326772" vertical-offset="36" max-vertical-offset="697">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_Document.php">
+    <entry file="file://$PROJECT_DIR$/app/views/PerUU/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="20" selection-start="185" selection-end="185" vertical-scroll-proportion="-1.2047244" vertical-offset="714" max-vertical-offset="2941">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5236">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/profile/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="23" selection-start="4400" selection-end="4400" vertical-scroll-proportion="3.948819" vertical-offset="0" max-vertical-offset="2210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/profile/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="833" selection-end="1028" vertical-scroll-proportion="0.5826772" vertical-offset="299" max-vertical-offset="833">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="83" selection-start="1799" selection-end="1799" vertical-scroll-proportion="-0.33464566" vertical-offset="1173" max-vertical-offset="2924">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/PerUU/informasi.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="31" selection-start="0" selection-end="10557" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="4454">
+        <state line="4" column="71" selection-start="137" selection-end="137" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="4488">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/DAL/Pelembagaan.php">
+    <entry file="file://$PROJECT_DIR$/app/views/PerUU/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="32" selection-start="1706" selection-end="1706" vertical-scroll-proportion="-5.6538463" vertical-offset="601" max-vertical-offset="4420">
+        <state line="3" column="78" selection-start="108" selection-end="108" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="3859">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/bantuanhukum/index_admin.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/views/bantuanhukum/form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="26" selection-start="361" selection-end="361" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="5882">
+        <state line="4" column="85" selection-start="116" selection-end="116" vertical-scroll-proportion="0.13385826" vertical-offset="0" max-vertical-offset="3638">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/update.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/views/bantuanhukum/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="276" column="28" selection-start="10030" selection-end="10055" vertical-scroll-proportion="-9.884615" vertical-offset="4435" max-vertical-offset="6358">
+        <state line="5" column="85" selection-start="206" selection-end="206" vertical-scroll-proportion="0.16732283" vertical-offset="0" max-vertical-offset="5117">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="353" column="44" selection-start="12038" selection-end="12038" vertical-scroll-proportion="-11.653846" vertical-offset="5698" max-vertical-offset="7939">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#b#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/detail_usulan.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="262" column="44" selection-start="10204" selection-end="10204" vertical-scroll-proportion="-28.115385" vertical-offset="3723" max-vertical-offset="5406">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/services/HukorHelper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="330" column="27" selection-start="7256" selection-end="7256" vertical-scroll-proportion="3.2307692" vertical-offset="5694" max-vertical-offset="7378">
-          <folding>
-            <marker date="1394608932830" expanded="true" signature="5720:5797" placeholder="..." />
-            <marker date="1394608932830" expanded="false" signature="5739:5788" placeholder="..." />
-            <marker date="1394608932830" expanded="true" signature="5789:5797" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/bantuanhukum/detail_usulan.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="449" column="18" selection-start="17821" selection-end="17821" vertical-scroll-proportion="-1.2307693" vertical-offset="7601" max-vertical-offset="8585">
+        <state line="3" column="83" selection-start="113" selection-end="113" vertical-scroll-proportion="0.1003937" vertical-offset="0" max-vertical-offset="2499">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/index_user.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="286" column="76" selection-start="10084" selection-end="10095" vertical-scroll-proportion="-7.1923075" vertical-offset="4675" max-vertical-offset="6528">
+        <state line="4" column="83" selection-start="132" selection-end="132" vertical-scroll-proportion="0.13385826" vertical-offset="0" max-vertical-offset="6545">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="363" column="89" selection-start="18428" selection-end="18428" vertical-scroll-proportion="-3.0384614" vertical-offset="5939" max-vertical-offset="6494">
+        <state line="24" column="17" selection-start="1396" selection-end="1396" vertical-scroll-proportion="29.423077" vertical-offset="1173" max-vertical-offset="7667">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/BantuanHukumController.php">
+    <entry file="file://$PROJECT_DIR$/app/views/ketatalaksanaan/index_user.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="48" selection-start="4370" selection-end="4370" vertical-scroll-proportion="2.6415384" vertical-offset="901" max-vertical-offset="3961">
+        <state line="4" column="65" selection-start="116" selection-end="116" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="2601">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/PelembagaanController.php">
+    <entry file="file://$PROJECT_DIR$/app/views/registrasi/setting.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="220" column="57" selection-start="7653" selection-end="7653" vertical-scroll-proportion="0.37166324" vertical-offset="3559" max-vertical-offset="4760">
+        <state line="4" column="73" selection-start="126" selection-end="126" vertical-scroll-proportion="0.13385826" vertical-offset="0" max-vertical-offset="1190">
           <folding />
         </state>
       </provider>

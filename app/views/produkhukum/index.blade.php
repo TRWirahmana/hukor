@@ -339,4 +339,11 @@
 <script>
   $("#menu-produk-hukum").addClass("active");
 </script>
+<script type="text/javascript">
+    var $ = jQuery.noConflict();
+
+    $(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | Produk Hukum";
+    });
+</script>
 @stop

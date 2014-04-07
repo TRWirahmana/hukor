@@ -2,6 +2,7 @@
 
 <!--BANTUAN HUKUM-->
 <script>
+    document.title = "Layanan Biro Hukum dan Organisasi | Ketatalaksanaan";
     document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
 </script>
 

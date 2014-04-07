@@ -2,6 +2,7 @@
 
 <!--Pelembagaan-->
 <script>
+    document.title = "Layanan Biro Hukum dan Organisasi | Status Usulan Pelembagaan";
     document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Pelembagaan";
 </script>
 

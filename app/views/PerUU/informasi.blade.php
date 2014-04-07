@@ -2,6 +2,7 @@
 
 <!--PERATURAN PERUNDANG-UNDANGAN-->
 <script>
+    document.title = "Layanan Biro Hukum dan Organisasi | Status Usulan Per-UU";
   document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Peraturan perundang-undangan";
 </script>
 
@@ -251,6 +252,7 @@ $("#menu-peraturan-perundangan").addClass("active");
 <script>
   $("#collapse10").css("height", "auto");
   $("#menu-peruu-informasi").addClass("user-menu-active");
+
 </script>
 
 @stop

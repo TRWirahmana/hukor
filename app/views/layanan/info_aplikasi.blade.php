@@ -3,6 +3,7 @@
 @if($info->id == 1)
 <!--PERATURAN PERUNDANG-UNDANGAN-->
 <script>
+    document.title = "Layanan Biro Hukum dan Organisasi | Informasi Per-UU";
   document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Peraturan perundang-undangan";
 </script>
 
@@ -20,6 +21,7 @@
 @if($info->id == 2)
 <!--PELEMBAGAAN-->
 <script>
+    document.title = "Layanan Biro Hukum dan Organisasi | Informasi Pelembagaan";
   document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Pelembagaan";
 </script>
 
@@ -37,6 +39,7 @@
 @if($info->id == 3)
 <!--BANTUAN HUKUM-->
 <script>
+    document.title = "Layanan Biro Hukum dan Organisasi | Informasi Bantuan Hukum";
   document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Bantuan hukum";
 </script>
 
@@ -54,6 +57,7 @@
 @if($info->id == 4)
 <!--KETATALAKSANAAN-->
 <script>
+    document.title = "Layanan Biro Hukum dan Organisasi | Informasi Ketatalaksanaan";
   document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
 </script>
 

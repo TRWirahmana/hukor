@@ -371,35 +371,75 @@ class HukorHelper {
 
     public static function XMLFile()
     {
-        $dom = new DOMDocument("1.0");
+        $dom = new DOMDocument('1.0', 'utf-8');
+        $dom->formatOutput = true;
 
-        if(!file_exists(XML_COUNTER . 'counter.xml'))
+        if(file_exists(XML_COUNTER . 'counter.xml'))
         {
-            header("Content-Type:text/plain");
+            $dom->load(XML_COUNTER . 'counter.xml'); // load xml file
 
-            // create root element
-            $root = $dom->createElement('counter');
-            $dom->appendChild($root);
+            $root = $dom->documentElement;
 
-            // create child element
-            $count = $dom->createElement('count');
-            $root->appendChild($count);
+            $dateNow = date('Y-m-d'); // get date now
+            $dateXML = $root->getElementsByTagName('tanggal')->item(0)->nodeValue; // get date in xml
 
-            //create text node
-            $value = $dom->createTextNode(1);
-            $count->appendChild($value);
+            $dateNowArr = explode("-", $dateNow);// explode date now
+            $dateXMLArr = explode("-", $dateXML);// explode date in xml
 
+            /**
+             * jika tanggal, bulan dan tahun sekarang berbeda dengan yang terdapat di xml,
+             * maka tanggal kembali menjadi 1, begitu juga dengan bulan dan tahun.
+             * sedangkan all tidak akan pernah di set menjadi 1, meskipun tanggal, bulan dan tahun berubah.
+             */
+            $newDay = ($dateNowArr[2] == $dateXMLArr[2]) ? $root->getElementsByTagName('hari')->item(0)->nodeValue + 1 : 1;
+            $newMonth = ($dateNowArr[1] == $dateXMLArr[1]) ? $root->getElementsByTagName('bulan')->item(0)->nodeValue + 1 : 1;
+            $newYear = ($dateNowArr[0] == $dateXMLArr[0]) ? $root->getElementsByTagName('tahun')->item(0)->nodeValue + 1 : 1;
+            $allDate = $root->getElementsByTagName('all')->item(0)->nodeValue + 1;
+            $newDate = ($dateNowArr[2] == $dateXMLArr[2]) ? $root->getElementsByTagName('tanggal')->item(0)->nodeValue : date("Y-m-d");
+
+            // input new value to elements xml.
+            $root->getElementsByTagName('hari')->item(0)->nodeValue = $newDay;
+            $root->getElementsByTagName('bulan')->item(0)->nodeValue = $newMonth;
+            $root->getElementsByTagName('tahun')->item(0)->nodeValue = $newYear;
+            $root->getElementsByTagName('tanggal')->item(0)->nodeValue = $newDate;
+            $root->getElementsByTagName('all')->item(0)->nodeValue = $allDate;
+
+            // save xml
             $dom->save(XML_COUNTER . 'counter.xml');
         }
         else
         {
-            $dom->load(XML_COUNTER . "counter.xml");
+            // create element counter
+            $root = $dom->createElement('counter');
+            $root = $dom->appendChild($root);
 
-            $root = $dom->documentElement;
+            /** create elements inside element counter and set the values */
+            $tgl = $dom->createElement('tanggal');
+            $tgl = $root->appendChild($tgl);
+            $tglVal = $dom->createTextNode(date('Y-m-d'));
+            $tglVal = $tgl->appendChild($tglVal);
 
-            $counter = $root->getElementsByTagName('count')->item(0)->nodeValue;
-            $root->getElementsByTagName('count')->item(0)->nodeValue = $counter + 1;
+            $hari = $dom->createElement('hari');
+            $hari = $root->appendChild($hari);
+            $hariVal = $dom->createTextNode(1);
+            $hariVal = $hari->appendChild($hariVal);
 
+            $bln = $dom->createElement('bulan');
+            $bln = $root->appendChild($bln);
+            $blnVal = $dom->createTextNode(1);
+            $blnVal = $bln->appendChild($blnVal);
+
+            $thn = $dom->createElement('tahun');
+            $thn = $root->appendChild($thn);
+            $thnVal = $dom->createTextNode(1);
+            $thnVal = $thn->appendChild($thnVal);
+
+            $all = $dom->createElement('all');
+            $all = $root->appendChild($all);
+            $allVal = $dom->createTextNode(1);
+            $allVal = $all->appendChild($allVal);
+
+            // save xml
             $dom->save(XML_COUNTER . 'counter.xml');
         }
     }
@@ -410,13 +450,19 @@ class HukorHelper {
         {
             $dom = new DOMDocument("1.0");
 
-            $dom->load(XML_COUNTER . "counter.xml");
+            $dom->load(XML_COUNTER . "counter.xml"); // load xml
 
             $root = $dom->documentElement;
 
-            $counter = $root->getElementsByTagName('count')->item(0)->nodeValue;
+            $result = array();
 
-            return $counter;
+            // get values from xml and set to var array
+            $result[0] = $root->getElementsByTagName('hari')->item(0)->nodeValue;
+            $result[1] = $root->getElementsByTagName('bulan')->item(0)->nodeValue;
+            $result[2] = $root->getElementsByTagName('tahun')->item(0)->nodeValue;
+            $result[3] = $root->getElementsByTagName('all')->item(0)->nodeValue;
+
+            return $result;
         }
         else
         {

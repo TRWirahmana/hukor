@@ -54,7 +54,7 @@
                   {{ Form::password('password_confirmation') }}
 
                   @foreach($errors->get('password') as $errors)
-                  <span class="help-block">{{$errors}}</span>
+                 ``` <span class="help-block">{{$errors}}</span>
                   @endforeach
                 </div>
               </div>

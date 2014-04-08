@@ -164,45 +164,45 @@
         @endforeach
       </div>
 
+<!-- Widget Counter -->
+              <div id="counter-widget">
+                <h3 class="section-title widgets">Visitor counter</h3>
 
-      <!--        <div id="counter-widget">-->
-      <!--          <h3 class="section-title widgets">Visitor counter</h3>-->
-      <!---->
-      <!--          <div class="widget-body">-->
-      <!--            <div class="widget-content">-->
-      <!--              <p>--><?php //echo HukorHelper::GetCounterVisitor(); ?><!--</p>-->
-      <!--            </div>-->
-      <!--          </div>-->
-      <!--        </div>-->
-
-      <!--        <div id="rule-widget">-->
-      <!--          <h3 class="section-title widgets">Peraturan</h3>-->
-      <!---->
-      <!--          <div class="widget-body">-->
-      <!--            <div class="widget-content">-->
-      <!--              <table class="table">-->
-      <!--                <thead>-->
-      <!--                <tr>-->
-      <!--                  <th>No</th>-->
-      <!--                  <th>Perihal</th>-->
-      <!--                </tr>-->
-      <!--                </thead>-->
-      <!--                <tbody>-->
-      <!--                @if ($document != null)-->
-      <!--                --><?php //$increment = 1; ?>
-      <!--                @foreach($document as $doc)-->
-      <!--                <tr>-->
-      <!--                  <td>--><?php //echo $doc->nomor; //$increment; ?><!--</td>-->
-      <!--                  <td>{{ $doc->perihal }}</td>-->
-      <!--                </tr>-->
-      <!--                --><?php //$increment++; ?>
-      <!--                @endforeach-->
-      <!--                @endif-->
-      <!--                </tbody>-->
-      <!--              </table>-->
-      <!--            </div>-->
-      <!--          </div>-->
-      <!--        </div>-->
+                <div class="widget-body">
+                  <div class="widget-content">
+                    <p>aaaaa</p>
+                  </div>
+                </div>
+              </div>
+        <!-- End Widget Counter -->
+<!--              <div id="rule-widget">-->
+<!--                <h3 class="section-title widgets">Peraturan</h3>-->
+<!---->
+<!--                <div class="widget-body">-->
+<!--                  <div class="widget-content">-->
+<!--                    <table class="table">-->
+<!--                      <thead>-->
+<!--                      <tr>-->
+<!--                        <th>No</th>-->
+<!--                        <th>Perihal</th>-->
+<!--                      </tr>-->
+<!--                      </thead>-->
+<!--                      <tbody>-->
+<!--                      @if ($document != null)-->
+<!--                      --><?php //$increment = 1; ?>
+<!--                      @foreach($document as $doc)-->
+<!--                      <tr>-->
+<!--                        <td>--><?php //echo $doc->nomor; //$increment; ?><!--</td>-->
+<!--                        <td>{{ $doc->perihal }}</td>-->
+<!--                      </tr>-->
+<!--                      --><?php //$increment++; ?>
+<!--                      @endforeach-->
+<!--                      @endif-->
+<!--                      </tbody>-->
+<!--                    </table>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
 
       <!--        <div id="twitter-widget">-->
       <!--          <h3 class="section-title widgets">Twitter</h3>-->

@@ -5,7 +5,7 @@
     <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
     <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
       <li><a href="{{URL::previous()}}">Pelembagaan</a> <span class="separator"></span></li>
-    <li>Detail Pelembagaan</li>
+    <li>Detail Usulan Pelembagaan</li>
   </ul>
   @include('adminflash')
   <div class="pageheader">
@@ -362,7 +362,7 @@
 
 <script>
     jQuery(document).on("ready", function() {
-        document.title = "Layanan Biro Hukum dan Organisasi | Pelembagaan"
+        document.title = "Layanan Biro Hukum dan Organisasi | Detail Usulan Pelembagaan"
     });
 </script>
 @stop

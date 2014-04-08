@@ -85,7 +85,7 @@ class SubmenuController extends BaseController {
 
         if(!is_null($submenu))
             $this->layout->content = View::make('submenu.form', array(
-                'title' => 'Ubah Menu #' . $submenu->id,
+                'title' => 'Ubah Submenu #' . $submenu->id,
                 'detail' => '',
                 'form_opts' => array(
                     'route' => array('admin.submenu.update', $submenu->id),

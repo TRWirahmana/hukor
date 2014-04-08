@@ -174,10 +174,16 @@
 @section('scripts')
 @parent
 <script>
+    var $ = jQuery.noConflict();
+
     jQuery("#produk-hukum > li:first-child").addClass("sub-menu-active");
     jQuery("#produk-hukum").css({
         "display": "block",
         "visibility": "visible"
+    });
+
+    $(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | Detail Peraturan Produk Hukum";
     });
 </script>
 @stop

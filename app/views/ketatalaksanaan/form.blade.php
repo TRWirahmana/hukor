@@ -122,5 +122,11 @@
         "display": "block",
         "visibility": "visible"
     });
+
+    var titels = '{{ $title }}';
+
+    jQuery(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | " + titels ;
+    });
 </script>
 @stop

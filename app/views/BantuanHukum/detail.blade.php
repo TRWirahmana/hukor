@@ -528,7 +528,7 @@ mRender: function(id){
 
 <script>
     jQuery(document).on("ready", function() {
-        document.title = "Layanan Biro Hukum dan Organisasi | Bantuan Hukum"
+        document.title = "Layanan Biro Hukum dan Organisasi | Detail Usulan Bantuan Hukum"
     });
 </script>
 @stop

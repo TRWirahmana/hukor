@@ -270,6 +270,10 @@
     "display": "block",
     "visibility": "visible"
   });
+
+  $(document).on("ready", function() {
+      document.title = "Layanan Biro Hukum dan Organisasi | Produk Hukum";
+  });
 </script>
 
 @stop

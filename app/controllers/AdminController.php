@@ -246,7 +246,7 @@ class AdminController extends BaseController {
 //        );
 
 		$this->layout->content = View::make('admin.form', array(
-			'title' => 'Tambah Akun Admin',
+			'title' => 'Tambah Akun',
 			'detail' => 'Lengkapi formulir dibawah ini untuk menambahkan akun baru.',
 			'form_opts' => array(
 				'route' => 'admin.account.store',
@@ -425,7 +425,7 @@ class AdminController extends BaseController {
         $user->load('pengguna');
 		if(!is_null($user))
 			$this->layout->content = View::make('admin.form', array(
-				'title' => 'Ubah Akun #' . $user->id,
+				'title' => 'Ubah Akun',
 				'detail' => '',
 				'form_opts' => array(
 					'route' => array('admin.account.update', $user->id),

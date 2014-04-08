@@ -1,6 +1,7 @@
 @section('content')
 
 <script>
+    document.title = "Layanan Biro Hukum dan Organisasi | Pendaftaran Pengguna";
   document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-plus'></span> Pendaftaran";
 </script>
 @include('flash')

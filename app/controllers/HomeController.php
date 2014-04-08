@@ -22,10 +22,10 @@ class HomeController extends BaseController {
         $this->layout = View::make('layouts.berita');
 //        $document = new DAL_Document();
 //
-//        if ($_COOKIE['iwashere'] != "yes") {
-//            HukorHelper::XMLFile();
-//            setcookie("iwashere", "yes", time()+43200); //set cookie selama 12 jam
-//        }
+        if ($_COOKIE['iwashere'] != "yes") {
+            HukorHelper::XMLFile();
+            setcookie("iwashere", "yes", time()+43200); //set cookie selama 12 jam
+        }
 //
 //        $dataDoc = $document->GetLastTen();
 
@@ -61,9 +61,10 @@ class HomeController extends BaseController {
             'latest_news' => $latest_news,
             'news_feed' => $news_feed,
             'count_news' => $count_news,
-            'document' => $dataDoc,
+//            'document' => $dataDoc,
             'allmenu' => $all,
             'menu_layanan' => $menlan,
+            'pengunjung' => HukorHelper::GetCounterVisitor()
         ));
 
     }

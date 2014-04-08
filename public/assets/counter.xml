@@ -1,6 +1,8 @@
-<?xml version="1.0"?>
-<<<<<<< HEAD
-<counter><count>6</count></counter>
-=======
-<counter><count>7</count></counter>
->>>>>>> b3d6f9f8ea70ce932700033fce396463182ccd97
+<?xml version="1.0" encoding="utf-8"?>
+<counter>
+  <tanggal>2014-04-08</tanggal>
+  <hari>1</hari>
+  <bulan>1</bulan>
+  <tahun>1</tahun>
+  <all>1</all>
+</counter>

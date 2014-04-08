@@ -170,10 +170,25 @@
 
                 <div class="widget-body">
                   <div class="widget-content">
-                    <p>Per-hari     : {{ $pengunjung[0] }} </p>
-                    <p>Per-bulan    : {{ $pengunjung[1] }} </p>
-                    <p>Per-tahun    : {{ $pengunjung[2] }} </p>
-                    <p>keseluruhan  : {{ $pengunjung[3] }} </p>
+                      <table class="table">
+                          <tr>
+                              <th>Per-hari     :</th>
+                              <th>{{ $pengunjung[0] }}</th>
+                          </tr>
+                          <tr>
+                              <th>Per-bulan    :</th>
+                              <th>{{ $pengunjung[1] }}</th>
+                          </tr>
+                          <tr>
+                              <th>Per-tahun    :</th>
+                              <th>{{ $pengunjung[2] }}</th>
+                          </tr>
+                          <tr>
+                              <th>Keseluruhan     :</th>
+                              <th>{{ $pengunjung[3] }}</th>
+                          </tr>
+
+                      </table>
                   </div>
                 </div>
               </div>
@@ -254,7 +269,11 @@
 
     $('#paging_container').pajinate({
 //            start_page : 1,
-      items_per_page: 2
+      items_per_page: 2,
+        nav_label_first: 'Awal',
+        nav_label_last: 'Akhir',
+        nav_label_prev: 'Sebelumnya',
+        nav_label_next: 'Selanjutnya'
     });
   });
 </script>

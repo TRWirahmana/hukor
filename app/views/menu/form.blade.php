@@ -4,8 +4,9 @@
 
   <ul class="breadcrumbs">
     <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-    <li><a href="{{URL::previous()}}">Manage Menu</a> <span class="separator"></span></li>
-      <li><a href="{{URL::previous()}}">Tambah Menu</a></li>
+      <li><a href="#">Kelola</a> <span class="separator"></span></li>
+    <li><a href="{{URL::previous()}}">Kelola Menu</a> <span class="separator"></span></li>
+      <li><a href="{{URL::previous()}}">{{ $title }}</a></li>
   </ul>
   @include('adminflash')
   <div class="pageheader">
@@ -16,7 +17,7 @@
     <div class="pagetitle">
       <!--<h5>Events</h5>-->
 
-      <h1>Tambah Menu</h1>
+      <h1>{{ $title }}</h1>
     </div>
   </div>
   <!--pageheader-->
@@ -129,7 +130,8 @@
 </script>
 <script>
   jQuery(document).on("ready", function() {
-    document.title = "Layanan Biro Hukum dan Organisasi | Tambah Menu"
+      var titles = '{{ $title }}';
+    document.title = "Layanan Biro Hukum dan Organisasi | "+ titles;
   });
 </script>
 <!--<style>-->

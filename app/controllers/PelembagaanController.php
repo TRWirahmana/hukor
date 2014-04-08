@@ -17,10 +17,12 @@ class PelembagaanController extends BaseController {
             
         if($user->role_id == 3 || $user->role_id == 7 || $user->role_id == 4 || $user->role_id == 1 || $user->role_id == 5 || $user->role_id == 6 || $user->role_id == 8 || $user->role_id == 9){
 			$this->layout = View::make('layouts.admin');
+            $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user ));
         } else {
             $this->layout = View::make('layouts.master', array('allmenu' => $all));
+            $this->layout->content = View::make('Pelembagaan.index_user', array( 'user' => $user ));
         }	    
-	    $this->layout->content = View::make('Pelembagaan.index', array( 'user' => $user ));
+
 	}
 
     public function datatable()
@@ -142,22 +144,42 @@ class PelembagaanController extends BaseController {
 	$input = Input::all(); 
         $DAL = new DAL_Pelembagaan();
         $helper = new HukorHelper();
-        // Upload File
-        //$uploadSuccess = $helper->UploadFile('pelembagaan', Input::file('lampiran'));
 
 	// Upload Multiple File
 	$filenames = array();
 	$filenames = $helper->MultipleUploadFile('pelembagaan', Input::file('lampiran'));
 
-        if($filenames) {
+        if($filenames['0'] != null ){
+            if($filenames) {
 //        	$DAL->savePelembagaan($input, Input::file('lampiran'));         	// save pelembagaan
-        	$DAL->savePelembagaan($input, $filenames);         	// save pelembagaan
-	       	$DAL->sendEmailToAllAdminPelembagaan();        						// send Email to admin
+                $DAL->savePelembagaan($input, $filenames);         	// save pelembagaan
+                $DAL->sendEmailToAllAdminPelembagaan();        						// send Email to admin
 
-            return Redirect::route('pelembagaan.index')->with('success', 'Data berhasil dikirim.');
-		} else {
-            return Redirect::route('pelembagaan.index')->with('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
-		}				
+                if(Auth::user()->role_id == 2){
+                    return Redirect::to('pelembagaan/informasi')->with('success', 'Data berhasil dikirim.');
+                }else{
+                    return Redirect::route('pelembagaan.index')->with('success', 'Data berhasil dikirim.');
+                }
+
+            } else {
+                if(Auth::user()->role_id == 2){
+                    return Redirect::to('pelembagaan/informasi')->with('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
+                }else{
+                    return Redirect::route('pelembagaan.index')->with('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
+                }
+
+            }
+        }else{
+                $DAL->savePelembagaan($input, $filenames);         	// save pelembagaan
+                $DAL->sendEmailToAllAdminPelembagaan();        						// send Email to admin
+
+                if(Auth::user()->role_id == 2){
+                    return Redirect::to('pelembagaan/informasi')->with('success', 'Data berhasil dikirim.');
+                }else{
+                    return Redirect::route('pelembagaan.index')->with('success', 'Data berhasil dikirim.');
+                }
+        }
+
 
 	}
 
@@ -193,7 +215,9 @@ class PelembagaanController extends BaseController {
 	public function downloadLampiranLog($id)
 	{
 
+
 		if($log = LogPelembagaan::find($id))
+//            var_dump(unserialize($log->lampiran));exit;
             return HukorHelper::downloadAsZIP(unserialize($log->lampiran));
 
 		return App::abort(404);

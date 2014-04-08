@@ -1,6 +1,7 @@
 @section('content')
 <!--RESET PASSWORD-->
 <script>
+    document.title = "Layanan Biro Hukum dan Organisasi | Lupa Password";
   document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-lock'></span> Reset password";
 </script>
 

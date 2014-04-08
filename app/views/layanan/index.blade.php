@@ -4,6 +4,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
+        <li><a href="#">Kelola</a> <span class="separator"></span></li>
         <li>Kelola Konten Layanan</li>
     </ul>
 

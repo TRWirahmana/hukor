@@ -10,7 +10,7 @@
         <li><a href="{{URL::previous()}}">Aplikasi</a>  <span class="separator"></span></li>
         <li>Bantuan Hukum</li>
     </ul>
-
+    @include('adminflash')
     <div class="pageheader">
         <!--        <form action="results.html" method="post" class="searchbar">-->
         <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
@@ -333,7 +333,7 @@
 
 <script>
   jQuery(document).on("ready", function() {
-    document.title = "Layanan Biro Hukum dan Organisasi | Bantuan Hukum"
+    document.title = "Layanan Biro Hukum dan Organisasi | Bantuan Hukum";
   });
 </script>
 @stop

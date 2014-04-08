@@ -1,23 +1,11 @@
-@if($user->role_id == 3 || $user->role_id == 7 || $user->role_id == 4 || $user->role_id == 1 || $user->role_id == 5 || $user->role_id == 6 || $user->role_id == 8 || $user->role_id == 9)
 @section('admin')
-@else
-@section('content')
-@endif
-
-
-@if($user->role_id == 3 || $user->role_id == 7 || $user->role_id == 4 || $user->role_id == 1 || $user->role_id == 5 || $user->role_id == 6 || $user->role_id == 8 || $user->role_id == 9)
 <div class="rightpanel">
 <ul class="breadcrumbs">
   <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
   <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
   <li>Pelembagaan</li>
 </ul>
-@if($user->role_id == 2)
-@include('flash')
-@else
 @include('adminflash')
-@endif
-
 <div class="pageheader">
   <!--        <form action="results.html" method="post" class="searchbar">-->
   <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
@@ -55,75 +43,6 @@
       </div>
       @endif
 
-      @else
-<!--      LAYANAN PELEMBAGAAN-->
-      <script>
-        document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Pelembagaan";
-      </script>
-
-      <legend>Status Usulan</legend>
-
-      <script>
-        document.getElementById("menu-pelembagaan-informasi").setAttribute("class", "user-menu-active");
-        document.getElementById("collapse11").style.height = "auto";
-      </script>
-      @endif
-
-      <!-- Filter -->
-<!--      @if(!empty($user))-->
-<!--      @if($user->role_id == 3 )-->
-<!--      <form id="form-filter" class="form form-horizontal" action="{{URL::route('admin.pelembagaan.printTable')}}" style="margin-bottom: 24px;">-->
-<!--        @else-->
-<!--        <form id="form-filter" class="form form-horizontal" action="{{URL::route('pelembagaan.printTable')}}" style="margin-bottom: 24px;">-->
-<!--          @endif-->
-<!--          <fieldset>-->
-<!--            <legend class="f_legend"></legend>-->
-<!---->
-<!--            <div class="row-fluid">-->
-<!--              <div class="span6">-->
-<!--                <div class="control-group">-->
-<!--                  <label for="" class="control-label">Tanggal Awal</label>-->
-<!---->
-<!--                  <div class="controls">-->
-<!--                    <input type="text" id="first-date" name="firstDate">-->
-<!--                  </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="control-group">-->
-<!--                  <label for="toDate" class="control-label">Tanggal Akhir</label>-->
-<!---->
-<!--                  <div class="controls">-->
-<!--                    <input type="text" id="last-date" name="lastDate">-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="span6">-->
-<!--                <div class="control-group">-->
-<!--                  <label for="select-status" class="control-label">Status</label>-->
-<!---->
-<!--                  <div class="controls">-->
-<!--                    <select id="select-status" name="status">-->
-<!--                      <option value="">Semua Status</option>-->
-<!--                      <option value="0">Belum diproses</option>-->
-<!--                      <option value="1">Diproses</option>-->
-<!--                      <option value="2">Dikirim Ke bagian PerUU</option>-->
-<!--                    </select>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="control-group">-->
-<!--                  <div class="controls">-->
-<!--                    <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">-->
-<!--                    <input type="submit" value="Cetak" class="btn btn-primary">-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </fieldset>-->
-<!--        </form>-->
-<!--          @endif-->
-
-
         <br/>
         <table id="tbl-pelembagaan" class="table">
           <thead>
@@ -151,7 +70,6 @@
         </style>
 
         <!-- END OF MAIN CONTENT -->
-        @if($user->role_id == 3 )
 
 
         <div class="footer">
@@ -169,7 +87,6 @@
   <!--maincontent-->
 </div>
 <!--rightpanel-->
-@endif
 
 <!-- dialog box -->
 <div id="dialog" title="Hapus Pelembagaan" style="display: none;">
@@ -421,20 +338,31 @@
                       sWidth: '10%',
                       mRender: function (data, type, full) {
                           if (role_id == 3) {
-                              return "<a href='" + baseUrl + "/pelembagaan/download/" + data + "' title='Unduh'> <i class='icon-download'></i></a>"
-                                  + "&nbsp;<a href='pelembagaan/" + data + "/update' title='Detail'><i class='icon-edit'></i></a>"
-                                  + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/" + data + "'>"
-                                  + "<i class='icon-trash'></i></a>";
+                              if(full.lampiran == null || full.lampiran == 'a:0:{}'){
+                                  return "<a href='pelembagaan/" + data + "/update' title='Detail'><i class='icon-edit'></i></a>"
+                                      + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/" + data + "'>"
+                                      + "<i class='icon-trash'></i></a>";
+                              }else{
+                                  return "<a href='" + baseUrl + "/pelembagaan/download/" + data + "' title='Unduh'> <i class='icon-download'></i></a>"
+                                      + "&nbsp;<a href='pelembagaan/" + data + "/update' title='Detail'><i class='icon-edit'></i></a>"
+                                      + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/" + data + "'>"
+                                      + "<i class='icon-trash'></i></a>";
+                              }
+
                           } else if (role_id == 7) {
-                              return "<a href='" + baseUrl + "/pelembagaan/download/" + data + "' title='Unduh'> <i class='icon-download'></i></a>"
-                                  + "&nbsp;<a href='pelembagaan/" + data + "/update' title='Detail'><i class='icon-edit'></i></a>"
-                                  + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/" + data + "'>"
-                                  + "<i class='icon-trash'></i></a>";
+                              if(full.lampiran == null || full.lampiran == 'a:0:{}'){
+                                  return "<a href='pelembagaan/" + data + "/update' title='Detail'><i class='icon-edit'></i></a>"
+                                      + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/" + data + "'>"
+                                      + "<i class='icon-trash'></i></a>";
+                              }else{
+                                  return "<a href='" + baseUrl + "/pelembagaan/download/" + data + "' title='Unduh'> <i class='icon-download'></i></a>"
+                                      + "&nbsp;<a href='pelembagaan/" + data + "/update' title='Detail'><i class='icon-edit'></i></a>"
+                                      + "&nbsp;<a class='btn_delete' title='Hapus' href='pelembagaan/" + data + "'>"
+                                      + "<i class='icon-trash'></i></a>";
+                              }
+
                           } else if (role_id == 0) {
 //                                          return "<a href='" + baseUrl + '/pelembagaan/download/'+data+ "'> <i class='icon-download'></i></a>";
-                          } else if(role_id == 2) {
-                              return "<a href='" + baseUrl + '/pelembagaan/download/' + data + "' title='Unduh'> <i class='icon-download'></i></a>" +
-                                  "<a href='pelembagaan/" + data + "/update' title='Detail'> <i class='icon-edit'></i></a>";
                           }
                           return "";
                       }

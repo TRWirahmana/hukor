@@ -361,7 +361,8 @@ Route::get('aj/download/{id}', array('as' => 'aj.download', 'uses' => 'AnalisisJ
 Route::get('sp/download/{id}/{index?}', array('as' => "sp.download", "uses" => 'SistemDanProsedurController@download'));
 Route::get('puu/download/{id}/{index?}', array('as' => 'puu.download', 'uses' => 'PeruuController@download'));
 Route::get('pelembagaan/download/{id}/{index?}', array('as' => 'pelembagaan.download', 'uses' => 'PelembagaanController@download' ) );
-//Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
+Route::get('pelembagaan/log/download/{id}', 'PelembagaanController@downloadLampiranLog');
+Route::get('pelembagaan/{id}/download', 'PelembagaanController@downloadLampiran');
 Route::get('pelembagaan/printTable', array("as" => "pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));
 Route::get('bantuan_hukum/download/{id}', array('as' => 'bantuan_hukum.download', 'uses' => 'BantuanHukumController@download'));
 Route::get('bantuan_hukum/datatable','BantuanHukumController@datatable');
@@ -377,7 +378,8 @@ Route::resource('bantuan_hukum', 'BantuanHukumController');
 Route::get('pelembagaan/printTable', array("as" => "admin.pelembagaan.printTable", "uses" => "PelembagaanController@printTable"));
 
 Route::get('pelembagaan/log/download/{id}', 'PelembagaanController@downloadLampiranLog');
+Route::get('pelembagaan/informasi', 'PelembagaanController@index');
 Route::get('pelembagaan/{id}/update', 'PelembagaanController@edit');
 Route::get('pelembagaan/deletelog/{id}', 'PelembagaanController@deleteLog');
 Route::post('pelembagaan_update', array('as' => 'proses_update_pelembagaan', 'uses' =>  'PelembagaanController@update'));
-Route::resource('pelembagaan', 'PelembagaanController', array("create", "store", "update", "edit", "index"));
+Route::resource('pelembagaan', 'PelembagaanController', array("create", "store", "update", "edit", "index", "index_user"));

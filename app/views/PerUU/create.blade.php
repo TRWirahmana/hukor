@@ -1,6 +1,7 @@
 @section('content')
 
 <script>
+    document.title = "Layanan Biro Hukum dan Organisasi | Lembar Usulan Per-UU";
     document.getElementById("menu-peruu-usulan").setAttribute("class", "user-menu-active");
     document.getElementById("collapse10").style.height = "auto";
     document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Peraturan perundang-undangan";

@@ -2,14 +2,14 @@
 <?php $title = ""; ?>
 <!--PERATURAN PERUNDANG-UNDANGAN-->
 <script>
-    document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Profile";
+    document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Profil";
 </script>
 
 <script>
     document.getElementById("menu-profile").setAttribute("class", "active");
 //    document.getElementById("collapse10").style.height = "auto";
 </script>
-<?php $title = "Profile"; ?>
+<?php $title = "Profil"; ?>
 
 @include('flash')
 
@@ -35,6 +35,10 @@
 <script src="{{asset('assets/js/jquery-ui.js')}}"></script>
 <script type="text/javascript">
     var $ = jQuery.noConflict();
+
+    $(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | Profil";
+    });
 </script>
 @parent
 @stop

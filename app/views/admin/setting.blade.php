@@ -6,7 +6,7 @@
 
   <ul class="breadcrumbs">
     <li><a href="dashboard.html"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-    <li>Beranda</li>
+    <li>Pengaturan Akun</li>
   </ul>
   @include('adminflash')
   <div class="pageheader">
@@ -54,14 +54,15 @@
                   {{ Form::password('password_confirmation') }}
 
                   @foreach($errors->get('password') as $errors)
-                  <span class="help-block">{{$errors}}</span>
+                 ``` <span class="help-block">{{$errors}}</span>
                   @endforeach
                 </div>
               </div>
 
               <div class="control-group">
                 <div class="controls">
-                  {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
+                    <input class="btn btn-primary" type="button" value="Batal" onclick="history.go(-1);return true;" name="batal">
+                    {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
                 </div>
               </div>
             </fieldset>

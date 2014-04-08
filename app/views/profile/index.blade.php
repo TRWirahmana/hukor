@@ -3,8 +3,8 @@
 
     <ul class="breadcrumbs">
         <li><a href="{{URL::previous()}}"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-        <li><a href="{{URL::previous()}}">Profile</a> <span class="separator"></span></li>
-        <li>Kelola Profile</li>
+        <li><a href="{{URL::previous()}}">Profil</a> <span class="separator"></span></li>
+        <li>Kelola Profil</li>
     </ul>
     @include('adminflash')
     <div class="pageheader">
@@ -13,7 +13,7 @@
         <!--        </form>-->
         <div class="pageicon"><span class="rulycon-newspaper"></span></div>
         <div class="pagetitle">
-            <h1>Kelola Profile</h1>
+            <h1>Kelola Profil</h1>
         </div>
     </div>
     <!--pageheader-->
@@ -120,6 +120,20 @@
     });
 
 //    Berita.Form();
+</script>
+
+<script>
+    jQuery("#manage-menu > #menu-profile > a").addClass("sub-menu-active");
+    jQuery("#manage-menu").css({
+        "display": "block",
+        "visibility": "visible"
+    });
+</script>
+
+<script>
+    jQuery(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | Kelola Profil"
+    });
 </script>
 @stop
     

@@ -188,7 +188,8 @@
 
   <script>
     jQuery(document).on("ready", function() {
-      document.title = "Layanan Biro Hukum dan Organisasi | Tambah Layanan"
+        var titles = '{{ $title }}';
+      document.title = "Layanan Biro Hukum dan Organisasi | "+ titles;
     });
   </script>
     @stop

@@ -364,7 +364,7 @@
 
 <script>
     jQuery(document).on("ready", function() {
-        document.title = "Layanan Biro Hukum dan Organisasi | Peraturan Perundang-undangan"
+        document.title = "Layanan Biro Hukum dan Organisasi | Detail Usulan Per-UU"
     });
 </script>
 @stop

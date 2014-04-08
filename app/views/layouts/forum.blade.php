@@ -13,4 +13,12 @@
 <script type="text/javascript">
 $("#menu-forum").addClass("active");
 </script>
+
+<script type="text/javascript">
+    var $ = jQuery.noConflict();
+
+    $(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | Forum";
+    });
+</script>
 @stop

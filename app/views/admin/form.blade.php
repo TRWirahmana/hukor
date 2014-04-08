@@ -14,7 +14,7 @@
     <!--        <form action="results.html" method="post" class="searchbar">-->
     <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
     <!--        </form>-->
-    <div class="pageicon">&nbsp;</div>
+    <div class="pageicon"><span class="rulycon-user"></span></div>
     <div class="pagetitle">
       <!--<h5>Events</h5>-->
 
@@ -172,7 +172,8 @@
 </script>
 <script>
   jQuery(document).on("ready", function() {
-    document.title = "Layanan Biro Hukum dan Organisasi | Ubah/Tambah Akun"
+      var titles = '{{ $title }}';
+    document.title = "Layanan Biro Hukum dan Organisasi |"+ titles ;
   });
 </script>
 @stop

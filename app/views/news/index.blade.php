@@ -166,11 +166,14 @@
 
 <!-- Widget Counter -->
               <div id="counter-widget">
-                <h3 class="section-title widgets">Visitor counter</h3>
+                <h3 class="section-title widgets">Jumlah Pengunjung</h3>
 
                 <div class="widget-body">
                   <div class="widget-content">
-                    <p>aaaaa</p>
+                    <p>Per-hari     : {{ $pengunjung[0] }} </p>
+                    <p>Per-bulan    : {{ $pengunjung[1] }} </p>
+                    <p>Per-tahun    : {{ $pengunjung[2] }} </p>
+                    <p>keseluruhan  : {{ $pengunjung[3] }} </p>
                   </div>
                 </div>
               </div>

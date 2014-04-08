@@ -29,6 +29,10 @@
 @section('scripts')
 @parent
 <script src="{{asset('assets/js/jquery.simplePagination.js')}}"></script>
-
+<script>
+    jQuery(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | Detail Berita"
+    });
+</script>
 @stop
 @stop

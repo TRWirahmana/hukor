@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/news/index.blade.php" afterPath="$PROJECT_DIR$/app/views/news/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/setting.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/setting.blade.php" />
-    </list>
+    <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="" />
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,13 +37,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="169" column="0" selection-start="6487" selection-end="6487" vertical-scroll-proportion="0.3244275" vertical-offset="2703" max-vertical-offset="4488">
+            <state line="181" column="53" selection-start="6941" selection-end="6941" vertical-scroll-proportion="-14.384615" vertical-offset="2703" max-vertical-offset="4488">
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="11" selection-start="1560" selection-end="1560" vertical-scroll-proportion="0.77862597" vertical-offset="0" max-vertical-offset="6494">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -523,13 +529,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/layanan/front.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="18" selection-start="141" selection-end="141" vertical-scroll-proportion="0.29651162" vertical-offset="0" max-vertical-offset="646">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/forgetpassword/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="73" selection-start="124" selection-end="124" vertical-scroll-proportion="0.10139165" vertical-offset="0" max-vertical-offset="850">
@@ -630,10 +629,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/news/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="0" selection-start="6487" selection-end="6487" vertical-scroll-proportion="0.3244275" vertical-offset="2703" max-vertical-offset="4488">
+        <state line="181" column="53" selection-start="6941" selection-end="6941" vertical-scroll-proportion="-14.384615" vertical-offset="2703" max-vertical-offset="4488">
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="11" selection-start="1560" selection-end="1560" vertical-scroll-proportion="0.77862597" vertical-offset="0" max-vertical-offset="6494">
+          <folding />
         </state>
       </provider>
     </entry>

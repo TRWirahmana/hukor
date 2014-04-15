@@ -151,6 +151,10 @@
                     "sSearch":       "Cari:",
                     "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
                     "sProcessing": 'Memproses...',
+                    "oPaginate": {
+                        "sNext": "<span class='rulycon-forward-3'></span>",
+                        "sPrevious": "<span class='rulycon-backward-2'></span>"
+                    },
                     "sZeroRecords" : "Pencarian Tidak Ditemukan"
                 },
                 aoColumns: [

@@ -118,20 +118,19 @@
     var role_id = <?php if($user->role_id) echo $user->role_id; else echo '0'; ?>;
       if(role_id == 0){
         $dataTable = $("#tbl-pelembagaan").dataTable({
-          bFilter: true,
-            bInfo: true,
-          //     bInfo: false,
-          bSort: false,
-          bPaginate: true,
-          //   bLengthChange: false,
           bServerSide: true,
-          bProcessing: true,
             bLengthChange: true,
             oLanguage:{
                 "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                 "sEmptyTable": "Data Kosong",
                 "sZeroRecords" : "Pencarian Tidak Ditemukan",
                 "sSearch":       "Cari:",
+                "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
+                "sProcessing": 'Memproses...',
+                "oPaginate": {
+                    "sNext": "<span class='rulycon-forward-3'></span>",
+                    "sPrevious": "<span class='rulycon-backward-2'></span>"
+                },
                 "sLengthMenu": 'Tampilkan <select>'+
                     '<option value="10">10</option>'+
                     '<option value="25">25</option>'+
@@ -252,6 +251,12 @@
                   "sEmptyTable": "Data Kosong",
                   "sZeroRecords" : "Pencarian Tidak Ditemukan",
                   "sSearch":       "Cari:",
+                  "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
+                  "sProcessing": 'Memproses...',
+                  "oPaginate": {
+                      "sNext": "<span class='rulycon-forward-3'></span>",
+                      "sPrevious": "<span class='rulycon-backward-2'></span>"
+                  },
                   "sLengthMenu": 'Tampilkan <select>'+
                       '<option value="10">10</option>'+
                       '<option value="25">25</option>'+

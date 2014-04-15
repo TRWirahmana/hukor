@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/admin_index.js" afterPath="$PROJECT_DIR$/public/assets/js/admin_index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/berita_index.js" afterPath="$PROJECT_DIR$/public/assets/js/berita_index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/hukor.css" afterPath="$PROJECT_DIR$/public/assets/css/hukor.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php" afterPath="$PROJECT_DIR$/app/views/Pelembagaan/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/PerUU/index.blade.php" afterPath="$PROJECT_DIR$/app/views/PerUU/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/index.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/categories/index.blade.php" afterPath="$PROJECT_DIR$/app/views/categories/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/document/index.blade.php" afterPath="$PROJECT_DIR$/app/views/document/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ketatalaksanaan/index.blade.php" afterPath="$PROJECT_DIR$/app/views/ketatalaksanaan/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/layanan_index.js" afterPath="$PROJECT_DIR$/public/assets/js/layanan_index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/management_menu.js" afterPath="$PROJECT_DIR$/public/assets/js/management_menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/management_submenu.js" afterPath="$PROJECT_DIR$/public/assets/js/management_submenu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/dikbud.css" afterPath="$PROJECT_DIR$/public/assets/css/dikbud.css" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,10 +67,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hukor.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="hukor.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/hukor.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="521" column="1" selection-start="11970" selection-end="11970" vertical-scroll-proportion="0.4952381" vertical-offset="8597" max-vertical-offset="12631">
+            <state line="521" column="1" selection-start="11970" selection-end="11970" vertical-scroll-proportion="-10.4" vertical-offset="8597" max-vertical-offset="12631">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dikbud.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/dikbud.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="921" column="0" selection-start="21311" selection-end="21311" vertical-scroll-proportion="0.6727273" vertical-offset="15287" max-vertical-offset="21913">
               <folding />
             </state>
           </provider>
@@ -105,7 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/Pelembagaan/index_user.blade.php" />
         <option value="$PROJECT_DIR$/app/views/produkhukum/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/ketatalaksanaan/index_user.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/js/berita_index.js" />
@@ -121,6 +118,7 @@
         <option value="$PROJECT_DIR$/public/assets/js/layanan_index.js" />
         <option value="$PROJECT_DIR$/public/assets/js/admin_index.js" />
         <option value="$PROJECT_DIR$/public/assets/css/hukor.css" />
+        <option value="$PROJECT_DIR$/public/assets/css/dikbud.css" />
       </list>
     </option>
   </component>
@@ -511,13 +509,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/produkhukum/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="22" selection-start="5653" selection-end="5653" vertical-scroll-proportion="-2.8076923" vertical-offset="2596" max-vertical-offset="6137">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="132" column="30" selection-start="5710" selection-end="5710" vertical-scroll-proportion="1.038168" vertical-offset="1547" max-vertical-offset="6494">
@@ -618,7 +609,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/hukor.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="521" column="1" selection-start="11970" selection-end="11970" vertical-scroll-proportion="0.4952381" vertical-offset="8597" max-vertical-offset="12631">
+        <state line="521" column="1" selection-start="11970" selection-end="11970" vertical-scroll-proportion="-10.4" vertical-offset="8597" max-vertical-offset="12631">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/dikbud.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="921" column="0" selection-start="21311" selection-end="21311" vertical-scroll-proportion="0.6727273" vertical-offset="15287" max-vertical-offset="21913">
           <folding />
         </state>
       </provider>

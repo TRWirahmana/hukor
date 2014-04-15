@@ -918,6 +918,10 @@ table.dataTable tr > td {
 .paginate_disabled_next, .paginate_enabled_next {
   padding-right: 0;
 }
+.paginate_disabled_previous, .paginate_enabled_previous, .paginate_disabled_next, .paginate_enabled_next,
+.paginate_disabled_previous:hover, .paginate_enabled_previous:hover, .paginate_disabled_next:hover, .paginate_enabled_next:hover {
+    background: none;
+}
 table.dataTable td.dataTables_empty {
   color: #c0392b;
 }

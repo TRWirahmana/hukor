@@ -190,24 +190,20 @@
 
         $(document).ready(function () {
             oTable = $("#tbl-log_pelembagaan").dataTable({
-                bFilter: true,
-                bInfo: true,
-                bSort: false,
                 bPaginate: true,
-                bLengthChange: false,
                 bServerSide: true,
                 bProcessing: true,
                 oLanguage:{
-                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_",
                     "sEmptyTable": "Data Kosong",
                     "sZeroRecords" : "Pencarian Tidak Ditemukan",
-                    "sSearch":       "Cari:"
-//              "sLengthMenu": 'Tampilkan <select>'+
-//                  '<option value="10">10</option>'+
-//                  '<option value="25">25</option>'+
-//                  '<option value="50">50</option>'+
-//                  '<option value="100">100</option>'+
-//                  '</select> Usulan'
+                    "sSearch":       "Cari:",
+              "sLengthMenu": 'Tampilkan <select>'+
+                  '<option value="10">10</option>'+
+                  '<option value="25">25</option>'+
+                  '<option value="50">50</option>'+
+                  '<option value="100">100</option>'+
+                  '</select>'
                 },
                 sAjaxSource: document.location.href,
                 aoColumns: [
@@ -310,4 +306,10 @@
     $("#collapse11").css("height", "auto");
     $("#menu-pelembagaan-informasi").addClass("user-menu-active");
 </script>
+<script>
+    jQuery(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | Detail Usulan Pelembagaan"
+    });
+</script>
+
 @stop

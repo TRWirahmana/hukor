@@ -230,7 +230,7 @@
 <br>
 <div class="row-fluid">
   <div class="span24">
-    <table id="tbl-log">
+    <table id="tbl-logs">
       <thead>
       <tr>
         <th>Tgl Proses</th>
@@ -283,19 +283,23 @@
 @parent
 <script type="text/javascript">
   jQuery(function ($) {
-    $tblLog = $("#tbl-log").dataTable({
+    $tblLog = $("#tbl-logs").dataTable({
       bServerSide: true,
-      sAjaxSource: document.location.href,
-      bFilter: true,
-      bInfo: true,
-      bSort: false,
-      bLengthChange: false,
-        oLanguage:{
+      bSort: true,
+      bPaginate: true,
+      oLanguage:{
             "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
             "sEmptyTable": "Data Kosong",
             "sZeroRecords" : "Pencarian Tidak Ditemukan",
-            "sSearch":       "Cari:"
+            "sSearch":       "Cari:",
+            "sLengthMenu": 'Tampilkan <select>'+
+                '<option value="10">10</option>'+
+                '<option value="25">25</option>'+
+                '<option value="50">50</option>'+
+                '<option value="100">100</option>'+
+                '</select>'
         },
+        sAjaxSource: document.location.href,
       iDisplayLength: 5,
       aoColumns: [
         {

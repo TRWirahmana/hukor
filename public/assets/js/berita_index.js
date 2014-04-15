@@ -12,6 +12,7 @@ jQuery(document).ready(function(e){
             "sEmptyTable": "Data Kosong",
             "sZeroRecords" : "Pencarian Tidak Ditemukan",
             "sSearch":       "Cari:",
+            "sProcessing":       "Memproses...",
             "sLengthMenu": 'Tampilkan <select>'+
                 '<option value="10">10</option>'+
                 '<option value="25">25</option>'+

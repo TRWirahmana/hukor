@@ -132,15 +132,15 @@
           @endforeach
 
         </ul>
-        <!-- JIKA #BERITA KURANG DARI LIMA ITEM -->
-        <!--        <div class="row-fluid">-->
-        <!--            <div class="span12">-->
-        <!--                <div id="not-enough-message" class="text-center">-->
-        <!--                    <p><span class="rulycon-info"></span></p>-->
-        <!--                    <h5>Belum cukup berita untuk menampilkan berita di area ini.</h5>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
+<!--         JIKA #BERITA KURANG DARI LIMA ITEM-->
+                <!--<div class="row-fluid">
+                    <div class="span12">
+                        <div id="not-enough-message" class="text-center">
+                            <p><span class="rulycon-info"></span></p>
+                            <h5>Belum cukup berita untuk menampilkan berita di area ini.</h5>
+                        </div>
+                    </div>
+                </div>-->
 
         <div class="page_navigation pagination"></div>
       </div>
@@ -172,18 +172,22 @@
                   <div class="widget-content">
                       <table class="table">
                           <tr>
+                            <th><span class="rulycon-calendar-2"></span></th>
                               <th>Per-hari     :</th>
                               <th>{{ $pengunjung[0] }}</th>
                           </tr>
                           <tr>
+                            <th><span class="rulycon-calendar"></span></th>
                               <th>Per-bulan    :</th>
                               <th>{{ $pengunjung[1] }}</th>
                           </tr>
                           <tr>
+                            <th><span class="rulycon-table-2"></span></th>
                               <th>Per-tahun    :</th>
                               <th>{{ $pengunjung[2] }}</th>
                           </tr>
                           <tr>
+                            <th><span class="rulycon-stats"></span></th>
                               <th>Keseluruhan     :</th>
                               <th>{{ $pengunjung[3] }}</th>
                           </tr>

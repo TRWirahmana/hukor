@@ -141,19 +141,16 @@
             });
 
             $dataTable = $("#tbl-per-uu").dataTable({
-                // sDom: 'Trtip',
-                // oTableTools: {
-                //     sSwfPath: "/assets/TableTools-2.2.0/swf/copy_csv_xls_pdf.swf"
-                // },
                 bServerSide: true,
                 sAjaxSource: document.location.href,
                 bFilter: true,
                 bInfo: true,
-                bLengthChange: false,
                 oLanguage:{
                     "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                     "sEmptyTable": "Data Kosong",
                     "sSearch":       "Cari:",
+                    "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
+                    "sProcessing": 'Memproses...',
                     "sZeroRecords" : "Pencarian Tidak Ditemukan"
                 },
                 aoColumns: [

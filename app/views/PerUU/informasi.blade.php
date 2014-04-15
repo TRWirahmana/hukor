@@ -49,19 +49,17 @@ $("#menu-peraturan-perundangan").addClass("active");
 
             if(roles == 0){
                 $dataTable = $("#tbl-per-uu").dataTable({
-                    // sDom: 'Trtip',
-                    // oTableTools: {
-                    //     sSwfPath: "/assets/TableTools-2.2.0/swf/copy_csv_xls_pdf.swf"
-                    // },
                     bServerSide: true,
                     sAjaxSource: document.location.href,
                     bFilter: true,
-                    bLengthChange: true,
+                    bProcessing: true,
                     oLanguage:{
                         "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                         "sEmptyTable": "Data Kosong",
                         "sZeroRecords" : "Pencarian Tidak Ditemukan",
                         "sSearch":       "Cari:",
+                        "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
+                        "sProcessing": 'Memproses...',
                         "sLengthMenu": 'Tampilkan <select>'+
                             '<option value="10">10</option>'+
                             '<option value="25">25</option>'+
@@ -143,12 +141,14 @@ $("#menu-peraturan-perundangan").addClass("active");
                     bServerSide: true,
                     sAjaxSource: document.location.href,
                     bFilter: true,
-                    bLengthChange: true,
+                    bProcessing: true,
                     oLanguage:{
                         "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                         "sEmptyTable": "Data Kosong",
                         "sZeroRecords" : "Pencarian Tidak Ditemukan",
                         "sSearch":       "Cari:",
+                        "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
+                        "sProcessing": 'Memproses...',
                         "sLengthMenu": 'Tampilkan <select>'+
                             '<option value="10">10</option>'+
                             '<option value="25">25</option>'+

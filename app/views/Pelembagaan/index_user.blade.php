@@ -74,6 +74,8 @@ jQuery(function ($) {
                 "sEmptyTable": "Data Kosong",
                 "sZeroRecords" : "Pencarian Tidak Ditemukan",
                 "sSearch":       "Cari:",
+                "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
+                "sProcessing": 'Memproses...',
                 "sLengthMenu": 'Tampilkan <select>'+
                     '<option value="10">10</option>'+
                     '<option value="25">25</option>'+
@@ -194,6 +196,8 @@ jQuery(function ($) {
                 "sEmptyTable": "Data Kosong",
                 "sZeroRecords" : "Pencarian Tidak Ditemukan",
                 "sSearch":       "Cari:",
+                "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
+                "sProcessing": 'Memproses...',
                 "sLengthMenu": 'Tampilkan <select>'+
                     '<option value="10">10</option>'+
                     '<option value="25">25</option>'+

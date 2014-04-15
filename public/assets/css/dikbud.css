@@ -882,6 +882,10 @@ html, .main-layout, .admin,
 .dataTables_wrapper label > input {
   margin-right: 0;
 }
+.dataTables_wrapper .dataTables_processing {
+  height: auto;
+  padding: 14px 0 14px 0;
+}
 table.dataTable {
   width: 100% !important;
   margin-bottom: 0;

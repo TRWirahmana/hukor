@@ -197,6 +197,8 @@
                     "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_",
                     "sEmptyTable": "Data Kosong",
                     "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                    "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
+                    "sProcessing": 'Memproses...',
                     "sSearch":       "Cari:",
               "sLengthMenu": 'Tampilkan <select>'+
                   '<option value="10">10</option>'+

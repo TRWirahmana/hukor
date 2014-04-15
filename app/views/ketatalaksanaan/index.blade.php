@@ -92,6 +92,8 @@
             "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
             "sEmptyTable": "Data Kosong",
             "sSearch":       "Cari:",
+            "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
+            "sProcessing": 'Memproses...',
             "sZeroRecords" : "Pencarian Tidak Ditemukan"
         },
         sAjaxSource: '<?php echo URL::to("admin/tableketatalaksanaan"); ?>',

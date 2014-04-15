@@ -257,10 +257,11 @@
                 bServerSide: true,
                 bProcessing: true,
                 oLanguage:{
-                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ ",
                     "sEmptyTable": "Data Kosong",
                     "sZeroRecords" : "Pencarian Tidak Ditemukan",
                     "sSearch":       "Cari:",
+                    "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
                     "sLengthMenu": 'Tampilkan <select>'+
                         '<option value="10">10</option>'+
                         '<option value="25">25</option>'+

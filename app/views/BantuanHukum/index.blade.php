@@ -55,7 +55,17 @@
                     "sZeroRecords" : "Pencarian Tidak Ditemukan",
                     "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
                     "sProcessing": 'Memproses...',
-                    "sInfoFiltered": ""
+                    "oPaginate": {
+                        "sNext": "<span class='rulycon-forward-3'></span>",
+                        "sPrevious": "<span class='rulycon-backward-2'></span>"
+                    },
+                    "sInfoFiltered": "",
+                    "sLengthMenu": 'Tampilkan <select>'+
+                        '<option value="10">10</option>'+
+                        '<option value="25">25</option>'+
+                        '<option value="50">50</option>'+
+                        '<option value="100">100</option>'+
+                        '</select> Usulan'
                 },
 //                sAjaxSource: baseUrl + "/lkpm/data",
                 sAjaxSource: '<?php echo URL::to("bantuan_hukum/datatable"); ?>',
@@ -161,7 +171,17 @@
                         "sZeroRecords" : "Pencarian Tidak Ditemukan",
                         "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
                         "sProcessing": 'Memproses...',
-                        "sInfoFiltered": ""
+                        "oPaginate": {
+                            "sNext": "<span class='rulycon-forward-3'></span>",
+                            "sPrevious": "<span class='rulycon-backward-2'></span>"
+                        },
+                        "sInfoFiltered": "",
+                        "sLengthMenu": 'Tampilkan <select>'+
+                            '<option value="10">10</option>'+
+                            '<option value="25">25</option>'+
+                            '<option value="50">50</option>'+
+                            '<option value="100">100</option>'+
+                            '</select> Usulan'
                     },
 //                sAjaxSource: baseUrl + "/lkpm/data",
                     sAjaxSource: '<?php echo URL::to("bantuan_hukum/datatable"); ?>',

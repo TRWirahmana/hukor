@@ -1287,6 +1287,12 @@ p {
   }
 }
 
+.bx-wrapper .bx-viewport .slider > a {
+    max-height: 100px;
+    overflow: hidden;
+    display: block;
+}
+
 
 
 

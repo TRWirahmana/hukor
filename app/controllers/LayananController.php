@@ -56,7 +56,7 @@ class LayananController extends BaseController {
 //            $listMenu[$data->id] = $data->nama_menu;
 //        }
 
-        $listSubmenu = array("" => "Pilih Submenu") + Submenu::lists("nama_submenu", "id");
+        $listSubmenu = array("" => "-- Pilih Submenu --") + Submenu::lists("nama_submenu", "id");
 
 //        $submenu = Submenu::select('id', 'nama_submenu');
         $listPJ = array("" => "-- Pilih Bagian --") + Bagian::lists('nama_bagian', 'id');
@@ -98,8 +98,10 @@ class LayananController extends BaseController {
         $listPJ = array("" => "-- Pilih Bagian --") + Bagian::lists('nama_bagian', 'id');
         $layanan = Layanan::find($id);
 
-        $s = array("" => "-- Pilih Bagian --") + Bagian::where('id', '=', $layanan->penanggung_jawab)->lists('nama_bagian', 'id');
-//        var_dump($s);exit;
+        $s = Bagian::where('id', '=', $layanan->penanggung_jawab)->get();
+        $s->toArray();
+
+//        var_dump($s['0']['id']);exit;
 
 //        $bags = DB::table('bagian')
 //            ->select('nama')
@@ -119,7 +121,7 @@ class LayananController extends BaseController {
                 'listMenu' => $listMenu,
                 'listSubmenu' => $listSubmenu,
                 'listPJ' => $listPJ,
-                'pj' => $s,
+                'pj' => $s['0']['id'],
             ));
     }
 
@@ -180,7 +182,7 @@ class LayananController extends BaseController {
                 'menu_id' => $input['menu'],
                 'submenu_id' => $input['submenu'],
                 'berita' => $input['berita'],
-//                'penanggung_jawab' => $input['penanggung_jawab'], // Aktif
+                'penanggung_jawab' => $input['penanggung_jawab'], // Aktif
 //                'gambar' => $filename,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),

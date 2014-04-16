@@ -69,7 +69,7 @@
 <!--rightpanel-->
 
 <!-- dialog box -->
-<div id="dialog" title="Hapus Menu" style="display: none;">
+<div id="dialog" title="Hapus Layanan" style="display: none;">
     <p>Apakah Anda Yakin?</p>
 </div>
 

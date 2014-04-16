@@ -78,11 +78,6 @@
 <script type="text/javascript">
     var $ = jQuery.noConflict();
     var tbl_data = $("#basictable").dataTable({
-        bFilter: true,
-        bInfo: true,
-        bSort: false,
-        bPaginate: true,
-        bLengthChange: true,
         bServerSide: true,
         bProcessing: true,
         oLanguage:{
@@ -90,6 +85,12 @@
             "sEmptyTable": "Data Kosong",
             "sSearch":       "Cari:",
             "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
+            "sProcessing": 'Memproses...',
+            "oPaginate": {
+                "sNext": "<span class='rulycon-forward-3'></span>",
+                "sPrevious": "<span class='rulycon-backward-2'></span>"
+            },
             "sLengthMenu": 'Tampilkan <select>'+
                 '<option value="10">10</option>'+
                 '<option value="25">25</option>'+

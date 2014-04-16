@@ -7,7 +7,7 @@ class DAL_Document {
     public function GetAllData($filter, $admin = true)
     {
         //get all record
-        $data = Document::select();
+        $data = Sorting_Document::select();
 
         // filter for user side
         if($admin == false)
@@ -51,19 +51,6 @@ class DAL_Document {
 
         $data = $data->skip($filter['iDisplayStart'])->take($filter['iDisplayLength']);
         $data = $data->get()->toArray();
-
-//        $result = array();
-//
-//        foreach($data as $dat)
-//        {
-//            $result[] = $dat['nomor'];
-//        }
-//
-//        array_multisort($result, SORT_ASC, $data);
-
-        usort($data, function ($a, $b) {
-            return strcmp($a['nomor'], $b['nomor']);
-        });
 
         return Response::json(array(
             "sEcho" => $filter['sEcho'],

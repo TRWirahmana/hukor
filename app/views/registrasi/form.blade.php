@@ -16,7 +16,7 @@
 <!--            left content-->
           <div class="span12">
               <div class="nav nav-tabs">
-                  <h4>Registrasi User</h4>
+                  <h4>Akun Pendaftar</h4>
               </div>
 
             <div class="control-group">
@@ -71,7 +71,7 @@
                   {{ Form::label('tempat_lahir', 'Tempat Lahir', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('tempat_lahir', '',
-                      array('placeholder' => 'Masukkan Tempat Lahir anda di sini...')) }}
+                      array('placeholder' => 'Masukkan Tempat Lahir anda di sini...', 'style' => 'width: 100% !important')) }}
 
                       @foreach($errors->get('tempat_lahir') as $error)
                       <span class="help-block">{{$error}}</span>

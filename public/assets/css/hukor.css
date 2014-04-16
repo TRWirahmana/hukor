@@ -515,10 +515,10 @@ table.dataTable tbody tr td:last-child {
   padding: 0;
 }
 .paginate_disabled_next, .paginate_enabled_next:after {
-  content: " >";
+  /*content: " >";*/
 }
 .paginate_disabled_previous, .paginate_enabled_previous:before {
-  content: "< ";
+  /*content: "< ";*/
 }
 
 .leftmenu .nav-tabs.nav-stacked > li.active > a,

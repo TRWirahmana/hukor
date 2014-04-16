@@ -220,7 +220,7 @@
 </div>
     {{ Form::close() }}
 
-
+<br>
     <div class="row-fluid">
     <div class="span24">
         <table id="tbl-log">
@@ -252,18 +252,24 @@
     @parent
     <script type="text/javascript">
         jQuery(function ($) {
-            $tblLog = $("#tbl-log").dataTable({
+            var tblLog = $("#tbl-log").dataTable({
+                bPaginate: true,
                 bServerSide: true,
-                sAjaxSource: document.location.href,
-                bFilter: false,
-                bInfo: false,
-                bSort: false,
-                bLengthChange: false,
+                bProcessing: true,
                 oLanguage:{
+                    "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ ",
                     "sEmptyTable": "Data Kosong",
                     "sZeroRecords" : "Pencarian Tidak Ditemukan",
-                    "sSearch":       "Cari:"
+                    "sSearch":       "Cari:",
+                    "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
+                    "sLengthMenu": 'Tampilkan <select>'+
+                        '<option value="10">10</option>'+
+                        '<option value="25">25</option>'+
+                        '<option value="50">50</option>'+
+                        '<option value="100">100</option>'+
+                        '</select>'
                 },
+                sAjaxSource: document.location.href,
                 iDisplayLength: 5,
                 aoColumns: [
                     {
@@ -330,5 +336,10 @@
 
         $("#collapse10").css("height", "auto");
         $("#menu-peruu-informasi").addClass("user-menu-active");
+    </script>
+    <script>
+        jQuery(document).on("ready", function() {
+            document.title = "Layanan Biro Hukum dan Organisasi | Detail Usulan Per-UU"
+        });
     </script>
     @stop

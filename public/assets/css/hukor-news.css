@@ -339,12 +339,12 @@ p {
 }
 
 .carousel-inner {
-  max-height: 360px;
+  height: 360px;
   overflow: hidden;
 }
 
 .carousel-inner > .item {
-  min-height: 320px;
+  height: 360px;
 }
 
 .carousel-inner > .item > img {

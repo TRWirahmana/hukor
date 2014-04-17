@@ -168,7 +168,7 @@
 
 <!-- Widget Counter -->
               <div id="counter-widget">
-                <h3 class="section-title widgets">Jumlah Pengunjung</h3>
+                <h3 class="section-title widgets">Pengunjung</h3>
 
                 <div class="widget-body">
                   <div class="widget-content">

@@ -8,7 +8,7 @@
 		</ul>
 		@include('adminflash')
 		<div class="pageheader">
-			<div class="pageicon">&nbsp;</div>
+			<div class="pageicon"><span class="rulycon-newspaper"></span></div>
 			<div class="pagetitle">
 				<h1>Tambah Kategori Berita</h1>
 			</div>

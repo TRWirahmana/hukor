@@ -210,51 +210,49 @@
     <div class="row-fluid">
       <?php $call = CallCenter::find(1); ?>
       <div class="span8">
-        <div id="footer-menu-informasi" style="display: none">
-          @foreach($menu as $menus)
-          <ul class="footer-menu">
-
-            @if($menus->submenu == null)
-            <li>{{$menus->nama_menu}}</li>
-            @else
-            <li>{{$menus->nama_menu}}</li>
-            @foreach($menus->submenu as $submenus)
-            @if($submenus->layanan->id != null)
-            <li><a href="{{ URL::to('/layanan/detail?id='. $submenus->layanan->id .'') }}">{{ $submenus->nama_submenu
-                }}</a></li>
-            @else
-            <li><a href="#">{{ $submenus->nama_submenu }}</a></li>
-            @endif
-            @endforeach
-            @endif
-
-          </ul>
-          @endforeach
-        </div>
-        <div id="footer-menu-aplikasi" style="display: none">
-          <ul class="footer-menu">
-            <li>Peraturan Perundang-undangan</li>
-            <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Peraturan Perundang-undangan</a></li>
-            <li><a href="{{URL::route('per_uu.informasi')}}">Informasi dan Status Usulan</a></li>
-          </ul>
-          <ul class="footer-menu">
-            <li>Pelembagaan</li>
-            <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Pelembagaan</a></li>
-            <li><a href="{{ URL::route('pelembagaan.index') }}">Informasi dan Status Usulan</a></li>
-          </ul>
-          <ul class="footer-menu">
-            <li>Ketatalaksanaan</li>
-            <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>
-            <li><a href="{{URL::route('sp.index')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
-            <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Analisis Jabatan</a></li>
-            <li><a href="{{URL::route('aj.index')}}">Informasi dan Status Usulan Analisis Jabatan</a></li>
-          </ul>
-          <ul class="footer-menu">
-            <li>Bantuan Hukum</li>
-            <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>
-            <li><a href="{{ URL::route('bantuan_hukum.index') }}">Informasi dan Status Usulan</a></li>
-          </ul>
-        </div>
+<!--        <div id="footer-menu-informasi" style="display: none">-->
+<!--          @foreach($menu as $menus)-->
+<!--          <ul class="footer-menu">-->
+<!---->
+<!--            @if($menus->submenu == null)-->
+<!--            <li>{{$menus->nama_menu}}</li>-->
+<!--            @else-->
+<!--            <li>{{$menus->nama_menu}}</li>-->
+<!--            @foreach($menus->submenu as $submenus)-->
+<!--            @if($submenus->layanan->id != null)-->
+<!--            @else-->
+<!--            <li><a href="#">{{ $submenus->nama_submenu }}</a></li>-->
+<!--            @endif-->
+<!--            @endforeach-->
+<!--            @endif-->
+<!---->
+<!--          </ul>-->
+<!--          @endforeach-->
+<!--        </div>-->
+<!--        <div id="footer-menu-aplikasi" style="display: none">-->
+<!--          <ul class="footer-menu">-->
+<!--            <li>Peraturan Perundang-undangan</li>-->
+<!--            <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Peraturan Perundang-undangan</a></li>-->
+<!--            <li><a href="{{URL::route('per_uu.informasi')}}">Informasi dan Status Usulan</a></li>-->
+<!--          </ul>-->
+<!--          <ul class="footer-menu">-->
+<!--            <li>Pelembagaan</li>-->
+<!--            <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Pelembagaan</a></li>-->
+<!--            <li><a href="{{ URL::route('pelembagaan.index') }}">Informasi dan Status Usulan</a></li>-->
+<!--          </ul>-->
+<!--          <ul class="footer-menu">-->
+<!--            <li>Ketatalaksanaan</li>-->
+<!--            <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>-->
+<!--            <li><a href="{{URL::route('sp.index')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>-->
+<!--            <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Analisis Jabatan</a></li>-->
+<!--            <li><a href="{{URL::route('aj.index')}}">Informasi dan Status Usulan Analisis Jabatan</a></li>-->
+<!--          </ul>-->
+<!--          <ul class="footer-menu">-->
+<!--            <li>Bantuan Hukum</li>-->
+<!--            <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>-->
+<!--            <li><a href="{{ URL::route('bantuan_hukum.index') }}">Informasi dan Status Usulan</a></li>-->
+<!--          </ul>-->
+<!--        </div>-->
       </div>
       <div class="span4">
         <div id="footer-image">

@@ -60,8 +60,8 @@
 <!--rightpanel-->
 
 <!-- dialog box -->
-<div id="dialog" title="Hapus Perundang-Undangan" style="display: none;">
-    <p>Apakah Anda Yakin?</p>
+<div id="dialog" title="Hapus Berita" style="display: none;">
+    <p>Apakah anda yakin untuk menghapus berita ini?</p>
 </div>
 
 @stop

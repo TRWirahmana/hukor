@@ -64,6 +64,7 @@
 <?php $user = Auth::user(); ?>
 
 @if($user != null)
+<p style="color: #29709F" class="welcome-message">LOGIN</p>
 <p id="username" class="welcome-message user-not-null"><span>Selamat datang, <span
       id="name"><?php echo $user->pengguna->nama_lengkap; ?></span></span></p>
 
@@ -77,6 +78,7 @@
         class="rulycon-exit"></span>Keluar</a></li>
 </ul>
 @else
+<p style="color: #29709F" class="welcome-message">LOGIN</p>
 <p id="username" class="welcome-message">Selamat datang <span id="name"></span></p>
 @if($user == null)
 {{-- form login--}}
@@ -130,7 +132,7 @@ Form::text('username', '', array(
     Kami</a>
 </li>
 
-<li class="menu-header">Layanan</li>
+<li class="menu-header">Informasi</li>
 <!--              <li id="menu-beranda"><a href="{{URL::to('/')}}"><span class="rulycon-home-2"></span>Beranda</a></li>-->
 <!--              <li id="menu-produk-hukum"><a href="{{URL::to('produkhukum')}}"><span class="rulycon-book"></span>Produk Hukum</a></li>-->
 <!-- Menu Layanan(Dinamisasi)-->

@@ -4,7 +4,6 @@
     document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
 </script>
 <div class="stripe-accent"></div>
-<legend>Pengajuan Usulan Analisis Jabatan</legend>
 
 @include('flash')
 <div class="content-non-title">
@@ -14,7 +13,9 @@
     <div class="row-fluid">
         <div class="span12">
             <fieldset>
-                <legend>Penanggung Jawab</legend>
+                <div class="nav nav-tabs">
+                    <h4>PENANGGUNG JAWAB</h4>
+                </div>
 
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[nama]', 'Nama', array('class' => 'control-label'))}}
@@ -36,7 +37,7 @@
                     </div>
                 </div>
 
-		<div class="control-group">
+		        <div class="control-group">
                     {{ Form::label('penanggungJawab[no_handphone]', "No Handphone", array('class' => 'control-label'))}}
                     <div class="controls">
                         {{ Form::text('penanggungJawab[no_handphone]', null, array('placeholder' => 'Masukan nomor handphone...')) }}
@@ -76,7 +77,9 @@
 
         <div class="span12">
             <fieldset>
-                <legend>Informasi Usulan</legend>
+                <div class="nav nav-tabs">
+                    <h4>INFORMASI USULAN</h4>
+                </div>
 
                 <div class="control-group">
                     {{ Form::label("analisisJabatan[perihal]", "Perihal", array('class' => 'control-label')) }}
@@ -96,32 +99,7 @@
 
         </div>
 
-    </div>  
-
-    <!--    <div class="row-fluid">
-            <div class="span6"></div>
-            <div class="span12">
-    
-                <fieldset>
-                    <legend>Informasi Registrasi</legend>
-    
-                    <div class="control-group">
-                        {{ Form::label("nama", "Nama", array('class' => 'control-label')) }}
-                        <div class="controls">{{ Form::text("nama", $user->pengguna->nama_lengkap, array('disabled' => 'disabled')) }}</div>
-                    </div>
-                    <div class="control-group">
-                        {{ Form::label('pos_el', "Pos El", array('class' => 'control-label')) }}
-                        <div class="controls">{{ Form::text('pos_el', $user->pengguna->email, array('disabled' => 'disabled')) }}</div>
-                    </div>
-                    <div class="control-group">
-                        {{ Form::label('id_number', 'Id Number', array('class' => 'control-label')) }}
-                        <div class="controls">{{ Form::text('id_number', $user->pengguna->user_id, array('disabled' => 'disabled')) }}</div>
-                    </div>
-    
-                </fieldset>
-            </div>
-            <div class="span6"></div>
-        </div>  -->
+    </div>
 
     <div class="form-actions">
         <a href="{{ URL::to('site') }}" class="btn btn-primary">Batal</a>

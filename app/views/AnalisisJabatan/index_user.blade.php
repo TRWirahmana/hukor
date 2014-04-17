@@ -133,7 +133,7 @@
                     }
                 }
             });
-            else{
+        }else{
                 $dataTable = $("#tbl-analisis-jabatan").dataTable({
                     // sDom: 'Trtip',
                     // oTableTools: {
@@ -232,7 +232,7 @@
         }
 
 
-        });
+        );
 
 
 

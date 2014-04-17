@@ -9,9 +9,6 @@
 </ul>
 @include('adminflash')
 <div class="pageheader">
-  <!--        <form action="results.html" method="post" class="searchbar">-->
-  <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
-  <!--        </form>-->
   <div class="pageicon">&nbsp;</div>
   <div class="pagetitle">
     <!--<h5>Events</h5>-->
@@ -26,8 +23,6 @@
 
 <!-- MAIN CONTENT -->
 
-<legend>Perbaharui Usulan</legend>
-
 @include('flash')
 
 {{ Form::open(array('route' => array('admin.aj.update', $analisisJabatan->id), 'method' => 'put', 'files' => true,
@@ -36,7 +31,9 @@
 <div class="row-fluid">
   <div class="span6">
     <fieldset>
-      <legend>PENANGGUNG JAWAB</legend>
+        <div class="nav nav-tabs">
+            <h4>PENANGGUNG JAWAB</h4>
+        </div>
       <div class="control-group">
         <label for="" class="control-label">Unit Kerja</label>
 
@@ -82,7 +79,9 @@
   </div>
   <div class="span6">
     <fieldset>
-      <legend>INFORMASI PENGUSUL</legend>
+        <div class="nav nav-tabs">
+            <h4>INFORMASI PENGUSUL</h4>
+        </div>
       <div class="control-group">
         <label for="" class="control-label">Unit Kerja</label>
 
@@ -129,7 +128,9 @@
 <div class="row-fluid">
   <div class="span6">
     <fieldset>
-      <legend>INFORMASI PERIHAL & LAMPIRAN</legend>
+        <div class="nav nav-tabs">
+            <h4>INFORMASI PERIHAL & LAMPIRAN</h4>
+        </div>
       <div class="control-group">
         <label for="" class="control-label">Tgl Usulan</label>
 
@@ -176,7 +177,9 @@
   </div>
   <div class="span6">
     <fieldset>
-      <legend>UPDATE STATUS</legend>
+        <div class="nav nav-tabs">
+            <h4>UPDATE STATUS</h4>
+        </div>
       <div class="control-group">
         {{ Form::label('status', 'Status', array('class' => 'control-label'))}}
         <div class="controls">
@@ -220,6 +223,11 @@
   </div>
 </div>
 
+<div class="form-actions">
+    <a href="{{ URL::route('admin.aj.index') }}" class="btn">Batal</a>
+    {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
+</div>
+
 <div class="row-fluid">
   <div class="span24">
     <table id="tbl-log">
@@ -241,10 +249,6 @@
   </div>
 </div>
 
-<div class="form-actions">
-  <a href="{{ URL::route('admin.aj.index') }}" class="btn">Batal</a>
-  {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
-</div>
 {{ Form::close() }}
 
 

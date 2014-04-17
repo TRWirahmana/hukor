@@ -159,6 +159,10 @@ p {
   line-height: 130%;
 }
 
+.headmenu {
+  margin-right: -24px;
+}
+
 .headmenu > li {
   font-size: 12px;
   text-transform: uppercase;
@@ -167,7 +171,7 @@ p {
 .headmenu > li, .headmenu > li.odd {
   background: transparent;
   border: none;
-  margin-left: 3px;
+  /*margin-left: 3px;*/
 }
 
 .headmenu > li > a {
@@ -180,6 +184,7 @@ p {
   text-align: center;
   /*box-shadow: inset 0 6px 0 rgba(0, 0, 0, .15);
   max-width: 75px;*/
+  width: 72px;
 }
 
 .headmenu > li > a > span[class *= "rulycon"] {
@@ -1186,6 +1191,7 @@ p {
   }
   .headmenu > li > a, .headmenu > li.odd > a {
     padding: 18px 6px;
+    width: 100%;
   }
   .footer .container {
     padding: 16px 8px;

@@ -36,8 +36,8 @@
 	</div>
 
 <!-- dialog box -->
-<div id="dialog" title="Hapus Perundang-Undangan" style="display: none;">
-    <p>Apakah Anda Yakin?</p>
+<div id="dialog" title="Hapus Kategori Berita" style="display: none;">
+    <p>Apakah anda yakin untuk menghapus kategori berita ini?</p>
 </div>
 @stop
 
@@ -49,6 +49,7 @@
 		$dTblCategories = $tblCategories.dataTable({
 			sAjaxSource: document.location.href,
 			bProcessing: true,
+            bFilter: false,
             oLanguage:{
                 "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Kategori Berita",
                 "sEmptyTable": "Data Kosong",

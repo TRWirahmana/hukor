@@ -64,7 +64,8 @@
 <?php $user = Auth::user(); ?>
 
 @if($user != null)
-<p id="username" class="welcome-message user-not-null"><span>Selamat datang, <span
+<p class="welcome-message-title">LOGIN</p>
+<p id="username" class="welcome-message user-not-null" style="padding-top: 10px;"><span>Selamat datang, <span
       id="name"><?php echo $user->pengguna->nama_lengkap; ?></span></span></p>
 
 <div class="select-on-mobile">
@@ -77,7 +78,8 @@
         class="rulycon-exit"></span>Keluar</a></li>
 </ul>
 @else
-<p id="username" class="welcome-message">Selamat datang <span id="name"></span></p>
+<p class="welcome-message-title">LOGIN</p>
+<p id="username" class="welcome-message" style="padding-top: 10px;">Selamat datang <span id="name"></span></p>
 @if($user == null)
 {{-- form login--}}
 {{ Form::open(array('action' => 'LoginController@signin', 'method' => 'post', 'id'=>'user-sign-in-form',
@@ -130,7 +132,7 @@ Form::text('username', '', array(
     Kami</a>
 </li>
 
-<li class="menu-header">Layanan</li>
+<li class="menu-header">Informasi</li>
 <!--              <li id="menu-beranda"><a href="{{URL::to('/')}}"><span class="rulycon-home-2"></span>Beranda</a></li>-->
 <!--              <li id="menu-produk-hukum"><a href="{{URL::to('produkhukum')}}"><span class="rulycon-book"></span>Produk Hukum</a></li>-->
 <!-- Menu Layanan(Dinamisasi)-->

@@ -347,6 +347,9 @@ $allmenu = Menu::all();?>
 <!--              </li>-->
 </ul>
 </div>
+<div id="dialog" title="FORUM" style="display: none;">
+    <p>Silahkan klik LOGIN terlebih dahulu untuk masuk kedalam Forum. Jika belum mempunyai akun, silakan klik DAFTAR untuk registrasi</p>
+</div>
 <h6 id="copyright">© 2014 Biro Hukum dan Organisasi</h6>
 </footer>
 </div>
@@ -372,10 +375,24 @@ $allmenu = Menu::all();?>
       window.location.replace("{{ URL::to('forumdiskusi') }}");
     }
     else {
-      var r = confirm("Anda Belum Login. Harap Login Terlebih Dahulu. Klik OK Untuk Registrasi Jika Anda Belum Memiliki Akun.");
-      if (r == true) {
-        window.location.replace("{{URL::to('registrasi')}}");
-      }
+//      var r = confirm("Anda Belum Login. Harap Login Terlebih Dahulu. Klik OK Untuk Registrasi Jika Anda Belum Memiliki Akun.");
+        $('#dialog').dialog({
+            width: 500,
+            modal: true,
+            buttons: {
+                "Login" : function(){
+                    window.location.replace("{{URL::to('site')}}");
+                },
+
+                "Daftar" : function(){
+                    window.location.replace("{{URL::to('registrasi')}}");
+                },
+
+                Cancel : function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
     }
 
   });

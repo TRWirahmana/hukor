@@ -40,63 +40,17 @@
               </div>
             </div>
 
-            <?php
-            $kategori = "";
-            switch ($data->kategori) {
-              case 1:
-                $kategori = "Keputusan Menteri";
-                break;
-              case 2:
-                $kategori = "Peraturan Menteri";
-                break;
-              case 3:
-                $kategori = "Peraturan Bersama";
-                break;
-              case 4:
-                $kategori = "Keputusan Bersama";
-                break;
-              case 5:
-                $kategori = "Instruksi Menteri";
-                break;
-              case 6:
-                $kategori = "Surat Edaran";
-                break;
-            }
-            ?>
             <div class="control-group">
               {{ Form::label('', 'Kategori', array('class' => 'control-label')) }}
               <div class="controls">
-                <input type="text" disabled value="{{ $kategori }}"/>
+                  <input type="text" value="{{ $data->getKategori($data->kategori) }}" disabled/>
               </div>
             </div>
 
-            <?php
-            $masalah = "";
-            switch ($data->masalah) {
-              case 1:
-                $masalah = "Kepegawaian";
-                break;
-              case 2:
-                $masalah = "Keuangan";
-                break;
-              case 3:
-                $masalah = "Organisasi";
-                break;
-              case 4:
-                $masalah = "Umum";
-                break;
-              case 5:
-                $masalah = "Perlengkapan";
-                break;
-              case 6:
-                $masalah = "Lainnya";
-                break;
-            }
-            ?>
             <div class="control-group">
               {{ Form::label('', 'Masalah', array('class' => 'control-label')) }}
               <div class="controls">
-                <input type="text" disabled value="{{ $masalah }}"/>
+                  <input type="text" value="{{ $data->getMasalah($data->masalah) }}" disabled/>
               </div>
             </div>
 
@@ -135,13 +89,13 @@
                   @if($data->file_dokumen == null)
                   <p>Tidak ada lampiran</p>
                   @else
-                    <a class="btn btn-primary-blue" href="{{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen )}} "> <span class="rulycon-download"></span> Unduh </a>
+                    <a class="btn btn-primary" href="{{ URL::asset('assets/uploads/dokumen/' . $data->file_dokumen )}} "> <span class="rulycon-download"></span> Unduh </a>
                     @endif
               </div>
             </div>
 
             <div class="control-group">
-              <div class="controls">
+              <div class="controls span2">
                 <a href="{{URL::previous()}}" style="background: transparent">{{ Form::button('Kembali', array('class' => 'btn btn-primary')) }}</a>
               </div>
             </div>

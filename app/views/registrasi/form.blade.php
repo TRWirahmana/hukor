@@ -109,51 +109,48 @@
               </div>
 
 
-              <div class="control-group {{$errors->has('nip')?'error':''}}">
-                  {{ Form::label('nip', 'NIP', array('class' => 'control-label required')) }}
-                  <div class="controls">
-                      {{ Form::text('nip', '',
-                      array('placeholder' => 'Masukkan NIP di sini...')) }}
-
-                      @foreach($errors->get('nip') as $error)
-                      <span class="help-block">{{$error}}</span>
-                      @endforeach
-                  </div>
-              </div>
-
-              <div class="control-group {{$errors->has('unit_kerja')?'error':''}}">
-                  {{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label required')) }}
-                  <div class="controls">
-                      {{ Form::text('unit_kerja', '',
-                      array('placeholder' => 'Masukkan Unit Kerja anda di sini...')) }}
-
-                      @foreach($errors->get('unit_kerja') as $error)
-                      <span class="help-block">{{$error}}</span>
-                      @endforeach
-                  </div>
-              </div>
-
-              <div class="control-group {{$errors->has('jabatan')?'error':''}}">
-                  {{ Form::label('jabatan', 'Jabatan', array('class' => 'control-label required')) }}
-                  <div class="controls">
-                      {{ Form::text('jabatan', '',
-                      array('placeholder' => 'Masukkan jabatan anda di sini...')) }}
-
-                      @foreach($errors->get('jabatan') as $error)
-                      <span class="help-block">{{$error}}</span>
-                      @endforeach
-                  </div>
-              </div>
-
-<!--              <div class="control-group {{$errors->has('pekerjaan')?'error':''}}">-->
-<!--                  {{ Form::label('pekerjaan', 'Pekerjaan', array('class' => 'control-label required')) }}-->
+<!--              <div class="control-group {{$errors->has('nip')?'error':''}}">-->
+<!--                  {{ Form::label('nip', 'NIP', array('class' => 'control-label required')) }}-->
 <!--                  <div class="controls">-->
-<!--                      {{ Form::text('pekerjaan', '', array('placeholder' => 'Masukkan Pekerjaan anda di sini...')) }}-->
-<!--                      @foreach($errors->get('pekerjaan') as $error)-->
+<!--                      {{ Form::text('nip', '', array('placeholder' => 'Masukkan NIP di sini...')) }}-->
+<!---->
+<!--                      @foreach($errors->get('nip') as $error)-->
 <!--                      <span class="help-block">{{$error}}</span>-->
 <!--                      @endforeach-->
 <!--                  </div>-->
 <!--              </div>-->
+<!---->
+<!--              <div class="control-group {{$errors->has('unit_kerja')?'error':''}}">-->
+<!--                  {{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label required')) }}-->
+<!--                  <div class="controls">-->
+<!--                      {{ Form::text('unit_kerja', '', array('placeholder' => 'Masukkan Unit Kerja anda di sini...')) }}-->
+<!---->
+<!--                      @foreach($errors->get('unit_kerja') as $error)-->
+<!--                      <span class="help-block">{{$error}}</span>-->
+<!--                      @endforeach-->
+<!--                  </div>-->
+<!--              </div>-->
+<!---->
+<!--              <div class="control-group {{$errors->has('jabatan')?'error':''}}">-->
+<!--                  {{ Form::label('jabatan', 'Jabatan', array('class' => 'control-label required')) }}-->
+<!--                  <div class="controls">-->
+<!--                      {{ Form::text('jabatan', '', array('placeholder' => 'Masukkan jabatan anda di sini...')) }}-->
+<!---->
+<!--                      @foreach($errors->get('jabatan') as $error)-->
+<!--                      <span class="help-block">{{$error}}</span>-->
+<!--                      @endforeach-->
+<!--                  </div>-->
+<!--              </div>-->
+
+              <div class="control-group {{$errors->has('pekerjaan')?'error':''}}">
+                  {{ Form::label('pekerjaan', 'Pekerjaan', array('class' => 'control-label required')) }}
+                  <div class="controls">
+                      {{ Form::text('pekerjaan', '', array('placeholder' => 'Masukkan Pekerjaan anda di sini...')) }}
+                      @foreach($errors->get('pekerjaan') as $error)
+                      <span class="help-block">{{$error}}</span>
+                      @endforeach
+                  </div>
+              </div>
 
               <div class="control-group {{$errors->has('alamat_kantor')?'error':''}}">
                   {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label required')) }}

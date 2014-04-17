@@ -300,14 +300,12 @@ class BeritaController extends BaseController {
             if($img->isValid() || $slider->isValid()){
                 $uqFolder = "berita";
 
-//            var_dump($uqFolder);exit;
                 $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
+
+
                 $filename = $img->getClientOriginalName();
                 $slider_img = $slider->getClientOriginalName();
-                $uploadSuccess = $img->move($destinationPath, $filename);
-                $sliderupload = $slider->move($destinationPath, $slider_img);
 
-                if($uploadSuccess || $sliderupload){
                     if($berita->gambar != null && $berita->gambar != "" || $berita->slider != null && $berita->slider != ""){
                         $img_exists = $destinationPath . '/' . $berita->gambar;
                         $slider_exists = $destinationPath . '/' . $berita->slider;
@@ -316,9 +314,12 @@ class BeritaController extends BaseController {
                         if(file_exists($img_exists) || file_exists($slider_exists)){
                             //delete file image di folder yang terdaftar di database
                             unlink($img_exists);
+                            $uploadSuccess = $img->move($destinationPath, $filename);
+
                             unlink($slider_exists);
+                            $sliderupload = $slider->move($destinationPath, $slider_img);
                         }
-                    }
+
 
                     /* update to table berita */
                     $berita->judul = $input['judul'];
@@ -354,9 +355,7 @@ class BeritaController extends BaseController {
 //            var_dump($uqFolder);exit;
                 $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
                 $filename = $img->getClientOriginalName();
-                $uploadSuccess = $img->move($destinationPath, $filename);
 
-                if($uploadSuccess){
                     if($berita->gambar != null || $berita->gambar != ""){
                         $img_exists = $destinationPath . '/' . $berita->gambar;
 
@@ -364,6 +363,7 @@ class BeritaController extends BaseController {
                         if(file_exists($img_exists)){
                             //delete file image di folder yang terdaftar di database
                             unlink($img_exists);
+                            $uploadSuccess = $img->move($destinationPath, $filename);
                         }
                     }
 
@@ -386,7 +386,7 @@ class BeritaController extends BaseController {
                         Session::flash('error', 'Gagal mengirim data. Pastikan Berita sudah benar.');
                         return Redirect::back();
                     }
-                }
+
             }
         }
         elseif($slider != null && $img == null){
@@ -395,9 +395,8 @@ class BeritaController extends BaseController {
 //            var_dump($uqFolder);exit;
                 $destinationPath = UPLOAD_PATH . DIRECTORY_SEPARATOR . $uqFolder;
                 $slider_img = $slider->getClientOriginalName();
-                $sliderupload = $slider->move($destinationPath, $slider_img);
 
-                if($sliderupload){
+
                     if($berita->slider != null || $berita->slider != ""){
                         $slider_exists = $destinationPath . '/' . $berita->slider;
 
@@ -405,6 +404,7 @@ class BeritaController extends BaseController {
                         if(file_exists($slider_exists)){
                             //delete file image di folder yang terdaftar di database
                             unlink($slider_exists);
+                            $sliderupload = $slider->move($destinationPath, $slider_img);
                         }
                     }
 
@@ -427,7 +427,7 @@ class BeritaController extends BaseController {
                         Session::flash('error', 'Gagal mengirim data. Pastikan Berita sudah benar.');
                         return Redirect::back();
                     }
-                }
+
             }
         }
         else{

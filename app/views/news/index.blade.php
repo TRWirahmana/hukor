@@ -51,10 +51,16 @@
               @if($data->slider != null)
                   <div class="item">
                       {{ HTML::image('assets/uploads/berita/' . $data->slider) }}
+                    <div class="caption">
+                      <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur atque dolorem doloremque ducimus ea earum et fugiat id illo necessitatibus nobis non quaerat ratione, sequi sint soluta tempore! Labore?</a>
+                    </div>
                   </div>
               @else
                   <div class="item">
                       {{ HTML::image('assets/img/noim.jpg') }}
+                    <div class="caption">
+                      <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur atque dolorem doloremque ducimus ea earum et fugiat id illo necessitatibus nobis non quaerat ratione, sequi sint soluta tempore! Labore?</a>
+                    </div>
                   </div>
               @endif
             @endif

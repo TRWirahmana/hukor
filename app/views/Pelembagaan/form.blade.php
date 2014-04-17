@@ -5,7 +5,7 @@
     document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Pelembagaan";
 </script>
 <div class="stripe-accent"></div>
-<legend>Pengajuan Usulan</legend>
+<legend>Buat Usulan</legend>
 
 
 @include('flash')

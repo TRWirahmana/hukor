@@ -100,6 +100,7 @@
 <div class="row-fluid">
   <div class="span24" style="margin-bottom: 48px;">
       <button class="btn btn-primary" id="btn-usulans" type="button">Buat Usulan</button>
+      <button class="btn btn-primary" id="status-usulan" type="button">Status Usulan</button>
   </div>
 </div>
 
@@ -161,6 +162,30 @@
                 }
             });
         }
+    });
+
+    $('#status-usulan').click(function () {
+//        alert(info_id);exit;
+        var user = '<?php echo Auth::user(); ?>';
+
+            switch(info_id)
+            {
+                case '1':
+                    window.location.replace("{{ URL::route('puu.index') }}");
+                    break;
+                case '2':
+                    window.location.replace("{{ URL::route('pelembagaan.index')}}");
+                    break;
+                case '3':
+                    window.location.replace("{{ URL::to('BantuanHukum') }}");
+                    break;
+                case '4':
+                    window.location.replace("{{ URL::route('sp.index') }}");
+                    break;
+                case '5':
+                    window.location.replace("{{ URL::route('aj.index') }}");
+                    break;
+            }
     });
 </script>
 @parent

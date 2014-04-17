@@ -201,7 +201,7 @@
       <div class="row-fluid">
         <div class="container error-message" style="width: 960px; text-align: center; margin-top: 40px;">
           <img src="{{asset('assets/img/error-404.png')}}" alt="" width="320"/>
-          <p>Anda dapat mengakses halaman lain melalui menu di atas atau klik <a href="#">tautan ini</a> untuk kembali ke halaman utama.</p>
+          <p>Anda dapat mengakses halaman lain melalui menu di atas atau klik <a href="{{ URL::to('/') }}">tautan ini</a> untuk kembali ke halaman utama.</p>
         </div>
       </div>
     </div>

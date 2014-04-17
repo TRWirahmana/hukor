@@ -64,8 +64,8 @@
 <?php $user = Auth::user(); ?>
 
 @if($user != null)
-<p style="color: #29709F" class="welcome-message">LOGIN</p>
-<p id="username" class="welcome-message user-not-null"><span>Selamat datang, <span
+<p class="welcome-message-title">LOGIN</p>
+<p id="username" class="welcome-message user-not-null" style="padding-top: 10px;"><span>Selamat datang, <span
       id="name"><?php echo $user->pengguna->nama_lengkap; ?></span></span></p>
 
 <div class="select-on-mobile">
@@ -78,8 +78,8 @@
         class="rulycon-exit"></span>Keluar</a></li>
 </ul>
 @else
-<p style="color: #29709F" class="welcome-message">LOGIN</p>
-<p id="username" class="welcome-message">Selamat datang <span id="name"></span></p>
+<p class="welcome-message-title">LOGIN</p>
+<p id="username" class="welcome-message" style="padding-top: 10px;">Selamat datang <span id="name"></span></p>
 @if($user == null)
 {{-- form login--}}
 {{ Form::open(array('action' => 'LoginController@signin', 'method' => 'post', 'id'=>'user-sign-in-form',

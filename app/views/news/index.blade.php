@@ -52,9 +52,21 @@
                   <div class="item">
                       {{ HTML::image('assets/uploads/berita/' . $data->slider) }}
                     <div class="caption">
-                      <a href="#">
-                        <h6>Hello there</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur atque dolorem doloremque ducimus ea earum et fugiat id illo necessitatibus nobis non quaerat ratione, sequi sint soluta tempore! Labore?</p>
+                      <a href="{{ URL::to('/news/detail?id='. $data->id .'') }}">
+                        <h6>{{$data->judul}}</h6>
+                          <?php $berita_feed = strip_tags($data->berita);
+                          $highlight_feed = substr($berita_feed, 0, 250);
+                          ?>
+                          @if(strlen($berita_feed) > 250)
+                          <p>{{$highlight_feed}} ...</p>
+
+                          <p><a class="read-more"
+                                href="{{ URL::to('/news/detail?id='. $data->id .'') }}">Selengkapnya
+                                  <span class="rulycon-arrow-right-3"></span></a></p>
+                          @else
+                          <p>{{$berita_feed}}</p>
+                          @endif
+<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur atque dolorem doloremque ducimus ea earum et fugiat id illo necessitatibus nobis non quaerat ratione, sequi sint soluta tempore! Labore?</p>-->
                       </a>
                     </div>
                   </div>
@@ -63,8 +75,19 @@
                       {{ HTML::image('assets/img/noim.jpg') }}
                     <div class="caption">
                       <a href="#">
-                        <h6>Hello there</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur atque dolorem doloremque ducimus ea earum et fugiat id illo necessitatibus nobis non quaerat ratione, sequi sint soluta tempore! Labore?</p>
+                          <h6>{{$data->judul}}</h6>
+                          <?php $berita_feed = strip_tags($data->berita);
+                          $highlight_feed = substr($berita_feed, 0, 350);
+                          ?>
+                          @if(strlen($berita_feed) > 250)
+                          <p>{{$highlight_feed}} ...</p>
+
+                          <p><a class="read-more"
+                                href="{{ URL::to('/news/detail?id='. $data->id .'') }}">Selengkapnya
+                                  <span class="rulycon-arrow-right-3"></span></a></p>
+                          @else
+                          <p>{{$berita_feed}}</p>
+                          @endif
                       </a>
                     </div>
                   </div>

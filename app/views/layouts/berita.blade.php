@@ -210,7 +210,6 @@
     <div class="row-fluid">
       <?php $call = CallCenter::find(1); ?>
       <div class="span8">
-        <p><span>&copy; 2014 Kementerian Pendidikan Dan Kebudayaan Republik Indonesia.</span></p>
 <!--        <div id="footer-menu-informasi" style="display: none">-->
 <!--          @foreach($menu as $menus)-->
 <!--          <ul class="footer-menu">-->
@@ -267,6 +266,11 @@
           <span class="rulycon-phone"></span> {{ $call->telp }} &nbsp; | &nbsp; <span class="rulycon-print"></span> {{ $call->fax }}<br/>
           <!--                        Jawa Barat, Indonesia-->
         </address>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span8">
+        <p><span>&copy; 2014 Kementerian Pendidikan Dan Kebudayaan Republik Indonesia.</span></p>
       </div>
     </div>
   </div>

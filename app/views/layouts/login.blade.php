@@ -18,14 +18,22 @@
     .container-fluid { padding: 0; }
     .footer {
       display: block;
+      position: fixed;
       width: 100%;
-      position: absolute;
       bottom: 0;
     }
     .error-message p {
       width: 420px;
       font-size: 14px;
-      margin: 20px auto;
+      margin: 20px auto 80px;
+    }
+    .error-message img {
+      width: 40% !important;
+    }
+    @media screen and (max-width: 800px) {
+      .error-message p {
+        width: 420px !important;
+      }
     }
   </style>
 

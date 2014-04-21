@@ -134,10 +134,24 @@ class PeruuController extends BaseController
 					'perUU' => $perUU
 				     );
 
-			Mail::send('emails.PerUU.update', $data, function($message) use($perUU) {
-					$message->to($perUU->pengguna->email)
-					->subject('Perubahan Status Usulan');
-					});
+            if(Auth::user()->role_id = 2)
+            {
+                $user = Pengguna::join('user', 'pengguna.user_id', '=', 'user.id')
+                    ->where('user.role_id', '=', 3)->orWhere('user.role_id', '=', 6)->get(array('pengguna.email'));
+
+                foreach($user as $dat)
+                {
+                    Mail::send('emails.PerUU.update', $data, function($message) use($dat) {
+                        $message->to($dat->email)
+                            ->subject('Perubahan Status Usulan Analisis Jabatan');
+                    });
+                }
+            }else{
+                Mail::send('emails.PerUU.update', $data, function($message) use($perUU) {
+                    $message->to($perUU->pengguna->email)
+                        ->subject('Perubahan Status Usulan');
+                });
+            }
 
 			Session::flash('success', 'Usulan berhasil diperbaharui.');
 			return Redirect::route('admin.puu.index');

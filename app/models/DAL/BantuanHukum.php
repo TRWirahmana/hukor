@@ -360,7 +360,18 @@ class DAL_BantuanHukun
             'bankum' => $bankum
         );
 
-        $email->sendMail('Usulan Bantuan Hukum', $bankum->email, 'emails.proses', $data);
+        if(Auth::user()->role_id = 2)
+        {
+            $user = Pengguna::join('user', 'pengguna.user_id', '=', 'user.id')
+                ->where('user.role_id', '=', 3)->orWhere('user.role_id', '=', 8)->get(array('pengguna.email'));
+
+            foreach($user as $dat)
+            {
+                $email->sendMail('Usulan Bantuan Hukum', $dat->email, 'emails.proses', $data);
+            }
+        }else{
+            $email->sendMail('Usulan Bantuan Hukum', $bankum->email, 'emails.proses', $data);
+        }
     }
 
     public function GetFieldsName()

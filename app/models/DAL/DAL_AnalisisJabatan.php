@@ -186,10 +186,24 @@ class DAL_AnalisisJabatan {
                 'data' => $analisisJabatan
             );
 
-            Mail::send('AnalisisJabatan.emailUpdate', $data, function($message) use($analisisJabatan) {
-                $message->to($analisisJabatan->pengguna->email)
-                    ->subject('Perubahan Status Usulan Analisis Jabatan');
-            });
+            if(Auth::user()->role_id = 2)
+            {
+                $user = Pengguna::join('user', 'pengguna.user_id', '=', 'user.id')
+                    ->where('user.role_id', '=', 3)->orWhere('user.role_id', '=', 9)->get(array('pengguna.email'));
+
+                foreach($user as $dat)
+                {
+                    Mail::send('AnalisisJabatan.emailUpdate', $data, function($message) use($dat) {
+                        $message->to($dat->email)
+                            ->subject('Perubahan Status Usulan Analisis Jabatan');
+                    });
+                }
+            }else{
+                Mail::send('AnalisisJabatan.emailUpdate', $data, function($message) use($analisisJabatan) {
+                    $message->to($analisisJabatan->pengguna->email)
+                        ->subject('Perubahan Status Usulan Analisis Jabatan');
+                });
+            }
 
             return true;
 

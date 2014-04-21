@@ -108,4 +108,106 @@ class DAL_SistemDanProsedur {
 			->orderBy("bulan.id");
 
 	}
+
+    public static function save($input, $filenames)
+    {
+        $sistemDanProsedur = new SistemDanProsedur;
+        $sistemDanProsedur->id_pengguna = Auth::user()->pengguna->id;
+        $sistemDanProsedur->perihal = $input['sistem_dan_prosedur']['perihal'];
+        $sistemDanProsedur->catatan = $input['sistem_dan_prosedur']['catatan'];
+        $sistemDanProsedur->lampiran = serialize($filenames);
+        $sistemDanProsedur->tgl_usulan = new DateTime;
+        $sistemDanProsedur->status = 0;
+        if ($sistemDanProsedur->save()) {
+
+            $pj = DAL_SistemDanProsedur::savePenanggungJawab($input['penanggungJawab'], $sistemDanProsedur->id);
+
+            if($pj == true)
+            {
+                // kirim email ke admin
+                $data = array(
+                    'user' => Auth::user(),
+                    'data' => $sistemDanProsedur
+                );
+                Mail::send('emails.SistemDanProsedur.new', $data, function($message) {
+                    // admin email (testing)
+                    $message->to('egisolehhasdi@gmail.com', 'egisolehhasdi@gmail.com')
+                        ->subject('Usulan Baru Sistem dan Prosedur');
+                });
+
+                return true;
+            }else{
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public static function savePenanggungJawab($input, $spID)
+    {
+        $penanggungJawab = new PenanggungJawabSistemDanProsedur();
+        $penanggungJawab->id_sistem_dan_prosedur = $spID;
+        $penanggungJawab->nama = $input['nama'];
+        $penanggungJawab->no_handphone = $input['no_handphone'];
+        $penanggungJawab->jabatan = $input['jabatan'];
+        $penanggungJawab->NIP = $input['nip'];
+        $penanggungJawab->unit_kerja = $input['unit_kerja'];
+        $penanggungJawab->alamat_kantor = $input['alamat_kantor'];
+        $penanggungJawab->telepon_kantor = $input['telp_kantor'];
+        $penanggungJawab->email = $input['email'];
+
+        if($penanggungJawab->save())
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function update($id, $input, $filenames)
+    {
+        $sistemDanProsedur = SistemDanProsedur::find($id);
+
+        $log = new LogSistemDanProsedur();
+        $log->id_sistem_dan_prosedur = $sistemDanProsedur->id;
+        $log->catatan = $input['catatan'];
+        $log->lampiran = serialize($filenames);
+        $log->status = $input['status'];
+        $log->tgl_proses = new DateTime('now');
+
+        $sistemDanProsedur->status = $input['status'];
+        $sistemDanProsedur->lampiran = serialize($filenames);
+
+        if ($sistemDanProsedur->save() && $log->save()) {
+            // Kirim email notifikasi ke pembuat usulan
+            $data = array(
+                'log' => $log,
+                'data' => $sistemDanProsedur
+            );
+
+            if(Auth::user()->role_id = 2)
+            {
+                $user = Pengguna::join('user', 'pengguna.user_id', '=', 'user.id')
+                    ->where('user.role_id', '=', 3)->orWhere('user.role_id', '=', 10)->get(array('pengguna.email'));
+
+                foreach($user as $dat)
+                {
+                    Mail::send('emails.SistemDanProsedur.update', $data, function($message) use($dat) {
+                        $message->to($dat->email)
+                            ->subject('Perubahan Status Usulan');
+                    });
+                }
+            }else{
+                Mail::send('emails.SistemDanProsedur.update', $data, function($message) use($sistemDanProsedur) {
+                    $message->to($sistemDanProsedur->pengguna->email)
+                        ->subject('Perubahan Status Usulan');
+                });
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

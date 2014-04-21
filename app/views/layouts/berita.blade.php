@@ -127,6 +127,9 @@
     </div>
   </div>
 
+  <div class="sub-header">
+    <div class="container">
+
       <ul class="sub-menu" id="sub-aplikasi" style="display: none">
         <li class="has-child">
           <a href="#"><span class="rulycon-drawer-3"> &nbsp; Peraturan Perundang-undangan </span></a>
@@ -186,7 +189,6 @@
     <div class="row-fluid">
       <?php $call = CallCenter::find(1); ?>
       <div class="span8">
-
 <!--        <div id="footer-menu-aplikasi" style="display: none">-->
 <!--          <ul class="footer-menu">-->
 <!--            <li>Peraturan Perundang-undangan</li>-->

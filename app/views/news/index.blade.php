@@ -60,9 +60,9 @@
                           @if(strlen($berita_feed) > 180)
                           <p>{{$highlight_feed}} ...</p>
 
-                          <p><a class="read-more"
-                                href="{{ URL::to('/news/detail?id='. $data->id .'') }}">Selengkapnya
-                                  <span class="rulycon-arrow-right-3"></span></a></p>
+<!--                          <p><a class="read-more"-->
+<!--                                href="{{ URL::to('/news/detail?id='. $data->id .'') }}">Selengkapnya-->
+<!--                                  <span class="rulycon-arrow-right-3"></span></a></p>-->
                           @else
                           <p>{{$berita_feed}}</p>
                           @endif
@@ -82,9 +82,9 @@
                           @if(strlen($berita_feed) > 180)
                           <p>{{$highlight_feed}} ...</p>
 
-                          <p><a class="read-more"
-                                href="{{ URL::to('/news/detail?id='. $data->id .'') }}">Selengkapnya
-                                  <span class="rulycon-arrow-right-3"></span></a></p>
+<!--                          <p><a class="read-more"-->
+<!--                                href="{{ URL::to('/news/detail?id='. $data->id .'') }}">Selengkapnya-->
+<!--                                  <span class="rulycon-arrow-right-3"></span></a></p>-->
                           @else
                           <p>{{$berita_feed}}</p>
                           @endif

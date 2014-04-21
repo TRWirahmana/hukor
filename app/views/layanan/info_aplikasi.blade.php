@@ -57,31 +57,37 @@
 @if($info->id == 4)
 <!--KETATALAKSANAAN-->
 <script>
-    document.title = "Layanan Biro Hukum dan Organisasi | Informasi Ketatalaksanaan";
-  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
+    document.title = "Layanan Biro Hukum dan Organisasi | Informasi Sistem dan Prosedur";
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Sistem dan Prosedur";
 </script>
 
 <legend>
-    Informasi Ketatalaksanaan
+    Informasi Sistem dan Prosedur
+</legend>
+<script>
+    document.getElementById("collapse14").style.height = "auto";
+    document.getElementById("menu-prosedur-info").setAttribute("class", "user-menu-active");
+</script>
+<?php $title = "Sistem dan Prosedur"; ?>
+@endif
+
+<?php //var_dump($info->id);exit;?>
+@if($info->id == 5)
+<!--KETATALAKSANAAN-->
+<script>
+    document.title = "Layanan Biro Hukum dan Organisasi | Informasi Analisis Jabatan";
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Analisis Jabatan";
+</script>
+
+<legend>
+    Informasi Analisis Jabatan
 </legend>
 <script>
     document.getElementById("collapse12").style.height = "auto";
-    document.getElementById("menu-prosedur-info").setAttribute("class", "user-menu-active");
+    document.getElementById("menu-anjab-info").setAttribute("class", "user-menu-active");
 </script>
-<?php $title = "Ketatalaksanaan"; ?>
+<?php $title = "Analisis Jabatan"; ?>
 @endif
-
-<!--@if($info->id == 5)-->
-<!--<!--KETATALAKSANAAN-->-->
-<!--<script>-->
-<!--  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";-->
-<!--</script>-->
-<!---->
-<!--<legend>-->
-<!--    Informasi Analisis Jabatan-->
-<!--</legend>-->
-<?php //$title = "Analisis Jabatan"; ?>
-<!--@endif-->
 
 @include('flash')
 

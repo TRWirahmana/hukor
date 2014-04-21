@@ -53,144 +53,16 @@
 <div class="mainwrapper">
 <div id="top-bar">
   <div id="social-links">
-    <div class="container" >
-      <p class="pull-right">
-        <a href="#"><span class="rulycon-twitter"></span></a>
-        <a href="#"><span class="rulycon-feed-3"></span></a>
-        <input type="text" placeholder="search..."/>
-        <button class="btn btn-primary"><span class="rulycon-search"></span></button>
-      </p>
+    <div class="container" style="min-height: 15px;">
     </div>
   </div>
   <div class="header">
-    <div class="container">
-      <div class="logo">
-        <a href="{{URL::to('/')}}">
-          <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
-          <h4 style="margin-top: 5px;">
-            <span>Biro Hukum dan Organisasi</span>
-            <span>Kementerian Pendidikan dan Kebudayaan</span>
-            <span>Republik Indonesia</span>
-          </h4>
-        </a>
-      </div>
-      <div class="headerinner">
-        <ul class="headmenu pull-right">
-          <li class="odd">
-          </li>
-          <li>
-            <a class="dropdown-toggle" data-toggle="dropdown" id="aplikasi">
-              <span class="rulycon-drawer-3"></span>
-              <span class="headmenu-label">Aplikasi</span>
-            </a>
-          </li>
-
-          <li>
-            <a class="dropdown-toggle" data-toggle="dropdown" id="informasi">
-              <span class="rulycon-notebook"></span>
-              <span class="headmenu-label">Informasi</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="{{URL::to('produkhukum')}}" id="produk_hukum">
-              <span class="rulycon-books"></span>
-              <span class="headmenu-label">Peraturan</span>
-            </a>
-          </li>
-
-          <li class="odd">
-            <a href="{{URL::to('detailprofile')}}" id="profile">
-              <span class="rulycon-profile"></span>
-              <span class="headmenu-label">Profil</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" id="forum_diskusi">
-              <span class="rulycon-bubbles-2"></span>
-              <span class="headmenu-label">Forum</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{URL::to('site')}}">
-              <span class="rulycon-user"></span>
-              <span class="headmenu-label" id="login">Login</span>
-            </a>
-          </li>
-        </ul>
-        <!--headmenu-->
-      </div>
+    <div class="container" style="min-height: 60px;">
     </div>
   </div>
 
   <div class="sub-header">
-    <div class="container">
-      <ul class="sub-menu" id="sub-informasi" style="display: none">
-        <?php $menu = Menu::all();
-        $s = 1; ?>
-        @foreach($menu as $menus)
-        @if($menus->submenu == null)
-        <span class="rulycon-notebook">&nbsp;</span><a href="#">{{$menus->nama_menu}}</a></li>
-        @else
-        <li class="has-child"><span class="rulycon-notebook">&nbsp;</span>
-          @if($menus->submenu != null && $menus->layanan == null)
-          <a href="#">{{$menus->nama_menu}}</a>
-          @else
-          <a href="{{ URL::to('/layanan/detail?id='. $menus->layanan->id .'') }}">{{$menus->nama_menu}}</a>
-          @endif
-          <ul>
-            @foreach($menus->submenu as $submenus)
-            @if($submenus->layanan->id != null)
-            <li><a href="{{ URL::to('/layanan/detail?id='. $submenus->layanan->id .'') }}">{{ $submenus->nama_submenu
-                }}</a></li>
-            @else
-            <li><a href="#">{{ $submenus->nama_submenu }}</a></li>
-            @endif
-            @endforeach
-          </ul>
-        </li>
-        @endif
-        @endforeach
-
-      </ul>
-
-      <ul class="sub-menu" id="sub-aplikasi" style="display: none">
-        <li class="has-child">
-          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Peraturan Perundang-undangan </span></a>
-          <ul>
-            <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Peraturan Perundang-undangan</a></li>
-            <li><a href="{{URL::route('puu.index')}}">Informasi dan Status Usulan</a></li>
-          </ul>
-        </li>
-        <li class="has-child">
-          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Pelembagaan</span></a>
-          <ul>
-            <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Pelembagaan</a></li>
-            <li><a href="{{ URL::route('pelembagaan.index') }}">Informasi dan Status Usulan</a></li>
-          </ul>
-        </li>
-
-        <li class="has-child">
-          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Bantuan Hukum</span></a>
-          <ul>
-            <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>
-            <li><a href="{{ URL::route('bantuan_hukum.index') }}">Informasi dan Status Usulan</a></li>
-          </ul>
-        </li>
-
-        <li class="has-child">
-          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Ketatalaksanaan</span></a>
-          <ul>
-            <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>
-            <li><a href="{{URL::route('sp.index')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
-
-            <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Analisis jabatan</a></li>
-            <li><a href="{{URL::route('aj.index')}}">Informasi dan Status Usulan</a></li>
-          </ul>
-        </li>
-
-      </ul>
+    <div class="container" style="min-height: 30px;">
     </div>
   </div>
 </div>

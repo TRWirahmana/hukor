@@ -82,7 +82,8 @@
                 { mData: 'id', sWidth: "8%",
                     mRender: function(data, type, all) {
                         if(all._role_id == 2)
-                            return "<a href='aj/download/" + data + "' title='Unduh'><i class='icon-download'></i></a> ";
+                            return "<a href='aj/download/" + data + "' title='Unduh'><i class='icon-download'></i></a> " + " " +
+                                "<a href='"+baseUrl+"/aj/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a> ";
                         return "";
                     }
                 }

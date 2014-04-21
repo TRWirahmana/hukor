@@ -73,9 +73,18 @@ class AnalisisJabatanController extends BaseController {
 			return Datatables::of(DAL_AnalisisJabatan::getLogUsulan($id))->make(true);
 
 		$analisisJabatan = AnalisisJabatan::with('Pengguna')->find($id);
-		$this->layout = View::make('layouts.admin');
-		$this->layout->content = View::make('AnalisisJabatan.edit')
-			->with('analisisJabatan', $analisisJabatan);
+
+        $user = Auth::user()->role_id;
+
+        if($user == 3){
+            $this->layout = View::make('layouts.admin');
+            $this->layout->content = View::make('AnalisisJabatan.edit')
+                ->with('analisisJabatan', $analisisJabatan);
+        }else{
+            $this->layout = View::make('layouts.master');
+            $this->layout->content = View::make('AnalisisJabatan.detail')
+                ->with('analisisJabatan', $analisisJabatan);
+        }
 	}
 
 	public function update($id) {
@@ -90,7 +99,11 @@ class AnalisisJabatanController extends BaseController {
 
             if ($anjab == true) {
                 Session::flash('success', 'Usulan berhasil diperbaharui.');
-                return Redirect::route('admin.aj.index');
+                if(Auth::user()->role_id == 2) {
+                    return Redirect::route('aj.index');
+                }else{
+                    return Redirect::route('admin.aj.index');
+                }
             } else {
                 Session::flash('error', 'Usulah gagal diperbaharui.');
                 return Redirect::back();
@@ -141,7 +154,7 @@ class AnalisisJabatanController extends BaseController {
 			$data[$index]['Tanggal Usulan'] = $tglUsulan->format('d/m/Y');
 			$data[$index]['Unit Kerja'] = $analisisJabatan->unit_kerja;
 			$data[$index]['Perihal'] = $analisisJabatan->perihal;
-			$data[$index]['status'] = $perUU->status;
+			$data[$index]['status'] = $analisisJabatan->status;
 			$url = URL::route('aj.download', array('id' => $analisisJabatan->id));
 			$data[$index]['lampiran'] = "<a href='{$url}'>Unduh</a>";
 

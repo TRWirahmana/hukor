@@ -39,52 +39,45 @@ class SistemDanProsedurController extends BaseController {
 			return Datatables::of(DAL_SistemDanProsedur::getLogUsulan($id))->make(true);
 
 		$sistemDanProsedur = SistemDanProsedur::with('Pengguna')->find($id);
-		$this->layout = View::make('layouts.admin');
-		$this->layout->content = View::make('SistemDanProsedur.edit')
-			->with('data', $sistemDanProsedur);
+
+        if(Auth::user()->role_id == 3){
+            $this->layout = View::make('layouts.admin');
+            $this->layout->content = View::make('SistemDanProsedur.edit')
+                ->with('data', $sistemDanProsedur);
+        }else{
+            $this->layout = View::make('layouts.master');
+            $this->layout->content = View::make('SistemDanProsedur.detail')
+                ->with('data', $sistemDanProsedur);
+        }
 	}
 
 	public function update($id)
 	{
-		$sistemDanProsedur = SistemDanProsedur::find($id);
+        $input = Input::all();
 
-		$status = Input::get('status', 0);
-		$catatan = Input::get('catatan', '');
-		$ketLampiran = Input::get('ket_lampiran', '');
-		$lampiran = Input::file('lampiran');
+		$filenames = HukorHelper::MultipleUploadFile($this->uploadFolder, $input['lampiran']);
 
-		$filenames = HukorHelper::MultipleUploadFile($this->uploadFolder, $lampiran);
+        if($filenames != null)
+        {
+            $sp = DAL_SistemDanProsedur::update($id, $input, $filenames);
 
+            if($sp == true)
+            {
+                Session::flash('success', 'Usulan berhasil diperbaharui.');
 
-		$log = new LogSistemDanProsedur();
-		$log->id_sistem_dan_prosedur = $sistemDanProsedur->id;
-		$log->catatan = $sistemDanProsedur->catatan;
-		$log->lampiran = $sistemDanProsedur->lampiran;
-		$log->status = $sistemDanProsedur->status;
-		$log->tgl_proses = new DateTime('now');
-
-		$sistemDanProsedur->status = $status;
-		$sistemDanProsedur->catatan = $catatan;
-		$sistemDanProsedur->lampiran = serialize($filenames);
-
-		if ($sistemDanProsedur->save() && $log->save()) {
-			// Kirim email notifikasi ke pembuat usulan
-			$data = array(
-					'log' => $log,
-					'data' => $sistemDanProsedur
-				     );
-
-			Mail::send('emails.SistemDanProsedur.update', $data, function($message) use($sistemDanProsedur) {
-					$message->to($sistemDanProsedur->pengguna->email)
-					->subject('Perubahan Status Usulan');
-					});
-
-			Session::flash('success', 'Usulan berhasil diperbaharui.');
-			return Redirect::route('admin.sp.index');
-		} else {
-			Session::flash('error', 'Usulah gagal diperbaharui.');
-			return Redirect::back();
-		}
+                if(Auth::user()->role_id == 3){
+                    return Redirect::route('admin.sp.index');
+                }else{
+                    return Redirect::route('sp.index');
+                }
+            }else{
+                Session::flash('error', 'Usulah gagal diperbaharui.');
+                return Redirect::back();
+            }
+        }else{
+            Session::flash('error', 'Usulah gagal diperbaharui.');
+            return Redirect::back();
+        }
 	}
 
 
@@ -98,56 +91,33 @@ class SistemDanProsedurController extends BaseController {
 	}
 
 	public function store() {
-		$input = Input::get('sistem_dan_prosedur');
-		$input2 = Input::get('penanggungJawab');
+        $input = Input::all();
 
-		$files = Input::file('sistem_dan_prosedur.lampiran');
-		$filenames = HukorHelper::MultipleUploadFile($this->folderName, $files);
+		$filenames = HukorHelper::MultipleUploadFile($this->folderName, $input['sistem_dan_prosedur']['lampiran']);
 
-		$sistemDanProsedur = new SistemDanProsedur;
-		$sistemDanProsedur->id_pengguna = Auth::user()->pengguna->id;
-		$sistemDanProsedur->perihal = $input['perihal'];
-		$sistemDanProsedur->catatan = $input['catatan'];
-		$sistemDanProsedur->lampiran = serialize($filenames);
-		$sistemDanProsedur->tgl_usulan = new DateTime;
-		$sistemDanProsedur->status = 0;
-		if ($sistemDanProsedur->save()) {
-			$penanggungJawab = new PenanggungJawabSistemDanProsedur();
-			$penanggungJawab->id_sistem_dan_prosedur = $sistemDanProsedur->id;
-			$penanggungJawab->nama = $input2['nama'];
-			$penanggungJawab->no_handphone = $input2['no_handphone'];
-			$penanggungJawab->jabatan = $input2['jabatan'];
-			$penanggungJawab->NIP = $input2['nip'];
-			$penanggungJawab->unit_kerja = $input2['unit_kerja'];
-			$penanggungJawab->alamat_kantor = $input2['alamat_kantor'];
-			$penanggungJawab->telepon_kantor = $input2['telp_kantor'];
-			$penanggungJawab->email = $input2['email'];
-			$penanggungJawab->save();
+        if($filenames != null)
+        {
+            $save = DAL_SistemDanProsedur::save($input, $filenames);
 
-			// kirim email ke admin
-			$data = array(
-					'user' => Auth::user(),
-					'data' => $sistemDanProsedur
-				     );
-			Mail::send('emails.SistemDanProsedur.new', $data, function($message) {
-					// admin email (testing)
-					$message->to('egisolehhasdi@gmail.com', 'egisolehhasdi@gmail.com')
-					->subject('Usulan Baru Sistem dan Prosedur');
-					});
-
-			Session::flash('success', 'Data berhasil dikirim.');
-			return Redirect::route('sp.index');
-		} else {
-			Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
-			return Redirect::back();
-		}
+            if($save == true)
+            {
+                Session::flash('success', 'Data berhasil dikirim.');
+                return Redirect::route('sp.index');
+            }else{
+                Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
+                return Redirect::back();
+            }
+        }else{
+            Session::flash('error', 'Gagal mengirim data. Pastikan informasi sudah benar.');
+            return Redirect::back();
+        }
 	}
 
 	public function download($id, $index = null)
 	{
 		if($sp = SistemDanProsedur::find($id)) {
 			$attachments = unserialize($sp->lampiran);
-			return	HukorHelper::downloadAttachment($attachments, $index);	
+			return HukorHelper::downloadAttachment($attachments, $index);
 		} else 
 			return App::abort(404);
 	}

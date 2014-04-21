@@ -308,7 +308,7 @@ Route::group(array("prefix" => "admin", "before" => "auth|super_admin"), functio
 });
 
 
-Route::resource("sp", 'SistemDanProsedurController', array("only" => array("index")));    
+Route::resource("sp", 'SistemDanProsedurController', array("only" => array("index", "edit", "update")));
 Route::resource("aj", "AnalisisJabatanController", array("only" => array("index", "edit", "update")));
 Route::resource("puu", "PeruuController", array("only" => array("index", "update")));
 Route::resource("pelembagaan", "PelembagaanController", array("only" => array("index", "printTable"))); 

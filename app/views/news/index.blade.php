@@ -127,7 +127,7 @@
 
           <?php $s = 0; ?>
           @foreach($latest_news as $news_feeds)
-          @if($s++ > 6)
+          @if($s++ >= 6)
           <li>
             <div class="news-content">
               <div class="row-fluid">

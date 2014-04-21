@@ -54,7 +54,7 @@
   <div id="social-links">
     <div class="container" >
       <p class="pull-right">
-        <a href="#"><span class="rulycon-twitter"></span></a>
+        <a href="https://twitter.com/hukor_kemdikbud"><span class="rulycon-twitter"></span></a>
         <a href="#"><span class="rulycon-feed-3"></span></a>
         <input type="text" placeholder="search..."/>
         <button class="btn btn-primary"><span class="rulycon-search"></span></button>
@@ -105,7 +105,7 @@
             <li>
                 <a href="{{URL::to('produkhukum')}}" id="produk_hukum">
                     <span class="rulycon-books"></span>
-                    <span class="headmenu-label">Peraturan</span>
+                    <span class="headmenu-label">Produk Hukum</span>
                 </a>
             </li>
 

@@ -445,7 +445,7 @@ p {
 
 #main-carousel .item .caption {
   position: absolute;
-  top: 200px;
+  bottom: 10px;
   left: 0;
   width: 68.376068376068375%;
   padding: 15px 20px 10px;

@@ -445,7 +445,7 @@ p {
 
 #main-carousel .item .caption {
   position: absolute;
-  top: 240px;
+  bottom: 10px;
   left: 0;
   width: 68.376068376068375%;
   padding: 15px 20px 10px;
@@ -458,16 +458,21 @@ p {
 }
 
 #main-carousel .item .caption h6 {
-  font-size: 15px;
+  font-family: "pt_sans_narrowregular", sans-serif;
+  font-size: 14px;
   margin-bottom: 5px;
 }
 
-#main-carousel .item .caption > a, #main-carousel .item .caption > a > p {
+#main-carousel .item .caption a, #main-carousel .item .caption a > p {
   color: #ffffff;
   line-height: 160%;
 }
 
-#main-carousel .item .caption > a:hover {
+#main-carousel .item .caption a > p {
+  margin-bottom: 5px;
+}
+
+#main-carousel .item .caption a:hover {
   text-decoration: underline;
 }
 
@@ -689,6 +694,7 @@ p {
 .news-content p {
   padding-left: 16px;
   padding-right: 16px;
+  font-size: 14px;
 }
 
 .news-content h4 > a {
@@ -788,6 +794,7 @@ p {
 .footer address {
   margin-bottom: 12px;
   margin-top: 32px;
+  font-size: 13px;
 }
 
 .footer #footer-image img {

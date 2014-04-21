@@ -88,12 +88,19 @@
                 </a>
             </li>
 
-            <li>
-                <a class="dropdown-toggle" data-toggle="dropdown" id="informasi">
-                    <span class="rulycon-notebook"></span>
-                    <span class="headmenu-label">Informasi</span>
+            <li class="odd">
+                <a href="{{URL::to('detailprofile')}}" id="profile">
+                    <span class="rulycon-profile"></span>
+                    <span class="headmenu-label">Profil</span>
                 </a>
             </li>
+
+<!--            <li>-->
+<!--                <a class="dropdown-toggle" data-toggle="dropdown" id="informasi">-->
+<!--                    <span class="rulycon-notebook"></span>-->
+<!--                    <span class="headmenu-label">Informasi</span>-->
+<!--                </a>-->
+<!--            </li>-->
 
             <li>
                 <a href="{{URL::to('produkhukum')}}" id="produk_hukum">
@@ -101,13 +108,6 @@
                     <span class="headmenu-label">Peraturan</span>
                 </a>
             </li>
-
-          <li class="odd">
-            <a href="{{URL::to('detailprofile')}}" id="profile">
-              <span class="rulycon-profile"></span>
-              <span class="headmenu-label">Profil</span>
-            </a>
-          </li>
 
           <li>
             <a href="#" id="forum_diskusi">
@@ -129,67 +129,46 @@
 
   <div class="sub-header">
     <div class="container">
-      <ul class="sub-menu" id="sub-informasi" style="display: none">
-        <?php $menu = Menu::all();
-        $s = 1; ?>
-        @foreach($menu as $menus)
-        @if($menus->submenu == null)
-        <span class="rulycon-notebook">&nbsp;</span><a href="#">{{$menus->nama_menu}}</a></li>
-        @else
-        <li class="has-child"><span class="rulycon-notebook">&nbsp;</span>
-          @if($menus->submenu != null && $menus->layanan == null)
-          <a href="#">{{$menus->nama_menu}}</a>
-          @else
-          <a href="{{ URL::to('/layanan/detail?id='. $menus->layanan->id .'') }}">{{$menus->nama_menu}}</a>
-          @endif
-          <ul>
-            @foreach($menus->submenu as $submenus)
-            @if($submenus->layanan->id != null)
-            <li><a href="{{ URL::to('/layanan/detail?id='. $submenus->layanan->id .'') }}">{{ $submenus->nama_submenu
-                }}</a></li>
-            @else
-            <li><a href="#">{{ $submenus->nama_submenu }}</a></li>
-            @endif
-            @endforeach
-          </ul>
-        </li>
-        @endif
-        @endforeach
-
-      </ul>
 
       <ul class="sub-menu" id="sub-aplikasi" style="display: none">
         <li class="has-child">
           <a href="#"><span class="rulycon-drawer-3"> &nbsp; Peraturan Perundang-undangan </span></a>
           <ul>
-            <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Peraturan Perundang-undangan</a></li>
-            <li><a href="{{URL::route('puu.index')}}">Informasi dan Status Usulan</a></li>
+            <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Informasi</a></li>
+            <li><a href="{{URL::route('puu.index')}}">Usulan</a></li>
           </ul>
         </li>
         <li class="has-child">
           <a href="#"><span class="rulycon-drawer-3"> &nbsp; Pelembagaan</span></a>
           <ul>
-            <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Pelembagaan</a></li>
-            <li><a href="{{ URL::route('pelembagaan.index') }}">Informasi dan Status Usulan</a></li>
+            <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Informasi</a></li>
+            <li><a href="{{ URL::route('pelembagaan.index') }}">Usulan</a></li>
           </ul>
         </li>
 
           <li class="has-child">
               <a href="#"><span class="rulycon-drawer-3"> &nbsp; Bantuan Hukum</span></a>
               <ul>
-                  <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>
-                  <li><a href="{{ URL::route('bantuan_hukum.index') }}">Informasi dan Status Usulan</a></li>
+                  <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Informasi</a></li>
+                  <li><a href="{{ URL::route('bantuan_hukum.index') }}">Usulan</a></li>
+              </ul>
+          </li>
+
+          <li class="has-child">
+              <a href="#"><span class="rulycon-drawer-3"> &nbsp; Analisis Jabatan</span></a>
+              <ul>
+                  <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Informasi</a></li>
+                  <li><a href="{{URL::route('aj.index')}}">Usulan</a></li>
               </ul>
           </li>
 
         <li class="has-child">
-          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Ketatalaksanaan</span></a>
+          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Sistem dan Prosedur</span></a>
           <ul>
-            <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>
-            <li><a href="{{URL::route('sp.index')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>
+            <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Informasi</a></li>
+            <li><a href="{{URL::route('sp.index')}}">Usulan</a></li>
 
-            <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Analisis jabatan</a></li>
-            <li><a href="{{URL::route('aj.index')}}">Informasi dan Status Usulan</a></li>
+
           </ul>
         </li>
 
@@ -210,25 +189,6 @@
     <div class="row-fluid">
       <?php $call = CallCenter::find(1); ?>
       <div class="span8">
-<!--        <div id="footer-menu-informasi" style="display: none">-->
-<!--          @foreach($menu as $menus)-->
-<!--          <ul class="footer-menu">-->
-<!---->
-<!--            @if($menus->submenu == null)-->
-<!--            <li>{{$menus->nama_menu}}</li>-->
-<!--            @else-->
-<!--            <li>{{$menus->nama_menu}}</li>-->
-<!--            @foreach($menus->submenu as $submenus)-->
-<!--            @if($submenus->layanan->id != null)-->
-<!--            @else-->
-<!--            <li><a href="#">{{ $submenus->nama_submenu }}</a></li>-->
-<!--            @endif-->
-<!--            @endforeach-->
-<!--            @endif-->
-<!---->
-<!--          </ul>-->
-<!--          @endforeach-->
-<!--        </div>-->
 <!--        <div id="footer-menu-aplikasi" style="display: none">-->
 <!--          <ul class="footer-menu">-->
 <!--            <li>Peraturan Perundang-undangan</li>-->

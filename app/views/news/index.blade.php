@@ -34,7 +34,7 @@
       <div class="carousel-indicators">
           <?php $x = 0;
           foreach ($latest_news as $data) {
-              if ($x < 6) {
+              if ($x <= 6) {
                   echo "<li data-target=#main-carousel data-slide-to= " . $x . ">" . $data->judul . "</li>";
               }
               $x++;
@@ -47,7 +47,7 @@
           ?>
 
           @foreach($latest_news as $data)
-            @if($s < 6)
+            @if($s <= 6)
               @if($data->slider != null)
                   <div class="item">
                       {{ HTML::image('assets/uploads/berita/' . $data->slider) }}
@@ -55,9 +55,9 @@
                       <a href="{{ URL::to('/news/detail?id='. $data->id .'') }}">
                         <h6>{{$data->judul}}</h6>
                           <?php $berita_feed = strip_tags($data->berita);
-                          $highlight_feed = substr($berita_feed, 0, 250);
+                          $highlight_feed = substr($berita_feed, 0, 180);
                           ?>
-                          @if(strlen($berita_feed) > 250)
+                          @if(strlen($berita_feed) > 180)
                           <p>{{$highlight_feed}} ...</p>
 
                           <p><a class="read-more"
@@ -74,12 +74,12 @@
                   <div class="item">
                       {{ HTML::image('assets/img/noim.jpg') }}
                     <div class="caption">
-                      <a href="#">
+                      <a href="{{ URL::to('/news/detail?id='. $data->id .'') }}">
                           <h6>{{$data->judul}}</h6>
                           <?php $berita_feed = strip_tags($data->berita);
-                          $highlight_feed = substr($berita_feed, 0, 350);
+                          $highlight_feed = substr($berita_feed, 0, 180);
                           ?>
-                          @if(strlen($berita_feed) > 250)
+                          @if(strlen($berita_feed) > 180)
                           <p>{{$highlight_feed}} ...</p>
 
                           <p><a class="read-more"
@@ -127,7 +127,7 @@
 
           <?php $s = 0; ?>
           @foreach($latest_news as $news_feeds)
-          @if($s++ >= 6)
+          @if($s++ > 6)
           <li>
             <div class="news-content">
               <div class="row-fluid">
@@ -147,9 +147,9 @@
                       class="date"><?php echo HukorHelper::castMonthToString3($date->format('m')) ?></span>
                     {{$date->format('Y')}}</p>
                   <?php $berita_feed = strip_tags($news_feeds->berita);
-                  $highlight_feed = substr($berita_feed, 0, 350);
+                  $highlight_feed = substr($berita_feed, 0, 180);
                   ?>
-                  @if(strlen($berita_feed) > 350)
+                  @if(strlen($berita_feed) > 180)
                   <p>{{$highlight_feed}} ...</p>
 
                   <p><a class="read-more"
@@ -167,7 +167,7 @@
           @endforeach
 
         </ul>
-<!--         JIKA #BERITA KURANG DARI LIMA ITEM-->
+<!--         JIKA #BERITA KURANG DARI 7 ITEM-->
           @if($count_news <=6)
                 <div class="row-fluid">
                     <div class="span12">

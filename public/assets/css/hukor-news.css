@@ -694,6 +694,7 @@ p {
 .news-content p {
   padding-left: 16px;
   padding-right: 16px;
+  font-size: 14px;
 }
 
 .news-content h4 > a {
@@ -793,6 +794,7 @@ p {
 .footer address {
   margin-bottom: 12px;
   margin-top: 32px;
+  font-size: 13px;
 }
 
 .footer #footer-image img {

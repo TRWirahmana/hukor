@@ -115,6 +115,34 @@
   <br>
   @if (in_array(Auth::user()->role_id, array(1, 3, 4, 5, 9)))
   <div class="row-fluid dashboard-summary">
+      <div class="span4">
+          <h4>Analisis Jabatan</h4>
+
+          <div class="row-fluid">
+              <div class="span4">
+                  <div class="card three">
+                      <h4>{{DAL_AnalisisJabatan::getUnreadCount()}}</h4>
+
+                      <p>Usulan baru</p>
+                  </div>
+              </div>
+              <div class="span4">
+                  <div class="card three">
+                      <h4>{{DAL_AnalisisJabatan::getTodayCount()}}</h4>
+
+                      <p>Usulan hari ini</p>
+                  </div>
+              </div>
+              <div class="span4">
+                  <div class="card three">
+                      <h4>{{DAL_AnalisisJabatan::getTotalCount()}}</h4>
+
+                      <p>Total usulan</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
     <div class="span4">
       <h4>Sistem dan Prosedur</h4>
 
@@ -142,33 +170,7 @@
         </div>
       </div>
     </div>
-    <div class="span4">
-      <h4>Analisis Jabatan</h4>
 
-      <div class="row-fluid">
-        <div class="span4">
-          <div class="card three">
-            <h4>{{DAL_AnalisisJabatan::getUnreadCount()}}</h4>
-
-            <p>Usulan baru</p>
-          </div>
-        </div>
-        <div class="span4">
-          <div class="card three">
-            <h4>{{DAL_AnalisisJabatan::getTodayCount()}}</h4>
-
-            <p>Usulan hari ini</p>
-          </div>
-        </div>
-        <div class="span4">
-          <div class="card three">
-            <h4>{{DAL_AnalisisJabatan::getTotalCount()}}</h4>
-
-            <p>Total usulan</p>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   @endif
 </div>

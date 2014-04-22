@@ -258,11 +258,11 @@
 </div>
 
 <script>
-  jQuery("#app_ketatalaksanaan > ul > li:nth-child(2) > a").addClass("sub-menu-active");
-  jQuery("#app, #app_ketatalaksanaan > ul").css({
-    "display": "block",
-    "visibility": "visible"
-  });
+    jQuery("#app_anjab > a").addClass("sub-menu-active");
+    jQuery("#app").css({
+        "display": "block",
+        "visibility": "visible"
+    });
 </script>
 
 <script>

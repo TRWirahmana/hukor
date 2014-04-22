@@ -4,15 +4,16 @@
 
     <ul class="breadcrumbs">
 	<li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-	<li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
-	<li>Sistem dan Prosedur</li>
+        <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
+        <li><a href="{{URL::previous()}}">Sistem dan Prosedur</a> <span class="separator"></span></li>
+        <li>Detail Usulan</li>
     </ul>
     @include('adminflash')
     <div class="pageheader">
 	<!--        <form action="results.html" method="post" class="searchbar">-->
 	    <!--            <input type="text" name="keyword" placeholder="To search type and hit enter..."/>-->
 	    <!--        </form>-->
-	<div class="pageicon">&nbsp;</div>
+	<div class="pageicon"><span class="rulycon-notebook"></span></div>
 	<div class="pagetitle">
 	    <!--<h5>Events</h5>-->
 
@@ -195,9 +196,17 @@
 		    </fieldset>
 
 		</div>
+            <div class="row-fluid">
+                <div class="span24">
+                    <a class="btn btn-primary" type="button" href="{{URL::to('admin.sp.index')}}">Batal</a>
+                    <button class="btn btn-primary" type="submit">Simpan</button>
+
+                </div>
+            </div>
 	    </div>
 
-
+<br>
+<br>
 	    <div class="row-fluid">
 		<div class="span24">
 		    <table id="tbl-log">
@@ -219,10 +228,7 @@
 		</div>
 	    </div>
 
-	    <div class="form-actions">
-		<a href="{{ URL::route('admin.sp.index') }}" class="btn btn-primary">Batal</a>
-		{{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
-	    </div>
+
 	    {{ Form::close() }}
 
 
@@ -254,56 +260,83 @@
 <script type="text/javascript">
     jQuery(function($){
 	    $tblLog = $("#tbl-log").dataTable({
-bServerSide: true,
-sAjaxSource: document.location.href,
-bFilter: false,
-bInfo: false,
-bSort: false,
-bLengthChange: false,
-iDisplayLength: 5,
-aoColumns: [
-{
-mData: "tgl_proses",
-mRender: function(data) {
-return $.datepicker.formatDate("dd M yy", new Date(Date.parse(data)));
-}
-},
-{
-mData: "status",
-mRender: function(data) {
-switch(parseInt(data)) {
-case 1: 
+        bServerSide: true,
+        sAjaxSource: document.location.href,
+        bProcessing: true,
+        iDisplayLength: 5,
+            oLanguage:{
+                "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+                "sEmptyTable": "Data Kosong",
+                "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                "sProcessing": 'Memproses...',
+                "sSearch":       "Cari:",
+                "oPaginate": {
+                    "sNext": '<span class="rulycon-forward-3"></span>',
+                    "sPrevious": "<span class='rulycon-backward-2'></span>"
+                },
+                "sLengthMenu": 'Tampilkan <select>'+
+                    '<option value="10">10</option>'+
+                    '<option value="25">25</option>'+
+                    '<option value="50">50</option>'+
+                    '<option value="100">100</option>'+
+                    '</select>'
+            },
+        aoColumns: [
+        {
+        mData: "tgl_proses",
+        mRender: function(data) {
+        return $.datepicker.formatDate("dd M yy", new Date(Date.parse(data)));
+        }
+        },
+        {
+        mData: "status",
+        mRender: function(data) {
+        switch(parseInt(data)) {
+        case 1:
 
-    return "Diproses";
-    break;
-case 2:
-    return "Ditunda";
-    break;
-case 3:
-    return "Ditolak";
-    break;
-case 4:
-    return "Buat salinan";
-    break;
-case 5:
-    return "Penetapan";
-    break;
-default:
-    return " ";
-    break;
-};
-}
-},
-{mData: "catatan"},
-{
-mData: "lampiran",
-       mRender: function(data, type, full) {
-	   return '<a href="'+baseUrl+'/admin/sp/log/download/'+full.id+'">Unduh</a>';
-       }
-}
-// {mData: "id"}
-]
-});
-});
+            return "Diproses";
+            break;
+        case 2:
+            return "Ditunda";
+            break;
+        case 3:
+            return "Ditolak";
+            break;
+        case 4:
+            return "Buat salinan";
+            break;
+        case 5:
+            return "Penetapan";
+            break;
+        default:
+            return " ";
+            break;
+        };
+        }
+        },
+        {mData: "catatan"},
+        {
+        mData: "lampiran",
+               mRender: function(data, type, full) {
+               return '<a href="'+baseUrl+'/admin/sp/log/download/'+full.id+'">Unduh</a>';
+               }
+        }
+        // {mData: "id"}
+        ]
+        });
+        });
+</script>
+<script>
+    jQuery("#app_sisprod > a").addClass("sub-menu-active");
+    jQuery("#app").css({
+        "display": "block",
+        "visibility": "visible"
+    });
+</script>
+
+<script>
+    jQuery(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | Detail Usulan Sistem dan Prosedur"
+    });
 </script>
 @stop

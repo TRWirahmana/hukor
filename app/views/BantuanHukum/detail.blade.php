@@ -425,7 +425,12 @@
             "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
             "sEmptyTable": "Data Kosong",
             "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sProcessing": 'Memproses...',
             "sSearch":       "Cari:",
+            "oPaginate": {
+                "sNext": '<span class="rulycon-forward-3"></span>',
+                "sPrevious": "<span class='rulycon-backward-2'></span>"
+            },
             "sLengthMenu": 'Tampilkan <select>'+
                 '<option value="10">10</option>'+
                 '<option value="25">25</option>'+

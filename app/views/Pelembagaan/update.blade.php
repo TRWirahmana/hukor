@@ -162,9 +162,6 @@
         </div>
       </div>
 
-
-      <br/>
-
       <div class="row-fluid">
         <table id="tbl-log_pelembagaan">
           <thead>
@@ -227,6 +224,10 @@
               "sSearch":       "Cari:",
               "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
               "sProcessing": 'Memproses...',
+              "oPaginate": {
+                  "sNext": '<span class="rulycon-forward-3"></span>',
+                  "sPrevious": "<span class='rulycon-backward-2'></span>"
+              },
               "sLengthMenu": 'Tampilkan <select>'+
                   '<option value="10">10</option>'+
                   '<option value="25">25</option>'+

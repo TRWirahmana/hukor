@@ -39,7 +39,9 @@
 <div class="row-fluid">
   <div class="span6">
     <fieldset>
-      <legend>PENANGGUNG JAWAB</legend>
+        <div class="nav nav-tabz">
+            <h4>PENANGGUNG JAWAB</h4>
+        </div>
 
       <div class="control-group">
         <label for="" class="control-label">Unit Kerja</label>
@@ -81,7 +83,9 @@
   </div>
   <div class="span6">
     <fieldset>
-      <legend>INFORMASI PENGUSUL</legend>
+        <div class="nav nav-tabz">
+            <h4>INFORMASI PENGUSUL</h4>
+        </div>
       <div class="control-group">
         <label for="" class="control-label">Unit Kerja</label>
 
@@ -126,7 +130,9 @@
   <div class="span6">
 
     <fieldset>
-      <legend>INFORMASI PERIHAL & LAMPIRAN</legend>
+        <div class="nav nav-tabz">
+            <h4>INFORMASI PERIHAL & LAMPIRAN</h4>
+        </div>
       <div class="control-group">
         <label for="" class="control-label">Tgl Usulan</label>
 
@@ -182,7 +188,9 @@
   </div>
   <div class="span6">
     <fieldset>
-      <legend>UPDATE STATUS</legend>
+        <div class="nav nav-tabz">
+            <h4>UPDATE STATUS</h4>
+        </div>
       <div class="control-group">
         {{ Form::label('status', 'Status', array('class' => 'control-label'))}}
         <div class="controls">

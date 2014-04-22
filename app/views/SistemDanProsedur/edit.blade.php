@@ -17,7 +17,7 @@
 	<div class="pagetitle">
 	    <!--<h5>Events</h5>-->
 
-	    <h1>Sistem dan Prosedur</h1>
+	    <h1>Detail Usulan</h1>
 	</div>
     </div>
     <!--pageheader-->
@@ -35,7 +35,9 @@
 	    <div class="row-fluid">
 		<div class="span6">
 		    <fieldset>
-			<legend>PENANGGUNG JAWAB</legend>
+                <div class="nav nav-tabz">
+                    <h4>PENANGGUNG JAWAB</h4>
+                </div>
 			
 			<div class="control-group">
 			    <label for="" class="control-label">Unit Kerja</label>
@@ -69,7 +71,10 @@
 		</div>
 		<div class="span6">
 		    <fieldset>
-			<legend>INFORMASI PENGUSUL</legend>
+                <div class="nav nav-tabz">
+                    <h4>INFORMASI PENGUSUL</h4>
+                </div>
+
 			<div class="control-group">
 			    <label for="" class="control-label">Unit Kerja</label>
 			    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->unit_kerja }}"></div>
@@ -109,7 +114,9 @@
 	    <div class="row-fluid">
 		<div class="span6">
 		    <fieldset>
-			<legend>INFORMASI PERIHAL & LAMPIRAN</legend>
+                <div class="nav nav-tabz">
+                    <h4>INFORMASI PERIHAL & LAMPIRAN</h4>
+                </div>
 			<div class="control-group">
 			    <label for="" class="control-label">Tgl Usulan</label>
 			    <div class="controls"><input type="text" disabled="" value="{{ $data->tgl_usulan }}"></div>
@@ -153,7 +160,9 @@
 		</div>
 		<div class="span6">
 		    <fieldset>
-			<legend>UPDATE STATUS</legend>
+                <div class="nav nav-tabz">
+                    <h4>UPDATE STATUS</h4>
+                </div>
 			<div class="control-group">
 			    {{ Form::label('status', 'Status', array('class' => 'control-label'))}}
 			    <div class="controls">

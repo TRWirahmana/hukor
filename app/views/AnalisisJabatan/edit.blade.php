@@ -32,7 +32,7 @@
 <div class="row-fluid">
   <div class="span6">
     <fieldset>
-        <div class="nav nav-tabs">
+        <div class="nav nav-tabz">
             <h4>PENANGGUNG JAWAB</h4>
         </div>
       <div class="control-group">
@@ -80,7 +80,7 @@
   </div>
   <div class="span6">
     <fieldset>
-        <div class="nav nav-tabs">
+        <div class="nav nav-tabz">
             <h4>INFORMASI PENGUSUL</h4>
         </div>
       <div class="control-group">
@@ -129,7 +129,7 @@
 <div class="row-fluid">
   <div class="span6">
     <fieldset>
-        <div class="nav nav-tabs">
+        <div class="nav nav-tabz">
             <h4>INFORMASI PERIHAL & LAMPIRAN</h4>
         </div>
       <div class="control-group">
@@ -178,7 +178,7 @@
   </div>
   <div class="span6">
     <fieldset>
-        <div class="nav nav-tabs">
+        <div class="nav nav-tabz">
             <h4>UPDATE STATUS</h4>
         </div>
       <div class="control-group">

@@ -39,7 +39,9 @@
 <div class="row-fluid">
   <div class="span6">
     <fieldset>
-      <legend>PENANGGUNG JAWAB</legend>
+        <div class="nav nav-tabz">
+            <h4>PENANGGUNG JAWAB</h4>
+        </div>
 
       <div class="control-group">
         <label for="" class="control-label">Unit Kerja</label>
@@ -81,7 +83,9 @@
   </div>
   <div class="span6">
     <fieldset>
-      <legend>INFORMASI PENGUSUL</legend>
+        <div class="nav nav-tabz">
+            <h4>INFORMASI PENGUSUL</h4>
+        </div>
       <div class="control-group">
         <label for="" class="control-label">Unit Kerja</label>
 
@@ -126,7 +130,9 @@
   <div class="span6">
 
     <fieldset>
-      <legend>INFORMASI PERIHAL & LAMPIRAN</legend>
+        <div class="nav nav-tabz">
+            <h4>INFORMASI PERIHAL & LAMPIRAN</h4>
+        </div>
       <div class="control-group">
         <label for="" class="control-label">Tgl Usulan</label>
 
@@ -182,7 +188,9 @@
   </div>
   <div class="span6">
     <fieldset>
-      <legend>UPDATE STATUS</legend>
+        <div class="nav nav-tabz">
+            <h4>UPDATE STATUS</h4>
+        </div>
       <div class="control-group">
         {{ Form::label('status', 'Status', array('class' => 'control-label'))}}
         <div class="controls">
@@ -287,6 +295,7 @@
       bServerSide: true,
         bProcessing: true,
       bPaginate: true,
+
       oLanguage:{
             "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
             "sEmptyTable": "Data Kosong",
@@ -294,6 +303,10 @@
             "sSearch":       "Cari:",
               "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
               "sProcessing": 'Memproses...',
+          "oPaginate": {
+              "sNext": '<span class="rulycon-forward-3"></span>',
+              "sPrevious": "<span class='rulycon-backward-2'></span>"
+          },
             "sLengthMenu": 'Tampilkan <select>'+
                 '<option value="10">10</option>'+
                 '<option value="25">25</option>'+

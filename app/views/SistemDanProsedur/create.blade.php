@@ -1,10 +1,11 @@
 @section('content')
 
 <script>
-    document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
+    document.title = "Layanan Biro Hukum dan Organisasi | Buat Usulan Sistem dan Prosedur";
+    document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Sistem dan Prosedur";
 </script>
 <div class="stripe-accent"></div>
-<legend>Pengajuan Usulan</legend>
+<legend>Buat Usulan</legend>
 
 @include('flash')
 <div class="content-non-title">
@@ -15,7 +16,10 @@
     <div class="row-fluid">
         <div class="span12">
             <fieldset>
-                <legend>Penanggung Jawab</legend>
+                <div class="nav nav-tabs">
+                    <h4>PENANGGUNG JAWAB</h4>
+                </div>
+
                 <div class="control-group">
                     <label for="jenis_usulan" class="control-label">Jenis Usulan</label>
 
@@ -88,7 +92,9 @@
 
         <div class="span12">
             <fieldset>
-                <legend>Informasi Usulan</legend>
+                <div class="nav nav-tabs">
+                    <h4>INFORMASI USULAN</h4>
+                </div>
 
                 <div class="control-group">
                     {{ Form::label("sistem_dan_prosedur[perihal]", "Perihal", array('class' => 'control-label')) }}
@@ -229,8 +235,8 @@ $("#form-perUU").validate({
 </script>
 
 <script>
-    document.getElementById("collapse12").style.height = "auto";
-    document.getElementById("menu-ketatalaksanaan-usulan").setAttribute("class", "user-menu-active");
+    document.getElementById("collapse14").style.height = "auto";
+    document.getElementById("menu-prosedur-usulan").setAttribute("class", "user-menu-active");
 </script>
 
 @stop

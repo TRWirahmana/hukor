@@ -28,7 +28,9 @@
       <div class="row-fluid">
         <div class="span6">
           <fieldset>
-            <legend>INFORMASI PENGUSUL</legend>
+              <div class="nav nav-tabz">
+                  <h4>INFORMASI PENGUSUL</h4>
+              </div>
             <div class="control-group">
               {{ Form::label('tgl_usulan', 'Tanggal Usulan', array('class' => 'control-label'))}}
               <div class="controls"><input type="text" disabled="" value="{{ $pelembagaan->tgl_usulan }}"></div>
@@ -73,7 +75,9 @@
 
           <br/>
           <fieldset style="margin-bottom: 24px;">
-            <legend>INFORMASI USULAN</legend>
+              <div class="nav nav-tabz">
+                  <h4>INFORMASI USULAN</h4>
+              </div>
             <div class="control-group">
               {{ Form::label("perihal", "Perihal", array('class' => 'control-label')) }}
               <div class="controls"><input type="text" disabled="" value="{{$pelembagaan->perihal }}"></div>
@@ -116,7 +120,9 @@
 
         <div class="span6">
           <fieldset>
-            <legend>UPDATE STATUS</legend>
+              <div class="nav nav-tabz">
+                  <h4>UPDATE STATUS</h4>
+              </div>
             <div class="control-group">
               {{ Form::label("status", "Status", array('class' => 'control-label')) }}
               <div class="controls">
@@ -161,9 +167,6 @@
           </fieldset>
         </div>
       </div>
-
-
-      <br/>
 
       <div class="row-fluid">
         <table id="tbl-log_pelembagaan">
@@ -227,6 +230,10 @@
               "sSearch":       "Cari:",
               "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
               "sProcessing": 'Memproses...',
+              "oPaginate": {
+                  "sNext": '<span class="rulycon-forward-3"></span>',
+                  "sPrevious": "<span class='rulycon-backward-2'></span>"
+              },
               "sLengthMenu": 'Tampilkan <select>'+
                   '<option value="10">10</option>'+
                   '<option value="25">25</option>'+

@@ -2,7 +2,8 @@
 
 <!--KETATALAKSANAAN-->
 <script>
-  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
+    document.title = "Layanan Biro Hukum dan Organisasi | Status Usulan Sistem dan Prosedur";
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Sistem dan Prosedur";
 </script>
 
 <legend><div class="stats">Status Usulan Sistem Prosedur</div></legend>
@@ -641,8 +642,8 @@
 </script>
 
 <script>
-  $("#collapse12").css("height", "auto");
-  $("#menu-pelembagaan-informasi2").addClass("user-menu-active");
+  $("#collapse14").css("height", "auto");
+  $("#menu-prosedur-status").addClass("user-menu-active");
 </script>
 
 @stop

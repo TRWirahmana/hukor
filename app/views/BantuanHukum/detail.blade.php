@@ -38,7 +38,10 @@
 <div class="row-fluid">
   <div class="span6">
     <fieldset>
-      <legend>PENANGGUNG JAWAB</legend>
+
+        <div class="nav nav-tabz">
+            <h4>PENANGGUNG JAWAB</h4>
+        </div>
 
       <div class="control-group">
         {{ Form::label('nama', 'Nama Penanggung Jawab', array('class' => 'control-label')) }}
@@ -107,7 +110,9 @@
   </div>
   <div class="span6">
     <fieldset>
-      <legend>INFORMASI PENGUSUL</legend>
+        <div class="nav nav-tabz">
+            <h4>INFORMASI PENGUSUL</h4>
+        </div>
 
       <div class="control-group">
         {{ Form::label('nama', 'Nama Pengusul', array('class' => 'control-label')) }}
@@ -181,7 +186,9 @@
 <div class="row-fluid">
   <div class="span6">
     <fieldset>
-      <legend>INFORMASI PERKARA</legend>
+        <div class="nav nav-tabz">
+            <h4>INFORMASI PERKARA</h4>
+        </div>
 
       <div class="control-group">
         {{ Form::label('jns_perkara', 'Jenis Perkara', array('class' => 'control-label')) }}
@@ -256,7 +263,9 @@
       </div>
     </fieldset>
     <fieldset>
-      <legend>INFORMASI LAMPIRAN</legend>
+        <div class="nav nav-tabz">
+            <h4>INFORMASI LAMPIRAN</h4>
+        </div>
 
       <div class="control-group">
         {{ Form::label('ket_lampiran', 'Keterangan Lampiran', array('class' => 'control-label')) }}
@@ -297,7 +306,9 @@
   </div>
   <div class="span6">
     <fieldset>
-      <legend>UPDATE STATUS</legend>
+        <div class="nav nav-tabz">
+            <h4>UPDATE STATUS</h4>
+        </div>
 
       <div class="control-group">
         {{ Form::label('advokasi', 'Advokasi Oleh', array('class' => 'control-label')) }}
@@ -425,7 +436,12 @@
             "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
             "sEmptyTable": "Data Kosong",
             "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sProcessing": 'Memproses...',
             "sSearch":       "Cari:",
+            "oPaginate": {
+                "sNext": '<span class="rulycon-forward-3"></span>',
+                "sPrevious": "<span class='rulycon-backward-2'></span>"
+            },
             "sLengthMenu": 'Tampilkan <select>'+
                 '<option value="10">10</option>'+
                 '<option value="25">25</option>'+

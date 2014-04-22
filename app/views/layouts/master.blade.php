@@ -292,33 +292,63 @@ $allmenu = Menu::all();?>
   </div>
 </li>
 
-<li id="menu-ketatalaksanaan">
+<li id="menu-anjab">
   <div class="accordion" id="accordion4">
     <div class="accordion-group">
       <div class="accordion-heading">
-        <a class="accordion-toggle" data-parent="#accordion4" href="{{ URL::to('/ketatalaksanaan') }}">
-          <span class="rulycon-drawer-3"></span>Ketatalaksanaan
+          <a class="accordion-toggle" data-parent="#accordion4" href="{{ URL::to('/layanan/detail?id=5') }}">
+          <span class="rulycon-drawer-3"></span>Analisis Jabatan
           <span class="rulycon-menu-2 pull-right"></span>
         </a>
       </div>
-<!--      <div id="collapse12" class="accordion-body collapse">-->
-<!--        <div class="accordion-inner">-->
-<!--          <ul>-->
-<!--            <li id="menu-prosedur-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span-->
-<!--                  class="rulycon-stack"></span>Informasi</a>-->
-<!--            </li>-->
-<!--              @if($user->role_id == 2)-->
-<!--              <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('sp.create')}}"><span-->
-<!--                          class="rulycon-stack"></span>Lembar Usulan</a></li>-->
-<!--              @endif-->
-<!--            <li id="menu-pelembagaan-informasi2"><a href="{{URL::route('sp.index')}}"><span-->
-<!--                  class="rulycon-stack"></span>Status Usulan</a>-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--      </div>-->
+      <div id="collapse12" class="accordion-body collapse">
+        <div class="accordion-inner">
+          <ul>
+            <li id="menu-anjab-info"><a href="{{ URL::to('/layanan/detail?id=5') }}"><span
+                  class="rulycon-stack"></span>Informasi</a>
+            </li>
+              @if($user->role_id == 2)
+              <li id="menu-anjab-usulan"><a href="{{URL::route('aj.create')}}"><span
+                          class="rulycon-stack"></span>Buat Usulan</a></li>
+              @endif
+            <li id="menu-anjab-status"><a href="{{URL::route('aj.index')}}"><span
+                  class="rulycon-stack"></span>Status Usulan</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
+</li>
+
+
+<li id="menu-sisprod">
+    <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-parent="#accordion2" href="{{ URL::to('/layanan/detail?id=4') }}">
+                    <span class="rulycon-drawer-3"></span>Sistem dan Prosedur
+                    <span class="rulycon-menu-2 pull-right"></span>
+                </a>
+            </div>
+            <div id="collapse14" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <ul>
+                        <li id="menu-prosedur-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span
+                                    class="rulycon-stack"></span>Informasi</a>
+                        </li>
+                        @if($user->role_id == 2)
+                        <li id="menu-prosedur-usulan"><a href="{{URL::route('sp.create')}}"><span
+                                    class="rulycon-stack"></span>Buat Usulan</a></li>
+                        @endif
+                        <li id="menu-prosedur-status"><a href="{{URL::route('sp.index')}}"><span
+                                    class="rulycon-stack"></span>Status Usulan</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </li>
 
 

@@ -2,6 +2,7 @@
 
 <!--Ketatalaksanaan-->
 <script>
+    document.title = "Layanan Biro Hukum dan Organisasi | Status Usulan Analisis Jabatan";
   document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
 </script>
 
@@ -161,7 +162,7 @@
 
 <script>
   $("#collapse12").css("height", "auto");
-  $("#menu-ketatalaksanaan-informasi").addClass("user-menu-active");
+  $("#menu-anjab-status").addClass("user-menu-active");
 </script>
 
 @stop

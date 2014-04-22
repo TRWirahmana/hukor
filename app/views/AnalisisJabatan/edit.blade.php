@@ -4,16 +4,17 @@
 
 <ul class="breadcrumbs">
   <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
-  <li><a href="{{URL::previous()}}">Informasi</a> <span class="separator"></span></li>
-  <li>Analisis Jabatan</li>
+  <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
+    <li><a href="{{URL::previous()}}">Analisis Jabatan</a> <span class="separator"></span></li>
+    <li>Detail Usulan</li>
 </ul>
 @include('adminflash')
 <div class="pageheader">
-  <div class="pageicon">&nbsp;</div>
+  <div class="pageicon"><span class="rulycon-notebook"></span></div>
   <div class="pagetitle">
     <!--<h5>Events</h5>-->
 
-    <h1>Analisis Jabatan</h1>
+    <h1>Detail Usulan</h1>
   </div>
 </div>
 <!--pageheader-->
@@ -31,7 +32,7 @@
 <div class="row-fluid">
   <div class="span6">
     <fieldset>
-        <div class="nav nav-tabs">
+        <div class="nav nav-tabz">
             <h4>PENANGGUNG JAWAB</h4>
         </div>
       <div class="control-group">
@@ -79,7 +80,7 @@
   </div>
   <div class="span6">
     <fieldset>
-        <div class="nav nav-tabs">
+        <div class="nav nav-tabz">
             <h4>INFORMASI PENGUSUL</h4>
         </div>
       <div class="control-group">
@@ -128,7 +129,7 @@
 <div class="row-fluid">
   <div class="span6">
     <fieldset>
-        <div class="nav nav-tabs">
+        <div class="nav nav-tabz">
             <h4>INFORMASI PERIHAL & LAMPIRAN</h4>
         </div>
       <div class="control-group">
@@ -177,7 +178,7 @@
   </div>
   <div class="span6">
     <fieldset>
-        <div class="nav nav-tabs">
+        <div class="nav nav-tabz">
             <h4>UPDATE STATUS</h4>
         </div>
       <div class="control-group">
@@ -223,11 +224,15 @@
   </div>
 </div>
 
-<div class="form-actions">
-    <a href="{{ URL::route('admin.aj.index') }}" class="btn">Batal</a>
-    {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
+<div class="row-fluid">
+    <div class="span24">
+        <a href="{{ URL::route('admin.aj.index') }}" class="btn btn-primary">Batal</a>
+        <button class="btn btn-primary" type="submit">Simpan</button>
+    </div>
 </div>
 
+<br>
+<br>
 <div class="row-fluid">
   <div class="span24">
     <table id="tbl-log">
@@ -280,18 +285,29 @@
   jQuery(function ($) {
     $tblLog = $("#tbl-log").dataTable({
       bServerSide: true,
+        bProcessing: true,
       sAjaxSource: document.location.href,
-      bFilter: false,
-      bInfo: false,
-      bSort: false,
-      bLengthChange: false,
       iDisplayLength: 5,
+        oLanguage:{
+            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+            "sEmptyTable": "Data Kosong",
+            "sZeroRecords" : "Pencarian Tidak Ditemukan",
+            "sSearch":       "Cari:",
+            "sProcessing": 'Memproses...',
+            "oPaginate": {
+                "sNext": '<span class="rulycon-forward-3"></span>',
+                "sPrevious": "<span class='rulycon-backward-2'></span>"
+            },
+            "sLengthMenu": 'Tampilkan <select>'+
+                '<option value="10">10</option>'+
+                '<option value="25">25</option>'+
+                '<option value="50">50</option>'+
+                '<option value="100">100</option>'+
+                '</select>'
+        },
       aoColumns: [
         {
-          mData: "tgl_proses",
-          mRender: function (data) {
-            return $.datepicker.formatDate("dd M yy", new Date(Date.parse(data)));
-          }
+          mData: "tgl_proses"
         },
         {
           mData: "status",
@@ -331,5 +347,18 @@
       ]
     });
   });
+</script>
+<script>
+    jQuery("#app_anjab > a").addClass("sub-menu-active");
+    jQuery("#app").css({
+        "display": "block",
+        "visibility": "visible"
+    });
+</script>
+
+<script>
+    jQuery(document).on("ready", function() {
+        document.title = "Layanan Biro Hukum dan Organisasi | Detail Usulan Analisis Jabatan"
+    });
 </script>
 @stop

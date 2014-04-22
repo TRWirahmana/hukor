@@ -517,11 +517,11 @@
 </div>
 
 <script>
-  jQuery("#app_ketatalaksanaan > a").addClass("sub-menu-active");
-  jQuery("#app, #app_ketatalaksanaan > ul").css({
-    "display": "block",
-    "visibility": "visible"
-  });
+    jQuery("#app_sisprod > a").addClass("sub-menu-active");
+    jQuery("#app").css({
+        "display": "block",
+        "visibility": "visible"
+    });
 </script>
 
 <script>

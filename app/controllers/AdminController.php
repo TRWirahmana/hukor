@@ -11,6 +11,8 @@ class AdminController extends BaseController {
             $perUU = DAL_PerUU::getMonthlyCount();
             $pelembagaan = DAL_Pelembagaan::getMonthlyCount();
             $bantuanHukum = DAL_BantuanHukun::getMonthlyCount();
+            $sisprod = DAL_SistemDanProsedur::getMonthlyCount();
+            $anjab = DAL_AnalisisJabatan::getMonthlyCount();
 
             $data = array();
             foreach($perUU->get() as $obj)
@@ -21,6 +23,12 @@ class AdminController extends BaseController {
 
             foreach($bantuanHukum->get() as $obj)
                 $data["bantuan_hukum"][] = intval($obj->jumlah);
+
+            foreach($sisprod->get() as $obj)
+                $data["analisis_jabatan"][] = intval($obj->jumlah);
+
+            foreach($anjab->get() as $obj)
+                $data["sistem_dan_prosedur"][] = intval($obj->jumlah);
 
             return Response::json($data);
         }

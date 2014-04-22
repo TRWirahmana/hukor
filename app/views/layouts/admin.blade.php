@@ -123,17 +123,23 @@
               <span class="rulycon-notebook"></span> Peraturan Perundang-Undangan</a>
           </li>
           <li id="app_pelembagaan"><a href="{{ URL::route('admin.pelembagaan.index') }}">
-              <span class="rulycon-books"></span> Pelembagaan</a>
+              <span class="rulycon-notebook"></span> Pelembagaan</a>
           </li>
-          <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-books"></span>
+          <li id="app_bahu"><a href="{{ URL::route('admin.bantuan_hukum.index') }}"><span class="rulycon-notebook"></span>
               Bantuan Hukum</a>
-          <li id="app_ketatalaksanaan"><a href="{{URL::route('admin.ketatalaksanaan.index')}}"><span class="rulycon-books"></span>
-              Ketatalaksanaan</a>
+
+            <li id="app_anjab"><a href="{{URL::route('admin.aj.index')}}"><span class="rulycon-notebook"></span>
+                    Analisis Jabatan</a>
+            <li id="app_sisprod"><a href="{{URL::route('admin.sp.index')}}"><span class="rulycon-notebook"></span>
+                    Sistem dan Prosedur</a>
+<!--          <li id="app_ketatalaksanaan"><a href="{{URL::route('admin.ketatalaksanaan.index')}}"><span class="rulycon-books"></span>-->
+<!--              Ketatalaksanaan</a>-->
+
 <!--            <ul>-->
 <!--              <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>-->
 <!--              <li><a href="{{URL::route('admin.aj.index')}}">Analisis Jabatan</a></li>-->
 <!--            </ul>-->
-          </li>
+<!--          </li>-->
 
 
         </ul>
@@ -151,14 +157,18 @@
                 class="rulycon-notebook"></span> Pelembagaan</a>
 
           </li>
+            <li id="app_anjab"><a href="{{URL::route('admin.aj.index')}}"><span class="rulycon-notebook"></span>
+                    Analisis Jabatan</a>
+            <li id="app_sisprod"><a href="{{URL::route('admin.sp.index')}}"><span class="rulycon-notebook"></span>
+                    Sistem dan Prosedur</a>
 
-          <li id="app_ketatalaksanaan"><a href="{{URL::route('admin.ketatalaksanaan.index')}}"><span class="rulycon-notebook"></span>
-              Ketatalaksanaan</a>
+<!--          <li id="app_ketatalaksanaan"><a href="{{URL::route('admin.ketatalaksanaan.index')}}"><span class="rulycon-notebook"></span>-->
+<!--              Ketatalaksanaan</a>-->
 <!--            <ul>-->
 <!--              <li><a href="{{URL::route('admin.sp.index')}}">Sistem dan Prosedur</a></li>-->
 <!--              <li><a href="{{URL::route('admin.aj.index')}}">Analisis Jabatan</a></li>-->
 <!--            </ul>-->
-          </li>
+<!--          </li>-->
 
 
           <li id="app_forum">

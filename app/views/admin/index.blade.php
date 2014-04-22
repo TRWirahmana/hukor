@@ -78,7 +78,7 @@
 
 <!-- dialog box -->
 <div id="dialog" title="Hapus Akun" style="display: none;">
-    <p>Apakah Anda Yakin?</p>
+    <p>Apakah Anda yakin menghapus akun ini?</p>
 </div>
 
 @stop

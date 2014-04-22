@@ -61,10 +61,10 @@ class ProfileController extends BaseController
         }
         else
         {
-            return Redirect::route('linked')->with('error', 'Profile Gagal Disimpan.');
+            return Redirect::route('linked')->with('error', 'Profil Gagal Disimpan.');
         }
 
-        return Redirect::to('admin/profile')->with('success', 'Profile Berhasil Di Simpan.');
+        return Redirect::to('admin/profile')->with('success', 'Profil Berhasil Di Simpan.');
     }
 
     public function update()
@@ -87,7 +87,7 @@ class ProfileController extends BaseController
             $DAL->UpdateProfile($input);
         }
 
-        return Redirect::to('admin/profile')->with('success', 'Profile Berhasil Di Ubah.');
+        return Redirect::to('admin/profile')->with('success', 'Profil Berhasil Di Ubah.');
     }
 
     public function show()

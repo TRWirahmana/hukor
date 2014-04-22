@@ -1,7 +1,7 @@
 @section('content')
 
 <script>
-    document.title = "Layanan Biro Hukum dan Organisasi | Lembar Usulan Pelembagaan";
+    document.title = "Layanan Biro Hukum dan Organisasi | Buat Usulan Pelembagaan";
     document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Pelembagaan";
 </script>
 <div class="stripe-accent"></div>

@@ -157,8 +157,11 @@
                     @endif
                 </div>
             </div>
+
         </fieldset>
+
     </div>
+
     <div class="span12">
         <fieldset>
             <div class="nav nav-tabs">
@@ -207,12 +210,16 @@
         </fieldset>
 
     </div>
+    <div class="row-fluid">
+        <div class="span24">
+            <a href="{{ URL::route('admin.aj.index') }}" class="btn btn-primary" type="button">Batal</a>
+            <button class="btn btn-primary" type="submit">Simpan</button>
+        </div>
+    </div>
 </div>
 
-<div class="form-actions">
-    <a href="{{ URL::route('admin.aj.index') }}" class="btn btn-primary">Batal</a>
-    {{ Form::submit('Simpan', array('class' => "btn btn-primary")) }}
-</div>
+<br>
+<br>
 
 <div class="row-fluid">
     <div class="span24">
@@ -334,12 +341,12 @@
 </script>
 <script>
 
-    $("#collapse10").css("height", "auto");
-    $("#menu-peruu-informasi").addClass("user-menu-active");
+    $("#collapse12").css("height", "auto");
+    $("#menu-anjab-status").addClass("user-menu-active");
 </script>
 <script>
     jQuery(document).on("ready", function() {
-        document.title = "Layanan Biro Hukum dan Organisasi | Detail Usulan Per-UU"
+        document.title = "Layanan Biro Hukum dan Organisasi | Detail Usulan Analisis Jabatan";
     });
 </script>
 @stop

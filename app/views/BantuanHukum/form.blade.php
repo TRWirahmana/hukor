@@ -2,7 +2,7 @@
 
 
 <script>
-    document.title = "Layanan Biro Hukum dan Organisasi | Lembar Usulan Bantuan Hukum";
+    document.title = "Layanan Biro Hukum dan Organisasi | Buat Usulan Bantuan Hukum";
     document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Bantuan Hukum";
 </script>
 <legend>Buat Usulan</legend>

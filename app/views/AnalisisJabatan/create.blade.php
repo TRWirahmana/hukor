@@ -1,10 +1,11 @@
 @section('content')
 
 <script>
-    document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
+    document.title = "Layanan Biro Hukum dan Organisasi | Buat Usulan Analisis Jabatan";
+    document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Analisis Jabatan";
 </script>
 <div class="stripe-accent"></div>
-
+<legend>Buat Usulan</legend>
 @include('flash')
 <div class="content-non-title">
 
@@ -103,7 +104,7 @@
 
     <div class="form-actions">
         <a href="{{ URL::to('site') }}" class="btn btn-primary">Batal</a>
-        {{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
+        <button class="btn btn-primary" type="submit">Kirim</button>
     </div>
 
     {{ Form::close() }}
@@ -180,5 +181,8 @@ $("#form-perUU").validate({
 });
 
 </script>
-
+<script>
+    document.getElementById("menu-anjab-usulan").setAttribute("class", "user-menu-active");
+    document.getElementById("collapse12").style.height = "auto";
+</script>
 @stop

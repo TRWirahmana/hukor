@@ -54,7 +54,7 @@
   <div id="social-links">
     <div class="container" >
       <p class="pull-right">
-        <a href="https://twitter.com/hukor_kemdikbud"><span class="rulycon-twitter"></span></a>
+        <a href="https://twitter.com/hukor_kemdikbud" target="_blank"><span class="rulycon-twitter"></span></a>
         <a href="#"><span class="rulycon-feed-3"></span></a>
         <input type="text" placeholder="search..."/>
         <button class="btn btn-primary"><span class="rulycon-search"></span></button>

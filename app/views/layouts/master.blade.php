@@ -308,10 +308,10 @@ $allmenu = Menu::all();?>
                   class="rulycon-stack"></span>Informasi</a>
             </li>
               @if($user->role_id == 2)
-              <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('aj.create')}}"><span
+              <li id="menu-anjab-usulan"><a href="{{URL::route('aj.create')}}"><span
                           class="rulycon-stack"></span>Buat Usulan</a></li>
               @endif
-            <li id="menu-pelembagaan-informasi2"><a href="{{URL::route('aj.index')}}"><span
+            <li id="menu-anjab-status"><a href="{{URL::route('aj.index')}}"><span
                   class="rulycon-stack"></span>Status Usulan</a>
             </li>
           </ul>
@@ -338,10 +338,10 @@ $allmenu = Menu::all();?>
                                     class="rulycon-stack"></span>Informasi</a>
                         </li>
                         @if($user->role_id == 2)
-                        <li id="menu-ketatalaksanaan-usulan"><a href="{{URL::route('sp.create')}}"><span
+                        <li id="menu-prosedur-usulan"><a href="{{URL::route('sp.create')}}"><span
                                     class="rulycon-stack"></span>Buat Usulan</a></li>
                         @endif
-                        <li id="menu-pelembagaan-informasi2"><a href="{{URL::route('sp.index')}}"><span
+                        <li id="menu-prosedur-status"><a href="{{URL::route('sp.index')}}"><span
                                     class="rulycon-stack"></span>Status Usulan</a>
                         </li>
                     </ul>

@@ -11,9 +11,11 @@ class DocumentController extends BaseController{
      */
 
     public function index() {
-        $this->layout->content = View::make('document.index');
-    
-}
+        $this->layout->content = View::make('document.index', array(
+            'tahun' => DAL_Document::GetYearOfNomor()
+        ));
+    }
+
     public function add()
     {
         $this->layout->content = View::make('document.form', array(
@@ -130,6 +132,21 @@ class DocumentController extends BaseController{
         $DAL->PublishDocument($id);
 
         return Redirect::to('admin/document')->with('success', 'Peraturan Berhasil Di Publish.');
+    }
+
+    public function printToPDF()
+    {
+        $input = Input::all();
+
+        $data = DAL_Document::DataForPDF($input);
+
+         $fields = array(
+             'nomor',
+             'perihal',
+             'kategori'
+         );
+
+        HukorHelper::GeneratePDf($data, $fields);
     }
 }
 

@@ -33,6 +33,52 @@
             <!-- MAIN CONTENT -->
             <div class="stripe-accent"></div>
             @if($user->role_id == 3)
+            <form id="form-filter" class="form form-horizontal" method="post" action="{{ URL::action('DocumentController@printToPDF') }}" style="margin-bottom: 48px;">
+                <fieldset>
+                    <legend class="f_legend"></legend>
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <div class="control-group">
+                                <label for="" class="control-label">Tahun</label>
+                                <div class="controls">
+                                    {{ Form::select('tahun', $tahun, null, array('id' => 'tahun')) }}
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="toDate" class="control-label">Kategori</label>
+                                <div class="controls">
+                                    {{ Form::select('kategori', array(
+                                    '0' => '- Pilih Kategori -',
+                                    '1' => 'Undang-undang Dasar',
+                                    '2' => 'Peraturan Pemerintah',
+                                    '3' => 'Peraturan Presiden',
+                                    '4' => 'Keputusan Presiden',
+                                    '5' => 'Instruksi Presiden',
+                                    '6' => 'Peraturan Menteri',
+                                    '7' => 'Keputusan Menteri',
+                                    '8' => 'Instruksi Menteri',
+                                    '9' => 'Surat Edaran Menteri',
+                                    '10' => 'Nota Kesepahaman',
+                                    '11' => 'Kesepakatan Bersama',
+                                    '12' => 'Peraturan Bersama',
+                                    '13' => 'Keputusan Bersama',
+                                    '14' => 'Surat Edaran Bersama',
+                                    '15' => 'Peraturan Lain',
+                                    ), null, array('id' => 'kategori')) }}
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <div class="controls">
+                                    <input type="reset" value="Reset" class="btn btn-primary" id="btn-reset">
+                                    <input type="submit" value="Cetak" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
             <a class="btn btn-mini btn-primary" href="{{ URL::to('admin/adddoc')}}" >Tambah Baru</a>
             @endif
             <legend></legend>

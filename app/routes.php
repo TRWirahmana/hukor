@@ -42,6 +42,7 @@ Route::group(array('before' => 'guest'), function() {
     Route::get('adddoc', 'DocumentController@add');
     Route::post('savedoc','DocumentController@save');
     Route::get('tabledoc', 'DocumentController@datatable');
+    Route::post('printdoc','DocumentController@printToPDF');
      
     Route::get('callcenter', 'CallCenterController@index');
 

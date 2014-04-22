@@ -241,6 +241,9 @@ class HukorHelper {
 
 	public static function GeneratePDf($data, $header)
 	{
+        // YOU NEED THIS FILE BEFORE YOU CAN RUN DOMPDF <-- im sure someone has a better way of referencing it for Laravel?
+        require_once(base_path() . "/vendor/dompdf/dompdf_config.inc.php");
+
 		$count = count($header);
 		$headerClone = $header;
 		$html =  "<h1>Judul</h1>
@@ -468,6 +471,14 @@ class HukorHelper {
         {
             HukorHelper::XMLFile();
         }
+    }
+
+    public static function CheckVariable($foo)
+    {
+        echo "<pre>";
+        print_r($foo);
+        echo "</pre>";
+        exit;
     }
 
 

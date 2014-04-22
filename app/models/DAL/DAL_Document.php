@@ -152,4 +152,32 @@ class DAL_Document {
 
         return $data;
     }
+
+    public static function GetYearOfNomor()
+    {
+        return array("" => "Semua Tahun") + Sorting_Document::orderBy('tahun', 'asc')->groupBy('tahun')->lists('tahun', 'tahun');
+    }
+
+    public static function DataForPDF($filter)
+    {
+        $data  = Sorting_Document::select();
+
+        if($filter['tahun'] != "")
+        {
+            $data->where('tahun', '=', $filter["tahun"]);
+        }
+        else
+        {
+            $data->where('nomor', '!=', null);
+        }
+
+        if($filter['kategori'] != 0)
+        {
+            $data->where('kategori', '=', $filter['kategori']);
+        }else{
+            $data->where('kategori', '!=', 0);
+        }
+
+        return $data->get();
+    }
 }

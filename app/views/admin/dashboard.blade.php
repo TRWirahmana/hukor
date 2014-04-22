@@ -114,62 +114,62 @@
   </div>
   <br>
   @if (in_array(Auth::user()->role_id, array(1, 3, 4, 5, 9)))
-<!--  <div class="row-fluid dashboard-summary">-->
-<!--    <div class="span4">-->
-<!--      <h4>Sistem dan Prosedur</h4>-->
-<!---->
-<!--      <div class="row-fluid">-->
-<!--        <div class="span4">-->
-<!--          <div class="card three">-->
-<!--            <h4>{{DAL_SistemDanProsedur::getUnreadCount()}}</h4>-->
-<!---->
-<!--            <p>Total usulan</p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="span4">-->
-<!--          <div class="card three">-->
-<!--            <h4>{{DAL_SistemDanProsedur::getTodayCount()}}</h4>-->
-<!---->
-<!--            <p>Total usulan</p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="span4">-->
-<!--          <div class="card three">-->
-<!--            <h4>{{DAL_SistemDanProsedur::getTotalCount()}}</h4>-->
-<!---->
-<!--            <p>Total usulan</p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="span4">-->
-<!--      <h4>Analisis Jabatan</h4>-->
-<!---->
-<!--      <div class="row-fluid">-->
-<!--        <div class="span4">-->
-<!--          <div class="card three">-->
-<!--            <h4>{{DAL_AnalisisJabatan::getUnreadCount()}}</h4>-->
-<!---->
-<!--            <p>Usulan baru</p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="span4">-->
-<!--          <div class="card three">-->
-<!--            <h4>{{DAL_AnalisisJabatan::getTodayCount()}}</h4>-->
-<!---->
-<!--            <p>Usulan hari ini</p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="span4">-->
-<!--          <div class="card three">-->
-<!--            <h4>{{DAL_AnalisisJabatan::getTotalCount()}}</h4>-->
-<!---->
-<!--            <p>Total usulan</p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="row-fluid dashboard-summary">
+    <div class="span4">
+      <h4>Sistem dan Prosedur</h4>
+
+      <div class="row-fluid">
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_SistemDanProsedur::getUnreadCount()}}</h4>
+
+            <p>Total usulan</p>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_SistemDanProsedur::getTodayCount()}}</h4>
+
+            <p>Total usulan</p>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_SistemDanProsedur::getTotalCount()}}</h4>
+
+            <p>Total usulan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="span4">
+      <h4>Analisis Jabatan</h4>
+
+      <div class="row-fluid">
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_AnalisisJabatan::getUnreadCount()}}</h4>
+
+            <p>Usulan baru</p>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_AnalisisJabatan::getTodayCount()}}</h4>
+
+            <p>Usulan hari ini</p>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="card three">
+            <h4>{{DAL_AnalisisJabatan::getTotalCount()}}</h4>
+
+            <p>Total usulan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   @endif
 </div>
 
@@ -210,8 +210,8 @@
                 <option value="1">Peraturan Perundang-Undangan</option>
                 <option value="2">Pelembagaan</option>
                 <option value="3">Bantuan Hukum</option>
-<!--                <option value="4">Sistem dan Prosedur</option>-->
-<!--                <option value="5">Analisis Jabatan</option>-->
+                <option value="4">Sistem dan Prosedur</option>
+                <option value="5">Analisis Jabatan</option>
               </select>
             </div>
           </div>
@@ -317,15 +317,16 @@
           {
             name: 'Bantuan Hukum',
             data: []
-          }
-//          {
-//            name: 'Sistem dan Prosedur',
-//            data: []
-//          },
-//          {
-//            name: 'Analisis Jabatan',
-//            data: []
-//          }
+          },
+
+          {
+            name: 'Analisis Jabatan',
+            data: []
+          },
+            {
+                name: 'Sistem dan Prosedur',
+                data: []
+            }
         ]
       });
 
@@ -335,8 +336,8 @@
         $highcharts.series[0].setData(response.per_uu);
         $highcharts.series[1].setData(response.pelembagaan);
         $highcharts.series[2].setData(response.bantuan_hukum);
-//        $highcharts.series[3].setData(response.sistem_dan_prosedur);
-//        $highcharts.series[4].setData(response.analisis_jabatan);
+        $highcharts.series[3].setData(response.sistem_dan_prosedur);
+        $highcharts.series[4].setData(response.analisis_jabatan);
       });
     }
 

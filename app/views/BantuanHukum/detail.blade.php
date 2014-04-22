@@ -451,7 +451,13 @@
         },
       sAjaxSource: '<?php echo URL::to("admin/bantuan_hukum/tablelog"); ?>',
       aoColumns: [
-        {mData: "tanggal",sClass: "center"},
+        {
+            mData: "tanggal",
+            sClass: "center",
+            mRender: function(data) {
+                return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
+            }
+        },
         {
           mData: "status_pemohon",
           sClass: "center",

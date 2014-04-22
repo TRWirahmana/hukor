@@ -307,7 +307,10 @@
         },
       aoColumns: [
         {
-          mData: "tgl_proses"
+          mData: "tgl_proses",
+            mRender: function(data) {
+                return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
+            }
         },
         {
           mData: "status",

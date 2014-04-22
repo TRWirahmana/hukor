@@ -5,7 +5,7 @@
     <li><a href="#"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
     <li><a href="{{URL::previous()}}">Aplikasi</a> <span class="separator"></span></li>
       <li><a href="{{URL::previous()}}">Pelembagaan</a> <span class="separator"></span></li>
-    <li>Detail Usulan Pelembagaan</li>
+    <li>Detail Usulan</li>
   </ul>
   @include('adminflash')
   <div class="pageheader">
@@ -246,11 +246,14 @@
           {
             mData: "tgl_proses",
             sClass: 'center',
-            sWidth: '20%'
+            sWidth: '10%',
+              mRender: function(data) {
+                  return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
+              }
           },
           {
             mData: "status",
-            sWidth: '20%',
+            sWidth: '15%',
             mRender: function (data, type, full) {
               if (null != data && "" != data) {
                 if (data === '1') {
@@ -290,7 +293,7 @@
           {
             mData: "keterangan",
             sClass: 'center-ac',
-            sWidth: '14%'
+            sWidth: '20%'
           },
           {
             mData: "id",

@@ -630,16 +630,30 @@ p {
   font-size: 14px;
 }
 
-#search-result-items {
+.search-result-items {
   padding-left: 24px;
 }
 
-#search-result-items h6 {
+.search-result-items h6 {
   font-size: 14px;
 }
 
-#search-result-items a:hover {
+#search-result-lists .search-result-items li {
+  list-style: disc;
+}
+
+.search-result-items a:hover {
   text-decoration: underline;
+}
+
+.search-result-items span[class*=rulycon] {
+  font-size: 36px;
+  color: rgba(0, 0, 0, .25);
+}
+
+.search-result-items.no-results {
+  margin-top: 36px;
+  margin-bottom: 36px;
 }
 
 .section-title.widgets > * {

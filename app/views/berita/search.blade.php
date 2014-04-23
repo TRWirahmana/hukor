@@ -8,27 +8,30 @@
           <div id="search-result-lists">
             <p>Berikut adalah hasil pencarian untuk kata kunci <strong>{{ $keyword }}</strong>.</p>
             <div id="paging_container">
-            <ul class="content">
-                @if($berita['0'] != null)
-                    @foreach($berita as $data)
-                      <li>
-                        <h6><a href="#">{{$data->judul}}</a></h6>
-                          <?php $berita_feed = strip_tags($data->berita);
-                          $highlight_feed = substr($berita_feed, 0, 180);
-                          ?>
-                          @if(strlen($berita_feed) > 180)
-                            <p>{{$highlight_feed}} ...</p>
-                          @else
-                          <p>{{$data->berita}}</p>
-                          @endif
-                      </li>
-                      <br>
-                    @endforeach
-            </ul>
+              <ul class="content" class="search-result-items">
+                  @if($berita['0'] != null)
+                      @foreach($berita as $data)
+                        <li>
+                          <h6><a href="#">{{$data->judul}}</a></h6>
+                            <?php $berita_feed = strip_tags($data->berita);
+                            $highlight_feed = substr($berita_feed, 0, 180);
+                            ?>
+                            @if(strlen($berita_feed) > 180)
+                              <p>{{$highlight_feed}} ...</p>
+                            @else
+                            <p>{{$data->berita}}</p>
+                            @endif
+                        </li>
+                        <br>
+                      @endforeach
+              </ul>
                 <div class="page_navigation pagination"></div>
             </div>
                 @else
-                <p>Pencarian berita tidak ditemukan</p>
+                <div class="search-result-items no-results text-center">
+                  <p><span class="rulycon-search"></span></p>
+                  <p>Berita dengan kata kunci tersebut tidak ditemukan.</p>
+                </div>
                 @endif
 
         </div>
@@ -48,7 +51,7 @@
     var $ = jQuery.noConflict();
     $('#paging_container').pajinate({
 //            start_page : 1,
-        items_per_page: 6,
+        items_per_page: 8,
         nav_label_first: 'Awal',
         nav_label_last: 'Akhir',
         nav_label_prev: 'Sebelumnya',

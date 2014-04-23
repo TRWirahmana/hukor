@@ -27,6 +27,8 @@ Route::group(array('before' => 'guest'), function() {
     Route::get('admin/login', 'HomeController@adminlogin');
 	Route::get('error', 'LoginController@error');
 	Route::get('manual_registrasi', 'HomeController@download_manual');
+    Route::post('search', 'NewsController@search');
+    Route::get('search_result', 'NewsController@search_result');
 
     Route::get('download_banhuk', 'BantuanHukumController@download');
     Route::get('news/detail', 'NewsController@detail');

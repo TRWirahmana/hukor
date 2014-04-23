@@ -31,4 +31,11 @@ class DAL_Berita {
 
         return $data;
     }
+
+    public static function search($cari) {
+
+        $data = Berita::all();
+
+        return $data;
+    }
 }

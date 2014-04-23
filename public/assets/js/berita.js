@@ -39,7 +39,7 @@ var Berita = (function(BRT) {
 
         var rules = {
             'judul': 'required',
-            'berita': 'required',
+//            'berita': 'required',
             'penulis': 'required'
 //            'gambar': 'required'
         };
@@ -51,7 +51,7 @@ var Berita = (function(BRT) {
             rules: rules,
             messages: {
                 'judul': 'Judul Berita tidak boleh kosong!',
-                'berita': 'Isi Berita tidak boleh kosong!',
+//                'berita': 'Isi Berita tidak boleh kosong!',
                 'penulis': 'Nama Penulis wajib diisi.'
 //                'gambar': 'Gambar wajib diisi.'
             },

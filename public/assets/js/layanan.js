@@ -48,22 +48,22 @@ var Layanan = (function(LAY) {
         });
 
         var rules = {
-            'layananlembaga[judul_berita]': 'required',
-            'layananlembaga[berita]': 'required',
-            'layananlembaga[penanggung_jawab]': 'required',
-            'layananlembaga[image]': 'required'
+            'layanan[judul_berita]': 'required',
+//            'layananlembaga[berita]': 'required',
+            'layanan[penanggung_jawab]': 'required'
+//            'layananl[image]': 'required'
         };
 
-        jQuery("#layanan-form").validate({
+        jQuery("#layanan_form").validate({
             ignore: [],
             errorElement: 'span',
             errorClass: 'help-block error',
             rules: rules,
             messages: {
-                'layananlembaga[judul_berita]': 'Judul Berita tidak boleh kosong!',
-                'layananlembaga[berita]': 'Isi Berita tidak boleh kosong!',
-                'layananlembaga[penanggung_jawab]': 'Nama Penulis wajib diisi.',
-                'layananlembaga[image]': 'Gambar wajib diisi.'
+                'layanan[judul_berita]': 'Judul Berita tidak boleh kosong!',
+//                'layananlembaga[berita]': 'Isi Berita tidak boleh kosong!',
+                'layanan[penanggung_jawab]': 'Nama Penanggung Jawab wajib diisi.'
+//                'layananlembaga[image]': 'Gambar wajib diisi.'
             },
             errorPlacement: function(error, element) {
                 error.appendTo(element.parent('div.controls'));

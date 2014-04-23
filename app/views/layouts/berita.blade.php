@@ -56,8 +56,15 @@
       <p class="pull-right">
         <a href="https://twitter.com/hukor_kemdikbud" target="_blank"><span class="rulycon-twitter"></span></a>
         <a href="#"><span class="rulycon-feed-3"></span></a>
-        <input type="text" placeholder="search..."/>
-        <button class="btn btn-primary"><span class="rulycon-search"></span></button>
+
+        <!-- form cari berita-->
+          {{ Form::open(array('action' => 'NewsController@search', 'method' => 'post', 'id'=>'form-cari-berita', 'class' =>'front-form form-horizontal' )) }}
+            <input type="text" placeholder="cari..." name="search"/>
+            <button class="btn btn-primary" type="submit"><span class="rulycon-search"></span></button>
+          {{ Form::close() }}
+
+        <!--      -->
+
       </p>
     </div>
   </div>

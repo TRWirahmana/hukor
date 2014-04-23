@@ -27,7 +27,17 @@ class NewsController extends BaseController {
         ));
     }
 
+    public function detail(){
+        $id = Input::get('id');
 
+        $berita = Berita::find($id);
+
+        $this->layout = View::make('layouts.berita');
+
+        $this->layout->content = View::make('news.detail', array(
+            'berita' => $berita
+        ));
+    }
 
     public function search(){
 

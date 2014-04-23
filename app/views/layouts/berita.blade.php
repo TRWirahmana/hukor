@@ -53,18 +53,16 @@
 <div id="top-bar">
   <div id="social-links">
     <div class="container" >
-      <p class="pull-right">
+      <!-- form cari berita-->
+      {{ Form::open(array('action' => 'NewsController@search', 'method' => 'post', 'id'=>'form-cari-berita', 'class' =>'pull-right' )) }}
+      <input type="text" placeholder="cari..." name="search"/>
+      <button class="btn btn-primary" type="submit"><span class="rulycon-search"></span></button>
+      {{ Form::close() }}
+
+      <!--      -->
+      <p class="pull-right" style="padding: 4px;">
         <a href="https://twitter.com/hukor_kemdikbud" target="_blank"><span class="rulycon-twitter"></span></a>
         <a href="#"><span class="rulycon-feed-3"></span></a>
-
-        <!-- form cari berita-->
-          {{ Form::open(array('action' => 'NewsController@search', 'method' => 'post', 'id'=>'form-cari-berita', 'class' =>'front-form form-horizontal' )) }}
-            <input type="text" placeholder="cari..." name="search"/>
-            <button class="btn btn-primary" type="submit"><span class="rulycon-search"></span></button>
-          {{ Form::close() }}
-
-        <!--      -->
-
       </p>
     </div>
   </div>

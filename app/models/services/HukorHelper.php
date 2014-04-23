@@ -239,14 +239,14 @@ class HukorHelper {
 			return null;
 	}
 
-	public static function GeneratePDf($data, $header)
+	public static function GeneratePDf($data, $header, $title)
 	{
         // YOU NEED THIS FILE BEFORE YOU CAN RUN DOMPDF <-- im sure someone has a better way of referencing it for Laravel?
         require_once(base_path() . "/vendor/dompdf/dompdf_config.inc.php");
 
 		$count = count($header);
 		$headerClone = $header;
-		$html =  "<h1>Judul</h1>
+		$html =  "<h1 style='text-align:center;'>" . $title . "</h1>
 
 			<center>
 			<table style='border: 1px solid black;border-collapse:collapse;'>
@@ -268,7 +268,7 @@ class HukorHelper {
 
 			for($y = 0; $y < $count; $y++)
 			{
-				$html .= "<th style='border: 1px solid black;text-align:center;'>" . $uid[$header[$y]] . "</th>";
+				$html .= "<th style='border: 1px solid black;text-align:center;font-size:12px;'>" . $uid[$header[$y]] . "</th>";
 			}
 
 			$html .= "</tr>";
@@ -287,7 +287,7 @@ class HukorHelper {
 		//$dompdf->stream('Registrasi.pdf',array('Attachment'=>0));
 
 		// Use this to download the file.
-		$dompdf->stream("Registrasi.pdf");
+		$dompdf->stream($title.".pdf");
 	}
 
 	public static function castMonthToString3($month) {

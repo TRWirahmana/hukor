@@ -4,9 +4,9 @@
         <!-- News Feed -->
         <div class="row-fluid">
 
-          <h3 class="section-title" id="search-result">Hasil pencarian</h3>
+          <h3 class="section-title" id="search-result">Hasil pencarian berita</h3>
           <div id="search-result-lists">
-            <p>Berikut adalah hasil pencarian untuk kata kunci <strong>{{ $keyword }}</strong>.</p>
+            <p>{{count($berita)}} hasil pencarian untuk kata kunci <strong>{{ $keyword }}</strong>.</p>
             <div id="paging_container">
               <ul class="content" class="search-result-items">
                   @if($berita['0'] != null)

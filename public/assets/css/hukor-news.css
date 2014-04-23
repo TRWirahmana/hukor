@@ -115,6 +115,7 @@ p {
   background: #0e5ba1;
   padding: 0 20px;
   height: auto;
+  max-height: 114px;
 }
 
 .header > .container {

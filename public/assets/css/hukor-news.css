@@ -599,7 +599,8 @@ p {
   padding-right: 8px;
 }
 
-.section-title#news-feed:after, .section-title.widgets:after {
+.section-title#news-feed:after, .section-title.widgets:after,
+.section-title#search-result:after{
   font-family: Rulycons;
   position: absolute;
   right: 16px;
@@ -615,6 +616,14 @@ p {
 
 .section-title#news-feed:after {
   content: "\e004";
+}
+
+.section-title#search-result:after {
+  content: "\e07f";
+}
+
+#search-result-lists {
+  padding: 24px;
 }
 
 .section-title.widgets > * {

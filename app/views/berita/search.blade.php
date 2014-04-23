@@ -6,7 +6,7 @@
           <h3 class="section-title" id="search-result">Hasil pencarian</h3>
           <div id="search-result-lists">
             <p>Berikut adalah hasil pencarian untuk kata kunci <strong>Put keyword here</strong>.</p>
-            <ul>
+            <ul id="search-result-items">
               <li>
                 <h6><a href="#">Judul berita 01</a></h6>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consequuntur cumque esse iusto modi molestias odit omnis quas rerum sapiente. Fugiat iusto laborum officiis, quasi recusandae unde ut velit vitae...</p>
@@ -48,6 +48,17 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consequuntur cumque esse iusto modi molestias odit omnis quas rerum sapiente. Fugiat iusto laborum officiis, quasi recusandae unde ut velit vitae...</p>
               </li>
             </ul>
+            <div class="pagination">
+              <ul>
+                <li class="disabled"><a href="#">«</a></li>
+                <li class="disabled"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">»</a></li>
+              </ul>
+            </div>
           </div>
         </div>
         <!--row-fluid-->

@@ -36,9 +36,11 @@ class NewsController extends BaseController {
         $DAL = new DAL_Berita();
 
         $result = $DAL->search($cari);
-        
+//        $result->toArray();
+
+//        var_dump($result['0']['judul']);exit;
         $this->layout = View::make('layouts.berita');
-        $this->layout->content = View::make('berita.search', array('berita' => $result));
+        $this->layout->content = View::make('berita.search', array('berita' => $result, 'keyword' => $cari));
     }
 
     public function search_result(){

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Layanan Biro Hukum dan Organisasi | Berita</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Registrasi Online Penyuluh Nasional">
+  <meta name="description" content="Layanan Biro Hukum dan Organisasi">
   <meta name="author" content="Sangkuriang Internasional">
 
   <!-- Stylesheet files import here -->

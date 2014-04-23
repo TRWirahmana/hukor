@@ -3,63 +3,35 @@
     <div class="container" style="width: 960px;">
         <!-- News Feed -->
         <div class="row-fluid">
+
           <h3 class="section-title" id="search-result">Hasil pencarian</h3>
           <div id="search-result-lists">
-            <p>Berikut adalah hasil pencarian untuk kata kunci <strong>Put keyword here</strong>.</p>
-            <ul id="search-result-items">
-              <li>
-                <h6><a href="#">Judul berita 01</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consequuntur cumque esse iusto modi molestias odit omnis quas rerum sapiente. Fugiat iusto laborum officiis, quasi recusandae unde ut velit vitae...</p>
-              </li>
-              <li>
-                <h6><a href="#">Judul berita 02</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consequuntur cumque esse iusto modi molestias odit omnis quas rerum sapiente. Fugiat iusto laborum officiis, quasi recusandae unde ut velit vitae...</p>
-              </li>
-              <li>
-                <h6><a href="#">Judul berita 03</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consequuntur cumque esse iusto modi molestias odit omnis quas rerum sapiente. Fugiat iusto laborum officiis, quasi recusandae unde ut velit vitae...</p>
-              </li>
-              <li>
-                <h6><a href="#">Judul berita 04</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consequuntur cumque esse iusto modi molestias odit omnis quas rerum sapiente. Fugiat iusto laborum officiis, quasi recusandae unde ut velit vitae...</p>
-              </li>
-              <li>
-                <h6><a href="#">Judul berita 05</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consequuntur cumque esse iusto modi molestias odit omnis quas rerum sapiente. Fugiat iusto laborum officiis, quasi recusandae unde ut velit vitae...</p>
-              </li>
-              <li>
-                <h6><a href="#">Judul berita 06</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consequuntur cumque esse iusto modi molestias odit omnis quas rerum sapiente. Fugiat iusto laborum officiis, quasi recusandae unde ut velit vitae...</p>
-              </li>
-              <li>
-                <h6><a href="#">Judul berita 07</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consequuntur cumque esse iusto modi molestias odit omnis quas rerum sapiente. Fugiat iusto laborum officiis, quasi recusandae unde ut velit vitae...</p>
-              </li>
-              <li>
-                <h6><a href="#">Judul berita 08</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consequuntur cumque esse iusto modi molestias odit omnis quas rerum sapiente. Fugiat iusto laborum officiis, quasi recusandae unde ut velit vitae...</p>
-              </li>
-              <li>
-                <h6><a href="#">Judul berita 09</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consequuntur cumque esse iusto modi molestias odit omnis quas rerum sapiente. Fugiat iusto laborum officiis, quasi recusandae unde ut velit vitae...</p>
-              </li>
-              <li>
-                <h6><a href="#">Judul berita 10</a></h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consequuntur cumque esse iusto modi molestias odit omnis quas rerum sapiente. Fugiat iusto laborum officiis, quasi recusandae unde ut velit vitae...</p>
-              </li>
+            <p>Berikut adalah hasil pencarian untuk kata kunci <strong>{{ $keyword }}</strong>.</p>
+            <div id="paging_container">
+            <ul class="content">
+                @if($berita['0'] != null)
+                    @foreach($berita as $data)
+                      <li>
+                        <h6><a href="#">{{$data->judul}}</a></h6>
+                          <?php $berita_feed = strip_tags($data->berita);
+                          $highlight_feed = substr($berita_feed, 0, 180);
+                          ?>
+                          @if(strlen($berita_feed) > 180)
+                            <p>{{$highlight_feed}} ...</p>
+                          @else
+                          <p>{{$data->berita}}</p>
+                          @endif
+                      </li>
+                      <br>
+                    @endforeach
             </ul>
-            <div class="pagination">
-              <ul>
-                <li class="disabled"><a href="#">«</a></li>
-                <li class="disabled"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">»</a></li>
-              </ul>
+                <div class="page_navigation pagination"></div>
             </div>
-          </div>
+                @else
+                <p>Pencarian berita tidak ditemukan</p>
+                @endif
+
+        </div>
         </div>
         <!--row-fluid-->
     </div>
@@ -71,9 +43,18 @@
 <!--maincontent-->
 @section('scripts')
 @parent
-<script src="{{asset('assets/js/jquery.simplePagination.js')}}"></script>
-<script>
-    jQuery(document).on("ready", function() {
+<script src="{{asset('assets/js/jquery.pajinate.js')}}"></script>
+<script type="text/javascript">
+    var $ = jQuery.noConflict();
+    $('#paging_container').pajinate({
+//            start_page : 1,
+        items_per_page: 6,
+        nav_label_first: 'Awal',
+        nav_label_last: 'Akhir',
+        nav_label_prev: 'Sebelumnya',
+        nav_label_next: 'Selanjutnya'
+    });
+    $(document).on("ready", function() {
         document.title = "Layanan Biro Hukum dan Organisasi | Pencarian Berita"
     });
 </script>

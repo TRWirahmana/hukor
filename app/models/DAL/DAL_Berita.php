@@ -34,7 +34,9 @@ class DAL_Berita {
 
     public static function search($cari) {
 
-        $data = Berita::all();
+        $data = Berita::select('judul');
+
+        $data->where('judul', 'like', "%$cari%");
 
         return $data;
     }

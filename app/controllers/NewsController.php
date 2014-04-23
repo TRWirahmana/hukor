@@ -30,13 +30,15 @@ class NewsController extends BaseController {
 
 
     public function search(){
+
         $cari = Input::get('search');
 
         $DAL = new DAL_Berita();
 
-        $DAL->search($cari);
-
-        return Redirect::to('search_result')->with('success', 'Pengaturan akun berhasil disimpan.');
+        $result = $DAL->search($cari);
+        
+        $this->layout = View::make('layouts.berita');
+        $this->layout->content = View::make('berita.search', array('berita' => $result));
     }
 
     public function search_result(){

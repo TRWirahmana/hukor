@@ -12,7 +12,12 @@
                   @if($berita['0'] != null)
                       @foreach($berita as $data)
                         <li>
-                          <h6><a href="{{ URL::to('/news/detail?id='. $data->id .'') }}">{{$data->judul}}</a></h6>
+                            <!--  membuat style italic untuk kata kunci pencarian-->
+                            <?php $s = "/" . $keyword."/i";
+                            $r = "<i>$0</i>";
+                            $judul = preg_replace($s, $r, $data->judul); ?>
+
+                            <h6><a href="{{ URL::to('/news/detail?id='. $data->id .'') }}">{{ $judul }}</a></h6>
                             <?php $berita_feed = strip_tags($data->berita);
                             $highlight_feed = substr($berita_feed, 0, 180);
                             ?>

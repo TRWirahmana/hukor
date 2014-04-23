@@ -138,7 +138,16 @@ class DocumentController extends BaseController{
     {
         $input = Input::all();
 
+        $years = DAL_Document::GetYearOfNomor();
         $data = DAL_Document::DataForPDF($input);
+
+        unset($years['']);
+
+        $title = "";
+        $tahun = ($input['tahun'] != "") ? $input['tahun'] : min($years) . " - " . max($years);
+        $kategori = ($input['kategori'] != 0) ? strtoupper($data[0]->kategori) : "SEMUA PERATURAN";
+
+        $title .= $kategori . " " . $tahun;
 
          $fields = array(
              'nomor',
@@ -146,7 +155,11 @@ class DocumentController extends BaseController{
              'kategori'
          );
 
-        HukorHelper::GeneratePDf($data, $fields);
+        if(count($data) != 0){
+            HukorHelper::GeneratePDf($data, $fields, $title);
+        }else{
+            return Redirect::to('admin/document')->with('error', 'Peraturan Tidak Ditemukan.');
+        }
     }
 }
 

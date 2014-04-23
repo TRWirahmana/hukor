@@ -165,19 +165,26 @@ class DAL_Document {
         if($filter['tahun'] != "")
         {
             $data->where('tahun', '=', $filter["tahun"]);
-        }
-        else
-        {
-            $data->where('nomor', '!=', null);
+        }else{
+            $data->where('tahun', '!=', "");
         }
 
         if($filter['kategori'] != 0)
         {
             $data->where('kategori', '=', $filter['kategori']);
         }else{
-            $data->where('kategori', '!=', 0);
+            $data->where('kategori', '!=', "");
         }
 
-        return $data->get();
+        $data = $data->get();
+
+        $doc = new Document();
+
+        foreach($data as $dat)
+        {
+            $dat->kategori = $doc->getKategori($dat->kategori);
+        }
+
+        return $data;
     }
 }

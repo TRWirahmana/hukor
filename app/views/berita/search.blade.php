@@ -9,10 +9,11 @@
             <p>{{count($berita)}} hasil pencarian untuk kata kunci <strong>{{ $keyword }}</strong>.</p>
             <div id="paging_container">
               <ul class="content" class="search-result-items">
+                  <!-- hasil pencarian berita -->
                   @if($berita['0'] != null)
                       @foreach($berita as $data)
                         <li>
-                            <!--  membuat style italic untuk kata kunci pencarian-->
+                            <!--  membuat style italic untuk kata kunci pencarian berita-->
                             <?php $s = "/" . $keyword."/i";
                             $r = "<i>$0</i>";
                             $judul = preg_replace($s, $r, $data->judul); ?>

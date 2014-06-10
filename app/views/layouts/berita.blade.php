@@ -51,21 +51,20 @@
 <body>
 <div class="mainwrapper">
 <div id="top-bar">
-  <div id="social-links">
-    <div class="container" >
+<!--  <div id="social-links">-->
+<!--    <div class="container" >-->
       <!-- form cari berita-->
-      {{ Form::open(array('action' => 'NewsController@search', 'method' => 'post', 'id'=>'form-cari-berita', 'class' =>'pull-right' )) }}
-      <input type="text" placeholder="cari..." name="search"/>
-      <button class="btn btn-primary" type="submit"><span class="rulycon-search"></span></button>
-      {{ Form::close() }}
-
-      <!--      -->
-      <p class="pull-right" style="padding: 4px;">
-        <a href="https://twitter.com/hukor_kemdikbud" target="_blank"><span class="rulycon-twitter"></span></a>
-        <a href="#"><span class="rulycon-feed-3"></span></a>
-      </p>
-    </div>
-  </div>
+<!--      {{ Form::open(array('action' => 'NewsController@search', 'method' => 'post', 'id'=>'form-cari-berita', 'class' =>'pull-right' )) }}-->
+<!--      <input type="text" placeholder="cari..." name="search"/>-->
+<!--      <button class="btn btn-primary" type="submit"><span class="rulycon-search"></span></button>-->
+<!--      {{ Form::close() }}-->
+<!---->
+<!--      <p class="pull-right" style="padding: 4px;">-->
+<!--        <a href="https://twitter.com/hukor_kemdikbud" target="_blank"><span class="rulycon-twitter"></span></a>-->
+<!--        <a href="#"><span class="rulycon-feed-3"></span></a>-->
+<!--      </p>-->
+<!--    </div>-->
+<!--  </div>-->
   <div class="header">
     <div class="container">
       <div class="logo">
@@ -86,19 +85,19 @@
 <!--              <span class="headmenu-label" id="berita">Berita</span>-->
 <!--            </a>-->
           </li>
-            <li>
-                <a class="dropdown-toggle" data-toggle="dropdown" id="aplikasi">
-                    <span class="rulycon-drawer-3"></span>
-                    <span class="headmenu-label">Aplikasi</span>
-                </a>
-            </li>
-
-            <li class="odd">
-                <a href="{{URL::to('detailprofile')}}" id="profile">
-                    <span class="rulycon-profile"></span>
-                    <span class="headmenu-label">Profil</span>
-                </a>
-            </li>
+<!--            <li>-->
+<!--                <a class="dropdown-toggle" data-toggle="dropdown" id="aplikasi">-->
+<!--                    <span class="rulycon-drawer-3"></span>-->
+<!--                    <span class="headmenu-label">Aplikasi</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!---->
+<!--            <li class="odd">-->
+<!--                <a href="{{URL::to('detailprofile')}}" id="profile">-->
+<!--                    <span class="rulycon-profile"></span>-->
+<!--                    <span class="headmenu-label">Profil</span>-->
+<!--                </a>-->
+<!--            </li>-->
 
 <!--            <li>-->
 <!--                <a class="dropdown-toggle" data-toggle="dropdown" id="informasi">-->
@@ -107,25 +106,25 @@
 <!--                </a>-->
 <!--            </li>-->
 
-            <li>
-                <a href="{{URL::to('produkhukum')}}" id="produk_hukum">
-                    <span class="rulycon-books"></span>
-                    <span class="headmenu-label">Produk Hukum</span>
-                </a>
-            </li>
-
-          <li>
-            <a href="#" id="forum_diskusi">
-              <span class="rulycon-bubbles-2"></span>
-              <span class="headmenu-label">Forum</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{URL::to('site')}}">
-              <span class="rulycon-user"></span>
-              <span class="headmenu-label" id="login">Login</span>
-            </a>
-          </li>
+<!--            <li>-->
+<!--                <a href="{{URL::to('produkhukum')}}" id="produk_hukum">-->
+<!--                    <span class="rulycon-books"></span>-->
+<!--                    <span class="headmenu-label">Produk Hukum</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!---->
+<!--          <li>-->
+<!--            <a href="#" id="forum_diskusi">-->
+<!--              <span class="rulycon-bubbles-2"></span>-->
+<!--              <span class="headmenu-label">Forum</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="{{URL::to('site')}}">-->
+<!--              <span class="rulycon-user"></span>-->
+<!--              <span class="headmenu-label" id="login">Login</span>-->
+<!--            </a>-->
+<!--          </li>-->
         </ul>
         <!--headmenu-->
       </div>
@@ -134,47 +133,75 @@
 
   <div class="sub-header">
     <div class="container">
-
-      <ul class="sub-menu" id="sub-aplikasi" style="display: none">
+      <ul class="sub-menu" id="sub-aplikasi">
         <li class="has-child">
-          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Peraturan Perundang-undangan </span></a>
+            <a href="#"><span class="rulycon-drawer-3"> &nbsp; Aplikasi</span></a>
+<!--          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Peraturan Perundang-undangan </span></a>-->
           <ul>
-            <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Informasi</a></li>
-            <li><a href="{{URL::route('puu.index')}}">Usulan</a></li>
+            <li class="has-two-child"><a href="#">Peraturan Perundang-Undangan</a>
+                <ul style="top: 0px;">
+                    <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Informasi</a></li>
+                    <li><a href="{{URL::route('puu.index')}}">Usulan</a></li>
+                </ul>
+            </li>
+            <li class="has-two-child"><a href="#">Pelembagaan</a>
+                <ul style="margin-top: -37px;">
+                    <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Informasi</a></li>
+                    <li><a href="{{ URL::route('pelembagaan.index') }}">Usulan</a></li>
+                </ul>
+            </li>
+            <li class="has-two-child"><a href="#">Bantuan Hukum</a>
+                <ul style="margin-top: -58px;">
+                    <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Informasi</a></li>
+                    <li><a href="{{ URL::route('bantuan_hukum.index') }}">Usulan</a></li>
+                </ul>
+
+            </li>
+            <li class="has-two-child"><a href="#">Analisis Jabatan</a>
+                <ul style="margin-top: -58px;">
+                    <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Informasi</a></li>
+                    <li><a href="{{URL::route('aj.index')}}">Usulan</a></li>
+                </ul>
+            </li>
+            <li class="has-two-child"><a href="#">Sistem dan Prosedur</a>
+                <ul style="margin-top: -58px;">
+                    <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Informasi</a></li>
+                    <li><a href="{{URL::route('sp.index')}}">Usulan</a></li>
+                </ul>
+            </li>
           </ul>
         </li>
+
         <li class="has-child">
-          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Pelembagaan</span></a>
-          <ul>
-            <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Informasi</a></li>
-            <li><a href="{{ URL::route('pelembagaan.index') }}">Usulan</a></li>
-          </ul>
+          <a href="{{URL::to('detailprofile')}}"><span class="rulycon-profile"> &nbsp; Profil</span></a>
+<!--          <ul>-->
+<!--            <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Informasi</a></li>-->
+<!--            <li><a href="{{ URL::route('pelembagaan.index') }}">Usulan</a></li>-->
+<!--          </ul>-->
         </li>
 
           <li class="has-child">
-              <a href="#"><span class="rulycon-drawer-3"> &nbsp; Bantuan Hukum</span></a>
-              <ul>
-                  <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Informasi</a></li>
-                  <li><a href="{{ URL::route('bantuan_hukum.index') }}">Usulan</a></li>
-              </ul>
+              <a href="{{URL::to('produkhukum')}}"><span class="rulycon-books"> &nbsp; Produk Hukum</span></a>
+<!--              <ul>-->
+<!--                  <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Informasi</a></li>-->
+<!--                  <li><a href="{{ URL::route('bantuan_hukum.index') }}">Usulan</a></li>-->
+<!--              </ul>-->
           </li>
 
           <li class="has-child">
-              <a href="#"><span class="rulycon-drawer-3"> &nbsp; Analisis Jabatan</span></a>
-              <ul>
-                  <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Informasi</a></li>
-                  <li><a href="{{URL::route('aj.index')}}">Usulan</a></li>
-              </ul>
+              <a href="#" id="forum_diskusi"><span class="rulycon-bubbles-3"> &nbsp; Forum</span></a>
+<!--              <ul>-->
+<!--                  <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Informasi</a></li>-->
+<!--                  <li><a href="{{URL::route('aj.index')}}">Usulan</a></li>-->
+<!--              </ul>-->
           </li>
 
         <li class="has-child">
-          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Sistem dan Prosedur</span></a>
-          <ul>
-            <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Informasi</a></li>
-            <li><a href="{{URL::route('sp.index')}}">Usulan</a></li>
-
-
-          </ul>
+          <a href="{{URL::to('site')}}"><span class="rulycon-user"> &nbsp; Login</span></a>
+<!--          <ul>-->
+<!--            <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Informasi</a></li>-->
+<!--            <li><a href="{{URL::route('sp.index')}}">Usulan</a></li>-->
+<!--          </ul>-->
         </li>
 
       </ul>
@@ -328,6 +355,22 @@
 </script>
 <script src="{{asset('assets/js/customize-twitter-1.1.min.js')}}"></script>
 <script>
+    $(function() {
+        $( "#accordion" ).accordion({
+            heightStyle: "fill",
+            collapsible: true
+
+        });
+    });
+    $(function() {
+        $( "#accordion-resizer" ).resizable({
+            minHeight: 140,
+            minWidth: 200,
+            resize: function() {
+                $( "#accordion" ).accordion( "refresh" );
+            }
+        });
+    });
   var twitterWidgetOptions = {
     "url": "{{asset('assets/js/custom-twitter.css')}}"
   };

@@ -268,10 +268,10 @@ p {
 .sub-menu li a {
   color: #ffffff;
   display: inline-block;
-  margin-right: 18px;
+  margin-right: 50px;
   padding: 6px 0;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .sub-menu li a:hover {
@@ -294,7 +294,7 @@ p {
   position: absolute;
   /*background: url("../images/leftpanelbg.png") repeat;*/
   background: #5CA8EE;
-  margin-left: -16px;
+  /*margin-left: -16px;*/
   display: none;
   opacity: 0;
   z-index: 1000;
@@ -309,6 +309,7 @@ p {
   margin-right: 0;
   padding: 8px 16px;
   display: block;
+  width: 100px !important;
 }
 
 .sub-menu .has-child > ul li a:hover {
@@ -318,6 +319,42 @@ p {
 .sub-menu .has-child:hover > ul {
   display: block;
   opacity: 1;
+}
+
+.sub-menu .has-two-child ul {
+    position: absolute;
+    /*top: 0px;*/
+    /*background: url("../images/leftpanelbg.png") repeat;*/
+    background: #5CA8EE;
+    margin-left: 132px !important;
+    display: none;
+    opacity: 0;
+    z-index: 1000;
+}
+
+.sub-menu .has-two-child > ul li {
+    display: block;
+    width: 100%;
+}
+
+.sub-menu .has-two-child > ul li a {
+    margin-right: 0;
+    padding: 8px 16px;
+    display: block;
+    width: 100px !important;
+}
+
+.sub-menu .has-two-child > ul li a:hover {
+    background: rgba(0, 0, 0, .25);
+}
+
+.sub-menu .has-two-child:hover > ul {
+    display: block;
+    opacity: 1;
+}
+
+#accordion{
+    width: 50%;
 }
 
 .content-wrapper {

@@ -179,38 +179,66 @@
 
 </div>
 <!--content-wrapper-->
+<!--<div class="footer">-->
+<!--    <div class="container">-->
+<!---->
+<!--        <div class="row-fluid">-->
+<!--            --><?php //$call = CallCenter::find(1); ?>
+<!--            <div class="span4"  style="margin-top: 0px !important;">-->
+<!--                <p>-->
+<!--                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.-->
+<!--                </p>-->
+<!--            </div>-->
+<!---->
+<!--            <div class="span4" style="margin-top: 0px !important;">-->
+<!--                <p>-->
+<!--                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.-->
+<!--                </p>-->
+<!--            </div>-->
+<!---->
+<!--                  <div class="span4">-->
+<!--                    <div id="footer-image">-->
+<!--                      <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>-->
+<!--                      <span style="margin-top: 6px;">Biro Hukum dan Organisasi</span>-->
+<!--                      <p><span>Kementerian Pendidikan Dan Kebudayaan</span>-->
+<!--                      <span>Republik Indonesia</span></p>-->
+<!--                    </div>-->
+<!--                    <address>-->
+<!--                      {{ $call->alamat }} <br/>-->
+<!--                      <span class="rulycon-phone"></span> {{ $call->telp }} &nbsp; | &nbsp; <span class="rulycon-print"></span> {{ $call->fax }}<br/>-->
+<!--                      <!--                        Jawa Barat, Indonesia-->-->
+<!--                    </address>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--        </div>-->
+<!--        <div class="row-fluid">-->
+<!--            <div class="span12">-->
+<!--                <p style="margin-top: 36px;"><span>&copy; 2014 Kementerian Pendidikan Dan Kebudayaan Republik Indonesia.</span>-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <div class="footer">
   <div class="container" style="width: 960px;">
 
     <div class="row-fluid">
       <?php $call = CallCenter::find(1); ?>
-      <div class="span8">
-<!--        <div id="footer-menu-aplikasi" style="display: none">-->
-<!--          <ul class="footer-menu">-->
-<!--            <li>Peraturan Perundang-undangan</li>-->
-<!--            <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Peraturan Perundang-undangan</a></li>-->
-<!--            <li><a href="{{URL::route('per_uu.informasi')}}">Informasi dan Status Usulan</a></li>-->
-<!--          </ul>-->
-<!--          <ul class="footer-menu">-->
-<!--            <li>Pelembagaan</li>-->
-<!--            <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Pelembagaan</a></li>-->
-<!--            <li><a href="{{ URL::route('pelembagaan.index') }}">Informasi dan Status Usulan</a></li>-->
-<!--          </ul>-->
-<!--          <ul class="footer-menu">-->
-<!--            <li>Ketatalaksanaan</li>-->
-<!--            <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a></li>-->
-<!--            <li><a href="{{URL::route('sp.index')}}">Informasi dan Status Usulan Sistem dan Prosedur</a></li>-->
-<!--            <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Analisis Jabatan</a></li>-->
-<!--            <li><a href="{{URL::route('aj.index')}}">Informasi dan Status Usulan Analisis Jabatan</a></li>-->
-<!--          </ul>-->
-<!--          <ul class="footer-menu">-->
-<!--            <li>Bantuan Hukum</li>-->
-<!--            <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a></li>-->
-<!--            <li><a href="{{ URL::route('bantuan_hukum.index') }}">Informasi dan Status Usulan</a></li>-->
-<!--          </ul>-->
+              <div class="span8" style="margin-top: 0px !important;">
+              </div>
+<!--      <div class="span4" style="margin-top: 0px !important;">-->
+<!--          <p>-->
+<!--             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.-->
+<!--          </p>-->
+<!--      </div>-->
+<!---->
+<!--        <div class="span4" style="margin-top: 0px !important;">-->
+<!--            <p>-->
+<!--                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.-->
+<!--            </p>-->
 <!--        </div>-->
-      </div>
+
       <div class="span4">
         <div id="footer-image">
           <img src="{{asset('assets/images/logo-only.png')}}" alt=""/>
@@ -221,12 +249,12 @@
         <address>
           {{ $call->alamat }} <br/>
           <span class="rulycon-phone"></span> {{ $call->telp }} &nbsp; | &nbsp; <span class="rulycon-print"></span> {{ $call->fax }}<br/>
-          <!--                        Jawa Barat, Indonesia-->
+
         </address>
       </div>
     </div>
     <div class="row-fluid">
-      <div class="span8">
+      <div class="span8" style="margin-top: 50px;">
         <p><span>&copy; 2014 Kementerian Pendidikan Dan Kebudayaan Republik Indonesia.</span></p>
       </div>
     </div>

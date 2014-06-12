@@ -90,23 +90,15 @@ class HomeController extends BaseController {
     }
 
     public function main_site() {
-        //exit;
 
-//        $all = Menu::leftJoin('sub_menu', 'menu.id', '=', 'sub_menu.menu_id')
-//            ->leftJoin('layanan', 'sub_menu.id', '=', 'layanan.submenu_id')
-//            ->select(array(
-//                'menu.id',
-//                'sub_menu.id',
-//                'layanan.id',
-//                'menu.nama_menu'
-////                'menu_id' => 'menu.id',
-////                'submenu_id' => 'sub_menu.id',
-////                'layanan_id' => 'layanan.id',
-////                'nama_menu' => 'menu.nama_menu'
-//            ))
-//            ->distinct('menu.nama_menu')
-//            ->groupby('menu.nama_menu')
-//            ->get();
+//        $user = Auth::user();
+
+//        if($user->role_id == 1 || $user->role_id == 3 || $user->role_id == 4 || $user->role_id == 5 || $user->role_id == 6 || $user->role_id == 7 || $user->role_id == 8 || $user->role_id == 9 ){
+//            Auth::logout();
+//            Session::forget('key');
+//            Session::flash('error', 'Silahkan Login Sebagai User!');
+//            return Redirect::to('site');
+//        }
 
         $all = Menu::all();
         $all->toArray();
@@ -117,12 +109,6 @@ class HomeController extends BaseController {
         $lay = Layanan::all();
         $lay->toArray();
 
-//            $menlan = Layanan::leftJoin('menu', 'layanan.menu_id', '=', 'menu.id')
-//                ->select(array(
-//                    'layanan.id',
-//                    'menu.nama_menu'
-//                ))
-//                ->get();
 
         $this->layout = View::make('layouts.master', array(
             'allmenu' => $all,

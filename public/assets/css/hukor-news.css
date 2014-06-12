@@ -242,7 +242,7 @@ p {
 }
 
 .sub-header {
-  background: #5CA8EE;
+  background: #1164B3;
   display: block;
   width: 100%;
 }
@@ -293,23 +293,32 @@ p {
 .sub-menu .has-child ul {
   position: absolute;
   /*background: url("../images/leftpanelbg.png") repeat;*/
-  background: #5CA8EE;
-  /*margin-left: -16px;*/
+  /*background: #0E5BA1;*/
+    background: #5CA8EE;
+  left:0%;
   display: none;
   opacity: 0;
   z-index: 1000;
+    width: 100%;
+    margin-top: 32px;
 }
 
 .sub-menu .has-child > ul li {
-  display: block;
-  width: 100%;
+  display: inline-block;
+    margin-left: 15px;
+    /*width: 283px;*/
+}
+
+.sub-menu .has-child > ul li:first-child {
+    display: inline-block;
+    margin-left: 250px;
+    /*width: 283px;*/
 }
 
 .sub-menu .has-child > ul li a {
   margin-right: 0;
   padding: 8px 16px;
-  display: block;
-  width: 100px !important;
+  display: inline-block;
 }
 
 .sub-menu .has-child > ul li a:hover {
@@ -317,7 +326,7 @@ p {
 }
 
 .sub-menu .has-child:hover > ul {
-  display: block;
+  display: inline-block;
   opacity: 1;
 }
 
@@ -1429,6 +1438,15 @@ p {
     display: block;
 }
 
+.views-field-field-berita-isi-value{
+    padding: 0px !important;
+    margin-left: 0px !important;
+}
 
+
+/*.gambar{*/
+    /*padding: 0px !important;*/
+    /*margin-left: 0px !important;*/
+/*}*/
 
 

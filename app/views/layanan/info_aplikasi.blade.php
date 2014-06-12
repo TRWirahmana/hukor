@@ -1,5 +1,12 @@
 @section('content')
 <?php $title = ""; ?>
+    <div class="row-fluid">
+        <div class="span24" style="margin-bottom: 20px;">
+            <button class="btn btn-primary" id="btn-usulans" type="button">Buat Usulan</button>
+            <button class="btn btn-primary" id="status-usulan" type="button">Status Usulan</button>
+        </div>
+    </div>
+<hr>
 @if($info->id == 1)
 <!--PERATURAN PERUNDANG-UNDANGAN-->
 <script>
@@ -102,13 +109,6 @@
 
 <!--    Load Image-->
 @endif
-
-<div class="row-fluid">
-  <div class="span24" style="margin-bottom: 48px;">
-      <button class="btn btn-primary" id="btn-usulans" type="button">Buat Usulan</button>
-      <button class="btn btn-primary" id="status-usulan" type="button">Status Usulan</button>
-  </div>
-</div>
 
 <!-- dialog box -->
 <div id="dialog" title="<?php echo $title; ?>" style="display: none;">

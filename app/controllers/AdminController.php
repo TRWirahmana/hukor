@@ -7,6 +7,15 @@ class AdminController extends BaseController {
 
 
     public function home() {
+        $user = Auth::user();
+
+//        if($user->role_id == 2){
+//            Auth::logout();
+//            Session::forget('key');
+//            Session::flash('error', 'Silahkan Login Sebagai Admin!');
+//            return Redirect::to('admin/login');
+//        }
+
         if(Request::ajax()) {
             $perUU = DAL_PerUU::getMonthlyCount();
             $pelembagaan = DAL_Pelembagaan::getMonthlyCount();
@@ -33,7 +42,6 @@ class AdminController extends BaseController {
             return Response::json($data);
         }
 
-        $user = Auth::user();
         $this->layout->content = View::make('admin.dashboard', array(
             'user'=> $user
         ));
@@ -115,30 +123,11 @@ class AdminController extends BaseController {
             if(Input::get('role_id') == 0)
             {
                 $admins = User::where('user.role_id', '!=', '')->where('user.id', '!=', 1)->with('pengguna');
-//                $admins = User::leftJoin('pengguna', 'user.id', '=', 'pengguna.user_id')
-//                    ->select(array(
-//                        'user.id',
-//                        'pengguna.nama_lengkap',
-//                        'pengguna.email',
-//                        'user.username',
-//                        'user.role_id'
-//                    ))
-//                    ->where('user.role_id', '!=', '')
-//                    ->where('user.id', '!=', 1);
 
             }else
             {
                 $admins = User::where('user.role_id', '=', Input::get('role_id'))->where('user.id', '!=', 0)->with('pengguna');
-//                $admins = User::leftJoin('pengguna', 'user.id', '=', 'pengguna.user_id')
-//                    ->select(array(
-//                        'user.id',
-//                        'pengguna.nama_lengkap',
-//                        'pengguna.email',
-//                        'user.username',
-//                        'user.role_id'
-//                    ))
-//                ->where('user.role_id', '=', Input::get('role_id'))
-//                    ->where('user.id', '!=', 0);
+
             }
 
             $totalRecords = $admins->count();
@@ -190,11 +179,6 @@ class AdminController extends BaseController {
         $input = Input::all();
         $user = Auth::user();
 
-//        if ($registrasi->status == 1) {
-//            return Redirect::to('edit')->with('error', 'Perubahan tidak bisa dilakukan.');
-//        }
-
-
         $rules = array();
         $messages = array();
 
@@ -214,15 +198,6 @@ class AdminController extends BaseController {
             $user->password = Hash::make($input['password']);
         }
 
-
-//        $validator = Validator::make($input, $rules, $messages);
-//
-//        if($validator->fails()) {
-//            return Redirect::to('setting')->withErrors($validator)
-//                ->withInput(Input::except('password'))
-//                    ->with('error', 'Pengaturan gagal disimpan, mohon periksa kembali.');
-//
-//        }
 
         $user->save();
 

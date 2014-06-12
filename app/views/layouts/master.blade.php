@@ -63,7 +63,7 @@
 <div class="span6 sidebar">
 <?php $user = Auth::user(); ?>
 
-@if($user != null)
+@if($user == 2)
 <!--<p class="welcome-message-title">LOGIN</p>-->
 <p id="username" class="welcome-message user-not-null" style="padding-top: 10px;"><span>Selamat datang, <span
       id="name"><?php echo $user->pengguna->nama_lengkap; ?></span></span></p>
@@ -131,78 +131,6 @@ Form::text('username', '', array(
 <li id="menu-call-center"><a href="{{ URL::to('callcenter') }}"><span class="rulycon-address-book"></span>Kontak
     Kami</a>
 </li>
-
-<li class="menu-header">Informasi</li>
-<!--              <li id="menu-beranda"><a href="{{URL::to('/')}}"><span class="rulycon-home-2"></span>Beranda</a></li>-->
-<!--              <li id="menu-produk-hukum"><a href="{{URL::to('produkhukum')}}"><span class="rulycon-book"></span>Produk Hukum</a></li>-->
-<!-- Menu Layanan(Dinamisasi)-->
-
-<?php $no = 1;
-$allmenu = Menu::all();?>
-
-@foreach($allmenu as $menus)
-<?php $as = Submenu::leftJoin('menu', 'sub_menu.menu_id', '=', 'menu.id')
-  ->where('menu.id', '=', $menus['id'])
-  ->select('menu.id AS id', 'menu.nama_menu AS menu', 'sub_menu.id AS sub_id')
-  ->get(); ?>
-
-<li id="menu-{{ $menus['id'] }}">
-  <div class="accordion" id="accordion{{$no}}">
-    <div class="accordion-group">
-      <div class="accordion-heading">
-
-        @if($as['0'] != null)
-
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion{{$no}}" href="#collapse{{$no}}">
-          <span class="rulycon-notebook"></span>{{$menus['nama_menu']}}
-          <span class="rulycon-menu-2 pull-right"></span>
-        </a>
-        @else
-        <?php $laysmen = Layanan::where('menu_id', '=', $menus['id'])->get(); ?>
-        @if($laysmen['0']['id'] != null)
-        <a class="accordion-toggle" href="{{ URL::to('/layanan/detail?id='. $laysmen['0']['id'] .'') }}">
-          <span class="rulycon-notebook"></span>{{$menus['nama_menu']}}
-          <span class="rulycon-menu-2 pull-right"></span>
-        </a>
-        @else
-        <a class="accordion-toggle" href="#">
-          <span class="rulycon-notebook"></span>{{$menus['nama_menu']}}
-          <span class="rulycon-menu-2 pull-right"></span>
-        </a>
-        @endif
-        @endif
-      </div>
-      <?php $subs = Submenu::leftJoin('layanan', 'sub_menu.id', '=', 'layanan.submenu_id')
-        ->where('sub_menu.menu_id', '=', $menus['id'])
-        ->select('layanan.id AS id', 'sub_menu.nama_submenu AS sub')
-        ->get();
-
-      $subs->toArray();?>
-      @if($subs != null)
-
-      <div id="collapse{{$no}}" class="accordion-body collapse">
-        <div class="accordion-inner">
-          <ul>
-            @foreach($subs as $submenus)
-            @if($submenus['id'] != null)
-            <li><a href="{{ URL::to('/layanan/detail?id='. $submenus['id'] .'') }}"><span
-                  class="rulycon-list-2"></span> {{ $submenus['sub'] }}</a></li>
-            @else
-            <li><a href="#"><span class="rulycon-list-2"></span> {{ $submenus['sub'] }}</a></li>
-            @endif
-
-            @endforeach
-          </ul>
-        </div>
-      </div>
-      @endif
-    </div>
-  </div>
-</li>
-<?php $no++; ?>
-@endforeach
-
-<!-- END Menu Layanan -->
 
 <!--            <li id="menu-layanan-bantuan-hukum"><a href="#"><span class="rulycon-books"></span>Layanan Bantuan Hukum</a></li>-->
 <!--            <li id="menu-layanan-peraturan-perundangan"><a href="#"><span class="rulycon-book"></span>Layanan Peraturan Perundang-Undangan</a></li>-->
@@ -350,31 +278,6 @@ $allmenu = Menu::all();?>
         </div>
     </div>
 </li>
-
-
-<!--              <li id="menu-faq">-->
-<!--                  <div class="accordion" id="accordion7">-->
-<!--                      <div class="accordion-group">-->
-<!--                          <div class="accordion-heading">-->
-<!--                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapse14">-->
-<!--                                  <span class="rulycon-info"></span>FAQ-->
-<!--                                  <span class="rulycon-menu-2 pull-right"></span>-->
-<!--                              </a>-->
-<!--                          </div>-->
-<!--                          <div id="collapse14" class="accordion-body collapse">-->
-<!--                              <div class="accordion-inner">-->
-<!--                                  <ul>-->
-<!--                                      <li id="menu-peruu-info"><a href="{{ URL::to('/layanan/detail?id=1') }}"><span class="rulycon-checkbox-unchecked"></span>Peraturan Perundang-Undangan</a></li>-->
-<!--                                      <li id="menu-pelembagaan-info"><a href="{{ URL::to('/layanan/detail?id=2') }}"><span class="rulycon-checkbox-unchecked"></span>Pelembagaan</a></li>-->
-<!--                                      <li id="menu-sistem-info"><a href="{{ URL::to('/layanan/detail?id=4') }}"><span class="rulycon-checkbox-unchecked"></span>Sistem dan Prosedur</a></li>-->
-<!--                                      <li id="menu-analisis-info"><a href="{{ URL::to('/layanan/detail?id=5') }}"><span class="rulycon-checkbox-unchecked"></span>Analisis Jabatan</a></li>-->
-<!--                                      <li id="menu-bantuan-hukum-info"><a href="{{ URL::to('/layanan/detail?id=3') }}"><span class="rulycon-checkbox-unchecked"></span>Bantuan Hukum</a></li>-->
-<!--                                  </ul>-->
-<!--                              </div>-->
-<!--                          </div>-->
-<!--                      </div>-->
-<!--                  </div>-->
-<!--              </li>-->
 </ul>
 </div>
 <div id="dialog" title="FORUM" style="display: none;">
@@ -401,7 +304,7 @@ $allmenu = Menu::all();?>
   $('#menu-forum').click(function () {
     var user = '<?php echo Auth::user(); ?>';
 
-    if (user) {
+    if (user == 2) {
       window.location.replace("{{ URL::to('forumdiskusi') }}");
     }
     else {

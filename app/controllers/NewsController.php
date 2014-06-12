@@ -23,7 +23,8 @@ class NewsController extends BaseController {
         $this->layout->content = View::make('news.index', array(
             'latest_news' => $latest_news,
             'news_feed' => $news_feed,
-            'count_news' => $count_news
+            'count_news' => $count_news,
+            'pengunjung' => HukorHelper::GetCounterVisitor()
         ));
     }
 
@@ -35,7 +36,8 @@ class NewsController extends BaseController {
         $this->layout = View::make('layouts.berita');
 
         $this->layout->content = View::make('news.detail', array(
-            'berita' => $berita
+            'berita' => $berita,
+            'pengunjung' => HukorHelper::GetCounterVisitor()
         ));
     }
 

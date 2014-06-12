@@ -39,7 +39,7 @@ class LoginController extends BaseController {
                     if ($user->role_id == 2) {
                         Session::flash('success', 'Selamat datang ' . $user->pengguna->nama_lengkap . ' !');
                         return Redirect::to('site');
-                    } else {
+                    }else {
                         Auth::logout();
                         Session::forget('key');
                         Session::flash('error', 'Silahkan Login Sebagai User!');

@@ -3,20 +3,69 @@
   <div class="container" style="width: 960px;">
     <!-- News Feed -->
     <div class="row-fluid">
-      <div id="dashboard-left" class="span12">
+      <div id="dashboard-left" class="span8">
         <h3 class="section-title" id="news-feed">{{$berita->judul}}</h3>
         <div class="news-content news-content-detail">
-          <h6><?php $date = new DateTime($berita->tgl_penulisan); ?>
-          <span class="date-time">{{$date->format('d')}}  <span
-              class="date"><?php echo HukorHelper::castMonthToString3($date->format('m')) ?></span> {{$date->format('Y')}}</span></h6>
-          <br>
+          <h6 style="margin-bottom: 15px;"><?php $date = new DateTime($berita->tgl_penulisan); ?>
+          <span class="date-time">{{$date->format('d')}}
+          <span class="date"><?php echo HukorHelper::castMonthToString3($date->format('m')) ?></span> {{$date->format('Y')}}</span></h6>
+
           @if($berita->gambar != null)
-          {{ HTML::image('assets/uploads/berita/' . $berita->gambar) }}
+          {{ HTML::image('assets/uploads/berita/' . $berita->gambar,'', array('class' => 'gambar')) }}
           @endif
-          <br>
           <p>{{$berita->berita}}</p>
         </div>
       </div>
+
+        <div class="span4" style="box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85); padding-top: 32px;">
+            <h3 class="section-title" id="cemendikbud">Tautan</h3>
+
+            <div class="verticalslider">
+                <?php
+                $DAL = new DAL_Dikbud();
+                $link_dikbud = $DAL->GetAllLink();
+                ?>
+                @foreach($link_dikbud as $dikbud)
+                <?php $link = "http://" . $dikbud->link; ?>
+                <?php $assets = asset('assets/uploads/link/' . $dikbud->gambar); ?>
+                <div class="slider"><a href="{{ $link }}"><img src="{{ $assets }}"></a></div>
+                @endforeach
+            </div>
+
+            <!-- Widget Counter -->
+            <div id="counter-widget">
+                <h3 class="section-title widgets">Pengunjung</h3>
+
+                <div class="widget-body">
+                    <div class="widget-content">
+                        <table class="table">
+                            <tr>
+                                <th><span class="rulycon-calendar-2"></span></th>
+                                <th>Per-hari     :</th>
+                                <th>{{ $pengunjung[0] }}</th>
+                            </tr>
+                            <tr>
+                                <th><span class="rulycon-calendar"></span></th>
+                                <th>Per-bulan    :</th>
+                                <th>{{ $pengunjung[1] }}</th>
+                            </tr>
+                            <tr>
+                                <th><span class="rulycon-table-2"></span></th>
+                                <th>Per-tahun    :</th>
+                                <th>{{ $pengunjung[2] }}</th>
+                            </tr>
+                            <tr>
+                                <th><span class="rulycon-stats"></span></th>
+                                <th>Keseluruhan     :</th>
+                                <th>{{ $pengunjung[3] }}</th>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- End Widget Counter -->
+        </div>
     </div>
     <!--row-fluid-->
   </div>
@@ -31,7 +80,13 @@
 <script src="{{asset('assets/js/jquery.simplePagination.js')}}"></script>
 <script>
     jQuery(document).on("ready", function() {
-        document.title = "Layanan Biro Hukum dan Organisasi | Detail Berita"
+        document.title = "Layanan Biro Hukum dan Organisasi | Detail Berita";
+
+        $('.verticalslider').bxSlider({
+            mode: 'vertical',
+            minSlides: 4,
+            slideMargin: 4
+        });
     });
 </script>
 @stop

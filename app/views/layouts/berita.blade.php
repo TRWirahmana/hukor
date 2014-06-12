@@ -51,20 +51,14 @@
 <body>
 <div class="mainwrapper">
 <div id="top-bar">
-<!--  <div id="social-links">-->
-<!--    <div class="container" >-->
+  <div id="social-links">
+    <div class="container" >
       <!-- form cari berita-->
-<!--      {{ Form::open(array('action' => 'NewsController@search', 'method' => 'post', 'id'=>'form-cari-berita', 'class' =>'pull-right' )) }}-->
-<!--      <input type="text" placeholder="cari..." name="search"/>-->
-<!--      <button class="btn btn-primary" type="submit"><span class="rulycon-search"></span></button>-->
-<!--      {{ Form::close() }}-->
-<!---->
-<!--      <p class="pull-right" style="padding: 4px;">-->
-<!--        <a href="https://twitter.com/hukor_kemdikbud" target="_blank"><span class="rulycon-twitter"></span></a>-->
-<!--        <a href="#"><span class="rulycon-feed-3"></span></a>-->
-<!--      </p>-->
-<!--    </div>-->
-<!--  </div>-->
+
+      <p class="pull-right" style="padding: 4px;">&nbsp;
+      </p>
+    </div>
+  </div>
   <div class="header">
     <div class="container">
       <div class="logo">
@@ -134,74 +128,45 @@
   <div class="sub-header">
     <div class="container">
       <ul class="sub-menu" id="sub-aplikasi">
-        <li class="has-child">
-            <a href="#"><span class="rulycon-drawer-3"> &nbsp; Aplikasi</span></a>
-<!--          <a href="#"><span class="rulycon-drawer-3"> &nbsp; Peraturan Perundang-undangan </span></a>-->
-          <ul>
-            <li class="has-two-child"><a href="#">Peraturan Perundang-Undangan</a>
-                <ul style="top: 0px;">
-                    <li><a href="{{ URL::to('/layanan/detail?id=1') }}">Informasi</a></li>
-                    <li><a href="{{URL::route('puu.index')}}">Usulan</a></li>
-                </ul>
-            </li>
-            <li class="has-two-child"><a href="#">Pelembagaan</a>
-                <ul style="margin-top: -37px;">
-                    <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Informasi</a></li>
-                    <li><a href="{{ URL::route('pelembagaan.index') }}">Usulan</a></li>
-                </ul>
-            </li>
-            <li class="has-two-child"><a href="#">Bantuan Hukum</a>
-                <ul style="margin-top: -58px;">
-                    <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Informasi</a></li>
-                    <li><a href="{{ URL::route('bantuan_hukum.index') }}">Usulan</a></li>
-                </ul>
+          <li>
+              <a href="{{URL::to('/')}}"><span class="rulycon-home"> &nbsp; Beranda</span></a>
+          </li>
 
-            </li>
-            <li class="has-two-child"><a href="#">Analisis Jabatan</a>
-                <ul style="margin-top: -58px;">
-                    <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Informasi</a></li>
-                    <li><a href="{{URL::route('aj.index')}}">Usulan</a></li>
-                </ul>
-            </li>
-            <li class="has-two-child"><a href="#">Sistem dan Prosedur</a>
-                <ul style="margin-top: -58px;">
-                    <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Informasi</a></li>
-                    <li><a href="{{URL::route('sp.index')}}">Usulan</a></li>
-                </ul>
-            </li>
-          </ul>
-        </li>
-
-        <li class="has-child">
+        <li>
           <a href="{{URL::to('detailprofile')}}"><span class="rulycon-profile"> &nbsp; Profil</span></a>
-<!--          <ul>-->
-<!--            <li><a href="{{ URL::to('/layanan/detail?id=2') }}">Informasi</a></li>-->
-<!--            <li><a href="{{ URL::route('pelembagaan.index') }}">Usulan</a></li>-->
-<!--          </ul>-->
         </li>
 
           <li class="has-child">
+              <a href="#"><span class="rulycon-drawer-3"> &nbsp; Aplikasi</span></a>
+              <ul>
+                  <li>
+                      <a href="{{ URL::to('/layanan/detail?id=1') }}">Peraturan Perundang-Undangan</a>
+                  </li>
+                  <li>
+                      <a href="{{ URL::to('/layanan/detail?id=2') }}">Pelembagaan</a>
+                  </li>
+                  <li>
+                      <a href="{{ URL::to('/layanan/detail?id=3') }}">Bantuan Hukum</a>
+                  </li>
+                  <li>
+                      <a href="{{ URL::to('/layanan/detail?id=5') }}">Analisis Jabatan</a>
+                  </li>
+                  <li>
+                      <a href="{{ URL::to('/layanan/detail?id=4') }}">Sistem dan Prosedur</a>
+                  </li>
+              </ul>
+          </li>
+
+          <li>
               <a href="{{URL::to('produkhukum')}}"><span class="rulycon-books"> &nbsp; Produk Hukum</span></a>
-<!--              <ul>-->
-<!--                  <li><a href="{{ URL::to('/layanan/detail?id=3') }}">Informasi</a></li>-->
-<!--                  <li><a href="{{ URL::route('bantuan_hukum.index') }}">Usulan</a></li>-->
-<!--              </ul>-->
           </li>
 
-          <li class="has-child">
+          <li>
               <a href="#" id="forum_diskusi"><span class="rulycon-bubbles-3"> &nbsp; Forum</span></a>
-<!--              <ul>-->
-<!--                  <li><a href="{{ URL::to('/layanan/detail?id=5') }}">Informasi</a></li>-->
-<!--                  <li><a href="{{URL::route('aj.index')}}">Usulan</a></li>-->
-<!--              </ul>-->
           </li>
 
-        <li class="has-child">
+        <li>
           <a href="{{URL::to('site')}}"><span class="rulycon-user"> &nbsp; Login</span></a>
-<!--          <ul>-->
-<!--            <li><a href="{{ URL::to('/layanan/detail?id=4') }}">Informasi</a></li>-->
-<!--            <li><a href="{{URL::route('sp.index')}}">Usulan</a></li>-->
-<!--          </ul>-->
         </li>
 
       </ul>

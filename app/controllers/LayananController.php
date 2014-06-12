@@ -49,12 +49,6 @@ class LayananController extends BaseController {
     public function create(){
 
         $listMenu = array("" => "Pilih Menu") + Menu::lists("nama_menu", "id");
-//        $menu = Menu::all();
-//        $listMenu = array();
-//        foreach($menu as $data)
-//        {
-//            $listMenu[$data->id] = $data->nama_menu;
-//        }
 
         $listSubmenu = array("" => "-- Pilih Submenu --") + Submenu::lists("nama_submenu", "id");
 
@@ -100,12 +94,6 @@ class LayananController extends BaseController {
 
         $s = Bagian::where('id', '=', $layanan->penanggung_jawab)->get();
         $s->toArray();
-
-//        var_dump($s['0']['id']);exit;
-
-//        $bags = DB::table('bagian')
-//            ->select('nama')
-//            ->where('id', '=', $layanan->penanggung_jawab);
 
         if(!is_null($layanan))
             $this->layout->content = View::make('layanan.form', array(

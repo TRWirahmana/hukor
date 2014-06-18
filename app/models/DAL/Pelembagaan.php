@@ -217,7 +217,12 @@ class DAL_Pelembagaan {
             $result[$index]['lampiran'] = "<a href='{$url}'>Unduh</a>";       
         }
 
-        return HukorHelper::generateHtmlTable($result);
+      if(count($result) != 0){
+          return HukorHelper::generateHtmlTable($result);
+      }else{
+          return count($result);
+      }
+
     }
 
 

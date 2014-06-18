@@ -63,7 +63,7 @@
 <div class="span6 sidebar">
 <?php $user = Auth::user(); ?>
 
-@if($user == 2)
+@if($user->role_id == 2)
 <!--<p class="welcome-message-title">LOGIN</p>-->
 <p id="username" class="welcome-message user-not-null" style="padding-top: 10px;"><span>Selamat datang, <span
       id="name"><?php echo $user->pengguna->nama_lengkap; ?></span></span></p>
@@ -80,7 +80,6 @@
 @else
 <p class="welcome-message-title">LOGIN</p>
 <p id="username" class="welcome-message" style="padding-top: 10px;">Selamat datang <span id="name"></span></p>
-@if($user == null)
 {{-- form login--}}
 {{ Form::open(array('action' => 'LoginController@signin', 'method' => 'post', 'id'=>'user-sign-in-form',
 'class' =>'front-form', 'autocomplete' => 'off')) }}
@@ -114,7 +113,6 @@ Form::text('username', '', array(
 <a href="{{URL::to('forget')}}"> Lupa password </a>
 <a href="{{URL::to('registrasi')}}" class="pull-right">Daftar</a>
 {{ Form::close() }}
-@endif
 @endif
 <div>
 <ul id="user-menu">

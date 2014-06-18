@@ -242,7 +242,7 @@ class HukorHelper {
 	public static function GeneratePDf($data, $header, $title)
 	{
         // YOU NEED THIS FILE BEFORE YOU CAN RUN DOMPDF <-- im sure someone has a better way of referencing it for Laravel?
-        require_once(base_path() . "/vendor/dompdf/dompdf_config.inc.php");
+//        require_once(base_path() . "/vendor/dompdf/dompdf_config.inc.php");
 
 		$count = count($header);
 		$headerClone = $header;
@@ -268,7 +268,7 @@ class HukorHelper {
 
 			for($y = 0; $y < $count; $y++)
 			{
-				$html .= "<th style='border: 1px solid black;text-align:center;font-size:12px;'>" . $uid[$header[$y]] . "</th>";
+				$html .= "<th style='border: 1px solid black;text-align:left;font-size:12px;'>" . $uid[$header[$y]] . "</th>";
 			}
 
 			$html .= "</tr>";
@@ -277,17 +277,17 @@ class HukorHelper {
 			</table>
 			</center>";
 
-		$dompdf = new DOMPDF();
-		$dompdf->load_html($html);
-		$dompdf->set_paper("A4", "landscape");
-		$dompdf->render();
+		$pdf = new DOMPDF();
+        $pdf->load_html($html);
+        $pdf->set_paper("A4", "landscape");
+        $pdf->render();
 
 
 		// Use this to output to the broswer
 		//$dompdf->stream('Registrasi.pdf',array('Attachment'=>0));
 
 		// Use this to download the file.
-		$dompdf->stream($title.".pdf");
+        $pdf->stream($title.".pdf");
 	}
 
 	public static function castMonthToString3($month) {

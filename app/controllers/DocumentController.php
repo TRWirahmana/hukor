@@ -149,14 +149,16 @@ class DocumentController extends BaseController{
 
         $title .= $kategori . " " . $tahun;
 
-         $fields = array(
+         $header = array(
              'nomor',
              'perihal',
              'kategori'
          );
 
         if(count($data) != 0){
-            HukorHelper::GeneratePDf($data, $fields, $title);
+
+                HukorHelper::GeneratePDf($data, $header, $title);
+
         }else{
             return Redirect::to('admin/document')->with('error', 'Peraturan Tidak Ditemukan.');
         }

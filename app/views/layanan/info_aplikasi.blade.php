@@ -1,7 +1,7 @@
 @section('content')
 <?php $title = ""; ?>
     <div class="row-fluid">
-        <div class="span24" style="margin-bottom: 20px;">
+        <div class="span24">
             <button class="btn btn-primary" id="btn-usulans" type="button">Buat Usulan</button>
             <button class="btn btn-primary" id="status-usulan" type="button">Status Usulan</button>
         </div>

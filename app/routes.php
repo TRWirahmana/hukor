@@ -140,6 +140,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|super_admin'), functio
     Route::post('savedoc','DocumentController@save');
     Route::put('updatedoc/{key}','DocumentController@update');
     Route::get('tabledoc', 'DocumentController@datatable');
+    Route::post('printdoc','DocumentController@printToPDF');
 
     //Managemen Profile
     Route::resource('profile', 'ProfileController');

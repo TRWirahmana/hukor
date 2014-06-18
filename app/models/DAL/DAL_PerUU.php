@@ -30,6 +30,7 @@ class DAL_PerUU {
 
     public static function getPrintTable($status, $firstDate, $lastDate) {
 	    $data = self::getDataTable($status, $firstDate, $lastDate);
+
 	    $result = array();
 	    foreach($data->get() as $index => $perUU) {
 		    $tglUsulan = new DateTime($perUU->tgl_usulan);
@@ -41,7 +42,14 @@ class DAL_PerUU {
 		    $url = URL::route('puu.download', array('id' => $perUU->id));
 		    $result[$index]['lampiran'] = "<a href='{$url}'>Unduh</a>";
 	    }
-        return HukorHelper::generateHtmlTable($result);
+
+
+        if(count($result) != 0){
+            return HukorHelper::generateHtmlTable($result);
+        }else{
+            return count($result);
+        }
+
     }
 
     public static function getLogUsulan($id) {

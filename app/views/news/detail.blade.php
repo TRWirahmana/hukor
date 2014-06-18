@@ -17,8 +17,8 @@
         </div>
       </div>
 
-        <div class="span4" style="box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85); padding-top: 32px;">
-            <h3 class="section-title" id="cemendikbud">Tautan</h3>
+        <div class="span4" style="padding-top: 32px;">
+            <h3 class="section-title" id="tautan">Tautan</h3>
 
             <div class="verticalslider">
                 <?php

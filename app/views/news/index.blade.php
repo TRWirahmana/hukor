@@ -200,7 +200,7 @@
                     <a href="#"><span class="rulycon-feed-3"></span></a>
                 </p>
         </div>
-      <h3 class="section-title" id="cemendikbud">Tautan</h3>
+      <h3 class="section-title" id="tautan">Tautan</h3>
 
       <div class="verticalslider">
         <?php
@@ -323,7 +323,7 @@
 
     $('#paging_container').pajinate({
 //            start_page : 1,
-      items_per_page: 2,
+        items_per_page: 2,
         nav_label_first: 'Awal',
         nav_label_last: 'Akhir',
         nav_label_prev: 'Sebelumnya',

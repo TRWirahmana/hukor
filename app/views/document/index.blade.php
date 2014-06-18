@@ -33,7 +33,7 @@
             <!-- MAIN CONTENT -->
             <div class="stripe-accent"></div>
             @if($user->role_id == 3)
-            <form id="form-filter" class="form form-horizontal" method="post" action="{{ URL::action('DocumentController@printToPDF') }}" style="margin-bottom: 48px;">
+            <form id="form-filter" class="form form-horizontal" method="post" action="{{ URL::to('admin/printdoc') }}" style="margin-bottom: 25px;">
                 <fieldset>
                     <legend class="f_legend"></legend>
                     <div class="row-fluid">

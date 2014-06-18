@@ -104,13 +104,21 @@ class AdminController extends BaseController {
                 break;
         }
 
-        $pdf = new DOMPDF();
-        $pdf->load_html(join("", $style) . join("",$html));
-        $pdf->render();
-        $pdf->stream("laporan.pdf");
-        // $response = Response::make($pdf->output());
-        // $response->header('Content-Type', "application/pdf");
-        // return $response;
+
+
+//        var_dump($html);exit;
+        if($html['6'] != '0' || $html['6'] != 0){
+            $pdf = new DOMPDF();
+            $pdf->load_html(join("", $style) . join("",$html));
+            $pdf->render();
+            $pdf->stream("laporan.pdf");
+            // $response = Response::make($pdf->output());
+            // $response->header('Content-Type', "application/pdf");
+            // return $response;
+        }else{
+            return Redirect::to('admin')->with('error', 'Data Tidak Tersedia.');
+        }
+
 
     }
 

@@ -91,7 +91,12 @@ class DAL_BantuanHukun
             $result[$index]['Advokasi'] = $object->advokasi;
             $result[$index]['Advokator'] = $object->advokator;
         }
-        return HukorHelper::generateHtmlTable($result);
+
+        if(count($result) != 0){
+            return HukorHelper::generateHtmlTable($result);
+        }else{
+            return count($result);
+        }
     }
 
     /*

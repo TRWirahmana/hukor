@@ -40,7 +40,12 @@ class DAL_SistemDanProsedur {
 			$url = URL::route('sp.download', array('id' => $sp->id));
 			$result[$index]['lampiran'] = "<a href='{$url}'>Unduh</a>";
 		}
-		return HukorHelper::generateHtmlTable($result);
+
+        if(count($result) != 0){
+            return HukorHelper::generateHtmlTable($result);
+        }else{
+            return count($result);
+        }
 	}
 
 	public static function getLogUsulan($id) {

@@ -3,7 +3,7 @@
 <!--Ketatalaksanaan-->
 <script>
     document.title = "Layanan Biro Hukum dan Organisasi | Status Usulan Analisis Jabatan";
-  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Ketatalaksanaan";
+  document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Analisis Jabatan";
 </script>
 
 <legend>Status Usulan Analisis Jabatan</legend>
@@ -133,11 +133,13 @@
             bFilter: true,
             bInfo: true,
             bLengthChange: true,
+            bProcessing:true,
             oLanguage:{
                 "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                 "sEmptyTable": "Data Kosong",
                 "sZeroRecords" : "Pencarian Tidak Ditemukan",
                 "sSearch":       "Cari:",
+                "sProcessing": 'Memproses...',
                 "sLengthMenu": 'Tampilkan <select>'+
                     '<option value="10">10</option>'+
                     '<option value="25">25</option>'+

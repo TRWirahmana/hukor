@@ -20,17 +20,16 @@
                     <h4>PENANGGUNG JAWAB</h4>
                 </div>
 
-                <div class="control-group">
-                    <label for="jenis_usulan" class="control-label">Jenis Usulan</label>
-
-                    <div class="controls">
-                        <select id="jenis_usulan">
-                            <!--        <option value="0">Pilih Usulan</option>-->
-                            <option value="1">Sistem dan Prosedur</option>
-                            <option value="2">Analisis Jabatan</option>
-                        </select>
-                    </div>
-                </div>
+<!--                <div class="control-group">-->
+<!--                    <label for="jenis_usulan" class="control-label">Jenis Usulan</label>-->
+<!---->
+<!--                    <div class="controls">-->
+<!--                        <select id="jenis_usulan">-->
+<!--                            <option value="1">Sistem dan Prosedur</option>-->
+<!--                            <option value="2">Analisis Jabatan</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
 
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[nama]', 'Nama', array('class' => 'control-label'))}}
@@ -40,7 +39,7 @@
                 </div>
 
                 <div class="control-group">
-                    {{ form::label('penanggungJawab[jabatan]', 'jabatan', array('class' => 'control-label'))}}
+                    {{ form::label('penanggungJawab[jabatan]', 'Jabatan', array('class' => 'control-label'))}}
                     <div class="controls">
                         {{ form::text('penanggungJawab[jabatan]', null, array('placeholder' => 'Masukan jabatan...')) }}
                     </div>
@@ -203,7 +202,7 @@ $("#form-perUU").validate({
             required: 'Alamat kantor penanggung jawab tidak boleh kosong.'
         },
         'penanggungJawab[telp_kantor]': {
-            required: 'Telepon kantor penanggun jawab tidak boleh kosong.'
+            required: 'Telepon kantor penanggung jawab tidak boleh kosong.'
         },
         'penanggungJawab[email]': {
             required: 'Email penanggung jawab tidak boleh kosong.'

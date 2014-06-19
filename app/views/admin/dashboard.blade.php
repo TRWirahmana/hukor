@@ -151,14 +151,14 @@
           <div class="card three">
             <h4>{{DAL_SistemDanProsedur::getUnreadCount()}}</h4>
 
-            <p>Total usulan</p>
+            <p>Usulan baru</p>
           </div>
         </div>
         <div class="span4">
           <div class="card three">
             <h4>{{DAL_SistemDanProsedur::getTodayCount()}}</h4>
 
-            <p>Total usulan</p>
+            <p>Usulan hari ini</p>
           </div>
         </div>
         <div class="span4">

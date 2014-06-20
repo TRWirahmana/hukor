@@ -62,7 +62,8 @@
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[telp_kantor]', 'Telepon Kantor', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[telp_kantor]', null, array('placeholder' => 'Masukan nomor telepon kantor...')) }}
+                        {{ Form::text('penanggungJawab[telp_kantor]', null, array('placeholder' => 'Masukan nomor telepon kantor...', 'id' => 'telp_kantor')) }}
+                        <p class="span9" style="color: #616D79;font-size: 11px;">Format: (9999) 999-9999</p>
                     </div>
                 </div>
 
@@ -114,7 +115,9 @@
 @section('scripts')
 @parent
 <script src="{{asset('assets/js/jquery.validate.js')}}"></script>
+<script src="{{asset('assets/js/jquery.mask.js')}}"></script>
 <script type="text/javascript">
+    $("#telp_kantor").mask("(9999) 999-9999");
 $("#menu-peraturan-perundangan").addClass("active");
 
 
@@ -129,7 +132,10 @@ $("#form-perUU").validate({
         'penanggungJawab[unit_kerja]': 'required',
         'penanggungJawab[alamat_kantor]': 'required',
         'penanggungJawab[telp_kantor]': 'required',
-        'penanggungJawab[email]': 'required',
+        'penanggungJawab[email]': {
+            required: true,
+            email: true
+        },
         'analisisJabatan[perihal]': 'required',
         'analisisJabatan[lampiran]': 'required'
 
@@ -151,10 +157,11 @@ $("#form-perUU").validate({
             required: 'Alamat kantor penanggung jawab tidak boleh kosong.'
         },
         'penanggungJawab[telp_kantor]': {
-            required: 'Telepon kantor penanggun jawab tidak boleh kosong.'
+            required: 'Telepon kantor penanggung jawab tidak boleh kosong.'
         },
         'penanggungJawab[email]': {
-            required: 'Email penanggung jawab tidak boleh kosong.'
+            required: 'Email penanggung jawab tidak boleh kosong.',
+            email: 'Format email tidak benar'
         },
         'analisisJabatan[perihal]': {
             required: 'Perihal tidak boleh kosong.'

@@ -75,7 +75,8 @@
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[telp_kantor]', 'Telepon Kantor', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[telp_kantor]', null, array('placeholder' => 'Masukan no telepon kantor...')) }}
+                        {{ Form::text('penanggungJawab[telp_kantor]', null, array('placeholder' => 'Masukan no telepon kantor...', 'id' => 'telp_kantor')) }}
+                        <p class="span9" style="color: #616D79;font-size: 11px;">Format: (9999) 999-9999</p>
                     </div>
                 </div>
 
@@ -152,7 +153,10 @@
 @section('scripts')
 @parent
 <script src="{{asset('assets/js/jquery.validate.js')}}"></script>
+<script src="{{asset('assets/js/jquery.mask.js')}}"></script>
 <script type="text/javascript">
+    $("#telp_kantor").mask("(9999) 999-9999");
+
     $( "#jenis_usulan" ).change(function() {
         var jenis_usul = $("#jenis_usulan").val();
 

@@ -30,7 +30,7 @@
           <fieldset>
             <p class="text-info">{{$detail}}</p>
             <legend class="f_legend">{{$title}}</legend>
-            <div class="control-group">
+            <div class="control-group {{$errors->has('judul')? 'error':''}}">
               {{ Form::label('judul', 'Judul Berita', array('class' => 'control-label')); }}
               <div class="controls">
                 @if(!is_object($berita->judul))
@@ -39,6 +39,10 @@
                 {{ Form::text('judul', $berita->judul, array('placeholder' => 'Isi Judul Berita.')) }}
                 @endif
               </div>
+
+                @foreach($errors->get('judul') as $error)
+                <span class="help-block">{{ $error }}</span>
+                @endforeach
             </div>
 
             <div class="control-group">

@@ -180,7 +180,10 @@ $("#form-perUU").validate({
         'penanggungJawab[unit_kerja]': 'required',
         'penanggungJawab[alamat_kantor]': 'required',
         'penanggungJawab[telp_kantor]': 'required',
-        'penanggungJawab[email]': 'required',
+        'penanggungJawab[email]': {
+            required: true,
+            email: true
+        },
         'sistem_dan_prosedur[perihal]': 'required',
         'sistem_dan_prosedur[lampiran]': 'required'
 
@@ -205,7 +208,8 @@ $("#form-perUU").validate({
             required: 'Telepon kantor penanggung jawab tidak boleh kosong.'
         },
         'penanggungJawab[email]': {
-            required: 'Email penanggung jawab tidak boleh kosong.'
+            required: 'Email penanggung jawab tidak boleh kosong.',
+            email: 'Format email tidak benar'
         },
         'sistem_dan_prosedur[perihal]': {
             required: 'Perihal tidak boleh kosong.'

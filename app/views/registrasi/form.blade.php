@@ -206,8 +206,8 @@
         </div>
 
         <div class="row-fluid" style="margin-top: 24px; margin-bottom: 48px;">
-          <div class="span24 text-center">
-            <button class="btn btn-primary" type="submit" id="submit">Daftar</button>
+          <div class="span9 offset15">
+            <button class="btn btn-primary" type="submit" id="regist">Daftar</button>
           </div>
         </div>
 

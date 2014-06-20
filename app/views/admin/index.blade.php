@@ -36,7 +36,7 @@
                 <fieldset>
                     <label for="select_role" class="control-label">Tipe Pengguna</label>
                     <select id="select_role">
-                        <option value="0">Semua User</option>
+                        <option value="0">Semua Pengguna</option>
                         <option value="2">Pengguna</option>
                         <option value="3">Super Admin</option>
                         <option value="6">Admin Peraturan Perundang-Undangan</option>

@@ -778,8 +778,8 @@ p {
 }
 
 .news-content p {
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 0px;
+  padding-right: 0px;
   font-size: 14px;
 }
 
@@ -1444,9 +1444,33 @@ p {
 }
 
 
-/*.gambar{*/
-    /*padding: 0px !important;*/
-    /*margin-left: 0px !important;*/
-/*}*/
+.gambar{
+    padding: 0px !important;
+    margin-left: 0px !important;
+    margin-bottom: 20px;
+}
+
+.bigger-icon{
+    font-size: 30px;
+    color: #0A3E6E;
+
+}
+
+.bigger-icon:hover{
+    font-size: 30px;
+    color: #1164B3;
+}
+.btn-searchs{
+    background-color: #0a3e6e;
+    height: 45px;
+    margin-top: -6px;
+    width: 44px;
+}
+.btn-searchs:hover{
+    background-color: #1164B3;
+    height: 45px;
+    margin-top: -6px;
+    width: 44px;
+}
 
 

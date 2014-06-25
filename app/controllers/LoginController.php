@@ -48,11 +48,11 @@ class LoginController extends BaseController {
                 }
                 //
             } else {
-                Session::flash('error', 'Password yang anda masukan salah!');
+                Session::flash('error', 'Email atau Password yang anda masukan salah!');
                 return Redirect::to('site');
             }
         } else {
-            Session::flash('error', 'User tidak terdaftar!');
+            Session::flash('error', 'Email atau Password yang anda masukan salah!');
             return Redirect::to('site');
         }
     }
@@ -101,7 +101,7 @@ class LoginController extends BaseController {
                 }
                 //
             } else {
-                Session::flash('error', 'Password yang anda masukan salah!');
+                Session::flash('error', 'Email atau Password yang anda masukan salah!');
                 return Redirect::to('/admin/login');
             }
         } else {

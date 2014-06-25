@@ -42,6 +42,7 @@
                     {{ Form::label('penanggungJawab[no_handphone]', "No Handphone", array('class' => 'control-label'))}}
                     <div class="controls">
                         {{ Form::text('penanggungJawab[no_handphone]', null, array('placeholder' => 'Masukan nomor handphone...')) }}
+                        <p class="span9" style="color: #616D79;font-size: 11px;">Format: 999-999-999-999</p>
                     </div>
                 </div>
 

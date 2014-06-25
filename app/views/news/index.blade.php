@@ -188,16 +188,16 @@
   border-top: 1px solid rgba(0, 0, 0, .075);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85); padding-top: 32px;">
                 <!-- form cari berita-->
-        <div id="counter-widget">
+        <div id="counter-widget" style="margin-bottom: 10px;">
                 {{ Form::open(array('action' => 'NewsController@search', 'method' => 'post', 'id'=>'form-cari-berita', 'class' =>'pull-right' )) }}
-                <input type="text" placeholder="cari..." name="search"/>
-                <button class="btn btn-primary" type="submit"><span class="rulycon-search"></span></button>
+                <input type="text" placeholder="cari..." name="search" style="height: 35px; width: 165px;"/>
+                <button class="btn btn-primary btn-searchs" type="submit"><span class="rulycon-search"></span></button>
                 {{ Form::close() }}
 
                 <!--      -->
-                <p style="padding: 4px;">
-                    <a href="https://twitter.com/hukor_kemdikbud" target="_blank"><span class="rulycon-twitter"></span></a>
-                    <a href="#"><span class="rulycon-feed-3"></span></a>
+                <p style="padding: 5px;">
+                    <a href="https://twitter.com/hukor_kemdikbud" target="_blank"><span class="rulycon-twitter bigger-icon" ></span></a>
+                    <a href="#"><span class="rulycon-feed-3 bigger-icon"></span></a>
                 </p>
         </div>
       <h3 class="section-title" id="tautan">Tautan</h3>

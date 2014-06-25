@@ -6,7 +6,7 @@ class HukorEmail {
         // creating an array with user's info but most likely you can use $user->email or pass $user object to closure later
         $user = array(
             'email' => $to_email,
-            'name' => 'Yth. Pemilik E-Mail ' . $$to_email,
+            'name' => 'Yth. Pemilik E-Mail ' . $to_email,
         );
 
         // the data that will be passed into the mail view blade template

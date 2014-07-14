@@ -85,7 +85,7 @@ jQuery(document).ready(function(e){
         },
         fnDrawCallback: function() {
 
-            dom.$table_admin.fnSetColumnVis( 3,  (dom.$select_role.val() == 0 || dom.$select_role.val() == 3 || dom.$select_role.val() == 2));
+//            dom.$table_admin.fnSetColumnVis( 3,  (dom.$select_role.val() == 0 || dom.$select_role.val() == 3 || dom.$select_role.val() == 2));
         }
     });
 

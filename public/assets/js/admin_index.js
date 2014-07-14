@@ -30,10 +30,10 @@ jQuery(document).ready(function(e){
         sAjaxSource: document.URL,
         aoColumns: [
             {
-                mData: "pengguna.nama_lengkap"
+                mData: "nama_lengkap"
             },
             {
-                mData: "pengguna.email"
+                mData: "email"
             }
             ,
             {
@@ -72,7 +72,7 @@ jQuery(document).ready(function(e){
                 }
             },
             {
-                mData: "id",
+                mData: "user_id",
                 mRender: function(id) {
                     return "<a href='"+baseUrl+"/admin/account/"+id+"/edit' title='Ubah'><i class='icon-edit'></i></a>"
                         + "&nbsp;<a class='btn_delete' title='Hapus' href='"+baseUrl+"/admin/account/"+id+"'>"

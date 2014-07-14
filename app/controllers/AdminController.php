@@ -130,23 +130,45 @@ class AdminController extends BaseController {
         if(Request::ajax()) {
             if(Input::get('role_id') == 0)
             {
-                $admins = User::where('user.role_id', '!=', '')->where('user.id', '!=', 1)->with('pengguna');
+//                $admins = User::where('user.role_id', '!=', '')->where('user.id', '!=', 1)->with('pengguna');
+
+                $admins = User::leftJoin("pengguna", "user.id", "=", "pengguna.user_id")
+                ->where('user.id', '!=', 1)
+                    ->where('user.role_id', '!=', '')
+                    ->select(array(
+                    'pengguna.nama_lengkap',
+                    'pengguna.email',
+                    'user.role_id',
+                    'pengguna.user_id'
+                ))
+                    ->orderBy('pengguna.nama_lengkap', 'asc');
 
             }else
             {
-                $admins = User::where('user.role_id', '=', Input::get('role_id'))->where('user.id', '!=', 0)->with('pengguna');
+//                $admins = User::where('user.role_id', '=', Input::get('role_id'))->where('user.id', '!=', 0)->with('pengguna');
 
+                $admins = User::leftJoin("pengguna", "user.id", "=", "pengguna.user_id")
+                    ->where('user.role_id', '=', Input::get('role_id'))
+                    ->select(array(
+                        'pengguna.nama_lengkap',
+                        'pengguna.email',
+                        'user.role_id',
+                        'pengguna.user_id'
+                    ))
+                    ->orderBy('pengguna.nama_lengkap', 'asc');
             }
-
-            $totalRecords = $admins->count();
 
             //search specific record
             if(!empty($filter['sSearch'])){
                 $search = $filter['sSearch'];
-                $admins->where('username', 'like', "%$search%")
-                ->orWhere('nama_lengkap', 'like', "%$search%");
+                $admins->where('user.username', 'like', "%$search%")
+                    ->orWhere('pengguna.nama_lengkap', 'like', "%$search%");
                 ;
             }
+
+            $totalRecords = $admins->count();
+
+
 
             $totalDisplayRecords = $admins->count();
             $admins = $admins->skip(Input::get('iDisplayStart'))->take(Input::get('iDisplayLength'));

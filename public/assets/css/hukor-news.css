@@ -69,7 +69,7 @@ p {
 }
 
 #social-links {
-  background: #0A3E6E;
+  background: #1A7BBA;
 }
 
 #social-links > .container {
@@ -112,8 +112,8 @@ p {
 }
 
 .header {
-  background: #0e5ba1;
-  padding: 0 20px;
+  background: #1A7BBA;
+  padding: 15 20px;
   height: auto;
   max-height: 114px;
 }
@@ -134,7 +134,7 @@ p {
 }
 
 .header .logo img {
-  padding: 0 10px 4px 0;
+  padding: 0 12px 4px 0;
   display: inline-block;
   width: 68px;
 }
@@ -150,7 +150,7 @@ p {
 }
 
 .header .logo h4 span {
-  font-size: 11px;
+  font-size: 12px;
   display: block;
   line-height: 120%;
 }
@@ -242,7 +242,7 @@ p {
 }
 
 .sub-header {
-  background: #1164B3;
+  background: #135987;
   display: block;
   width: 100%;
 }
@@ -271,7 +271,7 @@ p {
   margin-right: 50px;
   padding: 6px 0;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .sub-menu li a:hover {
@@ -294,31 +294,32 @@ p {
   position: absolute;
   /*background: url("../images/leftpanelbg.png") repeat;*/
   /*background: #0E5BA1;*/
-    background: #5CA8EE;
-  left:0%;
+    background: #295380;
+  left:-7%;
   display: none;
   opacity: 0;
   z-index: 1000;
-    width: 100%;
-    margin-top: 32px;
+    width: 110%;
+    margin-top: 0px;
 }
 
 .sub-menu .has-child > ul li {
-  display: inline-block;
-    margin-left: 15px;
+  display: inline-table;
+    margin-left:2% !important;
     /*width: 283px;*/
 }
 
 .sub-menu .has-child > ul li:first-child {
-    display: inline-block;
-    margin-left: 250px;
+    display: inline-table;
+    margin-left:15% !important;
+    /*margin-left: 250px;*/
     /*width: 283px;*/
 }
 
 .sub-menu .has-child > ul li a {
   margin-right: 0;
   padding: 8px 16px;
-  display: inline-block;
+  display: inline-table;
 }
 
 .sub-menu .has-child > ul li a:hover {
@@ -326,7 +327,7 @@ p {
 }
 
 .sub-menu .has-child:hover > ul {
-  display: inline-block;
+  display: inline-table;
   opacity: 1;
 }
 
@@ -457,7 +458,7 @@ p {
 }
 
 .carousel-indicators li:hover, .carousel-indicators .active {
-  background: #0e5ba1;
+  background: #326295;
   color: #ffffff;
 }
 
@@ -465,7 +466,7 @@ p {
   content: "";
   position: absolute;
   border-top: 10px solid transparent;
-  border-right: 10px solid #0e5ba1;
+  border-right: 10px solid #326295;
   border-bottom: 10px solid transparent;
   left: -10px;
 }
@@ -623,9 +624,9 @@ p {
 
 .section-title {
   position: relative;
-  background: #0A3E6E;
-  color: #ffffff;
-  padding: 12px 24px;
+  background: #326295;
+  color: #f4f4f4;
+  padding: 10px 14px;
   font-weight: normal;
   font-size: 16px;
   /*box-shadow: inset 0 3px 0 rgba(0, 0, 0, .25);*/
@@ -642,8 +643,8 @@ p {
   height: 100%;
   top: 0;
   line-height: 260%;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .section-title#news-feed:after, .section-title.widgets:after,
@@ -657,8 +658,8 @@ p {
   top: 0;
   right: 24px;
   line-height: 260%;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .section-title#news-feed:after {
@@ -721,10 +722,11 @@ p {
 }*/
 
 .news-content {
-  padding-bottom: 48px;
-  margin-bottom: 48px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
   border-bottom: 1px solid rgba(0, 0, 0, .075);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+  background: #F2F2F2;
 }
 
 .section-title#news-feed {
@@ -778,8 +780,8 @@ p {
 }
 
 .news-content p {
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 16px;
+  padding-right: 16px;
   font-size: 14px;
 }
 
@@ -807,7 +809,7 @@ p {
 
 .news-content h4 > a:hover {
   color: #ffffff;
-  background: #5CA8EE;
+  background: #0087E6;
 }
 
 .news-content h4 > a:hover:before {
@@ -863,9 +865,9 @@ p {
 }
 
 .footer {
-  background: url("../images/leftpanelbg.png") repeat;
-  box-shadow: inset 0 8px 0 #0A3E6E;
-  color: #ffffff;
+  background: #1A7BBA;
+  box-shadow: inset 0 6px 0 #c4c4c4;
+  color: #F4F4F4;
   border: none;
 }
 
@@ -881,7 +883,7 @@ p {
 .footer address {
   margin-bottom: 12px;
   margin-top: 32px;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .footer #footer-image img {
@@ -1076,8 +1078,8 @@ p {
 }
 
 .page_navigation > a {
-  background: #ffffff;
-  padding: 12px 8px;
+  background: #F2F2F2;
+  padding: 6px 10px;
   margin-left: 4px;
   margin-right: 4px;
 }
@@ -1096,8 +1098,8 @@ p {
 
 .page_navigation > a.active_page, .page_navigation > a.no_more,
 .page_navigation > a:hover {
-  background: #0e5ba1;
-  color: #ffffff;
+  background: #326295;
+  color: #f4f4f4;
 }
 
 .page_navigation > a.active_page:hover, .page_navigation > a.no_more:hover {
@@ -1472,5 +1474,4 @@ p {
     margin-top: -6px;
     width: 44px;
 }
-
 

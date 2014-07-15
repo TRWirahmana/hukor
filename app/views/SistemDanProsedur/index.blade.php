@@ -148,11 +148,13 @@
                 bFilter: true,
                 bLengthChange: true,
                 bDestroy: true,
+                bProcessing: true,
                 oLanguage:{
                     "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                     "sEmptyTable": "Data Kosong",
                     "sZeroRecords" : "Pencarian Tidak Ditemukan",
                     "sSearch":       "Cari:",
+                    "sProcessing": 'Memproses...',
                     "sLengthMenu": 'Tampilkan <select>'+
                         '<option value="10">10</option>'+
                         '<option value="25">25</option>'+

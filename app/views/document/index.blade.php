@@ -266,16 +266,16 @@
 
                     if(row[8] != null || row[8] != "")
                     {
-                        return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
-                            '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +
-                            '<a href="' + updateUrl + '" title="Ubah"><i class="rulycon-pencil"></i></a> &nbsp;' +
-                            '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="rulycon-remove-2"></i></a>';
+                        return '<a href="' + detailUrl + '" title="Detail"><i class="icon-file"></i></a> &nbsp;' +
+                            '<a href="' + publishUrl + '" title="Publish"><i class="icon-upload"></i></a> &nbsp;' +
+                            '<a href="' + updateUrl + '" title="Ubah"><i class="icon-edit"></i></a> &nbsp;' +
+                            '<a href="' + deleteUrl + '" title="Hapus" class="btn_delete"><i class="icon-trash"></i></a>';
                     }
                     else
                     {
-                        return '<a href="' + detailUrl + '" title="Detail"><i class="rulycon-file"></i></a> &nbsp;' +
-                            '<a href="' + publishUrl + '" title="Publish"><i class="rulycon-arrow-up"></i></a> &nbsp;' +
-                            '<a href="' + updateUrl + '" title="Ubah"><i class="rulycon-pencil"></i></a> &nbsp;';
+                        return '<a href="' + detailUrl + '" title="Detail"><i class="icon-file"></i></a> &nbsp;' +
+                            '<a href="' + publishUrl + '" title="Publish"><i class="icon-upload"></i></a> &nbsp;' +
+                            '<a href="' + updateUrl + '" title="Ubah"><i class="icon-edit"></i></a> &nbsp;';
                     }
                 }
             }

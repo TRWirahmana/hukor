@@ -208,12 +208,23 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            var html = ["<a href='"+baseUrl+"/aj/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>"];
-                            if(all._role_id == 3 || all._role_id == 9) {
-                                html.push("<a href='"+baseUrl+"/admin/aj/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a> ");
-                                html.push("<a data-delete href='"+baseUrl+"/admin/aj/" + data + "' title='Hapus'><i class='icon-trash'></i></a>")
+
+                            if(all.lampiran == null || all.lampiran == "a:0:{}"){
+                                var html = new Array();
+                                if(all._role_id == 3 || all._role_id == 9) {
+                                    html.push("<a href='"+baseUrl+"/admin/aj/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a> ");
+                                    html.push("<a data-delete href='"+baseUrl+"/admin/aj/" + data + "' title='Hapus'><i class='icon-trash'></i></a>")
+                                }
+                                return html.join("&nbsp;");
+                            }else{
+                                var html = ["<a href='"+baseUrl+"/aj/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>"];
+                                if(all._role_id == 3 || all._role_id == 9) {
+                                    html.push("<a href='"+baseUrl+"/admin/aj/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a> ");
+                                    html.push("<a data-delete href='"+baseUrl+"/admin/aj/" + data + "' title='Hapus'><i class='icon-trash'></i></a>")
+                                }
+                                return html.join("&nbsp;");
                             }
-                            return html.join("&nbsp;");
+
                         }
                     }
                 ],
@@ -235,11 +246,22 @@
             });
 
             $dataTable.on('click', 'a[data-delete]', function(e) {
-			    if (confirm('Apakah anda yakin?')) {
-			    $.post($(this).attr('href'), {_method: 'delete'}, function(r) {
-				    $dataTable.fnReloadAjax();
-				    });
-			    }
+                var delkodel = $(this);
+                $('#dialog').dialog({
+                    width: 500,
+                    modal: true,
+                    buttons: {
+                        "Hapus" : function(){
+                            $.post(delkodel.attr('href'), {_method: 'delete'}, function(r) {
+                                $dataTable.fnReloadAjax();
+                            });
+                            $(this).dialog("close");
+                        },
+                        "Batal" : function() {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
                 e.preventDefault();
             });
 

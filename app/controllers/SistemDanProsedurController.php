@@ -57,27 +57,43 @@ class SistemDanProsedurController extends BaseController {
 
 		$filenames = HukorHelper::MultipleUploadFile($this->uploadFolder, $input['lampiran']);
 
-        if($filenames != null)
+        $sp = DAL_SistemDanProsedur::update($id, $input, $filenames);
+
+        if($sp == true)
         {
-            $sp = DAL_SistemDanProsedur::update($id, $input, $filenames);
+            Session::flash('success', 'Usulan berhasil diperbaharui.');
 
-            if($sp == true)
-            {
-                Session::flash('success', 'Usulan berhasil diperbaharui.');
-
-                if(Auth::user()->role_id == 3){
-                    return Redirect::route('admin.sp.index');
-                }else{
-                    return Redirect::route('sp.index');
-                }
+            if(Auth::user()->role_id == 3){
+                return Redirect::route('admin.sp.index');
             }else{
-                Session::flash('error', 'Usulah gagal diperbaharui.');
-                return Redirect::back();
+                return Redirect::route('sp.index');
             }
         }else{
             Session::flash('error', 'Usulah gagal diperbaharui.');
             return Redirect::back();
         }
+
+//        if($filenames != null)
+//        {
+//            $sp = DAL_SistemDanProsedur::update($id, $input, $filenames);
+//
+//            if($sp == true)
+//            {
+//                Session::flash('success', 'Usulan berhasil diperbaharui.');
+//
+//                if(Auth::user()->role_id == 3){
+//                    return Redirect::route('admin.sp.index');
+//                }else{
+//                    return Redirect::route('sp.index');
+//                }
+//            }else{
+//                Session::flash('error', 'Usulah gagal diperbaharui.');
+//                return Redirect::back();
+//            }
+//        }else{
+//            Session::flash('error', 'Usulah gagal diperbaharui.');
+//            return Redirect::back();
+//        }
 	}
 
 

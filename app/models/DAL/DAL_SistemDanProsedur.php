@@ -57,7 +57,7 @@ class DAL_SistemDanProsedur {
 					"tgl_proses", 
 					"status"))
 			->where("id_sistem_dan_prosedur", "=", $id)
-			->orderBy('tgl_proses', 'desc ');
+			->orderBy('id', 'desc ');
 		return $data;
 	}
 

@@ -60,17 +60,17 @@
                                     </div>
                                 </div>
 
-                                <div class="control-group">
-                                    <label for="jenis_usulan" class="control-label">Jenis Usulan</label>
-
-                                    <div class="controls">
-                                        <select id="jenis_usulan">
-                                            <!--        <option value="0">Pilih Usulan</option>-->
-                                            <option value="1">Sistem dan Prosedur</option>
-                                            <option value="2">Analisis Jabatan</option>
-                                        </select>
-                                    </div>
-                                </div>
+<!--                                <div class="control-group">-->
+<!--                                    <label for="jenis_usulan" class="control-label">Jenis Usulan</label>-->
+<!---->
+<!--                                    <div class="controls">-->
+<!--                                        <select id="jenis_usulan">-->
+<!--                                            <!--        <option value="0">Pilih Usulan</option>-->
+<!--                                            <option value="1">Sistem dan Prosedur</option>-->
+<!--                                            <option value="2">Analisis Jabatan</option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
 
                                 <div class="control-group">
                                     <div class="controls">
@@ -217,12 +217,22 @@
                         mData: 'id',
                         sWidth: "8%",
                         mRender: function(data, type, all) {
-                            var html = ["<a href='"+baseUrl+"/sp/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>"];
-                            if(all._role_id == 3 || all._role_id == 9) {
-                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a>");
-                                html.push("<a href='"+baseUrl+"/admin/sp/" + data + "' title='Hapus' data-delete><i class='icon-trash'></i></a>");
+                            if(all.lampiran == null || all.lampiran == "a:0:{}"){
+                                var html = new Array();
+                                if(all._role_id == 3 || all._role_id == 9) {
+                                    html.push("<a href='"+baseUrl+"/admin/sp/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a>");
+                                    html.push("<a href='"+baseUrl+"/admin/sp/" + data + "' title='Hapus' data-delete><i class='icon-trash'></i></a>");
+                                }
+                                return html.join("&nbsp;");
+                            }else{
+                                var html = ["<a href='"+baseUrl+"/sp/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>"];
+                                if(all._role_id == 3 || all._role_id == 9) {
+                                    html.push("<a href='"+baseUrl+"/admin/sp/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a>");
+                                    html.push("<a href='"+baseUrl+"/admin/sp/" + data + "' title='Hapus' data-delete><i class='icon-trash'></i></a>");
+                                }
+                                return html.join("&nbsp;");
                             }
-                            return html.join("&nbsp;");
+
                         }
                     }
                 ],
@@ -256,229 +266,8 @@
                 }                    
             });
 
-            //filter jenis usulan
-            $( "#jenis_usulan" ).change(function() {
-                var jenis_usul = $("#jenis_usulan").val();
-
-                $('#dialog').prop('title', (jenis_usul == 2)? 'Hapus Analisis Jabatan' : 'Hapus Sistem dan Prosedur' );
 
 //        alert(jenis_usul);
-
-
-                if(jenis_usul == 1){
-                    // datatable
-                    $dataTable = $("#tbl-per-uu").dataTable({
-                        // sDom: 'Trtip',
-                        // oTableTools: {
-                        //     sSwfPath: "/assets/TableTools-2.2.0/swf/copy_csv_xls_pdf.swf"
-                        // },
-                        bServerSide: true,
-                        sAjaxSource: '<?php echo URL::to("sp"); ?>',
-                        bFilter: true,
-                        bLengthChange: true,
-                        bDestroy: true,
-                        oLanguage:{
-                            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
-                            "sEmptyTable": "Data Kosong",
-                            "sZeroRecords" : "Pencarian Tidak Ditemukan",
-                            "sSearch":       "Cari:",
-                            "sLengthMenu": 'Tampilkan <select>'+
-                                '<option value="10">10</option>'+
-                                '<option value="25">25</option>'+
-                                '<option value="50">50</option>'+
-                                '<option value="100">100</option>'+
-                                '</select> Usulan'
-                        },
-                        aoColumns: [
-                            {
-                                mData: "id",
-                                sWidth: "1%"
-                            },
-                            {
-                                mData: "tgl_usulan",
-                                sWidth: "10%",
-                                mRender: function(data) {
-                                    return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
-                                }
-                            },
-                            {
-                                mData: "unit_kerja",
-                                sWidth: "10%"
-                            },
-                            {
-                                mData: "nama_jabatan",
-                                sWidth: "10%"
-                            },
-                            {
-                                mData: "perihal",
-                                sWidth: "30%"
-                            },
-                            {
-                                mData: "status",
-                                sWidth: "10%",
-                                mRender: function(data) {
-                                    switch (parseInt(data)) {
-                                        case 1:
-                                            return "Diproses";
-                                            break;
-                                        case 2:
-                                            return "Ditunda";
-                                            break;
-                                        case 3:
-                                            return "Ditolak";
-                                            break;
-                                        case 4:
-                                            return "Buat salinan";
-                                            break;
-                                        case 5:
-                                            return "Penetapan";
-                                            break;
-                                        default:
-                                            return " ";
-                                            break;
-                                    }
-                                    ;
-                                }
-                            },
-                            {
-                                mData: 'id',
-                                sWidth: "8%",
-                                mRender: function(data, type, all) {
-                                    var html = ["<a href='"+baseUrl+"/sp/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>"];
-                                    if(all._role_id == 3 || all._role_id == 9) {
-                                        html.push("<a href='"+baseUrl+"/admin/sp/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a>");
-                                        html.push("<a href='"+baseUrl+"/admin/sp/" + data + "' title='Hapus' data-delete><i class='icon-trash'></i></a>");
-                                    }
-                                    return html.join("&nbsp;");
-                                }
-                            }
-                        ],
-                        fnServerParams: function(aoData) {
-                            aoData.push({name: "status", value: $("#select-status").val()});
-                            aoData.push({name: "firstDate", value: $("#first-date").val()});
-                            aoData.push({name: "lastDate", value: $("#last-date").val()});
-                        },
-                        "fnDrawCallback": function ( oSettings ) {
-                            /* Need to redo the counters if filtered or sorted */
-                            if ( oSettings.bSorted || oSettings.bFiltered )
-                            {
-                                for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
-                                {
-                                    $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
-                                }
-                            }
-                        }
-                    });
-                    $(".titlez").html("Sistem dan Prosedur");
-                }else if(jenis_usul == 2){
-// datatable
-                    $dataTable = $("#tbl-per-uu").dataTable({
-                        // sDom: 'Trtip',
-                        // oTableTools: {
-                        //     sSwfPath: "/assets/TableTools-2.2.0/swf/copy_csv_xls_pdf.swf"
-                        // },
-                        bServerSide: true,
-                        sAjaxSource: '<?php echo URL::to("aj"); ?>',
-                        bFilter: true,
-                        bLengthChange: true,
-                        bDestroy: true,
-                        oLanguage:{
-                            "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
-                            "sEmptyTable": "Data Kosong",
-                            "sZeroRecords" : "Pencarian Tidak Ditemukan",
-                            "sSearch":       "Cari:",
-                            "sLengthMenu": 'Tampilkan <select>'+
-                                '<option value="10">10</option>'+
-                                '<option value="25">25</option>'+
-                                '<option value="50">50</option>'+
-                                '<option value="100">100</option>'+
-                                '</select> Usulan'
-                        },
-                        aoColumns: [
-                            {
-                                mData: "id",
-                                sWidth: "1%"
-                            },
-                            {
-                                mData: "tgl_usulan",
-                                sWidth: "10%",
-                                mRender: function(data) {
-                                    return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
-                                }
-                            },
-                            {
-                                mData: "unit_kerja",
-                                sWidth: "10%"
-                            },
-                            {
-                                mData: "nama_jabatan",
-                                sWidth: "10%"
-                            },
-                            {
-                                mData: "perihal",
-                                sWidth: "30%"
-                            },
-                            {
-                                mData: "status",
-                                sWidth: "10%",
-                                mRender: function(data) {
-                                    switch (parseInt(data)) {
-                                        case 1:
-                                            return "Diproses";
-                                            break;
-                                        case 2:
-                                            return "Ditunda";
-                                            break;
-                                        case 3:
-                                            return "Ditolak";
-                                            break;
-                                        case 4:
-                                            return "Buat salinan";
-                                            break;
-                                        case 5:
-                                            return "Penetapan";
-                                            break;
-                                        default:
-                                            return " ";
-                                            break;
-                                    }
-                                    ;
-                                }
-                            },
-                            {
-                                mData: 'id',
-                                sWidth: "8%",
-                                mRender: function(data, type, all) {
-                                    var html = ["<a href='"+baseUrl+"/aj/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>"];
-                                    if(all._role_id == 3 || all._role_id == 9) {
-                                        html.push("<a href='"+baseUrl+"/admin/aj/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a>");
-                                        html.push("<a href='"+baseUrl+"/admin/aj/" + data + "' title='Hapus' data-delete><i class='icon-trash'></i></a>");
-                                    }
-                                    return html.join("&nbsp;");
-                                }
-                            }
-                        ],
-                        fnServerParams: function(aoData) {
-                            aoData.push({name: "status", value: $("#select-status").val()});
-                            aoData.push({name: "firstDate", value: $("#first-date").val()});
-                            aoData.push({name: "lastDate", value: $("#last-date").val()});
-                        },
-                        "fnDrawCallback": function ( oSettings ) {
-                            /* Need to redo the counters if filtered or sorted */
-                            if ( oSettings.bSorted || oSettings.bFiltered )
-                            {
-                                for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
-                                {
-                                    $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
-                                }
-                            }
-                        }
-                    });
-                    $(".titlez").html("Analisis Jabatan");
-                }
-//
-
-            });
 
 
             $dataTable.on('click', 'a[data-delete]', function(e) {

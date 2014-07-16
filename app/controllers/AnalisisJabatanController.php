@@ -93,9 +93,7 @@ class AnalisisJabatanController extends BaseController {
 
         $filenames = HukorHelper::MultipleUploadFile($this->uploadFolder, Input::file('lampiran'));
 
-        if($filenames != null)
-        {
-            $anjab = DAL_AnalisisJabatan::update($id, $input, $filenames);
+        $anjab = DAL_AnalisisJabatan::update($id, $input, $filenames);
 
             if ($anjab == true) {
                 Session::flash('success', 'Usulan berhasil diperbaharui.');
@@ -105,15 +103,31 @@ class AnalisisJabatanController extends BaseController {
                     return Redirect::route('admin.aj.index');
                 }
             } else {
-                Session::flash('error', 'Usulah gagal diperbaharui.');
+                Session::flash('error', 'Usulan gagal diperbaharui.');
                 return Redirect::back();
             }
-        }
-        else
-        {
-            Session::flash('error', 'Usulah gagal diperbaharui.');
-            return Redirect::back();
-        }
+
+//        if($filenames != null)
+//        {
+//            $anjab = DAL_AnalisisJabatan::update($id, $input, $filenames);
+//
+//            if ($anjab == true) {
+//                Session::flash('success', 'Usulan berhasil diperbaharui.');
+//                if(Auth::user()->role_id == 2) {
+//                    return Redirect::route('aj.index');
+//                }else{
+//                    return Redirect::route('admin.aj.index');
+//                }
+//            } else {
+//                Session::flash('error', 'Usulan gagal diperbaharui.');
+//                return Redirect::back();
+//            }
+//        }
+//        else
+//        {
+//            Session::flash('error', 'Usulan gagal diperbaharui.');
+//            return Redirect::back();
+//        }
 	}
 
 	public function download($id, $index = null) {

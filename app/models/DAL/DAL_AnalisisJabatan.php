@@ -79,7 +79,7 @@ class DAL_AnalisisJabatan {
             "tgl_proses",
             "status"))
             ->where("id_analisis_jabatan", "=", $id)
-            ->orderBy('tgl_proses', 'desc ');
+            ->orderBy('id', 'desc ');
         return $data;
     }
 

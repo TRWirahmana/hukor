@@ -182,10 +182,10 @@
                 </div>
             </div>
             <div class="control-group">
-                {{ Form::label('catatan', 'Deskripsi', array('class' => 'control-label')) }}
+                {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
                 <div class="controls">
                     {{
-                    Form::textarea('catatan', null, array('rows' => 2, 'placeholder' => 'Masukan deskripsi usulan'))
+                    Form::textarea('catatan', null, array('rows' => 2, 'placeholder' => 'Masukan catatan...'))
                     }}
                 </div>
             </div>

@@ -196,10 +196,10 @@
         </div>
       </div>
       <div class="control-group">
-        {{ Form::label('catatan', 'Deskripsi', array('class' => 'control-label')) }}
+        {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
         <div class="controls">
           {{
-          Form::textarea('catatan', null, array('rows' => 2, 'placeholder' => 'Masukan deskripsi usulan'))
+          Form::textarea('catatan', null, array('rows' => 2, 'placeholder' => 'Masukan Catatan...'))
           }}
         </div>
       </div>
@@ -343,7 +343,13 @@
         {
           mData: "lampiran",
           mRender: function (data, type, full) {
-            return '<a href="' + baseUrl + '/admin/aj/log/download/' + full.id + '">Unduh</a>';
+
+              if(data == null || data == 'a:0:{}'){
+                  return '<p>Tidak Ada Lampiran</p>';
+              }else{
+                  return '<a href="' + baseUrl + '/admin/aj/log/download/' + full.id + '">Unduh</a>';
+              }
+
           }
         }
 // {mData: "id"}

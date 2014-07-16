@@ -62,7 +62,7 @@ class DAL_PerUU {
             "status",
             "updated_by"))
         ->where("id_per_uu", "=", $id)
-        ->orderBy('tgl_proses', 'desc ');
+        ->orderBy('id', 'desc ');
         return $data;
     }
 

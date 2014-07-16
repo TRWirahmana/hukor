@@ -110,13 +110,14 @@ class PeruuController extends BaseController
 		$catatan = Input::get('catatan', '');
         $updated = Input::get('updated_by');
 		$ketLampiran = Input::get('ket_lampiran', '');
+        $filenames = HukorHelper::MultipleUploadFile($this->uploadFolder, Input::file('lampiran'));
 
 		$perUU = PerUU::find($id);
 
 		$logPerUU = new LogPerUU();
 		$logPerUU->id_per_uu = $perUU->id;
-		$logPerUU->catatan = $perUU->catatan;
-		$logPerUU->lampiran = $perUU->lampiran;
+		$logPerUU->catatan = $catatan;
+		$logPerUU->lampiran = serialize($filenames);
 		$logPerUU->status = $perUU->status;
 		$logPerUU->tgl_proses = new DateTime('now');
         $logPerUU->updated_by = $updated;
@@ -124,7 +125,7 @@ class PeruuController extends BaseController
 		$perUU->status = $status;
 		$perUU->catatan = $catatan;
 
-		$filenames = HukorHelper::MultipleUploadFile($this->uploadFolder, Input::file('lampiran'));
+
 		$perUU->lampiran = serialize($filenames);
 
 		if ($perUU->save() && $logPerUU->save()) {

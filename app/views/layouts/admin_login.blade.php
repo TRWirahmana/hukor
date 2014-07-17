@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Administrator | Layanan Hukum dan Organisasi</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.shinyblue.css')}}">
+<!--    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.shinyblue.css')}}">-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.default.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycon.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/rulycons.min.css')}}">

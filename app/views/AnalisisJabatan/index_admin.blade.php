@@ -150,6 +150,7 @@
                 oLanguage:{
                     "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Peraturan",
                     "sEmptyTable": "Data Kosong",
+                    "sSearch": "Cari:",
                     "sProcessing": 'Memproses...',
                     "sZeroRecords" : "Pencarian Tidak Ditemukan"
                 },

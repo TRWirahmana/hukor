@@ -207,7 +207,7 @@
 		</div>
             <div class="row-fluid">
                 <div class="span24">
-                    <a class="btn btn-primary" type="button" href="{{URL::to('admin.sp.index')}}">Batal</a>
+                    <input class="btn btn-primary" type="button" value="Batal" onclick="history.go(-1);return true;" name="batal">
                     <button class="btn btn-primary" type="submit">Simpan</button>
 
                 </div>

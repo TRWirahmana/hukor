@@ -89,7 +89,7 @@
                             <th>#</th>
                             <th>Tgl Usulan</th>
                             <th>Unit Kerja</th>
-                            <th>Jabatan</th>
+<!--                            <th>Jabatan</th>-->
                             <th>Perihal</th>
                             <th>Status</th>
                             <th></th>
@@ -178,10 +178,10 @@
                         mData: "unit_kerja",
                         sWidth: "10%"
                     },
-                    {
-                        mData: "nama_jabatan",
-                        sWidth: "10%"
-                    },
+//                    {
+//                        mData: "nama_jabatan",
+//                        sWidth: "10%"
+//                    },
                     {
                         mData: "perihal",
                         sWidth: "30%"

@@ -168,7 +168,7 @@
                   {{ Form::label('tlp_kantor', 'Telepon Kantor', array('class' => 'control-label required')) }}
                   <div class="controls">
                       {{ Form::text('tlp_kantor', '',
-                      array('placeholder' => 'ketikkan Telepon Kantor anda di sini...', 'id' => 'tlp_kantor')) }}
+                      array('placeholder' => 'Masukkan Telepon Kantor anda di sini...', 'id' => 'tlp_kantor')) }}
 
                       @foreach($errors->get('tlp_kantor') as $error)
                       <span class="help-block">{{$error}}</span>

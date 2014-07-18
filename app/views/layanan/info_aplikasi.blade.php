@@ -111,7 +111,7 @@
 @endif
 
 <!-- dialog box -->
-<div id="dialog" title="<?php echo $title; ?>" style="display: none;">
+<div id="dialogs" title="<?php echo $title; ?>" style="display: none;">
     <p>Silahkan klik LOGIN terlebih dahulu untuk membuat usulan. Jika belum mempunyai akun, silakan klik DAFTAR untuk registrasi.</p>
 </div>
 
@@ -150,7 +150,7 @@
             }
         }
         else {
-            $('#dialog').dialog({
+            $('#dialogs').dialog({
                 width: 500,
                 modal: true,
                 buttons: {

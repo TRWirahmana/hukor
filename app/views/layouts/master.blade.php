@@ -300,7 +300,7 @@ Form::text('username', '', array(
 <script src="{{asset('assets/js/DatatableReloadAjax.js')}}"></script>
 <script>
   $('#menu-forum').click(function () {
-    var user = '<?php echo Auth::user(); ?>';
+    var user = '<?php echo Auth::user()->role_id; ?>';
 
     if (user == 2) {
       window.location.replace("{{ URL::to('forumdiskusi') }}");

@@ -47,7 +47,9 @@
         </fieldset>
 
         <div class="control-group">
-          <div class="controls span4 offset6">
+          <div class="span12 offset6">
+              <input class='btn btn-primary' Type="button" value="Batal"
+                     onClick="history.go(-1);return true;">
             {{ Form::submit('Simpan', array('class' => 'btn btn-primary')) }}
           </div>
         </div>

@@ -10,7 +10,7 @@
 @include('flash')
 
     {{ Form::open(array('route' => 'bantuan_hukum.store', 'method' => 'post',
-                        'id' => 'user-registrasi-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal',
+                        'id' => 'banhuk-usulan-form', 'autocomplete' => 'off', 'class' => 'front-form form-horizontal',
                         'enctype' => "multipart/form-data")) }}
 
 
@@ -187,6 +187,7 @@
 
 @section('scripts')
 @parent
+<script src="{{asset('assets/js/jquery.validate.js')}}"></script>
 <script src="{{asset('assets/js/jquery.mask.js')}}"></script>
 <script type="text/javascript">
     $(function() {
@@ -200,6 +201,82 @@
     $("#telp_kantor").mask("(9999) 999-9999");
     $("#hp").mask("999-999-999-999");
 
+    $("#banhuk-usulan-form").validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'help-block error',
+        rules: {
+            'nama': 'required',
+            'jenis_kelamin': 'required',
+            'tgl_lahir': 'required',
+            'nip': 'required',
+            'alamat_kantor': 'required',
+            'telp_kantor': 'required',
+            'handphone': 'required',
+            'email':{
+                required: true,
+                email: true
+            },
+            'jns_perkara': 'required',
+            'status_perkara': 'required',
+            'status_pemohon': 'required'
+
+
+
+        },
+        messages: {
+            'nama': {
+                required: 'Nama penanggung jawab tidak boleh kosong.'
+            },
+            'jenis_kelamin': {
+                required: 'Jabatan penanggung jawab tidak boleh kosong.'
+            },
+            'tgl_lahir': {
+                required: 'Tanggal Lahir tidak boleh kosong.'
+            },
+            'nip': {
+                required: 'Nip penanggung jawab tidak boleh kosong.'
+            },
+            'alamat_kantor': {
+                required: 'Alamat Kantor tidak boleh kosong.'
+            },
+            'telp_kantor': {
+                required: 'Telepon Kantor tidak boleh kosong.'
+            },
+            'email': {
+                required: 'Alamat E-Mail wajib diisi.',
+                email: 'Format email tidak benar'
+            },
+            'jns_perkara': {
+                required: 'Jenis Perkara tidak boleh kosong.'
+            },
+            'status_perkara': {
+                required: 'Status Perkara tidak boleh kosong.'
+            },
+            'status_pemohon': {
+                required: 'Status Pemohon tidak boleh kosong.'
+            },
+            'handphone': {
+                required: 'Nomor Handphone tidak boleh kosong.'
+            }
+
+        },
+        errorPlacement: function(error, element) {
+            error.appendTo(element.parent('div.controls'));
+        },
+        invalidHandler: function(event, validator) {
+            $("div.control-group.error").removeClass('error');
+            $('div.controls .error[name]').parents('div.control-group').addClass('error');
+        },
+        onfocusout: function(elem, event) {
+            $(elem).validate();
+            $controlGroup = $(elem).parents('div.control-group');
+            if ($(elem).valid())
+                $controlGroup.removeClass('error');
+            else
+                $controlGroup.addClass('error');
+        }
+    });
 </script>
 <script>
     document.getElementById("menu-bantuan-hukum-usul").setAttribute("class", "user-menu-active");

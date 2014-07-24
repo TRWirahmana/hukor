@@ -396,13 +396,13 @@
         var tbl_data = $("#basictable").dataTable({
             bServerSide: true,
             bProcessing: true,
-            bFilter: false,
+            bFilter: true,
 //            bInfo: false,
             oLanguage:{
                 "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                 "sEmptyTable": "Data Kosong",
                 "sZeroRecords" : "Pencarian Tidak Ditemukan",
-//                "sSearch":       "Cari:",
+                "sSearch":       "Cari:",
                 "sLengthMenu": 'Tampilkan <select>'+
                     '<option value="10">10</option>'+
                     '<option value="25">25</option>'+

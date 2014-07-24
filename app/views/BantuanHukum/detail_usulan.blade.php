@@ -369,6 +369,7 @@
     <thead>
     <tr>
         <th>Tanggal</th>
+        <th>Status Perkara</th>
         <th>Status Pemohon</th>
         <th>Catatan</th>
         <th>Lampiran</th>
@@ -415,6 +416,9 @@
             aoColumns: [
                 {mData: "tanggal",sClass: "center"},
                 {
+                    mData: "status_perkara",sClass: "center"
+                },
+                {
                     mData: "status_pemohon",
                     sClass: "center",
                     mRender: function(id){
@@ -456,7 +460,7 @@
                 {
                     mData: "advokasi",
                     mRender: function (id) {
-                        var advokasi = "";
+                        var advokasi;
                         switch (parseInt(id)) {
                             case 1:
                                 advokasi = "Bankum I";
@@ -466,6 +470,9 @@
                                 break;
                             case 3:
                                 advokasi = "Bankum III";
+                                break;
+                            default:
+                                advokasi = "Belum Diadvokasi";
                                 break;
                         }
 

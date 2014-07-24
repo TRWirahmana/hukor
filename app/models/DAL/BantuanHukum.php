@@ -226,7 +226,9 @@ class DAL_BantuanHukun
         $iTotalRecords = $data->count();
 
         if (!empty($filter['sSearch'])) {
-            $data->where();
+            $search = $filter['sSearch'];
+            $data->where('status_perkara', 'like', "%$search%");
+//            ->orWhere('status_pemohon', 'like', "%$search%");
         }
 
         $iTotalDisplayRecords = $data->count();

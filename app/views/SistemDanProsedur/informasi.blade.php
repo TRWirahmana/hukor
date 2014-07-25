@@ -231,8 +231,13 @@
                          sWidth: "8%",
                          mRender: function(data, type, all) {
                              if(all._role_id != null)
-                                 return "<a href='"+baseUrl+"/sp/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>" + " " +
-                                     "<a href='"+baseUrl+"/sp/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a>";
+                                 if(all.lampiran == null || all.lampiran == 'a:0:{}'){
+                                     return "<a href='"+baseUrl+"/sp/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a>";
+                                 }else{
+                                     return "<a href='"+baseUrl+"/sp/download/" + data + "' title='Unduh'><i class='icon-download'></i></a>" + " " +
+                                         "<a href='"+baseUrl+"/sp/" + data + "/edit' title='Ubah'><i class='icon-edit'></i></a>";
+                                 }
+
                              return "";
                          }
                      }

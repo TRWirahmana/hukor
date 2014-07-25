@@ -249,11 +249,29 @@
         $tblLog = $("#tbl-log").dataTable({
             bServerSide: true,
             sAjaxSource: document.location.href,
-            bFilter: false,
-            bInfo: false,
+            bFilter: true,
+            bInfo: true,
             bSort: false,
-            bLengthChange: false,
+            bProcessing: true,
+            bLengthChange: true,
             iDisplayLength: 5,
+            oLanguage:{
+                "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
+                "sEmptyTable": "Data Kosong",
+                "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                "sSearch":       "Cari:",
+                "sProcessing": 'Memproses...',
+                "oPaginate": {
+                    "sNext": '<span class="rulycon-forward-3"></span>',
+                    "sPrevious": "<span class='rulycon-backward-2'></span>"
+                },
+                "sLengthMenu": 'Tampilkan <select>'+
+                    '<option value="10">10</option>'+
+                    '<option value="25">25</option>'+
+                    '<option value="50">50</option>'+
+                    '<option value="100">100</option>'+
+                    '</select>'
+            },
             aoColumns: [
                 {
                     mData: "tgl_proses",
@@ -300,7 +318,12 @@
                     sClass: "center",
                     sWidth: '15%',
                     mRender: function (data, type, full) {
-                        return '<a href="' + baseUrl + '/admin/aj/log/download/' + full.id + '">Unduh</a>';
+                        if(data == null || data == 'a:0:{}'){
+                            return '<p>Tidak Ada Lampiran</p>';
+                        }else{
+                            return '<a href="' + baseUrl + '/admin/sp/log/download/' + full.id + '">Unduh</a>';
+                        }
+
                     }
                 }
 // {mData: "id"}
@@ -310,8 +333,8 @@
 </script>
 <script>
 
-    $("#collapse10").css("height", "auto");
-    $("#menu-peruu-informasi").addClass("user-menu-active");
+    $("#collapse14").css("height", "auto");
+    $("#menu-prosedur-status").addClass("user-menu-active");
 </script>
 <script>
     jQuery(document).on("ready", function() {

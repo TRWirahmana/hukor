@@ -41,6 +41,8 @@ class DAL_BantuanHukun
 
 	    //search specific record
 	    if (!empty($filter['sSearch'])) {
+
+            
 		    //            $param = $filter['sSearch'];
 		    $data->where('status_perkara', 'like', "%{$filter['sSearch']}%")
 			    ->orWhere('advokator', 'like', "%{$filter['sSearch']}%")

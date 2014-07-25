@@ -124,7 +124,7 @@
     <!--rightpanel-->
 
     <!-- dialog box -->
-    <div id="dialog" title="Hapus Perundang-Undangan" style="display: none;">
+    <div id="dialog" title="Hapus Sistem dan Prosedur" style="display: none;">
         <p>Apakah Anda Yakin?</p>
     </div>
 

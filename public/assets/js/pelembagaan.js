@@ -1,12 +1,13 @@
 /*
- * File      : registrasi.js
+ * File      : pelembagaan.js
  * Desc      : Object berisi fungsionalitas transaksi
  * Author    : tajhul.faijin@sangkuriang.co.id
+ * edited by : taofik.ridwan@sangkuriang.co.id
  * Copyright : Sangkuriang
  */
-var Pelembagaan = (function(REG) {
+var Pelembagaan = (function(PLM) {
 
-    REG.Form = function() {
+    PLM.Form = function() {
         /*
          * Trigger Submit Form
          */
@@ -17,6 +18,11 @@ var Pelembagaan = (function(REG) {
         var rules = {
                 'jenis_usulan': 'required',
                 'perihal': 'required',
+                'nip': 'required',
+                'nama_pemohon': 'required',
+                'alamat_kantor': 'required',
+                'telp_kantor': 'required',
+                'hp': 'required',
                 'catatan': 'required',
                 'password_confirmation': 'required',
                 'email': {
@@ -43,6 +49,25 @@ var Pelembagaan = (function(REG) {
                 },
                 'catatan': {
                     required: 'Catatan wajib diisi.'
+                },
+                'email': {
+                    required: 'Alamat E-Mail wajib diisi.',
+                    email: 'Format email tidak benar'
+                },
+                'nama_pemohon': {
+                    required: 'Nama Pemohon tidak boleh kosong.'
+                },
+                'alamat_kantor': {
+                    required: 'alamat kantor Harus diisi.'
+                },
+                'telp_kantor': {
+                    required: 'telepon harus diisi.'
+                },
+                'hp': {
+                    required: 'Nomor handphone Harus diisi.'
+                },
+                'nip': {
+                    required: 'NIP harus diisi.'
                 }
             },
             errorPlacement: function(error, element) {
@@ -91,7 +116,7 @@ var Pelembagaan = (function(REG) {
     // });
 
 
-    REG.Update = function() {
+    PLM.Update = function() {
         /*
          * Trigger Submit Form
          */
@@ -148,9 +173,10 @@ var Pelembagaan = (function(REG) {
                 else
                     $controlGroup.addClass('error');
         })
+    }
 
     };
 
 
-    return REG;
+    return PLM;
 }(Pelembagaan || {}));

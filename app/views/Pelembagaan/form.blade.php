@@ -125,8 +125,9 @@
 <script src="{{ asset('assets/lib/tinymce/tinymce.min.js') }}"></script>
 <script src="{{asset('assets/js/jquery.validate.js')}}"></script>
 <script src="{{asset('assets/js/additional-methods.js')}}"></script>
-<script src="{{asset('assets/js/jquery.mask.js')}}"></script>
 <script src="{{asset('assets/js/pelembagaan.js')}}"></script>
+<script src="{{asset('assets/js/jquery.mask.js')}}"></script>
+
 
 <script type="text/javascript">
     $("#telp_kantor").mask("(9999) 999-9999");

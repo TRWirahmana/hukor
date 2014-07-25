@@ -140,6 +140,9 @@ jQuery(function ($) {
                             } else if (data === '4') {
                                 return 'Penutupan';
                             }
+                            else if (data === '0') {
+                                return '-';
+                            }
                         }
                     }
                 },

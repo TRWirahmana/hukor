@@ -9,10 +9,11 @@ class DAL_Pelembagaan {
 						'pelembagaan.id',
 						'pelembagaan.tgl_usulan',
 						'penanggung_jawab_pelembagaan.unit_kerja',
+                        'pelembagaan.jenis_usulan',
 						'pelembagaan.perihal',
 						'pelembagaan.status',
-						'pelembagaan.lampiran',
-						'pelembagaan.jenis_usulan'
+						'pelembagaan.lampiran'
+
 				    )); 
 
 		$user = Auth::user();

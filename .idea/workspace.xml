@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/DAL/Pelembagaan.php" afterPath="$PROJECT_DIR$/app/models/DAL/Pelembagaan.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Pelembagaan/index_user.blade.php" afterPath="$PROJECT_DIR$/app/views/Pelembagaan/index_user.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,7 +69,7 @@
       <file leaf-file-name="index_user.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/index_user.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="47" selection-start="4332" selection-end="4332" vertical-scroll-proportion="0.5387674" vertical-offset="1990" max-vertical-offset="6800">
+            <state line="269" column="46" selection-start="9487" selection-end="9487" vertical-scroll-proportion="-0.6441352" vertical-offset="4897" max-vertical-offset="6834">
               <folding />
             </state>
           </provider>
@@ -567,13 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp41576/var/www/html/new/app/views/Pelembagaan/index_user.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="41" selection-start="4369" selection-end="4372" vertical-scroll-proportion="0.4446154" vertical-offset="1989" max-vertical-offset="6766">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="109" column="0" selection-start="4804" selection-end="4804" vertical-scroll-proportion="-15.038462" vertical-offset="1309" max-vertical-offset="5712">
@@ -581,9 +572,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp41576/var/www/html/new/app/views/Pelembagaan/index_user.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="50" selection-start="4435" selection-end="4435" vertical-scroll-proportion="1.1491053" vertical-offset="1717" max-vertical-offset="6800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/index_user.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="47" selection-start="4332" selection-end="4332" vertical-scroll-proportion="0.5387674" vertical-offset="1990" max-vertical-offset="6800">
+        <state line="269" column="46" selection-start="9487" selection-end="9487" vertical-scroll-proportion="-0.6441352" vertical-offset="4897" max-vertical-offset="6834">
           <folding />
         </state>
       </provider>

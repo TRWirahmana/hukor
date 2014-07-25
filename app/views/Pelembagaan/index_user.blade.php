@@ -131,16 +131,16 @@ jQuery(function ($) {
                     sClass: "center",
                     mRender: function (data, type, full) {
                         if (null != data && "" != data) {
-                            if (data === '1') {
+                            if (data == '1') {
                                 return 'Pendirian';
-                            } else if (data === '2') {
+                            } else if (data == '2') {
                                 return 'Perubahan';
-                            } else if (data === '3') {
+                            } else if (data == '3') {
                                 return 'Statuta';
-                            } else if (data === '4') {
+                            } else if (data == '4') {
                                 return 'Penutupan';
                             }
-                            else if (data === '0') {
+                            else if (data == '0') {
                                 return '-';
                             }
                         }
@@ -154,9 +154,9 @@ jQuery(function ($) {
                     sClass: "center",
                     mRender: function (data, type, full) {
                         if (null != data && "" != data) {
-                            if (data === '1') {
+                            if (data == '1') {
                                 return 'proses';
-                            } else if (data === '2') {
+                            } else if (data == '2') {
                                 return 'Dikirim ke Bagian Per-UU';
                             }
                         }
@@ -267,6 +267,8 @@ jQuery(function ($) {
                                 return 'Statuta';
                             } else if (data == '4') {
                                 return 'Penutupan';
+                            } else if (data == '0') {
+                                return '-';
                             }
                         }
                     }

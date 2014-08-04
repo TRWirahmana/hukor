@@ -18,11 +18,9 @@ class DAL_BantuanHukun
 	    $iTotalRecords = $data->count();
 
 	    //filter jenis_perkara
-	    if ($filter['jenis_perkara'] == 0) {
-		    $data->where('jenis_perkara', '!=', "NULL");
-	    } else {
-		    $data->where('jenis_perkara', '=', intval($filter['jenis_perkara']));
-	    }
+        $search = $filter['sSearch'];
+	    if ($search == "perdata")
+		    $data->where('jenis_perkara', '=', 2);
 
 	    if(null != $user && $user->role_id == 2)
 		    $data->where("pengguna_id", "=", $user->pengguna->id);
@@ -40,14 +38,14 @@ class DAL_BantuanHukun
 	    }
 
 	    //search specific record
-	    if (!empty($filter['sSearch'])) {
-
-            
-		    //            $param = $filter['sSearch'];
-		    $data->where('status_perkara', 'like', "%{$filter['sSearch']}%")
-			    ->orWhere('advokator', 'like', "%{$filter['sSearch']}%")
-			    ;
-	    }
+//	    if (!empty($filter['sSearch'])) {
+//
+//
+//		    //            $param = $filter['sSearch'];
+//		    $data->where('status_perkara', 'like', "%{$filter['sSearch']}%")
+//			    ->orWhere('advokator', 'like', "%{$filter['sSearch']}%")
+//			    ;
+//	    }
 
 	    //count record after filtering
 	    $iTotalDisplayRecords = $data->count();

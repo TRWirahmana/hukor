@@ -74,6 +74,7 @@
          bLengthChange: true,
          bDestroy: true,
          bProcessing:true,
+         bInfo: true,
          oLanguage:{
              "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
              "sEmptyTable": "Data Kosong",
@@ -162,6 +163,7 @@
                  bLengthChange: true,
                  bDestroy: true,
                  bProcessing:true,
+                 bInfo: true,
                  oLanguage:{
                      "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
                      "sEmptyTable": "Data Kosong",

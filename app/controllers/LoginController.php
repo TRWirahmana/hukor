@@ -90,7 +90,7 @@ class LoginController extends BaseController {
                     //validation estimasi pendaftaran for role
 
                     if ($user->role_id != 2) {
-                        Session::flash('success', 'Selamat datang admin!');
+                        Session::flash('success', 'Selamat datang!');
                         return Redirect::to('admin');
                     } else {
                         Auth::logout();

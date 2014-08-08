@@ -17,10 +17,37 @@ class DAL_BantuanHukun
 	    //count all record
 	    $iTotalRecords = $data->count();
 
-	    //filter jenis_perkara
+
         $search = $filter['sSearch'];
-	    if ($search == "perdata")
-		    $data->where('jenis_perkara', '=', 2);
+        if(!empty($filter['sSearch'])){
+
+            //filter jenis_perkara
+            if($search == "perdata"){
+                $data->where('jenis_perkara', '=', 2);
+            }else if($search == "tata usaha negara"){
+                $data->where('jenis_perkara', '=', 1);
+            }else if($search == "pidana"){
+                $data->where('jenis_perkara', '=', 3);
+            }else if($search == "uji materil mahkamah konstitusi"){
+                $data->where('jenis_perkara', '=', 4);
+            }else if($search == "uji materil mahkamah agung"){
+                $data->where('jenis_perkara', '=', 5);
+            }
+            //filter status pemohon
+            else if($search == "tergugat"){
+                $data->where('status_pemohon', '=', 1);
+            }else if($search == "penggugat"){
+                $data->where('status_pemohon', '=', 2);
+            }else if($search == "interfent"){
+                $data->where('status_pemohon', '=', 3);
+            }else if($search == "saksi"){
+                $data->where('status_pemohon', '=', 4);
+            }else if($search == "pemohon"){
+                $data->where('status_pemohon', '=', 5);
+            }
+        }
+
+
 
 	    if(null != $user && $user->role_id == 2)
 		    $data->where("pengguna_id", "=", $user->pengguna->id);

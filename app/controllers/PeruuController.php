@@ -66,15 +66,19 @@ class PeruuController extends BaseController
 			$penanggungJawab->save();
 
 			// kirim email ke admin
-			$data = array(
-					'user' => Auth::user(),
-					'perUU' => $perUU
-				     );
-			Mail::send('emails.PerUU.new', $data, function($message) {
-					// admin email (testing)
-					$message->to('trwofficial@ymail.com', 'trwofficial@ymail.com')
-					->subject('Usulan Baru Peraturan Perundang-Undangan');
-					});
+            $DAL = new DAL_PerUU();
+
+            $DAL->sendEmailToAllAdminPUU();
+
+//			$data = array(
+//					'user' => Auth::user(),
+//					'perUU' => $perUU
+//				     );
+//			Mail::send('emails.PerUU.new', $data, function($message) {
+//					// admin email (testing)
+//					$message->to('trwofficial@ymail.com', 'trwofficial@ymail.com')
+//					->subject('Usulan Baru Peraturan Perundang-Undangan');
+//					});
 
 			Session::flash('success', 'Data berhasil dikirim.');
 			return Redirect::route('puu.index');

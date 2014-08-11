@@ -118,4 +118,22 @@ class DAL_PerUU {
         $count = PerUU::where(DB::raw("DATE(tgl_usulan)"), "=", DB::raw("DATE(NOW())"))->count();
         return $count;
     }
+
+    public function sendEmailToAllAdminPUU()
+    {
+        $email = new HukorEmail();
+        $reg = new DAL_Registrasi();
+
+        $admin = DAL_Registrasi::findAdminByRoleId(6); //get all admin pelembagaan
+
+        $data = array(
+            'title' => 'Pengajuan Usulan Peraturan Perundang-Undangan',
+            'pengguna' => $reg->findPengguna(Auth::user()->id),
+            'jenis_usulan' => 'Peraturan Perundang-Undangan'
+        );
+        // send email to all admin pelembagaan
+        foreach ($admin as $adm) {
+            $email->sendMail('Usulan Baru Peraturan Perundang-Undangan', $adm->email, 'emails.usulan', $data);
+        }
+    }
 }

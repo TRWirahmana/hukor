@@ -372,12 +372,13 @@ class DAL_BantuanHukun
         // data for template ususlan
         $data = array(
             'title' => 'Pengajuan Usulan Bantuan Hukum',
-            'pengguna' => $reg->findPengguna(Auth::user()->id)
+            'pengguna' => $reg->findPengguna(Auth::user()->id),
+            'jenis_usulan' => 'Bantuan Hukum'
         );
 
         // send email to all admin bantuan hukum
         foreach ($admin as $adm) {
-            $email->sendMail('Usulan Bantuan Hukum', $adm->email, 'emails.usulan', $data);
+            $email->sendMail('Usulan Baru Bantuan Hukum', $adm->email, 'emails.usulan', $data);
         }
     }
 

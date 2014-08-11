@@ -152,15 +152,16 @@ class DAL_Pelembagaan {
         $email = new HukorEmail();
         $reg = new DAL_Registrasi();
 
-        $admin = DAL_Registrasi::findAdminByRoleId(8); //get all admin pelembagaan
+        $admin = DAL_Registrasi::findAdminByRoleId(7); //get all admin pelembagaan
         
         $data = array(
                     'title' => 'Pengajuan Usulan Pelembagaan',
-                    'pengguna' => $reg->findPengguna(Auth::user()->id)
+                    'pengguna' => $reg->findPengguna(Auth::user()->id),
+                    'jenis_usulan' => 'Pelembagaan'
         );
         // send email to all admin pelembagaan
         foreach ($admin as $adm) {
-            $email->sendMail('Usulan Pelembagaan', $adm->email, 'emails.usulan', $data);
+            $email->sendMail('Usulan Baru Pelembagaan', $adm->email, 'emails.usulan', $data);
         }
     }
 

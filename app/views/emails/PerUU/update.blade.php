@@ -23,6 +23,8 @@
 						Buat Salinan
 					@elseif($logPerUU->status == 5)
 						Penetapan
+                    @else
+                    Belum Diproses
 					@endif
 			</td>
 		</tr>

@@ -148,13 +148,13 @@ class PeruuController extends BaseController
                 {
                     Mail::send('emails.PerUU.update', $data, function($message) use($dat) {
                         $message->to($dat->email)
-                            ->subject('Perubahan Status Usulan Analisis Jabatan');
+                            ->subject('Perubahan Status Usulan Peraturan Perundang-Undangan');
                     });
                 }
             }else{
                 Mail::send('emails.PerUU.update', $data, function($message) use($perUU) {
                     $message->to($perUU->pengguna->email)
-                        ->subject('Perubahan Status Usulan');
+                        ->subject('Perubahan Status Usulan Peraturan Perundang-Undangan');
                 });
             }
 

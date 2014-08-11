@@ -72,7 +72,7 @@ class PeruuController extends BaseController
 				     );
 			Mail::send('emails.PerUU.new', $data, function($message) {
 					// admin email (testing)
-					$message->to('egisolehhasdi@gmail.com', 'egisolehhasdi@gmail.com')
+					$message->to('trwofficial@ymail.com', 'trwofficial@ymail.com')
 					->subject('Usulan Baru Peraturan Perundang-Undangan');
 					});
 

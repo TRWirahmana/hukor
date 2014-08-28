@@ -75,7 +75,10 @@ var Registrasi = (function(REG) {
         var rules = {
                 'nama_lengkap': 'required',
                 'password': 'required',
-                'password_confirmation': 'required',
+                'password_confirmation': {
+                    required: true
+//                    equalTo: '#password'
+                },
                 'email': {
                     required: true,
                     email: true
@@ -137,7 +140,10 @@ var Registrasi = (function(REG) {
             rules: rules,
             messages: {
                 'password': 'Password tidak boleh kosong!.',
-                'password_confirmation': 'Konfirmasi Password wajib diisi!.',
+                'password_confirmation': {
+                    required: 'Konfirmasi Password wajib diisi!.'
+//                    equalTo: 'Konfirmasi password tidak sesuai.'
+                },
                 'nama_lengkap': 'Nama lengkap wajib diisi.',
                 'tgl_lahir': 'Tanggal lahir wajib diisi.',
                 'email': {

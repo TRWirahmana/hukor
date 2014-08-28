@@ -472,7 +472,7 @@ class RegistrasiController extends BaseController {
      * Send Data Anonymouse
      */
     public function send() {
-        
+
         $username = Input::get('username');
         $password = Input::get('password');
         $email = Input::get('email');

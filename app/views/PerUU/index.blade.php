@@ -51,10 +51,10 @@
                                         <select id="select-status" name="status">
                                             <option value="">Semua Status</option>
                                             <option value="1">Diproses</option>
-                                            <option value="2">Ditunda</option>
-                                            <option value="3">Ditolak</option>
-                                            <option value="4">Buat Salinan</option>
-                                            <option value="5">Penetapan</option>
+                                            <option value="2">Penetapan</option>
+                                            <option value="3">Pengundangan</option>
+                                            <option value="4">Salinan</option>
+                                            <option value="5">Ditolak</option>
                                         </select>        
                                     </div>
                                 </div>
@@ -192,16 +192,16 @@
                                     return "Diproses";
                                     break;
                                 case 2:
-                                    return "Ditunda";
+                                    return "Penetapan";
                                     break;
                                 case 3:
-                                    return "Ditolak";
+                                    return "Pengundangan";
                                     break;
                                 case 4:
-                                    return "Buat salinan";
+                                    return "Salinan";
                                     break;
                                 case 5:
-                                    return "Penetapan";
+                                    return "Ditolak";
                                     break;
                                 default:
                                     return "Belum Diproses ";

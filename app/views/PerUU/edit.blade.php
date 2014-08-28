@@ -347,16 +347,16 @@
                 return "Diproses";
                 break;
               case 2:
-                return "Ditunda";
+                return "Penetapan";
                 break;
               case 3:
-                return "Ditolak";
+                return "Pengundangan";
                 break;
               case 4:
-                return "Buat salinan";
+                return "Salinan";
                 break;
               case 5:
-                return "Penetapan";
+                return "Ditolak";
                 break;
               default:
                 return "Belum Diproses";
@@ -394,7 +394,7 @@
 
 <script>
     jQuery(document).on("ready", function() {
-        document.title = "Layanan Biro Hukum dan Organisasi | Detail Usulan Per-UU"
+        document.title = "Layanan Biro Hukum dan Organisasi | Detail Usulan Peraturan Perundang-undangan"
     });
 </script>
 @stop

@@ -6,7 +6,7 @@
     document.getElementById("collapse10").style.height = "auto";
     document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Peraturan perundang-undangan";
 </script>
-<legend>Buat Usulan</legend>
+<!--<legend>Buat Usulan</legend>-->
 
 @include('flash')
 <div class="content-non-title">
@@ -23,51 +23,51 @@
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[nama]', 'Nama', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[nama]', null, array('placeholder' => 'Masukan nama lengkap...')) }}
+                        {{ Form::text('penanggungJawab[nama]', null, array('placeholder' => 'Masukan nama lengkap penanggung jawab usulan')) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[jabatan]', 'Jabatan', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[jabatan]', null, array('placeholder' => 'Masukan jabatan')) }}
+                        {{ Form::text('penanggungJawab[jabatan]', null, array('placeholder' => 'Masukan jabatan penanggung jawab usulan')) }}
                     </div>
                 </div>
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[nip]', "NIP", array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[nip]', null, array('placeholder' => 'Masukan NIP')) }}
+                        {{ Form::text('penanggungJawab[nip]', null, array('placeholder' => 'Masukan NIP penanggung jawab usulan')) }}
                     </div>
                 </div>
 
-		<div class="control-group">
+		        <!--div class="control-group">
                     {{ Form::label('penanggungJawab[no_handphone]', "No Handphone", array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[no_handphone]', null, array('placeholder' => 'Masukan no handphone', 'id' => 'hp')) }}
+                        {{ Form::text('penanggungJawab[no_handphone]', null, array('placeholder' => 'Masukan no handphone penanggung jawab usulan', 'id' => 'hp')) }}
                         <p class="span9" style="color: #616D79;font-size: 11px;">Format: 999-999-999-999</p>
                     </div>
 
-                </div>
+                </div-->
 
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[unit_kerja]', "Unit Kerja", array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[unit_kerja]', null, array('placeholder' => 'Masukan unit kerja...')) }}
+                        {{ Form::text('penanggungJawab[unit_kerja]', null, array('placeholder' => 'Masukan unit kerja penanggung jawab usulan')) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[alamat_kantor]', 'Alamat Kantor', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::textarea('penanggungJawab[alamat_kantor]', null, array('rows' => 2, 'placeholder' => 'Masukan alamat kantor...')) }}
+                        {{ Form::textarea('penanggungJawab[alamat_kantor]', null, array('rows' => 2, 'placeholder' => 'Masukan alamat kantor penanggung jawab usulan')) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[telp_kantor]', 'Telepon Kantor', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[telp_kantor]', null, array('placeholder' => 'Masukan nomor telepon kantor...', 'id' => 'telp_kantor')) }}
-                        <p class="span9" style="color: #616D79;font-size: 11px;">Format: (9999) 999-9999</p>
+                        {{ Form::text('penanggungJawab[telp_kantor]', null, array('placeholder' => 'Masukan nomor telepon kantor penanggung jawab usulan', 'id' => 'telp_kantor')) }}
+                        <p class="span9" style="color: #616D79;font-size: 11px;">*Gunakan spasi setelah kode area</p>
                     </div>
 
                 </div>
@@ -75,7 +75,7 @@
                 <div class="control-group">
                     {{ Form::label('penanggungJawab[email]', 'Email', array('class' => 'control-label'))}}
                     <div class="controls">
-                        {{ Form::text('penanggungJawab[email]', null, array('placeholder' => 'Masukan alamat email...')) }}
+                        {{ Form::text('penanggungJawab[email]', null, array('placeholder' => 'Masukan alamat email penanggung jawab usulan')) }}
                     </div>
                 </div>
 
@@ -90,15 +90,15 @@
 
                 <div class="control-group">
                     {{ Form::label("per_uu[perihal]", "Perihal", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::text("per_uu[perihal]", null, array('placeholder' => 'Masukan perihal usulan...')) }}</div>
+                    <div class="controls">{{ Form::text("per_uu[perihal]", null, array('placeholder' => 'Masukan judul perihal usulan')) }}</div>
                 </div>
 
                 <div class="control-group">
-                    {{ Form::label("per_uu[catatan]", "Catatan", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::textarea("per_uu[catatan]", null, array('placeholder' => 'Masukan Catatan...')) }}</div>
+                    {{ Form::label("per_uu[catatan]", "Keterangan", array('class' => 'control-label')) }}
+                    <div class="controls">{{ Form::textarea("per_uu[catatan]", null, array('placeholder' => 'Masukan keterangan yang di perlukan tentang perihal usulan')) }}</div>
                 </div>
-		
-		<div class="control-group">
+
+		        <div class="control-group">
                     {{ Form::label("per_uu[lampiran]", "Lampiran", array('class' => 'control-label')) }}
                     <div class="controls">{{ Form::file("per_uu[lampiran][]", array('multiple' => true)) }}</div>
                 </div>
@@ -134,7 +134,7 @@
         </div>	-->
 
     <div class="form-actions">
-        <input class="btn btn-primary" type="button" value="Batal" onclick="history.go(-1);return true;" name="batal">
+        <input class="btn btn-primary" type="button" value="Batal" id="prev-btn" name="batal">
         {{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
     </div>
 
@@ -148,6 +148,10 @@
 <script src="{{asset('assets/js/jquery.mask.js')}}"></script>
 <script type="text/javascript">
 $("#menu-peraturan-perundangan").addClass("active");
+
+$("#prev-btn").click(function(){
+    window.location.assign('<?php echo URL::previous(); ?>');
+});
 
 $("#telp_kantor").mask("(9999) 999-9999");
 $("#hp").mask("999-999-999-999");
@@ -205,7 +209,8 @@ $("#form-perUU").validate({
         error.appendTo(element.parent('div.controls'));
     },
     invalidHandler: function(event, validator) {
-        $("div.control-group.error").removeClass('error');
+
+        $("div.control-group").addClass('error');
         $('div.controls .error[name]').parents('div.control-group').addClass('error');
     },
     onfocusout: function(elem, event) {

@@ -8,7 +8,10 @@
 <div class="row-fluid">
   <div class="span12 offset6">
     <div class="well text-center" id="call-center">
-      <h4>Kontak Kami Biro Hukum & Organisasi</h4>
+<!--        <h4>KEMENTERIAN PENDIDIKAN DAN KEBUDAYAAN</h4>-->
+      <h4>BIRO HUKUM DAN ORGANISASI</h4></br>
+        <p>Komplek Kemdikbud Gedung C Lantai 10</p>
+        <p>Jalan Jenderal Sudirman, Senayan Jakarta Pusat 10270</p></br>
       @if($call->email && $call->email != "")
       <p><span class="rulycon-mail-4"></span> {{ $call->email }}</p>
       @endif

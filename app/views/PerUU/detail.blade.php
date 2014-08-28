@@ -14,53 +14,7 @@
     <div class="row-fluid">
         <div class="span12">
             <fieldset>
-<!--                <legend>PENANGGUNG JAWAB</legend>-->
-                <div class="nav nav-tabs">
-                    <h4>PENANGGUNG JAWAB</h4>
-                </div>
-
-                <div class="control-group">
-                    <label for="dasdasd" class="control-label">Unit Kerja</label>
-
-                    <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->unit_kerja }}" style="width:100%"></div>
-                </div>
-                <div class="control-group">
-                    <label for="" class="control-label">Jabatan</label>
-
-                    <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->jabatan }}"></div>
-                </div>
-                <div class="control-group">
-                    <label for="" class="control-label">NIP</label>
-
-                    <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->NIP }}"></div>
-                </div>
-                <div class="control-group">
-                    <label for="" class="control-label">Nama</label>
-
-                    <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->nama }}"></div>
-                </div>
-                <div class="control-group">
-                    <label for="" class="control-label">Alamat</label>
-
-                    <div class="controls"><textarea rows="3" disabled>{{ $perUU->penanggungJawab->alamat_kantor }}</textarea></div>
-                </div>
-                <div class="control-group">
-                    <label for="" class="control-label">Telp Kantor</label>
-
-                    <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->telepon_kantor }}">
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label for="" class="control-label">Email</label>
-
-                    <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->email }}"></div>
-                </div>
-            </fieldset>
-        </div>
-
-        <div class="span12">
-            <fieldset>
-<!--                <legend>INFORMASI PENGUSUL</legend>-->
+                <!--                <legend>INFORMASI PENGUSUL</legend>-->
                 <div class="nav nav-tabs">
                     <h4>INFORMASI PENGUSUL</h4>
                 </div>
@@ -103,7 +57,54 @@
 
             </fieldset>
         </div>
+
+        <div class="span12">
+            <fieldset>
+                <!--                <legend>PENANGGUNG JAWAB</legend>-->
+                <div class="nav nav-tabs">
+                    <h4>PENANGGUNG JAWAB</h4>
+                </div>
+
+                <div class="control-group">
+                    <label for="dasdasd" class="control-label">Unit Kerja</label>
+
+                    <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->unit_kerja }}" style="width:100%"></div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Jabatan</label>
+
+                    <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->jabatan }}"></div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">NIP</label>
+
+                    <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->NIP }}"></div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Nama</label>
+
+                    <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->nama }}"></div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Alamat</label>
+
+                    <div class="controls"><textarea rows="3" disabled>{{ $perUU->penanggungJawab->alamat_kantor }}</textarea></div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Telp Kantor</label>
+
+                    <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->telepon_kantor }}">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Email</label>
+
+                    <div class="controls"><input type="text" disabled="" value="{{ $perUU->penanggungJawab->email }}"></div>
+                </div>
+            </fieldset>
+        </div>
     </div>
+    <br>
     <div class="row-fluid">
         <div class="span12">
 
@@ -120,7 +121,12 @@
                 <div class="control-group">
                     <label for="" class="control-label">Perihal</label>
 
-                    <div class="controls"><textarea disabled="">{{ $perUU->perihal }}</textarea></div>
+                    <div class="controls"><input type="text" disabled="" value="{{ $perUU->perihal }}"></div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Catatan</label>
+
+                    <div class="controls"><textarea disabled="">{{ $perUU->catatan }}</textarea></div>
                 </div>
                 <div class="control-group">
                     <label for="" class="control-label">Lampiran</label>
@@ -174,20 +180,20 @@
                 <div class="nav nav-tabs">
                     <h4>UPDATE STATUS</h4>
                 </div>
-                <div class="control-group">
-                    {{ Form::label('status', 'Status', array('class' => 'control-label'))}}
-                    <div class="controls">
-                        {{
-                        Form::select('status', array(
-                        1 => "Diproses",
-                        2 => "Ditunda",
-                        3 => "Ditolak",
-                        4 => "Buat Salinan",
-                        5 => "Penetapan"
-                        ), 0, array())
-                        }}
-                    </div>
-                </div>
+<!--                <div class="control-group">-->
+<!--                    {{ Form::label('status', 'Status', array('class' => 'control-label'))}}-->
+<!--                    <div class="controls">-->
+<!--                        {{-->
+<!--                        Form::select('status', array(-->
+<!--                        1 => "Diproses",-->
+<!--                        2 => "Ditunda",-->
+<!--                        3 => "Ditolak",-->
+<!--                        4 => "Buat Salinan",-->
+<!--                        5 => "Penetapan"-->
+<!--                        ), 0, array())-->
+<!--                        }}-->
+<!--                    </div>-->
+<!--                </div>-->
                 <div class="control-group">
                     {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
                     <div class="controls">
@@ -256,6 +262,7 @@
                 bPaginate: true,
                 bServerSide: true,
                 bProcessing: true,
+                bFilter: false,
                 oLanguage:{
                     "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ ",
                     "sEmptyTable": "Data Kosong",

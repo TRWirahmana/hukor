@@ -5,7 +5,7 @@
     document.title = "Layanan Biro Hukum dan Organisasi | Buat Usulan Bantuan Hukum";
     document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Bantuan Hukum";
 </script>
-<legend>Buat Usulan</legend>
+<!--<legend>Buat Usulan</legend>-->
 
 @include('flash')
 
@@ -23,7 +23,7 @@
                 <div class="control-group">
                     {{ Form::label('nama', 'Nama Penanggung Jawab', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('nama', '', array('id' => 'nama', 'placeholder' => "Masukkan Nama Penanggung Jawab...")) }}
+                        {{ Form::text('nama', '', array('id' => 'nama', 'placeholder' => "Masukkan Nama Penanggung Jawab")) }}
                     </div>
                 </div>
 
@@ -49,21 +49,21 @@
                 <div class="control-group">
                     {{ Form::label('tgl_lahir', 'Tanggal Lahir', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('tgl_lahir', '', array('id' => 'tgl_lahir', 'class' => 'datepicker', 'placeholder' => "Masukkan Tanggal Lahir...")) }}
+                        {{ Form::text('tgl_lahir', '', array('id' => 'tgl_lahir', 'class' => 'datepicker', 'placeholder' => "Masukkan Tanggal Lahir Penanggung Jawab")) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('pekerjaan', 'Pekerjaan', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('pekerjaan', '', array('id' => 'pekerjaan', 'placeholder' => "Masukkan Pekerjaan...")) }}
+                        {{ Form::text('pekerjaan', '', array('id' => 'pekerjaan', 'placeholder' => "Masukkan Pekerjaan Penanggung Jawab")) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('nip', 'NIP', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('nip', '', array('id'=>'nip', 'placeholder' => "Masukkan NIP...")) }}
+                        {{ Form::text('nip', '', array('id'=>'nip', 'placeholder' => "Masukkan NIP Penanggung Jawab")) }}
                     </div>
                 </div>
 
@@ -71,14 +71,14 @@
                 <div class="control-group {{$errors->has('password')?'error':''}}">
                     {{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::textarea('alamat_kantor', '', array('id'=>'alamat_kantor', 'placeholder' => "Masukkan Alamat Kantor...")) }}
+                        {{ Form::textarea('alamat_kantor', '', array('id'=>'alamat_kantor', 'placeholder' => "Masukkan Alamat Kantor Penanggung Jawab")) }}
                     </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('telp_kantor', '', array('id'=>'telp_kantor', 'placeholder' => "Masukkan Nomor Telepon Kantor...", 'id' => 'telp_kantor')) }}
+                        {{ Form::text('telp_kantor', '', array('id'=>'telp_kantor', 'placeholder' => "Masukkan Nomor Telepon Kantor Penanggung Jawab", 'id' => 'telp_kantor')) }}
                         <p class="span9" style="color: #616D79;font-size: 11px;">Format: (9999) 999-9999</p>
                     </div>
 
@@ -87,7 +87,7 @@
                 <div class="control-group">
                     {{ Form::label('handphone', 'Nomor Handphone', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('handphone', '', array('id'=>'handphone' , 'placeholder' => "Masukkan Nomor Handphone...", 'id' => 'hp')) }}
+                        {{ Form::text('handphone', '', array('id'=>'handphone' , 'placeholder' => "Masukkan Nomor Handphone Penanggung Jawab", 'id' => 'hp')) }}
                         <p class="span9" style="color: #616D79;font-size: 11px;">Format: 999-999-999-999</p>
                     </div>
 
@@ -96,7 +96,7 @@
                 <div class="control-group">
                     {{ Form::label('email', 'E-Mail', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{ Form::text('email', '', array('id'=>'email', 'placeholder' => "Masukkan Email...")) }}
+                        {{ Form::text('email', '', array('id'=>'email', 'placeholder' => "Masukkan Email Penanggung Jawab")) }}
                     </div>
                 </div>
             </div>
@@ -265,7 +265,7 @@
             error.appendTo(element.parent('div.controls'));
         },
         invalidHandler: function(event, validator) {
-            $("div.control-group.error").removeClass('error');
+            $("div.control-group").addClass('error');
             $('div.controls .error[name]').parents('div.control-group').addClass('error');
         },
         onfocusout: function(elem, event) {

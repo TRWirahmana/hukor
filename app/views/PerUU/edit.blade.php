@@ -143,6 +143,11 @@
 
         <div class="controls"><textarea disabled="">{{ $perUU->perihal }}</textarea></div>
       </div>
+        <div class="control-group">
+            <label for="" class="control-label">Keterangan</label>
+
+            <div class="controls"><textarea disabled="">{{ $perUU->catatan }}</textarea></div>
+        </div>
       <div class="control-group">
         <label for="" class="control-label">Lampiran</label>
 
@@ -170,12 +175,16 @@
         <div class="controls">
           @if ($perUU->status == 1)
           Diproses
-          @elseif($perUU->status == 2) Ditunda @elseif($perUU->status == 3)
-          Ditolak
-          @elseif($perUU->status == 4)
-          Buat Salinan
-          @elseif($perUU->status == 5)
+          @elseif($perUU->status == 2)
           Penetapan
+          @elseif($perUU->status == 3)
+          Pengundangan
+          @elseif($perUU->status == 4)
+          Salinan
+          @elseif($perUU->status == 5)
+          Ditolak
+          @elseif($perUU->status == 0 || null)
+          -
           @endif
         </div>
       </div>
@@ -196,11 +205,13 @@
         <div class="controls">
           {{
           Form::select('status', array(
-          1 => "Diproses",
-          2 => "Ditunda",
-          3 => "Ditolak",
-          4 => "Buat Salinan",
-          5 => "Penetapan"
+            0 => "--Pilih Status--",
+            1 => "Diproses",
+            2 => "Penetapan",
+            3 => "Pengundangan",
+            4 => "Salinan",
+            5 => "Ditolak",
+
           ), 0, array())
           }}
         </div>

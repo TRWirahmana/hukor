@@ -143,7 +143,6 @@ class PeruuController extends BaseController
             {
                 $user = Pengguna::join('user', 'pengguna.user_id', '=', 'user.id')
                     ->where('user.role_id', '=', 3)->orWhere('user.role_id', '=', 6)->get(array('pengguna.email'));
-
                 foreach($user as $dat)
                 {
                     Mail::send('emails.PerUU.update', $data, function($message) use($dat) {

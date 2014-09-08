@@ -30,13 +30,12 @@
                     <option value="">--------------------</option>
                     <option value="6">Peraturan Menteri</option>
                     <option value="7">Keputusan Menteri</option>
-                    <option value="8">Instruksi Menteri</option>
                     <option value="9">Surat Edaran Menteri</option>
                     <option value="">--------------------</option>
-                    <option value="10">Nota Kesepahaman</option>
-                    <option value="11">Kesepakatan Bersama</option>
                     <option value="12">Peraturan Bersama</option>
                     <option value="13">Keputusan Bersama</option>
+                    <option value="10">Nota Kesepahaman</option>
+                    <option value="11">Kesepakatan Bersama</option>
                     <option value="14">Surat Edaran Bersama</option>
                     <option value="">--------------------</option>
                     <option value="15">Peraturan Lain</option>

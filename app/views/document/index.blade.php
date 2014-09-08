@@ -46,24 +46,27 @@
                             </div>
 
                             <div class="control-group">
-                                <label for="toDate" class="control-label">Kategori</label>
+                                <label for="toDate" class="control-label">Jenis</label>
                                 <div class="controls">
                                     {{ Form::select('kategori', array(
-                                    '0' => '- Pilih Kategori -',
+                                    '0' => '- Pilih Jenis -',
                                     '1' => 'Undang-undang Dasar',
                                     '2' => 'Peraturan Pemerintah',
+                                    '0' => '--------------------',
                                     '3' => 'Peraturan Presiden',
                                     '4' => 'Keputusan Presiden',
                                     '5' => 'Instruksi Presiden',
+                                    '0' => '--------------------',
                                     '6' => 'Peraturan Menteri',
                                     '7' => 'Keputusan Menteri',
-                                    '8' => 'Instruksi Menteri',
                                     '9' => 'Surat Edaran Menteri',
-                                    '10' => 'Nota Kesepahaman',
-                                    '11' => 'Kesepakatan Bersama',
+                                    '0' => '--------------------',
                                     '12' => 'Peraturan Bersama',
                                     '13' => 'Keputusan Bersama',
+                                    '10' => 'Nota Kesepahaman',
+                                    '11' => 'Kesepakatan Bersama',
                                     '14' => 'Surat Edaran Bersama',
+                                    '0' => '--------------------',
                                     '15' => 'Peraturan Lain',
                                     ), null, array('id' => 'kategori')) }}
                                 </div>
@@ -89,8 +92,8 @@
                     <th>Nomor</th>
 <!--                    <th>Tanggal</th>-->
                     <th>Tentang</th>
-                    <th>Kategori</th>
-                    <th>Masalah</th>
+                    <th>Jenis</th>
+<!--                    <th>Masalah</th>-->
                     <th>Publikasi</th>
                     <th></th>
                 </tr>
@@ -128,11 +131,11 @@
         bProcessing: true,
         oLanguage:{
             "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Peraturan",
-            "sEmptyTable": "Data Kosong",
+            "sEmptyTable": "Belum Ada Peraturan",
             "sSearch":       "Cari:",
             "sZeroRecords" : "Pencarian Tidak Ditemukan",
             "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
-            "sProcessing": 'Memproses...',
+            "sProcessing": 'Sedang di Proses...',
             "oPaginate": {
                 "sNext": "<span class='rulycon-forward-3'></span>",
                 "sPrevious": "<span class='rulycon-backward-2'></span>"
@@ -206,37 +209,37 @@
                     return kategori;
                 }
             },
-            {
-                mData: "masalah",
-                sClass: "center",
-                sWidth: '15%',
-                mRender:function(mas){
-                    var masalah = "";
-                    switch (parseInt(mas))
-                    {
-                        case 1 :
-                            masalah = 'Kepegawaian';
-                            break;
-                        case 2 :
-                            masalah = 'Keuangan';
-                            break;
-                        case 3 :
-                            masalah = 'Organisasi';
-                            break;
-                        case 4 :
-                            masalah = 'Umum';
-                            break;
-                        case 5 :
-                            masalah = 'Perlengkapan';
-                            break;
-                        case 6 :
-                            masalah = 'Lainnya';
-                            break;
-                    }
-
-                    return masalah;
-                }
-            },
+//            {
+//                mData: "masalah",
+//                sClass: "center",
+//                sWidth: '15%',
+//                mRender:function(mas){
+//                    var masalah = "";
+//                    switch (parseInt(mas))
+//                    {
+//                        case 1 :
+//                            masalah = 'Kepegawaian';
+//                            break;
+//                        case 2 :
+//                            masalah = 'Keuangan';
+//                            break;
+//                        case 3 :
+//                            masalah = 'Organisasi';
+//                            break;
+//                        case 4 :
+//                            masalah = 'Umum';
+//                            break;
+//                        case 5 :
+//                            masalah = 'Perlengkapan';
+//                            break;
+//                        case 6 :
+//                            masalah = 'Lainnya';
+//                            break;
+//                    }
+//
+//                    return masalah;
+//                }
+//            },
             {
                 mData: "status_publish",
                 sClass: "center",

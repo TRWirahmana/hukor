@@ -34,25 +34,25 @@
             <p class="text-info">{{$detail}}</p>
 
             <div class="control-group">
-              {{ Form::label('', 'Nama Pemohon', array('class' => 'control-label')) }}
+              {{ Form::label('', 'Nomor', array('class' => 'control-label')) }}
               <div class="controls">
                 <input type="text" disabled value="{{ $data->nomor }}"/>
               </div>
             </div>
 
             <div class="control-group">
-              {{ Form::label('', 'Kategori', array('class' => 'control-label')) }}
+              {{ Form::label('', 'Jenis', array('class' => 'control-label')) }}
               <div class="controls">
                   <input type="text" value="{{ $data->getKategori($data->kategori) }}" disabled/>
               </div>
             </div>
 
-            <div class="control-group">
+            <!--div class="control-group">
               {{ Form::label('', 'Masalah', array('class' => 'control-label')) }}
               <div class="controls">
                   <input type="text" value="{{ $data->getMasalah($data->masalah) }}" disabled/>
               </div>
-            </div>
+            </div-->
 
               <div class="control-group">
                   {{ Form::label('bidang', 'Bidang', array('class' => 'control-label'))}}
@@ -70,7 +70,7 @@
             </div>
 
             <div class="control-group">
-              {{ Form::label('', 'Catatan', array('class' => 'control-label')) }}
+              {{ Form::label('', 'Keterangan', array('class' => 'control-label')) }}
               <div class="controls">
                   <textarea cols="10" disabled>{{ $data->deskripsi }}</textarea>
               </div>
@@ -84,7 +84,7 @@
             </div>
 
             <div class="control-group">
-              {{ Form::label('', 'File Dokumen', array('class' => 'control-label')) }}
+              {{ Form::label('', 'Lampiran', array('class' => 'control-label')) }}
               <div class="controls">
                   @if($data->file_dokumen == null)
                   <p>Tidak ada lampiran</p>

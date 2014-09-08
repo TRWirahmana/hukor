@@ -40,30 +40,29 @@
             </div>
 
             <div class="control-group">
-              {{ Form::label('kategori', 'Kategori', array('class' => 'control-label')) }}
+              {{ Form::label('kategori', 'Jenis', array('class' => 'control-label')) }}
               <div class="controls">
                 {{ Form::select('kategori', array(
-                '0' => '- Pilih Kategori -',
-                '1' => 'Undang-undang Dasar',
-                '2' => 'Peraturan Pemerintah',
-                '3' => 'Peraturan Presiden',
-                '4' => 'Keputusan Presiden',
-                '5' => 'Instruksi Presiden',
-                '6' => 'Peraturan Menteri',
-                '7' => 'Keputusan Menteri',
-                '8' => 'Instruksi Menteri',
-                '9' => 'Surat Edaran Menteri',
-                '10' => 'Nota Kesepahaman',
-                '11' => 'Kesepakatan Bersama',
-                '12' => 'Peraturan Bersama',
-                '13' => 'Keputusan Bersama',
-                '14' => 'Surat Edaran Bersama',
+                  '0' => '- Pilih Jenis -',
+                  '1' => 'Undang-undang Dasar',
+                  '2' => 'Peraturan Pemerintah',
+                  '3' => 'Peraturan Presiden',
+                  '4' => 'Keputusan Presiden',
+                  '5' => 'Instruksi Presiden',
+                  '6' => 'Peraturan Menteri',
+                  '7' => 'Keputusan Menteri',
+                  '9' => 'Surat Edaran Menteri',
+                  '12' => 'Peraturan Bersama',
+                  '13' => 'Keputusan Bersama',
+                  '10' => 'Nota Kesepahaman',
+                  '11' => 'Kesepakatan Bersama',
+                  '14' => 'Surat Edaran Bersama',
                   '15' => 'Peraturan Lain',
                 ), $data->kategori) }}
               </div>
             </div>
 
-            <div class="control-group">
+            <!--div class="control-group">
               {{ Form::label('masalah', 'Masalah', array('class' => 'control-label')) }}
               <div class="controls">
                 {{ Form::select('masalah', array(
@@ -77,7 +76,7 @@
                 '6' => 'Lainnya',
                 ), $data->masalah) }}
               </div>
-            </div>
+            </div-->
 
             <div class="control-group">
               {{ Form::label('bidang', 'Bidang', array('class' => 'control-label')) }}
@@ -95,14 +94,14 @@
             </div>
 
             <div class="control-group">
-              {{ Form::label('perihal', 'Perihal', array('class' => 'control-label')) }}
+              {{ Form::label('perihal', 'Tentang', array('class' => 'control-label')) }}
               <div class="controls">
                 {{ Form::textarea('perihal', $data->perihal, array('id' => 'perihal')) }}
               </div>
             </div>
 
             <div class="control-group">
-              {{ Form::label('deskripsi', 'Catatan', array('class' => 'control-label')) }}
+              {{ Form::label('deskripsi', 'Keterangan', array('class' => 'control-label')) }}
               <div class="controls">
                 {{Form::textarea('deskripsi', $data->deskripsi, array('id'=>'deskripsi'))}}
               </div>

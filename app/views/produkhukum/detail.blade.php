@@ -20,18 +20,18 @@
       </div>
 
       <div class="control-group">
-        {{ Form::label('kategori', 'Kategori', array('class' => 'control-label'))}}
+        {{ Form::label('kategori', 'Jenis', array('class' => 'control-label'))}}
         <div class="controls">
           <input type="text" value="{{ $data->getKategori($data->kategori) }}" disabled/>
         </div>
       </div>
 
-      <div class="control-group">
-        {{ Form::label('masalah', 'Masalah', array('class' => 'control-label'))}}
-        <div class="controls">
-          <input type="text" value="{{ $data->getMasalah($data->masalah) }}" disabled/>
-        </div>
-      </div>
+<!--      <div class="control-group">-->
+<!--        {{ Form::label('masalah', 'Masalah', array('class' => 'control-label'))}}-->
+<!--        <div class="controls">-->
+<!--          <input type="text" value="{{ $data->getMasalah($data->masalah) }}" disabled/>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <div class="control-group">
         {{ Form::label('bidang', 'Bidang', array('class' => 'control-label'))}}
@@ -48,7 +48,7 @@
       </div>
 
         <div class="control-group">
-            {{ Form::label('catatan', 'Catatan', array('class' => 'control-label'))}}
+            {{ Form::label('catatan', 'Keterangan', array('class' => 'control-label'))}}
             <div class="controls">
                 <textarea cols="10" disabled>{{ $data->deskripsi }}</textarea>
             </div>

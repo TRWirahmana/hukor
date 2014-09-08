@@ -17,56 +17,60 @@
               </div>
             </div>
             <div class="control-group">
-              <label for="select-kategori" class="control-label">Kategori</label>
+              <label for="select-kategori" class="control-label">Jenis</label>
               <div class="controls">
                 <select id="select-kategori" name="kategori">
-                    <option value="">Semua Kategori</option>
+                    <option value="">Semua Jenis</option>
                     <option value="1">Undang-undang Dasar</option>
                     <option value="2">Peraturan Pemerintah</option>
+                    <option value="">--------------------</option>
                     <option value="3">Peraturan Presiden</option>
                     <option value="4">Keputusan Presiden</option>
                     <option value="5">Instruksi Presiden</option>
+                    <option value="">--------------------</option>
                     <option value="6">Peraturan Menteri</option>
                     <option value="7">Keputusan Menteri</option>
                     <option value="8">Instruksi Menteri</option>
                     <option value="9">Surat Edaran Menteri</option>
+                    <option value="">--------------------</option>
                     <option value="10">Nota Kesepahaman</option>
                     <option value="11">Kesepakatan Bersama</option>
                     <option value="12">Peraturan Bersama</option>
                     <option value="13">Keputusan Bersama</option>
                     <option value="14">Surat Edaran Bersama</option>
+                    <option value="">--------------------</option>
                     <option value="15">Peraturan Lain</option>
                 </select>
               </div>
             </div>
           </div>
           <div class="span12">
-            <div class="control-group">
-              <label for="select-masalah" class="control-label">Masalah</label>
-              <div class="controls">
-                <select id="select-masalah" name="masalah">
-                  <option value="">Semua Masalah</option>
-                  <option value="1">Kepegawaian</option>
-                  <option value="2">Keuangan</option>
-                  <option value="3">Organisasi</option>
-                  <option value="5">Perlengkapan</option>
-                  <option value="4">Umum</option>
-                  <option value="7">Tim</option>
-                  <option value="6">Lainnya</option>
-                </select>
-              </div>
-            </div>
+<!--            <div class="control-group">-->
+<!--              <label for="select-masalah" class="control-label">Masalah</label>-->
+<!--              <div class="controls">-->
+<!--                <select id="select-masalah" name="masalah">-->
+<!--                  <option value="">Semua Masalah</option>-->
+<!--                  <option value="1">Kepegawaian</option>-->
+<!--                  <option value="2">Keuangan</option>-->
+<!--                  <option value="3">Organisasi</option>-->
+<!--                  <option value="5">Perlengkapan</option>-->
+<!--                  <option value="4">Umum</option>-->
+<!--                  <option value="7">Tim</option>-->
+<!--                  <option value="6">Lainnya</option>-->
+<!--                </select>-->
+<!--              </div>-->
+<!--            </div>-->
             <div class="control-group">
               <label for="select-bidang" class="control-label">Bidang</label>
               <div class="controls">
                 <select id="select-bidang" name="masalah">
                   <option value="">Semua Bidang</option>
-                  <option value="1">Pendidikan Dasar</option>
-                  <option value="2">Pendidikan Menengah</option>
-                  <option value="3">Pendidikan Tinggi</option>
-                  <option value="4">Kebudayaan</option>
-                  <option value="5">Pendidikan Anak Usia Dini, Nonformal, Informal</option>
-                  <option value="6">Lainnya</option>
+                  <option value="1">Umum</option>
+                  <option value="2">Kebudayaan</option>
+                  <option value="3">Pendidikan Dasar</option>
+                  <option value="4">Pendidikan Menengah</option>
+                  <option value="5">Pendidikan Dikti</option>
+                  <option value="6">Pendidikan Anak Usia Dini, Nonformal, Informal</option>
                 </select>
               </div>
             </div>
@@ -84,8 +88,8 @@
 <!--          <th>No</th>-->
           <th>Nomor</th>
           <th>Tentang</th>
-          <th>Kategori</th>
-          <th>Masalah</th>
+          <th>Jenis</th>
+<!--          <th>Masalah</th>-->
           <th>Unduh</th>
         </tr>
         </thead>
@@ -161,11 +165,11 @@
       bProcessing: true,
         oLanguage:{
             "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Peraturan",
-            "sEmptyTable": "Data Kosong",
+            "sEmptyTable": "Belum Ada Peraturan",
             "sZeroRecords" : "Pencarian Tidak Ditemukan",
             "sSearch":       "Cari:",
             "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
-            "sProcessing": 'Memproses...',
+            "sProcessing": 'Sedang di Proses...',
             "oPaginate": {
                 "sNext": "<span class='rulycon-forward-3'></span>",
                 "sPrevious": "<span class='rulycon-backward-2'></span>"
@@ -252,30 +256,30 @@
 		  return kategori;
           }
         },
-        {
-            mData: "masalah",
-            sClass: "center",
-            sWidth: '15%',
-          mRender: function (data, type, full) {
-		data = parseInt(data);
-            if (data === 1) {
-              return 'Kepegawaian';
-            } else if (data === 2) {
-              return 'Keuangan';
-            } else if (data === 3) {
-              return 'Organisasi';
-            } else if (data === 4) {
-              return 'Umum';
-            } else if (data === 5) {
-              return 'Perlengkapan';
-            } else if (data === 6) {
-              return 'Lainnya';
-            } else {
-                return '';
-            }
-          }
-
-        },
+//        {
+//            mData: "masalah",
+//            sClass: "center",
+//            sWidth: '15%',
+//          mRender: function (data, type, full) {
+//		data = parseInt(data);
+//            if (data === 1) {
+//              return 'Kepegawaian';
+//            } else if (data === 2) {
+//              return 'Keuangan';
+//            } else if (data === 3) {
+//              return 'Organisasi';
+//            } else if (data === 4) {
+//              return 'Umum';
+//            } else if (data === 5) {
+//              return 'Perlengkapan';
+//            } else if (data === 6) {
+//              return 'Lainnya';
+//            } else {
+//                return '';
+//            }
+//          }
+//
+//        },
         {
             mData: "id",
             sClass: "center",

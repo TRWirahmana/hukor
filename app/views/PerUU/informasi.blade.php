@@ -17,7 +17,7 @@
                             <th>Tgl Usulan</th>
                             <th>Unit Kerja</th>
 <!--                            <th>Jabatan</th>-->
-                            <th>Perihal</th>
+                            <th>Usulan</th>
                             <th>Status</th>
                             @if($role_id == null)
                             @else
@@ -61,8 +61,10 @@ $("#menu-peraturan-perundangan").addClass("active");
                         "sInfoEmpty": 'Menampilkan 0 Sampai 0 dari 0 ',
                         "sProcessing": 'Memproses...',
                         "oPaginate": {
+                            "sFirst": "<span class='rulycon-forward-3'></span>",
                             "sNext": "<span class='rulycon-forward-3'></span>",
-                            "sPrevious": "<span class='rulycon-backward-2'></span>"
+                            "sPrevious": "<span class='rulycon-backward-2'></span>",
+                            "sLast": "<span class='rulycon-backward-2'></span>"
                         },
                         "sLengthMenu": 'Tampilkan <select>'+
                             '<option value="10">10</option>'+

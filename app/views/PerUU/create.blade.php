@@ -28,6 +28,24 @@
                 </div>
 
                 <div class="control-group">
+                    {{ Form::label('penanggungJawab[jenis_kelamin]', 'Jenis Kelamin', array('class' => 'control-label'))}}
+                    <div class="controls">
+                        <div class="control-group">
+                            {{ Form::label('pria', 'Laki-laki') }}
+                            <div class="controls">
+                                {{ Form::radio('penanggungJawab[jenis_kelamin]', 'L', false, array('id' => 'pria')) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            {{ Form::label('perempuan', 'Perempuan') }}
+                            <div class="controls">
+                                {{ Form::radio('penanggungJawab[jenis_kelamin]', 'P', false, array('id' => 'perempuan')) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
                     {{ Form::label('penanggungJawab[jabatan]', 'Jabatan', array('class' => 'control-label'))}}
                     <div class="controls">
                         {{ Form::text('penanggungJawab[jabatan]', null, array('placeholder' => 'Masukan jabatan penanggung jawab usulan')) }}
@@ -85,7 +103,7 @@
         <div class="span12">
             <fieldset>
                 <div class="nav nav-tabs">
-                    <h4>INFORMASI USULAN</h4>
+                    <h4>USULAN</h4>
                 </div>
 
                 <div class="control-group">

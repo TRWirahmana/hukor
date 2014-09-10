@@ -63,6 +63,7 @@ class PeruuController extends BaseController
 			$penanggungJawab->alamat_kantor = $input2['alamat_kantor'];
 			$penanggungJawab->telepon_kantor = $input2['telp_kantor'];
 			$penanggungJawab->email = $input2['email'];
+            $penanggungJawab->jenis_kelamin = $input2['jenis_kelamin'];
 			$penanggungJawab->save();
 
 			// kirim email ke admin

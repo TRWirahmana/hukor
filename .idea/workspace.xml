@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d260e0ec-6832-48f4-91bf-6cd0afa859d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/PeruuController.php" afterPath="$PROJECT_DIR$/app/controllers/PeruuController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/counter.xml" afterPath="$PROJECT_DIR$/public/assets/counter.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/PerUU/create.blade.php" afterPath="$PROJECT_DIR$/app/views/PerUU/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php" afterPath="$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/PerUU/informasi.blade.php" afterPath="$PROJECT_DIR$/app/views/PerUU/informasi.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/DAL/DAL_AnalisisJabatan.php" afterPath="$PROJECT_DIR$/app/models/DAL/DAL_AnalisisJabatan.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/AnalisisJabatan/create.blade.php" afterPath="$PROJECT_DIR$/app/views/AnalisisJabatan/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Pelembagaan/form.blade.php" afterPath="$PROJECT_DIR$/app/views/Pelembagaan/form.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/AnalisisJabatan/index_user.blade.php" afterPath="$PROJECT_DIR$/app/views/AnalisisJabatan/index_user.blade.php" />
     </list>
     <ignored path="diknasrokum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,37 +33,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="info_aplikasi.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="4" selection-start="2953" selection-end="2953" vertical-scroll-proportion="-8.5" vertical-offset="1581" max-vertical-offset="3502">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="create.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/PerUU/create.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/views/AnalisisJabatan/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="65" selection-start="5883" selection-end="5893" vertical-scroll-proportion="-13.846154" vertical-offset="1578" max-vertical-offset="4318">
+            <state line="111" column="38" selection-start="5800" selection-end="5800" vertical-scroll-proportion="-15.692307" vertical-offset="1479" max-vertical-offset="4046">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="informasi.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/PerUU/informasi.blade.php">
+      <file leaf-file-name="index_user.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/AnalisisJabatan/index_user.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="36" selection-start="2661" selection-end="2661" vertical-scroll-proportion="-23.538462" vertical-offset="561" max-vertical-offset="4658">
+            <state line="201" column="55" selection-start="8080" selection-end="8080" vertical-scroll-proportion="0.28451177" vertical-offset="3248" max-vertical-offset="3927">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PeruuController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/PeruuController.php">
+      <file leaf-file-name="AnalisisJabatanController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/AnalisisJabatanController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="53" selection-start="314" selection-end="314" vertical-scroll-proportion="0.24617997" vertical-offset="93" max-vertical-offset="3859">
+            <state line="10" column="61" selection-start="278" selection-end="278" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="3536">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/PerUU/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="154" column="20" selection-start="6465" selection-end="6658" vertical-scroll-proportion="-13.846154" vertical-offset="2258" max-vertical-offset="5270">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DAL_AnalisisJabatan.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_AnalisisJabatan.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="33" selection-start="618" selection-end="618" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="4199">
               <folding />
             </state>
           </provider>
@@ -90,7 +97,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/app/views/SistemDanProsedur/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/AnalisisJabatan/index_user.blade.php" />
         <option value="$PROJECT_DIR$/app/views/SistemDanProsedur/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/views/AnalisisJabatan/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/views/SistemDanProsedur/informasi.blade.php" />
@@ -106,7 +112,6 @@
         <option value="$PROJECT_DIR$/app/views/PerUU/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/views/SistemDanProsedur/create.blade.php" />
         <option value="$PROJECT_DIR$/app/views/BantuanHukum/form.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/AnalisisJabatan/create.blade.php" />
         <option value="$PROJECT_DIR$/app/models/DAL/DAL_Document.php" />
         <option value="$PROJECT_DIR$/app/views/produkhukum/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/views/produkhukum/index.blade.php" />
@@ -118,6 +123,10 @@
         <option value="$PROJECT_DIR$/app/controllers/PeruuController.php" />
         <option value="$PROJECT_DIR$/app/views/PerUU/create.blade.php" />
         <option value="$PROJECT_DIR$/app/views/PerUU/informasi.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/Pelembagaan/form.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/AnalisisJabatan/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/models/DAL/DAL_AnalisisJabatan.php" />
+        <option value="$PROJECT_DIR$/app/views/AnalisisJabatan/index_user.blade.php" />
       </list>
     </option>
   </component>
@@ -224,6 +233,50 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="PerUU" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diknasrokum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="document" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diknasrokum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hukor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnalisisJabatan" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -365,31 +418,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/PerUU/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="23" selection-start="4372" selection-end="5464" vertical-scroll-proportion="0.0" vertical-offset="1408" max-vertical-offset="3995" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/PerUU/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="28" selection-start="2304" selection-end="2304" vertical-scroll-proportion="0.0" vertical-offset="1156" max-vertical-offset="6715" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/PerUU/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="26" selection-start="8160" selection-end="8817" vertical-scroll-proportion="0.0" vertical-offset="2828" max-vertical-offset="6137" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/PeruuController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="48" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.0" vertical-offset="605" max-vertical-offset="3859" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_PerUU.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="27" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="2465" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="109" column="0" selection-start="4804" selection-end="4804" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5865" />
@@ -495,11 +523,6 @@
         <state line="8" column="0" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="4947" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/AnalisisJabatan/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="17" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="3434" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/SistemDanProsedur/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="4352" />
@@ -545,19 +568,9 @@
         <state line="73" column="12" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.6682927" vertical-offset="830" max-vertical-offset="1649" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/produkhukum/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="67" selection-start="1997" selection-end="1997" vertical-scroll-proportion="-15.153846" vertical-offset="235" max-vertical-offset="6188" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/document/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="69" column="61" selection-start="2156" selection-end="3363" vertical-scroll-proportion="-17.653847" vertical-offset="714" max-vertical-offset="5712" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/document/form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="53" selection-start="3908" selection-end="3908" vertical-scroll-proportion="-14.384615" vertical-offset="1377" max-vertical-offset="3502" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/document/detail.blade.php">
@@ -583,20 +596,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/layanan/info_aplikasi.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="106" column="4" selection-start="2953" selection-end="2953" vertical-scroll-proportion="-8.5" vertical-offset="1581" max-vertical-offset="3502">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/PerUU/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.1609756" vertical-offset="714" max-vertical-offset="5270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/PerUU/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="65" selection-start="5883" selection-end="5893" vertical-scroll-proportion="-13.846154" vertical-offset="1578" max-vertical-offset="4318">
           <folding />
         </state>
       </provider>
@@ -631,7 +630,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/PeruuController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="53" selection-start="314" selection-end="314" vertical-scroll-proportion="0.24617997" vertical-offset="93" max-vertical-offset="3859">
+        <state line="28" column="28" selection-start="833" selection-end="833" vertical-scroll-proportion="0.65025467" vertical-offset="93" max-vertical-offset="3859">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Pelembagaan/form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="7" selection-start="4942" selection-end="4942" vertical-scroll-proportion="0.801626" vertical-offset="1836" max-vertical-offset="2584">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/produkhukum/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="67" selection-start="1997" selection-end="1997" vertical-scroll-proportion="0.8569106" vertical-offset="102" max-vertical-offset="6188">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/PerUU/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="26" selection-start="2162" selection-end="2162" vertical-scroll-proportion="-24.961538" vertical-offset="99" max-vertical-offset="4318">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/document/form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="36" selection-start="3087" selection-end="3476" vertical-scroll-proportion="-10.461538" vertical-offset="1275" max-vertical-offset="3502">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/AnalisisJabatan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="6" selection-start="13" selection-end="13" vertical-scroll-proportion="0.056013178" vertical-offset="0" max-vertical-offset="607">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AnalisisJabatanController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="61" selection-start="278" selection-end="278" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="3536">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/PerUU/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="20" selection-start="6465" selection-end="6658" vertical-scroll-proportion="-13.846154" vertical-offset="2258" max-vertical-offset="5270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/AnalisisJabatan/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="38" selection-start="5800" selection-end="5800" vertical-scroll-proportion="-15.692307" vertical-offset="1479" max-vertical-offset="4046">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/DAL/DAL_AnalisisJabatan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="33" selection-start="618" selection-end="618" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="4199">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/AnalisisJabatan/index_user.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="201" column="55" selection-start="8080" selection-end="8080" vertical-scroll-proportion="0.28451177" vertical-offset="3248" max-vertical-offset="3927">
           <folding />
         </state>
       </provider>

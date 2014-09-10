@@ -108,7 +108,7 @@
 		</div>
 
 	<div class="form-actions">
-        <input class='btn btn-primary' Type="button" value="Batal" onClick="history.go(-1);return true;">
+        <input class='btn btn-primary' Type="button" value="Batal" id="prev-btn" name="batal">
 		{{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
 
 	</div>
@@ -132,6 +132,10 @@
 <script type="text/javascript">
     $("#telp_kantor").mask("(9999) 999-9999");
     $("#hp").mask("999-999-999-999");
+
+    $("#prev-btn").click(function(){
+        window.location.assign('<?php echo URL::previous(); ?>');
+    });
 
     Pelembagaan.Form();
 </script>

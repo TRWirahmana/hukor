@@ -26,6 +26,24 @@
                 </div>
 
                 <div class="control-group">
+                    {{ Form::label('penanggungJawab[jenis_kelamin]', 'Jenis Kelamin', array('class' => 'control-label'))}}
+                    <div class="controls">
+                        <div class="control-group">
+                            {{ Form::label('pria', 'Laki-laki') }}
+                            <div class="controls">
+                                {{ Form::radio('penanggungJawab[jenis_kelamin]', 'L', false, array('id' => 'pria')) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            {{ Form::label('perempuan', 'Perempuan') }}
+                            <div class="controls">
+                                {{ Form::radio('penanggungJawab[jenis_kelamin]', 'P', false, array('id' => 'perempuan')) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
                     {{ Form::label('penanggungJawab[jabatan]', 'Jabatan', array('class' => 'control-label'))}}
                     <div class="controls">
                         {{ Form::text('penanggungJawab[jabatan]', null, array('placeholder' => 'Masukan jabatan penanggung jawab')) }}
@@ -81,17 +99,31 @@
         <div class="span12">
             <fieldset>
                 <div class="nav nav-tabs">
-                    <h4>INFORMASI USULAN</h4>
+                    <h4>USULAN</h4>
+                </div>
+
+                <div class="control-group">
+                    {{ Form::label("analisisJabatan[jenis_usulan]", "Jenis Usulan", array('class' => 'control-label')) }}
+                    <div class="controls">
+                        {{ Form::select('analisisJabatan[jenis_usulan]', array(
+                        '0' => '- Pilih Jenis Usulan -',
+                        '1' => 'Uraian Jabatan',
+                        '2' => 'Peta Jabatan',
+                        '3' => 'Perhitungan Beban Kerja',
+                        '4' => 'Evaluasi Jabatan',
+                        '5' => 'Standar Kompetensi',
+                        )) }}
+                    </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label("analisisJabatan[perihal]", "Perihal", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::text("analisisJabatan[perihal]", null, array('placeholder' => 'Masukan perihal usulan...')) }}</div>
+                    <div class="controls">{{ Form::text("analisisJabatan[perihal]", null, array('placeholder' => 'Masukan judul perihal usulan...')) }}</div>
                 </div>
 
                 <div class="control-group">
-                    {{ Form::label("analisisJabatan[catatan]", "Catatan", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::textarea("analisisJabatan[catatan]", null, array('placeholder' => 'Masukan keterangan usulan...')) }}</div>
+                    {{ Form::label("analisisJabatan[catatan]", "Keterangan", array('class' => 'control-label')) }}
+                    <div class="controls">{{ Form::textarea("analisisJabatan[catatan]", null, array('placeholder' => 'Masukan keterangan tentang perihal usulan...')) }}</div>
                 </div>
 		
 		<div class="control-group">
@@ -105,7 +137,7 @@
     </div>
 
     <div class="form-actions">
-        <a href="{{ URL::to('site') }}" class="btn btn-primary">Batal</a>
+        <input class="btn btn-primary" type="button" value="Batal" id="prev-btn" name="batal">
         <button class="btn btn-primary" type="submit">Kirim</button>
     </div>
 
@@ -120,6 +152,10 @@
 <script type="text/javascript">
     $("#telp_kantor").mask("(9999) 999-9999");
 $("#menu-peraturan-perundangan").addClass("active");
+
+    $("#prev-btn").click(function(){
+        window.location.assign('<?php echo URL::previous(); ?>');
+    });
 
 
 $("#form-perUU").validate({

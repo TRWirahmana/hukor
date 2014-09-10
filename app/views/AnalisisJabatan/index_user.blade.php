@@ -6,7 +6,7 @@
   document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Analisis Jabatan";
 </script>
 
-<legend>Status Usulan Analisis Jabatan</legend>
+<legend>Status Usulan</legend>
 
 @include('flash')
 <div class="content-non-title">
@@ -18,7 +18,7 @@
                             <th>Tgl Usulan</th>
                             <th>Unit Kerja</th>
 <!--                            <th>Jabatan</th>-->
-                            <th>Perihal</th>
+                            <th>Jenis Usulan</th>
                             <th>Status</th>
                             @if($role_id != null)
                             <th></th>
@@ -41,10 +41,10 @@
 <script src="{{asset('assets/js/jquery.validate.js')}}"></script>
 <script type="text/javascript">
     jQuery(function($) {
-            $("#menu-peraturan-perundangan").addClass("active");
+        $("#menu-peraturan-perundangan").addClass("active");
 
         var roles = '<?php echo $role_id; ?>';
-            var col;
+        var col;
         if(roles){
             col = [
                 { mData: "id", sWidth: "1%" },
@@ -53,9 +53,32 @@
                         return $.datepicker.formatDate('dd M yy', new Date(Date.parse(data)));
                     }
                 },
-                { mData: "unit_kerja", sWidth: "10%" },
+                { mData: "id", sWidth: "10%" },
 //                { mData: "nama_jabatan", sWidth: "10%" },
-                { mData: "perihal", sWidth: "30%" },
+                { mData: "id", sWidth: "30%",
+                    mRender: function(data, a, all){
+                        switch (parseInt(all.jenis_usulan)) {
+                            case 1:
+                                return "Uraian Jabatan";
+                                break;
+                            case 2:
+                                return "Peta Jabatan";
+                                break;
+                            case 3:
+                                return "Perhitungan Beban Kerja";
+                                break;
+                            case 4:
+                                return "Evaluasi Jabatan";
+                                break;
+                            case 5:
+                                return "Standar Kompetensi";
+                                break;
+                            default :
+                                return "-";
+                                break;
+                        }
+                    }
+                },
                 { mData: "status", sWidth: "10%",
                     mRender: function(data) {
                         switch (parseInt(data)) {
@@ -104,7 +127,30 @@
                 },
                 { mData: "unit_kerja", sWidth: "10%" },
 //                { mData: "nama_jabatan", sWidth: "10%" },
-                { mData: "perihal", sWidth: "30%" },
+                { mData: "id", sWidth: "30%",
+                    mRender: function(data, a, all){
+                        switch (parseInt(all.jenis_usulan)) {
+                            case 1:
+                                return "Uraian Jabatan";
+                                break;
+                            case 2:
+                                return "Peta Jabatan";
+                                break;
+                            case 3:
+                                return "Perhitungan Beban Kerja";
+                                break;
+                            case 4:
+                                return "Evaluasi Jabatan";
+                                break;
+                            case 5:
+                                return "Standar Kompetensi";
+                                break;
+                            case null:
+                                return "-";
+                                break;
+                        }
+                    }
+                },
                 { mData: "status", sWidth: "10%",
                     mRender: function(data) {
                         switch (parseInt(data)) {
@@ -145,6 +191,10 @@
                 "sZeroRecords" : "Pencarian Tidak Ditemukan",
                 "sSearch":       "Cari:",
                 "sProcessing": 'Memproses...',
+                "oPaginate": {
+                    "sNext": "<span class='rulycon-forward-3'></span>",
+                    "sPrevious": "<span class='rulycon-backward-2'></span>"
+                },
                 "sLengthMenu": 'Tampilkan <select>'+
                     '<option value="10">10</option>'+
                     '<option value="25">25</option>'+

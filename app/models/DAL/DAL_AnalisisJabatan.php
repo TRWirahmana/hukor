@@ -11,6 +11,7 @@ class DAL_AnalisisJabatan {
                 'jabatan.nama_jabatan',
                 'analisis_jabatan.perihal',
                 'analisis_jabatan.status',
+                'analisis_jabatan.jenis_usulan',
                 'analisis_jabatan.lampiran'
             ));
 
@@ -23,6 +24,8 @@ class DAL_AnalisisJabatan {
             $data->where(DB::raw("DATE(analisis_jabatan.tgl_usulan)"), ">=", DateTime::createFromFormat("d/m/Y", $firstDate)->format('Y-m-d'));
         if(null != $lastDate)
             $data->where(DB::raw("DATE(analisis_jabatan.tgl_usulan)"), "<=", DateTime::createFromFormat("d/m/Y", $lastDate)->format('Y-m-d'));
+
+        $data->orderBy('analisis_jabatan.tgl_usulan', 'desc');
 
         return $data;
     }
@@ -121,6 +124,7 @@ class DAL_AnalisisJabatan {
         $analisisJabatan->id_pengguna = Auth::user()->pengguna->id;
         $analisisJabatan->perihal = $input['analisisJabatan']['perihal'];
         $analisisJabatan->catatan = $input['analisisJabatan']['catatan'];
+        $analisisJabatan->jenis_usulan = $input['analisisJabatan']['jenis_usulan'];
         $analisisJabatan->lampiran = serialize($filenames);
         $analisisJabatan->tgl_usulan = new DateTime;
         $analisisJabatan->status = 0;

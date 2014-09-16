@@ -77,7 +77,7 @@
                             <th>Tgl Usulan</th>
                             <th>Unit Kerja</th>
                             <!--<th>Jabatan</th>-->
-                            <th>Perihal</th>
+                            <th>Usulan</th>
                             <th>Status</th>
                             <th></th>
                         </tr>

@@ -125,6 +125,7 @@ class PeruuController extends BaseController
 		$logPerUU->lampiran = serialize($filenames);
 		$logPerUU->status = $perUU->status;
 		$logPerUU->tgl_proses = new DateTime('now');
+        $logPerUU->pemroses = Input::get('pemroses');;
         $logPerUU->updated_by = $updated;
 
 		$perUU->status = $status;

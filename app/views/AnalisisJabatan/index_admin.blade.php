@@ -27,7 +27,7 @@
             <div class="content-non-title">
                 <form id="form-filter" class="form form-horizontal" action="{{URL::route('admin.aj.printTable')}}">
                     <fieldset>
-                        <legend class="f_legend">Filter</legend>
+<!--                        <legend class="f_legend">Filter</legend>-->
                         <div class="row-fluid">
                             <div class="span6">
                                 <div class="control-group">
@@ -76,8 +76,8 @@
                             <th>#</th>
                             <th>Tgl Usulan</th>
                             <th>Unit Kerja</th>
-<!--                            <th>Jabatan</th>-->
-                            <th>Perihal</th>
+                            <th>Jenis Usulan</th>
+                            <th>Usulan</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
@@ -149,10 +149,14 @@
                 bProcessing: true,
                 oLanguage:{
                     "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Peraturan",
-                    "sEmptyTable": "Data Kosong",
+                    "sEmptyTable": "Belum ada data",
                     "sSearch": "Cari:",
-                    "sProcessing": 'Memproses...',
-                    "sZeroRecords" : "Pencarian Tidak Ditemukan"
+                    "sProcessing": 'Sedang Memproses...',
+                    "sZeroRecords" : "Pencarian Tidak Ditemukan",
+                    "oPaginate": {
+                        "sNext": "<span class='rulycon-forward-3'></span>",
+                        "sPrevious": "<span class='rulycon-backward-2'></span>"
+                    }
                 },
                 aoColumns: [
                     {
@@ -170,10 +174,21 @@
                         mData: "unit_kerja",
                         sWidth: "10%"
                     },
-//                    {
-//                        mData: "nama_jabatan",
-//                        sWidth: "10%"
-//                    },
+                    {
+                        mData: "jenis_usulan",
+                        sWidth: "20%",
+                        mRender: function(data) {
+                            switch (data)
+                            {
+                                case '1': return 'Prosedur Operasional Sistem'; break;
+                                case '2': return 'Standar Pelayanan'; break;
+                                case '3': return 'Tata Naskah Dinas'; break;
+                                case '4': return 'Evaluasi Sistem'; break;
+                                case '5': return 'Prosedur Kerja'; break;
+                                default: return '-'; break;
+                            }
+                        }
+                    },
                     {
                         mData: "perihal",
                         sWidth: "30%"
@@ -187,16 +202,10 @@
                                     return "Diproses";
                                     break;
                                 case 2:
-                                    return "Ditunda";
-                                    break;
-                                case 3:
                                     return "Ditolak";
                                     break;
-                                case 4:
-                                    return "Buat salinan";
-                                    break;
-                                case 5:
-                                    return "Penetapan";
+                                case 3:
+                                    return "Selesai";
                                     break;
                                 default:
                                     return "Belum Diproses";

@@ -148,9 +148,7 @@
                 <div class="control-group">
                     {{ Form::label('catatan', 'Keterangan', array('class' => 'control-label')) }}
                     <div class="controls">
-                        {{
-                        Form::textarea('catatan', $data->catatan, array('rows' => 2))
-                        }}
+                        {{ Form::textarea('catatan', $data->catatan, array('rows' => 2)) }}
                     </div>
                 </div>
                 <div class="control-group">

@@ -39,6 +39,24 @@
                 </div>
 
                 <div class="control-group">
+                    {{ Form::label('penanggungJawab[jenis_kelamin]', 'Jenis Kelamin', array('class' => 'control-label'))}}
+                    <div class="controls">
+                        <div class="control-group">
+                            {{ Form::label('pria', 'Laki-laki') }}
+                            <div class="controls">
+                                {{ Form::radio('penanggungJawab[jenis_kelamin]', 'L', false, array('id' => 'pria')) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            {{ Form::label('perempuan', 'Perempuan') }}
+                            <div class="controls">
+                                {{ Form::radio('penanggungJawab[jenis_kelamin]', 'P', false, array('id' => 'perempuan')) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
                     {{ form::label('penanggungJawab[jabatan]', 'Jabatan', array('class' => 'control-label'))}}
                     <div class="controls">
                         {{ form::text('penanggungJawab[jabatan]', null, array('placeholder' => 'Masukan jabatan penanggung jawab')) }}
@@ -94,17 +112,31 @@
         <div class="span12">
             <fieldset>
                 <div class="nav nav-tabs">
-                    <h4>INFORMASI USULAN</h4>
+                    <h4>USULAN</h4>
+                </div>
+
+                <div class="control-group">
+                    {{ Form::label("analisisJabatan[jenis_usulan]", "Jenis Usulan", array('class' => 'control-label')) }}
+                    <div class="controls">
+                        {{ Form::select('analisisJabatan[jenis_usulan]', array(
+                        '0' => '- Pilih Jenis Usulan -',
+                        '1' => 'Prosedur Operasional Sistem',
+                        '2' => 'Standar Pelayanan',
+                        '3' => 'Tata Naskah Dinas',
+                        '4' => 'Evaluasi Sistem',
+                        '5' => 'Prosedur Kerja',
+                        )) }}
+                    </div>
                 </div>
 
                 <div class="control-group">
                     {{ Form::label("sistem_dan_prosedur[perihal]", "Perihal", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::text("sistem_dan_prosedur[perihal]", null, array('placeholder' => 'Masukan perihal usulan...')) }}</div>
+                    <div class="controls">{{ Form::text("sistem_dan_prosedur[perihal]", null, array('placeholder' => 'Masukan judul perihal usulan')) }}</div>
                 </div>
 
                 <div class="control-group">
-                    {{ Form::label("sistem_dan_prosedur[catatan]", "Catatan", array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::textarea("sistem_dan_prosedur[catatan]", null, array('placeholder' => 'Masukan keterangan usulan...')) }}</div>
+                    {{ Form::label("sistem_dan_prosedur[catatan]", "Keterangan", array('class' => 'control-label')) }}
+                    <div class="controls">{{ Form::textarea("sistem_dan_prosedur[catatan]", null, array('placeholder' => 'Masukan keterangan tentang perihal usulan')) }}</div>
                 </div>
 
 		<div class="control-group">
@@ -143,7 +175,7 @@
         </div>	-->
 
     <div class="form-actions">
-        <a href="{{ URL::to('site') }}" class="btn btn-primary">Batal</a>
+        <input class="btn btn-primary" type="button" value="Batal" id="prev-btn" name="batal">
         {{ Form::submit('Kirim', array('class' => 'btn btn-primary')) }}
     </div>
 
@@ -169,6 +201,10 @@
         if(jenis_usul == 2){
             $("#form-perUU").attr('action',  baseUrl + '/aj');
         }
+    });
+
+    $("#prev-btn").click(function(){
+        window.location.assign('<?php echo URL::previous(); ?>');
     });
 
 $("#menu-peraturan-perundangan").addClass("active");

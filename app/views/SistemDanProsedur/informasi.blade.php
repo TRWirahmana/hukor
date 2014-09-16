@@ -6,7 +6,7 @@
   document.getElementById("content-title-heading").innerHTML = "<span class='rulycon-drawer-3'></span> Sistem dan Prosedur";
 </script>
 
-<legend><div class="stats">Status Usulan Sistem Prosedur</div></legend>
+<legend><div class="stats">Status Usulan</div></legend>
 
 @include('flash')
 <div class="content-non-title">
@@ -32,8 +32,7 @@
                             <th>#</th>
                             <th>Tgl Usulan</th>
                             <th>Unit Kerja</th>
-<!--                            <th>Jabatan</th>-->
-                            <th>Perihal</th>
+                            <th>Jenis Usulan</th>
                             <th>Status</th>
                             @if($role_id == null)
                             @else
@@ -77,10 +76,14 @@
          bInfo: true,
          oLanguage:{
              "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
-             "sEmptyTable": "Data Kosong",
+             "sEmptyTable": "Belum Ada Usulan",
              "sZeroRecords" : "Pencarian Tidak Ditemukan",
              "sSearch":       "Cari:",
-             "sProcessing": 'Memproses...',
+             "sProcessing": 'Sedang Memproses...',
+             "oPaginate": {
+                 "sNext": "<span class='rulycon-forward-3'></span>",
+                 "sPrevious": "<span class='rulycon-backward-2'></span>"
+             },
              "sLengthMenu": 'Tampilkan <select>'+
                  '<option value="10">10</option>'+
                  '<option value="25">25</option>'+
@@ -104,37 +107,32 @@
                  mData: "unit_kerja",
                  sWidth: "10%"
              },
-//             {
-//                 mData: "nama_jabatan",
-//                 sWidth: "10%"
-//             },
              {
-                 mData: "perihal",
-                 sWidth: "30%"
+                 mData: "jenis_usulan",
+                 sWidth: "30%",
+                 mRender: function(data) {
+                     switch (data)
+                     {
+                         case '1': return 'Prosedur Operasional Sistem'; break;
+                         case '2': return 'Standar Pelayanan'; break;
+                         case '3': return 'Tata Naskah Dinas'; break;
+                         case '4': return 'Evaluasi Sistem'; break;
+                         case '5': return 'Prosedur Kerja'; break;
+                         default : return '-'; break;
+                     }
+                 }
              },
              {
                  mData: "status",
                  sWidth: "10%",
                  mRender: function(data) {
                      switch (parseInt(data)) {
-                         case 1:
-                             return "Diproses";
-                             break;
-                         case 2:
-                             return "Ditunda";
-                             break;
-                         case 3:
-                             return "Ditolak";
-                             break;
-                         case 4:
-                             return "Buat salinan";
-                             break;
-                         case 5:
-                             return "Penetapan";
-                             break;
-                         default:
-                             return " ";
-                             break;
+                         case 1: return "Diproses"; break;
+                         case 2: return "Ditunda"; break;
+                         case 3: return "Ditolak"; break;
+                         case 4: return "Buat salinan"; break;
+                         case 5: return "Penetapan"; break;
+                         default: return " "; break;
                      }
                      ;
                  }
@@ -166,10 +164,14 @@
                  bInfo: true,
                  oLanguage:{
                      "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
-                     "sEmptyTable": "Data Kosong",
+                     "sEmptyTable": "Belum ada data",
                      "sZeroRecords" : "Pencarian Tidak Ditemukan",
                      "sSearch":       "Cari:",
-                     "sProcessing": 'Memproses...',
+                     "sProcessing": 'Sedang Memproses...',
+                     "oPaginate": {
+                         "sNext": "<span class='rulycon-forward-3'></span>",
+                         "sPrevious": "<span class='rulycon-backward-2'></span>"
+                     },
                      "sLengthMenu": 'Tampilkan <select>'+
                          '<option value="10">10</option>'+
                          '<option value="25">25</option>'+
@@ -193,37 +195,31 @@
                          mData: "unit_kerja",
                          sWidth: "10%"
                      },
-//                     {
-//                         mData: "nama_jabatan",
-//                         sWidth: "10%"
-//                     },
                      {
-                         mData: "perihal",
-                         sWidth: "30%"
+                         mData: "jenis_usulan",
+                         sWidth: "30%",
+                         mRender: function(data) {
+                             switch (data)
+                             {
+                                 case '1': return 'Prosedur Operasional Sistem'; break;
+                                 case '2': return 'Standar Pelayanan'; break;
+                                 case '3': return 'Tata Naskah Dinas'; break;
+                                 case '4': return 'Evaluasi Sistem'; break;
+                                 case '5': return 'Prosedur Kerja'; break;
+                             }
+                         }
                      },
                      {
                          mData: "status",
                          sWidth: "10%",
                          mRender: function(data) {
                              switch (parseInt(data)) {
-                                 case 1:
-                                     return "Diproses";
-                                     break;
-                                 case 2:
-                                     return "Ditunda";
-                                     break;
-                                 case 3:
-                                     return "Ditolak";
-                                     break;
-                                 case 4:
-                                     return "Buat salinan";
-                                     break;
-                                 case 5:
-                                     return "Penetapan";
-                                     break;
-                                 default:
-                                     return "Belum Diproses";
-                                     break;
+                                 case 1: return "Diproses"; break;
+                                 case 2: return "Ditunda"; break;
+                                 case 3: return "Ditolak"; break;
+                                 case 4: return "Buat salinan"; break;
+                                 case 5: return "Penetapan"; break;
+                                 default: return "Belum Diproses"; break;
                              }
                              ;
                          }

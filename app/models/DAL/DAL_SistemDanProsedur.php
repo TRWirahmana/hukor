@@ -12,7 +12,8 @@ class DAL_SistemDanProsedur {
 						'jabatan.nama_jabatan',
 						'sistem_dan_prosedur.perihal',
 						'sistem_dan_prosedur.status',
-						'sistem_dan_prosedur.lampiran'
+						'sistem_dan_prosedur.lampiran',
+                        'sistem_dan_prosedur.jenis_usulan'
 				      ));
 		$user = Auth::user();
 		if(null != $user && $user->role_id == 2)
@@ -23,6 +24,8 @@ class DAL_SistemDanProsedur {
 			$data->where(DB::raw("DATE(sistem_dan_prosedur.tgl_usulan)"), ">=", DateTime::createFromFormat("d/m/Y", $firstDate)->format('Y-m-d'));
 		if(null != $lastDate)
 			$data->where(DB::raw("DATE(sistem_dan_prosedur.tgl_usulan)"), "<=", DateTime::createFromFormat("d/m/Y", $lastDate)->format('Y-m-d'));
+
+        $data->orderBy('sistem_dan_prosedur.tgl_usulan', 'desc');
 
 		return $data;
 	}
@@ -118,6 +121,7 @@ class DAL_SistemDanProsedur {
     {
         $sistemDanProsedur = new SistemDanProsedur;
         $sistemDanProsedur->id_pengguna = Auth::user()->pengguna->id;
+        $sistemDanProsedur->jenis_usulan = $input['sistem_dan_prosedur']['jenis_usulan'];
         $sistemDanProsedur->perihal = $input['sistem_dan_prosedur']['perihal'];
         $sistemDanProsedur->catatan = $input['sistem_dan_prosedur']['catatan'];
         $sistemDanProsedur->lampiran = serialize($filenames);
@@ -160,6 +164,7 @@ class DAL_SistemDanProsedur {
         $penanggungJawab->unit_kerja = $input['unit_kerja'];
         $penanggungJawab->alamat_kantor = $input['alamat_kantor'];
         $penanggungJawab->telepon_kantor = $input['telp_kantor'];
+        $penanggungJawab->telepon_kantor = $input['jenis_kelamin'];
         $penanggungJawab->email = $input['email'];
 
         if($penanggungJawab->save())

@@ -187,10 +187,10 @@
             bProcessing:true,
             oLanguage:{
                 "sInfo": "Menampilkan _START_ Sampai _END_ dari _TOTAL_ Usulan",
-                "sEmptyTable": "Data Kosong",
+                "sEmptyTable": "Belum ada usulan",
                 "sZeroRecords" : "Pencarian Tidak Ditemukan",
                 "sSearch":       "Cari:",
-                "sProcessing": 'Memproses...',
+                "sProcessing": 'Sedang Memproses...',
                 "oPaginate": {
                     "sNext": "<span class='rulycon-forward-3'></span>",
                     "sPrevious": "<span class='rulycon-backward-2'></span>"

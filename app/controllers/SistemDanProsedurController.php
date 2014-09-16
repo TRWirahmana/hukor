@@ -40,6 +40,11 @@ class SistemDanProsedurController extends BaseController {
 
 		$sistemDanProsedur = SistemDanProsedur::with('Pengguna')->find($id);
 
+//        echo "<pre>";
+//        print_r($sistemDanProsedur->pengguna);
+//        echo "</pre>";
+//        exit;
+
         if(Auth::user()->role_id == 3){
             $this->layout = View::make('layouts.admin');
             $this->layout->content = View::make('SistemDanProsedur.edit')

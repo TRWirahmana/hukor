@@ -38,35 +38,45 @@
                 <div class="nav nav-tabz">
                     <h4>PENANGGUNG JAWAB</h4>
                 </div>
-			
-			<div class="control-group">
-			    <label for="" class="control-label">Unit Kerja</label>
-			    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->unit_kerja }}"></div>
-			</div>
-			<div class="control-group">
-			    <label for="" class="control-label">Jabatan</label>
-			    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->jabatan }}"></div>
-			</div>
-			<div class="control-group">
-			    <label for="" class="control-label">NIP</label>
-			    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->NIP }}"></div>
-			</div>
-			<div class="control-group">
-			    <label for="" class="control-label">Nama</label>
-			    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->nama }}"></div>
-			</div>
-			<div class="control-group">
-			    <label for="" class="control-label">Alamat</label>
-			    <div class="controls"><textarea rows="3" disabled>{{ $data->penanggungJawab->alamat_kantor }}</textarea></div>
-			</div>
-			<div class="control-group">
-			    <label for="" class="control-label">Telp Kantor</label>
-			    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->telepon_kantor }}"></div>
-			</div>
-			<div class="control-group">
-			    <label for="" class="control-label">Email</label>
-			    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->email }}"></div>
-			</div>
+
+                <div class="control-group">
+                    <label for="" class="control-label">Nama</label>
+                    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->nama }}"></div>
+                </div>
+
+                <div class="control-group">
+                    <label for="" class="control-label">Jenis Kelamin</label>
+                    <?php $jk = ($data->penanggungJawab->jenis_kelamin == 'L') ? 'Laki-laki' : 'Perempuan'; ?>
+                    <div class="controls"><input type="text" disabled="" value="{{ $jk }}"></div>
+                </div>
+
+                <div class="control-group">
+                    <label for="" class="control-label">Jabatan</label>
+                    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->jabatan }}"></div>
+                </div>
+
+                <div class="control-group">
+                    <label for="" class="control-label">NIP</label>
+                    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->NIP }}"></div>
+                </div>
+
+                <div class="control-group">
+                    <label for="" class="control-label">Unit Kerja</label>
+                    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->unit_kerja }}"></div>
+                </div>
+
+                <div class="control-group">
+                    <label for="" class="control-label">Alamat Kantor</label>
+                    <div class="controls"><textarea rows="3" disabled>{{ $data->penanggungJawab->alamat_kantor }}</textarea></div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Telp Kantor</label>
+                    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->telepon_kantor }}"></div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Email</label>
+                    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->email }}"></div>
+                </div>
 		    </fieldset>
 		</div>
 		<div class="span6">
@@ -75,34 +85,44 @@
                     <h4>INFORMASI PENGUSUL</h4>
                 </div>
 
-			<div class="control-group">
-			    <label for="" class="control-label">Unit Kerja</label>
-			    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->unit_kerja }}"></div>
-			</div>
-			<div class="control-group">
-			    <label for="" class="control-label">Jabatan</label>
-			    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->jabatan }}"></div>
-			</div>
-			<div class="control-group">
-			    <label for="" class="control-label">NIP</label>
-			    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->NIP }}"></div>
-			</div>
-			<div class="control-group">
-			    <label for="" class="control-label">Nama</label>
-			    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->nama }}"></div>
-			</div>
-			<div class="control-group">
-			    <label for="" class="control-label">Alamat</label>
-			    <div class="controls"><textarea rows="3" disabled>{{ $data->penanggungJawab->alamat_kantor }}</textarea></div>
-			</div>
-			<div class="control-group">
-			    <label for="" class="control-label">Telp Kantor</label>
-			    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->telepon_kantor }}"></div>
-			</div>
-			<div class="control-group">
-			    <label for="" class="control-label">Email</label>
-			    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->email }}"></div>
-			</div>
+                <div class="control-group">
+                    <label for="" class="control-label">Nama</label>
+                    <div class="controls"><input type="text" disabled="" value="{{ $data->pengguna->nama_lengkap }}"></div>
+                </div>
+
+                <div class="control-group">
+                    <label for="" class="control-label">Jenis Kelamin</label>
+                    <?php $jkp = ($data->pengguna->jenis_kelamin == 1) ? 'Laki-laki' : 'Perempuan'; ?>
+                    <div class="controls"><input type="text" disabled="" value="{{ $jkp }}"></div>
+                </div>
+
+                <div class="control-group">
+                    <label for="" class="control-label">Jabatan</label>
+                    <div class="controls"><input type="text" disabled="" value="{{ $data->pengguna->jabatan }}"></div>
+                </div>
+
+                <div class="control-group">
+                    <label for="" class="control-label">NIP</label>
+                    <div class="controls"><input type="text" disabled="" value="{{ $data->pengguna->nip }}"></div>
+                </div>
+
+                <div class="control-group">
+                    <label for="" class="control-label">Unit Kerja</label>
+                    <div class="controls"><input type="text" disabled="" value="{{ $data->penanggungJawab->unit_kerja }}"></div>
+                </div>
+
+                <div class="control-group">
+                    <label for="" class="control-label">Alamat Kantor</label>
+                    <div class="controls"><textarea rows="3" disabled>{{ $data->pengguna->alamat_kantor }}</textarea></div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Telp Kantor</label>
+                    <div class="controls"><input type="text" disabled="" value="{{ $data->pengguna->tlp_kantor }}"></div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Email</label>
+                    <div class="controls"><input type="text" disabled="" value="{{ $data->pengguna->email }}"></div>
+                </div>
 		    </fieldset>
 
 		    
@@ -115,53 +135,61 @@
 		<div class="span6">
 		    <fieldset>
                 <div class="nav nav-tabz">
-                    <h4>INFORMASI PERIHAL & LAMPIRAN</h4>
+                    <h4>Usulan</h4>
                 </div>
-			<div class="control-group">
-			    <label for="" class="control-label">Tgl Usulan</label>
-			    <div class="controls"><input type="text" disabled="" value="{{ $data->tgl_usulan }}"></div>
-			</div>
-			<div class="control-group">
-			    <label for="" class="control-label">Perihal</label>
-			    <div class="controls"><input type="text" disabled="" value="{{ $data->perihal }}"></div>
-			</div>
-			<div class="control-group">
-			    <label for="" class="control-label">Lampiran</label>
-			    <div class="controls">
-				<ul style="list-style: none;">
-				    @foreach(unserialize($data->lampiran) as $index => $lampiran)
-				    <li>	
-				    <a href="{{URL::route('sp.download', array('id' => $data->id, 'index' => $index))}}">
-					{{explode(DS, $lampiran)[count(explode(DS, $lampiran))-1] }}
-				    </a>
-				    </li>
-				    @endforeach
-				</ul>
-			    </div>
-			</div>
+                <div class="control-group">
+                    <label for="" class="control-label">Tgl Usulan</label>
+                    <div class="controls"><input type="text" disabled="" value="{{ $data->tgl_usulan }}"></div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Perihal</label>
+                    <div class="controls"><input type="text" disabled="" value="{{ $data->perihal }}"></div>
+                </div>
+                <div class="control-group">
+                    {{ Form::label('catatan', 'Keterangan', array('class' => 'control-label')) }}
+                    <div class="controls">
+                        {{
+                        Form::textarea('catatan', $data->catatan, array('rows' => 2))
+                        }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="" class="control-label">Lampiran</label>
+                    <div class="controls">
+                    <ul style="list-style: none;">
+                        @foreach(unserialize($data->lampiran) as $index => $lampiran)
+                        <li>
+                        <a href="{{URL::route('sp.download', array('id' => $data->id, 'index' => $index))}}">
+                        {{explode(DS, $lampiran)[count(explode(DS, $lampiran))-1] }}
+                        </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                    </div>
+                </div>
 
-			<div class="control-group">
-			    <label for="" class="control-label">Status Terakhir</label>
-			    <div class="controls">
-				@if ($data->status == 1)
-				Diproses
-				@elseif($data->status == 2)
-				Ditunda
-				@elseif($data->status == 3)
-				Ditolak
-				@elseif($data->status == 4)
-				Buat Salinan
-				@elseif($data->status == 5)
-				Penetapan
-				@endif
-			    </div>
-			</div>
+                <div class="control-group">
+                    <label for="" class="control-label">Status Terakhir</label>
+                    <div class="controls">
+                    @if ($data->status == 1)
+                    Diproses
+                    @elseif($data->status == 2)
+                    Ditunda
+                    @elseif($data->status == 3)
+                    Ditolak
+                    @elseif($data->status == 4)
+                    Buat Salinan
+                    @elseif($data->status == 5)
+                    Penetapan
+                    @endif
+                    </div>
+                </div>
 		    </fieldset>
 		</div>
 		<div class="span6">
 		    <fieldset>
                 <div class="nav nav-tabz">
-                    <h4>UPDATE STATUS</h4>
+                    <h4>UPDATE USULAN</h4>
                 </div>
 			<div class="control-group">
 			    {{ Form::label('status', 'Status', array('class' => 'control-label'))}}
@@ -169,30 +197,28 @@
 				{{ 
 				Form::select('status', array(
 				1 => "Diproses",
-				2 => "Ditunda",
-				3 => "Ditolak",
-				4 => "Buat Salinan",
-				5 => "Penetapan"
+				2 => "Ditolak",
+				3 => "Selesai"
 				), 0, array())
 				}}
 			    </div>
 			</div>
 			<div class="control-group">
-			    {{ Form::label('catatan', 'Catatan', array('class' => 'control-label')) }}
+			    {{ Form::label('catatan', 'Keterangan', array('class' => 'control-label')) }}
 			    <div class="controls">
 				{{
 				Form::textarea('catatan', null, array('rows' => 2, 'placeholder' => 'Masukan catatan...'))
 				}}
 			    </div>
 			</div>
-			<div class="control-group">
+			<!--div class="control-group">
 			    {{ Form::label('ket_lampiran', 'Ket. Lampiran', array('class' => 'control-label')) }}
 			    <div class="controls">
 				{{
 				Form::text('ket_lampiran', null, array('placeholder' => 'Masukan keterangan lampiran...'))
 				}}
 			    </div>
-			</div>
+			</div-->
 			<div class="control-group">
 			    {{ Form::label('lampiran', 'Lampiran', array('class' => 'control-label')) }}
 			    <div class="controls">
@@ -209,7 +235,7 @@
                 <div class="span24">
                     <input class="btn btn-primary" type="button" value="Batal" onclick="history.go(-1);return true;" name="batal">
                     <button class="btn btn-primary" type="submit">Simpan</button>
-
+                    <a href="{{ URL::route('admin.sp.index') }}"><button class="btn btn-primary" type="button">Keluar</button></a>
                 </div>
             </div>
 	    </div>
@@ -218,12 +244,13 @@
 <br>
 	    <div class="row-fluid">
 		<div class="span24">
+            <legend>Histori Usulan</legend>
 		    <table id="tbl-log">
 			<thead>
 			    <tr>
 				<th>Tgl Proses</th>
 				<th>Status</th>
-				<th>Catatan</th>
+				<th>Keterangan</th>
 				<th>Lampiran</th>
 			    </tr>
 			</thead>
@@ -306,16 +333,10 @@
             return "Diproses";
             break;
         case 2:
-            return "Ditunda";
-            break;
-        case 3:
             return "Ditolak";
             break;
-        case 4:
-            return "Buat salinan";
-            break;
-        case 5:
-            return "Penetapan";
+        case 3:
+            return "Selesai";
             break;
         default:
             return " ";

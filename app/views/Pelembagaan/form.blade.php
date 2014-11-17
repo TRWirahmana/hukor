@@ -19,67 +19,82 @@
                     <h4>PENANGGUNG JAWAB</h4>
                 </div>
 
-				<div class="control-group">		
-						{{ Form::label('jenis_usulan', 'Jenis Usulan', array('class' => 'control-label'))}}
-						<div class="controls">
-							{{ Form::select('jenis_usulan', array('' => 'Pilih Jenis Usulan','1' => 'Pendirian', '2' => 'Perubahan', '3' => 'Statuta', '4' => 'Penutupan' )); }}
-						</div>
-					</div>
-					
-					<div class="control-group">
-						{{ Form::label('nip', "NIP", array('class' => 'control-label'))}}
-						<div class="controls">
-							{{ Form::text('nip', null, array('placeholder' => "Masukkan NIP..."))}}
-						</div>
-					</div>
-				
-					<div class="control-group">
-						{{ Form::label('unit_kerja', 'Unit Kerja', array('class' => 'control-label'))}}
-						<div class="controls">
-							{{ Form::text('unit_kerja',null, array('placeholder' => "Masukkan Unit erja...")) }}
-						</div>
-					</div>		
+                <div class="control-group">
+                    {{ Form::label('penanggungJawab[nama]', 'Nama', array('class' => 'control-label'))}}
+                    <div class="controls">
+                        {{ Form::text('penanggungJawab[nama]', null, array('placeholder' => 'Masukan nama lengkap penanggung jawab usulan')) }}
+                    </div>
+                </div>
 
-
-					<div class="control-group">
-						{{ Form::label('nama_pemohon', "Nama Pemohon", array('class' => 'control-label'))}}					
-						<div class="controls">
-							{{ Form::text('nama_pemohon', '', array('placeholder' => "Masukkan Nama Lengkap...") ) }}
-						</div>
-					</div>	
-
-					<div class="control-group">
-						{{ Form::label('alamat_kantor', 'Alamat Kantor', array('class' => 'control-label'))}}
-						<div class="controls">
-							{{ Form::textarea('alamat_kantor', null, array('placeholder' => "Masukkan Alamat Kantor...")) }}
-						</div>
-					</div>	
-
-					<div class="control-group">
-						{{ Form::label('telp_kantor', 'Telepon Kantor', array('class' => 'control-label'))}}
-						<div class="controls">
-							{{ Form::text('telp_kantor', null, array('placeholder' => "Masukkan Nomor Telepon Kantor...", 'id' => 'telp_kantor')) }}
-                            <p class="span9" style="color: #616D79;font-size: 11px;">Format: (9999) 999-9999</p>
+                <div class="control-group">
+                    {{ Form::label('penanggungJawab[jenis_kelamin]', 'Jenis Kelamin', array('class' => 'control-label'))}}
+                    <div class="controls">
+                        <div class="control-group">
+                            {{ Form::label('pria', 'Laki-laki') }}
+                            <div class="controls">
+                                {{ Form::radio('penanggungJawab[jenis_kelamin]', 'L', false, array('id' => 'pria')) }}
+                            </div>
                         </div>
-
-					</div>
-
-                    <div class="control-group">
-                        {{ Form::label('hp', 'Nomor Handphone', array('class' => 'control-label'))}}
-                        <div class="controls">
-                            {{ Form::text('hp', null, array('placeholder' => "Masukkan Nomor Handphone...", 'id' => 'hp')) }}
-                            <p class="span9" style="color: #616D79;font-size: 11px;">Format: 999-999-999-999</p>
+                        <div class="control-group">
+                            {{ Form::label('perempuan', 'Perempuan') }}
+                            <div class="controls">
+                                {{ Form::radio('penanggungJawab[jenis_kelamin]', 'P', false, array('id' => 'perempuan')) }}
+                            </div>
                         </div>
+                    </div>
+                </div>
 
+                <div class="control-group">
+                    {{ Form::label('penanggungJawab[jabatan]', 'Jabatan', array('class' => 'control-label'))}}
+                    <div class="controls">
+                        {{ Form::text('penanggungJawab[jabatan]', null, array('placeholder' => 'Masukan jabatan penanggung jawab usulan')) }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    {{ Form::label('penanggungJawab[nip]', "NIP", array('class' => 'control-label'))}}
+                    <div class="controls">
+                        {{ Form::text('penanggungJawab[nip]', null, array('placeholder' => 'Masukan NIP penanggung jawab usulan')) }}
+                    </div>
+                </div>
+
+                <!--div class="control-group">
+                    {{ Form::label('penanggungJawab[no_handphone]', "No Handphone", array('class' => 'control-label'))}}
+                    <div class="controls">
+                        {{ Form::text('penanggungJawab[no_handphone]', null, array('placeholder' => 'Masukan no handphone penanggung jawab usulan', 'id' => 'hp')) }}
+                        <p class="span9" style="color: #616D79;font-size: 11px;">Format: 999-999-999-999</p>
                     </div>
 
+                </div-->
 
-			<div class="control-group">
-			{{ Form::label('pos_el', 'Email', array('class' => 'control-label'))}}
-			<div class="controls">
-				{{ Form::text('email', '') }}
-			</div>
-			</div>	
+                <div class="control-group">
+                    {{ Form::label('penanggungJawab[unit_kerja]', "Unit Kerja", array('class' => 'control-label'))}}
+                    <div class="controls">
+                        {{ Form::text('penanggungJawab[unit_kerja]', null, array('placeholder' => 'Masukan unit kerja penanggung jawab usulan')) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    {{ Form::label('penanggungJawab[alamat_kantor]', 'Alamat Kantor', array('class' => 'control-label'))}}
+                    <div class="controls">
+                        {{ Form::textarea('penanggungJawab[alamat_kantor]', null, array('rows' => 2, 'placeholder' => 'Masukan alamat kantor penanggung jawab usulan')) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    {{ Form::label('penanggungJawab[telp_kantor]', 'Telepon Kantor', array('class' => 'control-label'))}}
+                    <div class="controls">
+                        {{ Form::text('penanggungJawab[telp_kantor]', null, array('placeholder' => 'Masukan nomor telepon kantor penanggung jawab usulan', 'id' => 'telp_kantor')) }}
+                        <p class="span9" style="color: #616D79;font-size: 11px;">*Gunakan spasi setelah kode area</p>
+                    </div>
+
+                </div>
+
+                <div class="control-group">
+                    {{ Form::label('penanggungJawab[email]', 'Email', array('class' => 'control-label'))}}
+                    <div class="controls">
+                        {{ Form::text('penanggungJawab[email]', null, array('placeholder' => 'Masukan alamat email penanggung jawab usulan')) }}
+                    </div>
+                </div>
 				</fieldset>
 			</div>
 
@@ -87,7 +102,7 @@
 			<div class="span12">
 				<fieldset>
                     <div class="nav nav-tabs">
-                        <h4>INFORMASI USULAN</h4>
+                        <h4>USULAN</h4>
                     </div>
 
 					<div class="control-group">

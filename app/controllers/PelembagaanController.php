@@ -111,10 +111,10 @@ class PelembagaanController extends BaseController {
         $helper = new HukorHelper();
 
        // $uploadSuccess = $helper->UploadFile('pelembagaan', Input::file('lampiran'));         // Upload File
-	$filenames = array();
-	$filenames = $helper->MultipleUploadFile('pelembagaan', Input::file('lampiran'));
-        
-	$DAL->saveLogPelembagaan($input, $filenames, $id);	  // save pelembagaan
+        $filenames = array();
+        $filenames = $helper->MultipleUploadFile('pelembagaan', Input::file('lampiran'));
+
+        $DAL->saveLogPelembagaan($input, $filenames, $id);	  // save pelembagaan
 
 		// kirim usulan ke bagian per-uu
 		if(Input::get('status') == 2){
@@ -141,13 +141,13 @@ class PelembagaanController extends BaseController {
 
 	public function store()
 	{ 
-	$input = Input::all(); 
+	    $input = Input::all();
         $DAL = new DAL_Pelembagaan();
         $helper = new HukorHelper();
 
-	// Upload Multiple File
-	$filenames = array();
-	$filenames = $helper->MultipleUploadFile('pelembagaan', Input::file('lampiran'));
+        // Upload Multiple File
+        $filenames = array();
+        $filenames = $helper->MultipleUploadFile('pelembagaan', Input::file('lampiran'));
 
         if($filenames['0'] != null ){
             if($filenames) {
